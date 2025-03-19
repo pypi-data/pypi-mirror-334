@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+neurenix/__init__.py
+neurenix/binding.py
+neurenix/core.py
+neurenix/device.py
+neurenix/tensor.py
+neurenix/utils.py
+neurenix.egg-info/PKG-INFO
+neurenix.egg-info/SOURCES.txt
+neurenix.egg-info/dependency_links.txt
+neurenix.egg-info/requires.txt
+neurenix.egg-info/top_level.txt
+tests/test_wasm.py
