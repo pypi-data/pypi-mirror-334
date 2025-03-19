@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+drugname_standardizer/__init__.py
+drugname_standardizer/standardizer.py
+drugname_standardizer.egg-info/PKG-INFO
+drugname_standardizer.egg-info/SOURCES.txt
+drugname_standardizer.egg-info/dependency_links.txt
+drugname_standardizer.egg-info/entry_points.txt
+drugname_standardizer.egg-info/requires.txt
+drugname_standardizer.egg-info/top_level.txt
+drugname_standardizer/data/UNII_Names.txt
+drugname_standardizer/data/UNII_dict.pkl
+tests/test_standardizer.py
