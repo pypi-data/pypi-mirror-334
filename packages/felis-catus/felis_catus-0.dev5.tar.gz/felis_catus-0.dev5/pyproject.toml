@@ -1,0 +1,40 @@
+[project]
+name = "felis-catus"
+version = "0.dev5"
+description = "🐈 Felis Catus – functional bits for Python"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+authors = [{ name = "LeeeeT", email = "me@LeeeeT.dev" }]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Zero-Clause BSD (0BSD)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/LeeeeT/felis"
+Documentation = "https://felis.LeeeeT.dev"
+Repository = "https://github.com/LeeeeT/felis"
+PyPI = "https://pypi.org/project/felis-catus"
+
+[tool.ruff]
+line-length = 160
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["A", "ANN", "ARG", "C90", "D", "F402", "FBT", "FIX", "S", "T20", "TCH", "TD", "PGH"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+include = ["src"]
+typeCheckingMode = "strict"
