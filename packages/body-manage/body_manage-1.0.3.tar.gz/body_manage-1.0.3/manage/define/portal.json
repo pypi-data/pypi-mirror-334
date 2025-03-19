@@ -1,0 +1,37 @@
+{
+	"backups": {
+		"__type__": "string",
+		"__optional__": true
+	},
+	"build": {
+		"__type__": "string",
+		"__optional__": true
+	},
+	"git": {
+		"checkout": {
+			"__type__": "bool"
+		},
+		"submodules": {
+			"__type__": "bool"
+		}
+	},
+	"node": {
+		"force_install": {
+			"__type__": "bool"
+		},
+		"nvm": {
+			"__type__": "string",
+			"__optional__": true
+		},
+		"script": {
+			"__type__": "string",
+			"__optional__": true
+		}
+	},
+	"path": {
+		"__type__": "string"
+	},
+	"web_root": {
+		"__type__": "string"
+	}
+}
