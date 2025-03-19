@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: resctk
+Version: 0.1.0
+Summary: A powerful toolkit for parsing, extracting, scoring, and screening resumes, with customizable pipelines.
+Author: Rajdeep Roshan Sahu
+License: MIT
+Project-URL: Repository, https://github.com/Rajdeep108/resctk
+Project-URL: Documentation, https://github.com/Rajdeep108/resctk#readme
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pdfplumber==0.11.5
+Requires-Dist: nltk==3.9.1
+Requires-Dist: sentence-transformers==3.4.1
+Requires-Dist: spacy==3.8.4
+Requires-Dist: scikit-learn==1.6.1
+Requires-Dist: numpy==1.26.4
+Provides-Extra: dev
+Requires-Dist: pytest==8.3.5; extra == "dev"
+
+A comprehensive toolkit for resume analysis. It allows you to:
+- Parse and extract key details from resumes
+- Score individual resumes based on job descriptions
+- Score and rank multiple resumes for screening and sorting
+- Automate resume screening for better hiring decisions
+- Create custom workflows and pipelines using modular functions to build your own resume screener and sorter
