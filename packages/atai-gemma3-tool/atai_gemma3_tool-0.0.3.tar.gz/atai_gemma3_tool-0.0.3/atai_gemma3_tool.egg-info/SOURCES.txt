@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+atai_gemma3_tool/__init__.py
+atai_gemma3_tool/cli.py
+atai_gemma3_tool/regex_filter.py
+atai_gemma3_tool.egg-info/PKG-INFO
+atai_gemma3_tool.egg-info/SOURCES.txt
+atai_gemma3_tool.egg-info/dependency_links.txt
+atai_gemma3_tool.egg-info/entry_points.txt
+atai_gemma3_tool.egg-info/requires.txt
+atai_gemma3_tool.egg-info/top_level.txt

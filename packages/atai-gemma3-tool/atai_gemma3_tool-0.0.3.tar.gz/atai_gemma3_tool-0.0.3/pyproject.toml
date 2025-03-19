@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atai-gemma3-tool"
+version = "0.0.3"
+description = "CLI tool for generating text from images using the Gemma 3 model."
+readme = "README.md"
+authors = [
+    {name = "AtomGradient", email = "alex@atomgradient.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["google", "gemma3", "image-extraction", "document-processing"]
+requires-python = ">=3.7"
+dependencies = [
+    "torch",
+    "accelerate",
+    "Pillow",
+]
+[project.urls]
+"Homepage" = "https://github.com/AtomGradient/atai-gemma3-tool"
+"Bug Tracker" = "https://github.com/AtomGradient/atai-gemma3-tool/issues"
+
+[project.scripts]
+atai-gemma3-tool = "atai_gemma3_tool.cli:main"
+
