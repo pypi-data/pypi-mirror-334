@@ -1,0 +1,22 @@
+Metadata-Version: 2.3
+Name: disputable-values-monitor
+Version: 2.0.5
+Summary: dashboard & alerts for disputable values reported to Tellor oracles
+License: MIT
+Author: Tellor Development Community
+Requires-Python: >3.9,<4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: discordwebhook (>=1.0.3,<2.0.0)
+Requires-Dist: numpy (>=1.26.4,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pydantic (>=1.10.17,<2.0.0)
+Requires-Dist: pytest-asyncio (>=0.19.0,<0.20.0)
+Requires-Dist: python-box (>=7.2.0,<8.0.0)
+Requires-Dist: tabulate (>=0.8.10,<0.9.0)
+Requires-Dist: telliot-feeds (>=0.2.2)
