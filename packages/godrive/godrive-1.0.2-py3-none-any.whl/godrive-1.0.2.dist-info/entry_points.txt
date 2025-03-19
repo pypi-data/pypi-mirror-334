@@ -1,0 +1,3 @@
+[console_scripts]
+godrive = godrive.cli:main
+godrive_upload = godrive.cli:main
