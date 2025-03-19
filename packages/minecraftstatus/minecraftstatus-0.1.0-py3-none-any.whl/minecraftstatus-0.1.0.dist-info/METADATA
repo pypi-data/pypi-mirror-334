@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: minecraftstatus
+Version: 0.1.0
+Summary: minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me.
+Home-page: https://github.com/Infernum1/minecraftstatus
+License: MIT
+Keywords: minecraft,api,wrapper,asynchronous,server
+Author: Infernum1
+Requires-Python: >3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.7.2,<4.0.0)
+Project-URL: Documentation, https://infernum1.github.io/minecraftstatus/
+Project-URL: Repository, https://github.com/Infernum1/minecraftstatus
+Description-Content-Type: text/markdown
+
+
+
+An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
+
+
+[![CodeFactor](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/badge/main)](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/overview/main)
+
+### Get started || [Documentation](https://minecraftstatus.readthedocs.io/en/latest/)
+
+#### to get started, type this in your terminal
+```
+pip install -U minecraftstatus
+```
+
+#### or to install the main branch
+```
+pip install -U git+https://github.com/Infernum1/minecraftstatus
+```
+###### (make sure you have [git](https://gitforwindows.org) installed)
+### Examples
+
+#### For examples, checkout the [examples directory](https://github.com/Infernum1/minecraftstatus/tree/main/examples)
+##### If you plan to use the lib in a discord bot
+
+```py
+import discord
+import minecraftstatus
+
+client = minecraftstatus.MCStatus()
+bot = discord.ext.commands.Bot()
+
+@bot.command()
+async def achievement(achievement: str):
+  image = await client.achievement(achievement)
+  file = discord.File(image, "achievement.png")
+  await ctx.send(file=file)
+```
+
+###### these are just examples! it's upto you how you want to use this lib.
+
+### Add `Infernum#7041` on discord for help
+
