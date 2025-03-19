@@ -1,0 +1,25 @@
+include LICENSE
+include README.md
+include CHANGES.md
+include *.nsi
+include *.py
+include *.txt
+
+recursive-include doc *
+recursive-include examples *
+recursive-include sip *
+recursive-include qpy *
+recursive-include pyuic *
+recursive-include pyrcc *
+recursive-include pylupdate *
+recursive-include designer *
+recursive-include dbus *
+recursive-include qmlscene *
+
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.dll
