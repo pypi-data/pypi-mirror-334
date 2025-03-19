@@ -1,0 +1,5 @@
+anyio>=4.8.0
+click>=8.1.8
+dap-types==20250315!1.70
+debugpy>=1.8.13
+mcp[cli]>=1.4.0
