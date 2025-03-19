@@ -1,0 +1,2 @@
+[console_scripts]
+imgemb = imgemb.cli.main:main
