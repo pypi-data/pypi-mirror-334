@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: MyAddonsForPyrogram
+Version: 1.0.1
+Summary: A simple addon for pyrogram to manage database, broadcast users, send THANKS FOR JOINING msg to new users who has joined through the bot nd to send reaction through bot.
+Author: Pʀɪᴍᴇ Hʀɪᴛᴜ
+Project-URL: GitHub, https://github.com/Prime-Hritu/MyAddonsForPyrogram
+Description-Content-Type: text/markdown
+Requires-Dist: pymongo==4.11.2
+Requires-Dist: Pyrogram==2.0.106
+Requires-Dist: Requests==2.32.3
+Requires-Dist: TgCrypto==1.2.3
+
+# MyAddonsForPyrogram
+
+MyAddonsForPyrogram is a collection of useful addons and utilities for the Pyrogram library. It includes functions for broadcasting messages, handling new member updates, interacting with the Telegram API, and managing user data in a MongoDB database.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Modules](#modules)
+  - [Functions](#functions)
+  - [Database](#database)
+  - [Enums](#enums)
+- [License](#license)
+
+## Installation
+
+To install the required dependencies, run:
+
+```sh
+pip install MyAddonsForPyrogram -U
+```
+
+## Usage
+
+### Broadcasting Messages
+
+The `broadcast` function allows you to send a message to a list of users.
+
+```python
+from pyrogram.types import Message
+from pyrogram import Client, filters
+from MyAddonsForPyrogram.functions import broadcast
+from MyAddonsForPyrogram.database import UserManager 
+
+app = Client(...)
+
+@app.on_message(filters.command("broad"))
+def handle_broad(client: Client, message: Message):
+    no_sent, no_failed = broadcast(UserManager(...).get_served_users(), message.reply_to_message, message.text)
+```
+
+### Handling New Member Updates
+
+The `handle_member_update` function handles updates regarding a member's status in a chat.
+
+```python
+from pyrogram import Client, filters
+from pyrogram.types import ChatMemberUpdated
+from MyAddonsForPyrogram.database import NewMembersManager
+from MyAddonsForPyrogram.functions import handle_member_update
+
+app = Client(...)
+@Client.on_chat_member_updated(filters.user(NewMembersManager(...).get_all_members()))
+def handle_new_members(client: Client, update: ChatMemberUpdated):
+    handle_member_update(client, update, "https://t.me/Private_Bots", NewMembersManager())
+```
+
+### Sending Reactions
+
+The `send_reaction` function sends a reaction (emoji) to a Telegram message using the Telegram Bot API.
+
+```python
+from pyrogram import Client
+from pyrogram.types import Message
+from MyAddonsForPyrogram.functions import send_reaction
+
+app = Client(...)
+
+@app.on_message()
+def handle_msg(client: Client, message: Message):
+    send_reaction(message, "ðŸ”¥", "Your Bot Token")
+```
+
+## Modules
+
+### Functions
+
+- `broadcast`: Broadcasts a message to a list of users.
+- `handle_member_update`: Handles updates regarding new members who has joined through the bot.
+- `send_reaction`: Sends a reaction (emoji) to a Telegram message using the Telegram Bot API.
+
+### Database
+
+- `UserManager`: Manages served users in a MongoDB collection.
+- `NewMembersManager`: Manages new member IDs in a MongoDB collection.
+- `check_mongo`: Checks connectivity to a MongoDB instance.
+
+### Enums
+
+- `IMAGES`: Enum for images.
+- `TEXTS`: Enum for texts.
+
+## License
+
+This project is licensed under the MIT License.
