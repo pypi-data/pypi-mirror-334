@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "sphinx-easy"
+version = "0.1.0"
+description = "简易 Sphinx 文档生成工具"
+authors = ["KG <zhoukaige18@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sphinx = "^8.2.3"
+myst-parser = "^4.0.1"
+click = "^8.1.8"
+sphinx-markdown-builder = "^0.6.8"
+
+
+[tool.poetry.scripts]
+sphinx-easy = "sphinx_easy.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
