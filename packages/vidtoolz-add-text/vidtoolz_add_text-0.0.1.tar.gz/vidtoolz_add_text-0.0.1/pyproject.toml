@@ -1,0 +1,33 @@
+[project]
+name = "vidtoolz-add-text"
+version = "0.0.1"
+description = "Add text to a video file"
+readme = "README.md"
+authors = [{name = "Sukhbinder Singh"}]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "vidtoolz",
+]
+
+[project.urls]
+Homepage = "https://github.com/sukhbinder/vidtoolz-add-text"
+Changelog = "https://github.com/sukhbinder/vidtoolz-add-text/releases"
+Issues = "https://github.com/sukhbinder/vidtoolz-add-text/issues"
+CI = "https://github.com/sukhbinder/vidtoolz-add-text/actions"
+
+[project.entry-points."vidtoolz_plugins"]
+addtext = "vidtoolz_add_text:addtext_plugin"
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
