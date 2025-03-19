@@ -1,0 +1,15 @@
+Metadata-Version: 2.3
+Name: xpln2me
+Version: 0.2.1377
+Summary: xpln is a CLI tool that explains terminal commands for you before you run them
+Author: Eddie Gikundi
+Author-email: eddiemwiti10@gmail.com
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: typer (>=0.15.2,<0.16.0)
+Description-Content-Type: text/markdown
+
+Explain before I run
+_Documentation coming soon_
