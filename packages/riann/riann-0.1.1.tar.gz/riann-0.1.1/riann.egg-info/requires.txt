@@ -1,0 +1,7 @@
+onnxruntime
+ray[tune]
+
+[dev]
+nbdev>2
+matplotlib
+h5py
