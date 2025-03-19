@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: aiopandas
+Version: 0.0.1
+Summary: Lightweight Pandas monkey-patch for async map, apply, transform, etc.
+Home-page: https://github.com/telekinesis-inc/aiopandas
+Author: Elias Neuman
+Author-email: Elias Neuman <elias@payperrun.com>
+License: MIT
+Project-URL: Homepage, https://github.com/telekinesis-inc/aiopandas
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# aiopandas
+Lightweight Pandas monkey-patch that adds async support to map, apply, applymap, aggregate, and transform, enabling seamless handling of async functions with controlled max_parallel execution.
