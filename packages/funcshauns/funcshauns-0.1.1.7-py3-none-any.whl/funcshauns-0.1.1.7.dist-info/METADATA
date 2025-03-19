@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: funcshauns
+Version: 0.1.1.7
+Summary: My Python functions
+Author-email: Shaun Porwal <shaun.porwal@gmail.com>
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: polars>=1.21.0
+Provides-Extra: dev
+Requires-Dist: jupyterlab>=4.3.4; extra == 'dev'
+Requires-Dist: pathlib>=1.0.1; extra == 'dev'
+Requires-Dist: pytest>=8.3.4; extra == 'dev'
+Requires-Dist: tomli>=2.2.1; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# funcshauns - My Python Functions
+
+This package/repo is a playground in which I experiment with various technologies, python packing, function writing, optimizations, etc.
+
+[24-12-29] - lesson learned, never use tools that are brand new. I tried using uv, it's the absolute worse for python packaging and publishing to pypi/test.pypi.
