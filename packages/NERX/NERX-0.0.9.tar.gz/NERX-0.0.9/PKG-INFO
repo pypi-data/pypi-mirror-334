@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: NERX
+Version: 0.0.9
+Summary: Named Entity Recognition
+Home-page: https://gitee.com/summry/NERX
+Author: summy
+Author-email: fkfkfk2024@2925.com
+License: UNKNOWN
+Keywords: Pytorch,AI,Machine learning,Deep learning,torch,NER,Named Entity Recognition
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+Usage Sample
+''''''''''''
+
+.. code:: python
+
+        import torch
+        from transformers import AutoTokenizer
+        from nerx import NER, Collator
+        from model_wrapper import ClassifyModelWrapper
+        
+        model = NER('hlf/rb3', num_classes=8)
+        tokenizer = AutoTokenizer.from_pretrained('hlf/rb3')
+        wrapper = ClassifyModelWrapper(model)
+        history = wrapper.train(train_set, val_set, 
+                                collate_fn=Collator(tokenizer, label_padding_id=7))
+
+
