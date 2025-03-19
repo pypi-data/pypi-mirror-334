@@ -1,0 +1,2 @@
+[console_scripts]
+atai-gemma3-tool = atai_gemma3_tool.cli:main
