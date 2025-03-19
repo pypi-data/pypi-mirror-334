@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: gobbezlearningtoolbox
+Version: 0.2.0
+Summary: My learning toolbox, with every code that i have studied
+Home-page: https://github.com/gobbez/learningtoolbox
+Author: Andrea Gobbetti
+Author-email: a.gobbez@hotmail.it
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PYPI PYTHON STUDY RESOURCES
+This is a simple idea of grouping my notes and study material in a single space, 
+thus creating a PyPi module where everyone can access these.
+
+## Installation and Use
+Install the module from PIP:
+```bash
+pip install gobbezlearningtoolbox
+```
+
+Use the module in your code:
+```bash
+import gobbezlearningtoolbox
+```
