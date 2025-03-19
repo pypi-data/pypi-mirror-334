@@ -1,0 +1,2 @@
+[localstack.extensions]
+sqs-admin = sqs_admin.extension:SqsAdmin
