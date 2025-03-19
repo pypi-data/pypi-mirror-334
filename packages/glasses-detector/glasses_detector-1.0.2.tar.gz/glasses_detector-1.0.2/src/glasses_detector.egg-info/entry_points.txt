@@ -1,0 +1,2 @@
+[console_scripts]
+glasses-detector = glasses_detector.__main__:main
