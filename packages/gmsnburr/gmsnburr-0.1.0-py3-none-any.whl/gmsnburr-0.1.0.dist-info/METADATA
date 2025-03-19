@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: gmsnburr
+Version: 0.1.0
+Summary: Distribusi GMSN-Burr dengan PyMC
+Home-page: https://github.com/username/gmsnburr
+Author: Ezra Zia Izdihara
+Author-email: ezrazia05@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pymc
+Requires-Dist: pytensor
+Requires-Dist: arviz
+Requires-Dist: bambi
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# GMSNBurr Distribution
