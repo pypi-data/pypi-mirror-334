@@ -1,0 +1,12 @@
+LICENSE
+README.MD
+pyproject.toml
+src/strip_ast_comments.py
+src/strip_python3.py
+src/strip_python3.egg-info/PKG-INFO
+src/strip_python3.egg-info/SOURCES.txt
+src/strip_python3.egg-info/dependency_links.txt
+src/strip_python3.egg-info/entry_points.txt
+src/strip_python3.egg-info/requires.txt
+src/strip_python3.egg-info/top_level.txt
+tmp/README.MD
