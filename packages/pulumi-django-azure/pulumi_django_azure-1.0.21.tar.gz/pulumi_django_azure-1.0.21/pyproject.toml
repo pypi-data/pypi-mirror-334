@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pulumi-django-azure"
+version = "1.0.21"
+description = "Simply deployment of Django on Azure with Pulumi"
+readme = "README.md"
+authors = [{ name = "Maarten Ureel", email = "maarten@youreal.eu" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["django", "pulumi", "azure"]
+dependencies = [
+    "pulumi (>=3.146.0)",
+    "pulumi-azure-native (>=2.82.0)",
+    "pulumi-random (>=4.17.0)",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://gitlab.com/MaartenUreel/pulumi-django-azure"
+
+[tool.poetry]
+name = "pulumi-django-azure"
+version = "1.0.21"
+description = "Simply deployment of Django on Azure with Pulumi"
+authors = ["Maarten Ureel <maarten@youreal.eu>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pulumi-azure-native = ">=2.82.0"
+pulumi = ">=3.146.0"
+pulumi-random = ">=4.17.0"
+
+[tool.poetry.group.dev.dependencies]
+twine = "^6.0.1"
+build = "^1.2.2.post1"
+ruff = "^0.9.2"
+
+[tool.ruff]
+line-length = 140
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
