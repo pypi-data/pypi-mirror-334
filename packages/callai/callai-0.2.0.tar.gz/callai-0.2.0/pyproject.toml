@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "callai"
+dynamic = ["version"]
+description = "一个简单的OpenAI API兼容封装库"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {file = "LICENSE"}
+keywords = ["openai", "ai", "gpt", "api", "client", "wrapper"]
+authors = [
+    {name = "aixiasang", email = "aixiasang@163.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=1.0.0",
+    "httpx>=0.23.0",
+]
+
+[project.optional-dependencies]
+socks = ["httpx[socks]"]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/callai"
+"Bug Tracker" = "https://github.com/yourusername/callai/issues"
+
+[tool.setuptools]
+packages = ["callai"]
+
+[tool.setuptools.dynamic]
+version = {attr = "callai.__version__"} 
