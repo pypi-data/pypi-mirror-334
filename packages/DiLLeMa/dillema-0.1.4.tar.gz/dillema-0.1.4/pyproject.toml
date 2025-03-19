@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "DiLLeMa"
+description = "This repository contains a docker-compose file that can be used to run a Ray cluster on a single machine"
+readme = "README.md"
+requires-python = "==3.12.9"
+dependencies = [
+    "vllm==0.7.3",
+    "ray==2.40.0",
+    "ray[default]"
+]
+dynamic=[ "version" ]
+
+authors = [
+    { name = "Robby Ulung Pambudi", email = "robby.pambudi10@gmail.com" },
+]
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/robbypambudi/DiLLeMa"
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+
+[tool.setuptools.dynamic]
+version = {attr = "dillema.__version__"}
+
+[options.entry_points]
+console_scripts = [
+    "dillema=start_dillema:main",  # This creates the `dillema` command
+]
