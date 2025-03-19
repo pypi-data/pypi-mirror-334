@@ -1,0 +1,4 @@
+[console_scripts]
+i3-qt = i3_quickterm.i3_quickterm:main
+i3-quickterm = i3_quickterm.i3_quickterm:main
+i3qt = i3_quickterm.i3_quickterm:main
