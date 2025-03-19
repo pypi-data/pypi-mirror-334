@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "playground-pypi-package-a"
+version = "0.1.2"
+description = "A playground for uploading Python packages to PyPI"
+authors = [
+    { name = "Subin Kim", email = "sudosubin@gmail.com" }
+]
+license = { "text" = "MIT" }
+dependencies = []
