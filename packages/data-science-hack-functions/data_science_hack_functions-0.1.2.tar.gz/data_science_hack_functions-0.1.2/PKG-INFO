@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: data-science-hack-functions
+Version: 0.1.2
+Summary: A collection of data science utility functions
+Home-page: https://github.com/Harshithan07/data_science_hack_functions
+Author: Harshithan Kavitha Sukumar
+Author-email: harshithan.ks2002@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: tabulate
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
