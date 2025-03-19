@@ -1,0 +1,22 @@
+[project]
+name = "viral-rna-simulation"
+version = "0.1.0"
+description = "A simulation of replication of viral RNA"
+readme = "README.md"
+authors = [
+    { name = "terrycojones", email = "terence.jones@charite.de" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+viral-rna-simulation = "viral_rna_simulation.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
