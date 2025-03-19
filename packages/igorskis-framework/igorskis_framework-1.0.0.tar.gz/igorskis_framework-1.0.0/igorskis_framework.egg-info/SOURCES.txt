@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+igorskis_framework/__init__.py
+igorskis_framework/base_model.py
+igorskis_framework/cli.py
+igorskis_framework/models.py
+igorskis_framework/restart_handler.py
+igorskis_framework/router.py
+igorskis_framework/templates.py
+igorskis_framework/validator.py
+igorskis_framework.egg-info/PKG-INFO
+igorskis_framework.egg-info/SOURCES.txt
+igorskis_framework.egg-info/dependency_links.txt
+igorskis_framework.egg-info/entry_points.txt
+igorskis_framework.egg-info/requires.txt
+igorskis_framework.egg-info/top_level.txt
