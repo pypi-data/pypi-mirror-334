@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+tests/test_common_database.py
+zangetsu_data/__init__.py
+zangetsu_data/bigquery.py
+zangetsu_data/common_database.py
+zangetsu_data/postgresql.py
+zangetsu_data/settings.py
+zangetsu_data/spreadsheet.py
+zangetsu_data.egg-info/PKG-INFO
+zangetsu_data.egg-info/SOURCES.txt
+zangetsu_data.egg-info/dependency_links.txt
+zangetsu_data.egg-info/requires.txt
+zangetsu_data.egg-info/top_level.txt
