@@ -1,0 +1,37 @@
+[project]
+name = "pydiful"
+version = "0.1.0"
+authors = [
+    { name="Erik Horn", email="info@erikhorn.de" }
+]
+
+description = "Dependency-Injection Framework inspired by .NET."
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-only"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.12"
+
+
+dependencies = [
+    "hatchling>=1.27.0",
+    "pydantic>=2.10.6",
+    "setuptools>=76.0.0",
+    "wheel>=0.45.1",
+]
+[project.urls]
+Homepage = "https://github.com/eHorn96/pydiful"
+Issues = "https://github.com/eHorn/pydiful/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "twine>=6.1.0",
+]
+
+

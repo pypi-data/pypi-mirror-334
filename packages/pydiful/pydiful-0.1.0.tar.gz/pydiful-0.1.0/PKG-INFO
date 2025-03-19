@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: pydiful
+Version: 0.1.0
+Summary: Dependency-Injection Framework inspired by .NET.
+Project-URL: Homepage, https://github.com/eHorn96/pydiful
+Project-URL: Issues, https://github.com/eHorn/pydiful/issues
+Author-email: Erik Horn <info@erikhorn.de>
+License-Expression: GPL-3.0-only
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Requires-Dist: hatchling>=1.27.0
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: setuptools>=76.0.0
+Requires-Dist: wheel>=0.45.1
