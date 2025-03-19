@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyllhttp.c
+setup.py
+lib/api.c
+lib/api.h
+lib/http.c
+lib/llhttp.c
+lib/llhttp.h
+pyllhttp/__init__.py
+pyllhttp.egg-info/PKG-INFO
+pyllhttp.egg-info/SOURCES.txt
+pyllhttp.egg-info/dependency_links.txt
+pyllhttp.egg-info/top_level.txt
