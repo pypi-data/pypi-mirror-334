@@ -1,0 +1,2 @@
+recursive-include anygrad *.py 
+recursive-include backend *.cpp *.hpp
