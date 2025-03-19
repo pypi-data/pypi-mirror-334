@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cua-computer
+Version: 0.1.2
+Summary: Computer-Use Interface (CUI) framework powering Cua
+Author-Email: TryCua <gh@trycua.com>
+Requires-Python: <3.13,>=3.10
+Requires-Dist: pylume>=0.1.8
+Requires-Dist: pillow>=10.0.0
+Requires-Dist: websocket-client>=1.8.0
+Requires-Dist: websockets>=12.0
+Requires-Dist: aiohttp>=3.9.0
+Requires-Dist: cua-core<0.2.0,>=0.1.0
+
