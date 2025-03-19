@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: faceemotionrecognition
+Version: 1.2.2
+Summary: A face emotion recognition project using a trained YOLO model
+Home-page: UNKNOWN
+Author: Wyatt
+Author-email: 1300843619@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy==1.24.3
+Requires-Dist: opencv-python==4.11.0.86
+Requires-Dist: ultralytics==8.3.86
+Requires-Dist: deep-sort-realtime==1.3.2
+
+UNKNOWN
+
+
