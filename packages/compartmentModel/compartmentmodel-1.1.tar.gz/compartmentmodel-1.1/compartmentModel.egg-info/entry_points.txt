@@ -1,0 +1,2 @@
+[console_scripts]
+polcomp = compmodel.compmodel:cli

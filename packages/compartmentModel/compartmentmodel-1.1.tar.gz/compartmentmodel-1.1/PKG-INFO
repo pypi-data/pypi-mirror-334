@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: compartmentModel
+Version: 1.1
+Summary: A command line utility to estimate parameters for Compartment Model. For more details see documentation and Dutta et al, Gen Res, 2023.
+Home-page: https://github.com/guertinlab
+Author: Lab of Michael J. Guertin
+Author-email: guertin@uchc.edu
+License: MIT
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: pandas
+Requires-Dist: configparser
+Requires-Dist: PyYAML
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# Polcomp: compartment model as a command-line interface
+
+A command line utility to estimate parameters for Compartment Model. For more details, please refer to documentation and Dutta et al, Gen Res, 2023
+
+Vignette: compartment_model/compModel_vignette/compModel_vignette/compartmentModel_vignette.html
+
+UCSC Genome Browser track hubs: compartment_model/compModel_vignette/trackHubList.txt
