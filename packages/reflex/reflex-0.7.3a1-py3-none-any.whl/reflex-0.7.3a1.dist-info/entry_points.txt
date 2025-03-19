@@ -1,0 +1,5 @@
+[console_scripts]
+reflex = reflex.reflex:cli
+
+[gui_scripts]
+
