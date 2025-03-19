@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: mortal-sql
+Version: 3.0.2
+Summary: 'mortal工具集::sql'
+Author: MJ
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: mortal-crypt
+Requires-Dist: mortal-func
+Requires-Dist: mortal-var
+Requires-Dist: mortal-log
+Requires-Dist: mortal-threads
+Requires-Dist: mortal-ssh
+Requires-Dist: numpy==1.26.4
+Requires-Dist: pandas==2.2.2
+Requires-Dist: SQLAlchemy==2.0.35
+Requires-Dist: PyMySQL==1.1.1
+Requires-Dist: GeoAlchemy2==0.15.2
+Requires-Dist: sqlacodegen==3.0.0
+
+'mortal工具集::sql'
+
