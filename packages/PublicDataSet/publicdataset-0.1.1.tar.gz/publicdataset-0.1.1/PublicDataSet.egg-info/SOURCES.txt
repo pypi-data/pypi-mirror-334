@@ -1,0 +1,11 @@
+LICENSE
+setup.py
+PublicDataSet/__init__.py
+PublicDataSet.egg-info/PKG-INFO
+PublicDataSet.egg-info/SOURCES.txt
+PublicDataSet.egg-info/dependency_links.txt
+PublicDataSet.egg-info/top_level.txt
+PublicDataSet/ComputerVision/__init__.py
+PublicDataSet/ComputerVision/identify_vegetables/__init__.py
+PublicDataSet/ComputerVision/identify_vegetables/test/__init__.py
+PublicDataSet/ComputerVision/identify_vegetables/train/__init__.py
