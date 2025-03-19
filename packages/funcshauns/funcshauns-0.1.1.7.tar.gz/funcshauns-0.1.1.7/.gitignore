@@ -1,0 +1,47 @@
+
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Distribution / Packaging
+*.egg-info/
+build/
+dist/
+
+# Poetry files
+poetry.lock
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Test artifacts
+.coverage
+htmlcov/
+pytest_cache/
+.tox/
+
+# Notebooks directory (optional, if you don't want to commit notebooks)
+notebooks/
+
+
