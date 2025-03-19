@@ -1,0 +1,16 @@
+image_embeddings/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+image_embeddings/embedder.py,sha256=iIXXoQRbBK5AatEzgoBbYwCoJSzi2DJS6nhA4QGRtq8,5937
+image_embeddings/semantic_search.py,sha256=Je93CWYq8WnBehihB-cxUJfL6FGhaZSvtobWS3y7z-8,5304
+image_embeddings/setup.py,sha256=92iiwY3ozxBe5jb4lrgwlYQEPBIyS_wgadXRFAU7V9E,1378
+image_embeddings/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+image_embeddings/cli/main.py,sha256=5tPmuPu4uu1VMZoSFgJ0n_xIwgebnsy0EfGl0Vdzpr4,8951
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_cli.py,sha256=namEUjOwJFSI122KRLTO1Q9QB0xdJUogkzprlA-aefM,9715
+tests/test_embedder.py,sha256=mXdRf8U0cG5fouF-BsGyxrDIvWhv31mXTUL4jVbEzZk,8118
+tests/test_semantic_search.py,sha256=CvcbR-Zt1d5vOpn4jda0RHl2EMeUBPcfQWS3j4U9xx8,6129
+imgemb-0.1.5.dist-info/LICENSE,sha256=0MbUcm0xmDKawnOOKHP4pXApe8aECD5ivUeWAxX52kM,1066
+imgemb-0.1.5.dist-info/METADATA,sha256=xMggo37nqXdN3-xMMPzSi-8XQaUsfUwA5mOiUGr6Qq4,5776
+imgemb-0.1.5.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+imgemb-0.1.5.dist-info/entry_points.txt,sha256=ohDIYlWp9petiDJqDHFMh25lmP7PfvBb1L-1X0Qm25I,58
+imgemb-0.1.5.dist-info/top_level.txt,sha256=NMsrUvJbdUWwEYt85jQNs-sHk0zVwbjG2tBdLdt37rE,23
+imgemb-0.1.5.dist-info/RECORD,,
