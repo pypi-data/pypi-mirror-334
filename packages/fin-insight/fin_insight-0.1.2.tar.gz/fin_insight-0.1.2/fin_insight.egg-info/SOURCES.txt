@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+fin_insight.egg-info/PKG-INFO
+fin_insight.egg-info/SOURCES.txt
+fin_insight.egg-info/dependency_links.txt
+fin_insight.egg-info/entry_points.txt
+fin_insight.egg-info/requires.txt
+fin_insight.egg-info/top_level.txt
+finance_insight/__init__.py
+finance_insight/fin_insight.py
+tests/test_fin_insight.py
