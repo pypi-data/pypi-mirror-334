@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: pysunsynkweb
+Version: 0.0.7
+Project-URL: Documentation, https://github.com/francoisverbeek/pysunsynkweb
+Project-URL: Issues, https://github.com/francoisverbeek/pysunsynkweb/issues
+Project-URL: Source, https://github.com/francoisverbeek/pysunsynkweb
+Author-email: Francois <f@flve.uk>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: aiohttp
+Requires-Dist: aioresponses>=0.7.8
+Requires-Dist: coverage>=7.6.1
+Requires-Dist: pytest-asyncio>=0.24.0
+Requires-Dist: ruff>=0.9.10
+Description-Content-Type: text/markdown
+
+# Sunsynk Web
+
+[![PyPI - Version](https://img.shields.io/pypi/v/pysunsynkweb.svg)](https://pypi.org/project/pysunsynkweb)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pysunsynkweb.svg)](https://pypi.org/project/pysunsynkweb)
+
+-----
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install pysunsynkweb
+```
+
+## License
+
+`pysunsynkweb` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
