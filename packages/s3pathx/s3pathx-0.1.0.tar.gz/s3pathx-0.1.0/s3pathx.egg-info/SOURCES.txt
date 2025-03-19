@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+s3pathx/__init__.py
+s3pathx/helper.py
+s3pathx.egg-info/PKG-INFO
+s3pathx.egg-info/SOURCES.txt
+s3pathx.egg-info/dependency_links.txt
+s3pathx.egg-info/requires.txt
+s3pathx.egg-info/top_level.txt

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "s3pathx"
+version = "0.1.0"
+description = "Lightweight S3 utility class with pathlib-style API"
+authors = [
+  { name = "Your Name", email = "your@email.com" }
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "boto3"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/s3helper"
+Bug_Tracker = "https://github.com/yourusername/s3helper/issues"
