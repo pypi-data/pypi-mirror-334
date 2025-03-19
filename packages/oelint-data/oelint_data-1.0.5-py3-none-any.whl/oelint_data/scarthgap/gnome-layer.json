@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "known": [
+      "gnome_do_split_help"
+    ]
+  },
+  "variables": {
+    "known": [
+      "BBFILES_PRIORITIZED",
+      "BB_LOGCONFIG",
+      "CLUTTERBASEBUILDCLASS",
+      "IMAGE_LINGUAS_COMPLEMENTARY",
+      "REALNAME",
+      "VERMINOR"
+    ],
+    "renamed": {}
+  },
+  "replacements": {
+    "distros": [],
+    "machines": []
+  }
+}
