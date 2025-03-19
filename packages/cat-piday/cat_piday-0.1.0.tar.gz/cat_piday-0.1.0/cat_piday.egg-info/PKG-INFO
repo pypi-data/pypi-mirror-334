@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: cat_piday
+Version: 0.1.0
+Summary: A simple CLI tool to estimate Pi using numerical methods
+Author-email: Akio Smiowly <lazzycatto@yandex.com>
+Requires-Dist: click>=8.0.0
+Requires-Dist: termcolor>=2.0.0
+Requires-Dist: tqdm>=4.0.0
