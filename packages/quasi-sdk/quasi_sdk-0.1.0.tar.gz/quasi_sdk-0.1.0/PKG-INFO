@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: quasi-sdk
+Version: 0.1.0
+Summary: QuaSi - Quantum Simulator SDK
+Home-page: https://github.com/quait/quasi
+Author: Rishwi Thimmaraju
+Requires-Dist: requests
+Requires-Dist: qiskit
+Requires-Dist: cirq
