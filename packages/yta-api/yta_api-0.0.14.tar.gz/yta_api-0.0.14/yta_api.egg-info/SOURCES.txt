@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+tests/__init__.py
+tests/test_audio.py
+yta_api/__init__.py
+yta_api/dataclasses.py
+yta_api.egg-info/PKG-INFO
+yta_api.egg-info/SOURCES.txt
+yta_api.egg-info/dependency_links.txt
+yta_api.egg-info/requires.txt
+yta_api.egg-info/top_level.txt
+yta_api/dependencies/__init__.py
+yta_api/routers/__init__.py
+yta_api/routers/audio.py
+yta_api/routers/image.py
