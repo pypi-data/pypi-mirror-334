@@ -1,0 +1,5 @@
+{
+  "resource": true,
+  "name": "pihole",
+  "server": "github://api.github.com/unmango/pulumi-pihole"
+}

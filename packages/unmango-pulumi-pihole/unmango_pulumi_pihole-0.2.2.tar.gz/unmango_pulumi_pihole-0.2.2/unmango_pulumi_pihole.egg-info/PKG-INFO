@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: unmango-pulumi-pihole
+Version: 0.2.2
+Summary: A Pulumi package for creating and managing Pi-hole resources
+Home-page: https://github.com/unmango/pulumi-pihole
+License: Apache-2.0
+Project-URL: Repository, https://github.com/unmango/pulumi-pihole
+Keywords: pulumi pihole category/network
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Pihole Resource Provider
+
+The Pihole Resource Provider lets you manage [pihole](https://www.pulumi.com/registry/packages/pihole/) resources.
+
+## Installing
+
+This package is available for several languages/platforms:
+
+### Node.js (JavaScript/TypeScript)
+
+To use from JavaScript or TypeScript in Node.js, install using either `npm`:
+
+```bash
+npm install @unmango/pulumi-pihole
+```
+
+or `yarn`:
+
+```bash
+yarn add @unmango/pulumi-pihole
+```
+
+### Python
+
+To use from Python, install using `pip`:
+
+```bash
+pip install unmango_pulumi_pihole
+```
+
+### Go
+
+To use from Go, use `go get` to grab the latest version of the library:
+
+```bash
+go get github.com/unmango/pulumi-pihole/sdk/go/...
+```
+
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+```bash
+dotnet add package UnMango.Pulumi.Pihole
+```
+
+## Reference
+
+For detailed reference documentation, please visit [the Pulumi registry](https://www.pulumi.com/registry/packages/pihole/api-docs/).
+
+
