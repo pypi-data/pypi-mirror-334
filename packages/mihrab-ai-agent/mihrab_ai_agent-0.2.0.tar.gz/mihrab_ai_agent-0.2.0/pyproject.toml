@@ -1,0 +1,30 @@
+[project]
+name = "mihrab-ai-agent"
+version = "0.2.0"
+description = "A flexible framework for building and deploying LLM-powered agents with multiple provider support, inspired by the mihrab that guides prayer in a mosque"
+authors = [
+    { name = "Ragii Abdullah Shehab", email = "ragi.shehab1@gmail.com" }
+]
+dependencies = [
+    "openai>=1.0.0",
+    "anthropic>=0.7.0",
+    "groq>=0.4.0",
+    "tiktoken>=0.5.0",
+    "aiohttp>=3.9.0",
+    "asyncio>=3.4.3",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "sympy>=1.12.0",
+    "pytz>=2023.3",
+    "numpy>=1.24.0",
+    "tenacity>=8.2.0",
+    "colorlog>=6.7.0",
+    "argparse>=1.4.0"
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { file = "LICENSE" }  # Correct way for Hatchling
+keywords = ["llm", "agents", "ai", "openai", "anthropic", "groq", "framework"]
+
+[project.scripts]
+mihrabai = "mihrabai.cli:main"
