@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+assetkit/__init__.py
+assetkit/asset_manager.py
+assetkit/cli.py
+assetkit/discovery.py
+assetkit/scaffold.py
+assetkit.egg-info/PKG-INFO
+assetkit.egg-info/SOURCES.txt
+assetkit.egg-info/dependency_links.txt
+assetkit.egg-info/entry_points.txt
+assetkit.egg-info/top_level.txt
+tests/test_basic.py
