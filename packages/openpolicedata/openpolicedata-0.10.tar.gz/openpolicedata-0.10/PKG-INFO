@@ -1,0 +1,125 @@
+Metadata-Version: 2.2
+Name: openpolicedata
+Version: 0.10
+Summary: The OpenPoliceData (OPD) Python library is the most comprehensive centralized public access point for incident-level police data 
+Author-email: Matt Sowd <openpolicedata@gmail.com>, Paul Otto <potto@ieee.org>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2021, sowdm
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: homepage, https://openpolicedata.readthedocs.io/
+Project-URL: documentation, https://openpolicedata.readthedocs.io/en/stable/documentation.html
+Project-URL: repository, https://github.com/openpolicedata/openpolicedata
+Project-URL: tracker, https://github.com/openpolicedata/openpolicedata/issues
+Keywords: police data,use of force,traffic,stops,complaints,officer-involved,shootings,pandas,arcgis,socrata,police transparency,police accountability
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openpyxl
+Requires-Dist: numpy
+Requires-Dist: packaging
+Requires-Dist: pandas[html]<3.0.0,>=2.1.0
+Requires-Dist: requests
+Requires-Dist: sodapy
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions
+Requires-Dist: xlrd
+Provides-Extra: optional
+Requires-Dist: rapidfuzz; extra == "optional"
+Requires-Dist: msoffcrypto-tool; extra == "optional"
+Provides-Extra: geopandas
+Requires-Dist: geopandas; extra == "geopandas"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+
+[![PyPI version](https://badge.fury.io/py/openpolicedata.svg)](https://badge.fury.io/py/openpolicedata)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://openpolicedata.streamlit.app)
+
+# OpenPoliceData
+The OpenPoliceData (OPD) Python library is the most comprehensive centralized public access point for incident-level police data in the United States. OPD provides easy access to 500+ incident-level datasets for about 4865 police agencies. Types of data include traffic stops, use of force, officer-involved shootings, and complaints. 
+
+Users request data by department name and type of data, and the data is returned as a [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). There is no need to manually find the data online or to know how to work with open data APIs (ArcGIS, Socrata, etc.). When data is loaded by OPD, the returned data is unmodified (with the exception of formatting known date fields) from what appears on the source's site, and OPD provides links to the original data for transparency.
+
+OpenPoliceData can be installed from the Python Package Index (PyPI):
+```
+pip install openpolicedata
+``` 
+
+OpenPoliceData provides access to police data with 2 simple lines of code:
+```
+> import openpolicedata as opd
+> src = opd.Source("New Orleans")
+> data = src.load(table_type="USE OF FORCE", year=2022)
+```
+
+- Documentation: https://openpolicedata.readthedocs.io/
+- Source Code: https://github.com/openpolicedata/openpolicedata
+- Bug Tracker: https://github.com/openpolicedata/openpolicedata/issues
+- [Latest Datasets](#latest-datasets-added)
+- [Release Notes](#release-notes-for-version-057-2023-09-05)
+- [Contributing](#contributing)
+
+
+![alt text](https://github.com/openpolicedata/opd-data/blob/main/OPD_Datasets_Map.png?raw=true)
+
+## Latest Datasets Added to OPD
+- Washington D.C.: 2023 Use of Force
+- Rochester, NY: Use of Force and Officer-Involved Shootings
+- Omaha, NE: Officer-Involved Shootings, Complaints, and Traffic Stops
+- Merced, CA: Use of Force and Complaints
+- St. Paul, MN: 2023 Citations
+- Philadelphia: 2023 Crashes
+- California: Stops data for all departments submitted for RIPA for 2018-2022
+- Mapping Police Violence police killings
+- Washington Post police killings
+- Indiana: Officer-Involved Shootings
+- Pittsburgh, PA: Complaints, traffic stops, and use of force
+
+## v0.10 - 2025-03-09
+### Added
+- Added test that all datasets associated with a loader were added after introduction of that loader
+- Add Excel loader code to handle complex Omaha officer-involved shootings datasets
+- Add query capability to Arcgis loader
+### Changed
+- Improved removal of non-table data from Excel sheets
+- Improved logging when using verbose input in Source and Table methods
+- Changed some dataset IDs to be in JSON format instead of custom format
+
+Complete change log available at: https://github.com/openpolicedata/openpolicedata/blob/main/CHANGELOG.md
+
+## Contributing
+All contributions are welcome including code enhancments, bug fixes, bug reports, documentation updates, and locating new datasets. If you're interesting in helping out, see our [Contributing Guide](https://github.com/openpolicedata/openpolicedata/blob/main/CONTRIBUTING.MD) or reach out by [email](mailto:openpolicedata@gmail.com).
