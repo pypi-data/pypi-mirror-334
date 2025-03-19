@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: mahoraga
+Version: 0.1.0
+Summary: Reverse proxy for Python mirrors
+Project-URL: Homepage, https://github.com/hingebase/mahoraga
+Project-URL: Source Code, https://github.com/hingebase/mahoraga
+Project-URL: Issue Tracker, https://github.com/hingebase/mahoraga/issues
+Author-email: hingebase <zcliu@pku.edu.cn>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: conda,mirror,pypi
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Framework :: FastAPI
+Classifier: Framework :: Pydantic :: 2
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: System :: Archiving :: Mirroring
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Requires-Dist: fastapi>=0.115.10
+Requires-Dist: filelock>=3.13.2
+Requires-Dist: httptools>=0.6.3
+Requires-Dist: httpx>=0.25.1
+Requires-Dist: jinja2>=3.1.5
+Requires-Dist: kiss-headers>=2.4.0
+Requires-Dist: msgpack>=1.0.7
+Requires-Dist: pooch>=1.8.1
+Requires-Dist: py-rattler>=0.10.0
+Requires-Dist: pyarrow>=14.0.0
+Requires-Dist: pydantic-extra-types[semver]>=2.10.2
+Requires-Dist: pydantic-settings>=2.7.0
+Requires-Dist: rich-argparse>=1.6.0
+Requires-Dist: uvicorn>=0.32.1
+Requires-Dist: uvloop>=0.18.0; sys_platform != 'win32' and sys_platform != 'cygwin' and platform_python_implementation != 'PyPy'
+Provides-Extra: typing
+Requires-Dist: msgpack-types==0.3.0; extra == 'typing'
+Requires-Dist: pyarrow-stubs>=17.10; extra == 'typing'
+Description-Content-Type: text/markdown
+
+# Mahoraga
+Mahoraga is a reverse proxy for Python mirrors.
+## Features
+Once Mahoraga is deployed on a machine with Internet access,
+it benefits clients within the same Intranet in several ways:
+- Serve Python packages and their metadata from Anaconda and PyPI
+- Serve CPython itself from [python-build-standalone][1]
+  and the official [embedded distribution][2] for Windows
+- Load balance among multiple upstream mirrors
+- Lazy local cache (partially implemented)
+- Local-generated [sharded conda repodata][3]
+## License
+Mahoraga is distributed under [Apache-2.0][4] license.
+
+[1]: https://github.com/astral-sh/python-build-standalone/
+[2]: https://docs.python.org/3/using/windows.html#the-embeddable-package
+[3]: https://conda.org/learn/ceps/cep-0016/
+[4]: https://spdx.org/licenses/Apache-2.0.html
