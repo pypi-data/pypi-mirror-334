@@ -1,0 +1,150 @@
+# TxTWrap🔡
+A tool for wrapping a text.🔨
+
+> **⚠️All documents are in the each module.⚠️**
+
+All constants and functions❕:
+- `LOREM_IPSUM_W`
+- `LOREM_IPSUM_S`
+- `LOREM_IPSUM_P`
+- `mono`
+- `word`
+- `wrap`
+- `align` (Updated!)
+- `fillstr`
+- `printwrap`
+- `shorten`
+
+Mod `python -m txtwrap` Commands❗:
+```shell
+python -m txtwrap --help
+```
+
+Examples❓:
+## Render a wrap text in PyGame🎮
+```py
+from typing import Literal, Optional
+from txtwrap import align, LOREM_IPSUM_P
+import pygame
+
+def render_wrap(
+
+    font: pygame.Font,
+    text: str,
+    width: int,
+    antialias: bool,
+    color: pygame.Color,
+    background: Optional[pygame.Color] = None,
+    linegap: int = 0,
+    alignment: Literal['left', 'center', 'right', 'fill'] = 'left',
+    method: Literal['word', 'mono'] = 'word',
+    preserve_empty: bool = True,
+    use_min_width: bool = True
+
+) -> pygame.Surface:
+
+    # Only supports in txtwrap 1.1.1+
+    align_info = align(
+        text=text,
+        width=width,
+        linegap=linegap,
+        sizefunc=font.size,
+        method=method,
+        alignment=alignment,
+        preserve_empty=preserve_empty,
+        use_min_width=use_min_width,
+        return_details=True
+    )
+
+    surface = pygame.Surface(align_info['size'], pygame.SRCALPHA)
+
+    if background is not None:
+        surface.fill(background)
+
+    for x, y, text in align_info['aligned']:
+        surface.blit(font.render(text, antialias, color), (x, y))
+
+    return surface
+
+# Example usage:
+pygame.init()
+pygame.display.set_caption("Lorem Ipsum")
+
+running = True
+wscrn, hscrn = 600, 600
+screen = pygame.display.set_mode((wscrn, hscrn))
+clock = pygame.time.Clock()
+surface = render_wrap(
+    font=pygame.font.Font(None, 20),
+    text=LOREM_IPSUM_P,
+    width=wscrn,
+    antialias=True,
+    color='#ffffff',
+    background='#303030',
+    alignment='fill'
+)
+
+wsurf, hsurf = surface.get_size()
+pos = ((wscrn - wsurf) / 2, (hscrn - hsurf) / 2)
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill('#000000')
+    screen.blit(surface, pos)
+    pygame.display.flip()
+    clock.tick(60)
+```
+
+## Print a wrap text to terminal🔡
+```py
+# Only supports in txtwrap 1.1.0+
+from txtwrap import printwrap, LOREM_IPSUM_W
+
+printwrap(LOREM_IPSUM_W, width=20, alignment='left')
+print('=' * 20)
+printwrap(LOREM_IPSUM_W, width=20, alignment='center')
+print('=' * 20)
+printwrap(LOREM_IPSUM_W, width=20, alignment='right')
+print('=' * 20)
+printwrap(LOREM_IPSUM_W, width=20, alignment='fill')
+```
+
+## Short a long text🔤
+```py
+from txtwrap import shorten, LOREM_IPSUM_S
+
+short_lorem = shorten(LOREM_IPSUM_S, width=20, placeholder='…')
+# Only supports in txtwrap 1.1.0+
+test = shorten('   Helllo,   \t\r\n World!!  \f', width=20, placeholder='…', strip_space=True)
+
+print(short_lorem)
+print(test)
+```
+
+## Bonus🎁 - Print a colorfull text to terminal🔥
+```py
+# Run this code in a terminal that supports ansi characters
+
+from re import compile
+from random import randint
+from txtwrap import printwrap, LOREM_IPSUM_P
+
+# Set the text to be printed here
+text = LOREM_IPSUM_P
+
+remove_ansi_regex = compile(r'\x1b\[[0-9;]*[mK]').sub
+
+def ralen(s: str) -> int:
+    return len(remove_ansi_regex('', s))
+
+while True:
+    # Only supports in txtwrap 1.1.0+
+    printwrap(
+        ''.join(f'\x1b[{randint(31, 36)}m{char}' for char in text) + '\x1b[0m',
+        end='\x1b[H\x1b[J',
+        alignment='fill',
+        lenfunc=ralen
+    )
+```
