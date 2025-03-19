@@ -1,0 +1,177 @@
+Metadata-Version: 2.2
+Name: mcp4py
+Version: 0.7.0
+Summary: My awesome Python project
+Author-email: XuehangCang <xuehangcang@outlook.com>
+License: MIT License
+        
+        Copyright (c) [2025-] [Xuehang Cang]
+        
+        特此授予任何人免费获取本软件及相关文档文件（“软件”）副本的许可，以便无限制地处理本软件，包括但不限于使用、复制、修改、合并、发布、分发、再许可和/或销售本软件副本的权利，并允许向其提供本软件的人员这样做，但须符合以下条件：
+        
+        上述版权声明和本许可声明应包含在软件的所有副本或重要部分中。
+        
+        本软件按“原样”提供，不作任何明示或暗示的担保，包括但不限于适销性、特定用途的适用性和不侵权的担保。在任何情况下，作者或版权所有者均不对任何索赔、损害或其他责任负责，无论是在合同、侵权或其他方面，由软件或使用或其他处理软件引起、出于或与之相关。
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.115.11
+Requires-Dist: uvicorn>=0.34.0
+Requires-Dist: requests>=2.32.3
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+
+
+# mcp4py - Python Implementation of the Model Context Protocol (MCP)
+
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/mcp4py.svg)](https://pypi.org/project/mcp4py/)
+[![Documentation Status](https://readthedocs.org/projects/mcp4py/badge/?version=latest)](https://mcp4py.readthedocs.io/en/latest/?badge=latest)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+**mcp4py** provides a Python implementation of the Model Context Protocol (MCP), enabling seamless integration between LLM applications and external data sources and tools.  This package allows you to easily build both MCP Hosts (LLM applications) and MCP Servers (context/tool providers) in Python.
+
+## What is MCP?
+
+The Model Context Protocol (MCP) is an open protocol that standardizes communication between LLM applications (Hosts) and external data sources and tools (Servers).  It uses JSON-RPC 2.0 to facilitate:
+
+*   **Sharing contextual information with language models:**  Access and provide relevant data to enhance LLM performance.
+*   **Exposing tools and capabilities to AI systems:** Allow LLMs to leverage external functions and services.
+*   **Building composable integrations and workflows:** Create flexible and powerful AI workflows.
+
+MCP is inspired by the Language Server Protocol (LSP), aiming to standardize context and tool integration within the AI application ecosystem.
+
+**Key Features of MCP:**
+
+*   Resources: Context and data for user or AI model consumption.
+*   Prompts: Templated messages and workflows for user interaction.
+*   Tools: Functions for AI model execution.
+*   Sampling: Server-initiated agentic behaviors and recursive LLM interactions (Client-side feature).
+
+## Installation
+
+```bash
+pip install mcp4py
+```
+
+## Usage
+
+**Important Security Considerations:**  The Model Context Protocol enables powerful capabilities through arbitrary data access and code execution paths. With this power comes important security and trust considerations that all implementors must carefully address.  **ALWAYS prioritize user consent and security best practices when implementing MCP.**
+
+### Building an MCP Server (Example)
+
+```python
+from mcp4py.server import MCPServer
+from mcp4py.protocol import Resource, Tool, Prompt  # Example types
+
+class MyMCPServer(MCPServer):
+    async def get_resources(self, resource_ids: list[str]) -> list[Resource]:
+        """Implement your resource retrieval logic here."""
+        resources = []
+        for resource_id in resource_ids:
+            # Example: Fetch data from a database based on resource_id
+            data = f"This is the data for resource ID: {resource_id}"
+            resources.append(Resource(id=resource_id, content=data))
+        return resources
+
+    async def execute_tool(self, tool_id: str, parameters: dict) -> any:
+        """Implement your tool execution logic here."""
+        # Example: Call an external API with parameters
+        if tool_id == "search_web":
+            query = parameters.get("query")
+            result = f"Simulated web search result for: {query}"
+            return result
+        else:
+            raise ValueError(f"Unknown tool: {tool_id}")
+
+    async def get_prompts(self, prompt_ids: list[str]) -> list[Prompt]:
+        """Implement your prompt retrieval logic here."""
+        prompts = []
+        for prompt_id in prompt_ids:
+            if prompt_id == "summarize_document":
+                prompt_content = "Summarize the following document: {document}"
+                prompts.append(Prompt(id=prompt_id, content=prompt_content, input_parameters=["document"]))
+            else:
+                raise ValueError(f"Unknown prompt: {prompt_id}")
+        return prompts
+
+
+# Create and start the server (example using stdin/stdout)
+server = MyMCPServer()
+server.start_io() # blocking
+```
+
+### Building an MCP Host (Example)
+
+```python
+import asyncio
+from mcp4py.client import MCPClient
+
+async def main():
+    # Replace with your actual connection details (e.g., socket)
+    reader = asyncio.StreamReader()
+    writer = asyncio.StreamWriter(None, None, None)  # Replace with actual writer
+
+    client = MCPClient(reader, writer)
+    await client.connect()  # Await the connection
+
+    # Example: Request a resource
+    resource = await client.get_resource("my_resource_id")
+    print(f"Retrieved Resource: {resource.content}")
+
+    # Example: Execute a tool
+    result = await client.execute_tool("search_web", {"query": "Python MCP"})
+    print(f"Tool Execution Result: {result}")
+
+    # Example: Use a prompt
+    prompt_result = await client.use_prompt("summarize_document", {"document": "This is a long document to summarize."})
+    print(f"Prompt Result: {prompt_result}")
+
+    await client.disconnect()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+**Note:**  These are simplified examples.  Production implementations will require more robust error handling, security measures, and connection management.
+
+## Documentation
+
+Full documentation is available at [https://mcp4py.readthedocs.io/en/latest/](https://mcp4py.readthedocs.io/en/latest/).  This includes:
+
+*   Detailed API reference
+*   Implementation guides
+*   Example code
+
+## Security and Trust & Safety
+
+The Model Context Protocol enables powerful capabilities through arbitrary data access and code execution paths. With this power comes important security and trust considerations that all implementors must carefully address.
+
+**Key Principles (from the MCP Specification):**
+
+*   **User Consent and Control:** Users must explicitly consent to and understand all data access and operations. Users must retain control over what data is shared and what actions are taken.
+*   **Data Privacy:**  Hosts must obtain explicit user consent before exposing user data to servers. Hosts must not transmit resource data elsewhere without user consent. User data should be protected with appropriate access controls.
+*   **Tool Safety:** Tools represent arbitrary code execution and must be treated with appropriate caution.  Hosts must obtain explicit user consent before invoking any tool. Users should understand what each tool does before authorizing its use.
+*   **LLM Sampling Controls:** Users must explicitly approve any LLM sampling requests. Users should control whether sampling occurs at all, the actual prompt that will be sent, and what results the server can see. The protocol intentionally limits server visibility into prompts.
+
+**Implementation Guidelines:**
+
+While `mcp4py` itself cannot enforce these security principles at the protocol level, implementors **SHOULD**:
+
+*   Build robust consent and authorization flows into their applications.
+*   Provide clear documentation of security implications.
+*   Implement appropriate access controls and data protections.
+*   Follow security best practices in their integrations.
+*   Consider privacy implications in their feature designs.
+
+## Contributing
+
+Contributions are welcome!  Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
