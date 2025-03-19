@@ -1,0 +1,45 @@
+[project]
+name = "google-ads-stubs"
+version = "21.0.0"
+license = "Apache-2.0"
+description = "Type stubs for google-ads"
+authors = [ 
+    { name = "Henrik Bruåsdal", email = "henrik.bruasdal@gmail.com" },
+]
+readme = "README.md"
+repository = "https://github.com/henribru/google-ads-stubs"
+classifiers = [
+    "Typing :: Stubs Only",
+]
+dependencies = [
+    "google-ads>=26.0.1",
+    "google-auth-stubs>=0.1.0",
+    "googleapis-common-protos-stubs>=2.0.0",
+    "grpc-stubs>=1.24.7",
+    "proto-plus-stubs>=0.5.0",
+    "types-protobuf>=3.18.0",
+    "typing-extensions>=3.10.0",
+]
+requires-python = ">=3.9"
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.9.0",
+    "ruff>=0.3.3",
+    "stubdefaulter>=0.1.0",
+]
+
+[tool.ruff.lint]
+select = ["UP", "I"]
+ignore = ["UP035"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["google.ads.googleads"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["google-stubs"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

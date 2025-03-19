@@ -1,0 +1,18 @@
+*
+!*/
+!/.github/**
+!/.gitignore
+!/google-stubs/{__init__.pyi, py.typed}
+!/google-stubs/ads/**
+!/pyproject.toml
+!/uv.lock
+!/README.md
+!/LICENSE
+!/gen.sh
+!/create_enums.py
+!/create_service_overloads.py
+!/create_type_stubs.py
+!/create_types_pyi.py
+!/stubdefaulter.sh
+!/stubgen.py
+__pycache__
