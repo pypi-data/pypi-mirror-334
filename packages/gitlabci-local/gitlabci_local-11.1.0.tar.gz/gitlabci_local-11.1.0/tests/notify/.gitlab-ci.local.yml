@@ -1,0 +1,18 @@
+image: local
+
+stages:
+  - notify
+
+.local:
+  notify: true
+
+'Job 1':
+  stage: notify
+  script:
+    - echo 'Job 1'
+
+'Job 2':
+  stage: notify
+  script:
+    - echo 'Job 2'
+    - 'false'

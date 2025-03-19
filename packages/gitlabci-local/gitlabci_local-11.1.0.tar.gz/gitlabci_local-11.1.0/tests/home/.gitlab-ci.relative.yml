@@ -1,0 +1,16 @@
+image: registry.gitlab.com/radiandevcore/tools/gcil/alpine:3
+
+stages:
+  - home_relative
+
+.local:
+  volumes:
+    - .:/mnt
+  workdir: /mnt
+
+'Job 1':
+  stage: home_relative
+  script:
+    - pwd
+    - ls -la ./
+    - test "${PWD}" = '/mnt'

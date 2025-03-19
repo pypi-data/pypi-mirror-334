@@ -1,0 +1,17 @@
+image: registry.gitlab.com/radiandevcore/tools/gcil/alpine:3
+
+stages:
+  - configurations
+
+.local:
+  configurations:
+    VARIABLE_1:
+      help: Configure the 1st variable
+      type: unknown
+      default: true
+
+'Job':
+  stage: configurations
+  script:
+    - echo 'Job'
+    - echo "VARIABLE_1 = ${VARIABLE_1}"

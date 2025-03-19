@@ -1,0 +1,93 @@
+image: local
+
+stages:
+  - configurations
+
+variables:
+  CONSTANT_1: 'constant1'
+  CONSTANT_2: 'constant2'
+
+.local:
+  configurations:
+    VARIABLE_1:
+      help: Configure the 1st variable
+      type: boolean
+      default: true
+    VARIABLE_2:
+      help: Configure the 2nd variable
+      type: boolean
+      default: 'false'
+    VARIABLE_3:
+      help: Configure the 3rd variable
+      type: choice
+      values:
+        - 'value1'
+        - 'value2'
+        - 'value3'
+    VARIABLE_4:
+      help: Configure the 4th variable
+      type: choice
+      values:
+        - 'false'
+        - true
+        - 'value3'
+    VARIABLE_5:
+      help: Configure the 5th variable
+      type: input
+    VARIABLE_6:
+      help: Configure the 6th variable
+      type: input
+      default: 'value'
+    VARIABLE_7:
+      help: Configure the 7th variable
+      type: yaml
+      path: ./ip.yml
+      key: 'values'
+    VARIABLE_8:
+      help: Configure the 8th variable
+      type: yaml
+      path: ./ip.yml
+      key: 'unknown.node'
+    VARIABLE_9:
+      help: Configure the 9th variable
+      type: yaml
+      path: ./ip.yml
+      key: 'values[2]'
+    VARIABLE_10:
+      help: Configure the 10th variable
+      type: json
+      path: ./data.json
+      key: 'nodes[0].names'
+    VARIABLE_11:
+      help: Configure the 11th variable
+      type: json
+      path: ./data.json
+      key: 'lists[1][12]'
+    VARIABLE_12:
+      help: Configure the 12th variable
+      type: json
+      path: ./data.json
+      key: 'devices.ip[3]'
+    VARIABLE_13:
+      help: Configure the 13th variable
+      type: json
+      path: ./data.json
+      key: 'devices.ip[-3]'
+
+'Job':
+  stage: configurations
+  script:
+    - echo 'Job'
+    - echo "VARIABLE_1 = ${VARIABLE_1}"
+    - echo "VARIABLE_2 = ${VARIABLE_2}"
+    - echo "VARIABLE_3 = ${VARIABLE_3}"
+    - echo "VARIABLE_4 = ${VARIABLE_4}"
+    - echo "VARIABLE_5 = ${VARIABLE_5}"
+    - echo "VARIABLE_6 = ${VARIABLE_6}"
+    - echo "VARIABLE_7 = ${VARIABLE_7}"
+    - echo "VARIABLE_8 = ${VARIABLE_8}"
+    - echo "VARIABLE_9 = ${VARIABLE_9}"
+    - echo "VARIABLE_10 = ${VARIABLE_10}"
+    - echo "VARIABLE_11 = ${VARIABLE_11}"
+    - echo "VARIABLE_12 = ${VARIABLE_12}"
+    - echo "VARIABLE_13 = ${VARIABLE_13}"

@@ -1,0 +1,15 @@
+image: registry.gitlab.com/radiandevcore/tools/gcil/alpine:3
+
+stages:
+  - volumes
+
+.local:
+  volumes:
+    - ''
+  workdir: .
+
+'Job 1':
+  stage: volumes
+  script:
+    - pwd
+    - ls -la ./

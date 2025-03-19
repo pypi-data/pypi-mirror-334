@@ -1,0 +1,15 @@
+include:
+  - local: '/check_local.yml'
+
+stages:
+  - includes
+
+.local:
+  no_verbose: true
+  variables:
+    VARIABLE_2: 'OVERRIDE_2'
+    VARIABLE_3: 'VARIABLE_3'
+    VARIABLE_4: 4
+  volumes:
+    - .:/opt/src
+    - ../:/opt/parent:ro
