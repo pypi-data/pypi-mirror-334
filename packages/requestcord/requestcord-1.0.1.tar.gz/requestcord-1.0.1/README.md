@@ -1,0 +1,54 @@
+<p align="center">
+  <a href="https://pypi.org/project/requestcord/">
+    <img src="https://cdn3.emoji.gg/emojis/4592-developer-purple.png" alt="Logo" witdth width="120" height="120">
+  </a>
+
+  <h3 align="center">Requestcord<a</a></h3>
+
+  <p align="center">
+    Requestcord - Discord API Wrapper
+    <br/>
+    <br/>
+    <a href="https://www.requestcord.eu/">Our Website</a>
+   <a href="https://www.requestcord.eu/docs.html">Documentation</a> 
+  </p>
+</p>
+<br/>
+
+## Key Features
+  - `Unofficial API Wrapper` – Interact with Discord without official limitations.
+  - `Automatic Header Building` – No need to manually set headers.
+  - `Simplified Requests` – Easily change status, global name, avatar, and more.
+  - `Lightweight & Fast` – Optimized for speed and efficiency.
+  - `Async Support` – Fully asyncio compatible for smooth operations.
+  - `WebSocket & REST API` – Seamless communication with Discord’s services.
+  
+## Installing
+- Python **3.8 or higher** is required.
+- A **virtual environment** is recommended, especially on Linux.
+
+`To install the library, run:`
+
+**Linux/macOS:**
+```bash
+python3 -m pip install -U requestcord
+```
+
+**Windows:**
+```bash
+py -3 -m pip install -U requestcord
+```
+
+#### Development Version
+To install the latest development version:
+```bash
+git clone https://github.com/Zkamo/requestcord.git
+cd requestcord
+python3 -m pip install -U .
+```
+```
+
+## Credits
+
+- `Developer & Owner` - Zkamo
+- `Special Thanks & Developer` - cf-vatos
