@@ -1,0 +1,12 @@
+.idea
+.ipynb_checkpoints
+*.ipynb
+__pycache__
+*.egg-info
+.coverage
+coverage.xml
+
+devel/
+dist
+build
+*.sh
