@@ -1,0 +1,9 @@
+numpy
+matplotlib
+scipy
+scikit-image
+deepcell
+pandas
+aicsimageio
+CellSegmentationEvaluator
+hubmap-ome-utils>=0.3.3
