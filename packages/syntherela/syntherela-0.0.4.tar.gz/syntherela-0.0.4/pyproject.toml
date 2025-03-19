@@ -1,0 +1,57 @@
+[build-system]
+requires = ['setuptools', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "syntherela"
+version = "0.0.4"
+dependencies = [
+    "sdv>=1.9.0,<2",
+    "seaborn==0.13.2",
+    "xgboost==1.7.6",
+    "scikit-learn==1.3.1"
+]
+authors = [
+  { name="Martin Jurkovic", email="martin.jurkovic19@gmail.com" },
+  { name="Valter Hudovernik", email="valter.hudovernik@gmail.com" },
+]
+description = "SyntheRela - Synthetic Relational Data Generation Benchmark"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["python", "syntherela", "synthetic data", "relational data", "evaluation", "benchmark"]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Healthcare Industry"
+    ]
+
+[project.optional-dependencies]
+gnn-utility=[
+  "relbench[full,example]",
+  "torch_geometric",
+  "shap",
+  "tqdm",
+  "lightgbm"
+]
+
+[project.urls]
+Homepage = "https://github.com/martinjurkovic/syntherela"
+Issues = "https://github.com/martinjurkovic/syntherela/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.ruff]
+extend-exclude = ["experiments"]
