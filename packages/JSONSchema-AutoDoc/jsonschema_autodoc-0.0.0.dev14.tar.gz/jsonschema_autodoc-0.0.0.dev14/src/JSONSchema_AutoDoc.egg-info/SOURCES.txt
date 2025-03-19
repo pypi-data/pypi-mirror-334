@@ -1,0 +1,16 @@
+pyproject.toml
+src/JSONSchema_AutoDoc.egg-info/PKG-INFO
+src/JSONSchema_AutoDoc.egg-info/SOURCES.txt
+src/JSONSchema_AutoDoc.egg-info/dependency_links.txt
+src/JSONSchema_AutoDoc.egg-info/not-zip-safe
+src/JSONSchema_AutoDoc.egg-info/requires.txt
+src/JSONSchema_AutoDoc.egg-info/top_level.txt
+src/jsonschema_autodoc/__init__.py
+src/jsonschema_autodoc/document.py
+src/jsonschema_autodoc/meta.py
+src/jsonschema_autodoc/protocol.py
+src/jsonschema_autodoc/registry.py
+src/jsonschema_autodoc/schema.py
+src/jsonschema_autodoc/sphinx.py
+src/jsonschema_autodoc/page/__init__.py
+src/jsonschema_autodoc/page/default.py
