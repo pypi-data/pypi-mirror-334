@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: fmeta
+Version: 0.1.0
+Summary: A small package to scan directories and list file metadata in a tabular format.
+Author: Benevant Mathew
+Author-email: benevantmathewv@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Filesystems
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: tkinter
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+A light weight File Metadata lister
