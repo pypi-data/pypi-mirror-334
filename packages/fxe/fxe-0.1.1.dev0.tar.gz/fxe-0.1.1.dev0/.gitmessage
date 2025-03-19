@@ -1,0 +1,21 @@
+# <type>(<scope>): <subject>
+# |<---- 使用最多50個字元 ---->|
+
+# <body>
+# |<---- 每行最多72個字元 -------------------------->|
+
+# <footer>
+
+# commit 類型:
+#   feat:     新功能
+#   fix:      錯誤修復
+#   docs:     文件修改
+#   style:    程式碼格式修改
+#   refactor: 重構程式碼
+#   perf:     改善效能
+#   test:     增加測試
+#   chore:    建置程序或輔助工具的變動
+#
+# 範例:
+#   feat(auth): implement JWT authentication
+#   fix(db): resolve connection timeout issue
