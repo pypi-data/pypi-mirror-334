@@ -1,0 +1,2 @@
+[console_scripts]
+gallery-dl-server = gallery_dl_server.app:main
