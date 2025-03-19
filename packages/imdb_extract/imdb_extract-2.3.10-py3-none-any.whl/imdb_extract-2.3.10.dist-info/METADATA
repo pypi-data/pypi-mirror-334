@@ -1,0 +1,51 @@
+Metadata-Version: 2.3
+Name: imdb_extract
+Version: 2.3.10
+Summary: Download IMDB series information.
+License: BSD
+Author: Berthold Höllmann
+Author-email: berthold@xn--hllmanns-n4a.de
+Maintainer: Berthold Höllmann
+Maintainer-email: berthold@xn--hllmanns-n4a.de
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: BeautifulSoup4
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: rich
+Requires-Dist: selenium
+Requires-Dist: webdriver-manager
+Description-Content-Type: text/x-rst
+
+=============
+ IMDBExtract
+=============
+
+Download IMDB series information into a CSV file containing lines formatted:
+
+1. *\<empty cell\>*
+2. Season
+3. Episode
+4. *\<empty cell\>*
+5. *\<empty cell\>*
+6. *\<empty cell\>*
+7. Episode title and URL to episode Web side on IMDb
+8. Episode description from IMDb
+
+This format is used im OO.Calc file keeping trac or wached episodes.
+
+Documentation
+=============
+
+Documentatation can be found `here <https://python.höllmanns.de/IMDBExtract>`_.
+
