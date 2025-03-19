@@ -1,0 +1,39 @@
+Metadata-Version: 2.3
+Name: dtpystreamer
+Version: 0.1.4
+Summary: A package to send and receive messages using Redis streams
+License: MIT
+Author: Reza Shirazi
+Author-email: reza@datgate.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: dtpyredis (>=0.1.2,<1.0.0)
+Requires-Dist: dtpyutils (>=0.1.0,<0.2.0)
+Description-Content-Type: text/markdown
+
+# Redis Stream Package
+
+A Python package to send and receive messages using Redis Streams. This package is designed to be reusable across different projects and microservices, providing dynamic and robust mechanisms for message streaming with retry logic and flexible configurations.
+
+## Features
+
+- **Send and Receive Messages** using Redis streams.
+- **Retry Mechanism** with exponential backoff for resilience.
+- **Dynamic Message Handling** based on message names and registered handler functions.
+- **Configurable Singleton Classes** for easy integration with multiple projects.
+- **Clean and Readable Code** based on SOLID principles, following best practices for Python development.
+
+## Installation
+
+To use the `dtpystreamer` in your project, you can install it directly via `pip`.
+
+### Installation via `pip`
+
+```bash
+pip install dtpystreamer
+```
+
