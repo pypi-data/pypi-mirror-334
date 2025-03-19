@@ -1,0 +1,9 @@
+pillow
+python-magic
+rsa
+
+[convert]
+pyparted
+
+[tests]
+pytest
