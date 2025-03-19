@@ -1,0 +1,43 @@
+Metadata-Version: 2.2
+Name: Yuanbian_Spider_Tools
+Version: 0.1.1b1
+Summary: A spider tools package with custom widgets and browser automation features
+Home-page: https://github.com/luxp4588/Yuanbian_Spider_Tools
+Author: luxp
+Author-email: luxp4588@gmail.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt5
+Requires-Dist: selenium
+Requires-Dist: webdriver-manager
+Requires-Dist: pyqtwebengine
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Yuanbian_Spider_Tools
+
+A spider tools package with custom widgets and browser automation features.
+
+## Installation
+
+```bash
+pip install Yuanbian_Spider_Tools
+```
+
+## Usage
+
+```python
+from Yuanbian_Spider_Tools import YuanbianTextEdit
+
+# Your code here
+```
