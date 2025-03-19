@@ -1,0 +1,3 @@
+[console_scripts]
+github-scrap=github_scrap.app.main:cli
+
