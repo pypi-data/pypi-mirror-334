@@ -1,0 +1,1 @@
+from bedrocked.reporting.reported import logger, report
