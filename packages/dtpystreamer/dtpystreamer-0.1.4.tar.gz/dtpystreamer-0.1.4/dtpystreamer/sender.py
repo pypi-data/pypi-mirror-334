@@ -1,0 +1,31 @@
+import json
+from dataclasses import dataclass
+from dtpyredis.connection import RedisInstance
+from dtpyutils.wrappers.retry import retry
+
+
+@dataclass
+class Message:
+    name: str
+    body: dict
+
+    def get_json_encoded(self):
+        return {
+            'name': self.name,
+            'body': json.dumps(self.body, default=str)
+        }
+
+
+class Sender:
+
+    def __init__(self, redis_instance: RedisInstance):
+        self._channels = []
+        self._redis_instance = redis_instance
+        self._redis_client = self._redis_instance.get_redis_client()
+
+    def register_channel(self, channel_name: str):
+        self._channels.append(channel_name)
+
+    @retry()
+    def send_message(self, channel: str, message: Message):
+        self._redis_client.xadd(channel, message.get_json_encoded())

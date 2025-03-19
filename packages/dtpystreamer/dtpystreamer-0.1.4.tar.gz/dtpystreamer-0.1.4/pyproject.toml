@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "dtpystreamer"
+version = "0.1.4"
+description = "A package to send and receive messages using Redis streams"
+authors = ["Reza Shirazi <reza@datgate.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dtpyutils = "^0.1.0"
+dtpyredis = ">=0.1.2,<1.0.0"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
