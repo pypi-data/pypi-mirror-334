@@ -1,0 +1,8 @@
+botocore
+rolo
+boto3
+jsonpatch
+cookiecutter
+
+[dev]
+localstack>=0.0.0.dev
