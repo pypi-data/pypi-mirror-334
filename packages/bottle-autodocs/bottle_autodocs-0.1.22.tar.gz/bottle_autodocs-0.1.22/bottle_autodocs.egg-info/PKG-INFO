@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: bottle-autodocs
+Version: 0.1.22
+Summary: Automated OpenAPI 3.1.0 documentation for Bottle
+Home-page: https://github.com/hizinberg/bottle-autodocs
+Author: Naveen
+Author-email: naveen.ayyakannan@gmail.com
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bottle>=0.12
+Dynamic: author
+Dynamic: author-email
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
