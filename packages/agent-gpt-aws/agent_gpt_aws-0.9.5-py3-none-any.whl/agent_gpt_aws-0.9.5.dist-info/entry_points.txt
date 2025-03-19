@@ -1,0 +1,3 @@
+[console_scripts]
+agent-gpt = agent_gpt.cli:app
+agent-gpt-aws = agent_gpt.cli_deprecated:main
