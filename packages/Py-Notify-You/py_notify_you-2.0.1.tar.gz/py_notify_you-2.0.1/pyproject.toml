@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Py-Notify-You"
+version = "2.0.1"
+description = "A simple library for sending notifications"
+repository = "https://github.com/shizamuru-dev/PyNotifyYou/"
+authors = ["Shizamuru"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.27.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
