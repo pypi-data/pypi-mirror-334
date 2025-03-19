@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: sik-stochastic-tests
+Version: 0.0.1
+Summary: A pytest plugin for testing stochastic systems like LLMs, providing statistical confidence through multiple test runs.
+License-File: LICENSE
+Requires-Python: >=3.11
+Requires-Dist: pytest-asyncio>=0.25.3
+Requires-Dist: pytest>=8.3.4
+Description-Content-Type: text/markdown
+
+# sik-stochastic-tests
+
+A pytest plugin for testing stochastic systems like LLMs, providing statistical confidence through multiple test runs.
