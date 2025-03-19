@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: check_spyder
+Version: 0.1
+Summary: Library to detect if you are using Spyder IDE or not.
+Home-page: https://github.com/javierzurdo/Check_Spyder
+Author: Javier S. Zurdo
+Description-Content-Type: text/markdown
+
+## Instalation
+pip install check_spyder
+
+## Documentation
