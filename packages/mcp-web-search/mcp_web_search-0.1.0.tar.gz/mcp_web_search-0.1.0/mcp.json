@@ -1,0 +1,24 @@
+{
+  "id": "mcp-web-search",
+  "title": "Web Search",
+  "description": "通过搜索引擎进行网页搜索并提供RAG功能",
+  "transport": {
+    "type": "stdio",
+    "command": "uv run -m mcp_web_search.main",
+    "env": {
+      "FIRECRAWL_API_KEY": "",
+      "OPENAI_API_KEY": "",
+      "OPENAI_API_BASE": "",
+      "SEARXNG_API_BASE": "",
+      "MODEL": ""
+
+    }
+  },
+  "author": "wenwen12345",
+  "homepage": "https://github.com/wenwen12345/mcp-web-search",
+  "avatar": {
+    "type": "icon",
+    "icon": "sym_o_search",
+    "hue": 210
+  }
+} 

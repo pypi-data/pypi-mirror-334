@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: mcp-web-search
+Version: 0.1.0
+Summary: A mcp plugin for web search
+Author-email: wenwen12345 <liaowen100407@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: faiss-cpu>=1.10.0
+Requires-Dist: firecrawl-py>=1.13.5
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: langchain-community>=0.3.19
+Requires-Dist: langchain-openai>=0.3.8
+Requires-Dist: langchain>=0.3.20
+Requires-Dist: mcp[cli]>=1.4.1
+Requires-Dist: pydantic>=2.10.6
+Description-Content-Type: text/markdown
+
+# A mcp plugin for web search

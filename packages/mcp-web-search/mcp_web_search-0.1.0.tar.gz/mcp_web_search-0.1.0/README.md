@@ -1,0 +1,1 @@
+# A mcp plugin for web search
