@@ -1,0 +1,2 @@
+[console_scripts]
+bc_find_imports = bcpkgfox.cli:main
