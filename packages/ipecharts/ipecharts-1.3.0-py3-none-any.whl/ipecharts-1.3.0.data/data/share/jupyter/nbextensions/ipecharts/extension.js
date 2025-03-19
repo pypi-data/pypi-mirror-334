@@ -1,0 +1,2 @@
+define((()=>(()=>{"use strict";var e={265:e=>{window.require&&window.require.config({map:{"*":{ipecharts:"nbextensions/ipecharts/index"}}}),e.exports={load_ipython_extension(){}}}},r={};return function i(n){var t=r[n];if(void 0!==t)return t.exports;var o=r[n]={exports:{}};return e[n](o,o.exports,i),o.exports}(265)})()));
+//# sourceMappingURL=extension.js.map
