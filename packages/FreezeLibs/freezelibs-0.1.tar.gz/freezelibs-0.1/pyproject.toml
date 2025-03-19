@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "FreezeLibs"
+version = "0.1"
+description = "A tool to extract and save Python library imports."
+authors = ["Ali Abedi Madiseh <aam7596@gmail.com>"]
+
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+
+[tool.poetry.scripts]
+FreezeLibs = "FreezeLibs.FreezeLibs:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
