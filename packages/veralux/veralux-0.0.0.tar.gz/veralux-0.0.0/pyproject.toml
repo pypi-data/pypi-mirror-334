@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veralux"
+version = "0.0.0"
+description = "Effortlessly build, extend, and deploy sophisticated language-model-based agents"
+readme = {file = "readme.md", content-type = "text/markdown"}
+license = {file = "LICENSE"}
+authors = [{name="Brent Carpenetti", email="brentcarpenetti@gmail.com"}]
+dependencies = []

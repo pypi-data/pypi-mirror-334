@@ -1,0 +1,6 @@
+# veralux
+[veralux] is an intuitive and powerful framework designed to streamline the creation and management of language-model-driven agents, guided by foundational truths and inspired by narratives of illumination and discernment. Its name—combining 'Vera' (true) and 'Lux' (light)—reflects a commitment to clarity, authenticity, and revelation, echoing themes from classical stories that showcase reason, wisdom, and rightful authority overcoming subtle deception.
+
+With [veralux], developers and organizations can effortlessly build, extend, and deploy sophisticated language-model-based agents for diverse applications, whether locally or in the cloud. Rooted in accessible abstractions and robust container-friendly design, VeraLux empowers users to consistently adopt intelligent, production-ready solutions without delving into underlying technical complexities.
+
+Drawing inspiration from emblematic narratives such as Justin Martyr’s unwavering defense of truth, the historical triumph symbolized by the Oracle at Delphi's silencing, and the insightful illumination found in the allegory of Somnium Scipionis, [veralux] guides users toward a deeper appreciation of truth, wisdom, divine revelation, and rightful authority.
