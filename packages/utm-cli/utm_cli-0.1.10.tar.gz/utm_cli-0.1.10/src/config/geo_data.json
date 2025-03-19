@@ -1,0 +1,26 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "upper_limit": 500,
+                "lower_limit": 100,
+                "start_time": "2025-02-11T16:29:08.842Z",
+                "end_time": "2025-02-11T16:29:08.842Z"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [7.4692001, 46.9778605],
+                        [7.4885458, 46.9778605],
+                        [7.4885458, 46.9900399],
+                        [7.4692001, 46.9900399],
+                        [7.4692001, 46.9778605]
+                    ]
+                ]
+            }
+        }
+    ]
+}
