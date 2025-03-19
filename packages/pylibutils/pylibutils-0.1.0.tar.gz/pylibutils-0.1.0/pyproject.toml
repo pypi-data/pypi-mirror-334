@@ -1,0 +1,33 @@
+[project]
+name = "pylibutils"
+version = "0.1.0"
+description = "Python library for common utilities."
+authors = [
+    {name = "Mouad Kommir",email = "mouadkommir@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[tool.poetry]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    # "Development Status :: 5 - Production/Stable",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+[tool.poetry.group.dev.dependencies]
+build = "^1.2.2.post1"
+black = "^25.1.0"
+twine = "^6.1.0"
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
