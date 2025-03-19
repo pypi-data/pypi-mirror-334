@@ -1,0 +1,5 @@
+add_subdirectory(lemon)
+add_subdirectory(pybind11)
+add_subdirectory(graphviz)
+add_subdirectory(K-Editor)
+add_subdirectory(qt)
