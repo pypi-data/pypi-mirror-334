@@ -1,0 +1,28 @@
+$id: https://jsonschemata.repodynamics.com/config/python/pyproject-person
+title: Person
+summary: A person or organization.
+description: |
+  A person or organization that is an author or maintainer of the project.
+  At least one of `name` or `email` must be provided.
+type: object
+additionalProperties: false
+minProperties: 1
+properties:
+  name:
+    summary: Full name of the person or organization.
+    description: |
+      This must be a valid email name (i.e. whatever can be put as a name, 
+      before an email, in [RFC 822](https://datatracker.ietf.org/doc/html/rfc822.html)) 
+      and not contain commas.
+    type: string
+    minLength: 1
+    pattern: ^[^\n\r,]+$
+    examples:
+      - John Doe
+      - Jane Smith
+  email:
+    summary: Email address of the person or organization.
+    $ref: https://jsonschemata.repodynamics.com/id/email
+    examples:
+      - john@doe.com
+      - email@example.com

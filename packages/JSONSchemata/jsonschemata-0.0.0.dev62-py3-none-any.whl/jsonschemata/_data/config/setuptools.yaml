@@ -1,0 +1,42 @@
+$id: https://jsonschemata.repodynamics.com/config/setuptools
+title: Setuptools Configuration
+summary: >-
+  Configuration options for the [Setuptools](https://setuptools.pypa.io/) library.
+description: |
+  Setuptools is a package development library that provides a number of utilities
+  for building, packaging, and distributing Python projects. 
+  This configuration schema provides options for configuring 
+  the behavior of Setuptools during the build process.
+  For more information, see
+  [Configuring setuptools using pyproject.toml files](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
+type: object
+properties:
+  include-package-data:
+    summary: Whether to include package data.
+    type: boolean
+    default: true
+  packages:
+    summary: Package definitions.
+    oneOf:
+      - type: array
+        items:
+          type: string
+          minLength: 1
+      - type: object
+        properties:
+          find:
+            summary: Configurations for package discovery.
+            type: object
+            properties:
+              where:
+                summary: Where to find packages.
+                type: array
+                items:
+                  type: string
+              namespaces:
+                summary: Whether to include namespaces.
+                type: boolean
+  cmdclass:
+    title: Command Class
+    summary: Custom command classes.
+    type: object

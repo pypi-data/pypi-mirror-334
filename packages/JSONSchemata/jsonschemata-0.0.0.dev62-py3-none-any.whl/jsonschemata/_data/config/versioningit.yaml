@@ -1,0 +1,48 @@
+$id: https://jsonschemata.repodynamics.com/config/versioningit
+title: Versioningit Configuration
+summary: >-
+  Configuration options for the [Versioningit](https://github.com/jwodder/versioningit) tool.
+type: object
+properties:
+  vcs:
+    type: object
+    properties:
+      method:
+        type: string
+        enum: [ git, hg, svn ]
+      match:
+        type: array
+        items:
+          type: string
+      default-tag:
+        type: string
+  tag2version:
+    type: object
+    properties:
+      rmprefix:
+        type: string
+  format:
+    type: object
+    properties:
+      distance:
+        type: string
+      dirty:
+        type: string
+      distance-dirty:
+        type: string
+  onbuild:
+    type: object
+    properties:
+      method:
+        type: string
+        enum: [ replace-version ]
+      regex:
+        type: string
+      require-match:
+        type: boolean
+      source-file:
+        type: string
+      build-file:
+        type: string
+      replacement:
+        type: string

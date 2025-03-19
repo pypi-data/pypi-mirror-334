@@ -1,0 +1,13 @@
+$id: https://jsonschemata.repodynamics.com/date/yyyy-mm-dd
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Date (ISO 8601)
+description: |
+  A date in the ISO 8601 format.
+  
+  This corresponds to a 4-digit year, a 2-digit month and a 2-digit day separated by hyphens,
+  i.e., `YYYY-MM-DD`.
+type: string
+pattern: ^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$
+examples:
+  - '1900-01-01'
+  - '2024-12-31'
