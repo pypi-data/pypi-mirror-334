@@ -1,0 +1,12 @@
+tree-sitter==0.21.3
+tree_sitter_languages==1.10.2
+tqdm
+jinja2
+litellm
+
+[dev]
+isort
+black
+
+[testing]
+pytest

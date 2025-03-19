@@ -1,0 +1,2 @@
+include src/mutahunter/core/queries/*.scm
+recursive-include src/mutahunter/core/templates *.txt
