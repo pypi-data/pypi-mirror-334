@@ -1,0 +1,13 @@
+google-generativeai
+openai
+SpeechRecognition
+pillow
+opencv-python
+python-dotenv
+gtts
+pytesseract
+requests
+send2trash
+
+[:platform_system == "Windows"]
+pywin32
