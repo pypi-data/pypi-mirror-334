@@ -1,0 +1,25 @@
+[build-system]
+requires = ["flit_core >=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "health_diagnosis_recommender"
+version = "2.2.1"
+authors = [{name = "Dibyojit Ghoshal", email = "dgx7781@gmail.com"}]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+description = "An Autonomous AI powered Dynamic Health Diagnosis and Treatment Planning and Remedial Recommendation System"
+
+[project.urls]
+Home = "https://github.com/dgx781/Generative-and-Agentic-AI"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["health_diagnosis_recommender*"]
+
+[tool.setuptools.package-data]
+health_diagnosis_recommender = ["*.txt", "*.md", "LICENSE"]
