@@ -1,0 +1,35 @@
+import sys
+from template.regex import project_version, valid_file, python_version, dependencies
+
+DEFAULT_TOML = {
+	"projectname": {"name": "name", "section": "project", "type": str, "default_value": ""},
+	"version": {"name": "version", "section": "project", "type": str, "regex": project_version,"default_value": "0.1.0"},
+	"description": {"name": "description", "section": "project", "type": str, "default_value": ""},
+	"mainfile": {"name": "mainfile", "section": "project", "type": str, "regex": valid_file,"default_value": ""},
+	"pythonversion": {"name": "requires-python", "section": "project", "type": str, "regex": python_version,"default_value": f">={sys.version_info.major}.{sys.version_info.minor}"},
+	"authors": {"name": "authors", "section": "project.metadata", "type": list,"default_value": []},
+	"maintainers": {"name": "maintainers", "section": "project.metadata", "type": list, "default_value": []},
+	"readme": {"name": "readme", "section": "project.metadata", "type": str, "default_value": "README.md"},
+	"changelog": {"name": "changelog", "section": "project.metadata", "type": str, "default_value": "changelog.md"},
+	"license": {"name": "license", "section": "project.metadata", "type": str, "default_value": ""},
+	"license_file": {"name": "license_file", "section": "project.metadata", "type": str, "default_value": ""},
+	"keywords": {"name": "keywords", "section": "project.metadata", "type": list, "default_value": []},
+	"classifiers": {"name": "classifiers", "section": "project.metadata", "type": list, "default_value": []},
+	"copyright": {"name": "copyright", "section": "project.metadata", "type": str, "default_value": ""},
+	"dependencies": {"name": "dependencies", "section": "project", "type": dict, "regex": dependencies,"default_value": {}},
+	"dependencies_win": {"name": "windows", "section": "project.dependencies", "type": dict, "regex": dependencies, "default_value": {}},
+	"dependencies_linux": {"name": "linux", "section": "project.dependencies", "type": dict, "regex": dependencies, "default_value": {}},
+	"package": {"name": "packages", "section": "project.build", "type": list, "default_value": []},
+	"include": {"name": "includes", "section": "project.build", "type": list, "default_value": []},
+	"exclude": {"name": "excludes", "section": "project.build", "type": list, "default_value": []},
+	"include_files": {"name": "include_files", "section": "project.build", "type": list, "default_value": []},
+	"optimize": {"name": "optimize", "section": "project.build", "type": int, "default_value": 0},
+	"compress": {"name": "no_compress", "section": "project.build", "type": bool, "default_value": False},
+	"gui": {"name": "GUI", "section": "project.build", "type": bool, "default_value": False},
+	"icon": {"name": "icon", "section": "project.build", "type": str, "default_value": ""},
+	"platforms": {"name": "platforms", "section": "project.wheel", "type": str, "default_value": "ALL"},
+	"console_scripts": {"name": "console_scripts", "section": "project.wheel.entry_points", "type": list, "default_value": []},
+	"homepage": {"name": "homepage", "section": "project.urls", "type": str, "default_value": ""},
+	"documentation": {"name": "documentation", "section": "project.urls", "type": str, "default_value": ""},
+	"changelog": {"name": "changelog", "section": "project.urls", "type": str, "default_value": ""}
+}

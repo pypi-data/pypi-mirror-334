@@ -1,0 +1,29 @@
+cache-dir = "~\\AppData\\Local\\Nexus\\Cache"
+virtualenvs.create = False
+virtualenvs.clear = False
+virtualenvs.upgradepip = False
+virtualenvs.in-project = True
+virtualenvs.symlinks = False
+virtualenvs.system-site-packages = False
+virtualenvs.foldername = ".venv"
+#virtualenvs.prompt = "{project_name}"
+
+proxy = ""
+threading = True
+threadmax = 4
+
+logs.display = True
+logs.full = True
+logs.date = True
+logs.truecolor = True
+
+project.changelog = True
+project.deep_search = 3
+
+publish.url = https://upload.pypi.org/legacy/
+publish.username = ""
+metadata.source = "https://pypi.org"
+
+repo.create = True
+repo.commit = "{version} - {date}"
+repo.branch_autocreate = True
