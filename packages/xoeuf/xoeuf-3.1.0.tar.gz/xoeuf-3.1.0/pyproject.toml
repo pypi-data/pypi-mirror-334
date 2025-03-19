@@ -1,0 +1,128 @@
+[project]
+name = "xoeuf"
+description = "Basic utilities for OpenERP Open Object Services"
+authors = [
+    { name = "Merchise Autrement [~º/~]", email = "" }
+]
+dependencies = [
+    "celery>=4.1.0, <6",
+    "decorator>=4.0, <4.2",
+    "expiringdict~=1.2.0",
+    "pytz",
+    "xotl.tools>=2.2.5,<3.3",
+    "ipython",
+    "typing-extensions~=4.12.0",
+    "tqdm~=4.66.4",
+    "pydantic>=2.9",
+    "odoo"
+]
+readme = "README.rst"
+license = "MIT"
+dynamic = ["version"]
+requires-python = ">= 3.8"
+
+homepage="https://gitlab.merchise.org/mercurio-2018/xoeuf"
+documentation="https://merchise-autrement.gitlab.io/xoeuf/"
+
+# We include odoo as a member of the workspace , so that we can develop this
+# with modern LSP, etc.
+[tool.uv.sources]
+odoo = { workspace = true }
+
+[tool.uv.workspace]
+members = [
+    "src/odoo",
+]
+
+[dependency-groups]
+typing = [
+    "mypy~=1.11.0",
+]
+test = [
+    "hypothesis>=6.30, <6.38",
+    "coverage[toml]~=7.4.1",
+    "uuid6>=2024.7.10",
+]
+lint = [
+    "isort~=5.13.2",
+    "ruff==0.8.*",
+]
+tooling = [
+    "furo>=2023.9.10",
+    "docutils>=0.20",
+    "sphinx~=7.1.2",
+    "ipdb~=0.13.13",
+    "ipython~=8.12.3",
+]
+
+dev = [
+    { include-group="typing" },
+    { include-group="lint" },
+    { include-group="tooling" },
+    { include-group="test" },
+]
+
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/xoeuf/_version.py"
+
+[project.scripts]
+xoeuf = "xoeuf.cli.server:server"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "src/odoo*",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/xoeuf", "src/tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+ignore = [
+  "E501", # line too long
+  "B011", # 'assert False' is fine.
+  "E741", # do not use variables named ‘l’, ‘O’, or ‘I’
+  "C901", # fn is too complex
+]
+select = [
+  "C",
+  "E",
+  "F",
+  "W",
+  "B",
+  "INT",
+  "RUF008",
+  "W191",   # Indentation contains tabs
+  "W605",   # Invalid escape sequence
+  "W291",   # Trailing whitespace
+  "W292",   # No newline at end of file
+  "W293",   # Blank line contains whitespace
+]
+exclude = ["__manifest__.py", "src/xoeuf/_version.py"]
+preview = true
+
+[tool.ruff.format]
+preview = true
+exclude = ["src/xoeuf/_version.py"]
+
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["src/xoeuf"]
+skip_glob = ["src/xoeuf/__init__.py"]
+skip_gitignore = true

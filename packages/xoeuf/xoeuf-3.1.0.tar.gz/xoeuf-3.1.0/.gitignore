@@ -1,0 +1,43 @@
+# Python + Eclipse
+*.pyc
+*.pyo
+*.*~
+*.*~*
+.*.cfg
+develop-eggs/
+parts/
+.project
+.pydevproject
+.settings/
+.tox/
+
+build/
+dist/
+.cache/
+.hypothesis/
+
+# Python Coverage files generate by nose
+.coverage
+
+# Ditz stuff
+.ditz-config
+
+# Git cacharra
+*.orig
+
+# Paquetes .egg-info
+*.egg-info/
+
+# Python Rope for Emacs
+.ropeproject/
+*#
+#*
+
+eproject.cfg
+.python-version
+
+src/xoeuf/_version.py
+src/odoo*
+vendor/
+requirements.lock
+requirements-dev.lock

@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: xoeuf
+Version: 3.1.0
+Summary: Basic utilities for OpenERP Open Object Services
+Author: Merchise Autrement [~º/~]
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: celery<6,>=4.1.0
+Requires-Dist: decorator<4.2,>=4.0
+Requires-Dist: expiringdict~=1.2.0
+Requires-Dist: ipython
+Requires-Dist: odoo
+Requires-Dist: pydantic>=2.9
+Requires-Dist: pytz
+Requires-Dist: tqdm~=4.66.4
+Requires-Dist: typing-extensions~=4.12.0
+Requires-Dist: xotl-tools<3.3,>=2.2.5
+Description-Content-Type: text/x-rst
+
+====================
+ xoeuf's Odoo tools
+====================
+
+xoeuf provides utilities to ease working with Odoo's framework.
+
+Documentation is a work in progress, but it can be found in
+https://merchise-autrement.gitlab.io/xoeuf/.
+
+See DEVELOPING to know how to setup the developer's environment.

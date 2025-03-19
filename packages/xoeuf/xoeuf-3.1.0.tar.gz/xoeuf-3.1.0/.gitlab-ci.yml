@@ -1,0 +1,222 @@
+---
+stages:
+  - pre-check
+  - check
+  - test
+  - build
+  - publish
+  - clean up
+
+workflow:
+  name: "$workflow_name"
+  auto_cancel:
+    on_new_commit: interruptible
+    on_job_failure: all
+  rules:
+    - if: $CI_COMMIT_TAG
+      variables:
+        workflow_name: "release $CI_COMMIT_TAG: $CI_COMMIT_TITLE"
+        frontend_build_mode: "production"
+        release_tag: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      variables:
+        workflow_name: "$CI_COMMIT_BRANCH: $CI_COMMIT_TITLE"
+        frontend_build_mode: "staging"
+    - if: $CI_MERGE_REQUEST_IID
+      variables:
+        workflow_name: "MR [$CI_MERGE_REQUEST_IID]: $CI_COMMIT_TITLE"
+        frontend_build_mode: "development"
+
+
+.x-chaging-doc-or-code: &changing-code-or-doc
+  changes:
+    - .gitlab-ci.yml
+    - docs/**/*.py
+    - docs/**/*.rst
+    - src/**/*.py
+    - uv.lock
+    - pyproject.toml
+
+.x-updating-code: &updating-code
+    - .gitlab-ci.yml
+    - src/**/*.py
+    - uv.lock
+    - pyproject.toml
+
+.x-when-releasing-merchise: &when-releasing-gitlab-merchise
+  - if: $CI_SERVER_HOST != "gitlab.merchise.org"
+    when: never
+  - if: $CI_COMMIT_TAG =~ /^\d+(\.\d+)*(a\d+|b\d+|rc\d+)?(\.post\d+)?$/
+
+
+.x-when-releasing: &when-releasing
+  - if: $CI_COMMIT_TAG =~ /^\d+(\.\d+)*(a\d+|b\d+|rc\d+)?(\.post\d+)?$/
+
+.x-whenupdating-code-merchise: &when-updating-code-gitlab-merchise
+  - if: $CI_SERVER_HOST != "gitlab.merchise.org"
+    when: never
+  - if: $CI_MERGE_REQUEST_IID
+    changes: *updating-code
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    changes: *updating-code
+  - if: $CI_COMMIT_BRANCH =~ /^stable-/
+    changes: *updating-code
+
+lint:
+  interruptible: true
+  image: python:3.8
+  stage: check
+  cache:
+    key: $CI_JOB_NAME
+    paths:
+      - src/odoo*
+  variables:
+    ODOO_VARIANT: "merchise-develop-"
+    ODOO_VERSION: "12"
+    ODOO_MIRROR: https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.merchise.org/merchise/odoo.git
+  script:
+    - |
+      apt-get update && apt-get install -y git
+      if [ ! -d src/odoo-${ODOO_VERSION}.0 ]; then
+         git clone -b ${ODOO_VARIANT}${ODOO_VERSION}.0 --depth=1 \
+             "$ODOO_MIRROR" \
+             src/odoo-${ODOO_VERSION}.0
+      fi
+      make ODOO_VERSION="${ODOO_VERSION}.0" install src/odoo-${ODOO_VERSION}.0 lint
+  rules: *when-updating-code-gitlab-merchise
+
+.run_tests: &run_tests
+  image: python:${PYTHON_VERSION}
+  resource_group: "xoeuf - run tests - $CI_RUNNER_ID"
+  services:
+    - name: "registry.merchise.org/provision/pg-testing:postgis-16-3.4-alpine"
+      alias: $POSTGRES_HOST
+  stage: test
+  cache:
+    key: $CI_JOB_NAME
+    paths:
+      - src/odoo*
+  script:
+    - |
+      apt-get update && apt-get install -y build-essential \
+           libxslt1-dev libxml2-dev libsasl2-dev \
+           libjpeg-dev zlib1g-dev libldap2-dev libfreetype6-dev \
+           libyaml-dev libgeos-dev libusb-dev \
+           libssl-dev postgresql-client git
+      if [ ! -d src/odoo-${ODOO_VERSION}.0 ]; then
+         git clone -b ${ODOO_VARIANT}${ODOO_VERSION}.0 --depth=1 \
+             "$ODOO_MIRROR" \
+             src/odoo-${ODOO_VERSION}.0
+      fi
+      make ODOO_VERSION="${ODOO_VERSION}.0" install src/odoo-${ODOO_VERSION}.0 test
+
+run all tests:
+  <<: *run_tests
+  interruptible: true
+  needs:
+    - lint
+  variables:
+    POSTGRES_USER: xoeuf
+    POSTGRES_PASSWORD: xoeuf
+    POSTGRES_HOST: postgres
+    ODOO_VARIANT: merchise-develop-
+    ODOO_MIRROR: https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.merchise.org/merchise/odoo.git
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.8"]
+        ODOO_VERSION: "12"
+        XOTL_TOOLS_VERSION: ["~=3.0.0", ">=3.1.0a1,<3.2", "~=3.2.0", "~=3.3.0"]
+  rules: *when-updating-code-gitlab-merchise
+
+run all tests (pure Odoo):
+  <<: *run_tests
+  allow_failure: true
+  interruptible: true
+  needs:
+    - lint
+  variables:
+    POSTGRES_USER: xoeuf
+    POSTGRES_PASSWORD: xoeuf
+    POSTGRES_HOST: postgres
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.8"]
+        ODOO_VERSION: "12"
+        XOTL_TOOLS_VERSION: ["~=3.1.1", "~=3.2.0"]
+  rules: *when-updating-code-gitlab-merchise
+
+.x-build: &with-build
+  image: python:3.8
+  stage: build
+  script:
+    - rm -f dist/*
+    - apt-get update && apt-get install -y git
+    - pip install hatch
+    - hatch build
+  artifacts:
+    paths:
+      - dist/
+
+build distributions:
+  <<: *with-build
+  rules: *when-releasing
+
+check build:
+  <<: *with-build
+  interruptible: true
+  needs: []
+  rules: *when-updating-code-gitlab-merchise
+
+publish pypi:
+  image: python:3.8
+  stage: publish
+  script:
+    - pip install twine
+    - twine upload -u "$PYPI_USERNAME" -p "$PYPI_PASSWORD" dist/*
+  rules: *when-releasing-gitlab-merchise
+  needs:
+    - build distributions
+  environment:
+    name: pypi
+    url: https://pypi.org/project/$CI_PROJECT_NAME
+
+
+.x-build-doc: &with-build-documentation
+  image: python:3.8
+  variables:
+    PYTHON_VERSION: "3.8"
+    ODOO_VERSION: "12"
+  stage: build
+  script:
+    - |
+      set -x
+      apt-get update && apt-get install -y build-essential \
+           libxslt1-dev libxml2-dev libsasl2-dev \
+           libjpeg-dev zlib1g-dev libldap2-dev libfreetype6-dev \
+           libyaml-dev libgeos-dev libusb-dev \
+           libssl-dev postgresql-client git
+      if [ ! -d src/odoo-${ODOO_VERSION}.0 ]; then
+         git clone -b ${ODOO_VARIANT}${ODOO_VERSION}.0 --depth=1 \
+             "$ODOO_MIRROR" \
+             src/odoo-${ODOO_VERSION}.0
+      fi
+      make ODOO_VERSION="${ODOO_VERSION}.0" install src/odoo-${ODOO_VERSION}.0
+      make docs/build
+      mkdir -p public
+      cp -rf docs/build/html/* public/
+
+pages:
+  <<: *with-build-documentation
+  stage: publish
+  variables:
+    ODOO_VARIANT: "merchise-develop-"
+    ODOO_VERSION: "12"
+    ODOO_MIRROR: https://github.com/merchise-autrement/odoo.git
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_SERVER_HOST != "gitlab.com"
+      when: never
+    - if: $CI_COMMIT_BRANCH == "stable-3.0.x"
+    - if: $CI_MERGE_REQUEST_IID
