@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: xander-cli
+Version: 0.1
+Summary: Xander AI CLI for training AI models
+Author: Atulit Gaur
+Author-email: atulit23@xanderco.in
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: tensorflow
+Requires-Dist: keras
+Requires-Dist: keras-tuner
+Requires-Dist: joblib
+Requires-Dist: requests
+Requires-Dist: nltk
+Requires-Dist: channels
+Requires-Dist: asgiref
+Requires-Dist: chardet
+
+# Xander AI CLI
+
+Xander AI CLI is a command-line tool for training AI models with ease. It allows you to train classification, regression, text, and image models using a simple command.
+
+## Installation
+
+Install Xander AI CLI from PyPI using:
+
+```sh
+pip install xander-cli
+```
+
+#### **Image Task**
+- **Dataset Format**:
+  - Provide a `.zip` file containing a folder.
+  - Inside the folder:
+    - Subfolders represent class labels.
+    - Images within subfolders correspond to their class.
+
+##### Example Directory Structure:
+```
+dataset.zip
+│
+├── class_1/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+│
+├── class_2/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+│
+└── class_n/
+    ├── image1.jpg
+    ├── image2.jpg
+    └── ...
+```
+
+## Usage
+
+### **Train a Model**
+To train a regression/classification/text model, use the following command:
+
+```sh
+xander-cli train <task> <dataset_path> <model_name> <epochs> [--target_col <target_column>]
+```
+
+### **Arguments**
+| Argument        | Description                                          | Example                          |
+|----------------|------------------------------------------------------|----------------------------------|
+| `<task>`       | Type of task: `classification`, `regression`, `text`, or `image` | `classification` |
+| `<dataset_path>` | Path to your dataset file (CSV format) | `data.csv` |
+| `--target_col` | Name of the target column in your dataset (not requiredfor image) | `label` |
+| `<model_name>` | Name to save your trained model | `my_model` |
+| `<epochs>` | Number of epochs for training | `50` |
+
+### **Example Usage for tabular tasks**
+```sh
+xander-cli train classification data.csv my_model 50 --target_col label
+```
+
+### **Example Usage for image tasks**
+```sh
+xander-cli train image images.zip my_image_model 20
+```
+
+This command will train a classification model using `data.csv`, with `label` as the target column, and train it for 50 epochs.
+
+## Author
+**Xander Co.**
