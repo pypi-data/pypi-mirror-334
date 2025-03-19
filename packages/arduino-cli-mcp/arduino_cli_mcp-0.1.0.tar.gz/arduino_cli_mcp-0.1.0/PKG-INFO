@@ -1,0 +1,57 @@
+Metadata-Version: 2.2
+Name: arduino-cli-mcp
+Version: 0.1.0
+Summary: Arduino CLI MCP Server for GitHub Copilot integration
+Home-page: https://github.com/yourusername/arduino-cli-mcp
+Author: Oliver
+Author-email: Oliver <your.email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/arduino-cli-mcp
+Project-URL: Bug Tracker, https://github.com/yourusername/arduino-cli-mcp/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mcp
+Requires-Dist: pydantic
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Arduino CLI MCP
+
+Arduino CLI MCP is a GitHub Copilot integration server that provides tools for compiling and uploading Arduino sketches through the Arduino CLI.
+
+## Installation
+
+```bash
+pip install arduino-cli-mcp
+```
+
+## Prerequisites
+
+- Arduino CLI installed and available in your PATH
+- Python 3.7+
+
+## Usage
+
+Start the MCP server:
+
+```bash
+arduino-cli-mcp --workdir /path/to/your/arduino/projects
+```
+
+## Features
+
+- Compile Arduino sketches
+- Upload sketches to Arduino boards
+- Install Arduino platforms
+- List available boards and platforms
+- Create and manage Arduino projects
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
