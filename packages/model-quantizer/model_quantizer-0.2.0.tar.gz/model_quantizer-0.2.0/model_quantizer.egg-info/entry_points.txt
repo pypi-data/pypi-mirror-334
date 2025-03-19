@@ -1,0 +1,6 @@
+[console_scripts]
+benchmark-model = benchmark_model:main
+chat-with-model = chat_with_model:main
+model-quantizer = quantizer.cli:main
+run-benchmark = run_benchmark:main_cli
+visualize-benchmark = visualize_benchmark:main
