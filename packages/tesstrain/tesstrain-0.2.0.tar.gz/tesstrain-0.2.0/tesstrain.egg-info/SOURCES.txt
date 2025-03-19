@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+tesstrain/__init__.py
+tesstrain/__main__.py
+tesstrain/arguments.py
+tesstrain/generate.py
+tesstrain/language_specific.py
+tesstrain/py.typed
+tesstrain/wrapper.py
+tesstrain.egg-info/PKG-INFO
+tesstrain.egg-info/SOURCES.txt
+tesstrain.egg-info/dependency_links.txt
+tesstrain.egg-info/requires.txt
+tesstrain.egg-info/top_level.txt
