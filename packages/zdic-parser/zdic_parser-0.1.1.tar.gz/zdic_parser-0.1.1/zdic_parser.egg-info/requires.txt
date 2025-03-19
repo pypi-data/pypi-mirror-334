@@ -1,0 +1,6 @@
+beautifulsoup4
+httpx>=0.23.0
+lxml
+
+[dev]
+pytest

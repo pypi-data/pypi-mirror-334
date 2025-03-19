@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zdic_parser"
+version = "0.1.1"
+description = "A simple Python library to scrape and parse Chinese character data from zdic using BeautifulSoup."
+readme = "README.md"
+authors = [
+    {name = "Robert L", email = "lingrobert929@gmail.com"}
+]
+license = {file = "LICENSE"}
+dependencies = [
+    "beautifulsoup4",
+    "httpx>=0.23.0",
+    "lxml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools]
+packages = ["zdic_parser"]
+
+[project.urls]
+Homepage = "https://github.com/TheRobertLing/zdic-parser"
+Repository = "https://github.com/TheRobertLing/zdic-parser"
+Issues = "https://github.com/TheRobertLing/zdic-parser/issues"
