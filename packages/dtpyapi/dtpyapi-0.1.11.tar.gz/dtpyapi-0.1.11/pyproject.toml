@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "dtpyapi"
+version = "0.1.11"
+description = "A package to improved api library to have better development experience."
+authors = ["Reza Shirazi <reza@datgate.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dtpyutils = "^0.1.0"
+fastapi = "^0.115.8"
+gunicorn = "^23.0.0"
+uvicorn = "^0.34.0"
+python-multipart = ">=0.0.18"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

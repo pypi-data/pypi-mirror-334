@@ -1,0 +1,40 @@
+Metadata-Version: 2.3
+Name: dtpyapi
+Version: 0.1.11
+Summary: A package to improved api library to have better development experience.
+License: MIT
+Author: Reza Shirazi
+Author-email: reza@datgate.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: dtpyutils (>=0.1.0,<0.2.0)
+Requires-Dist: fastapi (>=0.115.8,<0.116.0)
+Requires-Dist: gunicorn (>=23.0.0,<24.0.0)
+Requires-Dist: python-multipart (>=0.0.18)
+Requires-Dist: uvicorn (>=0.34.0,<0.35.0)
+Description-Content-Type: text/markdown
+
+# API Package
+
+API Package is a Python package designed to improve the development experience with [FastAPI](https://fastapi.tiangolo.com/). It provides helpful tools and better structure for managing routes, authentication, and error handling.
+
+## Features
+
+- **Error Handling Middleware**: Adds middleware to handle server errors gracefully, log errors, and return them in a more structured format.
+  
+- **Authentication Helpers**: Provides helper functions to handle authentication using custom logic for header and query parameters.
+
+- **Cleaner Route Management**: Includes classes for easier route and router creation, making it simpler to structure and manage your FastAPI routes.
+
+## Installation
+
+You can install the package via pip:
+
+```bash
+pip install dtpyapi
+```
+
