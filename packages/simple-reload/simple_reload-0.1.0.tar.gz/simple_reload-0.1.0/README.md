@@ -1,0 +1,77 @@
+# Simple Reload
+
+*Simple library to automatically restart Python scripts on source changes*
+
+A lightweight utility that monitors Python files for changes and automatically restarts your script when changes are detected. Perfect for development workflows where you want to see immediate results without manually restarting your application.
+
+```python
+import mymodule
+from simple_reload import run_simple_reload
+
+
+def main():
+    run_simple_reload([mymodule])
+    print('Hello, running my CLI.')
+
+    # Main logic
+    from time import sleep
+    try:
+        while True: sleep(1)
+    except KeyboardInterrupt:
+        print('Exiting program (potentially due to file change)')
+
+
+if __name__ == "__main__":
+    main()
+```
+
+## Installation
+
+```bash
+pip install simple-reload
+```
+
+## Detailed Usage
+
+`run_simple_reload` takes two main parameters:
+
+1. `modules`: A list of modules to watch for changes. The function will monitor all Python files in the directories containing these modules.
+2. `on_change`: Optional callback function that gets called when files change. It receives a set of tuples with the change type and file path.
+
+You can conditionally call `run_simple_reload` if you'd like to only enable it in debug mode. You can also the auto-reload feature by setting the environment variable `SIMPLE_RELOAD_DISABLE=1`.
+
+Detailed example:
+
+```python
+import myapp
+from simple_reload import run_simple_reload, Change
+from contextlib import suppress
+
+
+def main():
+    if myapp.is_debug_enabled():
+        run_simple_reload([myapp], on_change=print)
+    
+    with supress(KeyboardInterrupt):
+        myapp.start()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+When a file changes, the child process is cleanly shutdown (via SIGINT) and a new child is spawned with the same command line arguments that were used to start it originally.
+
+## Development
+
+Simple Reload uses Rye for dependency management and the development workflow. To get started with development, ensure you have [Rye](https://github.com/astral-sh/rye) installed and then clone the repository and set up the environment:
+
+```sh
+git clone https://github.com/MatthewScholefield/simple-reload.git
+cd simple-reload
+rye sync
+rye run pre-commit install
+
+# Run tests
+rye test
+```
