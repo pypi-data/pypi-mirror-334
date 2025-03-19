@@ -1,0 +1,4 @@
+[console_scripts]
+sadcopy=sadcompressor.bin.sadcopy:main
+sadinfo=sadcompressor.bin.sadinfo:main
+sadsump=sadcompressor.bin.saddump:main
