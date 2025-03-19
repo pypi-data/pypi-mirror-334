@@ -1,0 +1,21 @@
+{ 
+"global": {
+"hostname": "global_hostname",
+"contact": "global_python_contact",
+"location": "global_python_location"
+},
+"sites": {
+    "Ti-Test-Site": {
+    "hostname": "site_hostname",
+    "contact": "site_python_contact",
+    "location": "site_location"
+    }
+},
+"devices": {
+    "SG0BKW82K6": {
+        "hostname": "device_hostname",
+        "contact": "device_contact_changed",
+        "location": "device_python_location"        
+    }
+}
+}
