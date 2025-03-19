@@ -1,0 +1,54 @@
+[project]
+name = "snailz"
+version = "0.1.16"
+requires-python = ">=3.12"
+authors = [
+    {name = "Greg Wilson", email = "gvwilson@third-bit.com"},
+]
+maintainers = [
+    {name = "Greg Wilson", email = "gvwilson@third-bit.com"},
+]
+description = "Synthetic data generator for snail mutation survey"
+keywords = ["open science", "synthetic data"]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "faker>=26.0",
+    "geopy>=2.4",
+    "kaleido==0.2.1",
+    "pandas>=2.2",
+    "plotly>=6.0",
+    "polars>=1.1",
+    "pyarrow>=16.1",
+    "sqlalchemy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build",
+  "markdown-include",
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+  "pytest",
+  "pytest-cov",
+  "ruff",
+  "twine",
+]
+
+[project.scripts]
+snailz = "snailz:clui.main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["snailz"]
+
+[tool.setuptools.package-data]
+mypkg = ["Makefile", "img/*", "*.json", "*.csv"]
