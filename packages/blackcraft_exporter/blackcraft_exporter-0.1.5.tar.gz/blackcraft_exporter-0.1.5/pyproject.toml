@@ -1,0 +1,40 @@
+[project]
+name = "blackcraft_exporter"
+description = "A blackbox_exporter-like prober for Minecraft"
+license = "GPL-3.0-only"
+authors = [
+    { "name" = "Fallen_Breath" },
+]
+readme = "README.md"
+keywords = [
+    "minecraft",
+    "prometheus",
+    "prometheus-exporter",
+]
+
+[project.urls]
+repository = "https://github.com/Fallen-Breath/blackcraft_exporter"
+
+[tool.poetry]
+version = "0.1.5"
+packages = [
+    { include = "blackcraft_exporter" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.8"
+uvicorn = {extras = ["standard"], version = "^0.34.0"}
+mcstatus = "^11.1.1"
+prometheus-client = "^0.21.1"
+pydantic = "^2.10.6"
+pydantic-settings = "^2.7.1"
+dnspython = "^2.7.0"
+python-socks = {extras = ["asyncio"], version = "^2.7.1"}
+
+[tool.poetry.scripts]
+blackcraft_exporter = 'blackcraft_exporter.main:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
