@@ -1,0 +1,334 @@
+# AITop - AI-Focused System Monitor
+
+[![PyPI version](https://badge.fury.io/py/aitop.svg)](https://badge.fury.io/py/aitop)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Copyright © 2025 Alexander Warth. All rights reserved.
+
+Current version: 0.5.3
+
+AITop is a powerful command-line system monitor specifically designed for monitoring AI/ML workloads across different GPU architectures. It provides real-time insights into GPU utilization, memory usage, AI-specific metrics, and system performance to help developers and researchers optimize their machine learning workflows.
+
+> **Beta Phase Notice**: AITop is now in advanced beta phase (v0.5.0), with significant performance and stability enhancements. The software is feature-complete with improved error handling and memory efficiency. While you may still encounter occasional issues, the application is suitable for production monitoring of AI workloads. We encourage users to report any issues or suggestions through our issue tracker.
+
+## Features & Enhancements
+
+- **Real-time GPU Monitoring**
+  - Utilization metrics (compute, memory)
+  - Memory usage and allocation
+  - Temperature and power consumption
+  - Fan speed and thermal performance
+
+- **AI Workload Focus**
+  - Detection of AI/ML processes
+  - Tensor core utilization tracking
+  - Framework-specific metrics (e.g., CUDA, ROCm, OpenCL)
+  - Inference and training performance statistics
+
+- **Multi-Vendor Support**
+  - NVIDIA GPUs (via NVML)
+  - AMD GPUs (via ROCm)
+  - Intel GPUs (via OpenCL)
+
+- **Customizability**
+  - Configure displayed metrics
+  - Customize refresh rates
+  - Choose different output views (compact, detailed, graphical)
+
+- **Enhanced Interactive UI**
+  - Dynamic, color-coded displays with advanced color management
+  - True color support for modern terminals with automatic detection
+  - Intelligent color fallback for 256-color and basic terminals
+  - Adaptive rendering for lower system impact
+  - Improved process-specific monitoring with AI detection
+  - Terminal-aware theme selection with manual override support
+
+- **Performance Optimizations**
+  - Efficient metric polling with minimal impact on GPU workloads
+  - Low CPU and memory overhead with adaptive scheduling
+  - Smart caching for optimal rendering performance
+  - Multi-threaded data collection with prioritized updates
+  - Error resilience with exponential backoff when needed
+  - Memory-efficient data structures with proper cleanup
+
+## Installation
+
+### Quick Install (Recommended)
+
+Install AITop directly from PyPI:
+
+```bash
+pip install aitop
+```
+
+For development features, install with extra dependencies:
+
+```bash
+pip install aitop[dev]
+```
+
+### From Source
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://gitlab.com/CochainComplex/aitop.git
+   cd aitop
+   ```
+
+2. **Set Up a Virtual Environment**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**
+
+   ```bash
+   pip install -e ".[dev]"
+   ```
+
+### GPU Dependencies
+
+   - **NVIDIA GPUs**
+
+     Ensure NVIDIA drivers are installed and NVML is accessible.
+     Tested with NVIDIA-SMI version 565.57.01.
+
+   - **AMD GPUs**
+
+     Install ROCm as per [ROCm Installation Guide](https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html).
+     Tested with:
+     - ROCm 6.3
+     - rocm-smi 3.0.0
+
+   - **Intel GPUs**
+
+     Install Intel Compute Runtime or relevant OpenCL drivers.
+     Note: Intel GPU support is currently in testing phase with limited functionality.
+
+## Quick Start
+
+Launch AITop with the following command:
+
+```bash
+# Start AITop with default settings
+aitop
+
+# Enable debug logging
+aitop --debug
+
+# Customize performance parameters
+aitop --update-interval 0.8 --process-interval 3.0 --gpu-interval 1.5
+
+# Select a specific theme
+aitop --theme nord
+```
+
+## Usage
+
+### Command Line Options
+
+AITop now features several command-line options to customize behavior:
+
+```bash
+# Get help on all options
+aitop --help
+
+# Basic Options
+--debug                Enable debug logging
+--log-file FILE        Path to log file (default: aitop.log)
+
+# Performance Options
+--update-interval N    Base data update interval in seconds (default: 0.5)
+--process-interval N   Process collection interval in seconds (default: 2.0)
+--gpu-interval N       Full GPU info interval in seconds (default: 1.0)
+--render-interval N    UI render interval in seconds (default: 0.2)
+--workers N            Number of worker threads (default: 3)
+
+# Display Options
+--theme THEME          Override theme selection (e.g., monokai_pro, nord)
+--no-adaptive-timing   Disable adaptive timing based on system load
+```
+
+### Theme Configuration
+
+AITop includes an enhanced theme system that automatically adapts to your terminal environment:
+
+- **Intelligent Detection**: Automatically selects the optimal theme based on:
+  - Terminal type detection (VSCode, iTerm, Terminator, etc.)
+  - Color support capabilities (true color, 256 colors, or basic)
+  - Background color detection
+
+- **Manual Override**: Set preferred theme using environment variable:
+  ```bash
+  # Enable 256-color support (required for some terminals)
+  export TERM=xterm-256color
+  
+  # Set theme before running aitop
+  export AITOP_THEME=default
+  aitop
+  ```
+
+- **Available Themes**:
+  - `default`: Standard theme based on htop colors
+  - `monokai_pro`: Modern dark theme with vibrant, carefully balanced colors
+  - `nord`: Arctic-inspired color palette optimized for eye comfort
+  - `solarized_dark`: Scientifically designed for optimal readability
+  - `material_ocean`: Modern theme based on Material Design principles
+  - `stealth_steel`: Sleek gray-based palette with subtle color accents
+  - `forest_sanctuary`: Nature-inspired palette with rich greens and earthen tones
+  - `cyberpunk_neon`: Futuristic neon color scheme with vibrant accents
+
+Each theme is carefully crafted for specific use cases:
+- `monokai_pro`: Features a vibrant yet balanced color scheme with distinctive progress bars (▰▱)
+- `nord`: Offers a cool, arctic-inspired palette that reduces eye strain with elegant progress bars (━─)
+- `solarized_dark`: Uses scientifically optimized colors for maximum readability with classic block indicators (■□)
+- `material_ocean`: Implements Material Design principles with circular progress indicators (●○)
+- `stealth_steel`: Provides a professional, minimalist look with half-block indicators (▀░)
+- `forest_sanctuary`: Delivers a natural, calming experience with bold block indicators (▮▯)
+- `cyberpunk_neon`: Features a high-contrast neon palette with classic block indicators (█░)
+
+### Color Support
+
+AITop now features advanced color management:
+- Automatic detection of terminal color capabilities
+- True color support (16 million colors) for modern terminals
+- Intelligent fallback for terminals with limited color support
+- Color caching for optimal performance
+- Smooth color approximation when exact colors aren't available
+
+### Performance Features
+
+AITop v0.5.0 includes several advanced performance features:
+
+- **Adaptive Timing**: Automatically adjusts update frequency based on system load
+- **Staggered Collection**: Different metrics are collected at optimized intervals:
+  - Fast metrics (CPU, memory usage) are updated more frequently
+  - Expensive metrics (full GPU details, process scanning) are updated less frequently
+- **Smart Caching**: Cache system with TTL (Time-To-Live) for efficient data retrieval
+- **Error Resilience**: Exponential backoff on errors to prevent resource exhaustion
+- **Optimized Rendering**: Differential screen updates to minimize CPU usage
+
+### Debug Mode
+
+AITop supports an enhanced debug mode that can be enabled with the `--debug` flag. When enabled:
+- Creates a detailed log file (default: `aitop.log` in the current directory)
+- Logs comprehensive debug information including:
+  - Application initialization and shutdown sequences
+  - Data collection events and timing
+  - UI rendering updates and performance metrics
+  - Detailed error traces with context
+  - System state changes and GPU detection
+  - Theme detection and color management
+  - Collection statistics for performance analysis
+- Useful for troubleshooting issues or monitoring performance
+
+
+AITop provides an interactive interface with the following controls:
+
+- **Navigation**
+  - **Left/Right Arrow Keys**: Switch between tabs
+  - **Up/Down Arrow Keys**: Scroll through the process list
+
+- **Process Sorting**
+  - **'c'**: Sort by CPU usage
+  - **'m'**: Sort by memory usage
+  - **'h'**: Toggle sort order (ascending/descending)
+
+- **General**
+  - **'q'**: Quit application
+
+### Interface Tabs
+
+- **Overview**: System-wide metrics including CPU, memory, and overall GPU usage.
+- **AI Processes**: Lists detected AI/ML processes with detailed metrics.
+- **GPU**: Detailed GPU metrics per vendor, including utilization, temperature, and power consumption.
+- **Memory**: System memory statistics and usage.
+- **CPU**: CPU usage and performance statistics.
+
+For detailed project structure and component documentation, see [STRUCTURE.md](STRUCTURE.md).
+
+## Development
+
+### Setting Up the Development Environment
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://gitlab.com/CochainComplex/aitop.git
+   cd aitop
+   ```
+
+2. **Create and Activate Virtual Environment**
+
+   ```bash
+   pyenv virtualenv 3.10.0 aitop
+   pyenv activate aitop
+   ```
+
+3. **Install Development Dependencies**
+
+   ```bash
+   pip install -e ".[dev]"
+   ```
+
+## Requirements
+
+- **Python 3.9+**
+- **NVIDIA Drivers** (for NVIDIA GPU support)
+- **ROCm** (for AMD GPU support)
+- **Intel Compute Runtime** (for Intel GPU support)
+
+## Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1. **Fork the Repository**
+2. **Create Your Feature Branch**
+
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+
+3. **Commit Your Changes**
+
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+
+4. **Push to the Branch**
+
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+
+5. **Open a Pull Request**
+
+   Discuss your changes and get feedback before merging.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Alexander Warth
+
+## Legal Disclaimer
+
+AITop is an independent project and is not affiliated with, endorsed by, or sponsored by NVIDIA Corporation, Advanced Micro Devices, Inc. (AMD), or Intel Corporation. All product names, logos, brands, trademarks, and registered trademarks mentioned in this project are the property of their respective owners.
+
+- NVIDIA®, CUDA®, and NVML™ are trademarks and/or registered trademarks of NVIDIA Corporation.
+- AMD® and ROCm™ are trademarks and/or registered trademarks of Advanced Micro Devices, Inc.
+- Intel® is a trademark and/or registered trademark of Intel Corporation.
+
+The use of these trademarks is for identification purposes only and does not imply any endorsement by the trademark holders. AITop provides monitoring capabilities for GPU hardware but makes no guarantees about the accuracy, reliability, or completeness of the information provided. Use at your own risk.
+
+## Acknowledgments
+
+Special thanks to:
+- The open-source community
+- All contributors and users of AITop
