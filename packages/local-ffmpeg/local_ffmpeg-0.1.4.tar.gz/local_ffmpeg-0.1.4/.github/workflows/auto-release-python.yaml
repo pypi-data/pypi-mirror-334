@@ -1,0 +1,158 @@
+name: auto-release
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  
+jobs:
+  release-uv-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v4
+   
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Build source
+        run: uv build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - release-uv-build
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+        
+      - name: Get version from pyproject.toml
+        id: get_version
+        run: |
+          VERSION=$(grep -oP '^version = "\K[^"]+' pyproject.toml)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          
+          # Extract major.minor.patch and pre-release tag
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH_FULL=$(echo $VERSION | cut -d. -f3-)
+          PATCH=$(echo $PATCH_FULL | grep -oP '^\d+')
+          
+          # Get pre-release tag if exists
+          if [[ "$PATCH_FULL" =~ .*-.* ]]; then
+            PRERELEASE=$(echo $PATCH_FULL | grep -oP '\-.*$')
+          else
+            PRERELEASE=""
+          fi
+          
+          # Create clean version tag
+          VERSION_TAG="v$MAJOR.$MINOR.$PATCH$PRERELEASE"
+          VERSION_TAG=$(echo "$VERSION_TAG" | sed 's/\.$//')
+          echo "VERSION_TAG=$VERSION_TAG" >> $GITHUB_ENV
+          echo "PRERELEASE=$PRERELEASE" >> $GITHUB_ENV
+          
+      - name: Check if new version
+        id: check_version
+        run: |
+          LATEST_TAG=$(gh release list --limit 1 | awk '{print $1}')
+          
+          if [ -z "$LATEST_TAG" ] || 
+             [ "$VERSION" != "${LATEST_TAG#v}" ] && 
+             [ "$(printf '%s\n%s\n' "${LATEST_TAG#v}" "$VERSION" | sort -V | tail -n1)" = "$VERSION" ]; then
+            echo "is_higher=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_higher=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Extract release notes
+        id: extract_changelog
+        if: steps.check_version.outputs.is_higher == 'true'
+        run: |
+          VERSION_TAG="${{ env.VERSION_TAG }}"
+          
+          if [ -f "CHANGELOG.md" ]; then
+            # Try with and without v prefix
+            START_LINE=$(grep -n "^# $VERSION_TAG" CHANGELOG.md | head -n 1 | cut -d: -f1)
+            
+            if [ -z "$START_LINE" ]; then
+              VERSION_NO_V="${VERSION_TAG#v}"
+              START_LINE=$(grep -n "^# v$VERSION_NO_V" CHANGELOG.md | head -n 1 | cut -d: -f1)
+            fi
+            
+            if [ -n "$START_LINE" ]; then
+              # Find next section and extract content
+              NEXT_SECTION=$(tail -n +$((START_LINE + 1)) CHANGELOG.md | grep -n "^# " | head -n 1 | cut -d: -f1)
+              
+              if [ -z "$NEXT_SECTION" ]; then
+                CHANGELOG_CONTENT=$(tail -n +$((START_LINE + 1)) CHANGELOG.md)
+              else
+                CHANGELOG_CONTENT=$(tail -n +$((START_LINE + 1)) CHANGELOG.md | head -n $((NEXT_SECTION - 1)))
+              fi
+              
+              echo "$CHANGELOG_CONTENT" > changelog_content.md
+            else
+              echo "No changelog entry found for version $VERSION_TAG" > changelog_content.md
+            fi
+          else
+            echo "CHANGELOG.md file not found" > changelog_content.md
+          fi
+
+      - name: Retrieve release distributions    
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+
+      - name: Create release
+        if: steps.check_version.outputs.is_higher == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.VERSION_TAG }}
+          name: ${{ env.VERSION_TAG }}
+          body_path: changelog_content.md
+          draft: false
+          prerelease: ${{ contains(env.PRERELEASE, 'alpha') || contains(env.PRERELEASE, 'beta') }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            ./dist/*
+
+      - name: Remove existing latest tag and release
+        if: steps.check_version.outputs.is_higher == 'true'
+        run: |
+          if gh release view latest &>/dev/null; then
+            echo "Deleting existing latest release..."
+            gh release delete latest --yes
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create latest release
+        if: steps.check_version.outputs.is_higher == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: latest
+          body: "latest release ${{ env.VERSION_TAG }}"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            ./dist/*

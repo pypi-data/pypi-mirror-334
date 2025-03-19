@@ -1,0 +1,48 @@
+[project]
+name = "local-ffmpeg"
+version = "0.1.4"
+description = "Python utility that automatically downloads and installs FFmpeg binaries locally for your project"
+readme = "README.md"
+authors = [
+]
+requires-python = ">=3.6"
+dependencies = [
+    "requests>=2.25.0",
+    "tqdm>=4.50.0",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/atsuiyo/local-ffmpeg"
+"Bug Tracker" = "https://github.com/atsuiyo/local-ffmpeg/issues"
+
+[project.scripts]
+local-ffmpeg = "local_ffmpeg.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.1",
+    "pytest-mock>=3.6.1",
+]
