@@ -1,0 +1,12 @@
+numpy
+joblib
+pandas
+pyarrow
+
+[client]
+apscheduler
+rich
+prompt_toolkit
+
+[source]
+requests
