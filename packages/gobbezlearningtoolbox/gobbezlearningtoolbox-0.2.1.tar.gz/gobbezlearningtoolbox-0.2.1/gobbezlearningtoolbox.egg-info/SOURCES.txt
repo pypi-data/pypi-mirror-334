@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+gobbezlearningtoolbox/__init__.py
+gobbezlearningtoolbox/core.py
+gobbezlearningtoolbox/datascience.py
+gobbezlearningtoolbox/deeplearning.py
+gobbezlearningtoolbox/listall.py
+gobbezlearningtoolbox/print_fonts.py
+gobbezlearningtoolbox.egg-info/PKG-INFO
+gobbezlearningtoolbox.egg-info/SOURCES.txt
+gobbezlearningtoolbox.egg-info/dependency_links.txt
+gobbezlearningtoolbox.egg-info/top_level.txt
+tests/test_core.py
