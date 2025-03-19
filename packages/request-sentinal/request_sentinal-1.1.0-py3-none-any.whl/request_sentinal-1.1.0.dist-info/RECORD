@@ -1,0 +1,17 @@
+request_sentinal/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+request_sentinal/exceptions.py,sha256=tY8ooyYB18_0oavWFxboWf_AjmbYSpE5OFWDexV7pp4,403
+request_sentinal/logger.py,sha256=G9izc8EdcfwMuiAmz9M0AynOvNXKVdsKby6HXBC5dS4,1283
+request_sentinal/processor.py,sha256=AxJzlz-bMZE1QCGpUXw17Q0EEn8cqinS8yd7lr2ITo8,5254
+request_sentinal/proxy_manager.py,sha256=hnA6P8rKXraBMo245TMTq-sAOngkdwxDglzAFE1oPNI,364
+request_sentinal/robots_checker.py,sha256=uuDcROg1-cPB67iXBjRODHx_2GZGo5HgrYD0rJtMQ54,920
+request_sentinal/utils.py,sha256=ZmF_9Zk8ugvCdHMGxTSDjkj39vTivl_UE5b7GdO7hW0,1372
+request_sentinal/algorithms/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+request_sentinal/algorithms/fixed_window.py,sha256=-TCbSiYyIdl9EcsQyW2p5SfR3cR9XAV4PkhIynGlYIo,659
+request_sentinal/algorithms/leaky_bucket.py,sha256=hkUnz_uYSiRPYumN_Jm-YtBXviQH2MhzV3I0xuezNJQ,699
+request_sentinal/algorithms/sliding_window.py,sha256=BwXFRGBOuERi1V_vT3GTOAI9qWPaFarr-sKarZZyV-I,670
+request_sentinal/algorithms/token_bucket.py,sha256=C3K6QaU4o6-UerPabjjSdBXaTVPs1Z6Jj-2Bb6zZS-4,720
+request_sentinal-1.1.0.dist-info/LICENSE,sha256=81YoTjRbYTQGpyMttcwW3ACVhds6FrTIxAAm1GOVjFQ,1069
+request_sentinal-1.1.0.dist-info/METADATA,sha256=LXTevLxyUGTIBuqYqUTnrKpMvoeIsuSSlyTEWK_gwdk,468
+request_sentinal-1.1.0.dist-info/WHEEL,sha256=yQN5g4mg4AybRjkgi-9yy4iQEFibGQmlz78Pik5Or-A,92
+request_sentinal-1.1.0.dist-info/top_level.txt,sha256=91r_ycs8BJNb7xlnEQaLZ8zkXVfvZDJhA3wRta0lIDc,17
+request_sentinal-1.1.0.dist-info/RECORD,,
