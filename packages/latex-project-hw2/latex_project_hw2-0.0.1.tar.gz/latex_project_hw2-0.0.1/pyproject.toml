@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "latex_project_hw2"
+version = "0.0.1"
+description = "Пакет для генерации LaTeX-кода"
+readme = "README.md"
+authors = [{name = "Алексей Роженко", email = "alexey.rozhenko89@mail.ru"}]
+license = {file = "LICENSE"}
+dependencies = [] 
+requires-python = ">=3.11"
+
+[tool.setuptools]
+packages = ["latex_project_hw2"]
