@@ -1,0 +1,66 @@
+Metadata-Version: 2.2
+Name: fmeta
+Version: 0.1.1
+Summary: A small package to scan directories and list file metadata in a tabular format.
+Author: Benevant Mathew
+Author-email: benevantmathewv@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Filesystems
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# fmeta - File Metadata Scanner
+
+`fmeta` is a lightweight tool to scan directories and list file metadata in a tabular format.  
+It supports sorting, GUI mode, and command-line usage.
+
+## Features
+- Scan a folder and list file metadata (size, creation date, modification date, etc.).
+- Sort files based on different metadata fields.
+- Supports both **CLI mode** and **GUI mode** for interactive browsing.
+
+## Installation
+Install `fmeta` using pip:
+```sh
+pip install fmeta
+```
+
+## Example Usage  
+### Scan a folder and display file details in a table:  
+```sh
+fmeta /path/to/directory
+```
+
+### Sort files by creation date in CLI mode:  
+```sh
+fmeta --sort <Column name> /path/to/directory
+```
+
+### Launch GUI for interactive file browsing:  
+```sh
+fmeta
+```
+
+# Changelog
+
+## Version 0.1.1 (Bugfix) - 15-03-2025
+- Removed the requirement for `tkinter` in `setup.py`.
+- Added a detailed description with usage instructions.
+
+## Version 0.1.0 - 15-03-2025
+- The app will list all the files in the input directory with their metadata.
