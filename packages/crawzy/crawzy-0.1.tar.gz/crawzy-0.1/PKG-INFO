@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: crawzy
+Version: 0.1
+Summary: A web scraping tool for crawling through websites and retrieving textual content
+Project-URL: Homepage, https://github.com/nusret35/crawzy
+Project-URL: Issues, https://github.com/nusret35/crawzy/issues
+Author-email: Nusret Ali Kızılaslan <nusretkizilaslan1@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: beautifulsoup4
+Requires-Dist: colorama
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: trafilatura

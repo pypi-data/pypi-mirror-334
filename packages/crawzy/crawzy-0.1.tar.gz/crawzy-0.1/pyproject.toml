@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "crawzy"
+version = "0.1"
+authors = [
+  { name="Nusret Ali Kızılaslan", email="nusretkizilaslan1@gmail.com" },
+]
+description = "A web scraping tool for crawling through websites and retrieving textual content"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "trafilatura",
+    "colorama",
+    "tqdm"
+]
+
+[project.scripts]
+crawzy = "crawzy:main"
+
+[project.urls]
+Homepage = "https://github.com/nusret35/crawzy"
+Issues = "https://github.com/nusret35/crawzy/issues"
