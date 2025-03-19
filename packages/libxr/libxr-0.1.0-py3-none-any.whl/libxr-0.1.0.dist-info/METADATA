@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: libxr
+Version: 0.1.0
+Summary: A Python package for parsing ioc files and generating C++ code.
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Keywords: code generation,embedded systems,automation
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: argparse
