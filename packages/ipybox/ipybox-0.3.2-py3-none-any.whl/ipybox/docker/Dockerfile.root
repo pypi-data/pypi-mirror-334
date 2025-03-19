@@ -1,0 +1,39 @@
+FROM ubuntu:22.04
+
+ENV HOME=/root
+
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip \
+    python3.10-venv \
+    curl \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR ${HOME}
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh \
+    && bash miniconda.sh -b -p ${HOME}/conda \
+    && rm miniconda.sh
+
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=${HOME}/poetry python3 -
+
+ENV PATH="${HOME}/conda/bin:${PATH}"
+ENV PATH="${HOME}/poetry/bin:${PATH}"
+ENV PATH="${HOME}/.local/bin:${PATH}"
+
+COPY environment.yml ${HOME}/
+RUN conda env create -f ${HOME}/environment.yml -n ipybox && conda init bash
+
+COPY pyproject.toml ${HOME}/
+RUN poetry config virtualenvs.create false
+RUN conda run -n ipybox poetry install --only main
+
+COPY server.sh ${HOME}/
+RUN chmod +x ${HOME}/server.sh
+
+COPY ipybox/modinfo.py /app/ipybox/
+
+WORKDIR /app
+
+CMD ["/bin/bash", "-c", "source ${HOME}/conda/etc/profile.d/conda.sh && conda activate ipybox && ${HOME}/server.sh"]
