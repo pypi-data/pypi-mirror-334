@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "midi2hands"
+description = "Training and inference for midi hand assignment."
+dynamic = ["version"]
+authors = [{name = "Oscar Andersson", email = "oscar.966484@gmail.com"}]
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+    "midiutils-python",
+    "numpy==1.26.4",
+    "onnxruntime",
+]
+[tool.setuptools_scm]
+
+[project.urls]
+"Github" = "https://github.com/pianoviz/midi2hands"
+
+[project.optional-dependencies]
+train = [
+    "torch",
+    "joblib==1.4.2",
+    "matplotlib==3.9.0",
+    "scikit-learn==1.5.0",
+    "pandas",
+    "tqdm==4.66.4",
+    "onnx",
+    "mlflow",
+]
+
+[project.scripts]
+"midi2hands" = "midi2hands.main:main"
+
+[tool.ruff]
+select = [
+    "E", # errors
+    "F", # pyflakes
+    "B", # flake8-bugbear
+    "I", # imports
+    "N", # names
+    # "D", # docstrings
+]
+line-length = 150
+indent-width = 2
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true

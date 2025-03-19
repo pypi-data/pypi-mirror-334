@@ -1,0 +1,79 @@
+Metadata-Version: 2.2
+Name: midi2hands
+Version: 0.0.3
+Summary: Training and inference for midi hand assignment.
+Author-email: Oscar Andersson <oscar.966484@gmail.com>
+Project-URL: Github, https://github.com/pianoviz/midi2hands
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: midiutils-python
+Requires-Dist: numpy==1.26.4
+Requires-Dist: onnxruntime
+Provides-Extra: train
+Requires-Dist: torch; extra == "train"
+Requires-Dist: joblib==1.4.2; extra == "train"
+Requires-Dist: matplotlib==3.9.0; extra == "train"
+Requires-Dist: scikit-learn==1.5.0; extra == "train"
+Requires-Dist: pandas; extra == "train"
+Requires-Dist: tqdm==4.66.4; extra == "train"
+Requires-Dist: onnx; extra == "train"
+Requires-Dist: mlflow; extra == "train"
+
+# midi2hands
+
+This project is about training and evaluating deep learning models for the task
+of predicting what hand is supposed to play what note in a piano piece.
+There are two main architectures used in this project:
+
+1.  LSTM
+2.  Transformer
+
+The models can also be trained in two different ways,
+
+1. Generative: Auto-regressive models that predict the next note given the
+   previously predicted notes.
+2. Discriminative: Models that predict the hand of the note given the note.
+
+This is discussed in more detail in the [report](mid2hands.pdf).
+
+This project is integrated in
+[midi2vid](https://github.com/oscaraandersson/midi2vid), a tool that can
+generate videos of piano performances from midi files.
+
+## Installation
+For inference, you can install the package with pip:
+```bash
+pip install midi2hands
+```
+
+For training, you can clone the repository and install the package with pip:
+```bash
+git clone ...
+cd midi2hands
+pip install -e .[train]
+```
+
+## Usage
+
+Here is an example for inference:
+```bash
+midi2hands -i src/midi2hands/data/test/000-Faure_ClaireDeLune_Op46No2.mid
+```
+
+You can also train new models by running train.py. The models can be configured
+from the script. Here is an example:
+```bash
+python src/midi2hands/train.py
+```
+
+## Data
+
+The data is included in the repository. The data comes from the following
+project, [hannds](https://github.com/cemfi/hannds).
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file
+for details.
+
+
