@@ -1,0 +1,18 @@
+[project]
+name = "lambdo"
+version = "0.1.3"
+description = "A CLI tool that enables you to interact with the Lambda Labs APIs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.3",
+    "rich>=13.9.4",
+    "typer>=0.15.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+lambdo = "lambdo.client:main"
