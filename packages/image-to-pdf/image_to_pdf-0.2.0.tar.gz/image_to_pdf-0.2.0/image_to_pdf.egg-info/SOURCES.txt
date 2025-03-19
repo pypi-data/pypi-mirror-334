@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+image_to_pdf/__init__.py
+image_to_pdf/py.typed
+image_to_pdf.egg-info/PKG-INFO
+image_to_pdf.egg-info/SOURCES.txt
+image_to_pdf.egg-info/dependency_links.txt
+image_to_pdf.egg-info/requires.txt
+image_to_pdf.egg-info/top_level.txt
+tests/test_image_to_pdf.py
+tests/data/antartica-3427135_640.jpg
+tests/data/antartica-3427135_640.md
+tests/data/black_text_on_transparent_background.png
+tests/data/orange_text_on_transparent_background.png
+tests/data/white_text_on_transparent_background.png
