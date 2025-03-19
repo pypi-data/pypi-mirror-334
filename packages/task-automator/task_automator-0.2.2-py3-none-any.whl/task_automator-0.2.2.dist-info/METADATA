@@ -1,0 +1,117 @@
+Metadata-Version: 2.3
+Name: task-automator
+Version: 0.2.2
+Summary: Task-Automator is a modern Python framework for building declarative command-line interfaces with nested subcommands, designed for automation workflows and build systems.
+License: BSD-3-Clause
+Author: Martin Urban
+Author-email: martin.urban@studmail.w-hs.de
+Requires-Python: >=3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Homepage, https://github.com/urban233/task-automator
+Project-URL: Repository, https://github.com/urban233/task-automator
+Description-Content-Type: text/markdown
+
+# Task-Automator - Declarative CLI Automation Framework
+[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+### Supported Platforms
+
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+[**Overview**](#overview)
+| [**What is Task-Automator?**](#what-is-task-automator)
+| [**Features**](#features)
+| [**Installation**](#installation)
+| [**Build**](#build)
+| [**Defining Commands**](#defining-commands)
+| [**License**](#license)
+
+> [!IMPORTANT]
+> 📣 **As of March 2025 Task-Automator is still in early development.** 📣
+>
+>
+> Task-Automator is a best-effort open project library. This means that support is not
+> guaranteed and how long the project will be maintained is unknown.
+
+## What is Task-Automator?
+
+> Task-Automator is a modern Python framework for building declarative command-line interfaces<br> 
+> with nested subcommands, designed for automation workflows and build systems.
+
+Task-Automator is implemented in pure Python that enables scripting of more 
+complicated tasks.
+
+
+## Features
+- 🚀 **Declarative Command Tree** - Define CLI structure through simple nested dictionaries
+- 🛠 **Zero Boilerplate** - Focus on business logic, not argument parsing
+- 📚 **Automatic Help Generation** - Built-in help system with hierarchical documentation
+- 🌳 **Hierarchical Commands** - Support for unlimited nested subcommands
+- 🖥 **Cross-Platform** - Works on Windows, Linux, and macOS
+- 📚 **Filesystem & Web utils**: Utility functions for filesystem operations and web
+
+## Installation
+
+You can use pip to install Task-Automator
+```shell
+pip install task-automator
+```
+
+## Build
+
+Task-Automator uses Poetry for its build process. To build the wheel file 
+and source distribution run:
+```shell
+poetry build
+```
+
+## Defining Commands
+
+Create your command structure in a Python module:
+
+```python
+...
+
+
+def setup_dev_env():
+  """Initialize development environment"""
+  print("Installing dependencies...")
+
+
+AUTOMATION_TREE = {
+  "setup-dev-env": {
+    "help": "Initialize development environment",
+    "func": setup_dev_env
+  },
+  "build": {
+    "help": "Build artifacts",
+    "subcommands": {
+      "win-package": {
+        "help": "Create Windows deployment package",
+        "func": build_windows_package
+      },
+      "setup-exe": {
+        "help": "Generate installer executable",
+        "func": create_installer
+      }
+    }
+  }
+}
+
+if __name__ == "__main__":
+  from task_automator import automator
+  automator.Automator(AUTOMATION_TREE).run()
+```
+
+## License
+
+This project is licensed under the BSD-3 License - see the [LICENSE](LICENSE) file for details.
+
