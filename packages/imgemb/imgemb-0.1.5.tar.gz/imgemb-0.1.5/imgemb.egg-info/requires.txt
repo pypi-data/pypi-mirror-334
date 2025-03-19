@@ -1,0 +1,12 @@
+opencv-python>=4.5.0
+numpy>=1.19.0
+matplotlib>=3.3.0
+scikit-learn>=0.24.0
+torch>=2.0.0
+torchvision>=0.15.0
+Pillow>=9.0.0
+
+[dev]
+pytest>=6.0
+black>=21.0
+flake8>=3.9
