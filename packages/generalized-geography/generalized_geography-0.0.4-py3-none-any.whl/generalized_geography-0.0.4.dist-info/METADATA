@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: generalized-geography
+Version: 0.0.4
+Summary: Generalized Geography Game Solver
+Home-page: https://github.com/singrum/generalized-geography
+Author: Hyomin
+Author-email: miamiq0000@gmail.com
+Keywords: generalized geography,word chain,game,graph theory
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: networkx
+Requires-Dist: matplotlib
+
+# Generalized Geography Game Solver
+
+## Install
+
+```console
+$ pip install generalized-geography
+```
+
+## Example
+
+```python
+import generalized_geography as gg
+
+graph = gg.UnlabeledMultiDiGraph()
+graph.add_edges_from([(0,1), (0,1), (1,2), (2,3), (3,0), (1,2), (2,3), (0,2)])
+node_type = gg.complete_classify(graph)
+# node_type = {0: 'W', 1: 'L', 2: 'W', 3: 'L'}
+```
