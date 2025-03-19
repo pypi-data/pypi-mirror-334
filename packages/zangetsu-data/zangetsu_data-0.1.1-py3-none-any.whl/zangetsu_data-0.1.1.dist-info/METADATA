@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: zangetsu-data
+Version: 0.1.1
+Summary: Add your description here
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: dotenv>=0.9.9
+Requires-Dist: google-api-python-client>=2.164.0
+Requires-Dist: google-auth>=2.38.0
+Requires-Dist: google-cloud-bigquery>=3.29.0
+Requires-Dist: google-cloud-bigquery-storage>=2.28.0
+Requires-Dist: jinja2>=3.1.5
+Requires-Dist: openpyxl>=3.1.5
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: psycopg2-binary>=2.9.10
+Requires-Dist: pyarrow>=19.0.1
+Requires-Dist: requests>=2.32.3
+Requires-Dist: sqlalchemy>=2.0.38
+Requires-Dist: sqlalchemy-bigquery>=1.12.1
+Requires-Dist: zangetsu-logger>=0.1.1
+
+# zangetsu-data
+PostgreSQL、BigQuery、Googleスプレッドシートへアクセスし、データを取得することをサポートするライブラリ
