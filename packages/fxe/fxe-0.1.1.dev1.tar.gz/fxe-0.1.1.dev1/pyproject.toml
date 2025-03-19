@@ -1,0 +1,90 @@
+[project]
+name = "fxe"
+dynamic = ["version"]
+description = "finlab extension tool"
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: MacOS",
+]
+readme = "README.md"
+authors = [
+    { name = "JSYEH", email = "juishuyeh@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "finlab[cli]>=1.2.20",
+    "matplotlib>=3.10.1",
+    "plotly>=6.0.0",
+    "ta-lib>=0.6.0",
+]
+
+[project.scripts]
+fxe = "fxe:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.1",
+    "jupyterlab>=4.3.6",
+    "mypy>=1.15.0",
+    "ruff>=0.11.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/juishuyeh/fxe"
+
+
+[tool.ruff]  # https://docs.astral.sh/ruff/settings/#top-level
+line-length = 100
+exclude = ["**/migrations/", "**/manage.py"]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "C408",  # 
+    "W191",  # indentation contains tabs
+]
+
+[tool.mypy]
+warn_return_any = true
+disallow_untyped_calls = true
+exclude = "^(migrations|.*manage\\.py)$"
+allow_redefinition = true
+check_untyped_defs = true
+ignore_missing_imports = true
+incremental = true
+strict_optional = true
+show_traceback = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disable_error_code = "empty-body"
+force_uppercase_builtins = true
+force_union_syntax = true
+plugins = ["mypy_django_plugin.main"]
+
+[tool.hatch.version]
+path = "src/fxe/__init__.py"  # 指定版本號來源文件
