@@ -1,0 +1,102 @@
+name: Lint and test
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.12]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{matrix.python_version}}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install project
+        run: uv sync --group test --group docs
+
+      # Run all checks, even if some fail
+      - name: Ruff linting
+        run: uv run ruff check .
+        if: always()
+
+      - name: Ruff formatting
+        run: uv run ruff format --check .
+        if: always()
+
+      - name: Type checking
+        run: uv run mypy .
+        if: always()
+
+      - name: Code complexity
+        run: uv run xenon --max-absolute B --max-modules A --max-average A plugboard/
+        if: always()
+
+      - name: Tests
+        run: uv run pytest --cov=plugboard --cov-report=xml .
+        if: always()
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: plugboard-dev/plugboard
+
+      - name: Notebook output cleared
+        run: find . -name '*.ipynb' -not -path "./.venv/*" -exec uv run nbstripout --verify {} +
+        if: always()
+
+      - name: Build docs
+        run: uv run mkdocs build --site-dir /tmp/site
+        if: always()
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.12]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{matrix.python_version}}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Build package
+        run: uv build
+        if: always()
+
+      - name: Install from wheel
+        working-directory: ./dist
+        run: pip install *.whl
+
+      - name: Smoke test package
+        working-directory: ./dist
+        run: python -c "from plugboard import library"
