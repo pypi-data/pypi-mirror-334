@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: wetsuite
+Version: 0.2.3
+Summary: A library that helps to explore dutch legal data, and to apply language processing on it
+Home-page: https://github.com/WetSuiteLeiden/wetsuite-core.git
+Author: Wetsuite team
+Author-email: alewijnse.bart+wetsuite@gmail.com
+Project-URL: Project home, https://wetsuite.nl
+Project-URL: API docs, https://wetsuite.knobs-dials.com/apidocs/
+Project-URL: Source code, https://github.com/WetSuiteLeiden/wetsuite-core.git
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)
+Requires-Python: >=3
+License-File: LICENSE
+Requires-Dist: lxml
+Requires-Dist: bs4
+Requires-Dist: msgpack
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+Requires-Dist: numpy>=1.11.1
+Requires-Dist: matplotlib>=1.5.1
+Requires-Dist: ipywidgets
+Requires-Dist: spacy
+Requires-Dist: spacy_fastlang
+Requires-Dist: wordcloud
+Requires-Dist: pillow
+Requires-Dist: PyMuPDF
+Requires-Dist: fasttext-wheel
+Provides-Extra: cpu
+Requires-Dist: torch; extra == "cpu"
+Requires-Dist: torchvision; extra == "cpu"
+Requires-Dist: spacy; extra == "cpu"
+Requires-Dist: easyocr; extra == "cpu"
+Provides-Extra: gpu
+Requires-Dist: torch; extra == "gpu"
+Requires-Dist: torchvision; extra == "gpu"
+Requires-Dist: spacy[cuda-autodetect]; extra == "gpu"
+Requires-Dist: easyocr; extra == "gpu"
+
+A library that helps to explore dutch legal data, and to apply language processing on it. This is the library code, you are probably more interested in some notebooks that use it, at https://github.com/WetSuiteLeiden/example-notebooks or the website that introduces it, http://wetsuite.nl
