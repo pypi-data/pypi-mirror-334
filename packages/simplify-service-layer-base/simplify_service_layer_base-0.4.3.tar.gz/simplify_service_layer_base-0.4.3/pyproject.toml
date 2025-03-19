@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "simplify-service-layer-base"
+description = "simplify service layer for python"
+version = "0.4.3"
+authors = ["jongwoo Yoo <webdeveloper.kr@gmail.com>"]
+license = "ISC License"
+readme = "README.md"
+repository = "https://github.com/simplify-service-layer/python"
+packages = [{ include = "**/*", from = "src", to = "simplify_service_layer_base" }]
+
+[tool.poe.tasks]
+lint = "poetry run black . && poetry run pyright . && poetry run pylint ./src"
+test = "poetry run pytest"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonschema = "^4.23.0"
+
+[tool.poetry.dev-dependencies]
+black = "^24.8.0"
+pylint = "^3.2.7"
+pyright = "^1.1.379"
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
