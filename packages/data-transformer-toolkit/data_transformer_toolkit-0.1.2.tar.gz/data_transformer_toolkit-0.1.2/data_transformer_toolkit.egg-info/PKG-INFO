@@ -1,0 +1,403 @@
+Metadata-Version: 2.2
+Name: data-transformer-toolkit
+Version: 0.1.2
+Summary: A lightweight solution for data transformation operations
+Author: Vitoldas Vilkoicas
+Author-email: vitoldas.vilkoicas@ktu.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: numpy>=1.18.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Data Transformer Toolkit
+
+The Data Transformer Toolkit is designed to provide a unified interface for various data transformation operations commonly used in data processing and analysis workflows. It encapsulates the complexity of different transformation algorithms behind a simple API, allowing users to focus on what transformations they need rather than how to implement them.
+
+## Description
+
+### Functions
+- **Numeric Operations**: Normalization, scaling, clipping, rounding, and outlier replacement
+- **Text Operations**: Text cleaning, pattern extraction/replacement, tokenization, and token joining
+- **DateTime Operations**: Date parsing, formatting, and component extraction
+- **Custom Operations**: Support for registering and using custom transformation functions
+- **Pipeline Creation**: Ability to create reusable transformation pipelines
+
+### Problems Solved
+- Simplifies data cleaning and preprocessing for analysis and machine learning
+- Standardizes transformation operations across different data types
+- Reduces code duplication and boilerplate in data processing pipelines
+- Provides a consistent interface for both simple and complex transformations
+- Enables reuse of transformation sequences across different datasets
+
+### Restrictions
+This component is for educational purposes and may not be suitable for high-volume production environments without further optimization
+
+## Documentation
+
+### Class and Method Descriptions
+- **DataTransformer**: Main component class that provides a unified interface for data transformation operations
+  - `transform(data, operations)`: Apply a sequence of transformation operations to the input data
+  - `register_custom_operation(name, function)`: Register a custom operation function
+  - `get_transformation_history()`: Return the history of applied transformations
+  - `create_pipeline(operations)`: Create a reusable transformation pipeline
+
+- **NumericOperation**: Provides numeric data transformation operations
+  - `normalize(data, method)`: Normalize numeric data using different methods
+  - `scale(data, factor, offset)`: Scale numeric data by a factor and add an offset
+  - `clip(data, min_value, max_value)`: Clip numeric data to specified min and max values
+  - `round_values(data, decimals)`: Round numeric data to specified number of decimal places
+  - `replace_outliers(data, method, threshold, replacement)`: Replace outliers in numeric data
+
+- **TextOperation**: Provides text data transformation operations
+  - `clean_text(data, remove_punctuation, remove_numbers, lowercase, remove_extra_spaces)`: Clean text data
+  - `extract_pattern(data, pattern, group)`: Extract text that matches a regular expression pattern
+  - `replace_pattern(data, pattern, replacement)`: Replace text that matches a regular expression pattern
+  - `tokenize(data, delimiter)`: Split text into tokens
+  - `join_tokens(data, separator)`: Join tokens into a single string
+
+- **DateTimeOperation**: Provides date and time transformation operations
+  - `parse_date(data, format, errors)`: Parse string data into datetime objects
+  - `format_date(data, format)`: Format datetime objects as strings
+  - `extract_component(data, component)`: Extract a component from datetime objects
+
+- **Utils.Helpers**: Utility functions for data transformation
+  - `detect_data_type(data)`: Detect the type of data provided
+  - `convert_to_dataframe(data, column_name)`: Convert various data types to a pandas DataFrame
+  - `parse_csv_data(csv_data, **kwargs)`: Parse CSV string data into a DataFrame
+  - `parse_json_data(json_data)`: Parse JSON string data
+  - `export_to_csv(data)`: Export data to CSV format
+  - `export_to_json(data)`: Export data to JSON format
+  - `summarize_data(data)`: Generate a summary of the data
+
+### API Documentation
+
+#### Core API
+
+The primary API for the component is the `DataTransformer.transform()` method, which takes two arguments:
+- `data`: The input data to transform (DataFrame, array, list, or dict)
+- `operations`: A list of operation specifications, each containing:
+  - `type`: The type of operation ('numeric', 'text', 'datetime', 'custom')
+  - `method`: The method name to call
+  - `params`: Dictionary of parameters for the method
+  - `columns`: (Optional) Columns to apply the transformation to (for DataFrame)
+
+Additional core methods include:
+- `register_custom_operation(name, function)`: Register a custom operation function
+- `get_transformation_history()`: Return the history of applied transformations
+- `create_pipeline(operations)`: Create a reusable transformation pipeline
+
+#### Numeric Operations
+
+#### `normalize`
+Normalize numeric data to a standard range.
+- Parameters:
+  - `method` (str): Normalization method
+    - `'minmax'`: Scale to range [0,1] (default)
+    - `'zscore'`: Standardize to mean=0, std=1
+    - `'robust'`: Scale using median and IQR
+
+#### `scale`
+Scale numeric data by a factor and add an offset.
+- Parameters:
+  - `factor` (float): Multiplication factor (default: 1.0)
+  - `offset` (float): Addition offset (default: 0.0)
+
+#### `clip`
+Clip numeric data to specified min and max values.
+- Parameters:
+  - `min_value` (float): Minimum allowed value (default: None)
+  - `max_value` (float): Maximum allowed value (default: None)
+
+#### `round_values`
+Round numeric data to specified number of decimal places.
+- Parameters:
+  - `decimals` (int): Number of decimal places (default: 0)
+
+#### `replace_outliers`
+Replace outliers in numeric data.
+- Parameters:
+  - `method` (str): Method to detect outliers
+    - `'iqr'`: Interquartile range method (default)
+    - `'zscore'`: Standard deviation method
+  - `threshold` (float): Threshold for outlier detection
+    - For IQR method: values outside Q1-threshold*IQR and Q3+threshold*IQR (default: 1.5)
+    - For Z-score method: values with |z| > threshold (default: 2.0)
+  - `replacement` (str): Replacement strategy
+    - `'median'`: Replace with median of non-outlier values (default)
+    - `'mean'`: Replace with mean of non-outlier values
+    - `'nearest'`: Replace with nearest non-outlier value
+
+**Example - Numeric Transformations:**
+```python
+import pandas as pd
+import numpy as np
+from data_transformer import DataTransformer
+
+# Create sample data
+data = pd.DataFrame({
+    'A': [1, 2, 3, 4, 100],  # Contains an outlier
+    'B': [10, 20, 30, 40, 50]
+})
+
+# Initialize the transformer
+transformer = DataTransformer()
+
+# Define a sequence of operations
+operations = [
+    {
+        'type': 'numeric',
+        'method': 'replace_outliers',
+        'params': {'method': 'zscore', 'threshold': 2.0, 'replacement': 'median'},
+        'columns': ['A']
+    },
+    {
+        'type': 'numeric',
+        'method': 'normalize',
+        'params': {'method': 'minmax'},
+        'columns': ['A', 'B']
+    }
+]
+
+# Apply the transformations
+result = transformer.transform(data, operations)
+
+# Get the transformation history
+for op in transformer.get_transformation_history():
+    print(f"- {op['operation']} applied to {op['columns']} with params {op['parameters']}")
+```
+
+#### Text Operations
+
+#### `clean_text`
+Clean text data by removing unwanted characters.
+- Parameters:
+  - `remove_punctuation` (bool): Whether to remove punctuation (default: True)
+  - `remove_numbers` (bool): Whether to remove numbers (default: False)
+  - `lowercase` (bool): Whether to convert to lowercase (default: True)
+  - `remove_extra_spaces` (bool): Whether to remove extra whitespace (default: True)
+
+#### `extract_pattern`
+Extract text that matches a regular expression pattern.
+- Parameters:
+  - `pattern` (str): Regular expression pattern
+  - `group` (int): Capture group to extract (default: 0, entire match)
+
+#### `replace_pattern`
+Replace text that matches a regular expression pattern.
+- Parameters:
+  - `pattern` (str): Regular expression pattern
+  - `replacement` (str): Replacement text (default: '')
+
+#### `tokenize`
+Split text into tokens.
+- Parameters:
+  - `delimiter` (str): Regular expression pattern for delimiter (default: r'\s+')
+
+#### `join_tokens`
+Join tokens into a single string.
+- Parameters:
+  - `separator` (str): String to use as separator (default: ' ')
+
+**Example - Text Transformations:**
+```python
+import pandas as pd
+from data_transformer import DataTransformer
+
+# Create sample data
+data = pd.DataFrame({
+    'Text': [
+        "Hello, World! 123",
+        "   Data Transformation  456  ",
+        "Python is great for data processing!"
+    ]
+})
+
+# Initialize the transformer
+transformer = DataTransformer()
+
+# Define a sequence of operations
+operations = [
+    {
+        'type': 'text',
+        'method': 'clean_text',
+        'params': {
+            'remove_punctuation': True,
+            'remove_numbers': True,
+            'lowercase': True,
+            'remove_extra_spaces': True
+        },
+        'columns': ['Text']
+    },
+    {
+        'type': 'text',
+        'method': 'tokenize',
+        'params': {},
+        'columns': ['Text']
+    }
+]
+
+# Apply the transformations
+result = transformer.transform(data, operations)
+
+# Join the tokens back
+join_operation = [
+    {
+        'type': 'text',
+        'method': 'join_tokens',
+        'params': {'separator': ' '},
+        'columns': ['Text']
+    }
+]
+
+result = transformer.transform(result, join_operation)
+```
+
+#### DateTime Operations
+
+#### `parse_date`
+Parse string data into datetime objects.
+- Parameters:
+  - `format` (str): Date format string (default: '%Y-%m-%d')
+  - `errors` (str): How to handle errors
+    - `'coerce'`: Invalid parsing becomes NaT (default)
+    - `'raise'`: Raise exception on invalid parsing
+    - `'ignore'`: Return original value on invalid parsing
+
+#### `format_date`
+Format datetime objects as strings.
+- Parameters:
+  - `format` (str): Date format string (default: '%Y-%m-%d')
+
+#### `extract_component`
+Extract a component from datetime objects.
+- Parameters:
+  - `component` (str): Component to extract
+    - `'year'`: Extract year
+    - `'month'`: Extract month
+    - `'day'`: Extract day (default)
+    - `'hour'`: Extract hour
+    - `'minute'`: Extract minute
+    - `'second'`: Extract second
+
+**Example - DateTime Transformations:**
+```python
+import pandas as pd
+from data_transformer import DataTransformer
+
+# Create sample data
+data = pd.DataFrame({
+    'Date': ['2023-01-01', '2023-02-15', '2023-03-30']
+})
+
+# Initialize the transformer
+transformer = DataTransformer()
+
+# Define operations to parse dates and extract components
+operations = [
+    {
+        'type': 'datetime',
+        'method': 'parse_date',
+        'params': {'format': '%Y-%m-%d'},
+        'columns': ['Date']
+    },
+    {
+        'type': 'datetime',
+        'method': 'extract_component',
+        'params': {'component': 'month'},
+        'columns': ['Date']
+    }
+]
+
+# Apply the transformations
+result = transformer.transform(data, operations)
+```
+
+#### Custom Operations
+
+Custom operations can be registered using the `register_custom_operation(name, function)` method. The function should accept the data as its first argument, followed by any additional parameters.
+
+**Example - Custom Operations:**
+```python
+import pandas as pd
+from data_transformer import DataTransformer
+
+# Create sample data
+data = pd.DataFrame({
+    'Value': [1, 2, 3, 4, 5]
+})
+
+# Define a custom operation
+def square_and_add(values, add_value=0):
+    return values ** 2 + add_value
+
+# Initialize the transformer
+transformer = DataTransformer()
+
+# Register the custom operation
+transformer.register_custom_operation('square_and_add', square_and_add)
+
+# Define the operation
+operations = [
+    {
+        'type': 'custom',
+        'method': 'square_and_add',
+        'params': {'add_value': 10},
+        'columns': ['Value']
+    }
+]
+
+# Apply the transformation
+result = transformer.transform(data, operations)
+```
+
+#### Pipeline Creation
+
+**Example - Pipeline Creation:**
+```python
+import pandas as pd
+from data_transformer import DataTransformer
+
+# Initialize the transformer
+transformer = DataTransformer()
+
+# Define a reusable pipeline
+normalization_pipeline = transformer.create_pipeline([
+    {
+        'type': 'numeric',
+        'method': 'replace_outliers',
+        'params': {'method': 'zscore', 'threshold': 2.0},
+        'columns': ['Value']
+    },
+    {
+        'type': 'numeric',
+        'method': 'normalize',
+        'params': {'method': 'minmax'},
+        'columns': ['Value']
+    }
+])
+
+# Create two different datasets
+data1 = pd.DataFrame({'Value': [1, 2, 3, 4, 20]})
+data2 = pd.DataFrame({'Value': [10, 20, 30, 40, 200]})
+
+# Apply the same pipeline to both datasets
+result1 = normalization_pipeline(data1)
+result2 = normalization_pipeline(data2)
+```
+
+
+See the `examples` directory for detailed usage examples:
+- `basic_usage.py`: Basic examples of using the component
+- `advanced_usage.py`: Advanced examples including data cleaning, time series, and feature engineering
