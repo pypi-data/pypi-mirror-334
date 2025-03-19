@@ -1,0 +1,9 @@
+graft data
+graft po
+graft src
+graft tests
+
+include LICENSE
+include README.md
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib
