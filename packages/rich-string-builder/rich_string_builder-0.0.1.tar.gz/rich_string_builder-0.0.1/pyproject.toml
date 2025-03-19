@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools~=70.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rich-string-builder"
+version = "0.0.1"
+description = "Text preprocessor for building strings for the rich library"
+readme = "README.md"
+authors = [
+    {name = "BD Himes", email = "benjamindhimes@gmail.com"}
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "rich",
+    "pytest"
+]
+
+[project.urls]
+# more details can be found here
+homepage = "https://github.com/thewhaleking/rich-string-builder"
+Repository = "https://github.com/thewhaleking/rich-string-builder"
+
+[tool.flit.metadata]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: General"
+]
+
+[tool.setuptools]
+package-dir = {"rich_string_builder" = "rich_string_builder"}
