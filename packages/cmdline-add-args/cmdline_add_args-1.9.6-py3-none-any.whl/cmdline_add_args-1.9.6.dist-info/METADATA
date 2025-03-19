@@ -1,0 +1,32 @@
+Metadata-Version: 2.2
+Name: cmdline-add-args
+Version: 1.9.6
+Summary: Pytest plugin for custom argument handling and Allure reporting. This plugin allows you to add arguments before running a test.
+Author-email: Yevhen Halitsyn <galitsyn.evgeniy955@gmail.com>
+License: MIT
+Description-Content-Type: text/markdown
+
+# cmdline-add-args
+
+Pytest plugin for handling and adding command line arguments
+
+This plugin allows you to add custom arguments before running a test and generate Allure reports. It provides a flexible
+way to inject arguments into Pytest and control the reporting process with Allure.
+
+## Features
+
+- Handling custom arguments
+- Generating Allure reports
+- Easy integration with Pytest
+
+## Usage
+
+- You need to create a config folder at the root of your project
+  - In this folder, create an env.py file in which the BROWSER and CREATE_ALLURE_REPORT variables will be
+    specified
+    e.g:
+    - BROWSER = get("BROWSER", "chrome")
+    - CREATE_ALLURE_REPORT = get('CREATE_ALLURE_REPORT', True)
+- If you are going to run tests using GitHub actions, you need to specify the name of your project in workflow:
+  - env:
+    - PROJECT_NAME: project_name
