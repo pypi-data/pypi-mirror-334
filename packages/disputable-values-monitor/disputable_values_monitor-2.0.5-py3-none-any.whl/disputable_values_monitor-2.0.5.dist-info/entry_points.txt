@@ -1,0 +1,4 @@
+[console_scripts]
+cli=disputable_values_monitor.cli:main
+data=disputable_values_monitor.data:main
+
