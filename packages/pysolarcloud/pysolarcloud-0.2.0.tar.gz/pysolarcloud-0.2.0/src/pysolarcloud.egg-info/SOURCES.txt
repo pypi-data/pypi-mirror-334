@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/pysolarcloud/__init__.py
+src/pysolarcloud/plants.py
+src/pysolarcloud.egg-info/PKG-INFO
+src/pysolarcloud.egg-info/SOURCES.txt
+src/pysolarcloud.egg-info/dependency_links.txt
+src/pysolarcloud.egg-info/requires.txt
+src/pysolarcloud.egg-info/top_level.txt
