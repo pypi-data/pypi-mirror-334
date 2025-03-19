@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "restbook"
+version = "0.3.0"
+description = "simple rest api for testing"
+authors = ["Shalev Avhar <shalev1994avhar@gmail.com>"]
+packages = [
+    { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1.8"
+pyyaml = "^6.0.2"
+requests = "^2.31.0"
+aiohttp = "^3.9.3"
+pydantic = "^2.10.6"
+jq = "^1.8.0"
+jinja2 = "^3.1.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+types-pyyaml = "^6.0.12.20241230"
+types-requests = "^2.32.0.20250306"
+responses = "^0.25.0"
+pytest-asyncio = "^0.25.3"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+restbook = "src.main:main"
