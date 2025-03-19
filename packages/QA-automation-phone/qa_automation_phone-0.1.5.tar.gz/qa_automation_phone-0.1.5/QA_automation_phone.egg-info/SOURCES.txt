@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+QA_automation_phone/__init__.py
+QA_automation_phone/config.py
+QA_automation_phone/coreapp.py
+QA_automation_phone/identify_image.py
+QA_automation_phone/identify_letter.py
+QA_automation_phone/keyevent.py
+QA_automation_phone/script.py
+QA_automation_phone/setting.py
+QA_automation_phone.egg-info/PKG-INFO
+QA_automation_phone.egg-info/SOURCES.txt
+QA_automation_phone.egg-info/dependency_links.txt
+QA_automation_phone.egg-info/requires.txt
+QA_automation_phone.egg-info/top_level.txt
