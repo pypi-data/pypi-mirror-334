@@ -1,0 +1,103 @@
+[project]
+name = "odfdo"
+version = "3.13.8"
+description = "Python library for OpenDocument Format"
+license = "Apache-2.0"
+readme = "README.md"
+authors = [{ name = "Jérôme Dumonteil", email = "jerome.dumonteil@gmail.com" }]
+keywords = ["python", "library", "ODF", "OpenDocument"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.9, <4"
+dependencies = [
+  "lxml >=4.8.0, <5; python_version == '3.9'",
+  "lxml >=4.8.0, <5.1.1; python_version == '3.10'",
+  "lxml >=4.9.4, <6; python_version >= '3.11' and python_version < '3.13'",
+  "lxml >=5.3.0, <6; python_version >= '3.13'",
+]
+
+[project.urls]
+homepage = "https://github.com/jdum/odfdo"
+repository = "https://github.com/jdum/odfdo"
+changelog = "https://github.com/jdum/odfdo/blob/master/CHANGES.md"
+
+[project.scripts]
+odfdo-diff = "odfdo.scripts.diff:main"
+odfdo-folder = 'odfdo.scripts.folder:main'
+odfdo-highlight = 'odfdo.scripts.highlight:main'
+odfdo-show = 'odfdo.scripts.show:main'
+odfdo-styles = 'odfdo.scripts.styles:main'
+odfdo-replace = 'odfdo.scripts.replace:main'
+odfdo-headers = 'odfdo.scripts.headers:main'
+odfdo-table-shrink = 'odfdo.scripts.table_shrink:main'
+odfdo-userfield = 'odfdo.scripts.userfield:main'
+odfdo-markdown = 'odfdo.scripts.to_markdown:main'
+
+[tool.poetry.group.dev.dependencies]
+poetry = ">=2.0"
+pytest = ">=8.0"
+tox = ">=4"
+Pillow = ">=11.0.0"
+lxml-stubs = "*"
+ruff = ">=0.11.0"
+isort = ">=6.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+exclude = [".venv"]
+# Same as Black.
+line-length = 88
+indent-width = 4
+# Assume Python 3.9
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B"]
+
+ignore = [
+  # Use specific rule codes when ignoring type issues
+  "PGH003",
+  # Using `lxml` to parse untrusted data is known to be vulnerable to XML attacks
+  #"S320",
+  # Convert to `datetime.UTC` alias
+  "UP017",
+  # import *` used; unable to detect undefined names
+  "F403",
+  "E402",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/test_*" = ["S101", "RUF005", "B007"]
+"recipes/*" = ["S101"]
+"recipes/accessing_a_single_element.py" = ["RUF001"]
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["odfdo"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
