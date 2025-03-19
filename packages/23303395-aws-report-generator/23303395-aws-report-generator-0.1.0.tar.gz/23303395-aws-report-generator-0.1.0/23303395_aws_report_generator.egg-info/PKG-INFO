@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: 23303395-aws-report-generator
+Version: 0.1.0
+Summary: A library to fetch AWS data, generate Excel reports, and upload them to S3.
+Home-page: UNKNOWN
+Author: 23303395 National College of Ireland
+Author-email: rohit.korlahalli21@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# AWS Report Generator
+
+A Python library to fetch AWS EC2, S3, and IAM data, generate Excel reports, and upload them to an S3 bucket.
+
+## Installation
+
+```sh
+pip3 install 23303395-aws-report-generator
+
