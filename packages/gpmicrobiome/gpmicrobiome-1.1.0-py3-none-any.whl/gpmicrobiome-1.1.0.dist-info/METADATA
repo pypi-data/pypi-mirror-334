@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: gpmicrobiome
+Version: 1.1.0
+Summary: Temporal probabilistic modeling of bacterial compositions derived from 16S rRNA sequencing
+Home-page: https://github.com/tare/GPMicrobiome
+License: MIT
+Author: Tarmo Äijö
+Author-email: tarmo.aijo@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Provides-Extra: examples
+Requires-Dist: ipywidgets (>=8.1) ; extra == "examples"
+Requires-Dist: jax (>=0.4.30)
+Requires-Dist: jaxlib (>=0.4.30)
+Requires-Dist: jupyterlab (>=4) ; extra == "examples"
+Requires-Dist: matplotlib (>=3.8) ; extra == "examples"
+Requires-Dist: numpyro (>=0.15)
+Requires-Dist: pandas (>=2.2.3)
+Requires-Dist: scipy (>=1.15)
+Project-URL: Bug Tracker, https://github.com/tare/GPMicrobiome/issues
+Project-URL: Repository, https://github.com/tare/GPMicrobiome
+Description-Content-Type: text/markdown
+
+# GPMicrobiome
+
+Temporal probabilistic modeling of bacterial compositions derived from 16S rRNA sequencing.
+
+## Installation
+
+### PyPI
+
+```console
+$ pip install gpmicrobiome
+```
+
+### GitHub
+
+Install the version from the main branch as follows
+
+```console
+$ pip install git+https://github.com/tare/GPMicrobiome.git
+```
+
+## Usage
+
+Please see [this](examples/basic_usage.ipynb) tutorial.
+
