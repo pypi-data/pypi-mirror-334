@@ -1,0 +1,20 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="dj-image-uploader-widget",
+    version="0.2.0",
+    packages=find_packages(),
+    include_package_data=True,
+    install_requires=["Django>=3.2", "oss2>=2.15.0"],
+    description="Django OSS Image Upload Widget with Customizable Configuration",
+    long_description=open("README.md", "r", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/ren000thomas/dj-image-uploader-widget",
+    author="RenThomas",
+    author_email="ren000thomas@gmail.com",
+    classifiers=[
+        "Framework :: Django",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+    ],
+)
