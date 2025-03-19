@@ -1,0 +1,38 @@
+Metadata-Version: 2.2
+Name: icad_tone_detection
+Version: 2.3
+Summary: A Python library for extracting scanner radio tones from scanner audio.
+Author-email: TheGreatCodeholio <ian@icarey.net>
+Project-URL: Homepage, https://github.com/thegreatcodeholio/icad_tone_detection
+Project-URL: Issues, https://github.com/thegreatcodeholio/icad_tone_detection/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.26.4
+Requires-Dist: requests>=2.31.0
+Requires-Dist: pydub>=0.25.1
+Requires-Dist: scipy>=1.12.0
+
+# icad_tone_detection
+Python Library For Scanner Tone Detection
+
+## Requirements:
+ffmpeg
+
+## Installation:
+`pip install icad_tone_detection`
+
+## Usage:
+- File path can be URL or file path.
+
+```python
+from icad_tone_detection import tone_detect
+
+detect_result = tone_detect('/path/to/file.mp3')
+
+print(
+    f"Two Tone: {detect_result.two_tone_result}\nLong Tone: {detect_result.two_tone_result.long_tone_result}\nHigh Low: {detect_result.hi_low_result}")
+```
