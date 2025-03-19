@@ -1,0 +1,3 @@
+global = {
+  region = "North Europe"
+}

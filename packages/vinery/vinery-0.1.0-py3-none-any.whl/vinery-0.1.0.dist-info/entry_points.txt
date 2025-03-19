@@ -1,0 +1,3 @@
+[console_scripts]
+vine=vinery.cli.cli:cli
+
