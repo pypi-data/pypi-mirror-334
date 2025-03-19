@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: janus321
+Version: 1.0.0
+Summary: A package to build and manage the Janus Docker image with FastAPI integration, with InferenceManager.py as the entry point
+Author: John codes
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: docker
+
