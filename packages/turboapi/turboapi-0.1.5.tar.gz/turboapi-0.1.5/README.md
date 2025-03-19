@@ -1,0 +1,694 @@
+<div align="center">
+
+<img src="benchmarks/social/logo.png" alt="TurboAPI Logo" width="300"/>
+
+# TurboAPI
+
+**The high-performance Python web framework with FastAPI-compatible syntax**
+
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
+
+## What is TurboAPI?
+
+**TurboAPI** is a lightning-fast ASGI web framework designed for speed without sacrificing developer experience. It combines:
+
+- **FastAPI-compatible syntax** - Familiar API with minimal learning curve
+- **Starlette foundation** - Robust, battle-tested ASGI implementation
+- **Satya validation** - Ultra-efficient data validation (30x faster than Pydantic)
+
+If you like FastAPI but need better performance, TurboAPI is the framework you've been waiting for.
+
+## 🎯 Why Choose TurboAPI?
+
+- **You need better performance** - FastAPI's tight coupling with Pydantic creates a performance bottleneck
+- **You love the FastAPI syntax** - TurboAPI preserves the developer-friendly API you already know
+- **You want modern features** - All the goodies: dependency injection, auto docs, type hints, etc.
+- **You value simplicity** - Drop-in replacement with minimal learning curve
+
+## ⚡ Performance Highlights
+
+TurboAPI outperforms FastAPI by a wide margin in both validation speed and HTTP request handling:
+
+### 🚀 Validation Performance
+
+![Performance Comparison](benchmarks/social/tatsat_modern_design.png)
+
+**TurboAPI's validation engine is 31.3x faster than FastAPI + Pydantic**
+
+### 🔥 HTTP Performance
+
+- **2.8x more requests per second** - Handle more traffic with the same hardware
+- **66% lower latency** - More responsive applications
+
+*[Full benchmark details](/benchmarks)*
+
+## 🌟 Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🔍 **FastAPI-compatible API** | Everything you love about FastAPI's interface |
+| ⚡ **30x faster validation** | Satya validation engine outperforms Pydantic |
+| 📘 **Automatic API docs** | Swagger UI and ReDoc integration |
+| 💉 **Dependency injection** | Clean, modular code with dependency management |
+| 🔄 **WebSockets** | Real-time bi-directional communication |
+| 🔒 **Security utilities** | OAuth2, JWT authentication, etc. |
+| 🧩 **API Router** | Organize routes with prefixes and tags |
+| 🔄 **Background tasks** | Efficient asynchronous task processing |
+
+
+
+## ⚙️ Installation
+
+```bash
+# From PyPI
+pip install tatsat
+
+# Installs all dependencies including Satya
+```
+
+## 🚀 Quick Start
+
+```python
+from turboapi import TurboAPI
+from satya import Model, Field
+from typing import List, Optional
+
+app = TurboAPI(title="TurboAPI Demo")
+
+# Define models with Satya (30x faster than Pydantic)
+class Item(Model):
+    name: str = Field()
+    price: float = Field(gt=0)
+    tags: List[str] = Field(default=[])
+    description: Optional[str] = Field(required=False)
+
+# API with typed parameters - just like FastAPI
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Optional[str] = None):
+    return {"item_id": item_id, "q": q}
+
+@app.post("/items/")
+def create_item(item: Item):
+    return item.dict()
+
+# Run the application with Uvicorn
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+## 💪 Advanced Example
+
+<details>
+<summary>Click to expand for a comprehensive example with advanced features</summary>
+
+```python
+"""
+Advanced TurboAPI application example.
+
+This example demonstrates more advanced features of TurboAPI:
+- Complex model validation with nested satya models
+- API Routers for route organization
+- Middleware usage
+- Authentication with dependencies
+- Advanced request/response handling
+- Exception handling
+"""
+
+import sys
+import os
+import time
+from typing import List, Optional, Dict, Any
+from datetime import datetime
+
+# Add the parent directory to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Import tatsat
+from tatsat import (
+    TurboAPI, APIRouter, Depends, HTTPException, 
+    JSONResponse, Response, Request,
+    Body, Query, Path, Header, Cookie
+)
+from satya import Model, Field
+
+# Create a TurboAPI application
+app = TurboAPI(
+    title="TurboAPI Advanced Example",
+    description="A more complex API showing advanced TurboAPI features with satya validation",
+    version="0.1.0",
+)
+
+# Define satya models with complex validation
+class Location(Model):
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+    name: Optional[str] = Field(required=False)
+
+class ReviewComment(Model):
+    content: str = Field(min_length=3, max_length=500)
+    rating: int = Field(ge=1, le=5)
+    created_at: datetime = Field(default=datetime.now())
+    updated_at: Optional[datetime] = Field(required=False)
+
+class Product(Model):
+    id: Optional[int] = Field(required=False)
+    name: str = Field(min_length=1, max_length=100)
+    description: str = Field(min_length=5, max_length=1000)
+    price: float = Field(gt=0)
+    discount_rate: Optional[float] = Field(required=False, ge=0, le=1)
+    stock: int = Field(ge=0)
+    is_available: bool = Field(default=True)
+    categories: List[str] = Field(default=[])
+    location: Optional[Location] = Field(required=False)
+    reviews: List[ReviewComment] = Field(default=[])
+    metadata: Dict[str, Any] = Field(default={})
+    
+    def discounted_price(self) -> float:
+        """Calculate the discounted price of the product."""
+        if self.discount_rate:
+            return self.price * (1 - self.discount_rate)
+        return self.price
+
+class User(Model):
+    id: Optional[int] = Field(required=False)
+    username: str = Field(min_length=3, max_length=50)
+    email: str = Field(min_length=5, max_length=100)  # Using length validation instead of regex
+    full_name: Optional[str] = Field(required=False)
+    created_at: datetime = Field(default=datetime.now())
+    is_active: bool = Field(default=True)
+    role: str = Field(default="user")
+
+class Token(Model):
+    access_token: str = Field()
+    token_type: str = Field()
+
+# Sample database
+products_db = {
+    1: {
+        "id": 1,
+        "name": "Premium Laptop",
+        "description": "High-performance laptop with the latest technology",
+        "price": 1299.99,
+        "discount_rate": 0.1,
+        "stock": 15,
+        "is_available": True,
+        "categories": ["electronics", "computers"],
+        "location": {"latitude": 37.7749, "longitude": -122.4194, "name": "San Francisco Warehouse"},
+        "reviews": [
+            {
+                "content": "Great product, fast delivery!",
+                "rating": 5,
+                "created_at": datetime.now(),
+            }
+        ],
+        "metadata": {"brand": "TechMaster", "model": "X1-2023", "warranty_years": 2}
+    },
+    2: {
+        "id": 2,
+        "name": "Ergonomic Chair",
+        "description": "Comfortable office chair with lumbar support",
+        "price": 249.99,
+        "stock": 30,
+        "is_available": True,
+        "categories": ["furniture", "office"],
+        "reviews": [],
+        "metadata": {"brand": "ComfortPlus", "color": "black", "material": "leather"}
+    }
+}
+
+users_db = {
+    1: {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@example.com",
+        "full_name": "Admin User",
+        "created_at": datetime.now(),
+        "is_active": True,
+        "role": "admin"
+    },
+    2: {
+        "id": 2,
+        "username": "user",
+        "email": "user@example.com",
+        "full_name": "Regular User",
+        "created_at": datetime.now(),
+        "is_active": True,
+        "role": "user"
+    }
+}
+
+# Fake authentication database
+tokens_db = {
+    "fake-access-token-admin": {"sub": "admin", "role": "admin"},
+    "fake-access-token-user": {"sub": "user", "role": "user"}
+}
+
+# Middleware
+@app.middleware("http")
+async def add_process_time_header(request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
+
+# Dependency functions
+def get_token_header(authorization: Optional[str] = Header(None)):
+    if authorization is None:
+        raise HTTPException(status_code=401, detail="Authorization header missing")
+    
+    scheme, _, token = authorization.partition(" ")
+    if scheme.lower() != "bearer":
+        raise HTTPException(status_code=401, detail="Invalid authentication scheme")
+    
+    if token not in tokens_db:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    return tokens_db[token]
+
+def get_current_user(token_data = Depends(get_token_header)):
+    username = token_data["sub"]
+    user = next((u for u in users_db.values() if u["username"] == username), None)
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return User(**user)
+
+def check_admin_role(current_user: User = Depends(get_current_user)):
+    if current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Not enough permissions")
+    return current_user
+
+# Create API routers for organization
+router = APIRouter(prefix="/api/v1")
+
+# Exception handlers
+@app.exception_handler(404)
+async def not_found_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=404,
+        content={"detail": "The requested resource was not found"},
+    )
+
+@app.exception_handler(Exception)
+async def general_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"An unexpected error occurred: {str(exc)}"},
+    )
+
+# Basic routes
+@app.get("/")
+def read_root():
+    """Return a welcome message."""
+    return {"message": "Welcome to TurboAPI Advanced API Example"}
+
+# Product routes
+@router.get("/products/", response_model=List[Product], tags=["products"])
+def get_products(
+    skip: int = Query(0, ge=0, description="Number of products to skip"),
+    limit: int = Query(10, ge=1, le=100, description="Max number of products to return"),
+    category: Optional[str] = Query(None, description="Filter by category")
+):
+    """
+    Get a list of products with optional filtering.
+    """
+    products = list(products_db.values())
+    
+    if category:
+        products = [p for p in products if category in p.get("categories", [])]
+    
+    return products[skip:skip + limit]
+
+@router.get("/products/{product_id}", response_model=Product, tags=["products"])
+def get_product(product_id: int = Path(..., ge=1, description="The ID of the product to get")):
+    """
+    Get details about a specific product.
+    """
+    if product_id not in products_db:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    return products_db[product_id]
+
+@router.post("/products/", response_model=Product, status_code=201, tags=["products"])
+def create_product(
+    product: Product,
+    current_user: User = Depends(check_admin_role)
+):
+    """
+    Create a new product (admin only).
+    """
+    # Generate a new ID
+    product_id = max(products_db.keys()) + 1 if products_db else 1
+    
+    # Save the product with the generated ID
+    product_dict = product.to_dict()
+    product_dict["id"] = product_id
+    products_db[product_id] = product_dict
+    
+    return product_dict
+
+@router.put("/products/{product_id}", response_model=Product, tags=["products"])
+def update_product(
+    product_id: int,
+    product: Product,
+    current_user: User = Depends(check_admin_role)
+):
+    """
+    Update an existing product (admin only).
+    """
+    if product_id not in products_db:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    # Update the product
+    product_dict = product.to_dict()
+    product_dict["id"] = product_id
+    products_db[product_id] = product_dict
+    
+    return product_dict
+
+@router.delete("/products/{product_id}", tags=["products"])
+def delete_product(
+    product_id: int,
+    current_user: User = Depends(check_admin_role)
+):
+    """
+    Delete a product (admin only).
+    """
+    if product_id not in products_db:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    del products_db[product_id]
+    return {"detail": "Product deleted successfully"}
+
+# User routes
+@router.get("/users/me", response_model=User, tags=["users"])
+def get_user_me(current_user: User = Depends(get_current_user)):
+    """
+    Get information about the current authenticated user.
+    """
+    return current_user
+
+@router.get("/users/", response_model=List[User], tags=["users"])
+def get_users(
+    skip: int = 0,
+    limit: int = 10,
+    current_user: User = Depends(check_admin_role)
+):
+    """
+    Get a list of all users (admin only).
+    """
+    users = list(users_db.values())
+    return users[skip:skip + limit]
+
+# Authentication routes
+@app.post("/token", response_model=Token, tags=["auth"])
+def login(username: str = Body(...), password: str = Body(...)):
+    """
+    Generate an access token for a user.
+    
+    This is a simplified example and does not implement real authentication.
+    In a real application, you'd verify credentials against a database.
+    """
+    # In a real app, verify username and password
+    if username == "admin" and password == "admin":
+        return {
+            "access_token": "fake-access-token-admin",
+            "token_type": "bearer"
+        }
+    elif username == "user" and password == "user":
+        return {
+            "access_token": "fake-access-token-user",
+            "token_type": "bearer"
+        }
+    else:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+
+# Custom route with explicit request handling
+@router.post("/echo", tags=["utils"])
+async def echo(request: Request):
+    """
+    Echo back the request body.
+    """
+    try:
+        body = await request.json()
+        return JSONResponse(content=body)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid JSON: {str(e)}")
+
+# Include the router in the main app
+app.include_router(router)
+
+# Add event handlers
+@app.on_event("startup")
+async def startup_event():
+    print("Application startup")
+    # In a real app, you might initialize database connections here
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    print("Application shutdown")
+    # In a real app, you might close database connections here
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+</details>
+
+## 🧩 Core Concepts
+
+### Application
+
+The `TurboAPI` class is the main entry point for creating web applications:
+
+```python
+from turboapi import TurboAPI
+
+app = TurboAPI(
+    title="TurboAPI Example API",
+    description="A sample API showing TurboAPI features",
+    version="0.1.0",
+    debug=False
+)
+```
+
+### Path Operations
+
+TurboAPI provides decorators for all standard HTTP methods:
+
+```python
+@app.get("/")
+@app.post("/items/")
+@app.put("/items/{item_id}")
+@app.delete("/items/{item_id}")
+@app.patch("/items/{item_id}")
+@app.options("/items/")
+@app.head("/items/")
+```
+
+### Path Parameters
+
+Path parameters are part of the URL path and are used to identify a specific resource:
+
+```python
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id}
+```
+
+### Query Parameters
+
+Query parameters are optional parameters appended to the URL:
+
+```python
+@app.get("/items/")
+def read_items(skip: int = 0, limit: int = 10):
+    return {"skip": skip, "limit": limit}
+```
+
+### Request Body
+
+Request bodies are parsed and validated using Satya models:
+
+```python
+@app.post("/items/")
+def create_item(item: Item):
+    return item
+```
+
+### Dependency Injection
+
+TurboAPI includes a powerful dependency injection system:
+
+```python
+def get_db():
+    db = Database()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.get("/items/")
+def read_items(db = Depends(get_db)):
+    return db.get_items()
+```
+
+### Response Models
+
+Specify response models for automatic serialization and documentation:
+
+```python
+@app.get("/items/{item_id}", response_model=Item)
+def read_item(item_id: int):
+    return get_item_from_db(item_id)
+```
+
+## 🔋 Advanced Features
+
+### Background Tasks
+
+TurboAPI supports efficient background task processing without blocking the main request:
+
+```python
+from tatsat import BackgroundTasks
+
+@app.post("/send-notification/{email}")
+async def send_notification(email: str, background_tasks: BackgroundTasks):
+    background_tasks.add_task(send_email_notification, email, message="Welcome!")
+    return {"message": "Notification will be sent in the background"}
+```
+
+For more complex task processing, TurboAPI can integrate with:
+- **asyncio.create_task()** for simple async tasks
+- **arq** for Redis-based task queues
+- **Celery** for distributed task processing
+- **Dramatiq** for simple but powerful task processing
+
+### API Routers
+
+Organize your routes using the `APIRouter`:
+
+```python
+from tatsat import APIRouter
+
+router = APIRouter(prefix="/api/v1")
+
+@router.get("/items/")
+def read_items():
+    return {"items": []}
+
+app.include_router(router)
+```
+
+### Middleware
+
+Add middleware for cross-cutting concerns:
+
+```python
+@app.middleware("http")
+async def add_process_time_header(request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
+```
+
+### Exception Handlers
+
+Custom exception handlers:
+
+```python
+@app.exception_handler(404)
+async def not_found_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=404,
+        content={"message": "Resource not found"}
+    )
+```
+
+### WebSockets
+
+Real-time bi-directional communication:
+
+```python
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        await websocket.send_text(f"Message received: {data}")
+```
+
+### OAuth2 and Security
+
+Comprehensive security features:
+
+```python
+from tatsat.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=400, detail="Invalid credentials")
+    return {"access_token": create_access_token(user), "token_type": "bearer"}
+
+@app.get("/users/me")
+async def read_users_me(token: str = Depends(oauth2_scheme)):
+    user = get_current_user(token)
+    return user
+```
+
+## 📈 Why Choose TurboAPI Over FastAPI?
+
+TurboAPI combines the best of both worlds:
+
+1. **Familiar API**: If you know FastAPI, you already know TurboAPI
+2. **Exceptional Performance**: 30x faster validation, 2x higher HTTP throughput
+3. **True Framework Independence**: Built from the ground up to avoid Pydantic dependency 
+4. **Production Ready**: Built with performance and reliability in mind
+5. **Feature Complete**: Everything FastAPI has, with superior performance
+6. **Future Proof**: Actively maintained and improved
+
+## 🎯 Why TurboAPI Exists
+
+TurboAPI was created to solve a fundamental limitation: FastAPI is tightly coupled with Pydantic, making it nearly impossible to replace Pydantic with a faster validation system. Even when implementing custom route handlers in FastAPI, Pydantic is still used under the hood for request/response processing, severely limiting performance optimization potential.
+
+**The solution?** Build a framework with FastAPI's elegant interface but powered by Satya, a validation library that delivers exceptional performance. This architectural decision allows TurboAPI to maintain API compatibility while achieving dramatic performance improvements.
+
+## 🔮 What's Next?
+
+TurboAPI is actively being developed with a focus on:
+
+1. **Even Better Performance**: Continuous optimization efforts
+2. **Enhanced Validation Features**: More validation options with Satya
+3. **Advanced Caching**: Integrated caching solutions
+4. **GraphQL Support**: Native GraphQL endpoint creation
+5. **More Middleware**: Additional built-in middleware options
+
+## 📚 Learning Resources
+
+- [Examples](/examples): Practical examples for various use cases
+- [Benchmarks](/benchmarks): Detailed performance comparisons
+- [Documentation](/docs): Comprehensive documentation
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
+
+## 🙏 Acknowledgements
+
+TurboAPI builds upon the excellent work of the Starlette and FastAPI projects, offering a compatible API with dramatically improved performance.
