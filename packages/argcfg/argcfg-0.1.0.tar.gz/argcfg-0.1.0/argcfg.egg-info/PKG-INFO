@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: argcfg
+Version: 0.1.0
+Summary: A lightweight configuration management library using dataclasses and argparse
+Home-page: https://github.com/CrawlScript/argcfg
+Author: Jun Hu
+Author-email: hujunxianligong@gmail.com
+Requires-Python: >=3.6
+License-File: LICENSE
+
+A lightweight configuration management library using dataclasses and argparse
