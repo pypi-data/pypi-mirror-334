@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: gait_modulation
+Version: 0.1
+Summary: <DESCRIPTION FOR GAIT MODULATION>
+Keywords: gait,modulation,LFP,ML
+Author-email: Mohammad Orabe <orabe.mhd@gmail.com>
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Requires-Dist: sphinx
+Requires-Dist: sphinx_rtd_theme
+Requires-Dist: sphinxcontrib-napoleon
