@@ -1,0 +1,3 @@
+[console_scripts]
+webtoon-downloader=webtoon_downloader.cmd.cli:run
+
