@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: Second_Brain_Database
+Version: 0.0.1
+Summary: A Python package that serves as the foundation for my Second Brain database, designed to store and organize knowledge for easy retrieval through various applications.
+Author-email: Rohan Batra <contact@rohanbatra.in>
+Project-URL: Homepage, https://github.com/rohanbatrain/second-brain-database
+Project-URL: Bug Tracker, https://github.com/rohanbatrain/second-brain-database/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# second-brain-database
+
+Structure is
+
+- Module : src/Second_Brain_Database
+
+
+---
+
