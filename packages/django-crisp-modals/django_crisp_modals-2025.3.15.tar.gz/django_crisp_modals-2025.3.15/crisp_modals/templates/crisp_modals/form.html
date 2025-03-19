@@ -1,0 +1,22 @@
+{% extends "crisp_modals/modal.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block modal_assets %}{% endblock %}
+
+{% block modal_styles %}{% endblock %}
+{% block modal_title %}<h4 class="my-0">{{ form.body.title }}</h4>{% endblock %}
+{% block pre_content %}<form action="{{ form.body.form_action }}" method="{{form.body.method}}">{% endblock %}
+{% block modal_body %}
+    {% if form.errors %}
+        <div id="form-errors" class="alert alert-warning">
+            <strong>It looks like there's a problem!</strong>
+            <hr class="my-2"/>
+            <small>{{ form.errors }}</small>
+        </div>
+    {% endif %}
+    {% crispy form form.body %}
+{% endblock %}
+{% block modal_footer %}{% crispy form form.footer %}{% endblock %}
+{% block post_content %}</form>{% endblock %}
