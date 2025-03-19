@@ -1,0 +1,17 @@
+[project]
+name = "fastdotcom2"
+version = "0.0.4"
+dependencies = [
+  "icmplib>=3.0.4","requests>=2.32.3"
+]
+authors = [
+  { name = "rosenrot" }
+]
+description = "Python package to perform fast.com speedtest"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { text = "MIT" }
