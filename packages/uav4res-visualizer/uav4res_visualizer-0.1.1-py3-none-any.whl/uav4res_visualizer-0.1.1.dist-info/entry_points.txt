@@ -1,0 +1,2 @@
+[console_scripts]
+uav4res_visualizer = uav4res_visualizer.__main__:main
