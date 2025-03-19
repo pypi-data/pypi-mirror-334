@@ -1,0 +1,8 @@
+tqdm>4
+webbpsf_ext>=2.0.0
+astroquery>=0.4.6
+jwst
+
+[docs]
+docutils==0.18
+sphinx>=3.4.1
