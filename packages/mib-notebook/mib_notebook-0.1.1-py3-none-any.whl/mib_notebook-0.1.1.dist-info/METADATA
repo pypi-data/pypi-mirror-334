@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: mib-notebook
+Version: 0.1.1
+Summary: A literate programming tool for static notebook as a library
+Project-URL: Homepage, https://github.com/pietroppeter/mib
+Project-URL: Issues, https://github.com/pietroppeter/mib/issues
+Author-email: Pietro Peterlongo <pietro.peterlongo@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: markdown>=3.7
+Requires-Dist: pydantic>=2.10.6
+Description-Content-Type: text/markdown
+
+# mib-notebook
+
+Mib is a literate programming tool to publish static notebooks from python code.
+
+Install it (pip or uv) as `mib-notebook`, import it as `mib`.
+
+See [example.py](example.py) and [example.html](example.html) for an example.
+
+It is [nimib.py] without [nim]
+
+The goal is to experiment of a nimib-like python api.
+
+[nimib.py]: https://github.com/nimib-land/nimib.py
+[nim]: https://nim-lang.org/
