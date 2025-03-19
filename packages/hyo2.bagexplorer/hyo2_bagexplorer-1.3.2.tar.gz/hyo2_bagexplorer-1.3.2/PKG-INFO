@@ -1,0 +1,206 @@
+Metadata-Version: 2.2
+Name: hyo2.bagexplorer
+Version: 1.3.2
+Summary: An application to browse and manage BAG files.
+Home-page: https://www.hydroffice.org/bag
+Author: Giuseppe Masetti (CCOM,UNH)
+Author-email: gmasetti@ccom.unh.edu
+License: LGPLv3 license
+Keywords: hydrography ocean mapping survey bag tools
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Office/Business :: Office Suites
+Requires-Python: >=3.9
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: hdf_compass>=0.7b16
+Requires-Dist: hyo2.abc2>=2.4.0
+Requires-Dist: hyo2.bag>=1.2.12
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+HydrOffice BAG Explorer
+=======================
+
+.. image:: https://github.com/hydroffice/hyo2_bagexplorer/raw/master/hyo2/bagexplorer/media/BAGExplorer_256.png
+    :alt: logo
+
+|
+
+.. image:: https://img.shields.io/pypi/v/hyo2.bagexplorer.svg
+    :target: https://pypi.python.org/pypi/hyo2.bagexplorer
+    :alt: PyPi version
+
+.. image:: https://github.com/hydroffice/hyo2_bagexplorer/actions/workflows/bagexplorer_on_windows.yml/badge.svg
+    :target: https://github.com/hydroffice/hyo2_bagexplorer/actions/workflows/bagexplorer_on_windows.yml
+    :alt: Windows
+
+.. image:: https://github.com/hydroffice/hyo2_bagexplorer/actions/workflows/bagexplorer_on_linux.yml/badge.svg
+    :target: https://github.com/hydroffice/hyo2_bagexplorer/actions/workflows/bagexplorer_on_linux.yml
+    :alt: Linux
+
+.. image:: https://app.codacy.com/project/badge/Grade/23c4dfc529ca446f88e5cd0cb8903d7f
+    :target: https://app.codacy.com/gh/hydroffice/hyo2_bagexplorer/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+    :alt: codacy
+
+.. image:: https://coveralls.io/repos/github/hydroffice/hyo2_bagexplorer/badge.svg?branch=master
+    :target: https://coveralls.io/github/hydroffice/hyo2_bagexplorer?branch=master
+    :alt: coverall
+
+|
+
+* Code: `GitHub repo <https://github.com/hydroffice/hyo2_bagexplorer <https://github.com/hydroffice/hyo2_bagexplorer>`_
+* Project page: `url <https://www.hydroffice.org/bag/main>`_, `download <https://bitbucket.org/hydroffice/hyo2_bagexplorer/downloads/>`_
+* License: LGPLv3 license (See `LICENSE <https://www.hydroffice.org/license/>`_)
+
+|
+
+General info
+------------
+
+HydrOffice is a research development environment for ocean mapping. It provides a collection of hydro-packages, each of them dealing with a specific issue of the field.
+The main goal is to speed up both algorithms testing and research-2-operation.
+
+BAG Explorer is a light application, based on `HDF Compass <http://github.com/HDFGroup/hdf-compass>`_ and the `HydrOffice BAG package <https://github.com/hydroffice/hyo2_bag>`_, to explore BAG data files.
+
+   |info| **IMPORTANT NOTE**
+
+   BAG is a data format developed and maintained by the `Open Navigation Surface Working Group <http://www.opennavsurf.org/>`_.
+
+   For the official BAG reference implementation, go to `https://github.com/OpenNavigationSurface/BAG <https://github.com/OpenNavigationSurface/BAG>`_
+
+
+.. |info| image:: https://www.hydroffice.org/img/info.svg
+    :alt: info
+
+Dependencies
+------------
+
+For executing and packaging the *BAG Explorer* app:
+
+* ``hdf_compass`` (that requires several dependencies as ``matplotlib``, ``wxPython``, ``h5py``)
+* ``hyo2.bag`` (that also requires ``lxml`` and ``osgeo.gdal``)
+* ``hyo2.abc2``
+* ``PyInstaller`` *[for freezing the application]*
+* ``appdmg`` *[for creating a dmg on Mac]*
+
+
+"""""""
+
+History
+-------
+
+1.0
+~~~
+
+2018-12-02
+
+- Switch to hyo2 namespace
+
+
+0.5
+~~~
+
+2018-05-29
+
+- Minor fixes to Menu entries and About dialogs
+
+2018-04-08
+
+- Switch to git
+
+
+0.4
+~~~
+
+2017-04-02
+
+- Switch to Python 3.6+
+
+
+0.2
+~~~
+
+2015-10-24
+
+- Split from hyo2.bag as stand-alone hydro-package
+
+
+
+"""""""
+
+Credits
+-------
+
+Authors
+~~~~~~~
+
+HydrOffice BAG and BAG Explorer are written and maintained by:
+
+- `Giuseppe Masetti <mailto:gmasetti@ccom.unh.edu>`_
+
+Contributors
+~~~~~~~~~~~~
+
+The following wonderful people contributed directly or indirectly to this project:
+
+- `Matt Wilson <mailto:matt.wilson@noaa.gov>`_
+
+- `Brian Calder <mailto:brc@ccom.unh.edu>`_
+
+Please add yourself here alphabetically when you submit your first pull request.
+
+
+"""""""
+
+How to contribute
+=================
+
+Every open source project lives from the generous help by contributors that sacrifice their time and this is no different.
+
+To make participation as pleasant as possible, this project adheres to the `Code of Conduct`_ by the Python Software Foundation.
+
+Here are a few hints and rules to get you started:
+
+- Add yourself to the AUTHORS.txt_ file in an alphabetical fashion. Every contribution is valuable and shall be credited.
+- If your change is noteworthy, add an entry to the changelog_.
+- No contribution is too small; please submit as many fixes for typos and grammar bloopers as you can!
+- Don't *ever* break backward compatibility.
+- *Always* add tests and docs for your code. This is a hard rule; patches with missing tests or documentation won't be merged.
+  If a feature is not tested or documented, it does not exist.
+- Obey `PEP 8`_ and `PEP 257`_.
+- Write `good commit messages`_.
+- Ideally, `collapse`_ your commits, i.e. make your pull requests just one commit.
+
+.. note::
+   If you have something great but aren't sure whether it adheres -- or even can adhere -- to the rules above: **please submit a pull request anyway**!
+   In the best case, we can mold it into something, in the worst case the pull request gets politely closed.
+   There's absolutely nothing to fear.
+
+Thank you for considering to contribute! If you have any question or concerns, feel free to reach out to us.
+
+.. _`Code of Conduct`: http://www.python.org/psf/codeofconduct/
+.. _AUTHORS.txt: https://bitbucket.org/ccomjhc/hyo_bag/raw/tip/AUTHORS.rst
+.. _changelog: https://bitbucket.org/ccomjhc/hyo_bag/raw/tip/HISTORY.rst
+.. _`PEP 8`: http://www.python.org/dev/peps/pep-0008/
+.. _`PEP 257`: http://www.python.org/dev/peps/pep-0257/
+.. _collapse: https://www.mercurial-scm.org/wiki/RebaseExtension
+.. _`good commit messages`: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
