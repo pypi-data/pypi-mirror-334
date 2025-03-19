@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "requestcord"
+version = "1.0.0"
+description = "Advanced Discord API wrapper with modern features"
+readme = "README.md"
+authors = [{name = "Kamo"}]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies= [
+    "requests",
+    "curl-cffi",
+    "websocket-client",
+    "websockets",
+    "colorama",
+    "discord-protos",
+    "aiohttp",
+    "asyncio"
+]
+
+[project.urls]
+Homepage = "https://github.com/zkamo/requestcord"
+
+[project.optional-dependencies]
+win = ["pywin32>=306; sys_platform == 'win32'"]
+
+[tool.setuptools]
+packages = {find = {}}
