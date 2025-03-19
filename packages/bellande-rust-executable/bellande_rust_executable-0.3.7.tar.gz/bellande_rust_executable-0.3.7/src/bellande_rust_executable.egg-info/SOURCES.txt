@@ -1,0 +1,15 @@
+.gitignore
+CODE_OF_CONDUCT.md
+LICENSE
+README.md
+setup.py
+git_scripts/.gitignore
+src/.gitignore
+src/bellande_rust/__init__.py
+src/bellande_rust/bellande_rust_executable.py
+src/bellande_rust_executable.egg-info/PKG-INFO
+src/bellande_rust_executable.egg-info/SOURCES.txt
+src/bellande_rust_executable.egg-info/dependency_links.txt
+src/bellande_rust_executable.egg-info/entry_points.txt
+src/bellande_rust_executable.egg-info/requires.txt
+src/bellande_rust_executable.egg-info/top_level.txt
