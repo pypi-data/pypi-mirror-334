@@ -1,0 +1,2 @@
+[console_scripts]
+httpc-clean = httpc._base:_extract_headers_cli
