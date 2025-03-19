@@ -1,0 +1,7 @@
+include *.in
+include *.txt
+include *.yaml
+include tox.ini
+recursive-include assets *.png
+recursive-include assets *.svg
+recursive-include tests *.py
