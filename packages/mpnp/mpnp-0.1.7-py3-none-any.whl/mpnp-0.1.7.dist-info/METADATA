@@ -1,0 +1,45 @@
+Metadata-Version: 2.2
+Name: mpnp
+Version: 0.1.7
+Summary: Mário Popolin Neto Package.
+Home-page: https://gitlab.com/popolinneto/mpnp
+Author: Mario Popolin Neto
+Author-email: mariopopolin@gmail.com
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Classifier: License :: Free for non-commercial use
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: exmatrix>=0.2.4
+Requires-Dist: vaxm>=0.1.4
+Requires-Dist: numpy>=1.19.1
+Requires-Dist: scikit-learn>=0.23.2
+Requires-Dist: matplotlib==3.6.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+
+pip install wheel
+pip install -U pip setuptools
+
+python setup.py bdist_wheel
+
+pip install -e .
+
+
+---
+
+
+python3 -m pip install --upgrade twine
+
+twine upload dist/*
+
+https://pypi.org/manage/account/token/
