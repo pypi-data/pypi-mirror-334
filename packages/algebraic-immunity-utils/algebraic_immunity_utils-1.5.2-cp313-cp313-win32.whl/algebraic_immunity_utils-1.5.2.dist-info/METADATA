@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: algebraic_immunity_utils
+Version: 1.5.2
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: A Rust-based Python package
+Home-Page: https://github.com/LucaBonamino/algebraic_immunity_utils
+Author: LucaBonamino
+License: MIT
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://github.com/LucaBonamino/algebraic_immunity_utils
+Project-URL: Repository, https://github.com/LucaBonamino/algebraic_immunity_utils
+
+# algebraic_immunity_utils
+
+For the moment, the source code in this repository has been copied to <a href='https://github.com/LucaBonamino/restricted_algebraic_immunity'>restricted_algebraic_immunity</a> due to the submission. Refer to that repository for the installation of the package from wheels stored in GitHub releases.
+
+## Installation
+
+<code>pip install algebraic_immunity_utils</code>
+
+
