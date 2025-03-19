@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: windows-terminal
+Version: 0.1.0
+Summary: A test package
+Description-Content-Type: text/markdown
+
+# Windows Terminal Package
+This is a placeholder package for Windows Terminal enhancements.
+
+## Installation
+```sh
+pip install windows-terminal
