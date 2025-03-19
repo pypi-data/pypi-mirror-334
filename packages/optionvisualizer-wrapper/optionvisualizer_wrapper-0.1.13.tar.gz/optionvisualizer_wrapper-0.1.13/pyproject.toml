@@ -1,0 +1,47 @@
+[project]
+name = "optionvisualizer-wrapper"
+version = "0.1.13"
+description = "Wrapper for https://github.com/GBERESEARCH/optionvisualizer - now methods output plotly fig objects instead of None"
+readme = "README.md"
+authors = [
+    { name = "Teddy Xinyuan Chen", email = "45612704+tddschn@users.noreply.github.com" },
+]
+requires-python = ">=3.11"
+dependencies = ["nbformat>=5.10.4", "optionvisualizer>=1.2.4"]
+license = "MIT"
+# homepage = "https://github.com/tddschn/optionvisualizer-wrapper"
+# repository = "https://github.com/tddschn/optionvisualizer-wrapper"
+# classifiers = ["Topic :: Utilities"]
+keywords = [
+    "optionvisualizer",
+    "options",
+    "greeks",
+    "3d-modeling",
+    "plotly",
+    "option-modeling",
+]
+
+
+[project.urls]
+Repository = "https://github.com/tddschn/optionvisualizer-wrapper"
+# Documentation = "https://docs.astral.sh/uv"
+# Changelog = "https://github.com/astral-sh/uv/blob/main/CHANGELOG.md"
+# Releases = "https://github.com/astral-sh/uv/releases"
+# Discord = "https://discord.gg/astral-sh"
+
+# [tool.poetry.urls]
+"Bug Tracker" = "https://github.com/tddschn/optionvisualizer-wrapper/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["ipykernel>=6.29.5"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "README.md"]
+# exclude = ["tests", "docs", "*.log"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src", "README.md"]
