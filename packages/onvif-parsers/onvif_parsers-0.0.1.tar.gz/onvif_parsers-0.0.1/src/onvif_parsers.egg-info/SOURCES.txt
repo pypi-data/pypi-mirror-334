@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/onvif_parsers/__init__.py
+src/onvif_parsers/main.py
+src/onvif_parsers/py.typed
+src/onvif_parsers.egg-info/PKG-INFO
+src/onvif_parsers.egg-info/SOURCES.txt
+src/onvif_parsers.egg-info/dependency_links.txt
+src/onvif_parsers.egg-info/top_level.txt
+tests/test_main.py
