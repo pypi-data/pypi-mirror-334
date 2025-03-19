@@ -1,0 +1,2 @@
+[console_scripts]
+dap-mcp = dap_mcp.server:main
