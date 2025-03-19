@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: learnsaxs
+Version: 0.0.4
+Summary: Jupyter Notebook examples for SEC-SAXS learning
+Project-URL: Repository, https://github.com/freesemt/learnsaxs
+Author-email: Masatsuyo Takahashi <freesemt@gmail.com>
+Maintainer-email: Masatsuyo Takahashi <freesemt@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2021 freesemt
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: SEC-SAXS
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Requires-Python: >=3.9
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Description-Content-Type: text/markdown
+
+# learnsaxs
+This project includes several notebooks and a small library to help you learn SAXS with Python in Jupyter,
+which cover the following subjects:
+  * viewing electron density voxels of an ellipsoid in 3D real space
+  * Fourier transform of the voxel values into the reciprocal space
+  * spherically averaging in the reciprocal space
+  * which produces a detector image and a scattering curve
+as shown in the figure below.
+
+<img src="images/detector.png">
+
+The notebooks are designed to use a minimum number of libraries, i.e.,
+
+  * numpy
+  * matplotlib
+  * learnsaxs
+
+the last of which, "learnsaxs", is provided here to include following few functions
+
+  * draw_voxles_as_dots
+  * get_detector_info
+  * draw_detector_image
+
+to make the notebook examples as concise as possible.
+
+You can install the learnsaxs package using pip command as follows.
+
+```
+pip install learnsaxs
+```
+
+Hoping this may be of any help.
