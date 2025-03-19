@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+arduino_cli_mcp/__init__.py
+arduino_cli_mcp/main.py
+arduino_cli_mcp.egg-info/PKG-INFO
+arduino_cli_mcp.egg-info/SOURCES.txt
+arduino_cli_mcp.egg-info/dependency_links.txt
+arduino_cli_mcp.egg-info/entry_points.txt
+arduino_cli_mcp.egg-info/requires.txt
+arduino_cli_mcp.egg-info/top_level.txt
