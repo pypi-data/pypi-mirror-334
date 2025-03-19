@@ -1,0 +1,41 @@
+Usage Sample
+''''''''''''
+
+.. code:: python
+
+        import torch
+        from torch.utils.data import Dataset
+        from transformers import AutoTokenizer
+        from nerx import NER, Collator
+        from model_wrapper import ClassifyModelWrapper
+
+        pretrained_path = "nghuyong/ernie-3.0-base-zh"
+
+        def f(data):
+                return 5 < len(data['tokens']) <= 512 - 2
+
+        class PairDataset(Dataset):
+
+                def __init__(self, dataset):
+                        self.dataset = dataset
+
+                def __getitem__(self, index):
+                        data = self.dataset[index]
+                        return data['tokens'], data['ner_tags']
+
+                def __len__(self):
+                        return len(self.dataset)
+
+        dataset_dict = load_from_disk('/kaggle/input/peoples-daily-ner-data/peoples_daily_ner')
+        train_set = dataset_dict['train'].remove_columns(['id']).filter(f, cache_file_name='/kaggle/working/train.cache')
+        val_set = dataset_dict['validation'].remove_columns(['id']).filter(f, cache_file_name='/kaggle/working/val.cache')
+        test_set = dataset_dict['test'].remove_columns(['id']).filter(f, cache_file_name='/kaggle/working/test.cache')
+
+        train_set = PairDataset(train_set)
+        val_set = PairDataset(val_set)
+        
+        model = NER(pretrained_path, num_classes=8, num_train_layers=2)
+        wrapper = ClassifyModelWrapper(model)
+        tokenizer = AutoTokenizer.from_pretrained(pretrained_path)
+        history = wrapper.train(train_set, val_set, collate_fn=Collator(tokenizer, label_padding_id=7))
+        wrapper.save_state_dict(mode='best')
