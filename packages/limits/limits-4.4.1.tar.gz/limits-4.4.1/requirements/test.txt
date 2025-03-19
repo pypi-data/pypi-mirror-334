@@ -1,0 +1,28 @@
+-r main.txt
+-r storage/etcd.txt
+-r storage/redis.txt
+-r storage/rediscluster.txt
+-r storage/mongodb.txt
+-r storage/memcached.txt
+-r storage/valkey.txt
+-r storage/async-etcd.txt
+-r storage/async-memcached.txt
+-r storage/async-mongodb.txt
+-r storage/async-redis.txt
+-r storage/async-valkey.txt
+
+# Pin to < 4 for aetcd compatibility
+protobuf>3.6.1,<4
+
+# Test related packages
+coverage
+hiro>0.1.6
+flaky
+lovely-pytest-docker
+pytest<9
+pytest-asyncio<0.26
+pytest-benchmark[histogram]
+pytest-cov
+pytest-lazy-fixtures
+pytest-mock
+PyYAML
