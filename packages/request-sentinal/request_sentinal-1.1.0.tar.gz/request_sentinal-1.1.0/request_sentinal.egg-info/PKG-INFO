@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: request-sentinal
+Version: 1.1.0
+Summary: A Python Package for web scrapers to scrape the world without worrying about rate limits.
+Home-page: https://github.com/santhoshtk01/request_sentinal
+Author: Santhosh T K
+Author-email: 22z433@psgtech.ac.in
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: requests
