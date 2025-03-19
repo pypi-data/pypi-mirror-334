@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+galamo.egg-info/PKG-INFO
+galamo.egg-info/SOURCES.txt
+galamo.egg-info/dependency_links.txt
+galamo.egg-info/requires.txt
+galamo.egg-info/top_level.txt
+galamo_/__init__.py
+galamo_/galaxy_morph.py
+galamo_/test.py
+galamo_/test_lib.py
