@@ -1,0 +1,10 @@
+/.ipynb_checkpoints/
+**/__pycache__/
+/*.egg-info
+.pytest_cache
+/.eggs
+/tmp/
+/.venv/
+*.cpython-*
+/target/
+Cargo.lock

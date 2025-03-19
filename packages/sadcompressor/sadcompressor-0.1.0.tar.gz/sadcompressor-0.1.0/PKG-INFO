@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: sadcompressor
+Version: 0.1.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: File Formats
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: System :: Archiving :: Compression
+Requires-Dist: numpy
+Requires-Dist: py-ubjson
+Requires-Dist: packaging
+Requires-Dist: rich
+Requires-Dist: termcolor
+Requires-Dist: pytest ; extra == 'tests'
+Provides-Extra: tests
+License-File: LICENSE.md
+Summary: Streamed Array Data compressor
+Keywords: compression,archive,stream
+Author-email: Igor Lobanov <lobanov.igor@gmail.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Repository, https://gitlab.com/alepoydes/sadcompressor.git
+
+

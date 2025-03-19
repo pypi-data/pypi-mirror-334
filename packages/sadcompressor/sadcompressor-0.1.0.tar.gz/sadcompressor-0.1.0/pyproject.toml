@@ -1,0 +1,58 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "sadcompressor"
+description='Streamed Array Data compressor'
+authors = [
+  {name = "Igor Lobanov", email = "lobanov.igor@gmail.com"},
+]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE*"]
+keywords = ["compression","archive","stream"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: File Formats",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: System :: Archiving",
+    "Topic :: System :: Archiving :: Compression",
+]
+
+
+requires-python = ">=3.8"
+dependencies = [
+    'numpy',
+    'py-ubjson',
+    'packaging',
+    'rich',
+    'termcolor',
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://gitlab.com/alepoydes/sadcompressor.git"
+
+
+[project.scripts]
+sadcopy = "sadcompressor.bin.sadcopy:main"
+sadinfo = "sadcompressor.bin.sadinfo:main"
+sadsump = "sadcompressor.bin.saddump:main"
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+
+]
+[tool.maturin]
+python-source = "python"
+module-name = "sadcompressor._rusted"
+features = ["pyo3/extension-module"]
