@@ -1,0 +1,19 @@
+[project]
+name = "quantum-progress-bar"
+version = "0.1.1"
+description = "The Ultimate Quantum Progress Bar"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+"Repository" = "https://github.com/FlatBone/quantum-progress-bar.git"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
