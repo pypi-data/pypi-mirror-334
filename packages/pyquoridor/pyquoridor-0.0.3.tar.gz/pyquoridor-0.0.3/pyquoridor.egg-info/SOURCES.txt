@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+pyquoridor/__init__.py
+pyquoridor/board.py
+pyquoridor/board_setups.py
+pyquoridor/exceptions.py
+pyquoridor/main.py
+pyquoridor/pawn.py
+pyquoridor/square.py
+pyquoridor/tests.py
+pyquoridor/utils.py
+pyquoridor.egg-info/PKG-INFO
+pyquoridor.egg-info/SOURCES.txt
+pyquoridor.egg-info/dependency_links.txt
+pyquoridor.egg-info/requires.txt
+pyquoridor.egg-info/top_level.txt
