@@ -1,0 +1,9 @@
+aiohttp
+lxml
+markdownify
+
+[dev]
+build
+pytest
+pytest-asyncio
+twine

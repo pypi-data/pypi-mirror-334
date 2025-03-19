@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iaskai"
+version = "0.1.3"
+authors = [
+  { name="gingdev", email="thanh1101dev@gmail.com" },
+]
+description = "Unoffical iask.ai client"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "aiohttp",
+  "lxml",
+  "markdownify",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest",
+    "pytest-asyncio",
+    "twine",
+]
+[project.urls]
+Homepage = "https://github.com/ging-dev/iask.ai-python"
+Issues = "https://github.com/ging-dev/iask.ai-python/issues"
+[tool.pytest.ini_options]
+pythonpath = ["."]

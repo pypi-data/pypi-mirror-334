@@ -1,0 +1,42 @@
+Metadata-Version: 2.2
+Name: iaskai
+Version: 0.1.3
+Summary: Unoffical iask.ai client
+Author-email: gingdev <thanh1101dev@gmail.com>
+Project-URL: Homepage, https://github.com/ging-dev/iask.ai-python
+Project-URL: Issues, https://github.com/ging-dev/iask.ai-python/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: lxml
+Requires-Dist: markdownify
+Provides-Extra: dev
+Requires-Dist: build; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-asyncio; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+
+# IAskAI Client
+
+```python
+import asyncio
+import iask
+
+client = iask.Client()
+
+async def main():
+    # stream response
+    async for chunk in await client.ask({
+        'mode': 'wiki',
+        'q': 'When Symfony 7.2 release?'
+    }, stream=True):
+        print(chunk, end='')
+    # wait fully response
+    response = await client.ask('Who is Naruto?', stream=False)
+
+asyncio.run(main())
+```
