@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "vayulib"
+version = "0.1.0"
+description = ""
+authors = ["Alok Tripathy <developer@alok.one>"]
+readme = "README.md"
+license = "MIT"
+packages = [{ include = "vayu" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.5"
+aiohttp = {version = "^3.11.13"}
+numpy = { version = "^2.1.3", optional = true }
+pandas = { version = "^2.2.3", optional = true }
+plotly = {version = "^6.0.0", optional = true }
+#scikit-learn = {version = "^1.6.1", optional = true }
+#numba = {version = "^0.61.0", optional = true }
+#scipy = {version = "^1.15.2", optional = true }
+
+[tool.poetry.extras]
+data = ["numpy", "pandas", "plotly"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+pytest = "^8.3.5"
+pytest-asyncio = "^0.25.3"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
