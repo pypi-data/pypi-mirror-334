@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: toni-cli
+Version: 0.1.2
+Summary: Terminal Operation Natural Instruction - AI-powered terminal assistant
+Author-email: Dakai Ou <oudakai@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/dakai/toni
+Project-URL: Bug Tracker, https://github.com/dakai/toni/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai>=1.66.3
+Requires-Dist: google-genai>=1.5.0
