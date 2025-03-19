@@ -1,0 +1,10 @@
+numpy
+opencv-python
+
+[dev]
+pytest>=6.0.0
+flake8>=4.0.0
+black>=22.0.0
+build
+twine
+pre-commit>=3.0.0
