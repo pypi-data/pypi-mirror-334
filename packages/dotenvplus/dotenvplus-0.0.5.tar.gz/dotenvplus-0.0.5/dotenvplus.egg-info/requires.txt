@@ -1,0 +1,10 @@
+
+[dev]
+pyright
+ruff
+toml
+
+[maintainer]
+twine
+wheel
+build
