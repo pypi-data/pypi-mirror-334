@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aleya-alpaca"
+dynamic = ["version"]
+description = "Aleya Linux PAckage Assistant"
+authors = [{name = "Robin 'Ruadeil' Degen", email = "mail@rudeil.lgbt"}]
+dependencies = []
+
+[project.scripts]
+alpaca = "alpaca.main:main"
+
+[tool.setuptools_scm]
