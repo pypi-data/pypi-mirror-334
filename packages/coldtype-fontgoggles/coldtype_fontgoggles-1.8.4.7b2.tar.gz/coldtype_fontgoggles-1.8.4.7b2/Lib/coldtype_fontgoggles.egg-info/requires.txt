@@ -1,0 +1,10 @@
+blackrenderer>=0.6.0
+fonttools>=4.53.1
+uharfbuzz>=0.42.0
+python-bidi==0.4.2
+unicodedata2>=15.1.0
+
+[more-fonts]
+fonttools[lxml,type1,ufo,unicode,woff]>=4.53.1
+ufo2ft
+numpy
