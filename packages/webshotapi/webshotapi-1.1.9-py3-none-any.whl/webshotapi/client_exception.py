@@ -1,0 +1,2 @@
+class WebshotapiClientError(Exception):
+    pass
