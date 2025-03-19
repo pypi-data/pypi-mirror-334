@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gshapa"
+version = "0.1.8"
+authors = [
+  { name="Sara Khademioureh", email="khademio@ualberta.ca" },
+  { name="Sergio Peignier", email="sergio.peignier@insa-lyon.fr" },
+]
+description = "Gene Set Analysis for Single-Cell RNA-seq Using Random Forest and SHAP Valuese"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["Gene Set Analysis", "SHAP values", "Random Forest"]
+
+[project.urls]
+Homepage = "https://gitlab.com/bf2i/gshapa"
+Issues = "https://gitlab.com/bf2i/gshapa/issues"
+
