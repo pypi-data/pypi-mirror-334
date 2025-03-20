@@ -1,0 +1,14 @@
+Metadata-Version: 2.3
+Name: latex-components-generator
+Version: 1.0.2
+Summary: Package has methods for generating tables and images in LaTeX
+Author: Andrei Bolotskii
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Description-Content-Type: text/markdown
+
+# LaTeX components generator
+
+Package has methods for generating tables and images in LaTeX
