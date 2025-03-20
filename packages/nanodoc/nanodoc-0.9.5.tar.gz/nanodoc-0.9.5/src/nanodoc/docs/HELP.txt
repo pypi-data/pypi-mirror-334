@@ -1,0 +1,57 @@
+<!-- RENDER: rich -→
+# nanodoc
+
+An ultra-lightweight documentation generator that combines text files into a single document.
+
+nanodoc [options] <file1.txt> <file2.txt> ...
+
+[bold]OPTIONS:[/bold]
+
+--toc:                 Include a table of contents at the beginning
+--no-header:           Hide file headers completely
+--sequence:            Format sequences (numerical, letter, or roman)
+--style:               Change how filenames are displayed (filename, path, nice)
+-n: Enable per-file line numbering
+-nn: Enable global line numbering
+--txt-ext: Add additional file extensions to search for
+
+[bold]HELP TOPICS:[/bold]
+
+manifesto:              simpler docs, simpler life
+quickstart:             quickstart, user guide and ref doc. short and sweet
+
+
+
+[bold]EXAMPLES:[/bold]
+
+    nanodoc file1.txt file2.txt
+
+    # Per-file line numbering
+    nanodoc -n file1.txt file2.txt
+
+    # Global line numbering
+    nanodoc -nn file1.txt file2.txt
+
+    # Global numbering with TOC
+    nanodoc -nn --toc file1.txt file2.txt
+
+    # All txt and md files in the dir will be included
+    nanodoc dir-name
+
+    # Mix and match as you'd like
+    nanodoc dir-name file-1
+
+    # Any .bundle.* file that is a list of paths, one per line
+    nanodoc bundle
+
+    # Get the good parts only
+    nanodoc readme.txt:L14-16,L30-50
+
+[bold]CORE COMMANDS:[/bold]
+
+- help: Show help information or specific guides
+- version: Display the current version of nanodoc
+
+[bold]LEARN MORE:[/bold]
+
+Use nanodoc help <guide-name> for more information about a specific topic.
