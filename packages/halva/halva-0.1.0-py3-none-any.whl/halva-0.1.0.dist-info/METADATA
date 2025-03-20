@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: halva
+Version: 0.1.0
+Summary: Multivariate analysis of ordinal data with missing values and latent variables
+Project-URL: Homepage, https://github.com/ulysseherbach/halva
+Author-email: Ulysse Herbach <ulysse.herbach@inria.fr>
+License-Expression: BSD-3-Clause
+License-File: LICENSE.txt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.26
+Requires-Dist: pandas>=2.2
+Requires-Dist: scipy>=1.15
+Description-Content-Type: text/markdown
+
+# Halva
+
+*Multivariate analysis of ordinal data with missing values and latent variables*
+
+‘grapHical Analysis with Latent VAriables’
