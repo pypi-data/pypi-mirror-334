@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: luadata.luatable
+Version: 0.0.3
+Summary: Lua Table wrapper for serializing
+Home-page: https://github.com/huakim/python-luadata.luatable
+License: GPLv3
+License-File: LICENSE
+Requires-Dist: luadata
+Requires-Dist: lupa
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
