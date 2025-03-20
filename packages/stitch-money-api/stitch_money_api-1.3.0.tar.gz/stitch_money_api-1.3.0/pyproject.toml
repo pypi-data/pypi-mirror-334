@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stitch-money-api"
+version = "1.3.0"
+description = "A package for initiating payments via the Stitch API"
+authors = [
+  { name = "Stitch Money", email = "sdks@stitch.money" },
+]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://stitch.money/"
+Documentation = "https://docs.stitch.money/"
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/stitch"]
