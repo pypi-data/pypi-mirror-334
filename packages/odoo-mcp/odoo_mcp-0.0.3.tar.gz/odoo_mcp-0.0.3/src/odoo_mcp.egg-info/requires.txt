@@ -1,0 +1,11 @@
+mcp>=0.1.1
+requests>=2.31.0
+xmlrpc>=0.4.1
+
+[dev]
+black
+isort
+mypy
+ruff
+build
+twine
