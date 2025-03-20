@@ -1,0 +1,65 @@
+{ "ssids": [ {
+    "ssid": "Open-SSID",
+    "enable": true,
+    "forward-mode": "FORWARD_MODE_BRIDGE",
+    "dmo": {
+        "enable": false,
+        "channel-utilization-threshold": 90,
+        "clients-threshold": 6
+    },
+    "broadcast-filter-ipv4": "BCAST_FILTER_ARP",
+    "ssid-utf8": false,
+    "essid": {
+        "name": "Guest-Network"
+    },
+    "allowed-5ghz-radio": "ALL_5G",
+    "dtim-period": 1,
+    "inactivity-timeout": 150,
+    "max-clients-threshold": 64,
+    "max-retries": 4,
+    "rf-band": "24GHZ_5GHZ",
+    "opmode": "OPEN",
+    "mac-authentication": false,
+    "type": "GUEST",
+    "radius-interim-accounting-interval": 60,
+    "pmk-cache-delete-on-leave": true
+},
+{
+"essid": {
+    "name": "PSK-SSID"
+    },
+"ssid": "PSK-SSID",         
+"enable": true,
+"opmode": "BOTH_WPA_WPA2_PSK",
+"personal-security": {
+    "wpa-passphrase": "password"
+},
+"forward-mode": "FORWARD_MODE_BRIDGE",
+"vlan-selector": "VLAN_RANGES",
+"vlan-id-range": [
+                "1"
+            ],
+"rf-band": "24GHZ_5GHZ",
+"dtim-period": 1,
+"broadcast-filter-ipv4": "BCAST_FILTER_NONE",
+"denylist": true,
+"dmo": {
+    "channel-utilization-threshold": 90
+},
+"local-probe-req-thresh": 0,
+"max-clients-threshold": 1024
+}
+],
+
+"vlan_profiles": [{
+"vlan_id": 42,
+"description": "UPLINK_VLAN",
+"name": "UPLINK_VLAN"
+},
+{
+"vlan_id": 24,
+"description": "ESXI-01",
+"name": "ESXI-01"
+}
+]
+}

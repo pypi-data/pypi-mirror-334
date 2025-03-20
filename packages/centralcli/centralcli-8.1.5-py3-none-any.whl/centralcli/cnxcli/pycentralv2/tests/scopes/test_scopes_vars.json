@@ -1,0 +1,185 @@
+{
+    "credentials": {
+        "aruba_central": {
+            "base_url": "",
+            "client_id": "",
+            "client_secret": "",
+            "access_token": ""
+        },
+        "glp": {
+            "client_id": "<glp-client-id>",
+            "client_secret": "<glp-client-secret>",
+        },
+        "classic_aruba_central": {
+            "base_url": "<api-base-url>",
+            "token": {
+                "access_token": "<access-token>",
+            }
+        }
+    },
+    "test_get_scopes": {
+        "sites": 14,
+        "site_collections": 2,
+        "global_id": 183305416
+    },
+    "test_get_sites": {
+        "size": 10,
+        "offset": 1
+    },
+    "test_get_sites_sort_asc": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "ASC"
+    },
+    "test_get_sites_sort_des": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "DESC"
+    },
+    "test_get_sites_sort_error": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "DESC"
+    },
+    "test_get_site_collections": {
+        "size": 10,
+        "offset": 1
+    },
+    "test_get_site_collections_sort_asc": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "ASC"
+    },
+    "test_get_site_collections_sort_des": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "DESC"
+    },
+    "test_get_site_collections_sort_error": {
+        "size": 10,
+        "offset": 1,
+        "sort_by": "scope-id",
+        "sort_direction": "DESC"
+    },
+    "test_find_site": {
+       "site_id": 243148079,
+       "site_name": "Bangalore-Aruba"
+    },
+    "test_find_sites": {
+        "site_one_id": 243148079,
+        "site_one_name": "Bangalore-Aruba",
+        "site_two_id": 243176269,
+        "site_two_name": "Ti2-Test"
+    },
+    "test_find_site_error": {
+        "site_one_id": 123456,
+        "site_one_name": "error-site-one",
+        "site_two_id": 123456,
+        "site_two_name": "error-site-two"
+    },
+    "test_find_site_collection": {
+        "collection_id": 239163653,
+        "collection_name": "Ti-West-Region"
+    },
+    "test_find_site_collections": {
+        "collection_one_id": 239163653,
+        "collection_one_name": "Ti-West-Region",
+        "collection_two_id": 239426724,
+        "collection_two_name": "api-collection-1"
+    },
+    "test_find_site_collection_error": {
+        "collection_one_id": 123456,
+        "collection_one_name": "error-collection-one",
+        "collection_two_id": 234567,
+        "collection_two_name": "error-collection-two"
+    },
+    "test_add_site_sc_id_site_id": {
+        "collection_id": 239163653,
+        "site_id": 243148079
+    },
+    "test_add_site_sc_id_site_ids": {
+        "collection_id": 239163653,
+        "site_ids": [243176269, 241679128]
+    },
+    "test_add_site_sc_id_site_name": {
+        "collection_id": 239163653,
+        "site_name": "api-site-2"
+    },
+    "test_add_site_sc_id_site_names": {
+        "collection_id": 239163653,
+        "site_names": ["api-site-3","api-site-4"]
+    },
+    "test_add_site_sc_name_site_id": {
+        "collection_name": "Ti-West-Region",
+        "site_id": 239426701
+    },
+    "test_add_site_sc_name_site_ids":{
+        "collection_name": "Ti-West-Region",
+        "site_ids": [239426707, 239426714]
+    },
+    "test_add_site_sc_name_site_name": {
+        "collection_name": "Ti-West-Region",
+        "site_name": "api-site-8"
+    },
+    "test_add_site_sc_name_site_names": {
+        "collection_name": "Ti-West-Region",
+        "site_names": ["api-site-9", "api-site-10"] 
+    },
+    "test_add_site_sc_already_associated_site": {
+        "old_collection_name": "Ti-West-Region",
+        "new_collection_name": "api-collection-1",
+        "site_names": ["api-site-9", "api-site-10"] 
+    },
+    "test_add_site_sc_error":{
+        "collection_id": 123456,
+        "collection_name": "error-site-collection",
+        "site_id": 123456,
+        "site_name": "error-site",
+        "site_ids": [123456, 234567],
+        "site_names": ["error-site-1", "error-site-2"]
+    },
+    "test_remove_site_sc_id_site_id": {
+        "collection_id": 239163653,
+        "site_id": 243148079
+    },
+    "test_remove_site_sc_id_site_ids": {
+        "collection_id": 239163653,
+        "site_ids": [243176269, 241679128]
+    },
+    "test_remove_site_sc_id_site_name": {
+        "collection_id": 239163653,
+        "site_name": "api-site-2"
+    },
+    "test_remove_site_sc_id_site_names": {
+        "collection_id": 239163653,
+        "site_names": ["api-site-3","api-site-4"]
+    },
+    "test_remove_site_sc_name_site_id": {
+        "collection_name": "Ti-West-Region",
+        "site_id": 239426701
+    },
+    "test_remove_site_sc_name_site_ids":{
+        "collection_name": "Ti-West-Region",
+        "site_ids": [239426707, 239426714]
+    },
+    "test_remove_site_sc_name_site_name": {
+        "collection_name": "Ti-West-Region",
+        "site_name": "api-site-8"
+    },
+    "test_remove_site_sc_name_site_names": {
+        "collection_name": "api-collection-1",
+        "site_names": ["api-site-9", "api-site-10"] 
+    },
+    "test_remove_site_sc_error":{
+        "site_id": 123456,
+        "site_name": "error-site",
+        "site_ids": [123456, 234567],
+        "site_names": ["error-site-1", "error-site-2"],
+        "unassociated_site": "api-site-9"
+    }
+}
