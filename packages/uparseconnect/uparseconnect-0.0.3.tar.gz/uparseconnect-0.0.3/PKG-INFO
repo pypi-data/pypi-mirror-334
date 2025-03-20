@@ -1,0 +1,18 @@
+Metadata-Version: 2.3
+Name: uparseconnect
+Version: 0.0.3
+Summary: python client library for uparse
+License: Apache-2.0 license
+Author: Hangxing Wei
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiofiles (>=24.1.0,<25.0.0)
+Requires-Dist: httpx (>=0.27.0,<0.28.0)
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: pillow (>=10.3.0,<11.0.0)
+Requires-Dist: pydantic (>=2.7.4,<3.0.0)
