@@ -1,0 +1,92 @@
+Metadata-Version: 2.2
+Name: xtranslator
+Version: 0.1.0
+Summary: A package for translating text and detecting languages
+Home-page: https://github.com/ivanvykopal/xtranslator.git
+Author: Ivan Vykopal
+Author-email: ivan.vykopal@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: langdetect
+Requires-Dist: lingua-language-detector
+Requires-Dist: langid
+Requires-Dist: stanza
+Requires-Dist: fasttext-langdetect
+Requires-Dist: simplemma
+Requires-Dist: googletrans
+Requires-Dist: py-googletrans
+Requires-Dist: transformers
+Requires-Dist: torch
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: boto3
+Requires-Dist: deepl
+Requires-Dist: sentencepiece
+Requires-Dist: fasttext
+Requires-Dist: huggingface_hub
+Requires-Dist: argostranslate
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# XTranslator
+
+XTranslator is a package that allows you to detect the language of a given text and translate it into various languages. With its simple and intuitive interface, you can easily integrate language detection and translation capabilities into your applications.
+
+## Installation
+
+To install XTranslator, simply run the following command:
+
+```
+pip install xtranslator
+```
+
+## Usage
+
+To use XTranslator in your project, follow these steps:
+
+1. Import the XTranslator package into your code:
+
+```python
+import xtranslator
+```
+
+2. Detect the language of a text:
+
+```python
+from xtranslator import detect
+text = "Hello, my nam is XTranslator"
+detector = "fasttext"
+print(detect(text, detector))
+```
+
+3. Translate text into another language:
+
+```python
+from xtranslator import translate
+text = "Hello, world!"
+translator = "google"
+model_name = "google"
+dest_language = "sk"
+detector = "fasttext"
+print(translate(text, dest_language, translator, model_name, detector))
+```
+
+## Contributing
+
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request on the [GitHub repository](https://github.com/ivanvykopal/xtranslator).
+
+## License
+
+XTranslator is licensed under the [MIT License](https://opensource.org/licenses/MIT).
