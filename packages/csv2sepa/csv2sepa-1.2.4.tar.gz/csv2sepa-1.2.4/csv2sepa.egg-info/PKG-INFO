@@ -1,0 +1,49 @@
+Metadata-Version: 2.2
+Name: csv2sepa
+Version: 1.2.4
+Summary: CSV to SEPA Convertor
+Author-email: Philippe-Alexandre Pierre <pap@httpap.dev>
+Project-URL: homepage, https://gitlab.com/httpap/csv2sepa
+Keywords: banking,batch,credit,csv,debit,excel,iso20022,sepa,xml,xsd
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: argparse
+Requires-Dist: colorama
+Requires-Dist: inquirer
+Requires-Dist: logging
+Requires-Dist: sepapy
+
+CSV to SEPA Convertor
+=====================
+
+This is a python implementation to generate SEPA XML files from a CSV file.
+
+Limitations
+-----------
+
+Supported standards:
+
+* SEPA PAIN.001.001.03 (v2009, not authorized after november 2025)
+* SEPA PAIN.001.001.09 (v2019, last version)
+* SEPA PAIN.008.001.02 (v2009, not authorized after november 2025)
+* SEPA PAIN.008.001.08 (v2019, last version)
+
+Usage
+-----
+1. Configure the `csv2sepa.ini` file with your informations.
+2. Create a CSV file with data based on the example file corresponding to the desired SEPA format (provided in the ./csv directory).
+3. Run `py csv2json.py` and answer to the questions (which SEPA format? Which CSV file?).
+4. The generated XML file will be saved in the ./xml directory.
+
+Credits and License
+-------------------
+
+Maintainer: Philippe-Alexandre PIERRE <pap@httpap.dev>
+
+The source code is released under MIT license.

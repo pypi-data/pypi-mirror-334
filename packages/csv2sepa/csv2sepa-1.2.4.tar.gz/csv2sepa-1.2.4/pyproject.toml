@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv2sepa"
+version = "1.2.4"
+description = "CSV to SEPA Convertor"
+readme = "README.rst"
+urls.homepage = "https://gitlab.com/httpap/csv2sepa"
+authors = [
+    {name = "Philippe-Alexandre Pierre", email = "pap@httpap.dev"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+keywords = [
+    "banking",
+    "batch",
+    "credit",
+    "csv",
+    "debit",
+    "excel",
+    "iso20022",
+    "sepa",
+    "xml",
+    "xsd",
+]
+dependencies = [
+    "argparse",
+    "colorama",
+    "inquirer",
+    "logging",
+    "sepapy",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = [
+    "doc*",
+    "csv*",
+    "tests*",
+    "xml*",
+]
