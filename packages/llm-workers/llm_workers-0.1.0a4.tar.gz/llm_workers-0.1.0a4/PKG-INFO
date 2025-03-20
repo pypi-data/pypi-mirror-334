@@ -1,0 +1,118 @@
+Metadata-Version: 2.3
+Name: llm-workers
+Version: 0.1.0a4
+Summary: Simple library and command-line tools for experimenting with LLMs
+Author: Dmitry Mikhaylov
+Author-email: mikhailov.dmitry@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: dev
+Requires-Dist: PyYAML (>=6.0.2,<6.1.0)
+Requires-Dist: beautifulsoup4 (>=4.12.3,<4.13.0)
+Requires-Dist: boto3 (>=1.37.8) ; extra == "dev"
+Requires-Dist: html-text (>=0.7.0,<0.8.0)
+Requires-Dist: langchain-aws (>=0.2.15,<0.3.0) ; extra == "dev"
+Requires-Dist: langchain-community (>=0.3.19)
+Requires-Dist: langchain-openai (>=0.3.4,<0.4.0)
+Requires-Dist: notebook (>=7.3.2,<8.0.0)
+Requires-Dist: prompt-toolkit (==3.0.50)
+Requires-Dist: pydantic (>=2.10.5,<2.11.0)
+Requires-Dist: python-dotenv (>=1.0.1,<1.1.0)
+Project-URL: Homepage, https://github.com/MrBagheera/llm-workers
+Project-URL: Issues, https://github.com/MrBagheera/llm-workers/issues
+Description-Content-Type: text/markdown
+
+# Project Overview
+
+Simple library and command-line tools for experimenting with LLMs.
+
+## Goals
+
+Provide developers with a simple way to experiment with LLMs and LangChain:
+- Easy setup and configuration
+- Basic chat / CLI tools
+- Own tool integration (both in Python and via composition of other tools)
+- Support for less-mainstream LLMs like AWS Bedrock
+
+## What This Project Is *Not*
+
+- **Not an end-user tool**: This project is geared toward developers and researchers with knowledge of Python, LLM capabilities, and programming fundamentals.
+- **Not a complete automation system**: It relies on human oversight and guidance for optimal performance.
+
+# Configuration
+
+Configuration is done via YAML-based "LLM scripts". See [`examples`](examples/) directory. This is WIP and
+subject to change without notice until version 0.1.0.
+
+# Running 
+
+Library comes with two command-line tools that can be used to run LLM scripts: `llm-workers-cli` and `llm-workers-chat`.
+
+To run LLM script with default prompt:
+```shell
+llm-workers-cli [--verbose] [--debug] <script_file>
+```
+
+To run LLM script with prompt(s) as command-line arguments:
+```shell
+llm-workers-cli [--verbose] [--debug] <script_file> [<prompt1> ... <promptN>]
+```
+
+To run LLM script with prompt(s) read from `stdin`, each line as separate prompt:
+```shell
+llm-workers-cli [--verbose] [--debug] <script_file> --
+```
+
+Results of LLM script execution will be printed to the `stdout` without any
+extra formatting. 
+
+To chat with LLM script:
+```shell
+llm-workers-chat [--verbose] [--debug] <script_file>
+```
+The tool provides terminal chat interface where user can interact with LLM script.
+
+Common flags:
+- `--verbose` flag triggers some debug prints to stderr
+- `--debug` - enables LangChain's debug mode, which prints additional information about script execution
+
+# To Do
+
+## Version 0.1.0-alpha4
+
+Basic version usable for some tasks.
+
+- support `confidential` tool flag - imply `return_direct`, output of those is not shown to LLM
+- support `ui_hint` tool flag
+- support `confirmation_prompt`/`confirmation_args` tool flags
+
+## Version 0.1.0-alpha5
+
+- simplify result referencing in chains - `{last_result}` and `store_as`
+- `prompts` section
+- `for_each` statement
+- `exec` tool
+- `ReadFileTool`: support `first_lines` / `last_lines`
+- `WriteFileTool`: support `append`
+- add `ListFilesTool`
+- add `ShellTool`
+- support accessing nested JSON elements in templates
+
+## Version 0.1.0-rc1
+
+- review error handling
+- split configuration into public and private (API tokens, model locations etc.) parts
+
+## Further Ideas
+
+- structured output
+- async versions for all built-in tools
+- proper error handling
+- "safe" versions of "unsafe" tools
+- write trail
+- resume trail
+- support acting as MCP server (expose `custom_tools`)
+- support acting as MCP host (use tools from configured MCP servers)
+
