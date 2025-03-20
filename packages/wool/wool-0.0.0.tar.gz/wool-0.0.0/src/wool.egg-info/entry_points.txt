@@ -1,0 +1,3 @@
+[console_scripts]
+workerpool = workerpool._cli:cli
+wp = workerpool._cli:cli
