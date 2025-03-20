@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: actxa_insights
+Version: 1.0.1
+Summary: SDK Python package for Actxa Insights
+Author: Actxa Insights
+Author-email: hadriang.gunawan@inphosoft.com
+Requires-Python: >=3.9
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
