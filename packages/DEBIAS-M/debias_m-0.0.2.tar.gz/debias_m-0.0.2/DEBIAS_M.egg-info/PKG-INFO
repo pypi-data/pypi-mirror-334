@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: DEBIAS-M
+Version: 0.0.2
+Home-page: https://github.com/korem-lab/DEBIAS-M
+Author: George Austin
+Author-email: gia2105@columbia.edu
+Requires-Python: >3.6.0
+Requires-Dist: numpy<=1.26.4
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: torch
+Requires-Dist: pytorch-lightning>1.6
+Requires-Dist: lightning-bolts>0.4.0
