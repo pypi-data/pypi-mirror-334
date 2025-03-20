@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unifiedcatalogpy"
+dynamic = ["version"]
+dependencies = [
+  "requests",
+]
+description = "A Python client for interacting with the Microsoft Purview Unified Catalog API."
+authors = [
+    { name = "Olaf Wrieden" }
+]
+license = { file = "LICENSE" }
+keywords = ["Microsoft Purview", "Unified Catalog", "Purview", "Data Governance", "Data Catalog"]
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/olafwrieden/unifiedcatalogpy"
+Documentation = "https://github.com/olafwrieden/unifiedcatalogpy"
+Repository = "https://github.com/olafwrieden/unifiedcatalogpy.git"
+"Bug Tracker" = "https://github.com/olafwrieden/unifiedcatalogpy/issues"
+Changelog = "https://github.com/olafwrieden/unifiedcatalogpy/commits/main/"
+
+[tool.setuptools]
+packages = ["unifiedcatalogpy"]
+
+[tool.setuptools.dynamic]
+version = { attr = "unifiedcatalogpy.__version__" }
