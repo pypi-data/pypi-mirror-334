@@ -1,0 +1,23 @@
+# Environments
+venv/
+
+# PyCharm
+.idea/
+
+# Sandbox
+sandbox/
+
+# Jupyter notebooks
+*.ipynb
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints
+
+__pycache__/
+
+# Temporary tests
+tests.py
+
+# Setup results
+dist/
+pltstat.egg-info/
