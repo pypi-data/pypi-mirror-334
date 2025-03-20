@@ -1,0 +1,27 @@
+Metadata-Version: 2.2
+Name: rokugu
+Version: 0.0.1
+Summary: An opinionated PyQt/PySide6 component library.
+Home-page: http://github.com/SantosVilanculos/rokugu
+Author: Santos Vilanculos
+Author-email: santosvilanculos@yahoo.com
+License: MIT
+Requires: setuptools
+Requires: wheel
+Requires-Python: >=3.12
+License-File: ./LICENSE
+Requires-Dist: pendulum
+Requires-Dist: pillow
+Requires-Dist: psutil
+Requires-Dist: PySide6
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+An opinionated PyQt/PySide6 component library offering a collection of aesthetically pleasing and highly accessible UI components.

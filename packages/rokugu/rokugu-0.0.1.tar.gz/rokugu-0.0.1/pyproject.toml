@@ -1,0 +1,15 @@
+[tool.isort]
+profile = 'black'
+remove_redundant_aliases = true
+
+[tool.autoflake]
+recursive = true
+expand-star-imports = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
+ignore-pass-statements = true
+
+[tool.black]
+line-length = 80
