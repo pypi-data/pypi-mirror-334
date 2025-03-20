@@ -1,0 +1,17 @@
+.venv/
+dist/
+.ignore/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
+books/
+*.pyc
+__pycache__
+src/_version.py
+
+packages/
+kokoro-weights
+books
