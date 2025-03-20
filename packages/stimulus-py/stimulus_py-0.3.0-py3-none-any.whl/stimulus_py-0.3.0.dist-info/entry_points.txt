@@ -1,0 +1,5 @@
+[console_scripts]
+stimulus = stimulus.cli.main:cli
+
+[gui_scripts]
+
