@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: otelanalyzer
+Version: 0.1
+Summary: Pure C lib for python3 (or C if u wanna) to analyze traces check for compliance with the OpenTelemetry standard
+Author: zkh-dot
+Author-email: kernzahar@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.10
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-python
+Dynamic: summary
