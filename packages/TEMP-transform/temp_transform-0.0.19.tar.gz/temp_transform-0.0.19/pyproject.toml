@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TEMP_transform"
+version = "0.0.19"
+authors = [
+  { name="Alexander Thompson", email="alexander.thompson@noaa.gov" },
+]
+description = "Package for converting TEMP (FM35, FM36, FM37, FM38) TAC messages to BUFR4 and GeoJSON"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 1 - Planning"
+]
+dynamic = ["dependencies"]
+keywords = [
+    'WMO',
+    'TEMP', 'TEMP SHIP', 'TEMP MOBIL', 'TEMP DROP',
+    'FM35', 'FM36', 'FM37', 'FM38',
+    'BUFR',
+    'decoding',
+    'weather',
+    'observations'
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"

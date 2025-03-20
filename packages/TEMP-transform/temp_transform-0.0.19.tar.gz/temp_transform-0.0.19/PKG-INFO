@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: TEMP_transform
+Version: 0.0.19
+Summary: Package for converting TEMP (FM35, FM36, FM37, FM38) TAC messages to BUFR4 and GeoJSON
+Author-email: Alexander Thompson <alexander.thompson@noaa.gov>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Keywords: WMO,TEMP,TEMP SHIP,TEMP MOBIL,TEMP DROP,FM35,FM36,FM37,FM38,BUFR,decoding,weather,observations
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: csv2bufr
+Requires-Dist: eccodes
+Requires-Dist: cfunits
+
+Placeholder README for TEMP transform
