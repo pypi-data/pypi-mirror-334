@@ -1,0 +1,6 @@
+
+[:python_version < "3.9" and os_name == "nt"]
+importlib_resources>=1.3
+
+[testing]
+pytest
