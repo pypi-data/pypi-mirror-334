@@ -1,0 +1,108 @@
+[project]
+name = "process-dcm"
+version = "0.7.0"
+description = "Python library and app to extract images from DCM in a JSON-based standard format"
+authors = [
+    { name = "Alan Silva", email = "3899850+alanwilter@users.noreply.github.com" },
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "opencv-python-headless>=4.11.0.86",
+    "typer>=0.15.2",
+    "pydicom>=3.0.1",
+    "pillow>=11.1.0",
+    "python-gdcm>=3.0.24.1",
+]
+
+[project.urls]
+repository = "https://github.com/pontikos-lab/process-dcm"
+
+[project.scripts]
+process-dcm = "process_dcm.main:cli"
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+packages = [{ include = "process_dcm" }]
+
+[tool.poetry.group.dev.dependencies]
+boto3-stubs = { extras = ["lambda", "s3"], version = "1.37.13" }
+ipdb = "0.13.13"
+ipython = "8.34.0"
+mypy = "1.15.0"
+mypy-boto3-lambda = "1.37.0"
+mypy-boto3-s3 = "1.37.0"
+pandas-stubs = "2.2.3.250308"
+pdbpp = "0.10.3"
+pip = "25.0.1"
+pre-commit = "4.1.0"
+pytest-cov = "6.0.0"
+pytest-env = "1.1.5"
+pytest-xdist = "3.6.1"
+ruff = "0.11.0"
+typed-argument-parser = "1.10.1"
+wheel = "0.45.1"
+pytest-mock = "^3.14.0"
+
+[tool.pytest.ini_options]
+addopts = "tests --cov=process_dcm/ --cov-report=term-missing:skip-covered --cov-report=xml --dist=loadgroup -n 8 --durations=5"
+
+[tool.coverage.report]
+omit = ["__main__.py"]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+extend-select = ["UP", "RUF", "I", "D", "E501"]
+ignore = ["UP036"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D100", "D103", "D104"]
+"__main__.py" = ["D100"]
+"__init__.py" = ["D104"]
+
+[tool.mypy]
+python_version = "3.10"
+# exclude = 'tests/'
+strict = true
+disable_error_code = ["type-arg"]
+
+# NOTE: uncomment these lines and edit accordingly if you have modules still without typings
+[[tool.mypy.overrides]]
+module = ["pytest_mock.*"]
+ignore_missing_imports = true
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_files = [
+    "process_dcm/__init__.py",
+    "pyproject.toml",
+    "process_dcm/main.py",
+]
+version_scheme = "pep440"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[tool.poetry.requires-plugins]
+poetry-bumpversion = ">=0.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
