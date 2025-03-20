@@ -1,0 +1,61 @@
+# MMT
+The Miva Managed Templates tool is a comprehensive command line
+interface tool to help speed up the development process within
+the Miva Merchant software.
+
+Full documentation of all supported features and commands can be
+found at [https://docs.miva.com/template-branches/template-branches-overview](https://docs.miva.com/template-branches/template-branches-overview#mmt_overview)
+
+# Requirements
+
+* Miva Merchant 10.00+
+* Python 3.6 or higher
+
+# Versions
+## 1.0.5
+### New Features
+* MMT-87: Added support for branch creation recycling
+## 1.0.4
+### New Features
+* Added --include-hidden-settings flag to the checkout command.  This command will include "hidden" settings in the downloaded template and property settings files.
+### Bug Fixes
+1. MMT-86: Add support to ignore hidden settings
+
+## 1.0.3
+### Bug Fixes
+1. MMT-67: MMT should include a reason why Changeset_Create failed
+1. MMT-71: MMT should handle a keyboard interrupt when requesting / receiving data
+1. MMT-72: mmt diff should create a temporary file with the same file suffix as the file being diffed
+1. MMT-79: Loading of properties no longer works with Miva Merchant 10.07.00
+1. MMT-80: mmt pull does not handle resources converted from Inline / Local types to other types
+
+## 1.0.2
+### New Features
+* Added --debug flag to view HTTP requests / responses
+### Bug Fixes
+1. MMT-54: Add a --version flag
+1. MMT-55: Fatal error when attempting to checkout a file that contains invalid OS file name characters
+1. MMT-56: Add the ability to create a branch using a Remote key reference
+1. MMT-58: Product / Category properties cannot be diffed, reverted, or pulled
+1. MMT-59: Pull command pulls all file types even if only specific files are requested
+1. MMT-60: MMT should set its own User-Agent
+1. MMT-68: Add support for logging MMT requests
+1. MMT-69: mmt diff does not work on multiple
+
+## 1.0.1
+### New Features
+* Added support for HTTP Basic Authentication
+### Bug Fixes
+1. MMT-53: Cannot push product / category property changes
+1. MMT-52: Empty mmt sub-command raises an exception
+### Changes
+* The credential add / update command now accepts an HTTP Basic Authentication username / password that will be used to send the Authorization Basic header for all outgoing requests.
+
+## 1.0.0
+* Initial release
+
+# License
+
+This application is licensed under the `MMT License Agreement`.
+
+See the `LICENSE` file for more information.
