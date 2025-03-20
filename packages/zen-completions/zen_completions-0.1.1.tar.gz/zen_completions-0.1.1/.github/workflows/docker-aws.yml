@@ -1,0 +1,85 @@
+name: Docker Build and Push to AWS ECR
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  AWS_DEFAULT_REGION: 'us-east-1'
+  DOCKER_REGISTRY: '573287233550.dkr.ecr.us-east-1.amazonaws.com'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Set build version
+        id: set_version
+        run: |
+          BUILD_VERSION='unknown'
+          if [ "${{ github.event_name }}" == "push" ]; then
+            if [ "${{ github.ref_name }}" == "main" ]; then
+              BUILD_VERSION=v0.${{ github.run_number }}
+            else
+              BUILD_VERSION="br-${{ github.ref_name }}"
+            fi
+          else
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              BUILD_VERSION=pr-${{ github.event.number }}-${{ github.run_number }}
+            fi
+          fi
+          echo "BUILD_VERSION=$BUILD_VERSION" >> "$GITHUB_ENV"
+          echo "build_version=$BUILD_VERSION" >> "$GITHUB_OUTPUT"
+      
+      - name: Checkout devtools
+        uses: actions/checkout@v4
+        with:
+          repository: zenafide/devtools
+          path: devtools
+          ref: main
+          token: ${{ secrets.GH_MACHINE_USER_PAT }}
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      
+      # Configure Docker to use ECR
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      
+      # Manual approach without relying on functions
+      - name: Build and push Docker image
+        if: github.event_name != 'pull_request'
+        run: |
+          # Set explicit variables - using an existing repository
+          REPO_NAME="zenafide/zenapi"  
+          IMAGE_NAME="${DOCKER_REGISTRY}/${REPO_NAME}:zen-completions-${BUILD_VERSION}"
+          
+          # Build and push directly
+          docker build -t ${IMAGE_NAME} .
+          docker push ${IMAGE_NAME}
+          
+          echo "Image pushed to ${IMAGE_NAME}"
+      
+      # Testing only without push for PRs
+      - name: Build Docker image (PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          # Set explicit variables - using an existing repository
+          REPO_NAME="zenafide/zenapi" 
+          IMAGE_NAME="${DOCKER_REGISTRY}/${REPO_NAME}:zen-completions-${BUILD_VERSION}"
+          
+          # Build only
+          docker build -t ${IMAGE_NAME} .
+          
+          # Test the image
+          docker run --rm ${IMAGE_NAME} --help 
