@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Health Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-height: 100vh; overflow-y: auto; padding: 10px; text-align: left; }
+        h1, h3, h5 { margin: 20px 0; }
+        .grade-circle {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 35px; height: 35px; border-radius: 50%; font-weight: bold; font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .metric-box {
+            display: flex; flex-direction: column; align-items: center; padding: 10px;
+            border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 200px; text-align: center; margin: 10px;
+        }
+        .flex-container { display: flex; gap: 20px; margin-left: 50px; margin-top: 50px; }
+        .table { border-collapse: collapse; width: 100%; }
+        .table th, .table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        .table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Server Details</h1>
+        </center>
+    </div>
+
+    <div class="container">
+        <h3>CPU Utilization</h3>
+        <div>
+            <span class="grade-circle" style="background: #4CAF50; color: white;">{{cpu_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Cpu count</div>
+            <div style="font-size: 2em; font-weight: bold;">{{cpu_count}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="workers are separate processes that handle requests from users"></span>
+            <div>Current Workers</div>
+            <div style="font-size: 2em; font-weight: bold;">{{current_workers}}</div>
+            <div>Allowed Workers</div>
+            <div style="font-size: 2em; font-weight: bold;">{{allowed_workers}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="Time spent on user-level processes."></span>
+            <div>User Time</div>
+            <div style="font-size: 2em; font-weight: bold;">{{cpu_user_times}}%</div>
+            <div style="color: green; font-weight: bold;">Healthy</div>
+            <div style="color: #555;">User time is within an acceptable range.</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Cpu system times</div>
+            <div style="font-size: 2em; font-weight: bold;">{{cpu_system_times}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Cpu idle times </div>
+            <div style="font-size: 2em; font-weight: bold;">{{cpu_idle_times}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>I/O wait time</div>
+            <div style="font-size: 2em; font-weight: bold;">{{cpu_iowait_times}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Load</div>
+            <div style="font-size: 2em; font-weight: bold;">{{load_avg_1_min}}</div>
+            <div style="font-size: 2em; font-weight: bold;">{{load_avg_5_min}}</div>
+            <div style="font-size: 2em; font-weight: bold;">{{load_avg_15_min}}</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>System Memory</h3>
+        <div>
+            <span class="grade-circle" style="background: #4CAF50; color: white;">{{cpu_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Total memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="workers are separate processes that handle requests from users"></span>
+            <div>Used memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="Time spent on user-level processes."></span>
+            <div>Free Memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{free_memory}}%</div>
+            <div style="color: green; font-weight: bold;">Healthy</div>
+            <div style="color: #555;">User time is within an acceptable range.</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Shared memory(MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{shared_memory}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Cashed memory (MB) </div>
+            <div style="font-size: 2em; font-weight: bold;">{{cached_memory}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Buffered memory(MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{buffered_memory}}</div>
+            <div style="color: green; font-weight: bold;">Metrics Value: Good</div>
+            <div style="color: #555;">Your CPU count is sufficient for optimal performance</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Process memory</h3>
+        <div>
+            <span class="grade-circle" style="background: #4CAF50; color: white;">{{cpu_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="workers are separate processes that handle requests from users"></span>
+            <div>Resident memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{memory_info_rss}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="Time spent on user-level processes."></span>
+            <div>Virtual Memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{memory_info_vms}}%</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Shared memory(MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{memory_info_shared}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Text memory (MB) </div>
+            <div style="font-size: 2em; font-weight: bold;">{{memory_info_text}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total number of CPU cores available in the system"></span>
+            <div>Data memory(MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{memory_info_data}}</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Disk Performance</h3>
+        <div>
+            <span class="grade-circle" style="background: #8BC34A; color: white;">{{memory_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Read bytes</div>
+            <div style="font-size: 2em; font-weight: bold;">{{read_bytes}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Write bytes</div>
+            <div style="font-size: 2em; font-weight: bold;">{{write_bytes}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Read time</div>
+            <div style="font-size: 2em; font-weight: bold;">{{read_time}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Write time</div>
+            <div style="font-size: 2em; font-weight: bold;">{{write_time}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Total Input output PS</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_iops}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Read count</div>
+            <div style="font-size: 2em; font-weight: bold;">{{read_count}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Write count</div>
+            <div style="font-size: 2em; font-weight: bold;">{{write_count}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Average Response time</div>
+            <div style="font-size: 2em; font-weight: bold;">{{avg_response_time}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Total throghput</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_throughput}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Concurrent sessions</h3>
+        <div>
+            <span class="grade-circle" style="background: #8BC34A; color: white;">{{memory_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Active connections</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Max connections</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Server uptime</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Text memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Data memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Concurrent sessions</h3>
+        <div>
+            <span class="grade-circle" style="background: #8BC34A; color: white;">{{memory_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Active connections</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Max connections</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Server uptime</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Text memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Data memory (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Database Metrics</h3>
+    </div>
+
+    <div class="flex-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Database Names</th>
+                    <th>Cache Hit Ratio</th>
+                    <th>CPU Usage Percent</th>
+                    <th>DB Size (MB)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                    <td>20%</td>
+                    <td>1024</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h3>Tables and views</h3>
+        <div>
+            <span class="grade-circle" style="background: #8BC34A; color: white;">{{memory_grade}}</span>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>User created tables</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>System tables</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Number of views</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Number of materialized views</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Raw count of all tables</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Largest table</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>File Handling metrics</h3>
+        <div>
+            <span class="grade-circle" style="background: #8BC34A; color: white;">{{memory_grade}}</span>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Average size (MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Missing Files(last 30 days)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Total file size(MB)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{total_memory}}</div>
+        </div>
+
+        <div class="metric-box">
+            <span class="fa fa-info-circle" title="The total physical memory"></span>
+            <div>Uploaded files (last 30 days)</div>
+            <div style="font-size: 2em; font-weight: bold;">{{used_memory}}</div>
+            <div style="color: orange;">Acceptable</div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>File Types</h3>
+    </div>
+
+    <div class="flex-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>File type</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr>
+                <tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr><tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h3>File Size distribution</h3>
+    </div>
+
+    <div class="flex-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>File type</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr>
+                <tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr><tr>
+                    <td>my_database</td>
+                    <td>95%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
