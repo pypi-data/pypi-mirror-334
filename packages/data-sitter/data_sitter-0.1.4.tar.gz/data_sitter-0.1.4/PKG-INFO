@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: data-sitter
+Version: 0.1.4
+Summary: A Python library that reads data contracts and generates Pydantic models for seamless data validation.
+Author-email: Lázaro Pereira Candea <lazaro@candea.es>
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: PyYAML==6.0.2
+Requires-Dist: parse_type==0.6.4
+Requires-Dist: pydantic==2.10.5
