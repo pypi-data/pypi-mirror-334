@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: rxnDB
+Version: 0.1.0a1
+Summary: A Python Shiny app for reaction database management
+Author-email: Buchanan Kerswell <buck.kerswell@gmail.com>
+License: MIT
+Project-URL: Repository, https://github.com/buchanankerswell/kerswell_et_al_rxnDB
+Classifier: Natural Language :: English
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: shiny
+Requires-Dist: pandas
+Requires-Dist: seaborn
+Requires-Dist: faicons
+Requires-Dist: pytest
+
+# kerswell_et_al_rxnDB
+A Python Shiny app for reaction database management
