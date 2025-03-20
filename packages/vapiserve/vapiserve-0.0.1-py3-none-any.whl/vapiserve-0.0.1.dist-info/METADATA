@@ -1,0 +1,161 @@
+Metadata-Version: 2.4
+Name: vapiserve
+Version: 0.0.1
+Summary: A framework for building API servers for Vapi custom tools with integrated service providers
+Project-URL: Homepage, https://github.com/vapi-ai/vapiserve
+Project-URL: Bug Tracker, https://github.com/vapi-ai/vapiserve/issues
+Project-URL: Documentation, https://vapiserve.readthedocs.io/
+Author-email: Mahimai Raja <mahimairaja3@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Mahimai Raja
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: fastapi>=0.100.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: uvicorn>=0.22.0
+Provides-Extra: ai
+Requires-Dist: anthropic>=0.5.0; extra == 'ai'
+Requires-Dist: openai>=0.27.8; extra == 'ai'
+Provides-Extra: all-integrations
+Requires-Dist: anthropic>=0.5.0; extra == 'all-integrations'
+Requires-Dist: boto3>=1.26.0; extra == 'all-integrations'
+Requires-Dist: google-api-python-client>=2.97.0; extra == 'all-integrations'
+Requires-Dist: google-auth>=2.22.0; extra == 'all-integrations'
+Requires-Dist: google-cloud-storage>=2.8.0; extra == 'all-integrations'
+Requires-Dist: microsoft-graph-core>=0.0.1; extra == 'all-integrations'
+Requires-Dist: msal>=1.20.0; extra == 'all-integrations'
+Requires-Dist: openai>=0.27.8; extra == 'all-integrations'
+Requires-Dist: sendgrid>=6.0.0; extra == 'all-integrations'
+Requires-Dist: slack-sdk>=3.21.3; extra == 'all-integrations'
+Requires-Dist: todoist-api-python>=2.0.0; extra == 'all-integrations'
+Requires-Dist: twilio>=8.5.0; extra == 'all-integrations'
+Provides-Extra: communication
+Requires-Dist: slack-sdk>=3.21.3; extra == 'communication'
+Requires-Dist: twilio>=8.5.0; extra == 'communication'
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Provides-Extra: email
+Requires-Dist: sendgrid>=6.0.0; extra == 'email'
+Provides-Extra: ngrok
+Requires-Dist: pyngrok>=5.2.1; extra == 'ngrok'
+Provides-Extra: scheduling
+Requires-Dist: google-api-python-client>=2.97.0; extra == 'scheduling'
+Requires-Dist: google-auth>=2.22.0; extra == 'scheduling'
+Requires-Dist: microsoft-graph-core>=0.0.1; extra == 'scheduling'
+Requires-Dist: msal>=1.20.0; extra == 'scheduling'
+Provides-Extra: storage
+Requires-Dist: boto3>=1.26.0; extra == 'storage'
+Requires-Dist: google-cloud-storage>=2.8.0; extra == 'storage'
+Provides-Extra: tasks
+Requires-Dist: todoist-api-python>=2.0.0; extra == 'tasks'
+Description-Content-Type: text/markdown
+
+# VapiServe
+
+<p align="center">
+  <img src="docs/assets/logo-image.png" alt="VapiServe Logo" width="250"/>
+</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/vapiserve/"><img src="https://img.shields.io/pypi/v/vapiserve.svg" alt="PyPI Version"/></a>
+  <a href="https://pypi.org/project/vapiserve/"><img src="https://img.shields.io/pypi/pyversions/vapiserve.svg" alt="Python Versions"/></a>
+  <a href="https://github.com/mahimairaja/vapiserve/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"/></a>
+  <a href="https://mahimairaja.github.io/vapiserve/"><img src="https://img.shields.io/badge/docs-latest-brightgreen.svg" alt="Documentation"/></a>
+</p>
+
+### A lightweight framework for creating and deploying API servers for [Vapi](https://docs.vapi.ai/introduction) custom tools.
+
+## Installation
+
+```bash
+pip install vapiserve
+```
+
+## Quick Example
+
+```python
+from vapiserve import tool, serve
+
+@tool(name="echo")
+async def echo(message: str = "Hello") -> dict:
+    # Add your tool logic here
+    ...
+    message = f"You said: {message}"
+    
+    return {"message": message}
+
+if __name__ == "__main__":
+    serve(echo, port=8000)
+```
+
+Your tool is now available at `http://localhost:8000/tools/echo`.
+
+## Features
+
+- Create tools with simple `@tool` decorator
+- Built on FastAPI for high performance
+- Structured error handling and validation
+- Multiple service integrations in modular design
+- Expose local servers with ngrok for development
+- Comprehensive type hints and documentation
+
+## Service Integrations
+
+VapiServe provides integrations across various categories:
+
+- **Scheduling**: Google Calendar, Outlook Calendar
+- **Tasks**: Todoist
+- **Communication**: Slack, Twilio
+- **Storage**: AWS S3, Google Cloud Storage
+- **Email**: SendGrid
+- **AI**: OpenAI, Anthropic
+
+## Documentation
+
+Kindly refer to our [documentation](https://mahimairaja.github.io/vapiserve/) for detailed usage instructions.
+
+## Contributing
+
+Contributions are welcome. Kindly fork the repository, create a feature branch, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+
+Made with ❤️ by [Mahimai Raja](https://github.com/mahimairaja)
