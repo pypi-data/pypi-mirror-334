@@ -1,0 +1,48 @@
+Metadata-Version: 2.2
+Name: pytket-azure
+Version: 0.4.0
+Summary: Extension for pytket, providing access to Azure devices
+Author: TKET development team
+Author-email: tket-support@quantinuum.com
+License: Apache 2
+Project-URL: Documentation, https://tket.quantinuum.com/extensions/pytket-azure/index.html
+Project-URL: Source, https://github.com/CQCL/pytket-azure
+Project-URL: Tracker, https://github.com/CQCL/pytket-azure/issues
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: azure-quantum>=3.0.0
+Requires-Dist: pytket>=2.0.1
+Requires-Dist: pytket-qir>=0.21.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+[Pytket](https://tket.quantinuum.com/api-docs/index.html) is a python module
+providing an extensive set of tools for compiling and executing quantum
+circuits.
+
+The `pytket-azure` extension allows `pytket` circuits to be submitted and
+executed on various devices and simulators via
+[Azure Quantum](https://learn.microsoft.com/en-us/azure/quantum/).
+
+Note that this package is still at an early, experimental stage of development.
