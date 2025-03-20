@@ -1,0 +1,17 @@
+meggie>=1.9.0
+
+[dev]
+black
+pylama
+pytest
+pytest-qt
+build
+twine
+setuptools
+
+[test]
+black
+pylama
+pytest
+pytest-qt
+setuptools
