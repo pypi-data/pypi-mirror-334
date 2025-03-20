@@ -1,0 +1,14 @@
+LICENSE
+pyproject.toml
+readme.md
+src/__init__.py
+src/slackify_markdown/__init__.py
+src/slackify_markdown/service.py
+src/slackify_markdown/slackify.py
+src/slackify_markdown/utils.py
+src/slackify_markdown.egg-info/PKG-INFO
+src/slackify_markdown.egg-info/SOURCES.txt
+src/slackify_markdown.egg-info/dependency_links.txt
+src/slackify_markdown.egg-info/requires.txt
+src/slackify_markdown.egg-info/top_level.txt
+tests/test_convert.py
