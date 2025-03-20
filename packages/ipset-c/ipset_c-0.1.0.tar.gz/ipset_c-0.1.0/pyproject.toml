@@ -1,0 +1,114 @@
+# poetry install --no-root
+# poetry install --sync
+# poetry install --no-root --without dev,test
+
+[tool.poetry]
+name = "ipset_c"
+version = "0.1.0"
+description = "IPSet written in C"
+readme = "README.md"
+authors = ["glowlex <antonioavocado777@gmail.com>"]
+license = "LGPL"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: POSIX :: Linux',
+    'Operating System :: MacOS',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: C',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Topic :: System :: Networking',
+    'Topic :: System :: Networking :: Firewalls',
+    'Topic :: Software Development',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Typing :: Typed',
+]
+keywords = ['network', 'ipset']
+include = [{path="src/*.[ch]", format="sdist"}, {path="tests/*.py", format="sdist"}]
+
+
+[tool.poetry.urls]
+Source = "https://github.com/glowlex/ipset_c/"
+
+
+[tool.poetry.build]
+script = "build.py"
+generate-setup-file = true
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+setuptools = "*"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.0"
+tox = "^4.12.1"
+poetry = "~1"
+
+
+[tool.poetry.group.dev.dependencies]
+poetry = "~1"
+poethepoet = '^0.25.0'
+
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+python_files = "test_*.py"
+python_functions = "test[A-Z]*"
+
+
+[tool.isort]
+include_trailing_comma = true
+profile = 'black'
+line_length = 120
+
+
+[tool.pylint.master]
+max-line-length = 120
+argument-naming-style = "camelCase"
+attr-naming-style = "camelCase"
+function-naming-style = "camelCase"
+method-naming-style = "camelCase"
+variable-naming-style = "camelCase"
+
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "invalid-name",
+    "unused-argument",
+    "import-outside-toplevel",
+    "import-error",
+    "too-many-arguments",
+    "too-many-locals",
+    "too-many-instance-attributes",
+    "missing-docstring",
+    "fixme",
+    "raise-missing-from",
+    "unused-variable",
+    "broad-exception-caught",
+    "logging-fstring-interpolation",
+]
+
+
+[tool.black]
+line-length = 120
+
+[tool.poe.tasks]
+isort = 'isort ipset_c tests'
+
+
+[build-system]
+requires = ["poetry", "setuptools"]
+build-backend = "poetry.masonry.api"
