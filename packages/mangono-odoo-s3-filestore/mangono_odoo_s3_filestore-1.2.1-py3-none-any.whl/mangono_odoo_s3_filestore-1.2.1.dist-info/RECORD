@@ -1,0 +1,14 @@
+odoo/addons/odoo_filestore_s3/__init__.py,sha256=6VX3p1L2W_S2G7KKwAIh3CmgHIOhzzo0Y04Nj4X1_ME,861
+odoo/addons/odoo_filestore_s3/__manifest__.py,sha256=Aq5nFrwMzNEXfypQzD6RkjE5TlTEHv1jPfg2Uy3OLS4,1109
+odoo/addons/odoo_filestore_s3/adapter.py,sha256=0FW90cqZAYwuZ4YU6JFCX3HmxYIMxmJvatBaywND_Qg,6273
+odoo/addons/odoo_filestore_s3/ir_attachment.py,sha256=A59gROYU4zaG7RLSK6SbZRQ2-Fg_CsZrDIhSE585YLM,3471
+odoo/addons/odoo_filestore_s3/odoo_s3_fs.py,sha256=zjXnuDRhHXCzhFwJQ3kaHOHR3xaEYFUnxCaR2I2BiEk,15734
+odoo/addons/odoo_filestore_s3/patchers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+odoo/addons/odoo_filestore_s3/patchers/method_patcher.py,sha256=Clvmh4xlUqG-QLQyxJtPEhXCxylhuJyL5wYaVZHCkuE,142
+odoo/addons/odoo_filestore_s3/patchers/patcher11.py,sha256=ylTG7QRc9P9IHurx_CFw7FTm4uORkoUW7zNn7_t7bNI,1492
+odoo/addons/odoo_filestore_s3/patchers/patcher14.py,sha256=43TPbM8H82HoHo-Eiz8lDiQI7Azn2bNdYpOIsnqACV8,1350
+odoo/addons/odoo_filestore_s3/patchers/patcher18.py,sha256=LNcju4IvCKuhVDFsMM4kbTk5RyjoVMvwM-v5MIYmQ84,491
+mangono_odoo_s3_filestore-1.2.1.dist-info/METADATA,sha256=keuDdwqEyhQluRMwsxCSmwMdeswmTQCxCU12BK6m0Ec,754
+mangono_odoo_s3_filestore-1.2.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mangono_odoo_s3_filestore-1.2.1.dist-info/licenses/LICENSE,sha256=QxkzT6ZHHibJsB5DwZJiko08KtvW4rjilPvZ4_uV_-0,34451
+mangono_odoo_s3_filestore-1.2.1.dist-info/RECORD,,

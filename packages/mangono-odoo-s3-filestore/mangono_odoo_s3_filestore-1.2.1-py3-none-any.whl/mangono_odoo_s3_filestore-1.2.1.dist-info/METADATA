@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: mangono-odoo-s3-filestore
+Version: 1.2.1
+Author-email: Alexis PASQUIER <alexis.pasquier@mangono.fr>
+License-File: LICENSE
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8.19
+Requires-Dist: minio==7.1.1
+Requires-Dist: oenv2config<2,>=1.5
+Description-Content-Type: text/markdown
+
+# odoo_filestore_s3
+
+## build
+
+```shell
+uv build
+```
+
+## Install
+
+```shell
+pip install mangono-odoo-s3-filestore
+```
