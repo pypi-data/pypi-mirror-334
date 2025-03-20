@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: pyx2
+Version: 0.1.1
+Summary: Create flexible websites with markdown content and FastHTML layouts - no design constraints
+Project-URL: Source, https://github.com/banditburai/pyxie
+Project-URL: Bug Tracker, https://github.com/banditburai/pyxie/issues
+Author-email: firefly <promptsiren@gmail.com>
+License: Apache-2.0
+License-File: LICENSE
+License-File: LICENSE_HEADER.txt
+Keywords: blogs,fasthtml,layouts,markdown,static-site,web
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Requires-Dist: lxml>=5.1.0
+Requires-Dist: mistletoe>=1.4.0
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: python-fasthtml>=0.12.4
+Description-Content-Type: text/markdown
+
+# Pyxie
+
+Create flexible websites with markdown content and FastHTML layouts - no design constraints.
+
+## Overview
+
+Pyxie is a Python package that combines the simplicity of Markdown with the power of FastHTML to create modern, dynamic websites. Write your content in Markdown for maximum readability and maintainability, while leveraging component-based layouts for dynamic features. The result is content that's both beautiful to look at and semantically structured - making it ideal for both human readers and AI/LLM processing.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+
+## Acknowledgements
+
+This project is built on top of [FastHTML](https://github.com/answerDotAI/fasthtml/), a powerful web framework for creating HTML applications with python code. FastHTML provides the core functionality for handling layouts and components in Pyxie. We're grateful to the FastHTML team and community for creating such an excellent foundation to build upon.
