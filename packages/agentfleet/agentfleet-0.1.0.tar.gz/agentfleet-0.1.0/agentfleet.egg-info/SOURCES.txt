@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+agentfleet/__init__.py
+agentfleet/agent.py
+agentfleet/chatroom.py
+agentfleet/mytools.py
+agentfleet.egg-info/PKG-INFO
+agentfleet.egg-info/SOURCES.txt
+agentfleet.egg-info/dependency_links.txt
+agentfleet.egg-info/requires.txt
+agentfleet.egg-info/top_level.txt
