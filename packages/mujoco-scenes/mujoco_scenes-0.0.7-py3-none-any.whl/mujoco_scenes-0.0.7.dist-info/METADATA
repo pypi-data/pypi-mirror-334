@@ -1,0 +1,57 @@
+Metadata-Version: 2.2
+Name: mujoco-scenes
+Version: 0.0.7
+Summary: The mujoco-scenes project
+Home-page: https://github.com/kscalelabs/mujoco-scenes
+Author: Benjamin Bolte
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: etils
+Requires-Dist: mujoco
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: darglint; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Provides-Extra: brax
+Requires-Dist: brax; extra == "brax"
+Requires-Dist: jax; extra == "brax"
+Provides-Extra: all
+Requires-Dist: etils; extra == "all"
+Requires-Dist: mujoco; extra == "all"
+Requires-Dist: numpy; extra == "all"
+Requires-Dist: black; extra == "all"
+Requires-Dist: darglint; extra == "all"
+Requires-Dist: mypy; extra == "all"
+Requires-Dist: pytest; extra == "all"
+Requires-Dist: ruff; extra == "all"
+Requires-Dist: brax; extra == "all"
+Requires-Dist: jax; extra == "all"
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# mujoco-scenes
+
+This package contains a collection of utility functions for generating different types of scenes in Mujoco.
+
+## Usage
+
+To load a robot into a particular scene, you can use the following code:
+
+```python
+from mujoco_scenes.mjcf import load_mjmodel
+
+model = load_mjmodel("path/to/robot.xml", "smooth")
+
+# To view the model, you can use:
+mujoco.viewer.launch(model)
+```
