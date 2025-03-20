@@ -1,0 +1,7 @@
+[console_scripts]
+
+[gui_scripts]
+
+[iblrig.plugins]
+task_dnms = task:Session
+
