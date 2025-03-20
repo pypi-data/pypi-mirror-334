@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/kppc/__init__.py
+src/kppc/config.py
+src/kppc/core.py
+src/kppc/fastgl.py
+src/kppc/glquad.py
+src/kppc/kszpsz_config.py
+src/kppc/new_remote_spectra.py
+src/kppc/wignerd.py
+src/kppc.egg-info/PKG-INFO
+src/kppc.egg-info/SOURCES.txt
+src/kppc.egg-info/dependency_links.txt
+src/kppc.egg-info/top_level.txt
