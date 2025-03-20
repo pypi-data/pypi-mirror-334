@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: ofautils
+Version: 0.1.0
+Summary: AIO Triton Utilities
+Requires-Python: >=3.11
+Requires-Dist: aiocache==0.11.1
+Requires-Dist: aiohttp>=3.11.11
+Requires-Dist: attrs>=24.3.0
+Requires-Dist: fastapi>=0.115.6
+Requires-Dist: fastcore>=1.7.27
+Requires-Dist: librosa==0.11.0
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: matplotlib==3.10.1
+Requires-Dist: minio==5.0.10
+Requires-Dist: numba==0.61.0
+Requires-Dist: numpy==1.24.3
+Requires-Dist: omegaconf>=2.3.0
+Requires-Dist: pika==1.3.1
+Requires-Dist: prometheus-client==0.13.1
+Requires-Dist: psycopg2-binary==2.9.5
+Requires-Dist: pybindgen>=0.22.1
+Requires-Dist: pydantic>=2.10.4
+Requires-Dist: pydub==0.25.1
+Requires-Dist: pyjwt[crypto]==2.3.0
+Requires-Dist: python-multipart>=0.0.20
+Requires-Dist: pyyaml==6.0
+Requires-Dist: scipy==1.10.0
+Requires-Dist: setuptools>=75.6.0
+Requires-Dist: sqlalchemy==1.4.45
+Requires-Dist: starlette-exporter==0.13.0
+Requires-Dist: tritonclient[grpc]>=2.52.0
+Requires-Dist: uvicorn==0.24.0.post1
+Requires-Dist: websockets>=15.0
+Description-Content-Type: text/markdown
+
+# OFAUtils - One-For-All Utilities for Triton Inference Server
+
+ofautils is a powerful Python package designed to enhance the usability of the Triton Inference Server across diverse fields. It provides optimized, field-specific utilities for processing data and running inference with models hosted on Triton, abstracting away complexity while maximizing performance. 
+
+## Features
+
+ofautils offers a suite of tools tailored to streamline Triton Inference Server interactions. Below are the core functionalities, each designed to assist users in processing data and running inference with Triton-hosted models:
+
+### 1. Triton Communications
+
+Provides a robust interface for interacting with the Triton Inference Server, optimized for reliability and ease of use.
+
+- **Server Status Monitoring**: Check server health and model availability with minimal overhead.
+- **Model Metadata Access**: Retrieve input/output specifications for any Triton-hosted model.
+- **Inference Execution**: Send optimized inference requests to Triton with automatic protocol handling (gRPC/HTTP).
+- **Connection Optimization**: Manage connections with retry logic, timeouts, and load balancing.
+
+### 2. Request Handling
+
+Simplifies the creation and management of inference requests for Triton models, ensuring high throughput and scalability.
+
+- **Batch Optimization**: Automatically batch requests for Triton’s dynamic batching capabilities.
+- **Data Serialization**: Efficiently convert field-specific data into Triton-compatible tensors.
+- **Response Processing**: Parse Triton inference outputs with field-aware logic.
+- **Error Recovery**: Handle inference errors with detailed diagnostics and fallback options.
+
+### 3. Unified Audio Engine
+
+The ofautils.audio module is designed to help users process audio data and run inference with audio-related models served on Triton, featuring highly optimized logic for audio workflows.
+
+- **Audio Preprocessing**: Prepare audio inputs (e.g., resampling, normalization) for Triton-hosted models like speech classifiers or audio embedders.
+- **Model-Specific Optimization**: Tailor audio data pipelines to match the requirements of specific Triton models (e.g., input shapes, sample rates).
+- **Inference Integration**: Run inference on Triton audio models with minimal latency.
+- **Feature Extraction**: Generate Triton-compatible features for audio inference tasks.
+- **Streaming Support**: Process real-time audio streams for continuous inference with Triton.
+
+### 4. Image Engine
+
+Facilitates the use of Triton-hosted image models by providing optimized utilities for image processing and inference.
+
+- **Image Preprocessing**: Transform images to meet Triton model specifications.
+- **Batch Inference**: Efficiently run inference on batches of images with models like object detectors or classifiers.
+- **Model Compatibility**: Adapt image data to diverse Triton model requirements 
+- **Output Handling**: Process inference results from Triton (e.g., bounding boxes, labels) with optimized logic.
+- **Format Bridging**: Convert between image formats and Triton tensor inputs seamlessly.
+
+### 5. NLP Engine
+
+Supports text-based inference with Triton models, offering tools to streamline NLP workflows.
+
+- **Text Preprocessing**: Tokenize and format text inputs for Triton-hosted language models.
+- **Inference Execution**: Run inference on Triton text models  with optimized request handling.
+- **Sequence Management**: Handle variable-length text sequences for batch inference on Triton.
+- **Output Decoding**: Convert Triton model outputs into usable text representations efficiently.
+
+### 6. Custom Data Engine
+
+Enables users to work with custom or domain-specific data types for Triton inference.
+
+- **Flexible Preprocessing**: Build custom data pipelines tailored to unique Triton model inputs.
+- **Inference Support**: Run inference on Triton with non-standard data formats using optimized utilities.
+- **Validation Tools**: Ensure custom data aligns with Triton model expectations before inference.
+
+### 7. Logging and Monitoring
+
+The ofautils.monitor module provides observability tools for Triton inference workflows.
+
+- **Inference Logging**: Record request and response details for Triton interactions.
+- **Performance Tracking**: Monitor latency, throughput, and Triton server metrics.
+- **Alerting**: Detect and report issues in Triton inference pipelines.
+
+### 8. Configuration Management
+
+Simplifies setup and runtime adjustments for Triton workflows.
+
+- **Model Configuration**: Define Triton model parameters (e.g., input shapes, batch sizes) programmatically.
+- **Environment Integration**: Load settings from files or environment variables.
+- **Dynamic Tuning**: Adjust Triton inference settings without workflow interruption.
+
+## Installation
+
+You can install ofautils via PyPI 
+
+```
+pip install ofautils
+```
+
+Ensure the Triton Inference Server client libraries are installed, as they are required for core functionality. See the [Triton documentation](https://github.com/triton-inference-server/server) for setup details.
+
+## Usage
+
+ofautils is modular and field-agnostic, allowing you to import only the tools you need. For instance:
+
+- Use Audio Engine to preprocess audio and run inference with a Triton-hosted audio model.
+- Combine Request Engine and Image Engine for efficient image inference on Triton.
+- Leverage Triton Engine for direct server communication and model management.
+
+Detailed examples and API references will be added in future documentation updates.
+
+## Requirements
+
+- Python 3.8+
+- Triton Inference Server Client Libraries (e.g., tritonclient)
+- NumPy (for tensor operations)
+- Optional: Libraries for audio (librosa), images (pillow, opencv-python), or text (transformers) based on your field.
+
+## License
+
+ofautils is licensed under the MIT License. 
+
