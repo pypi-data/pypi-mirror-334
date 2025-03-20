@@ -1,0 +1,17 @@
+conexao/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+conexao/cli.py,sha256=5OrOBmztcvaevOgZqYNt69dm0XuisfXrjErvUOROhDg,834
+conexao/config.py,sha256=n9xQ8yOnBm1r9z1WlH337Z7Rp9JBpeQtBv0fGlYw6DM,192
+conexao/docker.py,sha256=TNF4Y03rX1a-5W8rrnFdTuEzpzO2JgX2uTiSgWXpfiQ,237
+conexao/ssh.py,sha256=DgMZc_g7pKYl8TMeMyuCF5Lpw4oafssWMAzLWP8qjbU,1645
+conexao/django/__init__.py,sha256=qigXPLhV0DXF2TaM8IwzU1rwAIXmJXhlftzEVGSdvTo,33
+conexao/django/configure.py,sha256=LPZe5yfakZMl2VML1a6ZHHOhgWNqgNo-rU91WCfQ6k8,475
+conexao/django/auto/__init__.py,sha256=zBkUnUKLfMx4t020MxPckr-cJwvNz_45hsnJHGBjZ1k,744
+conexao/mongodb/__init__.py,sha256=JM7Y8EiSo6LSktbX99bmZNI3bMPrLcLMh0E5_mPMJSM,34
+conexao/mongodb/client.py,sha256=3DusqJeXSRWpn3m7pJOBpDYKpKCkJQczryqOyAX8LDc,571
+conexao/mongodb/auto/__init__.py,sha256=GVnDNuH2bK1tTKSCiEJPijbywZ1jcKyOUh2O7_z99Qc,753
+conexao-0.0.11.dist-info/LICENSE,sha256=EsqZVdcdWfNRisH6sW5b4fqfWyYivw69yWJpM2emDGU,35057
+conexao-0.0.11.dist-info/METADATA,sha256=NndueIXhEHhr2QMooRVuZ1tDWgiAX6XFo-tWOH8YD90,2816
+conexao-0.0.11.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+conexao-0.0.11.dist-info/entry_points.txt,sha256=zkDiOcrkm8TiWAq7PQPgjvNLG_6VCSgby4x7TDTh--I,44
+conexao-0.0.11.dist-info/top_level.txt,sha256=GB-plYoyi6yLvY0Qrd8-YOpDS_uUyPE8A9gAxrpMBb0,8
+conexao-0.0.11.dist-info/RECORD,,
