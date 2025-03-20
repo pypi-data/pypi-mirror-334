@@ -1,0 +1,13 @@
+six
+requests
+python-dateutil
+elasticsearch
+jmespath
+dateparser
+protobuf<6.0.0,>=3.20.3
+
+[test]
+pytest
+lz4
+virtualenv
+zstandard
