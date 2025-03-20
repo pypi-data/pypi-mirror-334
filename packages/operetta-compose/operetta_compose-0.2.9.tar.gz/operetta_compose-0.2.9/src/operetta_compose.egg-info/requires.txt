@@ -1,0 +1,25 @@
+fractal-tasks-core
+ome-zarr
+imagecodecs
+tqdm
+xmltodict
+pydantic
+csbdeep
+stardist
+tensorflow
+napari-feature-classifier
+ngio==0.1.6
+
+[:platform_system == "Darwin"]
+tensorflow-metal
+
+[dev]
+devtools
+pytest
+requests
+build
+jsonschema
+bumpver
+pre-commit
+pytest-cov
+pytest-dependency
