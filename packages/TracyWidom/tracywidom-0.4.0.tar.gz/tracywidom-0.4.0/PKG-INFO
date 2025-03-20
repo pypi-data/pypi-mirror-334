@@ -1,0 +1,40 @@
+Metadata-Version: 2.2
+Name: TracyWidom
+Version: 0.4.0
+Summary: Generate Tracy-Widom distribution functions
+Home-page: https://github.com/yymao/TracyWidom
+Download-URL: https://github.com/yymao/TracyWidom/archive/v0.4.0.tar.gz
+Author: Yao-Yuan Mao
+Author-email: yymao.astro@gmail.com
+Maintainer: Yao-Yuan Mao
+Maintainer-email: yymao.astro@gmail.com
+License: MIT
+Keywords: Tracy-Widom
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+License-File: LICENSE
+Requires-Dist: numpy>=1.7
+Requires-Dist: scipy>=0.13
+Requires-Dist: numdifftools>=0.9.41
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary
