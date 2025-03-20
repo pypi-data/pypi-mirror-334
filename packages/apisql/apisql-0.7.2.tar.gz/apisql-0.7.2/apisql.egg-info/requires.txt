@@ -1,0 +1,8 @@
+psycopg2-binary
+flask_jsonpify
+openpyxl
+backports.cached-property
+
+[develop]
+pylama
+tox
