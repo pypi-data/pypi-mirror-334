@@ -1,0 +1,33 @@
+{
+    "Devices": [
+        {
+            "serial": "TWJYKLB0F6",
+            "mac": "20:4C:03:B5:A8:22",
+            "subscription_key": "AJSPWDRYCMZWISFP"
+        },
+        {
+            "serial": "CNK4K5105B",
+            "mac": "7C:57:3C:C2:18:12",
+            "subscription_key": "ELZTQZI5G5H7FJRT"
+        },
+        {
+            "serial": "PHKXKD55FX",
+            "mac": "D0:D3:E0:CF:F5:BC",
+            "subscription_key": "ELZTQZI5G5H7FJRT"
+        },
+        {
+            "serial": "SG08KW8083",
+            "mac": "64:E8:81:D1:4F:80",
+            "subscription_key": "EE4A07152309E4FAC9"
+        },
+        {
+            "serial": "SG08KW807C",
+            "mac": "64:E8:81:D2:10:80",
+            "subscription_key": "EW7AEZOPYCH6CVSX"
+        }
+    ],
+    "Application": {
+        "region": "US West",
+        "name": "Aruba Central Internal"
+    }
+}

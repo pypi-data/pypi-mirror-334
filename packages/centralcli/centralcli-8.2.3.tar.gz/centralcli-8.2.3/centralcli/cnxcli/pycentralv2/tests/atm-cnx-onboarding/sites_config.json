@@ -1,0 +1,38 @@
+{"sites":  [{
+    "name": "Roseville-Aruba-Lab",
+    "address": "8000 Foothills",
+    "city": "Roseville",
+    "state": "California",
+    "country": "United States",
+    "zipCode": "95747",
+    "timezone": {
+"rawOffset": 19800000,
+        "timezone-id": "America/Los_Angeles",
+        "timezone-name": "Pacific Standard Time"
+    }
+},
+{
+"name": "Vegas-Demo-Site",
+"address": "3355 Las Vegas Blvd S",
+"city": "Las Vegas",
+"state": "Nevada",
+"country": "United States",
+"zipCode": "89109",
+"longitude": -115.1696057,
+"latitude": 36.1218457,
+"timezone": {
+"rawOffset": -28800000,
+"timezone-id": "America/Los_Angeles",
+"timezone-name": "Pacific Standard Time"
+}
+}
+],
+"collections": [
+    {
+        "scope-name": "ATM-Discover-2024",
+        "description": "Event Site Collection Test",
+        "siteIds": []
+    }
+
+]
+}
