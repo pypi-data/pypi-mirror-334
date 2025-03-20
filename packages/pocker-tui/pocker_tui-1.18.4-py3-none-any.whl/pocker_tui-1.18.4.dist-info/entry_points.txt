@@ -1,0 +1,3 @@
+[console_scripts]
+pocker=application.main:cli
+
