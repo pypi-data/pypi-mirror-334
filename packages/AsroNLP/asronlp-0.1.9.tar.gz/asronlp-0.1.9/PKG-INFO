@@ -1,0 +1,45 @@
+Metadata-Version: 2.2
+Name: AsroNLP
+Version: 0.1.9
+Summary: Alat NLP sederhana untuk memproses dan menganalisis teks dalam bahasa Indonesia.
+Home-page: https://github.com/asroharun6/AsroNLP
+Author: Asro
+Author-email: asro@raharja.info
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: Indonesian
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.1.5
+Requires-Dist: openpyxl>=3.0.5
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# AsroNLP
+
+AsroNLP adalah pustaka Pemrosesan Bahasa Alami (Natural Language Processing - NLP) yang sederhana dan kuat, dirancang khusus untuk mengolah dan menganalisis teks dalam bahasa Indonesia. Fokus pada tugas-tugas NLP penting seperti normalisasi teks, tokenisasi, dan analisis sentimen, menggunakan sumber daya linguistik lokal.
+
+## Fitur
+
+- **Normalisasi Teks**: Mengonversi teks menjadi format yang konsisten dengan menghapus karakter yang tidak diinginkan dan menstandarisasi ekspresi teks.
+- **Tokenisasi**: Memecah teks menjadi kata-kata atau token individu, memberikan dasar untuk analisis teks lebih lanjut.
+- **Penghapusan Stopwords**: Memfilter kata-kata umum dalam bahasa Indonesia yang mungkin tidak memberikan makna signifikan untuk analisis teks.
+- **Analisis Sentimen**: Menentukan sentimen teks sebagai positif, negatif, atau netral berdasarkan leksikon sentimen yang telah ditentukan.
+
+## Instalasi
+
+Anda dapat menginstal AsroNLP menggunakan pip:
+
+```bash
+pip install AsroNLP==0.1.9
