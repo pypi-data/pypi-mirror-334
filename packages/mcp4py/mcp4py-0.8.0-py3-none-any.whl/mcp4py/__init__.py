@@ -1,0 +1,1 @@
+from mcp4py.server.mcps import MCPS
