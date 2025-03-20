@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="80935491-fc2a-4b56-b52a-1a2ccd636d40" name="Default Changelist" comment="absolute image paths" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Nan_or_empty_cell" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jonathan Gutow &lt;gutow@uwosh.edu&gt;" />
+        <option value="gutow &lt;gutow@uwosh.edu&gt;" />
+        <option value="gutow@uwosh.edu" />
+        <option value="gutow &lt;gutow@uwosh.edu&gt;W" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="JLab_version" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gutow&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JupyterPhysSciLab/jupyter-datainputtable.git&quot;,
+    &quot;accountId&quot;: &quot;9f502e84-c538-4642-a4b9-7d3d56f76577&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="1b9LYUlNzKDGOy1ZFd0jpvbrlXf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/jonathan/GIT/jupyter-datainputtable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dev testing" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-1b1018131e27-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80935491-fc2a-4b56-b52a-1a2ccd636d40" name="Default Changelist" comment="" />
+      <created>1588039409894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588039409894</updated>
+    </task>
+    <task id="LOCAL-00001" summary="simple no jquery input dialog">
+      <created>1596504382388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596504382388</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add hidden info field that can contain HTML or text for passing info to the post processor.">
+      <created>1596661537617</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596661537617</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Append hidden field to the dialog">
+      <created>1596661589343</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596661589343</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Set id for the info field">
+      <created>1596662299283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596662299283</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add `#` to example queryselector all call for finding post_pr_info.">
+      <created>1596662619297</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596662619297</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Table to Pandas DataFrame code">
+      <created>1596668659775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1596668659775</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Replace swithing buttons with &quot;table actions&quot; menu.">
+      <created>1596744108099</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596744108099</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Use dialog to get table dimensions.">
+      <created>1596746015211</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1596746015211</updated>
+    </task>
+    <task id="LOCAL-00009" summary="linebreak fixes">
+      <created>1596746735944</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1596746735944</updated>
+    </task>
+    <task id="LOCAL-00010" summary="additional linebreak and comment fixes.">
+      <created>1596746937008</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1596746937008</updated>
+    </task>
+    <task id="LOCAL-00011" summary="additional comment fixes">
+      <created>1596747318873</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1596747318873</updated>
+    </task>
+    <task id="LOCAL-00012" summary="more linebreak fixes">
+      <created>1596747510153</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1596747510153</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Syntax fixes to get script injection working. Now works.">
+      <created>1596748722369</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1596748722369</updated>
+    </task>
+    <task id="LOCAL-00014" summary="In table edit mode only give option of saving updated data.">
+      <created>1596750419648</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1596750419648</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Warning if pandas is not imported when trying to load table into pandas">
+      <created>1596752473694</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1596752473694</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Working version of input dialog and create pandas from table.">
+      <created>1596764295977</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1596764295977</updated>
+    </task>
+    <task id="LOCAL-00017" summary="table row and column labels to type &lt;th&gt;">
+      <created>1596764727008</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1596764727008</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Readme updates to reflect Pandas functionality.">
+      <created>1596765393504</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1596765393504</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update to version 0.6.0">
+      <created>1596765430192</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1596765430192</updated>
+    </task>
+    <task id="LOCAL-00020" summary="removal of undefined querySelectorAll call, not sure where it came from. Version to 0.6.1.">
+      <created>1596936345172</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1596936345172</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Set Pandas indexes if row labels are not just numeric indexes.">
+      <created>1596970987030</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1596970987030</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Handle empty and text cell when converting to Pandas dataframe">
+      <created>1604159362462</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1604159362462</updated>
+    </task>
+    <task id="LOCAL-00023" summary="0.7.0rc0">
+      <created>1604160400086</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604160400086</updated>
+    </task>
+    <task id="LOCAL-00024" summary="better handling of NaN,empty cells &amp; string sanitizing.">
+      <created>1615152214534</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1615152214534</updated>
+    </task>
+    <task id="LOCAL-00025" summary="only convert case insensitive `np.nan` to np.NaN.">
+      <created>1615152596818</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1615152596818</updated>
+    </task>
+    <task id="LOCAL-00026" summary="use replaceAll for str to var name">
+      <created>1615153543462</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1615153543462</updated>
+    </task>
+    <task id="LOCAL-00027" summary="bump to 0.7.1.RC1">
+      <created>1615153875265</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1615153875265</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add numpy and pandas to install_requires">
+      <created>1615155497145</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1615155497145</updated>
+    </task>
+    <task id="LOCAL-00029" summary="bump to 0.7.1.RC2">
+      <created>1615155557552</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1615155557552</updated>
+    </task>
+    <task id="LOCAL-00030" summary="bump to 0.7.1">
+      <created>1615155860014</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1615155860014</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Add table caption and possibility of custom css.">
+      <created>1625709660228</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1625709660228</updated>
+    </task>
+    <task id="LOCAL-00032" summary="0.7.2rc2 and readme updates">
+      <created>1625772701804</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1625772701804</updated>
+    </task>
+    <task id="LOCAL-00033" summary="release 0.7.2">
+      <created>1625773495360</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1625773495360</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Small typo in dialog border formatting">
+      <created>1625863064657</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1625863064657</updated>
+    </task>
+    <task id="LOCAL-00035" summary="use jquery dialogs, include imports of numpy and pandas when necessary.">
+      <created>1626361219343</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1626361219343</updated>
+    </task>
+    <task id="LOCAL-00036" summary="0.7.3 limit imports into global namespace.">
+      <created>1626364757714</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1626364757714</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Colored and bigger caption. Testing symlink. README updates.">
+      <created>1630090146158</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1630090146158</updated>
+    </task>
+    <task id="LOCAL-00038" summary="0.7.4rc0">
+      <created>1630090207622</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1630090207622</updated>
+    </task>
+    <task id="LOCAL-00039" summary="0.7.4">
+      <created>1630090862676</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1630090862676</updated>
+    </task>
+    <task id="LOCAL-00040" summary="flag cell with `metadata.JPSL.input_table=true`.">
+      <created>1630890311231</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1630890311231</updated>
+    </task>
+    <task id="LOCAL-00041" summary="force input cell to size=4 (10 - 11 col visible)">
+      <created>1630949404658</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1630949404658</updated>
+    </task>
+    <task id="LOCAL-00042" summary="README.md updates">
+      <created>1642370085946</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1642370085946</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update requirements to gain upstream bugfixes, bump to v0.7.6">
+      <created>1659025031057</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1659025031057</updated>
+    </task>
+    <task id="LOCAL-00060" summary="README.md updates">
+      <option name="closed" value="true" />
+      <created>1720033752860</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1720033752860</updated>
+    </task>
+    <task id="LOCAL-00061" summary="README.md &amp; CHANGE&#10; updates">
+      <option name="closed" value="true" />
+      <created>1720204250773</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1720204250773</updated>
+    </task>
+    <task id="LOCAL-00062" summary="release v0.8.0">
+      <option name="closed" value="true" />
+      <created>1720204449027</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1720204449027</updated>
+    </task>
+    <task id="LOCAL-00063" summary="README.md updates for pypi links">
+      <option name="closed" value="true" />
+      <created>1720206458151</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1720206458151</updated>
+    </task>
+    <task id="LOCAL-00064" summary="README.md updates">
+      <option name="closed" value="true" />
+      <created>1720206875876</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1720206875876</updated>
+    </task>
+    <task id="LOCAL-00065" summary="absolute image paths">
+      <option name="closed" value="true" />
+      <created>1720229156569</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1720229156569</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="0.7.4" />
+    <MESSAGE value="flag cell with `metadata.JPSL.input_table=true`." />
+    <MESSAGE value="force input cell to size=4 (10 - 11 col visible)" />
+    <MESSAGE value="Update requirements to gain upstream bugfixes, bump to v0.7.6" />
+    <MESSAGE value="Initial Hatch pyproject.toml" />
+    <MESSAGE value="Initial copier template install" />
+    <MESSAGE value="Working table build &amp; lock labels." />
+    <MESSAGE value="SaveDataTable Contents Working." />
+    <MESSAGE value="Escaping to pass args to commandlinker fixed." />
+    <MESSAGE value="Edit table working." />
+    <MESSAGE value="edit table mode formatting." />
+    <MESSAGE value="inline styles for extension not installed case." />
+    <MESSAGE value="placeholder in creation dialog" />
+    <MESSAGE value="everything seems to work" />
+    <MESSAGE value="more config files" />
+    <MESSAGE value="changelog &amp; allow empty cells" />
+    <MESSAGE value="Readme updates, version 0.8.0rc0" />
+    <MESSAGE value="Readme updates" />
+    <MESSAGE value="Readme &amp; Dependency updates" />
+    <MESSAGE value="CHANGELOG.md updates" />
+    <MESSAGE value="README.md &amp; CHANGE&#10; updates" />
+    <MESSAGE value="release v0.8.0" />
+    <MESSAGE value="README.md updates for pypi links" />
+    <MESSAGE value="README.md updates" />
+    <MESSAGE value="absolute image paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="absolute image paths" />
+  </component>
+</project>

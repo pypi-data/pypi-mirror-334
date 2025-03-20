@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.2
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: gutow@uwosh.edu
+author_name: Jonathan Gutow
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: jupyter-datainputtable
+project_short_description: Predefined data input tables for Jupyter notebooks
+python_name: jupyter_datainputtable
+repository: https://github.com/JupyterPhysSciLab/jupyter-datainputtable
+test: true
+
