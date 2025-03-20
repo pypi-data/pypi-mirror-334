@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: pdf-signer
+Version: 0.1.2
+Summary: A customizable PDF signature box generator
+Author: Roshan Yadav
+Author-email: roshany.ir.ry@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: PyMuPDF
+Requires-Dist: reportlab
+Requires-Dist: PyPDF2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary
