@@ -1,0 +1,21 @@
+[project]
+name = "dhybridrpy"
+version = "v1.1"
+description = "A Python package to easily read input + output data from dHybridR."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "h5py",
+    "matplotlib",
+    "numpy",
+    "ruff",
+    "h5py",
+    "f90nml",
+    "pre-commit",
+    "dask"
+]
+license = {file = "LICENSE.txt"}
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
