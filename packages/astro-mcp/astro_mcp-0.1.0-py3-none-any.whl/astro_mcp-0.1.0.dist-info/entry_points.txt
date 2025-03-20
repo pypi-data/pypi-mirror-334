@@ -1,0 +1,5 @@
+[console_scripts]
+astro-mcp = src:main
+
+[mcp_server]
+astro = src:get_server
