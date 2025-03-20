@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: damv1time7
+Version: 0.6.3
+Summary: time with zone+7 package
+Home-page: UNKNOWN
+Author: dhonyabumuhammad (Bekasi)
+Author-email: <baba-rtw24133@tutamail.com>
+License: UNKNOWN
+Keywords: timezoneplus7
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: time-uuid==0.2.0
+Requires-Dist: damv1manipulation==0.0.14
+
+## damv1time7 - Time and Logging Utility for Timezone +7
+
+&nbsp;
+
+`damv1time7` is a Python package that provides utilities for handling time and logging with a focus on timezone +7. It includes functions for generating timestamps, calculating time differences, and logging messages to both console and files.
+
+<b>Installation</b>
+
+You can install damv1time7 via pip:
+<pre>
+pip install damv1time7
+</pre>
+
+Features:<br />
+- Timezone +7 Support: All timestamps are generated in the timezone +7 (ICT - Indochina Time).
+- Logging: Log messages to the console or to a file with timestamps.
+- Time Utilities: Calculate time differences, convert timestamps, and more.
+
+&nbsp;
+
+<b>Usage</b>
+
+1.  Time Utilities <br />
+
+    <br />
+
+    ⌘ `currentTime7()`<br />
+    Get the current time in timezone +7.
+    <pre>
+    from damv1time7 import currentTime7
+
+    print(currentTime7())
+    # Output: 2025-10-10T12:34:56.789000+0700
+    </pre>
+
+    <br />
+
+    ⌘ `generate_uuids_byTime7()` <br />
+    Generate UUIDs based on the current time in timezone +7.
+    <pre>
+    from damv1time7 import generate_uuids_byTime7
+
+    uuid = generate_uuids_byTime7()
+    print(uuid)
+    # Output: 1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed    
+    </pre>
+
+    <br />
+
+    ⌘ `convert_timestamp_to_datetimezone7()` <br />
+    Convert a timestamp to a datetime string in timezone +7.
+    <pre>
+    from damv1time7 import convert_timestamp_to_datetimezone7
+
+    timestamp = 1763072800000  # Example timestamp for the year 2025
+    converted_time = convert_timestamp_to_datetimezone7(timestamp)
+    print(converted_time)
+    # Output: 2025-10-01T12:00:00.000000+0700    
+    </pre>
+
+    <br />
+
+    ⌘ `difference_datetimezone7_by_day_from_now()` <br />
+    Calculate the difference in days between a target date and the current time in timezone +7.
+    <pre>
+    from damv1time7 import difference_datetimezone7_by_day_from_now
+
+    target_date = "2025-10-01T12:00:00.000000+0700"
+    days_diff = difference_datetimezone7_by_day_from_now(target_date)
+    print(days_diff)
+    # Output: 9 (example)    
+    </pre>
+
+    <br />
+
+    ⌘ `difference_datetimezone7_by_seconds_from_between()` <br />
+    Calculate the difference in seconds between two datetime strings in timezone +7.
+    <pre>
+    from damv1time7 import difference_datetimezone7_by_seconds_from_between
+
+    first_date = "2025-10-01T12:00:00.000000+0700"
+    last_date = "2025-10-01T14:30:00.000000+0700"
+    seconds_diff = difference_datetimezone7_by_seconds_from_between(first_date, last_date)
+    print(seconds_diff)
+    # Output: 9000 (example)
+    </pre>
+
+    &nbsp;
+
+2.  Logging Utilities <br />
+
+    <br />
+
+    ⌘ custom_logger() <br />
+    A simple logging function to log messages with a timestamp in timezone +7.
+    <pre>
+    from damv1time7 import custom_logger
+
+    custom_logger("This is a custom log message.")
+    # Output: 2025-10-10T12:34:56.789000+0700 This is a custom log message.    
+    </pre>
+
+    &nbsp;
+
+3.  File Handling <br />
+
+    <br />
+
+    Writing Multiple Logs to a File <br />
+    You can write multiple logs to the same file by reusing the file object.
+    <pre>
+    from damv1time7 import printlf_dump_v1
+
+    filename = "logfile.txt"
+    file_obj = printlf_dump_v1(True, filename, "First log message.")
+    file_obj = printlf_dump_v1(True, _file=file_obj, "Second log message.")
+    file_obj.close()  # Close the file when done
+    </pre>
+
+    Contents of logfile.txt:
+    <pre>
+    2025-10-10T12:34:56.789000+0700
+    2025-10-10T12:34:56.789000+0700 First log message.
+    2025-10-10T12:34:56.790000+0700 Second log message.
+    </pre>
+
+
