@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Logs and cache
+*.log
+.cache/
+.tox/
+.coverage
+nosetests.xml
+pytest_cache/
+
+# Editor & OS files
+.vscode/
+.idea/
+cookies/
+gallery-dl/
+.DS_Store
+Thumbs.db
+test.py
