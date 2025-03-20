@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: cns-nanoprometheus-client
+Version: 0.5.17
+Summary: Python client for Nanoprometheus metrics
+Home-page: https://github.com/opicevopice/cns-nanoprometheus-client
+Author: Roman Skvara
+Author-email: skvara.roman@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: requests_html
+Requires-Dist: lxml_html_clean
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
