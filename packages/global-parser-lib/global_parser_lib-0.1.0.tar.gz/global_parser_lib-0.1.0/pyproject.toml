@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "global_parser_lib"
+version = "0.1.0"
+authors = [
+    {name = "Vaia", email = "foundersoffice@vaiaclimate.com"}
+]
+description = "A library for parsing various file types including images and audio"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "aiohttp",
+    "requests",
+    "openai-whisper",
+    "pdfplumber",
+    "pandas",
+    "python-docx",
+    "fitz",
+    "python-pptx",
+    "huggingface_hub",
+    "openai",
+    "python-dotenv",
+    "httpx",
+    "fastapi",
+    "boto3",
+    "botocore",
+    "transformers",
+    "nltk",
+    "bs4",
+    "langdetect",
+    "chardet",
+    "pymongo"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/founders-vaia/global-parser"

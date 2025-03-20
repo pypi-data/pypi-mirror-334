@@ -1,0 +1,16 @@
+pyproject.toml
+setup.py
+src/global_parser_lib.egg-info/PKG-INFO
+src/global_parser_lib.egg-info/SOURCES.txt
+src/global_parser_lib.egg-info/dependency_links.txt
+src/global_parser_lib.egg-info/requires.txt
+src/global_parser_lib.egg-info/top_level.txt
+src/parser/__init__.py
+src/parser/audio.py
+src/parser/file.py
+src/parser/image.py
+src/url_parser/parser.py
+src/utils/paragraph.py
+src/utils/validSentence.py
+src/utils/classifers/sustainability_hf.py
+src/utils/s3/upload.py
