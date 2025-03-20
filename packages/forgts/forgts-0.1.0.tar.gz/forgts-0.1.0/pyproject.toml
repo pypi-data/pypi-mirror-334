@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "forgts"
+version = "0.1.0"
+description = "A package that extracts formatting from Excel files and applies it to great_tables objects."
+authors = ["Fernanda Aguirre Ruiz"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ipykernel = "^6.0.3"
+nbformat = "^5.1.3"
+pandas = "^1.3.0"
+numpy = "^1.21.0"
+openpyxl = "^3.0.9"
+great-tables = "^0.17.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

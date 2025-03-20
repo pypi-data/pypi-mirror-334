@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+forgts/__init__.py
+forgts/get_formatting.py
+forgts/styling.py
+forgts/translate_formatting.py
+forgts.egg-info/PKG-INFO
+forgts.egg-info/SOURCES.txt
+forgts.egg-info/dependency_links.txt
+forgts.egg-info/top_level.txt
+tests/test__init__.py
+tests/test_get_formatting.py
+tests/test_styling.py
+tests/test_translate_formatting.py

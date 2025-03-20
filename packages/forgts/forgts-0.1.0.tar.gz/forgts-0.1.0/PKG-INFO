@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: forgts
+Version: 0.1.0
+Summary: A package that extracts formatting from Excel files and applies it to great_tables objects.
+Author: Fernanda Aguirre Ruiz
+License: MIT License
+Requires-Python: >=3
+License-File: LICENSE
+Dynamic: author
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
