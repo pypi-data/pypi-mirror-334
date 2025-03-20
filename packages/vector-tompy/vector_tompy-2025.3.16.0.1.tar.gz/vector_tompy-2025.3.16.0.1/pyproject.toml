@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vector-tompy"
+description = "Vectors for tompy projects"
+version = "2025.03.16.00.01"
+requires-python = ">=3.9"
+dependencies = ["math_tompy>=2024.12.13.22.58",
+                "angle_tompy>=2025.01.19.01.36",
+                "sympy>=1.13.0"]
+authors = [
+    { name = "tompy" },
+]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vector_tompy"]
