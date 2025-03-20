@@ -1,0 +1,58 @@
+[project]
+name = "funROI"
+version = "1.0.0"
+authors = [
+    {name = "Ruimin Gao", email = "ruimin.gao@gatech.edu"},
+    {name = "Anna A. Ivanova", email = "a.ivanova@gatech.edu"}
+]
+dependencies = [
+    "sphinx>=4.0",
+    "sphinx_rtd_theme",
+    "h5py>=3.0.0",
+    "nibabel>=5.2.0",
+    "numpy>=1.22.4",
+    "pandas>=2.2.0",
+    "scipy>=1.8.0",
+    "statsmodels",
+    "nilearn"
+]
+description = "A Python package for functional ROI analyses of fMRI data"
+homepage = "https://github.com/GT-LIT-Lab/funROI"
+readme = "README.rst"
+readme_content_type = "text/x-rst"
+license = { file = "LICENSE" }
+keywords = ["fMRI", "ROI", "neuroimaging", "data analysis"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
+
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.black]
+line-length = 79
+
+[tool.coverage.run]
+source = ["./funROI"]
+branch = true
+omit = ["funROI/tests/*"]
+
+[tool.coverage.html]
+directory = "htmlcov"
+title = "Coverage Report"
+
+[tool.pytest.ini_options]
+addopts = "--cov=funROI --cov-branch --cov-report=html"
+log_cli = true
+log_cli_level = "INFO"
+log_format = "%(asctime)s [%(levelname)s] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
