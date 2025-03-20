@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: lua2pack
+Version: 1.0.17
+Summary: Generate RPM or DSC spec files from luarocks
+Home-page: https://github.com/huakim/lua2pack
+License: GPLv3
+License-File: LICENSE
+Requires-Dist: jinja2-easy.generator
+Requires-Dist: lupa
+Requires-Dist: luadata.luatable
+Requires-Dist: toposort
+Requires-Dist: platformdirs
+Requires-Dist: jinja2
+Requires-Dist: requests
+Requires-Dist: requests-glob>0.3.0
+Requires-Dist: requests-text
+Requires-Dist: requests-stdin
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
