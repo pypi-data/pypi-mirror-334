@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.py
+wata/__init__.py
+wata/client.py
+wata/exceptions.py
+wata/http_client.py
+wata/logger.py
+wata/modules/__init__.py
+wata/modules/payment.py
+wata/modules/webhook.py
+wata_api.egg-info/PKG-INFO
+wata_api.egg-info/SOURCES.txt
+wata_api.egg-info/dependency_links.txt
+wata_api.egg-info/requires.txt
+wata_api.egg-info/top_level.txt
