@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: import_gist
+Version: 0.1.0
+Summary: Import module from Github Gist
+Home-page: https://github.com/alxxtexxr/import_gist
+Author: alxxtexxr
+Author-email: alimtegar404@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# Import Gist
+
+Downloads a Python script from a GitHub Gist and imports it as a module.
+
+## Usage
+```
+from import_gist as import_gist
+
+your_module = import_gist(<GIST_URL>)
+# Or
+module_name = import_gist(name=<MODULE_NAME>, url=<GIST_URL>)
+```
+
+### Parameters
+- `url` (str): The raw URL of the Gist.
+- `name` (str, optional): The name to assign to the module. If `None`, it defaults to the filename in the URL.
+
+### Returns
+- `module`: The imported module.
