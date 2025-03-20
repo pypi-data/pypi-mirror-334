@@ -1,0 +1,14 @@
+[project]
+name = "wsba_nhl_scraper"
+version = "0.1.8"
+authors = [
+  { name="Owen Singh", email="owenbksingh@gmail.com" },
+]
+description = "A Python Package for scraping National Hockey League schedule, play-by-play, and shifts information."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]

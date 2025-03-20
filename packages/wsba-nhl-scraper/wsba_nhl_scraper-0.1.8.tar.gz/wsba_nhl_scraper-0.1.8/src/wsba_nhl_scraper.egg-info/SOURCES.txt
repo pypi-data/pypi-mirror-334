@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/wsba_nhl_scraper/__init__.py
+src/wsba_nhl_scraper/data_scrape.py
+src/wsba_nhl_scraper/wsba_nhl_scrape.py
+src/wsba_nhl_scraper.egg-info/PKG-INFO
+src/wsba_nhl_scraper.egg-info/SOURCES.txt
+src/wsba_nhl_scraper.egg-info/dependency_links.txt
+src/wsba_nhl_scraper.egg-info/top_level.txt

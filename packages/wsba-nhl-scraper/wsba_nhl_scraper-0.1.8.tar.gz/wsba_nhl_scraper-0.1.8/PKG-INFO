@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: wsba_nhl_scraper
+Version: 0.1.8
+Summary: A Python Package for scraping National Hockey League schedule, play-by-play, and shifts information.
+Author-email: Owen Singh <owenbksingh@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+*** WSBA NHL Scraper ***
+
+Provided documentation will follow the full release of the scraper.  For now, this is intended for semi-public usage only.
