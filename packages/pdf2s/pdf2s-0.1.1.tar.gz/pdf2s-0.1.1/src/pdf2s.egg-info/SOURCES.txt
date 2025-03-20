@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/pdf2s/__init__.py
+src/pdf2s/cli.py
+src/pdf2s.egg-info/PKG-INFO
+src/pdf2s.egg-info/SOURCES.txt
+src/pdf2s.egg-info/dependency_links.txt
+src/pdf2s.egg-info/entry_points.txt
+src/pdf2s.egg-info/requires.txt
+src/pdf2s.egg-info/top_level.txt
+src/pdf2s/converters/__init__.py
+src/pdf2s/converters/md_pdf.py
+src/pdf2s/converters/pdf_img.py
+src/pdf2s/converters/pdf_md.py
+src/pdf2s/converters/pdf_merger.py
+src/pdf2s/converters/pdf_splitter.py
