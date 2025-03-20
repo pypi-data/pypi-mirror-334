@@ -1,0 +1,44 @@
+%YAML 1.2
+---
+# Exchange correlation functionals for cp2k.
+PBE:
+- versions: all
+  XC_FUNCTIONAL: {_: PBE}
+SCAN:
+- versions: ["8.1"]
+  XC_FUNCTIONAL:
+    LIBXC:
+    - {FUNCTIONAL: MGGA_X_SCAN}
+    - {FUNCTIONAL: MGGA_C_SCAN}
+- versions: ["8.2", "9.1", "2022.1", "2022.2", "2023.1", "2023.2", "2024.1"]
+  XC_FUNCTIONAL:
+    MGGA_X_SCAN: {}
+    MGGA_C_SCAN: {}
+R2SCAN:
+- versions: ["8.1"]
+  XC_FUNCTIONAL:
+    LIBXC:
+    - {FUNCTIONAL: MGGA_X_R2SCAN}
+    - {FUNCTIONAL: MGGA_C_R2SCAN}
+- versions: ["8.2", "9.1", "2022.1", "2022.2", "2023.1", "2023.2", "2024.1"]
+  XC_FUNCTIONAL:
+    MGGA_X_R2SCAN: {}
+    MGGA_C_R2SCAN: {}
+PBE-D3:
+- versions: all
+  XC_FUNCTIONAL: {_: PBE}
+  VDW_POTENTIAL:
+    POTENTIAL_TYPE: PAIR_POTENTIAL
+    PAIR_POTENTIAL:
+      PARAMETER_FILE_NAME: dftd3.dat
+      TYPE: DFTD3
+      REFERENCE_FUNCTIONAL: PBE
+PBE-D3BJ:
+- versions: all
+  XC_FUNCTIONAL: {_: PBE}
+  VDW_POTENTIAL:
+    POTENTIAL_TYPE: PAIR_POTENTIAL
+    PAIR_POTENTIAL:
+      PARAMETER_FILE_NAME: dftd3.dat
+      TYPE: DFTD3(BJ)
+      REFERENCE_FUNCTIONAL: PBE
