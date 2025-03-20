@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/xlsx_to_json.py
+src/pyfrigel_db_struct/__init__.py
+src/pyfrigel_db_struct.egg-info/PKG-INFO
+src/pyfrigel_db_struct.egg-info/SOURCES.txt
+src/pyfrigel_db_struct.egg-info/dependency_links.txt
+src/pyfrigel_db_struct.egg-info/requires.txt
+src/pyfrigel_db_struct.egg-info/top_level.txt
+src/pyfrigel_db_struct/excel_to_json/__init__.py
+src/pyfrigel_db_struct/excel_to_json/channels.py
+src/pyfrigel_db_struct/excel_to_json/const.py
+src/pyfrigel_db_struct/excel_to_json/excel_to_json.py
+src/pyfrigel_db_struct/excel_to_json/utils.py
+src/pyfrigel_db_struct/tests/__init__.py
+src/pyfrigel_db_struct/tests/test_excel_to_json.py

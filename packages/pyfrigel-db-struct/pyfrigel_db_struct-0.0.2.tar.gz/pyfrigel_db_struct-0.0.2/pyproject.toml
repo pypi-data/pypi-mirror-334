@@ -1,0 +1,24 @@
+[project]
+name = "pyfrigel-db-struct"
+version = "0.0.2"
+authors = [
+  { name="Artem Piazzi Tsigler", email="a.piazzi@frigel.com"},
+  { name="Massimo Caverni", email="m.caverni@frigel.com"}
+]
+description = "Script collection for creation of DB struct JSON files"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+dependencies = [
+    "docopt",
+    "mypy",
+    "openpyxl",
+    "pandas",
+    "pandas-stubs",
+    "pytest",
+    "xmltodict"
+]
