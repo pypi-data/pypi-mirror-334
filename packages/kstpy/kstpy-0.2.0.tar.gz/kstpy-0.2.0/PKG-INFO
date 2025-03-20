@@ -1,0 +1,55 @@
+Metadata-Version: 2.3
+Name: kstpy
+Version: 0.2.0
+Summary: A Python package for Knowledge Space Theory
+License: LGPL-3.0-or-later
+Keywords: Knowledge Space Theory,Psychology
+Author: Cord Hockemeyer
+Author-email: cord.hockemeyer@uni-graz.at
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: matplotlib (>=3.10,<4.0)
+Requires-Dist: more_itertools (>=10.6,<11.0)
+Requires-Dist: networkx (>=3.4,<4.0)
+Requires-Dist: numpy (>=2.2,<3.0)
+Project-URL: Documentation, https://resources.cord-hockemeyer.info/techreports/kstpy.pdf
+Project-URL: Homepage, https://www.cord-hockemeyer.info/en/knowledge-space-theory/resources-on-knowledge-space-theory/#python
+Description-Content-Type: text/markdown
+
+# kstpy
+
+A Python package for Knowledge Space Theory
+
+## General package informaation
+
+### Remarks
+
+- Please note that is an early stage package.
+- Especially the functions in the `kstpy.basics` module may be rather inefficiednt.
+
+### Installation from PyPI
+
+```bash
+$ pip install kstpy
+```
+
+### Usage
+
+```python
+from kstpy.data import xpl_base
+from kstpy.basics import constr
+
+print(constr(xpl_base))
+```
+For further information, please have a look at the API reference.
+
+### License
+
+`kstpy` was created by Cord Hockemeyer. It is licensed under the terms of the GNU General Public License v3.0 license.
+
+### Credits
+
+- The `graphicx` module is a copy of Simon Hegele's `hasseNetworkx` module from GitHub. I opted for this way because I did not find any comparable Python package.
+- `kstpy` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+
