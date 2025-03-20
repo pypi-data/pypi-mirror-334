@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: jsparser
+Version: 2.7.3
+Summary: Fast javascript parser (based on esprima.js)
+Author: Arden Ward
+Author-email: wardarden@gmail.com
+License: MIT
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: license
+Dynamic: summary
+
+Fast javascript parser (based on esprima.js). Python 3 fork of pyjsparser
