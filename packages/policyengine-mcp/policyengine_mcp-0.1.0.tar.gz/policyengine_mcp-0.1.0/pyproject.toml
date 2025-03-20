@@ -1,0 +1,13 @@
+[project]
+name = "policyengine-mcp"
+version = "0.1.0"
+description = "PolicyEngine Model Context Protocol server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp",
+    "policyengine",
+]
+
+[project.scripts]
+policyengine-mcp = "main:start"
