@@ -1,0 +1,124 @@
+name: Cut New Release
+
+on:  # yamllint disable-line rule:truthy
+  workflow_dispatch:
+    inputs:
+      expected_major_version:
+        description: 'Expected major version'
+        required: true
+        type: string
+      new_api_version:
+        description: 'New kumo-api version (vX.Y.Z)'
+        required: true
+        type: string
+
+env:
+  REGISTRY_USER: kumo+kumo_internal
+  GH_TOKEN: ${{ github.token }}
+  NEW_VERSION: ${{ inputs.expected_major_version}}
+  NEW_API_VERSION: ${{ inputs.new_api_version }}
+
+
+jobs:
+  cut-release:
+    name: Cut New Release of Kumo SDK
+    runs-on: ubuntu-22.04
+    outputs:
+      release_success: ${{ steps.set-output.outputs.success }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Clone Kumo repository
+        uses: actions/checkout@v4
+        with:
+          repository: kumo-ai/kumo-sdk
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+
+      - name: Validate expected major version
+        run: |
+          cd /home/runner/work/kumo-sdk/kumo-sdk
+          VERSION=$(awk '/^\[project\]/{p=1;next} p&&/^version/{match($0, /version="([0-9.]+)"/, arr); print arr[1];exit}' pyproject.toml)
+          echo "Current version from pyproject.toml: $VERSION"
+          # Extract vX.Y from vX.Y.Z using parameter expansion
+          BRANCH_NAME=v${VERSION%.*}
+          echo "Branch name from pyproject.toml: $BRANCH_NAME"
+          git fetch origin
+          # Check if the branch in pyproject.toml exists
+          if [[ -z  $(git branch -r | grep -E "origin/${BRANCH_NAME}$") ]]; then
+            echo "Branch origin/$BRANCH_NAME does not exist"
+            exit 1
+          fi
+          # verify next version does not exist (since we check it matches the input version next,
+          # this also covers that input version branch does not exist)
+          NEW_MAJOR=$(echo ${BRANCH_NAME} | awk -F. -v OFS=. '{$NF += 1 ; print}')
+          # if new first-digit version, check for that
+          if [[ "$NEW_VERSION" =~ ^v[0-9]+\.0$ ]];
+          then
+            NEW_MAJOR=$NEW_VERSION
+          fi
+          echo "New major version: $NEW_MAJOR checking if it exists"
+          if [[ -n $(git branch -r | grep -E "origin/${NEW_MAJOR}$") ]]; then
+            echo "Error: new major version based on pyproject.toml origin/$NEW_MAJOR exists"
+            exit 1
+          fi
+          if [[ $NEW_MAJOR != $NEW_VERSION ]]; then
+            echo "Error: expected major version $NEW_VERSION does not match next version $NEW_MAJOR"
+            exit 1
+          fi
+          echo "Ready to create major version $NEW_MAJOR for kumo-sdk."
+
+      - name: Setup Git credentials
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update pyproject.toml and setup.py
+        run: |
+          cd /home/runner/work/kumo-sdk/kumo-sdk
+          
+          awk -v version_line="version=\"${NEW_VERSION#v}.0\"" -i inplace '/^\[project\]/{p=1} p&&/^version/{if(!done){sub(/^version=.*/,version_line);done=1}} 1' pyproject.toml
+          sed -i "s/kumo_api_ver = .*/kumo_api_ver = '$NEW_API_VERSION'/" setup.py
+          git add setup.py
+          git add pyproject.toml
+          git commit -m "Update version to $NEW_VERSION.0 and api version to $NEW_API_VERSION"
+          git push origin main
+
+      - name: Cut Release
+        run: |
+          cd /home/runner/work/kumo-sdk/kumo-sdk
+          if [[ "$NEW_VERSION" =~ ^v[0-9]+\.0$ ]];
+          then
+            PREV_PREFIX=$(echo ${NEW_VERSION} | awk -F. '{print "v" substr($1, 2) - 1}')
+            PREV_VERSION=$(git tag -l | grep -E $PREV_PREFIX |  grep -E "^v[0-9]+\.[0-9]+\.[0]$" | sort -V | tail -n 1)
+          else
+            PREV_VERSION=$(echo ${NEW_VERSION} | awk -F. -v OFS=. '{$NF -= 1 ; print}').0
+          fi
+          NOTES_ARG="--notes-start-tag ${PREV_VERSION}"
+
+
+          TAG=${NEW_VERSION}.0
+          git checkout -b ${NEW_VERSION}
+          git push origin ${NEW_VERSION}
+          git tag $TAG
+          git push origin $TAG
+          gh release create $TAG --verify-tag --generate-notes --title $TAG $NOTES_ARG
+
+      - name: Update setup.py on release branch
+        run: |
+          cd /home/runner/work/kumo-sdk/kumo-sdk
+          git checkout ${NEW_VERSION}
+          cp release_setup_template.py setup.py
+          sed -i "s/kumo_api_ver/${NEW_API_VERSION#v}/g" setup.py
+          git add setup.py
+          git rm release_setup_template.py
+          git commit -m "Update api version in setup.py to $NEW_API_VERSION"
+          git push origin ${NEW_VERSION}
+
+      - name: Set output
+        if: ${{ success() }}
+        id: set-output
+        run: echo "success=true" >> $GITHUB_OUTPUT
