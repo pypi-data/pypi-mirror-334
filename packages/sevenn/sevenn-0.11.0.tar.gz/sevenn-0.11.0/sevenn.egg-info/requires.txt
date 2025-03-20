@@ -1,0 +1,15 @@
+ase
+braceexpand
+pyyaml
+e3nn>=0.5.0
+tqdm
+scikit-learn
+torch_geometric>=2.5.0
+numpy
+matscipy
+pandas
+requests
+
+[test]
+matscipy
+pytest-cov>=5
