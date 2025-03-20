@@ -1,0 +1,2 @@
+[nomad.plugin]
+dosnormalizer = dosnormalizer:dos_normalizer_entry_point
