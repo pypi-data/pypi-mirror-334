@@ -1,0 +1,14 @@
+Metadata-Version: 2.3
+Name: latex-document-generator
+Version: 0.1.0
+Summary: 
+Author: andrewbolotsky
+Author-email: andrew04tlt@gmail.com
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: latex-components-generator (>=1.0.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+
