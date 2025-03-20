@@ -1,0 +1,17 @@
+pyusb>=1.1.1
+
+[docs]
+sphinx>=5.2.3
+furo>=2021.3.20b30
+sphinx_mdinclude
+
+[influx]
+influxdb-client
+
+[serial]
+pyserial
+
+[test]
+pytest
+black
+pylint
