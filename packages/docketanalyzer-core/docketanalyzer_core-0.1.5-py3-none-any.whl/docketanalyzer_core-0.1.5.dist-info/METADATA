@@ -1,0 +1,123 @@
+Metadata-Version: 2.4
+Name: docketanalyzer-core
+Version: 0.1.5
+Summary: Docket Analyzer Core Utilities
+Author: Nathan Dahlberg
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: awscli>=1.38.11
+Requires-Dist: boto3>=1.37.11
+Requires-Dist: click>=8.0.0
+Requires-Dist: elasticsearch>=8.17.2
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: pathlib>=1.0.1
+Requires-Dist: peewee>=3.17.9
+Requires-Dist: psycopg2-binary>=2.9.10
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: redis>=5.0.1
+Requires-Dist: regex>=2.5.148
+Requires-Dist: requests>=2.32.3
+Requires-Dist: simplejson>=3.19.3
+Requires-Dist: tqdm>=4.66.2
+Provides-Extra: dev
+Requires-Dist: build>=1.0.0; extra == 'dev'
+Requires-Dist: pytest-cov>=4.0; extra == 'dev'
+Requires-Dist: pytest>=7.0; extra == 'dev'
+Requires-Dist: ruff>=0.9.10; extra == 'dev'
+Requires-Dist: tomli>=2.0.0; extra == 'dev'
+Requires-Dist: twine>=4.0.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+[![Docs](https://img.shields.io/badge/docs-in%20progress-yellow)](https://docs.docketanalyzer.com/api/main/)
+
+# Docket Analyzer Core
+
+Core utilities for Docket Analyzer modules
+
+Full documentation available at [docs.docketanalyzer.com](https://docs.docketanalyzer.com)
+
+## Install and Configure
+
+Install docketanalyzer:
+
+```
+pip install `docketanalyzer[all]`
+```
+
+Run the configuration script:
+
+```
+da configure
+```
+
+## Load Configured Env
+
+```
+from docketanalyzer import env
+
+print(env.VARIABLE_NAME)
+```
+
+## Service Clients
+
+### Elasticsearch
+
+```python
+from docketanalyzer import load_elastic
+
+es = load_elastic()
+print(es.ping())
+```
+
+### Postgres
+
+```python
+from docketanalyzer_core import load_psql
+
+db = load_psql()
+print(db.status())
+```
+
+### Redis
+
+```python
+from docketanalyzer import load_redis
+
+redis = load_redis()
+print(redis.ping())
+```
+
+### S3
+
+```python
+from docketanalyzer import load_s3
+
+s3 = load_s3()
+print(s3.status())
+```
+
+## Registry
+
+Example usage:
+
+```python
+from docketanalyzer import Registry, SomeBaseClass
+
+
+class SomeRegistry(Registry):
+    def find_filter(self, obj):
+        return (
+            isinstance(obj, type) and
+            issubclass(obj, SomeBaseClass) and
+            obj is not SomeBaseClass
+        )
+
+
+some_registry = SomeRegistry()
+
+# Find subclasses of SomeBaseClass in this module
+some_registry.find(recurse=True)
+
+# Import these into the current namespace
+some_registry.import_registered()
+```
