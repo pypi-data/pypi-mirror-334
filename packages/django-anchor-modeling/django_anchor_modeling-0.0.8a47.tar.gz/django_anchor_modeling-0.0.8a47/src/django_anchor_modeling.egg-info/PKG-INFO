@@ -1,0 +1,86 @@
+Metadata-Version: 2.2
+Name: django_anchor_modeling
+Version: 0.0.8a47
+Summary: one line description about the project
+Home-page: https://github.com/GreenDeploy-io/django-anchor-modeling
+Author: author_name
+Maintainer: maintainer_name
+License: MIT
+Project-URL: Changelog, https://github.com/GreenDeploy-io/django-anchor-modeling/blob/main/CHANGELOG.rst
+Keywords: django
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: Django>=4.2
+Requires-Dist: icontract>=2.6.4
+
+==============
+Package Name
+==============
+
+Short description of the package.
+
+.. image:: https://img.shields.io/badge/license-MIT-green.svg
+    :target: https://opensource.org/licenses/MIT
+
+.. image:: https://img.shields.io/badge/python-3.x-blue.svg
+    :target: https://www.python.org/
+
+Installation
+============
+
+You can install the package using pip:
+
+.. code-block:: bash
+
+    pip install package_name
+
+Usage
+=====
+
+Basic usage information can be placed here.
+
+.. code-block:: python
+
+    from package_name import example_function
+
+    example_function()
+
+Features
+========
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+Contributing
+============
+
+Contributions are welcome. Please refer to the CONTRIBUTING.rst file for guidelines.
+
+License
+=======
+
+This package is released under the MIT License. See the LICENSE file for details.
+
+Credits
+=======
+
+- Your Name (maintainer)
+- Additional contributors
+

@@ -1,0 +1,37 @@
+[build-system]
+# RATIONALE why build-backend, requires:
+# - pyproject.toml for specifying build-system requirements
+# - setup.cfg for the package metadata, dependencies, and other settings
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=42", "wheel"]
+
+[tool.black]
+target-version = ['py310']
+
+[tool.ruff]
+ignore-init-module-imports = true
+
+[tool.pytest.ini_options]
+addopts = """\
+  --strict-config
+  --strict-markers
+  --ds=tests.settings
+  """
+django_find_project = false
+pythonpath = ['.', 'src']
+# When set to false, pytest-django will not perform this search and
+# you'll have to specify the Django settings module yourself,
+# using either the --ds command line option (see above in addopts)
+# or the DJANGO_SETTINGS_MODULE environment variable.
+
+
+[tool.mypy]
+mypy_path = "src/"
+namespace_packages = false
+show_error_codes = true
+strict = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+allow_untyped_defs = true
