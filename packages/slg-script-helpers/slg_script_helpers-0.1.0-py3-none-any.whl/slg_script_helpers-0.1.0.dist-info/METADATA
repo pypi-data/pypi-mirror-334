@@ -1,0 +1,32 @@
+Metadata-Version: 2.2
+Name: slg-script-helpers
+Version: 0.1.0
+Summary: Helper functions for Python scripts including standardized config handling
+Home-page: https://github.com/slgotting/script-helpers
+Author: Steven Gotting
+Author-email: sgotting21@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# slg-script-helpers
+
+A collection of helper functions for Python scripts.
+
+## Installation
+
+```bash
+pip install slg-script-helpers
+```
