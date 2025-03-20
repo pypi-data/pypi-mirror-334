@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: fourtest
+Version: 0.1.7
+Summary: A simple example fourtest
+Author: fourchains
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
