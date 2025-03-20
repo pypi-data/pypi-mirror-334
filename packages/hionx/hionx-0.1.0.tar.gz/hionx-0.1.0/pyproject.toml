@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["hion"]
+
+[project]
+name = "hionx"
+version = "0.1.0"
+authors = [
+  { name="Josue N Rivera", email="josue.n.rivera@outlook.com" },
+]
+description = "Hion (/ˈiː.ɒn/): Hamiltonian-Informed Optimal Neural Control"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ['torch', 'numpy']
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/wzjoriv/Hion"
+Issues = "https://github.com/wzjoriv/Hion/issues"
