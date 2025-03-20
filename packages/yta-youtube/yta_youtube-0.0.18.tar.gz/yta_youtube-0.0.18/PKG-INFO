@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: yta_youtube
+Version: 0.0.18
+Summary: Youtube Autonomous Youtube interaction module.
+Author: Daniel Alcalá
+Author-email: <danielalcalavalera@gmail.com>
+Keywords: youtube autonomous youtube interaction module
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE
+Requires-Dist: yt_dlp
+Requires-Dist: yta_google_api
+Requires-Dist: yta_general_utils
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+Youtube Autonomous Youtube interaction module package is built to simplify the way you interact with Youtube videos. It is an abstraction to let you call simple methods to be able to search for video information, download video or audio, subtitles, etc.
