@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: bears
+Version: 0.1.6
+Author-email: Abhishek Divekar <adivekar@utexas.edu>
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: autoenum==1.0.2
+Requires-Dist: boto3==1.36.19
+Requires-Dist: cloudpickle==3.1.1
+Requires-Dist: fastparquet==2024.11.0
+Requires-Dist: numpy==1.26.4
+Requires-Dist: openpyxl==3.1.5
+Requires-Dist: pandas==2.2.1
+Requires-Dist: pyarrow==14.0.2
+Requires-Dist: pydantic==2.10.6
+Requires-Dist: pytest==8.3.4
+Requires-Dist: pyyaml==6.0.2
+Requires-Dist: requests==2.32.3
+Requires-Dist: s3fs==0.4.2
+Requires-Dist: scikit-learn==1.6.1
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: urllib3==2.3.0
+Requires-Dist: xlrd==2.0.1
+Provides-Extra: all
+Requires-Dist: dask==2024.10.0; extra == 'all'
+Requires-Dist: dask[complete]; extra == 'all'
+Requires-Dist: imageio; extra == 'all'
+Requires-Dist: orjson; extra == 'all'
+Requires-Dist: ray==2.41.0; extra == 'all'
+Requires-Dist: ray[default]; extra == 'all'
+Requires-Dist: torch>=2.5.1; extra == 'all'
+Description-Content-Type: text/markdown
+
+## Run your Machine Learning and Deep Learning workloads at any scale.
+
+`bears` delivers lightning-fast data-processing, whether you need to run a single row or 100M+ rows.
+
+`bears` works with your existing data tools while optimizing data-layouts between Pandas, Dask, Torch, Python dicts for maximum performance. Drop-in compatibility with the Pandas API means you can use `bears` today with zero code changes.
+
+![bear-in-the-night-sky](img/bear-in-the-night-sky.png)
+
+## Help build a `bears`!
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This project is licensed under the Apache-2.0 License.
+
