@@ -1,0 +1,2 @@
+[console_scripts]
+pydytuesday = pydytuesday.__main__:cli
