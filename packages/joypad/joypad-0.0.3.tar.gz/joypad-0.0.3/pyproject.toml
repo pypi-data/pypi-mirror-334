@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+version = 'v0.0.3'
+name = 'joypad'
+requires-python = ">= 3.7"
+dependencies = ["pyglet>=2.1"]
+authors = [
+  {name = "Nicholas A. Del Grosso", email = "delgrosso.nick@gmail.com"}
+]
+maintainers = [
+  {name = "Nicholas A. Del Grosso", email = "delgrosso.nick@gmail.com"}
+]
+description = "Control apps with standard dual-joystick controllers."
+readme = "README.md"
+license = "MIT"
+keywords = ["controller", "joystick", "gaming"]
+
