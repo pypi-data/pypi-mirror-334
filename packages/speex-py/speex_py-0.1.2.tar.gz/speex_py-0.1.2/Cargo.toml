@@ -1,0 +1,17 @@
+[package]
+name = "speex-py"
+version = "0.1.2"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "speex_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.23.3"
+libc = "0.2"
+
+[build-dependencies]
+bindgen = "0.69.1"
+pkg-config = "0.3.27"
