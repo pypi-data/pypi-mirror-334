@@ -1,0 +1,2 @@
+[console_scripts]
+sports-api-urls = pyespn.bin:get_all_sports_apis

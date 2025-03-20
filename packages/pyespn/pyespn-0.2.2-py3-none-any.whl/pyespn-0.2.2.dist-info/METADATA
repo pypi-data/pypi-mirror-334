@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: pyespn
+Version: 0.2.2
+Summary: Wrapper for hidden ESPN API
+Author: Zach
+Author-email: Zach Stocker <zacharystocker@gmail.com>
+License: MIT
+Project-URL: Repository, https://github.com/EnderLocke/pyespn
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.1.8
+Requires-Dist: mkdocs>=1.6.1
+Requires-Dist: mkdocs-material>=9.6.7
+Requires-Dist: requests>=2.32.3
+
+# PYESPN
+
+[![documentation](https://img.shields.io/badge/docs-pyespn-blue.svg?style=flat)](https://enderlocke.github.io/pyespn/)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/EnderLocke/pyespn/deploy.yml)
+
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyespn)
+![PyPI - Version](https://img.shields.io/pypi/v/pyespn)
+![PyPI - Status](https://img.shields.io/pypi/status/pyespn)
+![PyPI - License](https://img.shields.io/pypi/l/pyespn)
+
+![GitHub language count](https://img.shields.io/github/languages/count/EnderLocke/pyespn)
+![GitHub top language](https://img.shields.io/github/languages/top/EnderLocke/pyespn)
+
+
+work in progress for hitting hidden espn api
+
+i am not affiliated with espn
+
+not all api end points are available for all leagues,
+
+i am working on adding in exceptions but you could get odd errors if say you try recruiting rankings for the nfl
+
+please see [detailed documents](https://enderlocke.github.io/pyespn/) with 
