@@ -1,0 +1,7 @@
+__title__ = "hyperlake"
+__description__ = "Python Client for the Hyperlake distributed SQL Engine"
+__url__ = "https://github.com/ockhamlabs/hyperlake-python-client"
+__version__ = "0.1.1"
+__author__ = "Ockham Labs Team"
+__author_email__ = "pythonclient+hello@ockhamlabs.ai"
+__license__ = "Apache 2.0"

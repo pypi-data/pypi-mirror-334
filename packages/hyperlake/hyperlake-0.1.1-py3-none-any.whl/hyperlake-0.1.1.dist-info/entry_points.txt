@@ -1,0 +1,2 @@
+[sqlalchemy.dialects]
+hyperlake = hyperlake.sqlalchemy.dialect:HyperlakeDialect
