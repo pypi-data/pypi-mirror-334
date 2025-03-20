@@ -1,0 +1,252 @@
+2025-02-16 07:51:17,702 [INFO ]  MyApp : Configuration files in  ~/.myapp/config
+2025-02-16 07:51:20,734 [INFO ]  Influx : Class Influx initialized
+2025-02-16 07:51:20,736 [INFO ]  PlugMaster : myapp : Plugin Influx loaded
+2025-02-16 07:51:20,929 [INFO ]  PahoMqtt : Class PahoMqtt initialized
+2025-02-16 07:51:20,931 [INFO ]  PlugMaster : myapp : Plugin PahoMqtt loaded
+2025-02-16 07:51:20,997 [INFO ]  OpenWeatherMapThread : Class OpenWeatherMapThread initialized
+2025-02-16 07:51:20,999 [INFO ]  OpenWeatherMap : Class OpenWeatherMap initialized
+2025-02-16 07:51:21,002 [INFO ]  PlugMaster : myapp : Plugin OpenWeatherMap loaded
+2025-02-16 07:51:21,024 [INFO ]  VisualCrossingThread : Class VisualCrossingThread initialized
+2025-02-16 07:51:21,026 [INFO ]  VisualCrossing : Class VisualCrossing initialized
+2025-02-16 07:51:21,031 [INFO ]  PlugMaster : myapp : Plugin VisualCrossing loaded
+2025-02-16 07:51:21,035 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,038 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,041 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,046 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,050 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,053 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,057 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,061 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,065 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,068 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,071 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,075 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,078 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,082 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,085 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,090 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,093 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,097 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:51:21,106 [INFO ]  HomeWizardWaterMeterThread : Class HomeWizardWaterMeterThread initialized
+2025-02-16 07:51:21,107 [INFO ]  HomeWizardWaterMeter : Class HomeWizardWaterMeter initialized
+2025-02-16 07:51:21,110 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: module 'juham_homewizard' has no attribute 'HomewizardWaterMeter'
+2025-02-16 07:56:17,335 [INFO ]  MyApp : --init requested, creating class configuration files
+2025-02-16 07:56:17,336 [INFO ]  MyApp : Configuration files in  ~/.myapp/config
+2025-02-16 07:56:17,338 [INFO ]  MyApp : --init specified, class configuration files will be created upon exit
+2025-02-16 07:56:17,826 [INFO ]  Influx : Class Influx initialized
+2025-02-16 07:56:17,828 [INFO ]  PlugMaster : myapp : Plugin Influx loaded
+2025-02-16 07:56:17,918 [INFO ]  PahoMqtt : Class PahoMqtt initialized
+2025-02-16 07:56:17,920 [INFO ]  PlugMaster : myapp : Plugin PahoMqtt loaded
+2025-02-16 07:56:17,966 [INFO ]  OpenWeatherMapThread : Class OpenWeatherMapThread initialized
+2025-02-16 07:56:17,968 [INFO ]  OpenWeatherMap : Class OpenWeatherMap initialized
+2025-02-16 07:56:17,971 [INFO ]  PlugMaster : myapp : Plugin OpenWeatherMap loaded
+2025-02-16 07:56:17,975 [INFO ]  VisualCrossingThread : Class VisualCrossingThread initialized
+2025-02-16 07:56:17,977 [INFO ]  VisualCrossing : Class VisualCrossing initialized
+2025-02-16 07:56:17,978 [INFO ]  PlugMaster : myapp : Plugin VisualCrossing loaded
+2025-02-16 07:56:17,984 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:17,988 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:17,991 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:17,994 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:17,998 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,002 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,006 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,009 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,012 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,016 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,020 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,023 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,026 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,030 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,034 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,037 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,042 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,045 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:18,050 [INFO ]  HomeWizardWaterMeterThread : Class HomeWizardWaterMeterThread initialized
+2025-02-16 07:56:18,051 [INFO ]  HomeWizardWaterMeter : Class HomeWizardWaterMeter initialized
+2025-02-16 07:56:18,053 [INFO ]  PlugMaster : myapp : Plugin HomeWizardWaterMeter loaded
+2025-02-16 07:56:26,368 [ERROR]  PlugMaster : myapp : Failed to load plugin <class 'importlib.metadata.EntryPoint'>: No module named 'juham'
+2025-02-16 07:56:26,383 [INFO ]  Shelly : Class Shelly initialized
+2025-02-16 07:56:26,384 [INFO ]  ShellyMotionSimulatorThread : Class ShellyMotionSimulatorThread initialized
+2025-02-16 07:56:26,385 [INFO ]  ShellyMotionSimulator : Class ShellyMotionSimulator initialized
+2025-02-16 07:56:26,390 [INFO ]  ShellyPlusAddOnSimulatorThread : Class ShellyPlusAddOnSimulatorThread initialized
+2025-02-16 07:56:26,391 [INFO ]  ShellyPlusAddOnSimulator : Class ShellyPlusAddOnSimulator initialized
+2025-02-16 07:56:26,397 [INFO ]  ShellyMotion : Class ShellyMotion initialized
+2025-02-16 07:56:26,402 [INFO ]  ShellyDS18B20 : Class ShellyDS18B20 initialized
+2025-02-16 07:56:26,406 [INFO ]  Shelly1G3 : Class Shelly1G3 initialized
+2025-02-16 07:56:26,410 [INFO ]  ShellyPlus1 : Class ShellyPlus1 initialized
+2025-02-16 07:56:26,414 [INFO ]  ShellyPro3EM : Class ShellyPro3EM initialized
+2025-02-16 07:56:26,419 [INFO ]  ShellyPro3 : Class ShellyPro3 initialized
+2025-02-16 07:56:26,422 [INFO ]  ShellyDHT22 : Class ShellyDHT22 initialized
+2025-02-16 07:56:26,423 [INFO ]  PlugMaster : myapp : Plugin Shelly loaded
+2025-02-16 07:56:26,426 [INFO ]  PlugMaster : myapp : Plugin Shelly1G3 loaded
+2025-02-16 07:56:26,428 [INFO ]  PlugMaster : myapp : Plugin ShellyDHT22 loaded
+2025-02-16 07:56:26,429 [INFO ]  PlugMaster : myapp : Plugin ShellyDS18B20 loaded
+2025-02-16 07:56:26,430 [INFO ]  PlugMaster : myapp : Plugin ShellyMotion loaded
+2025-02-16 07:56:26,431 [INFO ]  PlugMaster : myapp : Plugin ShellyPlus1 loaded
+2025-02-16 07:56:26,433 [INFO ]  PlugMaster : myapp : Plugin ShellyPro3 loaded
+2025-02-16 07:56:26,434 [INFO ]  PlugMaster : myapp : Plugin ShellyPro3EM loaded
+2025-02-16 07:56:26,435 [INFO ]  PlugMaster : myapp : Plugin SystemStatus loaded
+2025-02-16 07:56:26,874 [INFO ]  WebCameraThread : Class WebCameraThread initialized
+2025-02-16 07:56:26,876 [INFO ]  WebCamera : Class WebCamera initialized
+2025-02-16 07:56:26,974 [INFO ]  WaterMeterThreadOCR : Class WaterMeterThreadOCR initialized
+2025-02-16 07:56:26,976 [INFO ]  WaterMeterOCR : Class WaterMeterOCR initialized
+2025-02-16 07:56:26,985 [INFO ]  WaterMeterThreadImgDiff : Class WaterMeterThreadImgDiff initialized
+2025-02-16 07:56:26,986 [INFO ]  WaterMeterImgDiff : Class WaterMeterImgDiff initialized
+2025-02-16 07:56:26,990 [INFO ]  WaterMeterTs : Class WaterMeterTs initialized
+2025-02-16 07:56:26,993 [INFO ]  LeakDetector : Class LeakDetector initialized
+2025-02-16 07:56:26,996 [INFO ]  PlugMaster : myapp : Plugin WaterMeterImgDiff loaded
+2025-02-16 07:56:26,997 [INFO ]  PlugMaster : myapp : Plugin LeakDetector loaded
+2025-02-16 07:56:27,001 [INFO ]  PlugMaster : myapp : Plugin WaterMeterOCR loaded
+2025-02-16 07:56:27,002 [INFO ]  PlugMaster : myapp : Plugin WaterMeterTs loaded
+2025-02-16 07:56:27,003 [INFO ]  PlugMaster : myapp : Plugin WebCamera loaded
+2025-02-16 07:56:27,045 [INFO ]  PlugMaster : myapp : Class SystemStatus imported  into myapp
+2025-02-16 07:56:27,047 [DEBUG]  SystemStatus : systemstatus : System status with name systemstatus created
+2025-02-16 07:56:27,050 [INFO ]  PlugMaster : myapp : Class VisualCrossing imported  into myapp
+2025-02-16 07:56:27,052 [DEBUG]  VisualCrossing : visualcrossing : VisualCrossing with name visualcrossing created
+2025-02-16 07:56:27,053 [INFO ]  PlugMaster : myapp : Class OpenWeatherMap imported  into myapp
+2025-02-16 07:56:27,090 [INFO ]  MyApp : Saving configuration
+2025-02-16 07:56:27,095 [ERROR]  MyApp : Error in saving MasterPiece:C:\Users\juham\.myapp\config\MasterPiece.json Object of type property is not JSON serializable
+2025-02-16 07:56:27,097 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Composite.json saved
+2025-02-16 07:56:27,100 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PlugMaster.json saved
+2025-02-16 07:56:27,102 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Application.json saved
+2025-02-16 07:56:27,106 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\JsonFormat.json saved
+2025-02-16 07:56:27,108 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\MasterPieceThread.json saved
+2025-02-16 07:56:27,110 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\TimeSeries.json saved
+2025-02-16 07:56:27,111 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Juham.json saved
+2025-02-16 07:56:27,113 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\JuhamTs.json saved
+2025-02-16 07:56:27,114 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\JuhamThread.json saved
+2025-02-16 07:56:27,117 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\JuhamCloudThread.json saved
+2025-02-16 07:56:27,121 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\EnergyCostCalculator.json saved
+2025-02-16 07:56:27,123 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\SpotHintaFiThread.json saved
+2025-02-16 07:56:27,126 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\SpotHintaFi.json saved
+2025-02-16 07:56:27,127 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterCirculator.json saved
+2025-02-16 07:56:27,129 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\HotWaterOptimizer.json saved
+2025-02-16 07:56:27,130 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PowerMeterSimulatorThread.json saved
+2025-02-16 07:56:27,133 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PowerMeterSimulator.json saved
+2025-02-16 07:56:27,135 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\EnergyCostCalculatorTs.json saved
+2025-02-16 07:56:27,137 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ForecastTs.json saved
+2025-02-16 07:56:27,140 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\LogTs.json saved
+2025-02-16 07:56:27,141 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PowerTs.json saved
+2025-02-16 07:56:27,143 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PowerPlanTs.json saved
+2025-02-16 07:56:27,144 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\PowerMeterTs.json saved
+2025-02-16 07:56:27,146 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ElectricityPriceTs.json saved
+2025-02-16 07:56:27,147 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\SystemStatusThread.json saved
+2025-02-16 07:56:27,150 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\SystemStatus.json saved
+2025-02-16 07:56:27,152 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Influx.json saved
+2025-02-16 07:56:27,156 [ERROR]  MyApp : Error in saving PahoMqtt:C:\Users\juham\.myapp\config\PahoMqtt.json Object of type property is not JSON serializable
+2025-02-16 07:56:27,157 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\OpenWeatherMapThread.json saved
+2025-02-16 07:56:27,158 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\OpenWeatherMap.json saved
+2025-02-16 07:56:27,159 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\VisualCrossingThread.json saved
+2025-02-16 07:56:27,161 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\VisualCrossing.json saved
+2025-02-16 07:56:27,162 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\HomeWizardWaterMeterThread.json saved
+2025-02-16 07:56:27,164 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\HomeWizardWaterMeter.json saved
+2025-02-16 07:56:27,166 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Shelly.json saved
+2025-02-16 07:56:27,168 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyMotionSimulatorThread.json saved
+2025-02-16 07:56:27,172 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyMotionSimulator.json saved
+2025-02-16 07:56:27,173 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyPlusAddOnSimulatorThread.json saved
+2025-02-16 07:56:27,175 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyPlusAddOnSimulator.json saved
+2025-02-16 07:56:27,177 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyMotion.json saved
+2025-02-16 07:56:27,178 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyDS18B20.json saved
+2025-02-16 07:56:27,179 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\Shelly1G3.json saved
+2025-02-16 07:56:27,180 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyPlus1.json saved
+2025-02-16 07:56:27,183 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyPro3EM.json saved
+2025-02-16 07:56:27,186 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyPro3.json saved
+2025-02-16 07:56:27,189 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\ShellyDHT22.json saved
+2025-02-16 07:56:27,190 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WebCameraThread.json saved
+2025-02-16 07:56:27,191 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WebCamera.json saved
+2025-02-16 07:56:27,193 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterMeterThreadOCR.json saved
+2025-02-16 07:56:27,195 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterMeterOCR.json saved
+2025-02-16 07:56:27,196 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterMeterThreadImgDiff.json saved
+2025-02-16 07:56:27,198 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterMeterImgDiff.json saved
+2025-02-16 07:56:27,202 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\WaterMeterTs.json saved
+2025-02-16 07:56:27,204 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\config\LeakDetector.json saved
+2025-02-16 07:59:14,869 [INFO ]  MyApp : --init requested, creating class configuration files
+2025-02-16 07:59:14,870 [INFO ]  MyApp : Configuration files in  ~/.myapp/config
+2025-02-16 07:59:14,871 [INFO ]  MyApp : --init specified, class configuration files will be created upon exit
+2025-02-16 08:27:54,443 [INFO ]  MyApp : --init requested, creating class configuration files
+2025-02-16 08:27:54,445 [INFO ]  MyApp : Configuration files in  ~/.myapp/foo
+2025-02-16 08:27:54,445 [INFO ]  MyApp : --init specified, class configuration files will be created upon exit
+2025-02-16 08:27:54,472 [INFO ]  MyApp : Saving configuration
+2025-02-16 08:27:54,474 [ERROR]  MyApp : Error in saving MasterPiece:C:\Users\juham\.myapp\foo\MasterPiece.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\MasterPiece.json'
+2025-02-16 08:27:54,476 [ERROR]  MyApp : Error in saving Composite:C:\Users\juham\.myapp\foo\Composite.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Composite.json'
+2025-02-16 08:27:54,476 [ERROR]  MyApp : Error in saving PlugMaster:C:\Users\juham\.myapp\foo\PlugMaster.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PlugMaster.json'
+2025-02-16 08:27:54,478 [ERROR]  MyApp : Error in saving Application:C:\Users\juham\.myapp\foo\Application.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Application.json'
+2025-02-16 08:27:54,479 [ERROR]  MyApp : Error in saving JsonFormat:C:\Users\juham\.myapp\foo\JsonFormat.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JsonFormat.json'
+2025-02-16 08:27:54,481 [ERROR]  MyApp : Error in saving MasterPieceThread:C:\Users\juham\.myapp\foo\MasterPieceThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\MasterPieceThread.json'
+2025-02-16 08:27:54,483 [ERROR]  MyApp : Error in saving TimeSeries:C:\Users\juham\.myapp\foo\TimeSeries.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\TimeSeries.json'
+2025-02-16 08:27:54,486 [ERROR]  MyApp : Error in saving Juham:C:\Users\juham\.myapp\foo\Juham.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Juham.json'
+2025-02-16 08:27:54,487 [ERROR]  MyApp : Error in saving JuhamTs:C:\Users\juham\.myapp\foo\JuhamTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamTs.json'
+2025-02-16 08:27:54,489 [ERROR]  MyApp : Error in saving JuhamThread:C:\Users\juham\.myapp\foo\JuhamThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamThread.json'
+2025-02-16 08:27:54,491 [ERROR]  MyApp : Error in saving JuhamCloudThread:C:\Users\juham\.myapp\foo\JuhamCloudThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamCloudThread.json'
+2025-02-16 08:27:54,492 [ERROR]  MyApp : Error in saving EnergyCostCalculator:C:\Users\juham\.myapp\foo\EnergyCostCalculator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\EnergyCostCalculator.json'
+2025-02-16 08:27:54,493 [ERROR]  MyApp : Error in saving SpotHintaFiThread:C:\Users\juham\.myapp\foo\SpotHintaFiThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\SpotHintaFiThread.json'
+2025-02-16 08:27:54,494 [ERROR]  MyApp : Error in saving SpotHintaFi:C:\Users\juham\.myapp\foo\SpotHintaFi.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\SpotHintaFi.json'
+2025-02-16 08:27:54,495 [ERROR]  MyApp : Error in saving WaterCirculator:C:\Users\juham\.myapp\foo\WaterCirculator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\WaterCirculator.json'
+2025-02-16 08:27:54,498 [ERROR]  MyApp : Error in saving HotWaterOptimizer:C:\Users\juham\.myapp\foo\HotWaterOptimizer.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\HotWaterOptimizer.json'
+2025-02-16 08:27:54,502 [ERROR]  MyApp : Error in saving PowerMeterSimulatorThread:C:\Users\juham\.myapp\foo\PowerMeterSimulatorThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterSimulatorThread.json'
+2025-02-16 08:27:54,503 [ERROR]  MyApp : Error in saving PowerMeterSimulator:C:\Users\juham\.myapp\foo\PowerMeterSimulator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterSimulator.json'
+2025-02-16 08:27:54,504 [ERROR]  MyApp : Error in saving EnergyCostCalculatorTs:C:\Users\juham\.myapp\foo\EnergyCostCalculatorTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\EnergyCostCalculatorTs.json'
+2025-02-16 08:27:54,506 [ERROR]  MyApp : Error in saving ForecastTs:C:\Users\juham\.myapp\foo\ForecastTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\ForecastTs.json'
+2025-02-16 08:27:54,507 [ERROR]  MyApp : Error in saving LogTs:C:\Users\juham\.myapp\foo\LogTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\LogTs.json'
+2025-02-16 08:27:54,509 [ERROR]  MyApp : Error in saving PowerTs:C:\Users\juham\.myapp\foo\PowerTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerTs.json'
+2025-02-16 08:27:54,510 [ERROR]  MyApp : Error in saving PowerPlanTs:C:\Users\juham\.myapp\foo\PowerPlanTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerPlanTs.json'
+2025-02-16 08:27:54,513 [ERROR]  MyApp : Error in saving PowerMeterTs:C:\Users\juham\.myapp\foo\PowerMeterTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterTs.json'
+2025-02-16 08:27:54,513 [ERROR]  MyApp : Error in saving ElectricityPriceTs:C:\Users\juham\.myapp\foo\ElectricityPriceTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\ElectricityPriceTs.json'
+2025-02-16 08:27:58,786 [INFO ]  MyApp : --init requested, creating class configuration files
+2025-02-16 08:27:58,787 [INFO ]  MyApp : Configuration files in  ~/.myapp/foo
+2025-02-16 08:27:58,792 [INFO ]  MyApp : --init specified, class configuration files will be created upon exit
+2025-02-16 08:27:58,813 [INFO ]  MyApp : Saving configuration
+2025-02-16 08:27:58,816 [ERROR]  MyApp : Error in saving MasterPiece:C:\Users\juham\.myapp\foo\MasterPiece.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\MasterPiece.json'
+2025-02-16 08:27:58,820 [ERROR]  MyApp : Error in saving Composite:C:\Users\juham\.myapp\foo\Composite.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Composite.json'
+2025-02-16 08:27:58,821 [ERROR]  MyApp : Error in saving PlugMaster:C:\Users\juham\.myapp\foo\PlugMaster.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PlugMaster.json'
+2025-02-16 08:27:58,823 [ERROR]  MyApp : Error in saving Application:C:\Users\juham\.myapp\foo\Application.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Application.json'
+2025-02-16 08:27:58,825 [ERROR]  MyApp : Error in saving JsonFormat:C:\Users\juham\.myapp\foo\JsonFormat.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JsonFormat.json'
+2025-02-16 08:27:58,826 [ERROR]  MyApp : Error in saving MasterPieceThread:C:\Users\juham\.myapp\foo\MasterPieceThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\MasterPieceThread.json'
+2025-02-16 08:27:58,827 [ERROR]  MyApp : Error in saving TimeSeries:C:\Users\juham\.myapp\foo\TimeSeries.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\TimeSeries.json'
+2025-02-16 08:27:58,828 [ERROR]  MyApp : Error in saving Juham:C:\Users\juham\.myapp\foo\Juham.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\Juham.json'
+2025-02-16 08:27:58,829 [ERROR]  MyApp : Error in saving JuhamTs:C:\Users\juham\.myapp\foo\JuhamTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamTs.json'
+2025-02-16 08:27:58,830 [ERROR]  MyApp : Error in saving JuhamThread:C:\Users\juham\.myapp\foo\JuhamThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamThread.json'
+2025-02-16 08:27:58,832 [ERROR]  MyApp : Error in saving JuhamCloudThread:C:\Users\juham\.myapp\foo\JuhamCloudThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\JuhamCloudThread.json'
+2025-02-16 08:27:58,836 [ERROR]  MyApp : Error in saving EnergyCostCalculator:C:\Users\juham\.myapp\foo\EnergyCostCalculator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\EnergyCostCalculator.json'
+2025-02-16 08:27:58,837 [ERROR]  MyApp : Error in saving SpotHintaFiThread:C:\Users\juham\.myapp\foo\SpotHintaFiThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\SpotHintaFiThread.json'
+2025-02-16 08:27:58,839 [ERROR]  MyApp : Error in saving SpotHintaFi:C:\Users\juham\.myapp\foo\SpotHintaFi.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\SpotHintaFi.json'
+2025-02-16 08:27:58,840 [ERROR]  MyApp : Error in saving WaterCirculator:C:\Users\juham\.myapp\foo\WaterCirculator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\WaterCirculator.json'
+2025-02-16 08:27:58,842 [ERROR]  MyApp : Error in saving HotWaterOptimizer:C:\Users\juham\.myapp\foo\HotWaterOptimizer.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\HotWaterOptimizer.json'
+2025-02-16 08:27:58,843 [ERROR]  MyApp : Error in saving PowerMeterSimulatorThread:C:\Users\juham\.myapp\foo\PowerMeterSimulatorThread.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterSimulatorThread.json'
+2025-02-16 08:27:58,844 [ERROR]  MyApp : Error in saving PowerMeterSimulator:C:\Users\juham\.myapp\foo\PowerMeterSimulator.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterSimulator.json'
+2025-02-16 08:27:58,845 [ERROR]  MyApp : Error in saving EnergyCostCalculatorTs:C:\Users\juham\.myapp\foo\EnergyCostCalculatorTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\EnergyCostCalculatorTs.json'
+2025-02-16 08:27:58,848 [ERROR]  MyApp : Error in saving ForecastTs:C:\Users\juham\.myapp\foo\ForecastTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\ForecastTs.json'
+2025-02-16 08:27:58,851 [ERROR]  MyApp : Error in saving LogTs:C:\Users\juham\.myapp\foo\LogTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\LogTs.json'
+2025-02-16 08:27:58,853 [ERROR]  MyApp : Error in saving PowerTs:C:\Users\juham\.myapp\foo\PowerTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerTs.json'
+2025-02-16 08:27:58,854 [ERROR]  MyApp : Error in saving PowerPlanTs:C:\Users\juham\.myapp\foo\PowerPlanTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerPlanTs.json'
+2025-02-16 08:27:58,855 [ERROR]  MyApp : Error in saving PowerMeterTs:C:\Users\juham\.myapp\foo\PowerMeterTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\PowerMeterTs.json'
+2025-02-16 08:27:58,857 [ERROR]  MyApp : Error in saving ElectricityPriceTs:C:\Users\juham\.myapp\foo\ElectricityPriceTs.json [Errno 2] No such file or directory: 'C:\\Users\\juham\\.myapp\\foo\\ElectricityPriceTs.json'
+2025-02-16 08:28:28,658 [INFO ]  MyApp : --init requested, creating class configuration files
+2025-02-16 08:28:28,659 [INFO ]  MyApp : Configuration files in  ~/.myapp/foo
+2025-02-16 08:28:28,662 [INFO ]  MyApp : --init specified, class configuration files will be created upon exit
+2025-02-16 08:28:28,684 [INFO ]  MyApp : Saving configuration
+2025-02-16 08:28:28,689 [ERROR]  MyApp : Error in saving MasterPiece:C:\Users\juham\.myapp\foo\MasterPiece.json Object of type property is not JSON serializable
+2025-02-16 08:28:28,692 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\Composite.json saved
+2025-02-16 08:28:28,695 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PlugMaster.json saved
+2025-02-16 08:28:28,699 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\Application.json saved
+2025-02-16 08:28:28,702 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\JsonFormat.json saved
+2025-02-16 08:28:28,706 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\MasterPieceThread.json saved
+2025-02-16 08:28:28,708 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\TimeSeries.json saved
+2025-02-16 08:28:28,709 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\Juham.json saved
+2025-02-16 08:28:28,711 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\JuhamTs.json saved
+2025-02-16 08:28:28,712 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\JuhamThread.json saved
+2025-02-16 08:28:28,714 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\JuhamCloudThread.json saved
+2025-02-16 08:28:28,715 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\EnergyCostCalculator.json saved
+2025-02-16 08:28:28,718 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\SpotHintaFiThread.json saved
+2025-02-16 08:28:28,722 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\SpotHintaFi.json saved
+2025-02-16 08:28:28,725 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\WaterCirculator.json saved
+2025-02-16 08:28:28,726 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\HotWaterOptimizer.json saved
+2025-02-16 08:28:28,728 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PowerMeterSimulatorThread.json saved
+2025-02-16 08:28:28,733 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PowerMeterSimulator.json saved
+2025-02-16 08:28:28,734 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\EnergyCostCalculatorTs.json saved
+2025-02-16 08:28:28,738 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\ForecastTs.json saved
+2025-02-16 08:28:28,740 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\LogTs.json saved
+2025-02-16 08:28:28,742 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PowerTs.json saved
+2025-02-16 08:28:28,743 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PowerPlanTs.json saved
+2025-02-16 08:28:28,744 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\PowerMeterTs.json saved
+2025-02-16 08:28:28,745 [INFO ]  MyApp : Configuration file C:\Users\juham\.myapp\foo\ElectricityPriceTs.json saved
