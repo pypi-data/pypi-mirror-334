@@ -1,0 +1,22 @@
+[project]
+name = "pdffaroshuffle"
+version = "0.1.0"
+description = "Create a PDF from 2: first with even and second with odd pages."
+readme = "README.md"
+authors = [
+    { name = "José Luis Segura Lucas", email = "josel.segura@gmail.com" }
+]
+license = "GPL-3.0-or-later"
+keywords = ["pdf", "merge", "pdfunite", "pdfseparate"]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+pdffaroshuffle = "pdffaroshuffle:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.optional-dependencies]
+lint = ["pre-commit"]
