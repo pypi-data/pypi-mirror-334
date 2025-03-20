@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+logik/__init__.py
+logik.egg-info/PKG-INFO
+logik.egg-info/SOURCES.txt
+logik.egg-info/dependency_links.txt
+logik.egg-info/requires.txt
+logik.egg-info/top_level.txt
+logik/flows/__init__.py
+logik/flows/logik_flow.py
+logik/templates/__init__.py
+logik/tools/__init__.py
+logik/tools/fasm_to_bitstream/__init__.py
+logik/tools/fasm_to_bitstream/bitstream_bin_convert.py
+logik/tools/fasm_to_bitstream/bitstream_finish.py
+logik/tools/fasm_to_bitstream/fasm_to_bitstream.py

@@ -1,0 +1,12 @@
+logiklib>=0.1.0
+siliconcompiler>=0.31.1
+
+[docs]
+Sphinx==8.2.3
+sphinx-rtd-theme==3.0.2
+autodocsumm==0.2.14
+
+[test]
+pytest==8.3.5
+pytest-timeout==2.3.1
+flake8==7.1.2
