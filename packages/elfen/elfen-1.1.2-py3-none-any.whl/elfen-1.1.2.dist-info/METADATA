@@ -1,0 +1,56 @@
+Metadata-Version: 2.2
+Name: elfen
+Version: 1.1.2
+Summary: ELFEN - Efficient Linguistic Feature Extraction for Natural Language Datasets
+Author-email: Maximilian Maurer <mmmaurer@pm.me>
+Project-URL: Homepage, https://github.com/mmmaurer/elfen
+Project-URL: Issues, https://github.com/mmmaurer/elfen/issues
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: <=3.12.9,>=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy==1.26.4
+Requires-Dist: polars==1.10.0
+Requires-Dist: Requests==2.32.3
+Requires-Dist: scipy==1.14.1
+Requires-Dist: spacy==3.7.5
+Requires-Dist: spacy_syllables==3.0.2
+Requires-Dist: stanza==1.8.2
+Requires-Dist: wn==0.9.5
+Requires-Dist: fastexcel==0.12.0
+Requires-Dist: spacy-transformers==1.3.5
+Requires-Dist: spacy-download==1.1.0
+
+# ELFEN - Efficient Linguistic Feature Extraction for Natural Language Datasets
+
+This python package provides efficient linguistic feature extraction for text datasets (i.e. datasets with N text instances, in a tabular structure).
+
+For further information, check the [GitHub repository](https://github.com/mmmaurer/elfen) and the [documentation](https://elfen.readthedocs.io)
+
+## Usage of third-party resources usable in this package
+The extraction of psycholinguistic, emotion/lexicon and semantic features relies on third-party resources such as lexicons.
+Please refer to the original author's licenses and conditions for usage, and cite them if you use the resources through this package in your analyses.
+
+For an overview which features use which resource, and how to export all third-party resource references in a `bibtex` string, consult the [documentation](https://elfen.readthedocs.io).
+## Acknowledgements
+
+While all feature extraction functions in this package are written from scratch, the choice of features in the readability and lexical richness feature areas (partially) follows the [`readability`](https://github.com/andreasvc/readability) and [`lexicalrichness`](https://github.com/LSYS/LexicalRichness) python packages.
+
+We use the [`wn`](https://github.com/goodmami/wn) python package to extract Open  Multilingual Wordnet synsets.
+
+## Citation
+If you use this package in your work, for now, please cite
+```bibtex
+@misc{maurer-2025-elfen,
+  author = {Maurer, Maximilian},
+  title = {ELFEN - Efficient Linguistic Feature Extraction for Natural Language Datasets},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/mmmaurer/elfen}},
+}
+```
