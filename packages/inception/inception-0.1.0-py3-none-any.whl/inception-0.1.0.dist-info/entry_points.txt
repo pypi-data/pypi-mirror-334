@@ -1,0 +1,3 @@
+[console_scripts]
+inception=inception.main:cli
+
