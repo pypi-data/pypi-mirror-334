@@ -1,0 +1,3 @@
+[console_scripts]
+kinbot = kinbot.kb:main
+pes = kinbot.pes:main
