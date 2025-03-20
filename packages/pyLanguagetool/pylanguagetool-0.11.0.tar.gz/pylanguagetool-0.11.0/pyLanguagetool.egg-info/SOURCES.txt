@@ -1,0 +1,17 @@
+LICENSE
+README.rst
+pyproject.toml
+pyLanguagetool.egg-info/PKG-INFO
+pyLanguagetool.egg-info/SOURCES.txt
+pyLanguagetool.egg-info/dependency_links.txt
+pyLanguagetool.egg-info/entry_points.txt
+pyLanguagetool.egg-info/requires.txt
+pyLanguagetool.egg-info/top_level.txt
+pylanguagetool/CustomConfigFileParser.py
+pylanguagetool/__init__.py
+pylanguagetool/api.py
+pylanguagetool/cli.py
+pylanguagetool/converters.py
+tests/test_api.py
+tests/test_cli.py
+tests/test_converters.py
