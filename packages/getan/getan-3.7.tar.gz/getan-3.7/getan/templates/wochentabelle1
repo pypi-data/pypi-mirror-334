@@ -1,0 +1,36 @@
+{# Demonstriert eine Kopiervorlage zum Einfügen in Libreoffice.
+
+  Mit Tabulatoren als Trennzeichen.
+
+  Basiert auf den Kürzeln der getan Vorlage `getan.projects-k1v3.sql`.
+-#}
+
+{%- macro gebe_kategorie_aus(projects,key) -%}
+  {%- set proj = projects|selectattr("key", "==", key)|first -%}
+  {%- if proj -%}
+    {{- "%30.30s\t%5s" % (proj.desc, proj.get_total_duration()|human_time) }}
+  {%- else -%}
+    {{- "%30.30s\t%5s" % ('-', '0:00') }}
+  {%- endif -%}
+{%- endmacro -%}
+{{ "" }}
+{{ gebe_kategorie_aus(projects, 'q') }}
+{{ gebe_kategorie_aus(projects, 'T') }}
+{{ gebe_kategorie_aus(projects, 'k') }}
+
+{{ gebe_kategorie_aus(projects, 'r') }}
+
+{{ gebe_kategorie_aus(projects, 'Q') }}
+{# {{ gebe_kategorie_aus(projects, 'e') }} -#}
+{{ gebe_kategorie_aus(projects, 'A') }}
+
+{{ gebe_kategorie_aus(projects, 'B') }}
+{{ gebe_kategorie_aus(projects, 'w') }}
+{{ gebe_kategorie_aus(projects, 'ü') }}
+{{ gebe_kategorie_aus(projects, 'm') }}
+{{ gebe_kategorie_aus(projects, 'O') }}
+
+{{ gebe_kategorie_aus(projects, 'M') }}
+{{ gebe_kategorie_aus(projects, 'u') }}
+{#-
+   {{ gebe_kategorie_aus(projects, 'V') }} -#}

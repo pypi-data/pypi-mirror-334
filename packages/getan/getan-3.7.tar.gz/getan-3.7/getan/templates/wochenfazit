@@ -1,0 +1,63 @@
+{# basiert auf den Kürzeln der getan Vorlage `getan.projects-k1v2.sql` -#}
+
+Wochenfazit: {{ year }}-W{{iso_week}}  Name: {{ user }}
+
+Arbeitsstunden: {{ projects|
+                   rejectattr("key", "in", ['V'])|sum_duration|decimal_hours
+                }} von xx (Vertrag: xx  Feiertag: 0  Urlaub: 0  abwesend: 0)
+Stundenkonto: xx +- xx = xx
+
+**ZUTUN: löschen oder kopieren nach Bedarf:**
+Tagabweichung: DD: xx
+
+Für uns miterreicht habe ich:
+Gelernt habe ich:
+Uns besser machen würde vielleicht:
+
+Stundenaufteilung:
+  **ZUTUN:nur aufgelistet, braucht fast sicher Zusammenfassen & Verschieben:**
+{%- macro führe_kategorie_aus(projects, keys) -%}
+{{ projects|selectattr("key", "in", keys)|sum_duration|decimal_hours }}
+  {%- for proj in projects if proj.key in keys %}
+  {{ proj.desc }}: {{ proj.get_total_duration()|decimal_hours }}
+    {%- if proj.entries %}
+      {%- for ggrouper, ggentries in
+          proj.entries|sort(attribute='start')|groupby('workpackage') %}
+    [{{ ggrouper }}]
+        {%- for entry in ggentries|sort(attribute='start') -%}
+      {{ ' ' }}{{ entry.comment }}
+        {%- endfor -%}
+      {%- endfor -%}
+    {% endif -%}
+  {%- endfor %}
+{%- endmacro %}
+N%: Marketing: {{ führe_kategorie_aus(projects, ['q', 'T', 'k']) }}
+
+{# hier müssen zweimal alle Kürzel der Oberkategorien ausgeschlossen werden,
+   die kein Auftrag sind: -#}
+N%: Leistungserbringung: {{ projects|rejectattr("key", "in",
+          ['q', 'T', 'k', 'Q', 'A', 'B', 'w', 'ü', 'm', 'O', 'M', 'u', 'V']
+                                               )|sum_duration|decimal_hours }}
+  {%- for proj in projects|rejectattr("key", "in",
+          ['q', 'T', 'k', 'Q', 'A', 'B', 'w', 'ü', 'm', 'O', 'M', 'u', 'V']
+                                     )%}
+  {{ proj.desc }}: {{ proj.get_total_duration()|decimal_hours }}
+    {%- if proj.entries %}
+      {%- for ggrouper, ggentries in
+          proj.entries|sort(attribute='start')|groupby('workpackage') %}
+    [{{ ggrouper }}]
+        {%- for entry in ggentries|sort(attribute='start') -%}
+      {{ ' ' }}{{ entry.comment }}
+        {%- endfor -%}
+      {%- endfor -%}
+    {% endif -%}
+  {%- endfor %}
+
+N%: Selbstorganisation: {{ führe_kategorie_aus(projects, ['Q', 'A']) }}
+
+N%: Unterstützung: {{ führe_kategorie_aus(projects, ['B', 'w', 'ü', 'm', 'O']) }}
+
+N%: Leitung: {{ führe_kategorie_aus(projects, ['M', 'u']) }}
+
+**ZUTUN: ggf PS und privat löschen**
+PS: {{ führe_kategorie_aus(projects, ['V']) }}
