@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/leicacam/__init__.py
+src/leicacam/async_cam.py
+src/leicacam/cam.py
+src/leicacam/py.typed
+src/leicacam.egg-info/PKG-INFO
+src/leicacam.egg-info/SOURCES.txt
+src/leicacam.egg-info/dependency_links.txt
+src/leicacam.egg-info/requires.txt
+src/leicacam.egg-info/top_level.txt
+tests/test_async_cam.py
+tests/test_cam.py
