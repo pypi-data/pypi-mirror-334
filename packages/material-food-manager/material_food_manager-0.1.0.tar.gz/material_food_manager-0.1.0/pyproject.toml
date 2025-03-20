@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "material-food-manager"
+version = "0.1.0"
+description = "A simple material food manager application"
+authors = [
+    { name = "Ömer Tekin", email = "recregt@outlook.com" }
+]
+dependencies = [
+    "gitpython",
+    "tkinter"
+]
