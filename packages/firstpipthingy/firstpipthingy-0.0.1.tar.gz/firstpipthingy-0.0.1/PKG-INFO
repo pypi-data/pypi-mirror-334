@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: firstpipthingy
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/eeemessi11/firstpipthingy#readme
+Project-URL: Issues, https://github.com/eeemessi11/firstpipthingy/issues
+Project-URL: Source, https://github.com/eeemessi11/firstpipthingy
+Author-email: eeemessi11 <benanmachadi@gmail.com>
+License-Expression: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
