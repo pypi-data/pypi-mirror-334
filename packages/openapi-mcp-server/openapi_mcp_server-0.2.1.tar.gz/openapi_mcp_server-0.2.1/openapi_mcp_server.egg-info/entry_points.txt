@@ -1,0 +1,2 @@
+[console_scripts]
+openapi_mcp_server = openapi_mcp_server.__main__:main
