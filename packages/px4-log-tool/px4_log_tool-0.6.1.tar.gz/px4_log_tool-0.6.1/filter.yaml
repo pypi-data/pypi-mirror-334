@@ -1,0 +1,25 @@
+whitelist_messages:
+   - "sensor_combined"
+   - "actuator_outputs"
+blacklist_headers:
+  - "timestamp_sample"
+  - "device_id"
+  - "error_count"
+resample_params:
+  target_frequency_hz: 100
+  num_method: 'mean'
+  cat_method: 'bfill'
+  interpolate_numerical: True
+  interpolate_method: 'linear'
+metadata_fields:
+  - "max_altitude"
+  - "min_altitude"
+  - "average_altitude"
+  - "max_speed"
+  # - "min_speed"
+  - "average_speed"
+  - "yaw_lock"
+bag_params:
+  topic_prefix: "/fmu/out"
+  topic_max_frequency_hz: 100
+  capitalise_topics: False

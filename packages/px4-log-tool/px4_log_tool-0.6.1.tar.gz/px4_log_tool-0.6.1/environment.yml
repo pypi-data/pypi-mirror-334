@@ -1,0 +1,5 @@
+name: px4-log-tool
+channels:
+  - defaults
+dependencies:
+  - python
