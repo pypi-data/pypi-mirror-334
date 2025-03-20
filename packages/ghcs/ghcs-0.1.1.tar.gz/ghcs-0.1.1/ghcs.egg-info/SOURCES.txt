@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ghcs/__init__.py
+ghcs/cli.py
+ghcs/downloader.py
+ghcs/search.py
+ghcs.egg-info/PKG-INFO
+ghcs.egg-info/SOURCES.txt
+ghcs.egg-info/dependency_links.txt
+ghcs.egg-info/entry_points.txt
+ghcs.egg-info/requires.txt
+ghcs.egg-info/top_level.txt
