@@ -1,0 +1,5 @@
+[console_scripts]
+update_locale = collective.voltoeditortemplates.locales.update:update_locale
+
+[z3c.autoinclude.plugin]
+target = plone
