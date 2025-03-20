@@ -1,0 +1,18 @@
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "olab_open_api"
+version = "0.0.12"
+description = "call openapi directly without using complete sdk"
+authors = [
+    { name = "nik_opinionlabs", email = "nik@opinionlabs.xyz" }
+]
+dependencies = [
+    "urllib3 >= 1.15",
+    "six >= 1.10",
+    "certifi",
+    "python-dateutil"
+]
