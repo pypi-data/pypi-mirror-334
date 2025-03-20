@@ -1,0 +1,62 @@
+Metadata-Version: 2.3
+Name: jam_sdk
+Version: 0.10.0
+Summary: Bebop Jam SDK
+Author: Bebop
+Author-email: info@bebop.xyz
+Requires-Python: >=3.11,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiocache (==0.12.3)
+Requires-Dist: eth-abi (==4.2.1)
+Requires-Dist: eth-account (==0.11.2)
+Requires-Dist: eth-typing (==3.5.2)
+Requires-Dist: eth-utils (==4.1.1)
+Requires-Dist: msgspec (==0.18.6)
+Requires-Dist: pydantic (==2.9.2)
+Requires-Dist: web3 (==6.19.0)
+Requires-Dist: websockets (==14.2)
+Project-URL: Documentation, https://github.com/bebop-dex/bebop-core
+Project-URL: Repository, https://github.com/bebop-dex/bebop-core
+Description-Content-Type: text/markdown
+
+# Bebop JAM SDK
+
+![Alt text](../bebop.gif?raw=true "Title")
+
+Official SDK for Bebop JAM.
+
+## Functionality
+
+Supplies an interface to implement providing solutions for Jam:
+
+- Managed websocket connection to JAM
+- Simple base class to implement for providing solutions
+- Cache management and validation
+- Fully typed request and responses
+- Jam contract deployments and ABIs
+
+## Getting Started
+
+In order to connect to the JAM server, you will need some authentication details: `host, post, name, authentication`. Please contact a team member to obtain these.
+
+Bebop orders go through 2 stages. Quote & Order.
+
+1. Quote: Given the requested tokens, provide a quote.
+2. Execute: Execute on chain the quote previously given.
+3. Self-Execution Quote: Given the requested tokens, provide a quote and the interactions. Bebop will build the calldata and return it to the user .
+
+To implement these functions, simply implement the `BaseSolver` class with `get_quote`, `execute`, and `get_taker_quote` functions.
+
+[See example here.](./src/jam_sdk/example.py)
+
+
+## Publishing the package 
+
+```
+cd jam_sdk
+poetry version <major/minor/patch>
+poetry config pypi-token.pypi <api token here>
+poetry build
+poetry publish
+```
