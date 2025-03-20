@@ -1,0 +1,120 @@
+Metadata-Version: 2.2
+Name: aim2dat
+Version: 0.3.0
+Summary: Automated Ab-Initio Materials Modeling and Data Analysis Toolkit: Python library for pre-, post-processing and data management of ab-initio high-throughput workflows for computational materials science.
+Home-page: https://github.com/aim2dat/aim2dat
+Author-email: Holger-Dietrich Saßnick <holger-dietrich.sassnick@uni-oldenburg.de>, Timo Reents <timo.reents@uni-oldenburg.de>, Joshua Edzards <joshua.edzards@uni-oldenburg.de>
+Maintainer-email: Holger-Dietrich Saßnick <holger-dietrich.sassnick@uni-oldenburg.de>
+License: LGPL-2.1
+Project-URL: Repository, https://github.com/aim2dat/aim2dat.git
+Project-URL: Issues, https://github.com/aim2dat/aim2dat/issues
+Project-URL: Changelog, https://github.com/aim2dat/aim2dat/blob/main/CHANGELOG
+Keywords: ab-initio,dft,high-throughput,automated,materials-modeling,data-analysis,science,machine learning
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AiiDA
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.17
+Requires-Dist: scipy>=1.6.1
+Requires-Dist: networkx>=2.7.1
+Requires-Dist: matplotlib>=3.6.0
+Requires-Dist: pandas>=2.1.0
+Requires-Dist: ruamel.yaml>=0.17.5
+Requires-Dist: spglib>=1.16.1
+Requires-Dist: ase>=3.22.0
+Requires-Dist: packaging>=21.3
+Requires-Dist: h5py>=3.7.0
+Requires-Dist: tqdm>=4.64.1
+Provides-Extra: aiida
+Requires-Dist: aiida-core>=2.1.0; extra == "aiida"
+Requires-Dist: seekpath>=2.0.1; extra == "aiida"
+Provides-Extra: crystal-structure-generation
+Requires-Dist: pyxtal>=0.3.4; extra == "crystal-structure-generation"
+Provides-Extra: phonons
+Requires-Dist: phonopy>=2.17.1; extra == "phonons"
+Provides-Extra: database-interfaces
+Requires-Dist: pymatgen>=2022.02.03; extra == "database-interfaces"
+Requires-Dist: msgpack>=1.0.2; extra == "database-interfaces"
+Requires-Dist: qmpy_rester>=0.2.0; extra == "database-interfaces"
+Requires-Dist: mofdb_client>=0.10.0; extra == "database-interfaces"
+Requires-Dist: requests>=2.24.0; extra == "database-interfaces"
+Requires-Dist: boto3>=1.25; extra == "database-interfaces"
+Provides-Extra: graphs
+Requires-Dist: graphviz>=0.19.1; extra == "graphs"
+Provides-Extra: ml
+Requires-Dist: dscribe>=2.1.0; extra == "ml"
+Requires-Dist: scikit-learn>=1.3.0; extra == "ml"
+Provides-Extra: plots
+Requires-Dist: plotly>=5.11.0; extra == "plots"
+Provides-Extra: tests
+Requires-Dist: aiida-core>=2.1.0; extra == "tests"
+Requires-Dist: seekpath>=2.0.1; extra == "tests"
+Requires-Dist: pyxtal>=0.3.4; extra == "tests"
+Requires-Dist: boto3>=1.25; extra == "tests"
+Requires-Dist: phonopy>=2.17.1; extra == "tests"
+Requires-Dist: qmpy_rester>=0.2.0; extra == "tests"
+Requires-Dist: mofdb_client>=0.10.0; extra == "tests"
+Requires-Dist: h5py>=3.7.0; extra == "tests"
+Requires-Dist: msgpack>=1.0.2; extra == "tests"
+Requires-Dist: scikit-learn>=1.2.1; extra == "tests"
+Requires-Dist: dscribe>=2.0.1; extra == "tests"
+Requires-Dist: pytest>=6.2.5; extra == "tests"
+Requires-Dist: pgtest>=1.3.2; extra == "tests"
+Requires-Dist: pytest-cov>=3.0.0; extra == "tests"
+Provides-Extra: doc
+Requires-Dist: sphinx>=4.1.2; extra == "doc"
+Requires-Dist: nbsphinx>=0.9.3; extra == "doc"
+Requires-Dist: sphinx-immaterial>=0.11.10; extra == "doc"
+Requires-Dist: sphinx-design>=0.5.0; extra == "doc"
+Requires-Dist: sphinx-autoapi>=2.1.1; extra == "doc"
+Requires-Dist: sphinxcontrib-contentui>=0.2.5; extra == "doc"
+Requires-Dist: sphinxcontrib-details-directive>=0.1.0; extra == "doc"
+Requires-Dist: aiida-core>=2.1.0; extra == "doc"
+Requires-Dist: ipykernel>=6.29.2; extra == "doc"
+Requires-Dist: ipywidgets>=8.1.2; extra == "doc"
+Provides-Extra: pre-commit
+Requires-Dist: pre-commit~=2.21; extra == "pre-commit"
+
+# aim2dat
+
+aim2dat (Automated Ab-Initio Materials Modeling and Data Analysis Toolkit) is a library for pre-, post-processing and data management of ab-initio high-throughput workflows for computational materials science.
+For further details and documentation, please visit https://aim2dat.github.io.
+
+## Feature List
+
+* Managing and analysing sets of crystals and molecules.
+* Ab-initio high-throughput calculations based on [AiiDA](https://www.aiida.net).
+* Plotting material's properties such as electronic band structures, projected density of states or phase diagrams.
+* Interface to machine learning routines via [sci-kit learn](https://scikit-learn.org/stable/).
+* Function analysis: discretizing and comparing 2-dimensional functions.
+* Parsers for the DFT codes [CP2K](https://www.cp2k.org/about), [FHI-Aims](https://fhi-aims.org) and [QuantumESPRESSO](https://www.quantum-espresso.org) as well as [phonopy](https://phonopy.github.io/phonopy/) and [critic2](https://aoterodelaroza.github.io/critic2/).
+
+## Installation
+
+```sh
+pip install aim2dat
+```
+
+More detailed instructions are given in the documentation (https://aim2dat.github.io/installation.html).
+
+## Contributing
+
+Contributions are very welcome and are directly handled via the code's [github repository](https://github.com/aim2dat/aim2dat).
+Bug reports, feature requests or general discussions can be accomplished by filing an [issue](https://github.com/aim2dat/aim2dat/issues).
+Extensions or changes to the code can also be directly suggested by opening a [pull request](https://github.com/aim2dat/aim2dat/pulls).
+Some guidelines for code contributions are given in the documentation (https://aim2dat.github.io/#contributing).
