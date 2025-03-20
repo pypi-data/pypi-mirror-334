@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: jonschema
+Version: 0.0.9123
+Summary: Package de validation de toutes données ou formulaires
+Home-page: UNKNOWN
+Author: BILONG NTOUBA Célestin
+Author-email: bilongntouba.celestin@gmail.com
+License: UNKNOWN
+Keywords: python,jon,schema,validation
+Platform: UNKNOWN
+Requires-Dist: pytz ; python_version >= "2022.1"
+Requires-Dist: asyncio ; python_version >= "3.4.3"
+Requires-Dist: typing ; python_version >= "3.7.4.3"
+
+Il s'agit d'une dependance python qui permettra de gerer la validation de toutes données ou formulaires
+
