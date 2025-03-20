@@ -1,0 +1,2 @@
+[console_scripts]
+comic-matcher = comic_matcher.cli:main
