@@ -1,0 +1,12 @@
+pyscf<2.8.0,>=2.4.0
+
+[dev]
+black
+flake8
+pytest
+pytest-cov
+tox
+mypy
+sphinx
+sphinx_rtd_theme
+pytest-mpl
