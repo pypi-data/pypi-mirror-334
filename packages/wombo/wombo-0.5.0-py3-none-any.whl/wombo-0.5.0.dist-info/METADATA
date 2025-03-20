@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: wombo
+Version: 0.5.0
+Summary: Image generation module. I use the dream neural network from wombo for my work.
+Author-email: Aleksey Baev <skinxedovich@vk.com>
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: pydantic>=2.10.6
