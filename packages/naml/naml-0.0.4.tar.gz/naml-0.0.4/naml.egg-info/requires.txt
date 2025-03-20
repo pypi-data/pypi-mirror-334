@@ -1,0 +1,12 @@
+matplotlib==3.10.1
+numpy==2.2.3
+scipy==1.15.2
+sympy==1.13.1
+torch==2.6.0
+torchaudio==2.6.0
+torchvision==0.21.0
+nbformat
+tqdm
+requests
+pytest
+ipywidgets
