@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: indian-address-matcher
+Version: 0.1.2
+Summary: A tool for matching Indian addresses to determine if they refer to the same location
+Home-page: https://github.com/Karan-Choudhary/indian-address-matcher
+Author: Karan Choudhary
+Author-email: kchoudhary510199@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: fuzzywuzzy>=0.18.0
+Requires-Dist: python-Levenshtein>=0.12.2
+Requires-Dist: rapidfuzz>=2.13.7
+Requires-Dist: jellyfish>=0.9.0
+Requires-Dist: nltk>=3.7
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: tabulate>=0.9.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: numpy>=1.24.3
+Requires-Dist: pandas>=2.0.2
+Requires-Dist: geopandas>=0.13.2
+Requires-Dist: geopy>=2.3.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
