@@ -1,0 +1,19 @@
+[project]
+name = "PygameEnhanced"
+version = "1.3.4"
+description = "An enhanced set of utilities for Pygame."
+authors = [{ name = "unknown", email = "unknown@email.com" }]
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }  # Replace "MIT" with your actual license type
+dependencies = [
+    "Flask",  # Add required dependencies here
+]
+
+[tool.setuptools]
+packages = ["PygameEnhanced"]
+
+[project.urls]
+Homepage = "https://github.com/Github3742/PygameEnhanced"
+Documentation = "https://yourdocsurl.com"
+Repository = "https://github.com/Github3742/PygameEnhanced"
