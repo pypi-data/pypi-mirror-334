@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: liblaf-cherries
+Version: 0.0.6
+Summary: Add your description here
+Project-URL: Changelog, https://github.com/liblaf/cherries/blob/main/CHANGELOG.md
+Project-URL: Homepage, https://github.com/liblaf/cherries
+Project-URL: Issue Tracker, https://github.com/liblaf/cherries/issues
+Project-URL: Release Notes, https://github.com/liblaf/cherries/releases
+Project-URL: Source Code, https://github.com/liblaf/cherries
+Author-email: liblaf <30631553+liblaf@users.noreply.github.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.12
+Requires-Dist: comet-ml<4,>=3.49.4
+Requires-Dist: gitpython<4,>=3.1.44
+Requires-Dist: giturlparse<0.13,>=0.12.0
+Requires-Dist: lazy-loader<0.5,>=0.4
+Requires-Dist: liblaf-grapes<0.2,>=0.1.7
+Requires-Dist: loguru<0.8,>=0.7.3
+Requires-Dist: neptune<2,>=1.13.0
+Requires-Dist: pydantic-settings<3,>=2.8.1
+Requires-Dist: pydantic<3,>=2.10.6
+Description-Content-Type: text/markdown
+
+# 🍒 Cherries
