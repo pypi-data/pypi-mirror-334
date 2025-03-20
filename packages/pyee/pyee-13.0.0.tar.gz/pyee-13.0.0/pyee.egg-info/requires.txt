@@ -1,0 +1,31 @@
+typing-extensions
+
+[dev]
+build
+flake8
+flake8-black
+pytest
+black
+isort
+jupyter-console
+mkdocs
+mkdocs-include-markdown-plugin
+mkdocstrings[python]
+mypy
+sphinx
+toml
+tox
+trio
+twine
+twisted
+validate-pyproject[all]
+
+[dev:python_version > "3.6"]
+trio
+trio-typing
+
+[dev:python_version >= "3.4"]
+pytest-asyncio
+
+[dev:python_version >= "3.7"]
+pytest-trio
