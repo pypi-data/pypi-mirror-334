@@ -1,0 +1,6 @@
+{
+    "id": "spectrum_difference",
+    "name": "Compute differences",
+    "entry": "SpectrumDifference",
+    "description": "Generate a new spectrum object with the densities being differences between the original densities."
+}

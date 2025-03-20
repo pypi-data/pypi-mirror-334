@@ -1,0 +1,20 @@
+{
+    "id": "meggie_difference",
+    "name": "Difference",
+    "description": "Create difference objects",
+    "author": "CIBR",
+    "tabs": [
+        {
+            "id": "evoked",
+            "output_actions": ["evoked_difference"]
+        },
+        {
+            "id": "spectrum",
+            "output_actions": ["spectrum_difference"]
+        },
+        {
+            "id": "tfr",
+            "output_actions": ["tfr_difference"]
+        }
+    ]
+}
