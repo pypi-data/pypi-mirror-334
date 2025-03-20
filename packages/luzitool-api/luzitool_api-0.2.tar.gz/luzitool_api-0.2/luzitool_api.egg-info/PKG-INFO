@@ -1,0 +1,41 @@
+Metadata-Version: 2.2
+Name: luzitool-api
+Version: 0.2
+Summary: luzitool-api Python API Modülü
+Home-page: https://luzitool.ct.ws/python-luzitool.php
+Author: Orvix Games
+Author-email: toolup@luzitool.ct.ws
+License: MIT
+Project-URL: Documentation, https://luzitool.ct.ws/docs
+Keywords: luzitool-api,python,api,web,tool
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Requires-Dist: numpy>=1.20.0
+Provides-Extra: dev
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Luzitool, kullanıcıların çeşitli araçlar ve scriptler geliştirmesine olanak tanıyan bir platformdur. Bu araç, yazılım geliştiricilerin ihtiyaç duydukları çeşitli özellikleri hızla oluşturabilmelerini sağlar. Luzitool ile, farklı projeler için özelleştirilmiş araçlar, betikler (scripts) ve uygulamalar geliştirebilirsiniz.
+
+Luzitool'un sunduğu özellikler, kullanıcıların hızla işlevsel ve verimli yazılımlar üretmelerini sağlayacak şekilde tasarlanmıştır. Geliştiriciler, hem web tabanlı araçlar hem de farklı yazılım platformlarına yönelik çözümler yaratabilirler.
