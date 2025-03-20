@@ -1,0 +1,1 @@
+self.paths['VISUAL_STIM_FOLDER'] = self.get_task_directory()
