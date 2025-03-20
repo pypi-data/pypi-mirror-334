@@ -1,0 +1,178 @@
+name: 🚀 Continuous Integration & Deployment
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["master"]
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  lint:
+    if: "!(github.event_name == 'push' && github.ref == 'refs/heads/master' && startsWith(github.event.head_commit.message, '🔖 bump:'))"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: pre-commit/action@v3.0.1
+
+  test:
+    if: "!(github.event_name == 'push' && github.ref == 'refs/heads/master' && startsWith(github.event.head_commit.message, '🔖 bump:'))"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run pytest --cov --cov-branch --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
+      - uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - uses: codecov/test-results-action@v1
+        if: ${{ !cancelled() }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  bump-version:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+      - uses: astral-sh/setup-uv@v5
+      - run: touch .git/COMMIT_EDITMSG
+      - uses: commitizen-tools/commitizen-action@master
+        id: commitizen
+        with:
+          extra_requirements: cz-conventional-gitmoji
+          github_token: ${{ secrets.GH_PAT }}
+          push: false
+      - run: uv lock
+      - run: git commit --amend --no-edit uv.lock
+      - run: git for-each-ref refs/tags/v${{ steps.commitizen.outputs.version }} --format="%(contents)" > tag_message.txt
+      - run: git tag -f -a v${{ steps.commitizen.outputs.version }} -F tag_message.txt
+      - run: git push --follow-tags
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "msfpatterns-${{ env.VERSION }}"
+          path: dist
+
+  pr-changelog:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - uses: astral-sh/setup-uv@v5
+      - run: uv venv
+      - run: uv pip install commitizen cz-conventional-gitmoji
+      - name: Generate Changelog Preview
+        run: |
+          uv run cz changelog --dry-run --start-rev $(git describe --tags --abbrev=0) > pr_changelog.md
+          echo "CHANGELOG_PREVIEW<<EOF" >> $GITHUB_ENV
+          cat pr_changelog.md >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      - uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            ## 📉 Changelog Preview
+
+            ```markdown
+            ${{ env.CHANGELOG_PREVIEW }}
+            ```
+
+            ⚠️ **Ensure your commits follow [Gitmoji Conventional Commits](https://github.com/ljnsn/cz-conventional-gitmoji) to be included in the release!**
+          comment-tag: changelog-preview
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    needs: build
+    environment: publish
+    steps:
+      - uses: astral-sh/setup-uv@v5
+      - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+      - uses: actions/download-artifact@v4
+        with:
+          name: "msfpatterns-${{ env.VERSION }}"
+          path: dist
+      - name: Publish to PyPI
+        run: uv publish
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+
+  attest:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    needs: publish
+    permissions:
+      attestations: write
+      id-token: write
+    steps:
+      - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+      - name: Wait for PyPI package availability
+        run: |
+          for i in {1..10}; do
+            if curl -s "https://pypi.org/pypi/msfpatterns/json" | jq -e ".releases[\"$VERSION\"]" > /dev/null; then
+              exit 0
+            fi
+            echo "⏳ Attempt $i/10: Package not found, retrying in $((2**i))s..."
+            sleep $((2**i))
+          done
+          exit 1
+      - uses: actions/download-artifact@v4
+        with:
+          name: "msfpatterns-${{ env.VERSION }}"
+          path: dist
+      - uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: dist/
+          push-to-registry: true
+
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+      - uses: actions/download-artifact@v4
+        with:
+          name: "msfpatterns-${{ env.VERSION }}"
+          path: dist
+      - uses: astral-sh/setup-uv@v5
+      - run: uv venv
+      - run: uv pip install commitizen cz-conventional-gitmoji
+      - name: Generate Release Notes
+        run: uv run cz changelog --dry-run --start-rev $(git describe --tags --abbrev=0 $(git rev-list --tags --max-count=2 | tail -n1)) > release_changelog.md
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          body_path: release_changelog.md
+          draft: false
+          prerelease: false
