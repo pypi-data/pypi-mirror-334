@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pylevers
+Version: 0.0.7
+Summary: A Python client for Levers
+Home-page: UNKNOWN
+Author: Zhou liwei
+Author-email: zhoulw1@lenovo.com
+License: UNKNOWN
+Description: # pylevers
+        
+        A Python client for Levers.
+        
+        ## Installation
+        
+        ```bash
+        pip install pylevers
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown

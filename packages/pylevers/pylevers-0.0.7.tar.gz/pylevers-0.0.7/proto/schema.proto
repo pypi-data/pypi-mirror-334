@@ -1,0 +1,86 @@
+syntax = "proto3";
+package levers.proto.schema;
+
+/**
+ * @brief Field data type
+ */
+enum DataType {
+  DT_NONE = 0;
+  DT_BOOL = 1;
+  DT_INT32 = 2;
+  DT_INT64 = 3;
+  DT_FLOAT = 4;
+  DT_DOUBLE = 5;
+  DT_STRING = 6;
+  
+  DT_FLOAT_VECTOR = 100;
+  DT_INT8_VECTOR = 101;
+}
+
+/**
+ * @brief Field index type
+ */
+enum IndexType {
+  IT_NONE = 0;
+  IT_SPANN = 1;
+  IT_HNSW = 2;
+  IT_STL = 3;
+  IT_TRIE = 4;
+  IT_BITMAP = 5;
+}
+
+/**
+ * @brief Index metric type
+ */
+enum IndexMetrics {
+  IM_NONE = 0;
+  IM_L2   = 1;
+  IM_COSINE = 2;
+  IM_IP = 3;
+}
+
+/**
+ * @brief Index quantization type
+ */
+enum IndexQuantType {
+  IQ_NONE = 0;
+  IQ_PQ = 1;
+  IQ_SQ = 2;
+}
+
+/**
+ * @brief Index schema
+ */
+message IndexSchema {
+  IndexType index_type = 1;
+  IndexMetrics index_metrics = 2;
+  IndexQuantType index_quant_type = 3;
+  map<string, string> extra_params = 4;
+}
+
+/**
+ * @brief Field schema
+ */
+message FieldSchema {
+  string name = 1;
+  DataType data_type = 2;
+  uint32 dimension = 3;
+  IndexSchema mutable_segment_schema = 4;
+  IndexSchema indexed_segment_schema = 5;
+  map<string, string> extra_params = 6;
+}
+
+/**
+ * @brief Collection schema
+ */
+message CollectionSchema {
+  string name = 1;
+  string description = 2;
+  repeated FieldSchema fields = 3;
+  map<string, string> extra_params = 4;
+}
+
+message DatabaseSchema {
+  string db_name = 1;
+  map<string, string> extra_params = 2;
+}

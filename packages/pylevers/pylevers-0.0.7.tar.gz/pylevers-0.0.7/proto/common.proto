@@ -1,0 +1,208 @@
+syntax = "proto3";
+package levers.proto.common;
+
+import "proto/schema.proto";
+
+
+/**
+ * @brief error code 
+ */
+enum ErrorCode {
+    Success = 0;
+    GenericFailed = 1; // Will be replaced by dedicated error
+    LeversRetry = 8888;
+}
+
+/**
+ * @brief status 
+ */
+message Status {
+    ErrorCode error_code = 1;
+    string reason = 2;
+}
+
+/**
+ * @brief client side information
+ */
+message ClientInfo {
+    // sdk_type can be `python`, `golang`, `nodejs` and etc. It's not proper to make `sdk_type` an
+    // enumerate type, since we cannot always update the enum value everytime when newly sdk is supported.
+    string sdk_type = 1;
+    string sdk_version = 2;
+    string local_time = 3;
+    string user = 4;
+    string password = 5;
+    string db_name = 6;
+    string host = 7;
+    // reserved for newly-added feature if necessary.
+    map<string, string> reserved = 8;
+}
+
+/**
+ * @brief server side information
+ */
+message ServerInfo {
+    string build_tags = 1;
+    string build_timestamp = 2;
+    // reserved for newly-added feature if necessary.
+    map<string, string> reserved = 6;
+}
+
+/**
+ * @brief two kinds of string formats for vectors
+ */
+message SingleFloatVector {
+  repeated float vector = 1;
+}
+message MultiFloatVectors {
+  repeated SingleFloatVector vectors = 1;
+}
+message SingleIntVector {
+  repeated int32 vector = 1;
+}
+message MultiIntVectors {
+  repeated SingleIntVector vectors = 1;
+}
+ 
+ 
+/**
+ * @brief single value of one type in one field
+ */
+message FieldValue {
+  oneof data {
+    bool bool_data = 1;
+    int32 int_data = 2;
+    int64 long_data = 3;
+    float float_data = 4;
+    double double_data = 5;
+    string string_data = 6;
+    bytes bytes_data = 7; // for vector type
+  }
+}
+
+/**
+ * @brief data of one field
+ */
+message FieldData {
+  string name = 1;
+  schema.DataType type = 2;
+  FieldValue value = 3;
+}
+
+/**
+ * @brief params for knn search
+ */
+message KnnParam {
+  string field_name = 1;
+  schema.DataType type = 2; // optional, only for http request
+  oneof vector_data {
+    bytes vectors = 3;
+    string vector_string = 4;
+  }
+  uint32 batch_count = 5;
+  bool is_bruteforce = 6;
+  map<string, string> extra_params = 7;
+}
+
+/**
+ * @brief entity meta consist of some field metas
+ */
+message EntityMeta {
+  string field_name = 1;
+  schema.DataType type = 2;  // optional, only for http request
+}
+
+/**
+ * @brief entity data consist of some field datas
+ */
+message EntityData {
+  int64 pk = 1;
+  repeated FieldValue field_values = 2;
+}
+
+/**
+ * @brief one entity result
+ */
+message EntityResult {
+  int64 pk = 1;
+  float scores = 2;
+  repeated FieldData field_datas = 3;
+}
+
+/**
+ * @brief entity data list from searh result
+ */
+message SearchResult {
+  common.Status status = 1;
+  repeated EntityResult entity_results = 2;
+}
+
+enum SegmentState {
+    init = 0;
+    rawdata = 1;
+    columning = 2;
+    columing_failed = 3;
+    columned = 4;
+    growing = 5;
+    sealed = 6;
+    flushing = 7;
+    flushed = 8;
+    indexing = 9;
+    indexed = 10;
+    indexing_failed = 11;
+    err = 12;
+}
+
+enum IndexState {
+    index_state_none = 0;
+    index_state_indexing = 1;
+    index_state_indexed = 2;
+    index_state_indexing_failed = 3;
+}
+
+message SegmentStats {
+    uint32 id = 1;
+    SegmentState state = 2;
+    uint32 entity_count = 3;
+    uint64 min_entity_id = 4;
+    uint64 max_entity_id = 5;
+    bool is_bulk_insert = 6;
+    bool is_deleting = 7;
+    bool is_compacting = 8;
+    uint32 total_persist_size = 9;
+    string data_path = 10;
+    map<string,uint32> data_files_size = 11;
+    string index_path = 12;
+    map<string,uint32> index_files_size = 13;
+    map<string, IndexState> index_state_map = 14;
+}
+
+message ShardStats {
+    uint32 id = 1;
+    string fs_name = 2;
+    uint32 fs_shard_id = 3;
+    uint32 fs_id = 4;
+    uint64 entity_count = 5;
+    repeated SegmentStats segs = 7;
+    uint32 total_persist_size = 8;
+}
+
+enum CollectionState {
+    coll_none = 0;
+    creating = 1;
+    clean  = 2;
+    deleting = 3;
+    deleted  = 4;
+    loading  = 5;
+    loaded   = 6;
+    releasing = 7;
+}
+
+message CollectionStats {
+    string collection_name = 1;
+    CollectionState state = 2;
+    uint64 entity_count = 3;
+    uint64 create_timestamp = 4;
+    repeated ShardStats shards = 6;
+    uint32 total_persist_size = 7;
+}
