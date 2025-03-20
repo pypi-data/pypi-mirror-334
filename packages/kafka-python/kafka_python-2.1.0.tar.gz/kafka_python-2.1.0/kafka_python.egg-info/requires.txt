@@ -1,0 +1,19 @@
+
+[crc32c]
+crc32c
+
+[lz4]
+lz4
+
+[snappy]
+python-snappy
+
+[testing]
+pytest
+pytest-mock
+
+[testing:python_version < "3.3"]
+mock
+
+[zstd]
+zstandard
