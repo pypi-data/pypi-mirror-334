@@ -1,0 +1,10 @@
+[project]
+name = "mcp-dnsdumpster"
+version = "0.1.0"
+description = "DNSDumpster MCP Server for querying DNS information"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.4.1",
+]
