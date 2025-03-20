@@ -1,0 +1,6 @@
+plugin_type: normalizer
+name: spectranormalizer
+description: |
+ This is the normalizer for spectra in NOMAD.
+normalizer_class_name: spectranormalizer.SpectraNormalizer
+plugin_source_code_url=None: https://github.com/nomad-coe/nomad-normalizer-plugin-spectra.git
