@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: selenium-chrome-pool
+Version: 0.1.0
+Summary: A Python library for managing Selenium Chrome connections.
+Home-page: https://github.com/meihuabo/selenium_chrome_pool
+Author: meihuabo
+Author-email: meihuabo@163.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: selenium
+
+# Selenium Chrome Pool
+
+A Python library for managing Selenium Chrome connections, designed to prevent excessive page loads causing crashes and provide connection pool management.
+
+## Features
+
+*   **Connection Pool Management:** Limits the maximum number of Chrome instances to prevent excessive resource usage.
+*   **Idle Connection Cleanup:** Automatically closes connections that have been idle for a long time, releasing resources.
+*   **Thread-Safe:** Supports concurrent access from multiple threads.
+*   **Headless Mode:** Supports running Chrome in headless mode.
+*   **Remote WebDriver:** Supports connecting to a remote Selenium Grid or standalone-chrome container.
+*   **Automatic Cleanup:** Automatically closes all connections when the program exits.
+
+## Installation
+
+```bash
+pip install selenium_chrome_pool  # (If published to PyPI)
+# Or, for local installation:
+pip install .
+```
+
+## Prerequisites
+
+```
+Selenium is installed: pip install selenium
+Chrome WebDriver (ChromeDriver) is installed. Ensure the ChromeDriver version is compatible with your Chrome browser version and add it to your PATH environment variable, or specify its path when using SeleniumChromePool. (ChromeDriver is not required if using a remote WebDriver)
+```
+
+## Usage
+
+```python
+from selenium_chrome_pool import SeleniumChromePool
+import threading
+import time
+
+# 1. Create a connection pool
+# remote_url = "http://192.168.1.100:4444/wd/hub"  # Remote Selenium Grid address (optional)
+remote_url = None  # Use local chromedriver
+pool = SeleniumChromePool(max_connections=3, headless=True, remote_url=remote_url)
+pool.start_cleanup_thread()  # Start the cleanup thread (must be called)
+
+# 2. Get a connection from the pool
+def worker(task_id):
+    driver = pool.get_connection()
+    if driver:
+        try:
+            driver.get("https://www.baidu.com")
+            print(f"Task {task_id}: Page title: {driver.title}")
+            time.sleep(5)  # Simulate task execution time
+        except Exception as e:
+            print(f"Task {task_id}: Error: {e}")
+        finally:
+            # 3. Release the connection
+            pool.release_connection(driver)
+    else:
+        print(f"Task {task_id}: Failed to get connection.")
+
+
+# Simulate multiple concurrent tasks
+threads = []
+for i in range(5):  # Simulate 5 concurrent tasks
+    t = threading.Thread(target=worker, args=(i,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+time.sleep(5)  # Wait for a while to observe if the cleanup thread works
+# pool.close_all_connections()  # No need to call manually, atexit will handle it
+
+print("Program finished")
+```
+
+**Important Notes:**
+
+*   Make sure to call `start_cleanup_thread()` before using `SeleniumChromePool` to start the idle connection cleanup thread.  This is crucial for proper resource management.
+*   Call `release_connection()` after using the connection to return it to the pool.
+*   You don't need to manually call `close_all_connections()` when the program exits. The `atexit` module will automatically close all connections.
+
+## Parameter Descriptions
+
+*   `max_connections`: The maximum number of connections in the pool (default: 5).
+*   `max_idle_time`: The maximum idle time for a connection in seconds (default: 300). Connections that have been idle for longer than this time will be cleaned up.
+*   `headless`: Whether to run Chrome in headless mode (default: True).
+*   `chrome_options`: A `selenium.webdriver.chrome.options.Options` instance for configuring Chrome options (optional).
+*   `remote_url`: The remote URL of the Selenium Grid or standalone-chrome (optional). If not provided, the local ChromeDriver will be used.  Example: `"http://192.168.1.100:4444/wd/hub"`
+
+## Error Handling
+
+If a connection cannot be retrieved from the pool, the `get_connection()` method will return `None`.  Make sure to check if the connection is valid before using it.
+
+## Contributing
+
+Feel free to submit issues and pull requests!
+
+## License
+
+[MIT](LICENSE)
