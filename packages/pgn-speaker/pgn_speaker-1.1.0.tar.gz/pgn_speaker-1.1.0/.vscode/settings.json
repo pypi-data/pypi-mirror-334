@@ -1,0 +1,50 @@
+{
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "python.analysis.typeCheckingMode": "strict",
+    "ruff.organizeImports": true,
+    "editor.formatOnSave": true,
+    "psi-header.config": {
+        "forceToTop": true,
+        "blankLinesAfter": 1,
+        "spacesBetweenYears": false,
+        "license": "MIT",
+        "copyrightHolder": "David Lechner <david@lechnology.com>",
+        "creationDateZero": "now"
+    },
+    "psi-header.templates": [
+        {
+            "language": "*",
+            "template": [
+                "SPDX-License-Identifier: <<spdxid>>",
+                "Copyright (c) <<yeartoyear(fc!P,now)>> <<copyrightholder>>"
+            ]
+        }
+    ],
+    "psi-header.lang-config": [
+        {
+            "language": "python",
+            "begin": "",
+            "end": "",
+            "prefix": "# "
+        }
+    ],
+    "psi-header.changes-tracking": {
+        "isActive": true,
+        "autoHeader": "manualSave",
+        "enforceHeader": true,
+        "include": [
+            "python"
+        ],
+        "replace": [
+            "Copyright"
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: pgn-speaker
+Version: 1.1.0
+Summary: Reads moves one at a time from a PGN file for practicing chess visualization skills.
+Project-URL: Repository, https://github.com/dlech/python-pgn-speaker
+Author-email: David Lechner <david@lechnology.com>
+License-Expression: MIT
+Requires-Python: >=3.10
+Requires-Dist: chess>=1.9.4
+Requires-Dist: click>=8.1.3
+Requires-Dist: pyobjc-framework-avfoundation>=9.0.1; sys_platform == 'darwin'
+Requires-Dist: winrt-windows-foundation>=3.0.0; sys_platform == 'win32'
+Requires-Dist: winrt-windows-media-playback>=3.0.0; sys_platform == 'win32'
+Requires-Dist: winrt-windows-media-speechsynthesis>=3.0.0; sys_platform == 'win32'
+Requires-Dist: winrt-windows-storage-streams>=3.0.0; sys_platform == 'win32'
+Description-Content-Type: text/markdown
+
+# PGN Speaker
+
+Command line program that speaks moves from a PGN file.
+
+This is intended to assist in visualization exercises as described in
+https://nextlevelchess.blog/improve-your-visualization/
+
+## Running the program
+
+`pgn-speaker` is a Python program and therefore requires a Python runtime.
+Instead of using `pip` to get the package, it is recommended to use [pipx].
+This ensures you are always running the latest version of `pgn-speaker`.
+
+After installing `pipx` run the following command where `$PGN` is the path to
+a PGN file saved on your computer.
+
+    pipx run pgn-speaker $PGN
+
+If `pipx` is not in your `PATH`, you may need to run it as a module instead:
+
+    python3 -m pipx ...
+
+Or if using the Python Launcher for Windows:
+
+    py -3 -m pipx ...
+
+[pipx]: https://pypa.github.io/pipx/
+
+## System requirements
+
+- Python >= 3.10
+- Windows >= 10
+- macOS >= 10.14
