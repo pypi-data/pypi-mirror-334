@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: destinelab
+Version: 1.1
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: PyJWT
+Dynamic: requires-dist
