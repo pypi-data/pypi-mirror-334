@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: catscript
+Version: 1.5.0
+Summary: The typing library of CatScript
+Project-URL: Homepage, https://catscript.app
+Author-email: 0x530c <0x530c@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# CatScript
+
+This is the typing library of [CatScript](https://catscript.app). It does not have actual functionality; it is only used to provide type hints for script developers when writing scripts on the computer.
