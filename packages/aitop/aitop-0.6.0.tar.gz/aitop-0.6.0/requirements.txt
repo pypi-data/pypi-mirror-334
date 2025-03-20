@@ -1,0 +1,26 @@
+# Core dependencies
+psutil>=5.9.0,<6.0.0  # System monitoring (CPU, memory, processes)
+                      # Used for process management, system statistics collection, 
+                      # memory monitoring, and CPU load detection for adaptive timing
+
+# Standard library modules used (no installation required):
+# - curses: Terminal UI with color support and window management
+# - subprocess: GPU detection and monitoring (nvidia-smi, rocm-smi)
+# - threading/concurrent.futures: Parallel data collection and background processing
+# - typing/dataclasses: Type hints and structured data containers
+# - argparse: Command-line argument parsing
+# - os, pathlib: File system operations and path handling
+# - json, re: Configuration parsing and pattern matching
+# - time: Performance timing and throttling
+# - logging: Application logging
+# - platform: System detection and information
+
+# Development dependencies (optional)
+black>=23.0.0,<24.0.0       # Code formatting
+mypy>=1.0.0,<2.0.0          # Static type checking
+pytest>=7.0.0,<8.0.0        # Testing framework
+pytest-cov>=4.1.0,<5.0.0    # Test coverage reporting
+pylint>=2.17.0,<3.0.0       # Code linting
+isort>=5.12.0,<6.0.0        # Import sorting
+flake8>=6.1.0,<7.0.0        # Style guide enforcement
+pre-commit>=3.3.0,<4.0.0    # Git hooks for code quality
