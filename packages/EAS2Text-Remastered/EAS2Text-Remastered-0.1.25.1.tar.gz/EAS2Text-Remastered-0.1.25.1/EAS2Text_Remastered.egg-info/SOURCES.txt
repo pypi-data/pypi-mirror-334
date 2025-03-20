@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+EAS2Text/CCL-us.json
+EAS2Text/EAS2Text.py
+EAS2Text/__init__.py
+EAS2Text/same-ca.json
+EAS2Text/same-us.json
+EAS2Text/wfo-us.json
+EAS2Text_Remastered.egg-info/PKG-INFO
+EAS2Text_Remastered.egg-info/SOURCES.txt
+EAS2Text_Remastered.egg-info/dependency_links.txt
+EAS2Text_Remastered.egg-info/top_level.txt
