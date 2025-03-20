@@ -1,0 +1,272 @@
+# For TOML reference
+# https://learnxinyminutes.com/docs/toml/
+[project]
+name = "mf-prior-bench"
+dependencies = [
+  "pyyaml",
+  "numpy<2.0",
+  "configspace>=1.0",
+  "pandas",
+  "more_itertools",
+  "pyarrow"
+]
+version = "1.10.0"
+description = "A wrapper for multi-fidelity benchmarks with priors"
+authors = [{name = "Eddie Bergman", email="eddiebergmanhs@gmail.com"}]
+readme = "README.md"
+license = { file = "LICENSE.txt" }
+requires-python = ">=3.10"
+classifiers = [
+  'Intended Audience :: Science/Research',
+  'Intended Audience :: Developers',
+  'License :: OSI Approved',
+  'Programming Language :: Python',
+  'Topic :: Software Development',
+  'Topic :: Scientific/Engineering',
+  'Operating System :: POSIX',
+  'Operating System :: Unix',
+  'Operating System :: MacOS',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+]
+
+[project.optional-dependencies]
+yahpo = ["yahpo-gym==1.0.1"]
+jahs-bench = [
+  "jahs_bench==1.2.0",
+  "pandas<2.0",
+  "numpy<2.0.0"
+]
+tabular = ["pandas>2", "pyarrow"]
+pd1 = ["xgboost[scikit-learn]>=1.7"]
+taskset_tabular = ["tensorflow<=2.18.0"]
+surrogates = ["dehb"]
+docs = [
+  "mkdocs",
+  "mike",
+  "mkdocs-material",
+  "mkdocs-gen-files",
+  "mkdocs-literate-nav",
+  "mkdocs-autorefs",
+  "mkdocstrings[python]",
+  "markdown-exec[ansi]",
+]
+dev = [
+  "ruff",
+  "pytest",
+  "pytest-cov",
+  "pytest-cases",
+  "black",
+  "pre-commit",
+  "mypy",
+  "mf-prior-bench[docs,tabular]",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"] # path to the test directory
+minversion = "3.8"
+# addopts = "--cov=mfpbench" # Should be package name
+
+[tool.coverage.run]
+branch = true
+context = "mfpbench" # Should be package name
+omit = [
+  "mfpbench/__init__.py", # Has variables only needed for setup.py
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = [
+  "pragma: no cover",
+  '\.\.\.',
+  "raise NotImplementedError",
+  "if TYPE_CHECKING",
+] # These are lines to exclude from coverage
+
+[tool.black]
+target-version = ['py310']
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+src = ["src", "tests"]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+select = [
+  "A",
+  # "ANN", # Handled by mypy
+  "ARG",
+  "B",
+  "BLE",
+  "COM",
+  "C4",
+  "D",
+  # "DTZ",  # One day I should know how to utilize timezones and dates...
+  "E",
+  # "EXE", Meh
+  "ERA",
+  "F",
+  "FBT",
+  "I",
+  # "ISC",  # Favours implicit string concatenation
+  "INP",
+  # "INT", # I don't understand this one
+  "N",
+  "NPY",
+  "PD",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "PIE",
+  "PT",
+  "PTH",
+  # "PYI", # Specific to .pyi files for type stubs
+  "Q",
+  "PGH004",
+  "RET",
+  "RUF",
+  "C90",
+  "S",
+  # "SLF",    # Private member accessed (sure, it's python)
+  "SIM",
+  # "TRY", # Good in principle, would take a lot of work to statisfy
+  "T10",
+  "T20",
+  "TID",
+  "TCH",
+  "UP",
+  "N",
+  "W",
+  "YTT",
+]
+
+ignore = [
+  "A001",    # Shadowing a builtin
+  "A002",    # Shadowing a builtin
+  "A003",    # Shadowing a builtin
+  "D100",    # Missing docstring in public module
+  "D101",    # Missing docstring in public class
+  "D104",    # Missing docstring in public package
+  "D105",    # Missing docstring in magic mthod
+  "D203",    # 1 blank line required before class docstring
+  "D205",    # 1 blank line between summary and description
+  "D401",    # First line of docstring should be in imperative mood
+  "E731",    # Do not assign a lambda expression, use a def
+  "ERA001",  # Commented out code
+  "N801",    # Class should use CapWords (we don't for pd1s)
+  "N802",    # Function names should be lowercase
+  "N803",    # Argument name should be lowercase
+  "N806",    # Variable X in function should be lowercase
+  "N815",    # Mixed case (disabled as it's useful for dataclass to config matching)
+  "PD901",   # Name better than df
+  "PLC1901", # "" can be simplified to be falsey
+  "PLR2004", # Comparison with magic values
+  "S101",    # Use of assert detected.
+  "TCH003",  # Move stdlib import into TYPE_CHECKING
+  "W292",    # No newline at end of file
+]
+
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
+  "docs",
+]
+
+# Exclude a variety of commonly ignored directories.
+[tool.ruff.per-file-ignores]
+"tests/*.py" = [
+  "S101",
+  "D103",
+  "ANN001",
+  "ANN201",
+  "FBT001",
+  "D100",
+  "PLR2004",
+  "PD901",   #  X is a bad variable name. (pandas)
+  "TCH",
+]
+"__init__.py" = ["I002"]
+"docs/*" = ["INP001"]
+"src/mfpbench/setup_benchmark.py" = ["T201"]
+"src/mfpbench/__main__.py" = ["T201"]
+
+
+[tool.ruff.isort]
+known-first-party = ["mfpbench"]
+no-lines-before = ["future"]
+required-imports = ["from __future__ import annotations"]
+combine-as-imports = true
+extra-standard-library = ["typing_extensions"]
+force-wrap-aliases = true
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.pylint]
+max-args = 10 # Changed from default of 5
+
+[tool.mypy]
+python_version = "3.10"
+packages = ["src/mfpbench", "tests"]
+
+show_error_codes = true
+
+warn_unused_configs = true # warn about unused [tool.mypy] lines
+
+follow_imports = "normal"      # Type check top level api code we use from imports
+ignore_missing_imports = false # prefer explicit ignores
+
+disallow_untyped_defs = true       # All functions must have types
+disallow_untyped_decorators = true # ... even decorators
+disallow_incomplete_defs = true    # ...all types
+
+no_implicit_optional = true
+check_untyped_defs = true
+
+warn_return_any = true
+
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false       # Sometimes we just want to ignore verbose types
+disallow_untyped_decorators = false # Test decorators are not properly typed
+disallow_incomplete_defs = false    # Sometimes we just want to ignore verbose types
+
+[[tool.mypy.overrides]]
+module = [
+  "ConfigSpace.*",
+  "pandas.*",
+  "jahs_bench.*",
+  "yahpo_gym.*",
+  "pytest.*",
+  "yaml.*",
+  "pytest_cases.*",
+  "dehb.*",
+  "sklearn.*",
+  "scipy.*",
+  "matplotlib.*",
+  "seaborn.*",
+]
+ignore_missing_imports = true
