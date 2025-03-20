@@ -1,0 +1,20 @@
+[project]
+name = "devhub-cms-mcp"
+version = "0.1.0"
+description = "DevHub CMS integration through the Model Context Protocol"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.4.1",
+    "requests-oauthlib>=2.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+devhub-cms-mcp = "devhub_cms_mcp.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
