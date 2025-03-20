@@ -1,0 +1,17 @@
+google-auth>=2.16.0
+google-api-python-client>=2.70.0
+python-docx>=0.8.11
+typing-extensions
+google~=3.0.0
+logorator
+cacherator
+mammoth~=1.9.0
+html2docx~=1.6.0
+Markdown~=3.7
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+isort>=5.0.0
+flake8>=6.0.0
