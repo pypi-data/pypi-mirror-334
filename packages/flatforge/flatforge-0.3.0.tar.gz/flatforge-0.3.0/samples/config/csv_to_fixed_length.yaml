@@ -1,0 +1,21 @@
+name: CSV to Fixed-Length Conversion
+type: delimited
+description: Configuration for converting CSV to fixed-length format
+mapping:
+  header:
+    record_type: record_type
+    batch_reference: batch_reference
+    batch_timestamp: batch_timestamp
+  body:
+    record_type: record_type
+    employee_id: employee_id
+    employee_name: employee_name
+    date_of_birth: date_of_birth
+    country_code: country_code
+    salary: salary
+    manager_id: manager_id
+    manager_name: manager_name
+  footer:
+    record_type: record_type
+    total_salary: total_salary
+    employee_count: employee_count 

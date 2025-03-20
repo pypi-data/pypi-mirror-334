@@ -1,0 +1,19 @@
+name: Format Conversion Test
+type: delimited
+description: Configuration for testing format conversion
+mapping:
+  body:
+    original_value: original_value
+    trim_test: trim_test
+    trim_left_test: trim_left_test
+    trim_right_test: trim_right_test
+    case_upper_test: case_upper_test
+    case_lower_test: case_lower_test
+    case_title_test: case_title_test
+    case_camel_test: case_camel_test
+    pad_left_test: pad_left_test
+    pad_right_test: pad_right_test
+    date_format_test: date_format_test
+    substring_test: substring_test
+    replace_test: replace_test
+    multiple_transforms_test: multiple_transforms_test 

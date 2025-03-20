@@ -1,0 +1,326 @@
+name: Electric Vehicle Population Data
+type: delimited
+description: This dataset shows the Battery Electric Vehicles (BEVs) and Plug-in Hybrid Electric Vehicles (PHEVs) that are currently registered through Washington State Department, downloaded from data.gov
+delimiter: ","
+quote_char: "\""
+escape_char: "\\"
+newline: "\n"
+encoding: utf-8
+skip_blank_lines: true
+exit_on_first_error: false
+abort_after_n_failed_records: 100  # Abort processing after 100 failed records
+
+sections:
+  - name: header
+    type: header
+    min_records: 1
+    max_records: 1
+    description: header section containing column names
+    record:
+      name: header_record
+      description: column names are present in this row
+      fields:
+        - name: VIN (1-10)
+          position: 0
+          description: VIN number of the vehicle
+          rules:
+            - type: choice
+              params:
+                choices: ["VIN (1-10)"]
+                case_sensitive: true
+        - name: County
+          position: 1
+          description: County name
+          rules:
+            - type: choice
+              params:
+                choices: ["County"]
+                case_sensitive: true
+        - name: City
+          position: 2
+          description: City name
+          rules:
+            - type: choice
+              params:
+                choices: ["City"]
+                case_sensitive: true
+        - name: State
+          position: 3
+          description: State code
+          rules:
+            - type: choice
+              params:
+                choices: ["State"]
+                case_sensitive: true
+        - name: Postal Code
+          position: 4
+          description: Postal code
+          rules:
+            - type: choice
+              params:
+                choices: ["Postal Code"]
+                case_sensitive: true
+        - name: Model Year
+          position: 5
+          description: Model year of the vehicle
+          rules:
+            - type: choice
+              params:
+                choices: ["Model Year"]
+                case_sensitive: true
+        - name: Make
+          position: 6
+          description: Make
+          rules:
+            - type: choice
+              params:
+                choices: ["Make"]
+                case_sensitive: true
+        - name: Model
+          position: 7
+          description: Model
+          rules:
+            - type: choice
+              params:
+                choices: ["Model"]
+                case_sensitive: true
+        - name: Electric Vehicle Type
+          position: 8
+          description: Electric Vehicle Type
+          rules:
+            - type: choice
+              params:
+                choices: ["Electric Vehicle Type"]
+                case_sensitive: true
+        - name: Clean Alternative Fuel Vehicle (CAFV) Eligibility
+          position: 9
+          description: Clean Alternative Fuel Vehicle (CAFV) Eligibility
+          rules:
+            - type: choice
+              params:
+                choices: ["Clean Alternative Fuel Vehicle (CAFV) Eligibility"]
+                case_sensitive: true
+        - name: Electric Range
+          position: 10
+          description: Electric Range
+          rules:
+            - type: choice
+              params:
+                choices: ["Electric Range"]
+                case_sensitive: true
+        - name: Base MSRP
+          position: 11
+          description: Base MSRP
+          rules:
+            - type: choice
+              params:
+                choices: ["Base MSRP"]
+                case_sensitive: true
+        - name: Legislative District
+          position: 12
+          description: Legislative District
+          rules:
+            - type: choice
+              params:
+                choices: ["Legislative District"]
+                case_sensitive: true
+        - name: DOL Vehicle ID
+          position: 13
+          description: DOL Vehicle ID
+          rules:
+            - type: choice
+              params:
+                choices: ["DOL Vehicle ID"]
+                case_sensitive: true
+        - name: Vehicle Location
+          position: 14
+          description: Vehicle Location
+          rules:
+            - type: choice
+              params:
+                choices: ["Vehicle Location"]
+                case_sensitive: true
+        - name: Electric Utility
+          position: 15
+          description: Electric Utility
+          rules:
+            - type: choice
+              params:
+                choices: ["Electric Utility"]
+                case_sensitive: true
+        - name: 2020 Census Tract
+          position: 16
+          description: 2020 Census Tract
+          rules:
+            - type: choice
+              params:
+                choices: ["2020 Census Tract"]
+                case_sensitive: true
+
+  - name: body
+    type: body
+    min_records: 1
+    description: Electric Vehicle Population Data
+    record:
+      name: body_record
+      description: column names are present in this row
+      fields:
+        - name: VIN (1-10)
+          position: 0
+          description: VIN number of the vehicle
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 10
+        - name: County
+          position: 1
+          description: County name
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 50
+        - name: City
+          position: 2
+          description: City name
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 50
+        - name: State
+          position: 3
+          description: State code
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 2
+                max_length: 2
+        - name: Postal Code
+          position: 4
+          description: Postal code
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 5
+                max_length: 5
+        - name: Model Year
+          position: 5
+          description: Model year of the vehicle
+          rules:
+            - type: required
+            - type: date
+              params:
+                format: "%Y"
+                min_date: "2019"
+                max_date: "2025"
+        - name: Make
+          position: 6
+          description: Make
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 50
+        - name: Model
+          position: 7
+          description: Model
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 50
+        - name: Electric Vehicle Type
+          position: 8
+          description: Electric Vehicle Type
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 75
+        - name: Clean Alternative Fuel Vehicle (CAFV) Eligibility
+          position: 9
+          description: Clean Alternative Fuel Vehicle (CAFV) Eligibility
+          rules:
+            - type: choice
+              params:
+                choices: ["Clean Alternative Fuel Vehicle Eligible", 
+                  "Eligibility unknown as battery range has not been researched", 
+                  "Not eligible due to low battery range"]
+                case_sensitive: true
+        - name: Electric Range
+          position: 10
+          description: Electric Range
+          rules:
+            - type: numeric
+              params:
+                min_value: 0
+                max_value: 1000
+                decimal_precision: 0
+                allow_negative: false
+        - name: Base MSRP
+          position: 11
+          description: Base MSRP
+          rules:
+            - type: numeric
+              params:
+                min_value: 0
+                max_value: 1000000
+                decimal_precision: 0
+                allow_negative: false
+        - name: Legislative District
+          position: 12
+          description: Legislative District
+          rules:
+            - type: numeric
+              params:
+                min_value: 0
+                max_value: 290
+                decimal_precision: 0
+                allow_negative: false
+        - name: DOL Vehicle ID
+          position: 13
+          description: DOL Vehicle ID
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                exact_length: 9
+        - name: Vehicle Location
+          position: 14
+          description: Vehicle Location
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 100
+        - name: Electric Utility
+          position: 15
+          description: Electric Utility
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 80
+        - name: 2020 Census Tract
+          position: 16
+          description: 2020 Census Tract
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 20
+
+ 

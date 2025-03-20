@@ -1,0 +1,141 @@
+name: Transformation Rules Test
+type: delimited
+description: A configuration to test all transformation rules
+delimiter: ","
+quote_char: "\""
+escape_char: "\\"
+newline: "\n"
+encoding: utf-8
+skip_blank_lines: true
+exit_on_first_error: false
+
+sections:
+  - name: body
+    type: body
+    min_records: 1
+    record:
+      name: transformation_record
+      description: Record format for testing transformations
+      fields:
+        - name: original_value
+          position: 0
+          description: Original value before transformation
+          rules:
+            - type: required
+            
+        - name: trim_test
+          position: 1
+          description: Field for testing trim rule
+          rules:
+            - type: trim
+              params:
+                type: both  # Options: left, right, both
+                
+        - name: trim_left_test
+          position: 2
+          description: Field for testing left trim rule
+          rules:
+            - type: trim
+              params:
+                type: left
+                
+        - name: trim_right_test
+          position: 3
+          description: Field for testing right trim rule
+          rules:
+            - type: trim
+              params:
+                type: right
+                
+        - name: case_upper_test
+          position: 4
+          description: Field for testing uppercase transformation
+          rules:
+            - type: case
+              params:
+                type: upper
+                
+        - name: case_lower_test
+          position: 5
+          description: Field for testing lowercase transformation
+          rules:
+            - type: case
+              params:
+                type: lower
+                
+        - name: case_title_test
+          position: 6
+          description: Field for testing title case transformation
+          rules:
+            - type: case
+              params:
+                type: title
+                
+        - name: case_camel_test
+          position: 7
+          description: Field for testing camel case transformation
+          rules:
+            - type: case
+              params:
+                type: camel
+                
+        - name: pad_left_test
+          position: 8
+          description: Field for testing left padding
+          rules:
+            - type: pad
+              params:
+                length: 10
+                char: "0"
+                side: left
+                
+        - name: pad_right_test
+          position: 9
+          description: Field for testing right padding
+          rules:
+            - type: pad
+              params:
+                length: 10
+                char: "*"
+                side: right
+                
+        - name: date_format_test
+          position: 10
+          description: Field for testing date formatting
+          rules:
+            - type: date_format
+              params:
+                input_format: "%Y%m%d"
+                output_format: "%d-%m-%Y"
+                
+        - name: substring_test
+          position: 11
+          description: Field for testing substring extraction
+          rules:
+            - type: substring
+              params:
+                start: 2
+                end: 6
+                
+        - name: replace_test
+          position: 12
+          description: Field for testing text replacement
+          rules:
+            - type: replace
+              params:
+                old: "abc"
+                new: "XYZ"
+                
+        - name: multiple_transforms_test
+          position: 13
+          description: Field for testing multiple transformations
+          rules:
+            - type: trim
+            - type: case
+              params:
+                type: upper
+            - type: pad
+              params:
+                length: 15
+                char: "-"
+                side: right 

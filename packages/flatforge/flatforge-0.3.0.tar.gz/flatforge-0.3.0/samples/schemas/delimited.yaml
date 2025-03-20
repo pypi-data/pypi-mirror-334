@@ -1,0 +1,26 @@
+name: Sample Delimited Format
+type: delimited
+description: A sample delimited format for testing
+delimiter: ","
+newline: "\n"
+encoding: utf-8
+skip_blank_lines: true
+exit_on_first_error: false
+
+sections:
+  - name: body
+    type: body
+    min_records: 1
+    record:
+      name: test_record
+      fields:
+        - name: field1
+          position: 0
+          rules:
+            - type: required
+        - name: field2
+          position: 1
+          rules:
+            - type: numeric
+              params:
+                min_value: 0 

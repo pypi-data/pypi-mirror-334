@@ -1,0 +1,41 @@
+Record 1 in section header:
+Raw data: H BATCH001  20230101120000
+
+Error: Field 'batch_timestamp': Value is not a valid date in format %Y%m%d%H%M%S (value: ' 2023010112000') [rule: date]
+
+Record 2 in section body:
+Raw data: D 1001      John Smith                         30-Feb-2023US       75000.00  1000      Jane Doe                          
+
+Error: Field 'date_of_birth': Value is not a valid date in format %Y%m%d (value: ' 30-Feb-') [rule: date]
+Error: Field 'salary': Value is not numeric (value: '23US') [rule: numeric]
+
+Record 3 in section body:
+Raw data: D 1002      Alice Johnson                      19850215   CAL      80K       1000      Jane Doe                          
+
+Error: Field 'date_of_birth': Value is not a valid date in format %Y%m%d (value: ' 1985021') [rule: date]
+Error: Field 'salary': Value is not numeric (value: 'CAL') [rule: numeric]
+Error: Field 'manager_id': Value is not numeric (value: '80K') [rule: numeric]
+
+Record 4 in section body:
+Raw data: D 1003      Bob Williams                       19900320   UK       65000.00  1001      John Smith                        
+
+Error: Field 'date_of_birth': Value is not a valid date in format %Y%m%d (value: ' 1990032') [rule: date]
+Error: Field 'salary': Value is not numeric (value: 'UK') [rule: numeric]
+
+Record 5 in section body:
+Raw data: D 1004      Carol Brown                        19950425   AU       -60000.00 1001      John Smith                        
+
+Error: Field 'date_of_birth': Value is not a valid date in format %Y%m%d (value: ' 1995042') [rule: date]
+Error: Field 'salary': Value is not numeric (value: 'AU') [rule: numeric]
+
+Record 6 in section body:
+Raw data: D 1005      David Miller                       19881130   DE       70000.00  MANAGER   Alice Johnson                     
+
+Error: Field 'date_of_birth': Value is not a valid date in format %Y%m%d (value: ' 1988113') [rule: date]
+Error: Field 'salary': Value is not numeric (value: 'DE') [rule: numeric]
+
+Record 7 in section footer:
+Raw data: F 350000.00 FIVE      
+Error: Field 'total_salary': Value is not numeric (value: '350000.00 FIVE') [rule: numeric]
+Error: Field 'employee_count': Field is required (value: '          ') [rule: required]
+

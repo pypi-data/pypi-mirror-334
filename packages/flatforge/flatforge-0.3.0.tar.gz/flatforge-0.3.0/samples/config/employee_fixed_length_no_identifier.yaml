@@ -1,0 +1,148 @@
+name: Employee File Format (No Identifiers)
+type: fixed_length
+description: A fixed-length file format for employee data without record type identifiers
+newline: "\n"
+encoding: utf-8
+skip_blank_lines: true
+exit_on_first_error: false
+
+sections:
+  - name: header
+    type: header
+    min_records: 1
+    max_records: 1
+    description: Header section containing batch information
+    record:
+      name: header_record
+      description: Header record format
+      fields:
+        - name: batch_reference
+          position: 0
+          length: 10
+          description: Batch reference number
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                min_length: 1
+                max_length: 10
+        - name: batch_timestamp
+          position: 1
+          length: 14
+          description: Batch timestamp (YYYYMMDDHHmmss)
+          rules:
+            - type: required
+            - type: date
+              params:
+                format: "%Y%m%d%H%M%S"
+
+  - name: body
+    type: body
+    min_records: 0
+    description: Body section containing employee records
+    record:
+      name: employee_record
+      description: Employee record format
+      fields:
+        - name: employee_id
+          position: 0
+          length: 10
+          description: Employee ID
+          rules:
+            - type: required
+            - type: numeric
+        - name: employee_name
+          position: 1
+          length: 35
+          description: Employee name
+          rules:
+            - type: required
+            - type: string_length
+              params:
+                max_length: 35
+        - name: date_of_birth
+          position: 2
+          length: 8
+          description: Date of birth (YYYYMMDD)
+          rules:
+            - type: date
+              params:
+                format: "%Y%m%d"
+        - name: country_code
+          position: 3
+          length: 2
+          description: Country code (2 letters)
+          rules:
+            - type: string_length
+              params:
+                min_length: 2
+                max_length: 2
+            - type: case
+              params:
+                type: upper
+        - name: salary
+          position: 4
+          length: 10
+          description: Salary (with 2 decimal places)
+          rules:
+            - type: numeric
+              params:
+                min_value: 0
+                decimal_precision: 2
+            - type: trim
+        - name: manager_id
+          position: 5
+          length: 10
+          description: Manager ID
+          rules:
+            - type: numeric
+        - name: manager_name
+          position: 6
+          length: 35
+          description: Manager name
+          rules:
+            - type: string_length
+              params:
+                max_length: 35
+
+  - name: footer
+    type: footer
+    min_records: 1
+    max_records: 1
+    description: Footer section containing summary information
+    record:
+      name: footer_record
+      description: Footer record format
+      fields:
+        - name: total_salary
+          position: 0
+          length: 15
+          description: Sum of all employee salaries
+          rules:
+            - type: required
+            - type: numeric
+              params:
+                min_value: 0
+                decimal_precision: 2
+        - name: employee_count
+          position: 1
+          length: 10
+          description: Count of all employees in the body section
+          rules:
+            - type: required
+            - type: numeric
+              params:
+                min_value: 0
+
+global_rules:
+  - type: sum
+    name: salary_sum
+    params:
+      section: body
+      field: salary
+      sum_field: footer.total_salary
+  - type: count
+    name: employee_count
+    params:
+      section: body
+      count_field: footer.employee_count 
