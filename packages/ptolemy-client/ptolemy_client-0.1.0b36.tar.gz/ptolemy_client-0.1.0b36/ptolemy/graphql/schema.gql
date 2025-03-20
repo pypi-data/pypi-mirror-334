@@ -1,0 +1,208 @@
+enum ApiKeyPermissionEnum {
+	READ_ONLY
+	WRITE_ONLY
+	READ_WRITE
+}
+
+
+type CreateApiKeyResponse {
+	apiKey: String!
+	id: UUID!
+}
+
+type CreateApiKeyResult implements GQLResult {
+	success: Boolean!
+	apiKey: CreateApiKeyResponse
+	error: [ValidationError!]
+}
+
+"""
+Implement the DateTime<Utc> scalar
+
+The input/output is a string in RFC3339 format.
+"""
+scalar DateTime
+
+type DeletionResult implements GQLResult {
+	success: Boolean!
+	deleted: Boolean
+	error: [ValidationError!]
+}
+
+
+interface GQLResult {
+	success: Boolean!
+	error: [ValidationError!]
+}
+
+
+
+type Mutation {
+	user: UserMutation!
+	workspace: WorkspaceMutation!
+}
+
+type Query {
+	ping: String!
+	user(id: UUID, username: String): [User!]!
+	workspace(id: UUID, name: String, archived: Boolean): [Workspace!]!
+	me: User!
+}
+
+type ServiceApiKey {
+	id: UUID!
+	workspaceId: UUID!
+	name: String!
+	keyPreview: String!
+	permissions: ApiKeyPermissionEnum!
+	expiresAt: DateTime
+}
+
+type ServiceApiKeyResult implements GQLResult {
+	success: Boolean!
+	serviceApiKey: ServiceApiKey
+	error: [ValidationError!]
+}
+
+
+"""
+A UUID is a unique 128-bit number, stored as 16 octets. UUIDs are parsed as
+Strings within GraphQL. UUIDs are used to assign unique identifiers to
+entities without requiring a central allocating authority.
+
+# References
+
+* [Wikipedia: Universally Unique Identifier](http://en.wikipedia.org/wiki/Universally_unique_identifier)
+* [RFC4122: A Universally Unique IDentifier (UUID) URN Namespace](http://tools.ietf.org/html/rfc4122)
+"""
+scalar UUID
+
+type User {
+	id: UUID!
+	username: String!
+	displayName: String
+	status: UserStatusEnum!
+	isSysadmin: Boolean!
+	isAdmin: Boolean!
+	workspaces(workspaceId: UUID, workspaceName: String): [Workspace!]!
+	userApiKeys: [UserApiKey!]!
+}
+
+type UserApiKey {
+	id: UUID!
+	userId: UUID!
+	name: String!
+	keyPreview: String!
+	expiresAt: DateTime
+}
+
+input UserChangePasswordInput {
+	currentPassword: String!
+	newPassword: String!
+}
+
+input UserInput {
+	username: String!
+	password: String!
+	displayName: String
+	isSysadmin: Boolean!
+	isAdmin: Boolean!
+}
+
+type UserMutation {
+	create(userData: UserInput!): UserResult!
+	update(userId: UUID!, data: UserUpdate!): UserResult!
+	changePassword(userId: UUID!, data: UserChangePasswordInput!): UserResult!
+	delete(id: UUID!): DeletionResult!
+	createUserApiKey(name: String!, durationDays: Int): CreateApiKeyResult!
+	deleteUserApiKey(apiKeyId: UUID!): DeletionResult!
+}
+
+type UserResult implements GQLResult {
+	success: Boolean!
+	user: User
+	error: [ValidationError!]
+}
+
+enum UserStatusEnum {
+	ACTIVE
+	SUSPENDED
+}
+
+input UserUpdate {
+	displayName: String
+	status: UserStatusEnum
+	isAdmin: Boolean
+}
+
+type ValidationError {
+	field: String!
+	message: String!
+}
+
+type Workspace {
+	id: UUID!
+	name: String!
+	description: String
+	archived: Boolean!
+	createdAt: DateTime!
+	updatedAt: DateTime!
+	users(id: UUID, username: String): [WorkspaceUser!]!
+	serviceApiKeys: [ServiceApiKey!]!
+}
+
+input WorkspaceCreate {
+	name: String!
+	description: String
+}
+
+type WorkspaceMutation {
+	create(adminUserId: UUID, workspaceData: WorkspaceCreate!): WorkspaceResult!
+	delete(workspaceId: UUID!): DeletionResult!
+	addUser(workspaceUser: WorkspaceUserCreateInput!): WorkspaceUserResult!
+	removeUser(workspaceId: UUID!, userId: UUID!): DeletionResult!
+	changeWorkspaceUserRole(workspaceId: UUID!, userId: UUID!, newRole: WorkspaceRoleEnum!): WorkspaceUserResult!
+	createServiceApiKey(workspaceId: UUID!, name: String!, permission: ApiKeyPermissionEnum!, durationDays: Int): CreateApiKeyResult!
+	deleteServiceApiKey(workspaceId: UUID!, apiKeyId: UUID!): DeletionResult!
+}
+
+type WorkspaceResult implements GQLResult {
+	success: Boolean!
+	workspace: Workspace
+	error: [ValidationError!]
+}
+
+enum WorkspaceRoleEnum {
+	USER
+	MANAGER
+	ADMIN
+}
+
+type WorkspaceUser {
+	id: UUID!
+	userId: UUID!
+	workspaceId: UUID!
+	role: WorkspaceRoleEnum!
+	user: User!
+	workspace: Workspace!
+}
+
+input WorkspaceUserCreateInput {
+	workspaceId: UUID!
+	userId: UUID!
+	role: WorkspaceRoleEnum!
+}
+
+type WorkspaceUserResult implements GQLResult {
+	success: Boolean!
+	workspaceUser: WorkspaceUser
+	error: [ValidationError!]
+}
+
+directive @include(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+directive @specifiedBy(url: String!) on SCALAR
+schema {
+	query: Query
+	mutation: Mutation
+}
