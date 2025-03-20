@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+meggie_simpleplugin/__init__.py
+meggie_simpleplugin/configuration.json
+meggie_simpleplugin.egg-info/PKG-INFO
+meggie_simpleplugin.egg-info/SOURCES.txt
+meggie_simpleplugin.egg-info/dependency_links.txt
+meggie_simpleplugin.egg-info/requires.txt
+meggie_simpleplugin.egg-info/top_level.txt
+meggie_simpleplugin/actions/__init__.py
+meggie_simpleplugin/actions/hello/__init__.py
+meggie_simpleplugin/actions/hello/configuration.json
+meggie_simpleplugin/actions/hello/tests/__init__.py
+meggie_simpleplugin/actions/hello/tests/test_hello.py
