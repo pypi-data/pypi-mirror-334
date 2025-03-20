@@ -1,0 +1,458 @@
+@prefix : <http://www.semanticweb.org/ontologies/ragatanga#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/ontologies/ragatanga> rdf:type owl:Ontology ;
+    rdfs:label "Ragatanga Ontology"@en ;
+    rdfs:comment "An ontology describing the Ragatanga knowledge retrieval system"@en ;
+    owl:versionIRI <http://www.semanticweb.org/ontologies/ragatanga/0.1.0> .
+
+# Classes
+
+:Module rdf:type owl:Class ;
+    rdfs:label "Module"@en ;
+    rdfs:comment "A Python module in the system architecture"@en .
+
+:Component rdf:type owl:Class ;
+    rdfs:label "Component"@en ;
+    rdfs:comment "A component of a software system"@en .
+
+:System rdf:type owl:Class ;
+    rdfs:label "System"@en ;
+    rdfs:comment "A software system or component"@en .
+
+:Library rdf:type owl:Class ;
+    rdfs:label "Library"@en ;
+    rdfs:comment "A software library used by the system"@en .
+
+:DesignPattern rdf:type owl:Class ;
+    rdfs:label "Design Pattern"@en ;
+    rdfs:comment "A software design pattern used in the system"@en .
+
+:KnowledgeRetrievalSystem rdf:type owl:Class ;
+    rdfs:subClassOf :System ;
+    rdfs:label "Knowledge Retrieval System"@en ;
+    rdfs:comment "A system designed to retrieve knowledge from various sources"@en .
+
+:APIModule rdf:type owl:Class ;
+    rdfs:subClassOf :Module ;
+    rdfs:label "API Module"@en ;
+    rdfs:comment "A module providing API functionality"@en .
+
+:CoreModule rdf:type owl:Class ;
+    rdfs:subClassOf :Module ;
+    rdfs:label "Core Module"@en ;
+    rdfs:comment "A core functionality module in the system"@en .
+
+:UtilityModule rdf:type owl:Class ;
+    rdfs:subClassOf :Module ;
+    rdfs:label "Utility Module"@en ;
+    rdfs:comment "A module providing utility functions"@en .
+
+:DataFlow rdf:type owl:Class ;
+    rdfs:label "Data Flow"@en ;
+    rdfs:comment "A description of how data flows through the system"@en .
+
+:Query rdf:type owl:Class ;
+    rdfs:label "Query"@en ;
+    rdfs:comment "A request for information"@en .
+
+:SPARQLQuery rdf:type owl:Class ;
+    rdfs:subClassOf :Query ;
+    rdfs:label "SPARQL Query"@en ;
+    rdfs:comment "A query in SPARQL format for structured data"@en .
+
+:SemanticQuery rdf:type owl:Class ;
+    rdfs:subClassOf :Query ;
+    rdfs:label "Semantic Query"@en ;
+    rdfs:comment "A query for semantic search"@en .
+
+:QueryType rdf:type owl:Class ;
+    rdfs:label "Query Type"@en ;
+    rdfs:comment "The type of a query, such as factual or descriptive"@en .
+
+:Answer rdf:type owl:Class ;
+    rdfs:label "Answer"@en ;
+    rdfs:comment "A response to a query"@en .
+
+:StructuredAnswer rdf:type owl:Class ;
+    rdfs:subClassOf :Answer ;
+    rdfs:label "Structured Answer"@en ;
+    rdfs:comment "A structured response with metadata"@en .
+
+:KnowledgeBase rdf:type owl:Class ;
+    rdfs:label "Knowledge Base"@en ;
+    rdfs:comment "A repository of knowledge"@en .
+
+:Ontology rdf:type owl:Class ;
+    rdfs:label "Ontology"@en ;
+    rdfs:comment "A formal representation of knowledge"@en .
+
+:Embedding rdf:type owl:Class ;
+    rdfs:label "Embedding"@en ;
+    rdfs:comment "A vector representation of text"@en .
+
+:RetrievalComponent rdf:type owl:Class ;
+    rdfs:subClassOf :Component ;
+    rdfs:label "Retrieval Component"@en ;
+    rdfs:comment "A component responsible for retrieving information"@en .
+
+:SemanticComponent rdf:type owl:Class ;
+    rdfs:subClassOf :Component ;
+    rdfs:label "Semantic Component"@en ;
+    rdfs:comment "A component that processes semantic information"@en .
+
+:OntologyComponent rdf:type owl:Class ;
+    rdfs:subClassOf :Component ;
+    rdfs:label "Ontology Component"@en ;
+    rdfs:comment "A component that manages ontologies"@en .
+
+:QueryProcessingComponent rdf:type owl:Class ;
+    rdfs:subClassOf :Component ;
+    rdfs:label "Query Processing Component"@en ;
+    rdfs:comment "A component that analyzes queries and generates answers"@en .
+
+:AdaptiveRetrieverComponent rdf:type owl:Class ;
+    rdfs:subClassOf :Component ;
+    rdfs:label "Adaptive Retriever Component"@en ;
+    rdfs:comment "A component that combines results from different retrieval methods"@en .
+
+:LLMProvider rdf:type owl:Class ;
+    rdfs:label "LLM Provider"@en ;
+    rdfs:comment "A service that provides language model capabilities"@en .
+
+:EmbeddingProvider rdf:type owl:Class ;
+    rdfs:label "Embedding Provider"@en ;
+    rdfs:comment "A service that provides embeddings"@en .
+
+# Property declarations
+
+:hasName rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "The name of an entity"@en .
+
+:hasDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "has description"@en ;
+    rdfs:comment "A description of an entity"@en .
+
+:hasVersion rdf:type owl:DatatypeProperty ;
+    rdfs:domain :System ;
+    rdfs:range xsd:string ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "The version of a system"@en .
+
+:hasFilePath rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Module ;
+    rdfs:range xsd:string ;
+    rdfs:label "has file path"@en ;
+    rdfs:comment "The file path of a module"@en .
+
+:hasAccuracy rdf:type owl:DatatypeProperty ;
+    rdfs:domain :RetrievalComponent ;
+    rdfs:range xsd:float ;
+    rdfs:label "has accuracy"@en ;
+    rdfs:comment "The accuracy of a retrieval component"@en .
+
+:hasPriority rdf:type owl:DatatypeProperty ;
+    rdfs:domain :RetrievalComponent ;
+    rdfs:range xsd:float ;
+    rdfs:label "has priority"@en ;
+    rdfs:comment "The priority of a retrieval component"@en .
+
+:dependsOn rdf:type owl:ObjectProperty ;
+    rdfs:domain :Module ;
+    rdfs:range :Module ;
+    rdfs:label "depends on"@en ;
+    rdfs:comment "Indicates that one module depends on another"@en .
+
+:basedOn rdf:type owl:ObjectProperty ;
+    rdfs:domain :KnowledgeRetrievalSystem ;
+    rdfs:range :KnowledgeBase ;
+    rdfs:label "based on"@en ;
+    rdfs:comment "Indicates that a knowledge retrieval system is based on a knowledge base"@en .
+
+:hasComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain :System ;
+    rdfs:range :Component ;
+    rdfs:label "has component"@en ;
+    rdfs:comment "Relates a system to its components"@en .
+
+:hasDataFlow rdf:type owl:ObjectProperty ;
+    rdfs:domain :System ;
+    rdfs:range :DataFlow ;
+    rdfs:label "has data flow"@en ;
+    rdfs:comment "Associates a system with its data flows"@en .
+
+:implementsPattern rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :DesignPattern ;
+    rdfs:label "implements pattern"@en ;
+    rdfs:comment "Indicates that an entity implements a design pattern"@en .
+
+:implementedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Module ;
+    rdfs:label "implemented in"@en ;
+    rdfs:comment "Indicates which module implements a component"@en .
+
+:uses rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Component ;
+    rdfs:label "uses"@en ;
+    rdfs:comment "Indicates that one component uses another"@en .
+
+:usesLibrary rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Library ;
+    rdfs:label "uses library"@en ;
+    rdfs:comment "Indicates that a component uses a specific library"@en .
+
+:usesProvider rdf:type owl:ObjectProperty ;
+    rdfs:domain :System ;
+    rdfs:range owl:Class ;
+    rdfs:label "uses provider"@en ;
+    rdfs:comment "Indicates that a system uses a specific provider"@en .
+
+:processes rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Query ;
+    rdfs:label "processes"@en ;
+    rdfs:comment "Indicates that a component processes a query"@en .
+
+:generates rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :Answer ;
+    rdfs:label "generates"@en ;
+    rdfs:comment "Indicates that a component generates an answer"@en .
+
+:generatesSPARQL rdf:type owl:ObjectProperty ;
+    rdfs:domain :Component ;
+    rdfs:range :SPARQLQuery ;
+    rdfs:label "generates SPARQL"@en ;
+    rdfs:comment "Indicates that a component generates SPARQL queries"@en .
+
+# Individual declarations
+
+:Ragatanga rdf:type :KnowledgeRetrievalSystem ;
+    rdfs:label "Ragatanga"@en ;
+    rdfs:comment "A hybrid knowledge retrieval system"@en ;
+    :hasName "Ragatanga"^^xsd:string ;
+    :hasVersion "0.1.0"^^xsd:string ;
+    :hasDescription "A hybrid knowledge retrieval system that combines semantic search with SPARQL queries"^^xsd:string ;
+    :hasComponent :adaptiveRetrieverComponent,
+        :ontologyManagerComponent,
+        :queryProcessingComponent,
+        :semanticSearchComponent,
+        :sparqlQueryComponent ;
+    :hasDataFlow :AnswerGenerationFlow,
+        :KnowledgeBaseProcessingFlow,
+        :OntologyProcessingFlow,
+        :UserQueryFlow ;
+    :implementsPattern :AdapterPattern,
+        :FactoryPattern,
+        :RepositoryPattern,
+        :StrategyPattern ;
+    :usesProvider :Anthropic,
+        :HuggingFace,
+        :Ollama,
+        :OpenAI,
+        :SentenceTransformers .
+
+:AdapterPattern rdf:type :DesignPattern ;
+    rdfs:label "Adapter Pattern"@en ;
+    :hasName "Adapter Pattern"^^xsd:string ;
+    :hasDescription "Used for consistent interfaces to different providers"^^xsd:string .
+
+:FactoryPattern rdf:type :DesignPattern ;
+    rdfs:label "Factory Pattern"@en ;
+    :hasName "Factory Pattern"^^xsd:string ;
+    :hasDescription "Used for creating providers dynamically"^^xsd:string .
+
+:RepositoryPattern rdf:type :DesignPattern ;
+    rdfs:label "Repository Pattern"@en ;
+    :hasName "Repository Pattern"^^xsd:string ;
+    :hasDescription "Used for abstracting data access"^^xsd:string .
+
+:StrategyPattern rdf:type :DesignPattern ;
+    rdfs:label "Strategy Pattern"@en ;
+    :hasName "Strategy Pattern"^^xsd:string ;
+    :hasDescription "Used for different retrieval strategies"^^xsd:string .
+
+:AnswerGenerationFlow rdf:type :DataFlow ;
+    rdfs:label "Answer Generation Flow"@en ;
+    :hasName "Answer Generation Flow"^^xsd:string ;
+    :hasDescription "Retrieved Facts → Analyze Query Type → Generate System Prompt → LLM Generation → Structured Answer"^^xsd:string .
+
+:KnowledgeBaseProcessingFlow rdf:type :DataFlow ;
+    rdfs:label "Knowledge Base Processing Flow"@en ;
+    :hasName "Knowledge Base Processing Flow"^^xsd:string ;
+    :hasDescription "KB File → Chunking → Embedding Generation → Index Creation → Semantic Search → Results"^^xsd:string .
+
+:OntologyProcessingFlow rdf:type :DataFlow ;
+    rdfs:label "Ontology Processing Flow"@en ;
+    :hasName "Ontology Processing Flow"^^xsd:string ;
+    :hasDescription "Ontology File → Load → Materialize Inferences → Execute SPARQL Queries → Results"^^xsd:string .
+
+:UserQueryFlow rdf:type :DataFlow ;
+    rdfs:label "User Query Flow"@en ;
+    :hasName "User Query Flow"^^xsd:string ;
+    :hasDescription "User Query → API → AdaptiveRetriever → [Ontology Query + Semantic Search] → Merge Results → Generate Answer → Response"^^xsd:string .
+
+:AppModule rdf:type :APIModule ;
+    rdfs:label "App Module"@en ;
+    :hasName "App Module"^^xsd:string ;
+    :hasFilePath "ragatanga/api/app.py"^^xsd:string .
+
+:ModelsModule rdf:type :APIModule ;
+    rdfs:label "Models Module"@en ;
+    :hasName "Models Module"^^xsd:string ;
+    :hasFilePath "ragatanga/api/models.py"^^xsd:string .
+
+:RoutesModule rdf:type :APIModule ;
+    rdfs:label "Routes Module"@en ;
+    :hasName "Routes Module"^^xsd:string ;
+    :hasFilePath "ragatanga/api/routes.py"^^xsd:string .
+
+:LLMModule rdf:type :CoreModule ;
+    rdfs:label "LLM Module"@en ;
+    :hasName "LLM Module"^^xsd:string ;
+    :hasFilePath "ragatanga/core/llm.py"^^xsd:string .
+
+:OntologyModule rdf:type :CoreModule ;
+    rdfs:label "Ontology Module"@en ;
+    :hasName "Ontology Module"^^xsd:string ;
+    :hasFilePath "ragatanga/core/ontology.py"^^xsd:string .
+
+:QueryModule rdf:type :CoreModule ;
+    rdfs:label "Query Module"@en ;
+    :hasName "Query Module"^^xsd:string ;
+    :hasFilePath "ragatanga/core/query.py"^^xsd:string .
+
+:RetrievalModule rdf:type :CoreModule ;
+    rdfs:label "Retrieval Module"@en ;
+    :hasName "Retrieval Module"^^xsd:string ;
+    :hasFilePath "ragatanga/core/retrieval.py"^^xsd:string ;
+    :dependsOn :OntologyModule, :SemanticModule .
+
+:SemanticModule rdf:type :CoreModule ;
+    rdfs:label "Semantic Module"@en ;
+    :hasName "Semantic Module"^^xsd:string ;
+    :hasFilePath "ragatanga/core/semantic.py"^^xsd:string .
+
+:EmbeddingsModule rdf:type :UtilityModule ;
+    rdfs:label "Embeddings Module"@en ;
+    :hasName "Embeddings Module"^^xsd:string ;
+    :hasFilePath "ragatanga/utils/embeddings.py"^^xsd:string .
+
+:SPARQLUtilsModule rdf:type :UtilityModule ;
+    rdfs:label "SPARQL Utils Module"@en ;
+    :hasName "SPARQL Utils Module"^^xsd:string ;
+    :hasFilePath "ragatanga/utils/sparql.py"^^xsd:string .
+
+:FastAPI rdf:type :Library ;
+    rdfs:label "FastAPI"@en ;
+    :hasName "FastAPI"^^xsd:string ;
+    :hasDescription "Web framework for building APIs"^^xsd:string .
+
+:Loguru rdf:type :Library ;
+    rdfs:label "Loguru"@en ;
+    :hasName "Loguru"^^xsd:string ;
+    :hasDescription "Library for logging"^^xsd:string .
+
+:Pydantic rdf:type :Library ;
+    rdfs:label "Pydantic"@en ;
+    :hasName "Pydantic"^^xsd:string ;
+    :hasDescription "Library for data validation"^^xsd:string .
+
+:FAISS rdf:type :Library ;
+    rdfs:label "FAISS"@en ;
+    :hasName "FAISS"^^xsd:string ;
+    :hasDescription "Library for efficient vector search"^^xsd:string .
+
+:OwlReady2 rdf:type :Library ;
+    rdfs:label "OwlReady2"@en ;
+    :hasName "OwlReady2"^^xsd:string ;
+    :hasDescription "Library for OWL ontology processing"^^xsd:string .
+
+:RDFLib rdf:type :Library ;
+    rdfs:label "RDFLib"@en ;
+    :hasName "RDFLib"^^xsd:string ;
+    :hasDescription "Library for working with RDF data"^^xsd:string .
+
+:Anthropic rdf:type :LLMProvider ;
+    rdfs:label "Anthropic"@en ;
+    :hasName "Anthropic"^^xsd:string ;
+    :hasDescription "Provider for language models"^^xsd:string .
+
+:HuggingFace rdf:type :EmbeddingProvider, :LLMProvider ;
+    rdfs:label "HuggingFace"@en ;
+    :hasName "HuggingFace"^^xsd:string ;
+    :hasDescription "Provider for embeddings and language models"^^xsd:string .
+
+:Ollama rdf:type :LLMProvider ;
+    rdfs:label "Ollama"@en ;
+    :hasName "Ollama"^^xsd:string ;
+    :hasDescription "Local provider for language models"^^xsd:string .
+
+:OpenAI rdf:type :EmbeddingProvider, :LLMProvider ;
+    rdfs:label "OpenAI"@en ;
+    :hasName "OpenAI"^^xsd:string ;
+    :hasDescription "Provider for embeddings and language models"^^xsd:string .
+
+:SentenceTransformers rdf:type :EmbeddingProvider ;
+    rdfs:label "SentenceTransformers"@en ;
+    :hasName "SentenceTransformers"^^xsd:string ;
+    :hasDescription "Provider for embeddings"^^xsd:string .
+
+:adaptiveRetrieverComponent rdf:type :AdaptiveRetrieverComponent ;
+    rdfs:label "Adaptive Retriever Component"@en ;
+    rdfs:comment "Component for adaptive retrieval"@en ;
+    :hasName "Adaptive Retriever Component"^^xsd:string ;
+    :hasDescription "Combines results from semantic search and SPARQL queries to provide the most relevant information"^^xsd:string ;
+    :implementedIn :RetrievalModule ;
+    :implementsPattern :StrategyPattern ;
+    :uses :semanticSearchComponent, :sparqlQueryComponent .
+
+:ontologyManagerComponent rdf:type :OntologyComponent ;
+    rdfs:label "Ontology Manager Component"@en ;
+    rdfs:comment "Component for managing ontologies"@en ;
+    :hasName "Ontology Manager Component"^^xsd:string ;
+    :hasDescription "Manages the ontology, including loading, materializing inferences, and executing SPARQL queries"^^xsd:string ;
+    :implementedIn :OntologyModule ;
+    :usesLibrary :OwlReady2, :RDFLib .
+
+:queryProcessingComponent rdf:type :QueryProcessingComponent ;
+    rdfs:label "Query Processing Component"@en ;
+    rdfs:comment "Component for processing queries and generating answers"@en ;
+    :hasName "Query Processing Component"^^xsd:string ;
+    :hasDescription "Analyzes query type and generates structured answers from retrieved facts"^^xsd:string ;
+    :implementedIn :QueryModule ;
+    :generates :StructuredAnswer .
+
+:semanticSearchComponent rdf:type :RetrievalComponent, :SemanticComponent ;
+    rdfs:label "Semantic Search Component"@en ;
+    rdfs:comment "Component for semantic search"@en ;
+    :hasName "Semantic Search Component"^^xsd:string ;
+    :hasDescription "Performs semantic search using embeddings to find relevant information"^^xsd:string ;
+    :hasAccuracy "0.85"^^xsd:float ;
+    :hasPriority "0.6"^^xsd:float ;
+    :implementedIn :SemanticModule ;
+    :processes :SemanticQuery ;
+    :usesLibrary :FAISS .
+
+:sparqlQueryComponent rdf:type :RetrievalComponent ;
+    rdfs:label "SPARQL Query Component"@en ;
+    rdfs:comment "Component for SPARQL queries"@en ;
+    :hasName "SPARQL Query Component"^^xsd:string ;
+    :hasDescription "Executes SPARQL queries against the ontology to retrieve structured information"^^xsd:string ;
+    :hasAccuracy "0.92"^^xsd:float ;
+    :hasPriority "0.7"^^xsd:float ;
+    :implementedIn :OntologyModule ;
+    :processes :SPARQLQuery ;
+    :usesLibrary :RDFLib . 
