@@ -1,0 +1,9 @@
+include README.md
+include requirements.txt
+include install.bat
+include install.sh
+include build_wheel.bat
+include build_wheel.sh
+recursive-include aitoolkit_base/models *.task
+recursive-include examples *.py *.jpg
+recursive-include docs * 
