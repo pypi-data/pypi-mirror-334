@@ -1,0 +1,309 @@
+{
+"help_flow#add_item":
+    {'': """\
+crear nuevo registro.
+
+puntea largo para
+importar registros.
+""",
+    'next_help_id': "help_flow#change_item_id", },
+#----------------------------------
+"help_flow#change_item_id": """\
+ene ese editor se puede especificar
+y cambiar el nombre del registro.
+
+el botón [b]--->[/b] a la izquierda cambia
+el registro nuevo a una sub-lista.
+toque fuera de ese editor para cerrarlo.""",
+#----------------------------------
+"help_flow#change_item_sel": """\
+el color de este botón
+indica si esto registro es
+marcado o desmarcado.
+
+ahora es [b]{"marcado" if tuple(self.square_fill_ink) == app.main_app.selected_ink else
+             "desmarcado"}[/b].
+
+puntea para intercambiarlo.
+
+puntea/toque largo para
+exportar registros.""",
+#----------------------------------
+"help_flow#confirm_item_deletion": """\
+toque para abrir un ventana
+de confirmación para borrar el
+registro seleccionado.""",
+#----------------------------------
+"help_flow#confirm_item_sel": """\
+cambiar la [color={get_hex_from_color(main_app.selected_ink)}]marcación[/color] \
+o [color={get_hex_from_color(main_app.unselected_ink)}]desmarcación[/color]
+de todas los registros de esta sub-lista.
+
+puntea al color que quieres cambiar. los
+sub-registros van ser mostrados para la
+confirmación de cambio.
+
+puntea largo para exportar listas.""",
+#----------------------------------
+"help_flow#confirming_item_sel": """\
+toque ese botón para [b]{"" if self.tap_kwargs['set_sel_to'] else "des"}[/b]marcar
+los registros mostrado {"a la izquierda" if app.landscape else "arriba"}.""",
+#----------------------------------
+"help_flow#drag_item": """\
+puntea esta botón para seleccionar
+el registro [b]'{flow_key(self.tap_flow_id)}'[/b]
+(para editarlo o borrarlo).
+
+puntea, mantén y muéve para cambiar
+la orden o la posición de este
+registro. sueltalo encima de una
+sub-lista va a moverlo ahi o al
+botón [b]<---[/b] para aplazar lo
+a la lista arriba de la actual.""",
+#----------------------------------
+"help_flow#edit_item": """\
+cambiar el nombre del registro o
+convertirlo en un sub-lista.""",
+#----------------------------------
+"help_flow#enter_item": """\
+mostrar los registros de la
+sub-lista [b]'{flow_key(self.tap_flow_id)}'[/b].""",
+#----------------------------------
+"help_flow#extract_node": """\
+exportar o copiar los registros
+especificadas a la carpeta
+{main_app.documents_root_path}
+o al portapapeles.""",
+#----------------------------------
+"help_flow#import_node": """\
+añadir registros de los archivos TXT que se encuentran en
+{main_app.documents_root_path}
+a una sub-lista nueva.""",
+#----------------------------------
+"help_flow#jump_node": """\
+pulse para cambiar/mostrar a la lista
+[b]'{main_app.flow_path_text(main_app.flow_path_from_text(self.text), min_len=18, display_root=True)}'[/b].
+
+puntea largo para exportar listas.""",
+#----------------------------------
+"help_flow#leave_item": """\
+toque para salir y volver a la
+lista padre.""",
+#----------------------------------
+"help_flow#open_flow_path_jumper":
+    {'': """\
+salta rápida a otra lista.
+
+puntea largo para exportar
+listas.""",
+    'after': """\
+selecionar la lista
+que va ser mostrada.""", },
+#----------------------------------
+"help_flow#open_node_info": """\
+mostrar los propiedades de
+la sub-lista especificada.""",
+#----------------------------------
+"help_flow#paste_node": """\
+añadir registro(s) del portapapeles
+a la lista actual.
+
+textos multilineales van a crear
+varias registros, uno para cada
+fila del texto.""",
+#----------------------------------
+"help_flow#toggle_filter":
+    {'': """\
+puntea a este botón para [b]{"mostrar" if app.app_states[self.filter_name] else "ocultar"}[/b]
+los registros [b]{dict(selected='marcados', unselected='desmarcados').get(self.name_part)}[/b].""",
+    'after': """\
+ahora se [b]{"ocultan" if app.app_states[self.filter_name] else "mostran"}[/b] los
+registros [b]{dict(selected='marcados', unselected='desmarcados').get(self.name_part)}[/b].""", },
+#----------------------------------
+"help_flow#toggle_node_or_item": """\
+cambiar tipo de este {'' if root.title else 'nuevo '}registro.
+
+toque para cambiar el tipo a
+[b]{'un registro normal' if self.state == 'down' else 'una sub-lista'}[/b].
+
+toque fuera del editor para cerrarlo.""",
+#==================================
+'tour_page#lisz_1empty':
+    {'title_text': "listas en listas",
+     'page_text': """\
+listas de compras, de tareas pendientes, de deseos,
+y mucho más, una lista puede tener muchos usos.
+esta app se permite crear todo tipo de listas.
+
+si necesita más de una lista, crea una lista
+principal, que contiene las sub-listas deseadas.
+
+los registros y sub-listas se puede modificarse
+y desplazarse. Se recomienda que se convierte
+listas con más de 15 registros en sub-listas.""", },
+#----------------------------------
+'tour_page#lisz_2add_item':
+    {'title_text': """\
+añadir
+registro""",
+     'page_text': """\
+con el botón verde, a qual apunta la
+ventana de tooltip, se puede añadir a la
+lista actual un registro o una sub-lista.
+
+para eso se abre una ventana popup con
+un campo para introducir el nombre.""", },
+#----------------------------------
+'tour_page#lisz_2enter_id':
+    {'title_text': """\
+introducir
+nombre""",
+     'page_text': """\
+el nombre de un nuevo registro se
+introduzca en el campo apuntado.
+
+en la siguiente página del tour se va
+mostrar el registro recién creada con
+el nombre [b]{get_text("demo item")}[/b].""", },
+#----------------------------------
+'tour_page#lisz_2entered_id':
+    {'title_text': "registro creado",
+     'page_text': """\
+el registro recién creado con el nombre
+[b]{get_text("demo item")}[/b] es ahora el primer
+y único registro de esta lista del tour.""", },
+#----------------------------------
+'tour_page#lisz_3enter_id':
+    {'title_text': """\
+añadir
+sub-lista""",
+     'page_text': """\
+una sub-lista también se crea con el botón verde.
+
+adicionalmente hay que tocar el interruptor de
+palanca al lado izquierdo de la ventana de popup.""", },
+#----------------------------------
+'tour_page#lisz_3toggle_list':
+    {'page_text': """\
+este botón cambia un registro
+a una sub-lista.""", },
+#----------------------------------
+'tour_page#lisz_3u_added_list':
+    {'title_text': "sub-list creada",
+     'page_text': """\
+ahora hay aparte del registro [b]{get_text("demo item")}[/b]
+una sub-lista al lado, creado con el nombre
+[b]{get_text("demo sub-list")}[/b].""", },
+#----------------------------------
+'tour_page#lisz_4navigate_down':
+    {'page_text': """\
+sub-listas tienen, en contraste a los
+registros normales, un botón redondo a
+la izquierda del nombre con una flecha
+apuntando a la derecha.
+
+después de un toque en este botón el se
+muestran los registros de la sub-lista.""", },
+#----------------------------------
+'tour_page#lisz_4navigate_up':
+    {'page_text': """\
+para volver a la lista arriba, pulse
+ese botón redondo con una flecha que
+apunta a la izquierda.""", },
+#----------------------------------
+'tour_page#lisz_5navigate':
+    {'title_text': "cambio rápido",
+     'page_text': """\
+el botón apuntado permite el
+cambio rápido a otras listas.
+
+las sub-listas ofrecidas se
+muestran con su ruta completa
+y sus nombres abreviados.
+
+la principal lista más arriba
+se muestra como [b]{FLOW_PATH_ROOT_ID}[/b].""", },
+#==================================
+"after focused '{focused_id}'": "después del seleccionado '{focused_id}'",
+"before focused item '{focused_id}'": "antes del seleccionado '{focused_id}'",
+"cannot be equal to '{FLOW_PATH_ROOT_ID}'": "no puede ser igual a '{FLOW_PATH_ROOT_ID}'",
+"cannot contain '{FLOW_PATH_TEXT_SEP}'": "no puede contener '{FLOW_PATH_TEXT_SEP}'",
+"cannot start with one of the characters '{INVALID_ITEM_ID_PREFIX_CHARS}'":
+    "no puede comenzar con uno de los caracteres '{INVALID_ITEM_ID_PREFIX_CHARS}'",
+"confirm deletion of {count} items":
+    {'many': "borrar {count} registros", 'one': "borrar registro", 'zero': "borrar la sub-lista vacía"},
+"confirm deselection of {count} items in '{root.item_id}'":
+    {'many': "confirmar desmarcación de los {count} registros de '{root.item_id}'",
+     'one': "confirmar desmarcación del registro '{root.item_id}'", },
+"confirm selection of {count} items in '{root.item_id}'":
+    {'many': "confirmar marcación de los {count} registros de '{root.item_id}'",
+     'one': "confirmar la marcación del registro '{root.item_id}'", },
+"copy all {count} items": "copiar todos los {count} registros",
+"copy {count} {'' if sel_status else 'un'}selected node items":
+    "copiar los {count} registros {'' if sel_status else 'des'}marcados",
+"{count} error(s) in adding {len(items)} item(s)":
+    {'many': "{count} errores en añadir de {len(items)} nuevos registros",
+     'one':  "error en añadir nuevo registro"},
+"current list": "lista actual",
+"current list begin": "principio de la lista actual",
+"current list end": "final de la lista actual",
+"cut all {count} items": "cortar todos los {count} registros",
+"cut all node items": "cortar las sub-listas",
+"cut {count} selected items": "cortar {count} registros marcados",
+"cut {count} unselected items": "cortar {count} registros desmarcados",
+"delete all {count} items": "borrar todos los {count} registros",
+"delete all node items": "borrar las sub-listas",
+"delete {count} selected items": "borrar {count} registros marcados",
+"delete {count} unselected items": "borrar {count} registros desmarcados",
+"demo item": "Sal",
+"demo sub item 1": "Piña",
+"demo sub item 2": "Lemones",
+"demo sub-list": "Frutas",
+"deselect": "desmarcar",
+"error on adding new item '{item_id}'": "error en insertar el nuevo registro '{item_id}'",
+"error on editing item '{item_id}'": "error en editar el registro '{item_id}'",
+"export all {count} items": "exportar todos los {count} registros",
+"export error": "error en exportar",
+"export {count} {'' if sel_status else 'un'}selected node items":
+    "exportar {count} registros {'' if sel_status else 'de'}marcados",
+"{FLOW_PATH_ROOT_ID} list begin": "principio de la lista {FLOW_PATH_ROOT_ID}",
+"{FLOW_PATH_ROOT_ID} list end": "final de la lista {FLOW_PATH_ROOT_ID}",
+"focused sub-list": "sub-lista seleccionado",
+"from clipboard": "de portapapeles",
+"from file": "de archivo",
+"from interchange": "de intercambio",
+"has to be a string but got {type(item_id)}": "no es una cadena de caracteres sino un {type(item_id)}",
+"has to be non-empty": "no puede ser vacio",
+"id": "nombre",
+"importable items not found in folder '{folder_path}'": "no hay registros importables en '{folder_path}'",
+"import error(s)": {'one': "error en importar", 'many': "{count} errores en importar"},
+"import file '{file_path}' could not be loaded": "no se pudó importar el archivo '{file_path}'",
+"import file '{file_path}' contains more than {IMPORT_NODE_MAX_ITEMS} items ({len(node)})":
+    "archivo '{file_path}' contiene mas de {IMPORT_NODE_MAX_ITEMS} registros ({len(node)})",
+"import file '{file_path}' content is invalid or empty; {err_msg}":
+    "contenido del archivo '{file_path}' es invalido or vacio; {err_msg}",
+"import file '{file_path}' is bigger than {IMPORT_NODE_MAX_FILE_LEN} bytes ({file_len})":
+    "archivo '{file_path}' es mas grande que {IMPORT_NODE_MAX_FILE_LEN} bytes ({file_len})",
+"import node/item(s)": "importar registro(s)",
+"into focused sub-list '{focused_id}'": "dentro de la sub-lista '{focused_id}'",
+"Irmi's Shopping Lisz": "Irmi's listas de compras",
+"item": "registro",
+"items": "registros",
+"item format parsing error in '{text}'": "error en analizar un registro de '{text}'",
+"item id '{item_id}' ": "nombre del registro '{item_id}' ",
+"item id '{new_id}' exists already": "el nombre de registro '{new_id}' ya existe",
+"{info['selected_leaf_count'] + info['unselected_leaf_count']} items":
+    "{info['selected_leaf_count'] + info['unselected_leaf_count']} registros",
+"neither clipboard nor '{self.documents_root_path}' contains items to import":
+    "no hay registros para importar en el portapapeles ni en '{self.documents_root_path}'",
+"node count": "sub-listas",
+"node '{node_id}' with ": "sub-lista '{node_id}' con ",
+"no extract options available for this item/node": "no hay opciones para extraer para este registro/lista",
+"select": "marque",
+"selected leaf count": "registros marcados",
+"share all {count} items": "compartir todos los {count} registros",
+"share {count} {'' if sel_status else 'un'}selected node items":
+    "compartir {count} registros {'' if sel_status else 'des'}marcados",
+"text block '{text}' is not a valid importable item": "contenido del bloque de texto '{text}' no es un registro valido",
+"unselected leaf count": "registros desmarcados",
+}

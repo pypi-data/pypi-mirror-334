@@ -1,0 +1,14 @@
+LICENSE.md
+README.md
+setup.py
+ae/lisz_app_data/__init__.py
+ae/lisz_app_data/loc/de/Msg.txt
+ae/lisz_app_data/loc/en/Msg.txt
+ae/lisz_app_data/loc/es/Msg.txt
+ae_lisz_app_data.egg-info/PKG-INFO
+ae_lisz_app_data.egg-info/SOURCES.txt
+ae_lisz_app_data.egg-info/dependency_links.txt
+ae_lisz_app_data.egg-info/not-zip-safe
+ae_lisz_app_data.egg-info/requires.txt
+ae_lisz_app_data.egg-info/top_level.txt
+tests/test_lisz_app_data.py

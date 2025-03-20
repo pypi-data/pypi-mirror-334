@@ -1,0 +1,226 @@
+{
+"help_flow#add_item":
+    {'': """\
+add a new item.
+
+tap long for list exports.""",
+    'next_help_id': "help_flow#change_item_id", },
+#----------------------------------
+"help_flow#change_item_id": """\
+change item/sub-list name in this entry field.
+
+the button with the [b]--->[/b] icon (at the
+left) toggles between an item and a sub-list.
+
+tap outside of this item editor to close it.""",
+#----------------------------------
+"help_flow#change_item_sel": """\
+the color of this button
+shows if this item is
+selected or deselected.
+
+this one is [b]{"selected" if tuple(self.square_fill_ink) == app.main_app.selected_ink else "deselected"}[/b].
+
+short tap is toggling
+the selection state.
+
+tap long to export.""",
+#----------------------------------
+"help_flow#confirm_item_deletion": """\
+open dialog to confirm
+the deletion of the
+focused item/sub-list.""",
+#----------------------------------
+"help_flow#confirm_item_sel": """\
+toggle selection of all the items
+of this sub-list between [color={get_hex_from_color(main_app.selected_ink)}]selected[/color] \
+and [color={get_hex_from_color(main_app.unselected_ink)}]unselected[/color].
+
+tapping on the color to toggle.
+all items of this sub-list will
+then be shown in a popup window
+to confirm the toggle.
+
+tap long to export lists.""",
+#----------------------------------
+"help_flow#confirming_item_sel": """\
+tap this button to [b]{"" if self.tap_kwargs['set_sel_to'] else ""}select[/b]
+the items displayed {"on the left" if app.landscape else "above"}.""",
+#----------------------------------
+"help_flow#drag_item": """\
+tapping short would focus the item
+[b]'{flow_key(self.tap_flow_id)}'[/b]
+(focused items can be edited/deleted).
+
+tap, hold and drag to change the position
+of this item. drop onto a sub-list to move
+the item into it. drop onto the
+leave-sub-list-button with the [b]<---[/b] icon
+to move the item into the parent list.""",
+#----------------------------------
+"help_flow#edit_item": """\
+edit the name or
+toggle between an
+item or a sub-list.""",
+#----------------------------------
+"help_flow#enter_item": """\
+display items of the sub-list
+[b]'{flow_key(self.tap_flow_id)}'[/b].""",
+#----------------------------------
+"help_flow#extract_node": """\
+export or copy items to the folder
+{main_app.documents_root_path}
+or to the clipboard.""",
+#----------------------------------
+"help_flow#import_node": """\
+import items from TXT files in the folder
+{main_app.documents_root_path}
+into a new sub-list.""",
+#----------------------------------
+"help_flow#jump_node": """\
+jump to the list
+[b]'{main_app.flow_path_text(main_app.flow_path_from_text(self.text), min_len=18, display_root=True)}'[/b].
+
+tap long to export it.""",
+#----------------------------------
+"help_flow#leave_item": """\
+exit the current sub-list and
+go back to parent list.""",
+#----------------------------------
+"help_flow#open_flow_path_jumper":
+    {'': """\
+open drop down list to jump
+to other sub-list.
+
+tap long to export lists.""",
+    'after': """\
+drop down with other
+existing lists.""", },
+#----------------------------------
+"help_flow#open_node_info": """\
+show summary info
+of this sub-list.""",
+#----------------------------------
+"help_flow#paste_node": """\
+add item(s) from clipboard
+into the current list.
+
+multiline texts will add a
+new item for each text row.""",
+#----------------------------------
+"help_flow#toggle_filter":
+    {'': """\
+[b]{"display" if app.app_states[self.filter_name] else "hide"}[/b] the
+[b]{self.name_part}[/b] list items.""",
+    'after': """\
+now the {self.name_part} list items
+are [b]{"hidden" if self.state == 'down' else "shown"}[/b].""", },
+#----------------------------------
+"help_flow#toggle_node_or_item": """\
+change type of this {'' if root.title else 'new '}item.
+
+tapping would toggle the item
+type to a [b]{'item' if self.state == 'down' else 'sub-list'}[/b].
+
+tapping outside of this item
+editor will close it.""",
+#==================================
+'tour_page#lisz_1empty':
+    {'title_text': "lists in lists",
+     'page_text': """\
+shopping-lists, to-do-lists, wish-lists, and many
+more, a list can have many uses. this app allows
+you to create all kinds of lists.
+
+create sub-lists if multiple lists are needed.
+
+items and sub-lists can be changed and moved as
+desired. split lists with more than 15 entries
+into several sub-lists.""", },
+#----------------------------------
+'tour_page#lisz_2add_item':
+    {'title_text': """\
+add item
+or sub-list""",
+     'page_text': """\
+the green button, targeted by the tooltip window,
+can be used to add an item or a sub-list.
+
+after tapping this button, a window with an entry
+field pops up to enter the name of the item.""", },
+#----------------------------------
+'tour_page#lisz_2enter_id':
+    {'title_text': """\
+enter
+item name""",
+     'page_text': """\
+the name of the new item is entered
+into the input field of the pop-up
+window shown above.
+
+the next tour page will display the
+newly created item with the name
+[b]{get_text("demo item")}[/b].""", },
+#----------------------------------
+'tour_page#lisz_2entered_id':
+    {'title_text': "item created",
+     'page_text': """\
+the newly created item with the name
+[b]{get_text("demo item")}[/b] is now the first
+and only item in this demo list.""", },
+#----------------------------------
+'tour_page#lisz_3enter_id':
+    {'title_text': "add sub-list",
+     'page_text': """\
+sub-lists are also created with the green button.
+
+in addition, the switch on the left of this entry
+field has to be toggled.""", },
+#----------------------------------
+'tour_page#lisz_3toggle_list':
+    {'page_text': """\
+this toggle button changes an
+item into a sub-list.""", },
+#----------------------------------
+'tour_page#lisz_3u_added_list':
+    {'title_text': "sub-liste angelegt",
+     'page_text': """\
+the list contains now, beneath the previously
+created item [b]{get_text("demo item")}[/b], the new
+sub-list [b]{get_text("demo sub-list")}[/b].""", },
+#----------------------------------
+'tour_page#lisz_4navigate_down':
+    {'page_text': """\
+sub-lists, unlike normal items, displaying
+on the left of the name a oval button with
+an arrow pointing to the right.
+
+tapping this button enters the sub-list
+to display the items of the sub-list.""", },
+#----------------------------------
+'tour_page#lisz_4navigate_up':
+    {'title_text': "listen-navigation",
+     'page_text': """\
+to return to the list above, tap on
+the targeted oval button with an
+arrow pointing to the left.""", },
+#----------------------------------
+'tour_page#lisz_5navigate':
+    {'title_text': "list quick jump",
+     'page_text': """\
+the targeted button offers a quick jump
+navigation to another list.
+
+the sub-lists offered here for selection
+are displayed with their full list path
+and abbreviated list names.
+
+the name of the topmost main list is
+displayed as [b]{FLOW_PATH_ROOT_ID}[/b].""", },
+#==================================
+"demo item": "Salt",
+"demo sub item 1": "Ananas",
+"demo sub item 2": "Lemons",
+"demo sub-list": "Fruits",
+"import error(s)": {'one': "import error", 'many': "{count} import errors"},
+}
