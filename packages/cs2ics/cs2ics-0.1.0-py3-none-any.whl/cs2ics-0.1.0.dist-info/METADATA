@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: cs2ics
+Version: 0.1.0
+Summary: A tool for users to convert their course schedules to iCalendar format.
+Home-page: https://github.com/GDUTMeow/cs2ics
+Author: GamerNoTitle
+Author-email: GamerNoTitle@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# CS2ICS
+
