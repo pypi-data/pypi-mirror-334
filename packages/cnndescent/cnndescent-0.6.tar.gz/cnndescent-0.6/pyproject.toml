@@ -1,0 +1,15 @@
+[build-system]
+requires = ["sip"]
+build-backend = "sipbuild.api"
+
+[project]
+name = "cnndescent"
+version = "0.6"
+
+[tool.sip.bindings.cnndescent]
+headers = ["knngraph.h"]
+include-dirs = ["include/"]
+libraries = ["gomp"]
+extra-compile-args=["-fopenmp", "-march=native", "-O3"]
+extra-link-args=["-fopenmp"]
+sources = ["src/knngraph.c", "src/utils.c", "src/rp_tree.c"]
