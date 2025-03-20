@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: py2pyd
+Version: 0.1.1
+Summary: A simple and easy Python to PYD compiler using Cython
+Home-page: https://github.com/sachadee/PythonPydGenerator
+Author: Sacha Dehe
+Author-email: sachadehe@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# py2pyd
+
+**py2pyd** is a tool to compile Python scripts (`.py`) into `.pyd` files using Cython.
+
+## Installation
+
+Run:
+```shell
+pip install py2pyd
+
+#Usage:
+
+To compile a Python file to a PYD DLL:
+
+```shell
+py2pyd myscript.py
+
+#License
+MIT License
+
