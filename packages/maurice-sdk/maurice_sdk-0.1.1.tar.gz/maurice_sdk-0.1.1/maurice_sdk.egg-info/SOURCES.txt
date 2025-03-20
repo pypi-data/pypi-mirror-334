@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+maurice_sdk/__init__.py
+maurice_sdk/arm.py
+maurice_sdk/drive.py
+maurice_sdk/dynamixel.py
+maurice_sdk/robot.py
+maurice_sdk/uart.py
+maurice_sdk.egg-info/PKG-INFO
+maurice_sdk.egg-info/SOURCES.txt
+maurice_sdk.egg-info/dependency_links.txt
+maurice_sdk.egg-info/requires.txt
+maurice_sdk.egg-info/top_level.txt

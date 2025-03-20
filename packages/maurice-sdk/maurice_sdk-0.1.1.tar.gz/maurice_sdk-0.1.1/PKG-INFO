@@ -1,0 +1,157 @@
+Metadata-Version: 2.2
+Name: maurice_sdk
+Version: 0.1.1
+Summary: A Python SDK for controlling the Maurice robot arm and drive system
+Home-page: https://github.com/innate-inc/maurice_sdk.git
+Author: Innate Inc
+Author-email: vignesh@innate.bot
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dynamixel_sdk
+Requires-Dist: numpy
+Requires-Dist: pyserial
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Maurice SDK
+
+Maurice SDK is a Python package designed to control a robotic arm using Dynamixel servos. It provides both low-level and high-level APIs for individual servo configuration and coordinated arm operations. Additionally, it offers a synchronous UART drive interface for controlling the base drive system.
+
+## Features
+
+### Individual Servo Control (Arm Module):
+- Set operating mode (e.g., POSITION, CURRENT_CONTROLLED_POSITION)
+- Configure joint limits (in encoder counts; see below for conversion details)
+- Enable/disable torque
+- Set current limits
+
+### Arm-Level Control:
+- Set goal positions for all servos
+- Read current positions (encoder counts)
+- Retrieve voltage readings
+- Toggle torque for the entire arm
+
+### Drive Interface:
+- Synchronously send speed commands over UART
+- Receive position updates (in meters and radians)
+
+## Installation
+
+You can install Maurice SDK in one of two ways:
+
+### 1. Via PyPI (pip install)
+If Maurice SDK is published on PyPI, simply install it using:
+
+```bash
+pip install maurice_sdk
+```
+
+### 2. Clone and Install from Source
+Clone the repository and install it locally:
+
+```bash
+git clone <repository_url>
+cd maurice_sdk
+pip install .
+```
+
+Replace `<repository_url>` with the URL of your repository.
+
+## Usage
+
+Below are examples demonstrating how to use both the drive and arm modules.
+
+### Drive Module Example
+
+The drive system uses the standard device `/dev/ttyTHS1` with a baud rate of 115200. Speeds are provided in m/s (forward) and rad/s (turn), and the position updates are returned in meters and radians.
+
+```python
+from maurice_sdk.drive import Drive
+
+# Initialize the drive interface
+drive = Drive(port='/dev/ttyTHS1', baud_rate=115200, timeout=0.1)
+
+# Set drive speed: 0.5 m/s forward and 0.1 rad/s turn
+drive.set_speed(0.5, 0.1)
+
+# Retrieve the latest position update (x, y, theta)
+position = drive.get_position()
+print("Current drive position:", position)
+
+# Close the drive interface when done
+drive.close()
+```
+
+### Arm Module Example
+
+The arm controller is set up for a Jetson with the standard device `/dev/ttyACM0` at 1,000,000 baud. The recommended configuration is to use six servos (IDs 1–6) with:
+
+- Servos 1, 3, and 5 in POSITION mode with ±1.57 rad limits.
+- Servo 2 in POSITION mode with ±0.5 rad limits.
+- Servo 4 in POSITION mode with ±1.74 rad limits.
+- Servo 6 in CURRENT_CONTROLLED_POSITION mode with limits from –0.0872 to 1.0821 rad.
+
+These radian limits are converted to encoder counts (2π ≡ 4096 counts, neutral at 2048):
+
+- Servos 1, 3, 5: ±1.57 rad → approx. 1024 to 3072 counts.
+- Servo 2: ±0.5 rad → approx. 1722 to 2374 counts.
+- Servo 4: ±1.74 rad → approx. 912 to 3184 counts.
+- Servo 6: –0.0872 to 1.0821 rad → approx. 1991 to 2755 counts.
+
+```python
+from maurice_sdk.arm import Arm
+from maurice_sdk.dynamixel import OperatingMode
+import time
+
+# Initialize the arm interface with six servos (IDs 1–6)
+arm = Arm(device_name='/dev/ttyACM0', baudrate=1000000, servo_ids=[1, 2, 3, 4, 5, 6])
+
+# Set operating modes
+# Servos 1, 2, 3, 4, and 5 in POSITION mode; servo 6 in CURRENT_CONTROLLED_POSITION mode.
+arm.set_operating_mode(servo_id=1, mode=OperatingMode.POSITION)
+arm.set_operating_mode(servo_id=2, mode=OperatingMode.POSITION)
+arm.set_operating_mode(servo_id=3, mode=OperatingMode.POSITION)
+arm.set_operating_mode(servo_id=4, mode=OperatingMode.POSITION)
+arm.set_operating_mode(servo_id=5, mode=OperatingMode.POSITION)
+arm.set_operating_mode(servo_id=6, mode=OperatingMode.CURRENT_CONTROLLED_POSITION)
+
+# Configure joint limits based on the converted values:
+arm.set_joint_limit(servo_id=1, min_position=1024, max_position=3072)
+arm.set_joint_limit(servo_id=2, min_position=1722, max_position=2374)
+arm.set_joint_limit(servo_id=3, min_position=1024, max_position=3072)
+arm.set_joint_limit(servo_id=4, min_position=912,  max_position=3184)
+arm.set_joint_limit(servo_id=5, min_position=1024, max_position=3072)
+arm.set_joint_limit(servo_id=6, min_position=1991, max_position=2755)
+
+# Optionally set current limit for servo 6 (if needed)
+arm.set_current_limit(servo_id=6, current_limit=100)
+
+# Activate all servos
+arm.torque_on()
+
+# Set goal positions (neutral positions here are 2048 for all servos)
+arm.set_goal_positions([2048, 2048, 2048, 2048, 2048, 2048])
+
+# Read current positions and voltages
+positions = arm.read_positions()
+voltages = arm.read_voltages()
+print("Arm positions:", positions)
+print("Arm voltages:", voltages)
+
+# Disable torque when finished
+arm.torque_off()
+
+# Clean up the connection
+arm.close()
+```
