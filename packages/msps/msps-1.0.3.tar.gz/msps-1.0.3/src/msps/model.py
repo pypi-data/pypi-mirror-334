@@ -1,0 +1,1 @@
+MavenProfiles = dict[str, str]

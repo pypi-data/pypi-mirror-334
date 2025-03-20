@@ -1,0 +1,51 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "msps"
+version = "1.0.3"
+description = "Maven Settings Profile Switcher"
+authors = ["István Földházi <istvan.foldhazi@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "msps", from = "src" }, { include = "tests" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+rich = "^13.7.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.0"
+typer = "^0.15.0"
+coverage = "^7.4.3"
+tox = "^4.13.0"
+
+[tool.poetry.group.typing.dependencies]
+mypy = "^1.8.0"
+
+[tool.poetry.group.lint.dependencies]
+pylint = "^3.0.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.0.0"
+pytest-sugar = "^1.0.0"
+pytest-cov = "^6.0.0"
+
+[tool.poetry.scripts]
+msps = "msps.__main__:main"
+testui = "tests.manual_test_ui:main"
+
+[tool.mypy]
+packages = "src"
+disable_error_code = "import-untyped"
+namespace_packages = true
+explicit_package_bases = true
+show_error_codes = true
+strict = true
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.isort]
+profile = "black"
