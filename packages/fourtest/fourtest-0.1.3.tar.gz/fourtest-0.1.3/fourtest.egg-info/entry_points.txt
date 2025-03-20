@@ -1,0 +1,3 @@
+[console_scripts]
+fourtest-api = fourtest.api:run
+
