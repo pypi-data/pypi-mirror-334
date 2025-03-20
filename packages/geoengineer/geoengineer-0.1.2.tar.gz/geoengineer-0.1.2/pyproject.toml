@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geoengineer"
+dynamic = ["version"]
+authors = [
+    {name = "GeoEngineer Contributors", email = "geoengineerai@gmail.com"},
+]
+description = "The official Python library for the GeoEngineerAI API"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+license = {text = "MIT"}
+
+[project.urls]
+"Homepage" = "https://github.com/geoengineer-ai/geoengineer-python"
+"Bug Tracker" = "https://github.com/geoengineer-ai/geoengineer-python/issues"
