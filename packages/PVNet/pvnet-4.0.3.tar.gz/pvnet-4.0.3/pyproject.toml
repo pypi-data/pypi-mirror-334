@@ -1,0 +1,89 @@
+[project]
+name="PVNet"
+description = "PVNet"
+authors = [{name="Peter Dudfield", email="info@openclimatefix.org"}]
+dynamic = ["version", "readme"]
+license={file="LICENCE"}
+
+dependencies = [
+    "ocf_data_sampler==0.1.11",
+    "ocf_datapipes>=3.3.34",
+    "ocf_ml_metrics>=0.0.11",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "xarray",
+    "ipykernel",
+    "h5netcdf",
+    "torch>=2.0.0",
+    "lightning",
+    "torchvision",
+    "pytest",
+    "pytest-cov",
+    "typer",
+    "sqlalchemy",
+    "fsspec[s3]",
+    "wandb",
+    "huggingface-hub",
+    "tensorboard",
+    "tqdm",
+    "omegaconf",
+    "hydra-core",
+    "python-dotenv",
+    "hydra-optuna-sweeper",
+    "rich",
+    "gcsfs",# gcsfs is only needed when getting data from Google Cloud Storage
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "pvnet.__version__"}
+readme = {file = "README.md", content-type = "text/markdown"}
+
+[tool.setuptools.package-dir]
+"pvnet" = "pvnet"
+
+[project.optional-dependencies]
+dev=[
+    "pvlive-api",
+    "black",
+    "flake8",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+]
+all_models=[
+    "pytorch-tabnet",
+    "efficientnet_pytorch"
+]
+all=["PVNet[dev,all_models]"]
+
+[tool.mypy]
+exclude = [
+    "^tests/",
+]
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = [
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+line-length = 100
+exclude = [".ipynb_checkpoints", "tests", "configs.example"]
