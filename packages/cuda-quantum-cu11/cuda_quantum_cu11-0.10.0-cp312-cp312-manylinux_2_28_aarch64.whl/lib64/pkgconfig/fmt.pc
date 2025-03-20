@@ -1,0 +1,11 @@
+prefix=/tmp/tmpo_4renpl/wheel/platlib
+exec_prefix=/tmp/tmpo_4renpl/wheel/platlib
+libdir=${exec_prefix}/lib64
+includedir=${prefix}/include
+
+Name: fmt
+Description: A modern formatting library
+Version: 8.1.2
+Libs: -L${libdir} -lfmt
+Cflags: -I${includedir}
+
