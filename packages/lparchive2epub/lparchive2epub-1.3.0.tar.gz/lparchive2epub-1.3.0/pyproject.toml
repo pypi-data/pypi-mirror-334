@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "lparchive2epub"
+version = "1.3.0"
+description = ""
+authors = ["Arwalk <siragentprovocateurarwalk@gmail.com>"]
+readme = "README.md"
+packages = [{include = "lparchive2epub"}]
+repository = "https://github.com/Arwalk/lparchive2epub"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ebooklib = "^0.18"
+beautifulsoup4 = "^4.12.2"
+tqdm = "^4.66.4"
+aiohttp = "^3.9.5"
+
+[tool.poetry.scripts]
+lparchive2epub = 'lparchive2epub.main:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+coverage = "^7.4.0"
+
+[tool.poetry-pyinstaller-plugin.scripts]
+lparchive2epub = { source = "lparchive2epub/main.py", type = "onefile", bundle = true, console = true }
+
+[tool.pytest.ini_options]
+addopts = [
+  "--import-mode=importlib",
+]
+pythonpath = "."
