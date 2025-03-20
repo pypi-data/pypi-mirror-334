@@ -1,0 +1,20 @@
+[project]
+requires-python = ">=3.12"
+
+name = "calculator_package.zversal"
+version = "0.1.0"
+description = "A package to process PDFs using fitz (PyMuPDF)"
+authors = [{ name = "Nikkhil", email = "nikkhil.zversal@gmail.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = ["pymupdf"]
+
+[dependency-groups]
+dev = [
+    "requests>=2.32.3",
+    "twine>=6.1.0",
+]
+
+
+[tool.setuptools]
+packages = ["calculator_package"]
