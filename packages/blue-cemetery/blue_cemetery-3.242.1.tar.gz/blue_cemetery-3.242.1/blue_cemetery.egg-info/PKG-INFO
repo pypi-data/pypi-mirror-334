@@ -1,0 +1,60 @@
+Metadata-Version: 2.2
+Name: blue_cemetery
+Version: 3.242.1
+Summary: 🪦 An AI cemetery.
+Home-page: https://github.com/kamangir/blue-cemetery
+Author: Arash Abadpour (Kamangir)
+Author-email: arash@kamangir.net
+License: Public Domain
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Unix Shell
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: blueness
+Requires-Dist: blue-options
+Requires-Dist: abcli
+Requires-Dist: boto3
+Requires-Dist: geojson
+Requires-Dist: geopandas
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: pymysql
+Requires-Dist: pyyaml
+Requires-Dist: pylint
+Requires-Dist: pytest
+Requires-Dist: python-dotenv[cli]
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# 🪦 blue-cemetery
+
+🪦 `@cemetery` is the cemetery for [`abcli`](https://github.com/kamangir/awesome-bash-cli) experiments.
+
+```bash
+pip install blue-cemetery
+```
+
+|   |   |   |
+| --- | --- | --- |
+| [`sagesemseg`](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/sagesemseg) [![image](https://github.com/kamangir/assets/blob/main/blue-sandbox/sagesemseg-predict.png?raw=true)](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/sagesemseg) A SemSeg (Semantic Segmenter) trained and deployed on AWS Sagemaker. | [`@damages`](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/microsoft_building_damage_assessment) [![image](https://github.com/kamangir/assets/raw/main/blue-sandbox/Maui-Hawaii-fires-Aug-23-ingest-2025-01-10-qqJqhm.png?raw=true)](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/microsoft_building_damage_assessment) Satellite imagery damage assessment workflow | [`VisuaLyze`](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/VisuaLyze) [![image](https://github.com/kamangir/openai-commands/assets/1007567/7c0ed5f7-6941-451c-a17e-504c6adab23f)](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/VisuaLyze) How about calling it "VisuaLyze"? ... - OpenAI |
+| [`gpt`](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/gpt) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/gpt) co-authored with ChapGPT. | [`code generation`](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/code_generation) [![image](https://github.com/kamangir/openai-commands/blob/main/assets/completion_i2i_function.png?raw=true)](https://github.com/kamangir/blue-cemetery/blob/main/blue_cemetery/cemetery/code_generation)  | [`scripts`](https://github.com/kamangir/blue-cemetery/blob/main/scripts) [![image](https://github.com/kamangir/assets/blob/main/nbs/3x4.jpg?raw=true)](https://github.com/kamangir/blue-cemetery/blob/main/scripts) legacy mechanisms replaced with `@docker eval - <command>` and `@batch eval - <command>`. |
+
+---
+
+
+[![pylint](https://github.com/kamangir/blue-cemetery/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-cemetery/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-cemetery/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-cemetery/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-cemetery/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-cemetery/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-cemetery.svg)](https://pypi.org/project/blue-cemetery/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-cemetery)](https://pypistats.org/packages/blue-cemetery)
+
+built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🪦 [`blue_cemetery-3.242.1`](https://github.com/kamangir/blue-cemetery).
+
+built by 🌀 [`blueness-3.96.1`](https://github.com/kamangir/blueness).
