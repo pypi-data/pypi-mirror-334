@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: bitquery-pb2-kafka-package
+Version: 0.1.0
+Summary: This package contains the pb2 files necessary to interact with Bitquery Kafka Protobuf messages
+Home-page: https://github.com/bitquery/streaming-protobuf-python
+Author: Bitquery
+Author-email: divyasshree@bitquery.io
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+
