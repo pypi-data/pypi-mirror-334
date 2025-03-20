@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: wagtail-transfer-loft3di
+Version: 0.9.4.11
+Summary: Content transfer for Wagtail
+Home-page: https://github.com/wagtail/wagtail-transfer
+Author: Matthew Westcott
+Author-email: matthew.westcott@torchbox.com
+License: BSD
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.0
+Classifier: Framework :: Wagtail
+Classifier: Framework :: Wagtail :: 5
+Classifier: Framework :: Wagtail :: 6
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: wagtail>=5.2
+Provides-Extra: docs
+Requires-Dist: mkdocs<1.1,>=1.0; extra == "docs"
+Requires-Dist: mkdocs-material<4.7,>=4.6; extra == "docs"
+
+An extension for Wagtail allowing content to be transferred between multiple instances of a Wagtail project
