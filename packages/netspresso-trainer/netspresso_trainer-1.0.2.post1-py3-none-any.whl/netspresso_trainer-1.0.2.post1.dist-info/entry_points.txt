@@ -1,0 +1,2 @@
+[console_scripts]
+netspresso-train = netspresso_trainer.trainer_main:train_cli
