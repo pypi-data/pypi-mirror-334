@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+greetlib/__init__.py
+greetlib/greetings.py
+greetlib.egg-info/PKG-INFO
+greetlib.egg-info/SOURCES.txt
+greetlib.egg-info/dependency_links.txt
+greetlib.egg-info/top_level.txt
+tests/test_greetings.py
