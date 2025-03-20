@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: onpanda
+Version: 0.0.3
+Summary: onPanda Python package
+Home-page: https://github.com/on-panda/onpanda
+Author: DIYer22
+Author-email: ylxx@live.com
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: mxlm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+onPanda Python package
