@@ -1,0 +1,3 @@
+[console_scripts]
+ae-automate = ae_automation.run:main
+ae-editor = app:main
