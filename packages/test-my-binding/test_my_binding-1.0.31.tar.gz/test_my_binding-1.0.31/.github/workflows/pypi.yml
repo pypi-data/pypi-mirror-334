@@ -1,0 +1,187 @@
+name: pypi
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build_wheels:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    name: Build wheels on ${{ matrix.os }} - ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+        arch:
+          - x86_64
+          - arm64
+        include:
+          # Define Windows matrix with correct architectures
+          - os: windows-latest
+            arch: x86_64
+          - os: windows-latest
+            arch: amd64
+          # Define macOS matrix with correct architectures
+          - os: macos-latest
+            arch: x86_64
+          - os: macos-latest
+            arch: arm64
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # Updated to use Python 3.11
+
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          pip install cibuildwheel==2.23.0
+
+      - name: Clean build artifacts
+        run: |
+          rm -rf build dist wheelhouse *.egg-info
+        shell: bash
+
+      - name: Build wheels
+        env:
+          CIBW_BUILD: "cp39-*"
+          CIBW_SKIP: "*-musllinux_* *-win32 *_i686"
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
+          CIBW_BEFORE_ALL_LINUX: |
+            sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+            sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+            yum clean all
+            yum makecache
+            yum update -y
+            yum install -y python-devel cmake gcc-c++ make
+          CIBW_BEFORE_ALL_WINDOWS: |
+            pip install delvewheel
+          CIBW_BEFORE_BUILD: |
+            python -m pip install --upgrade pip
+            pip install numpy compas pytest build line_profiler
+            rm -rf build dist wheelhouse *.egg-info
+          CIBW_TEST_REQUIRES: numpy compas pytest line_profiler
+          CIBW_TEST_COMMAND: |
+            pip install --force-reinstall {wheel}
+            cd {package}
+            python -m pytest tests -v
+          CIBW_REPAIR_WHEEL_COMMAND_WINDOWS: "delvewheel repair -w {dest_dir} {wheel}"
+          CIBW_ENVIRONMENT_WINDOWS: |
+            CMAKE_GENERATOR="Visual Studio 17 2022"
+            CMAKE_GENERATOR_PLATFORM=x64
+            SETUPTOOLS_USE_DISTUTILS=stdlib
+          CIBW_ENVIRONMENT_LINUX: |
+            CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
+          CIBW_ENVIRONMENT_MACOS: |
+            CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release"
+            MACOSX_DEPLOYMENT_TARGET=10.14
+        run: python -m cibuildwheel --output-dir wheelhouse .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}-${{ matrix.arch }}
+          path: ./wheelhouse/*.whl
+
+  build_sdist:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # Also use Python 3.11 here for consistency
+
+      - name: Clean build artifacts
+        run: |
+          rm -rf build dist wheelhouse *.egg-info
+        shell: bash
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy compas pytest build line_profiler
+
+      - name: Build SDist
+        run: python -m build --sdist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/test_my_binding
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-*
+          path: dist
+          merge-multiple: true
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: sdist
+          path: dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+  build_manylinux:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    name: Build wheels on manylinux
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/pypa/manylinux2014_x86_64
+      options: --user root
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # Use Python 3.11
+
+      - name: Install cibuildwheel
+        run: |
+          python -m pip install --upgrade pip
+          pip install cibuildwheel==2.23.0
+
+      - name: Clean build artifacts
+        run: |
+          rm -rf build dist wheelhouse *.egg-info
+        shell: bash
+
+      - name: Build wheels
+        env:
+          CIBW_BUILD: "cp39-*"
+          CIBW_SKIP: "*-musllinux_* *-win32 *_i686"
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
+        run: python -m cibuildwheel --output-dir wheelhouse .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-manylinux
+          path: ./wheelhouse/*.whl
