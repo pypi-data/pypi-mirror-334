@@ -1,0 +1,5 @@
+juliacall>=0.9.7
+numpy>=1.20.0
+
+[test]
+pytest>=7.0.0
