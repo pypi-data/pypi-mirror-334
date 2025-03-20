@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: staticfunc
+Version: 0.0.1
+Summary: A function decorator to run type checking and/or casting on a function's arguments.
+Project-URL: Homepage, https://github.com/wk1093/staticfunc
+Project-URL: Issues, https://github.com/wk1093/staticfunc/issues
+Author-email: Wyatt K <wyattk1093@gmail.com>
+License: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# StaticFunc
+
+A Python package to perform type checking on a function to make it behave as if it was a statically typed function.
