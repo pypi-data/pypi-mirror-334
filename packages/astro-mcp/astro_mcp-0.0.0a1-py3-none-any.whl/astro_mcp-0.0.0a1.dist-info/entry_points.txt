@@ -1,0 +1,5 @@
+[console_scripts]
+astro-mcp = astro_mcp:main
+
+[mcp_server]
+astro = astro_mcp:get_server
