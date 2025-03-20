@@ -1,0 +1,14 @@
+requests
+tenacity
+pandas>=1.5
+numpy<2.0
+pandas_market_calendars
+openpyxl
+
+[cloud]
+gcsfs
+fastparquet<=2023.01
+google-cloud-bigquery
+
+[tests]
+pytest

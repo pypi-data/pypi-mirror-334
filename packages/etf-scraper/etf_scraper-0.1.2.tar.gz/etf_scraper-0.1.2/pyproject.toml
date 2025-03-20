@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=63.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "etf_scraper"
+version = "0.1.2"
+description = "Scrape ETF and Mutual Fund holdings from major providers"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "requests",
+    "tenacity",
+    "pandas>=1.5",
+    "numpy<2.0",
+    "pandas_market_calendars",
+    "openpyxl",
+]
+
+[project.optional-dependencies]
+cloud = [
+    "gcsfs",
+    "fastparquet<=2023.01",
+    "google-cloud-bigquery",
+]
+tests = [
+    "pytest",
+]
+
+[project.urls]
+Home = "https://github.com/nikulpatel3141/ETF-Scraper"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"etf_scraper.data" = ["*.csv"]
