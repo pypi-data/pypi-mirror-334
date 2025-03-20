@@ -1,0 +1,2 @@
+[console_scripts]
+pangeo-fish = pangeo_fish.cli:main
