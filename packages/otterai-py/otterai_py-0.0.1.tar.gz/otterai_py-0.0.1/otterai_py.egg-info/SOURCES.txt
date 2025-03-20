@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+otterai/__init__.py
+otterai/otterai.py
+otterai_py.egg-info/PKG-INFO
+otterai_py.egg-info/SOURCES.txt
+otterai_py.egg-info/dependency_links.txt
+otterai_py.egg-info/requires.txt
+otterai_py.egg-info/top_level.txt
+tests/test_otterai.py
