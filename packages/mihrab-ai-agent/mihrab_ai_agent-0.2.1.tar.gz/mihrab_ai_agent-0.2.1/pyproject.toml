@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mihrab-ai-agent"
+version = "0.2.1"
+description = "A flexible framework for building and deploying LLM-powered agents with multiple provider support, inspired by the mihrab that guides prayer in a mosque"
+authors = [
+    { name = "Ragii Abdullah Shehab", email = "ragi.shehab1@gmail.com" }
+]
+dependencies = [
+    "openai>=1.0.0",
+    "anthropic>=0.7.0",
+    "groq>=0.4.0",
+    "tiktoken>=0.5.0",
+    "aiohttp>=3.9.0",
+    "asyncio>=3.4.3",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "sympy>=1.12.0",
+    "pytz>=2023.3",
+    "numpy>=1.24.0",
+    "tenacity>=8.2.0",
+    "colorlog>=6.7.0",
+    "argparse>=1.4.0"
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["llm", "agents", "ai", "openai", "anthropic", "groq", "framework"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ragishehab/mihrab-ai-agent"
+"Bug Tracker" = "https://github.com/ragishehab/mihrab-ai-agent/issues"
+"Documentation" = "https://github.com/ragishehab/mihrab-ai-agent/blob/main/README.md"
+
+[project.scripts]
+mihrabai = "mihrabai.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = [
+    "mihrabai",
+    "mihrabai.common",
+    "mihrabai.core",
+    "mihrabai.docs",
+    "mihrabai.docs.documentation",
+    "mihrabai.docs.guide",
+    "mihrabai.examples",
+    "mihrabai.examples.advanced",
+    "mihrabai.examples.basic",
+    "mihrabai.examples.tools",
+    "mihrabai.handoff",
+    "mihrabai.models",
+    "mihrabai.models.providers",
+    "mihrabai.models.providers.anthropic",
+    "mihrabai.models.providers.custom",
+    "mihrabai.models.providers.groq",
+    "mihrabai.models.providers.openai",
+    "mihrabai.runtime",
+    "mihrabai.scripts",
+    "mihrabai.scripts.scripts",
+    "mihrabai.tools",
+    "mihrabai.tools.standard",
+    "mihrabai.utils"
+]
