@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openoath"                   # Replace with your package name
+version = "0.0.4"                    # Initial version
+description = "Functions to utilize the OpenOath API."
+readme = "README.md"                 # Optional: if you have a README file
+authors = [
+  { name = "Ephy Love"},
+  { name = "Senne Van Steelandt"}
+]
+license = { text = "MIT" }           # Replace with your chosen license
+requires-python = ">=3.6"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent"
+]
+dependencies = []                    # List runtime dependencies here if needed
+
+[tool.setuptools]
+packages = ["openoath"]
+
+[tool.setuptools.package-data]
+# Include the py.typed file for type checking
+openoath_python = ["py.typed"]
+
+
+
+
