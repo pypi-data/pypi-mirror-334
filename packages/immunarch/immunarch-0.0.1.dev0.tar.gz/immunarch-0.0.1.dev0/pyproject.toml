@@ -1,0 +1,13 @@
+[tool.setuptools]
+license-files = []
+
+
+[project]
+name = "immunarch"
+version = "0.0.1dev"
+description = "Immune receptor repertoire data analysis – now in Python."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "immundata>=0.1.0",
+]
