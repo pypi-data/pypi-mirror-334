@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fb2maker"
+version = "0.1.1"
+description = "Fork FB2 with updates"
+authors = ["DustGalaxy <103292379+DustGalaxy@users.noreply.github.com>", "Ae-Mc"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+iso-639 = "0.4.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.urls]
+Homepage = "https://github.com/DustGalaxy/FB2Maker"
