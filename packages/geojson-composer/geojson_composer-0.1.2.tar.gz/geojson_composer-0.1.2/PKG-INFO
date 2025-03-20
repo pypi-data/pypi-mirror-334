@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: geojson-composer
+Version: 0.1.2
+Summary: A CLI tool to render GeoJSON data using Jinja2 templates.
+Author-email: Stas Kravets <stas.kravets@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Jinja2>=3.0
