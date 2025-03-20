@@ -1,0 +1,10 @@
+pg-channel
+xync-schema
+xync-client
+
+[dev]
+pytest-asyncio
+build
+pre-commit
+python-dotenv
+twine
