@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: modbus-device-scanner
+Version: 0.1
+Summary: A package to scan for Modbus TCP devices on a network
+Home-page: https://github.com/kvjoshi/modbus_device_scanner
+Author: Karmavir
+Author-email: karmavirj@protonmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Modbus Scanner
+
+A package to scan for Modbus TCP devices on a network.
+
+## Installation
+
+```bash
+pip install .
+```
+
+# Usage
+
+```bash
+modbus_device_scanner --subnet 192.168.1.0/24
+modbus_device_scanner --port 503
+modbus_device_scanner --timeout 2.0
+modbus_device_scanner --workers 50
