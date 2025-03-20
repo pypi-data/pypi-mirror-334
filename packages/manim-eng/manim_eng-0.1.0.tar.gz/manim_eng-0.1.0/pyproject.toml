@@ -1,0 +1,137 @@
+[project]
+name = "manim-eng"
+version = "0.1.0"
+description = "A Manim CE plugin for drawing circuit diagrams (and other engineering diagrams in the future)."
+license = { text = "MIT" }
+license-files = ["LICEN[CS]E*"]
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+authors = [
+    { name = "overegneered", email = "overegneered@egneer.ing" }
+]
+keywords = [
+    "manim", "animation", "engineering", "physics", "circuits"
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+dependencies = [
+    "manim~=0.19",
+]
+
+[project.urls]
+repository = "https://github.com/overegneered/manim-eng"
+documentation = "https://docs.manim-eng.egneer.ing"
+"Bug tracker" = "https://github.com/overegneered/manim-eng/issues"
+
+[project.entry-points."manim.plugins"]
+"manim_eng" = "manim_eng"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+packages = [
+    { include = "manim_eng", from = "src" }
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.5"
+pre-commit = "^3.8.0"
+pytest = "^8.3.2"
+mypy = "^1.11.1"
+furo = "^2024.8.6"
+sphinx-autobuild = "^2024.10.3"
+
+
+[tool.ruff]
+fix = true
+extend-exclude = [
+    "media",
+    "docs/source",
+]
+
+[tool.ruff.lint]
+select = [
+    "F", # Pyflakes
+    "E", # Pycodestyle errors
+    "W", # Pycodestyle warnings
+    "I", # Import sorting
+    "N", # Enforce PEP-8 naming
+    "D", # Docstring convention enforcing
+    "B", # Flake8 bugbears
+    "A", # Builtin shadowing
+    "COM", # Comma problems
+    "C4", # Unnecessary complexity
+    "ISC", # String concatenation
+    "PIE", # Misc. lints
+    "PT", # Pytest lints
+    "Q", # Quotes
+    "RET", # return-related lints
+    "SIM", # Possible simplifications
+    "ARG", # Unused arguments
+    "ERA", # Commented-out code
+    "PL", # Pylint
+    "NPY", # NumPy lints
+    "RUF", # Ruff lints
+]
+ignore = [
+    # Required to allow manim-eng to mirror Manim's `from manim import *` usage style.
+    "F403",
+    # Deactivated for compatibility with the formatter,
+    # as outlined here: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "W191",
+    "E111", "E114", "E117",
+    "D206", "D300",
+    "Q000", "Q001", "Q002", "Q003",
+    "COM812", "COM819",
+    "ISC001", "ISC002",
+    # Deactivated because manim-eng has functions that have a lot of configuration arguments that have default values
+    "PLR0913",
+]
+# Allow the multiplication sign (this is flagged as similar to the small letter 'x')
+allowed-confusables = ["×"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.per-file-ignores]
+"{tests/*,conftest.py}" = [
+    # Do not require docstrings for every 'public' function/class/method/module/package that is actually for testing
+    "D1",
+]
+
+[tool.mypy]
+python_version = "3.11"
+pretty = true
+
+strict = true
+# These have to be disabled until Manim has full type declarations
+disallow_subclassing_any = false
+disallow_untyped_decorators = false
+disallow_any_generics = false
+
+exclude = ['^docs/source/conf\.py$']
+
+
+[[tool.mypy.overrides]]
+# Manim does not yet have full type declarations
+module = [
+    "manim",
+    "manim.typing"
+]
+ignore_missing_imports = true
