@@ -1,0 +1,5 @@
+[console_scripts]
+publishMeasures=ch.sachi.weatherstation.publishMeasures:main
+publishPictures=ch.sachi.weatherstation.publishPictures:main
+saveMeasures=ch.sachi.weatherstation.saveMeasures:main
+

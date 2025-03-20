@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: ch.sachi.weatherstation
+Version: 3.3.0
+Summary: Collects data from tinkerforge outdoor weather station and saves it to sqlite database.
+Author: Patrick Zbinden
+Author-email: patrick+dev@zbinden-online.ch
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: importlib-metadata (>=8.5.0,<9.0.0)
+Requires-Dist: requests (==2.32.3)
+Requires-Dist: tinkerforge (==2.1.31)
+Description-Content-Type: text/markdown
+
+# HomeMeasurement
+source env/bin/activate deactivate
+
+#Build
+python3 -m pip install --user --upgrade setuptools wheel
+
+rm -Rf dist
+
+python3 setup.py sdist bdist_wheel
+
+python3 -m pip install --user --upgrade twine
+
+python3 -m twine upload dist/*
