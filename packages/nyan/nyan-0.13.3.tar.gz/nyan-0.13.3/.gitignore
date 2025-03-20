@@ -1,0 +1,10 @@
+.vscode
+examples/*
+!examples/flappybird
+!examples/main_menu
+!examples/currency_converter
+__pycache__
+.venv
+nyan.egg-info
+dist
+*.spec
