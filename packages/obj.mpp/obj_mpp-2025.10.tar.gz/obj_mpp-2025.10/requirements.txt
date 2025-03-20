@@ -1,0 +1,15 @@
+Pillow  # To write text in images (from PIL ...).
+babelwidget
+conf-ini-g
+imageio  # To deal with volumes.
+json-any
+logger-36
+matplotlib
+mpss_tools_36
+networkx
+numpy
+platformdirs
+rich
+scikit-image
+scipy  # For mathematical morphology.
+str-to-obj
