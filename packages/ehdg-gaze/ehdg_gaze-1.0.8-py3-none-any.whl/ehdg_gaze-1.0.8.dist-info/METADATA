@@ -1,0 +1,27 @@
+Metadata-Version: 2.2
+Name: ehdg_gaze
+Version: 1.0.8
+Summary: Eye Health Diagnostic Group Gaze Detector
+Author-email: Zaw Lin Tun <zawlintun1511@gmail.com>
+Project-URL: Homepage, https://github.com/jtur044/ehdg_gaze
+Project-URL: Bug Tracker, https://github.com/jtur044/ehdg_gaze/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools>=61.0
+Requires-Dist: opencv-python>=4.8.1.78
+Requires-Dist: numpy>=1.26.1
+Requires-Dist: omegaconf>=2.3.0
+Requires-Dist: scipy
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: face-alignment
+Requires-Dist: mediapipe
+Requires-Dist: pyyaml
+Requires-Dist: timm
+
+# ehdg_gaze
+Eye Health Diagnostic Group Gaze Detector
