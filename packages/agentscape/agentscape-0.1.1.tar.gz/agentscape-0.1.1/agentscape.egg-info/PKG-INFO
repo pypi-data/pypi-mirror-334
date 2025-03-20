@@ -1,0 +1,36 @@
+Metadata-Version: 2.2
+Name: agentscape
+Version: 0.1.1
+Summary: A modern CLI tool for installing components from a repository
+Author-email: Jelmer Borst <japborst@gmail.com>
+Project-URL: Homepage, https://github.com/japborst/agentscape
+Keywords: agents,ai
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: openai-agents>=0.0.4
+Requires-Dist: pydantic-ai>=0.0.40
+Requires-Dist: typer>=0.15.2
+Requires-Dist: rich>=13.9.4
+Requires-Dist: questionary>=2.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3.5; extra == "dev"
+Requires-Dist: ruff>=0.11.0; extra == "dev"
+
+# Agentscape
+
+A library of re-useable agent templates.
+
+## Usage
+
+```bash
+# Select to install an AI agent.
+$ uvx agentscape
+
+# List all available agent templates.
+$ uvx agentscape list
+
+# Add an AI agent to your project.
+$ uvx agentscape add <agent>
+```
