@@ -1,0 +1,65 @@
+Metadata-Version: 2.2
+Name: pytest-tr-api-client
+Version: 0.3.11
+Summary: Pytest hook for custom argument handling and Allure reporting. This plugin allows you to add arguments before running a test.
+Author-email: Yevhen Halitsyn <halitsyny@science.regn.net>
+License: MIT
+Description-Content-Type: text/markdown
+
+## TestRail integration
+
+For interaction with TR pytest_test_rail_api_client was used as user-friendly api wrapper and added custom scripts for main operations.
+
+Short description for each script with usage examples:
+1. [***export_scenarios_to_the_testrail.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/export_scenarios_to_the_testrail.py)  
+Allow to export new scenarios (or update old) from feature file (from App, Rest, Web) to TR. We have 2 main options here:
+    - Export a single feature or a folder with feature files by an absolute path
+      - `features_to_export = "abs_path_to_feature_file_or_folder" or repo.get_updated_features(EXPORTING_OPTION)`
+    - Exporting of a feature files regarding the git changes. Set the local environment variable ***EXPORTING_OPTION*** equal to:
+      - "local" - to export locally updated feature files which has not been pushed to GIT yet
+        - `EXPORTING_OPTION = os.environ.get("EXPORTING_OPTION", "local")`
+      - "commit" - to export feature files which have been updated in the last commit
+        - `EXPORTING_OPTION = os.environ.get("EXPORTING_OPTION", "commit")`
+      - "branch" - to export feature files which have been updated in the current branch including the not pushed yet changes. Be sure that your local master branch is up-to-date.
+        - `EXPORTING_OPTION = os.environ.get("EXPORTING_OPTION", "branch")`
+
+2. [***delete_cases.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/delete_cases.py)  
+Allow to delete cases or sections by id's. Example of usage:<p align="center"><img src="https://user-images.githubusercontent.com/94528412/177335441-9f0ba700-4d78-40f9-aa3e-c04ef17eb74b.png"></p>
+3. <a name="create-run"></a>[***create_run.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/create_run.py) 
+Allow to create TR run from scenarios with specific tags, before use set in PROPJECT_CONFIG variable project for which the run will be created(App, Rest or Web) Example of usage:<p align="center"><img src="https://github.com/elsevier-health/3d4medical-autotests/assets/94528412/f82376d3-55a9-433a-9136-a106766e4d89" with=500px height=500px></p>
+    - Logic for variables in create_run function:
+       * _required_tags=['@tablet', '@regression', '@automated']_ - all of this scenario tags should be present in scenario
+       * _at_least_one_tag_should_be=['@suite1', '@suite2', '@suite3']_ -  at least one of this tag should be present in scenario
+       * _ui_type=['@all_ui', '@phone']_  - App tests specific option for finding test with specific ui type, logic same as 2 point at least one of tag should be in scenario(could be 'None' if not needed)
+       * _platform=['@all_platforms', '@apple']_  - App tests specific option for finding test with specific platform, logic same as 2 point at least one of tag should be in scenario(could be 'None' if not needed)(could be 'None' if not needed)
+       
+5. [***export_session_results_to_tr_run.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/export_session_results_to_tr_run.py)  
+Allow to export results in TR run by id(usually used on a CI machine), global variables that should be specified: _RUN_ID_, _PROJECT_CONFIG_(App, Web or Rest) and _PLATFORM_AND_APP_ if run for App
+6. <a name="copy-result"></a>[***copy_test_result_from_one_run_to_another.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/copy_test_result_from_one_run_to_another.py)  
+Allow to transfer the results of one run to another, variables that should be specified:
+    - `OLD_RUN_ID` - run id from the results will be taken
+    - `NEW_RUN_ID` - run id where the results will be imported
+    - `STATUS_ID` = [1] - list of statuses for tests that will be taken (for example if only '1' it means that only *passed* test will be imported to run wirh 'NEW_RUN_ID')
+    - `OVERWRITE_RESULTS` = [3, 1, 5] - list of statuses for case which can be overwritten
+    
+## How to export result from auto run to regression manual run ##
+
+There are two possible ways to do it: 
+* export it from already exported to testrail daily run(for example [_Tablet daily run_](https://3d4medical.testrail.net/index.php?/runs/view/1063) for ipad, [_Phone daily run_](https://3d4medical.testrail.net/index.php?/runs/view/1064) for iphone) via [***copy_test_result_from_one_run_to_another.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/copy_test_result_from_one_run_to_another.py) 
+* export from Allure report
+
+Sometimes TR could be unavailable while results export to daily runs, or unexpected errors occurs while exporting, or test suite in TR run not matched to executed tests, but we need export result to regression run, for this we can use Allure report and several additional script, next part of instruction will be about it.
+
+### How to export result from Allure report
+1. Get Allure report: dowload it from slack channel [3d4m-daily-allure-report](https://elscs.slack.com/archives/C02E5THQ8KG) or from [allure instance](https://allure-internal.nonprod.3d4medical.com/allure-docker-service/#/Security/post_login)(if it works and data reset is not happend)
+2. Unpack zip and copy folder path path
+3. Create temporary run in TR with [***create_run.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/create_run.py) see how it works [this](#create-run)
+After this check TR that run was created and tests suite is correct:
+<img width="1336" alt="Screenshot 2023-05-25 at 20 33 09" src="https://github.com/elsevier-health/3d4medical-autotests/assets/94528412/b99205bd-b6df-4170-b382-78b7551e4122">
+
+4. Open [***export_from_allure_to_testrail.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/export_from_allure_to_testrail.py), specify path to unpacked report from step 2 and set TR run id that was created in step 3(if you want to export not only passed tests set False for `ADD_ONLY_PASSED_TEST`) and run script. <img alt="Screenshot 2023-05-25 at 20 36 05" src="https://github.com/elsevier-health/3d4medical-autotests/assets/94528412/5f14f71c-63c1-49d3-a23f-0b08d9f02b57"><img alt="Screenshot 2023-05-25 at 20 42 14" src="https://github.com/elsevier-health/3d4medical-autotests/assets/94528412/623fece5-2dd8-43fc-b9e4-2ff4a505bac9">
+
+    **Note:** if you see message "Case is not in run or have invalid name {invalid_cases}" and cases have name like "Mobile" without anything else, just ignore, this is allure defect and it's not impact on export, but if you see real case name, invastigate is it case included in run, if yes, it mean that name in TR is'not matched with name in feature file and should be fixed. After export check results in run.
+
+5. Copy test results from temporary run to main regression run via [***copy_test_result_from_one_run_to_another.py***](https://github.com/elsevier-health/3d4medical-autotests/blob/f68b930a5596cc4527b2698a4610f75a98f6ac19/Testrail_utils/copy_test_result_from_one_run_to_another.py) see how it works [this](#copy-result)
+
