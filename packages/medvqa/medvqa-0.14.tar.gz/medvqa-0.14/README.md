@@ -1,0 +1,15 @@
+# MedVQA
+
+A CLI tool for MedVQA competition.
+
+## Installation
+
+```bash
+pip install medvqa
+```
+
+## Usage
+
+```bash
+medvqa competition=gi-2025 task=1 submission_repo="xxx"
+```
