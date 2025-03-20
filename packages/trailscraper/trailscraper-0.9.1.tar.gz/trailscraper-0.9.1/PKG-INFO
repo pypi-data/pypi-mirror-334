@@ -1,0 +1,774 @@
+Metadata-Version: 2.1
+Name: trailscraper
+Version: 0.9.1
+Summary: A command-line tool to get valuable information out of AWS CloudTrail
+Home-page: http://github.com/flosell/trailscraper
+Author: Florian Sellmayr
+Author-email: florian.sellmayr@gmail.com
+License: Apache License 2.0
+Keywords: aws cloud iam cloudtrail trailscraper
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Security
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: boto3==1.37.9
+Requires-Dist: click==8.1.8
+Requires-Dist: toolz==1.0.0
+Requires-Dist: dateparser==1.2.1
+Requires-Dist: pytz==2025.1
+Requires-Dist: ruamel.yaml==0.18.10
+
+TrailScraper
+============
+
+|PyPi Release| |Build Status|
+
+A command-line tool to get valuable information out of AWS CloudTrail
+and a general purpose toolbox for working with IAM policies
+
+Installation
+------------
+
+OSX
+~~~
+
+.. code:: bash
+
+   $ brew install trailscraper
+
+Installation using pip
+~~~~~~~~~~~~~~~~~~~~~~
+
+Requirements:
+
+- Python >= 3.5
+- pip
+
+.. code:: bash
+
+   $ pip install trailscraper
+
+Run directly using docker
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   $ docker run --rm --env-file <(env | grep AWS_) -v $HOME/.aws:/root/.aws ghcr.io/flosell/trailscraper:latest
+
+Current Versions starting from 0.7.0 are found on GitHub Container
+Registry (``ghcr.io``), older versions on
+`DockerHub <https://hub.docker.com/r/flosell/trailscraper/>`__
+
+Usage
+-----
+
+- `Get CloudTrail events matching a filter from CloudTrail
+  API <#get-cloudtrail-events-matching-a-filter-from-cloudtrail-api>`__
+- `Download some logs <#download-some-logs>`__
+- `Download some logs in organisational
+  trails <#download-some-logs-in-organisational-trails>`__
+- `Find CloudTrail events matching a filter in downloaded
+  logs <#find-cloudtrail-events-matching-a-filter-in-downloaded-logs>`__
+- `Generate Policy from some CloudTrail
+  records <#generate-policy-from-some-cloudtrail-records>`__
+- `Extend existing policy by guessing matching
+  actions <#extend-existing-policy-by-guessing-matching-actions>`__
+- `Find CloudTrail events and generate an IAM
+  Policy <#find-cloudtrail-events-and-generate-an-iam-policy>`__
+
+Get CloudTrail events matching a filter from CloudTrail API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ trailscraper select --use-cloudtrail-api \ 
+                         --filter-assumed-role-arn some-arn \ 
+                         --from 'one hour ago' \ 
+                         --to 'now'
+   {
+     "Records": [
+       {
+         "eventTime": "2017-12-11T15:01:51Z",
+         "eventSource": "autoscaling.amazonaws.com",
+         "eventName": "DescribeLaunchConfigurations",
+   ...
+
+Download some logs
+~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ trailscraper download --bucket some-bucket \
+                           --account-id some-account-id \
+                           --region some-other-region \ 
+                           --region us-east-1 \
+                           --from 'two days ago' \
+                           --to 'now' \
+
+*Note: Include us-east-1 to download logs for global services. See*
+`below <#why-is-trailscraper-missing-some-events>`__ *for details*
+
+Download some logs in organisational trails
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ trailscraper download --bucket some-bucket \
+                           --account-id some-account-id \
+                           --region us-east-1 \
+                           --org-id o-someorgid \
+                           --from 'two days ago' \
+                           --to 'now'
+
+Find CloudTrail events matching a filter in downloaded logs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ trailscraper select --filter-assumed-role-arn some-arn \ 
+                         --from 'one hour ago' \ 
+                         --to 'now'
+   {
+     "Records": [
+       {
+         "eventTime": "2017-12-11T15:01:51Z",
+         "eventSource": "autoscaling.amazonaws.com",
+         "eventName": "DescribeLaunchConfigurations",
+   ...
+
+Generate Policy from some CloudTrail records
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ gzcat some-records.json.gz | trailscraper generate
+   {
+       "Statement": [
+           {
+               "Action": [
+                   "ec2:DescribeInstances"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           }
+       ],
+       "Version": "2012-10-17"
+   } 
+
+Extend existing policy by guessing matching actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CloudTrail logs might not always contain all relevant actions. For
+example, your logs might only contain the ``Create`` actions after a
+terraform run when you really want the delete and update permissions as
+well. TrailScraper can try to guess additional statements that might be
+relevant:
+
+::
+
+   $ cat minimal-policy.json | trailscraper guess
+   {
+       "Statement": [
+           {
+               "Action": [
+                   "s3:PutObject"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           },
+           {
+               "Action": [
+                   "s3:DeleteObject",
+                   "s3:GetObject",
+                   "s3:ListObjects"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           }
+       ],
+       "Version": "2012-10-17"
+   }
+   $ cat minimal-policy.json | ./go trailscraper guess --only Get
+   {
+       "Statement": [
+           {
+               "Action": [
+                   "s3:PutObject"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           },
+           {
+               "Action": [
+                   "s3:GetObject"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           }
+       ],
+       "Version": "2012-10-17"
+   }
+
+Find CloudTrail events and generate an IAM Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   $ trailscraper select | trailscraper generate
+   {
+       "Statement": [
+           {
+               "Action": [
+                   "ec2:DescribeInstances",
+                   "ec2:DescribeSecurityGroups",
+                   "ec2:DescribeSubnets",
+                   "ec2:DescribeVolumes",
+                   "ec2:DescribeVpcs",
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "*"
+               ]
+           },
+           {
+               "Action": [
+                   "sts:AssumeRole"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:iam::1111111111:role/someRole"
+               ]
+           }
+       ],
+       "Version": "2012-10-17"
+   } 
+
+FAQ
+---
+
+How can I generate policies in CloudFormation YAML instead of JSON?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TrailScraper doesn’t provide this. But you can use
+`cfn-flip <https://github.com/awslabs/aws-cfn-template-flip>`__ to do
+it:
+
+::
+
+   $ trailscraper select | trailscraper generate | cfn-flip
+   Statement:
+     - Action:
+         - ec2:DescribeInstances
+       Effect: Allow
+       Resource:
+         - '*'
+
+How can I generate policies in Terraform HCL instead of JSON?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TrailScraper doesn’t provide this. But you can use
+`iam-policy-json-to-terraform <https://github.com/flosell/iam-policy-json-to-terraform>`__
+to do it:
+
+::
+
+   $ trailscraper select | trailscraper generate | iam-policy-json-to-terraform
+   data "aws_iam_policy_document" "policy" {
+     statement {
+       sid       = ""
+       effect    = "Allow"
+       resources = ["*"]
+
+       actions = [
+         "ec2:DescribeInstances",
+       ]
+     }
+   }
+
+Why is TrailScraper missing some events?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Make sure you have logs for the ``us-east-1`` region. Some global AWS
+  services (e.g. Route53, IAM, STS, CloudFront) use this region. For
+  details, check the `CloudTrail
+  Documentation <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events>`__
+
+Why are some TrailScraper-generated actions not real IAM actions?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is totally possible. Unfortunately, there is no good,
+machine-readable documentation on how CloudTrail events map to IAM
+actions so TrailScraper is using heuristics to figure out the right
+actions. These heuristics likely don’t cover all special cases of the
+AWS world.
+
+This is where you come in: If you find a special case that’s not covered
+by TrailScraper, please `open a new
+issue <https://github.com/flosell/trailscraper/issues/new>`__ or, even
+better, submit a pull request.
+
+For more details, check out the `contribution
+guide <./CONTRIBUTING.md>`__
+
+Why does click think I am in an ASCII environment?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``Click will abort further execution because Python 3 was configured to use ASCII as encoding for the environment.``
+
+Set environment variables that describe your locale, e.g. :
+
+::
+
+   export LC_ALL=de_DE.utf-8
+   export LANG=de_DE.utf-8
+
+or
+
+::
+
+   LC_ALL=C.UTF-8
+   LANG=C.UTF-8
+
+For details, see
+http://click.pocoo.org/5/python3/#python-3-surrogate-handling
+
+Development
+-----------
+
+.. code:: bash
+
+   $ ./go setup   # set up venv, dependencies and tools
+   $ ./go test    # run some tests
+   $ ./go check   # run some style checks
+   $ ./go         # let's see what we can do here
+
+.. |PyPi Release| image:: https://img.shields.io/pypi/v/trailscraper.svg
+   :target: https://pypi.python.org/pypi/trailscraper
+.. |Build Status| image:: https://github.com/flosell/trailscraper/actions/workflows/check.yml/badge.svg
+   :target: https://github.com/flosell/trailscraper/actions/workflows/check.yml
+
+
+Changelog
+=========
+
+This changelog contains a loose collection of changes in every release
+including breaking changes to the API.
+
+The format is based on `Keep a Changelog <http://keepachangelog.com/>`__
+
+0.9.1
+-----
+
+Changed
+~~~~~~~
+
+- Updated supporting dependencies
+- Improved RAM usage when filtering by ARN #732 (thanks
+  @anonymous-work-156 for the contribution)
+
+.. _section-1:
+
+0.9.0
+-----
+
+Added
+~~~~~
+
+- Support for Python 3.12
+- Support for Python 3.13
+
+Removed
+~~~~~~~
+
+- **Removed official support for EOL Python 3.7**. TrailScraper might
+  still run but we no longer actively test for it.
+- **Removed official support for EOL Python 3.8**. TrailScraper might
+  still run but we no longer actively test for it.
+
+.. _section-2:
+
+0.8.1
+-----
+
+.. _changed-1:
+
+Changed
+~~~~~~~
+
+- Updated supporting dependencies
+
+.. _section-3:
+
+0.8.0
+-----
+
+.. _added-1:
+
+Added
+~~~~~
+
+- Support for Python 3.10
+- Support for Python 3.11
+
+.. _removed-1:
+
+Removed
+~~~~~~~
+
+- **Removed official support for EOL Python 3.6**. TrailScraper might
+  still run but we no longer actively test for it.
+
+.. _section-4:
+
+0.7.0
+-----
+
+.. _added-2:
+
+Added
+~~~~~
+
+- Support for Python 3.9
+
+.. _removed-2:
+
+Removed
+~~~~~~~
+
+- **Removed official support for Python 3.5**. TrailScraper might still
+  run but we no longer actively test for it
+
+.. _changed-2:
+
+Changed
+~~~~~~~
+
+- Moving from DockerHub to GitHub Container registry for Docker images
+  (since DockerHub is dropping support for autobuilds and restricting it
+  in other ways)
+- Updated supporting dependencies
+
+.. _section-5:
+
+0.6.4
+-----
+
+Fixed
+~~~~~
+
+- Fixed Docker images that threw a ``ModuleNotFoundError``
+
+.. _changed-3:
+
+Changed
+~~~~~~~
+
+- Performance tweaks
+
+  - ``trailscraper download`` uses smarter directory listing to improve
+    performance with large date ranges and little new data
+  - ``trailscraper download`` now downloads files in parallel
+  - Minor performance improvements in ``trailscraper select``
+
+0.6.2 and 0.6.3
+---------------
+
+(skipeed because of continuing release-script issues)
+
+.. _section-6:
+
+0.6.1
+-----
+
+(same as 0.6.1, just fixing inconsistent release)
+
+.. _section-7:
+
+0.6.0
+-----
+
+.. _added-3:
+
+Added
+~~~~~
+
+- Support for Python 3.7 and 3.8
+- Support for org-level trails (#101)
+
+.. _fixed-1:
+
+Fixed
+~~~~~
+
+- ``trailscraper guess`` was not working when installed through homebrew
+  or pip (#110)
+
+.. _removed-3:
+
+Removed
+~~~~~~~
+
+- **Removed official support for Python 2.7 and 3.4**. TrailScraper
+  might still run but we no longer actively test for it
+
+.. _section-8:
+
+0.5.1
+-----
+
+.. _added-4:
+
+Added
+~~~~~
+
+- New command ``guess`` to extend existing policy by guessing matching
+  actions #22
+
+.. _fixed-2:
+
+Fixed
+~~~~~
+
+- Fixed parsing events that contain resources without an ARN
+  (e.g. ``s3:ListObjects``) #51
+
+.. _section-9:
+
+0.5.0
+-----
+
+**Breaking CLI changes**: split up ``generate-policy`` into ``select``
+and ``generate`` (#38)
+
+.. _added-5:
+
+Added
+~~~~~
+
+- New command ``select`` to print all CloudTrail records matching a
+  filter to stdout
+- New command ``generate`` to take CloudTrail records from stdin and
+  generate a policy for it
+
+.. _changed-4:
+
+Changed
+~~~~~~~
+
+- New command ``select`` defaults to not filtering at all whereas
+  ``generate-policy`` filtered for recent events by default. Changed to
+  make filtering more explicit and predictable instead of surprising
+  users who wonder why their events don’t show up
+
+.. _removed-4:
+
+Removed
+~~~~~~~
+
+- Removed command ``generate-policy``, replaced with ``select`` and
+  ``generate``. Use pipes to produce the same behavior:
+
+  .. code:: bash
+
+     $ trailscraper select | trailscraper generate
+
+.. _section-10:
+
+0.4.4
+-----
+
+.. _fixed-3:
+
+Fixed
+~~~~~
+
+- Made trailscraper timezone-aware. Until now, trailscraper implicitly
+  treated everything as UTC, meaning relative timestamps (e.g. ``now``,
+  ``two hours ago``) didn’t work properly when filtering logfiles to
+  download or records to generate from. (#39)
+
+.. _added-6:
+
+Added
+~~~~~
+
+- New command ``trailscraper last-event-timestamp`` to get the last
+  known event timestamp.
+- New flag ``trailscraper download --wait`` to wait until events for the
+  specified timeframe are found. Useful if you are waiting for
+  CloudTrail to ship logs for a recent operation.
+
+.. _section-11:
+
+0.4.3
+-----
+
+*skipped because of release-problems*
+
+.. _section-12:
+
+0.4.2
+-----
+
+.. _fixed-4:
+
+Fixed
+~~~~~
+
+- Fixed various special cases in mapping CloudTrail to IAM Actions:
+
+  - API Gateway
+  - App Stream 2
+  - DynamoDB Streams
+  - Lex
+  - Mechanical Turk
+  - S3
+  - STS
+  - Tagging
+
+.. _section-13:
+
+0.4.1
+-----
+
+.. _fixed-5:
+
+Fixed
+~~~~~
+
+- Ignore record files that can’t be read (e.g. not valid GZIP) in Python
+  2.7 (was only working in Python 3.\* before)
+- Fixed permissions generated for services that include the API version
+  date (e.g. Lambda, CloudFront) (#20)
+
+.. _section-14:
+
+0.4.0
+-----
+
+.. _added-7:
+
+Added
+~~~~~
+
+- Support for CloudTrail ``lookup_events`` API that allows users to
+  generate a policy without downloading logs from an S3 bucket. Note
+  that this API only returns `“create, modify, and delete API
+  calls” <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-supported-services.html>`__
+
+- ``trailscraper download`` now supports ``--from`` and ``--to`` flags
+  to specify the timeframe that should be downloaded. Accepts precise
+  (e.g. “2017-10-12”) and relative (e.g. “-2days”) arguments.
+
+- ``trailscraper generate-policy`` now supports ``--from`` and ``--to``
+  to filter events to consider for the generated policy. Accepts precise
+  (e.g. “2017-10-12”) and relative (e.g. “-2days”) arguments.
+
+- Performance optimizations: ``generate-policy`` only reads logfiles for
+  the timeframe requested
+
+- Added ``--version`` command line argument
+
+.. _changed-5:
+
+Changed
+~~~~~~~
+
+- Set more flexible dependencies
+
+.. _removed-5:
+
+Removed
+~~~~~~~
+
+- Removed ``--past-days`` parameter in ``trailscraper download``. Was
+  replaced by ``--from`` and ``--to`` (see above)
+
+.. _fixed-6:
+
+Fixed
+~~~~~
+
+- Ignore record files that can’t be read (e.g. not valid GZIP)
+
+.. _section-15:
+
+0.3.0
+-----
+
+.. _added-8:
+
+Added
+~~~~~
+
+- Support for Python >= 2.7
+
+.. _changed-6:
+
+Changed
+~~~~~~~
+
+- Do not download CloudTrail Logs from S3 if they already exist in the
+  target folder (#9)
+- Removed dependency on fork of the awacs-library to simplify
+  installation and development
+
+.. _fixed-7:
+
+Fixed
+~~~~~
+
+- Bug that led to policy-statements with the same set of actions not
+  being combined properly in some cases (#7)
+
+.. _section-16:
+
+0.2.0
+-----
+
+.. _added-9:
+
+Added
+~~~~~
+
+- Basic filtering for role-arns when generating policy (#3)
+
+.. _section-17:
+
+0.1.0
+-----
+
+*Initial Release*
+
+.. _added-10:
+
+Added
+~~~~~
+
+- Basic feature to download CloudTrail Logs from S3 for certain accounts
+  and timeframe
+- Basic feature to generate IAM Policies from a set of downloaded
+  CloudTrail logs
