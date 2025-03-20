@@ -1,0 +1,8 @@
+requests<3.0.0,>=2.7.0
+
+[test]
+pytest
+pytest-xdist
+requests-mock
+types-requests
+mypy
