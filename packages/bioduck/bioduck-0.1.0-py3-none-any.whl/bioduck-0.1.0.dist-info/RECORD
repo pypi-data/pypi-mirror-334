@@ -1,0 +1,14 @@
+bioduck/__init__.py,sha256=HZGclOkZKgOuigYBz424oJlndpqt77-IAOu0SnMs5WM,615
+bioduck/main.py,sha256=OTIwGriyGRCZ1ih-zm4USg5TaCuMzo0EkJ13Jz5sw9A,13851
+bioduck/sql/__init__.py,sha256=wVw7EtQATz1Ju11gANyMCzK-WMCk-ikFSntQ9DtDNOo,28
+bioduck/sql/ncbi/__init__.py,sha256=ihmO43732toeHBeksnxaBMQ3IlS5oAXINNxRqZFFJlM,33
+bioduck/sql/ncbi/enums.sql,sha256=Cjs4Uwlq6tDdB7YBW5jSPxHUCmmDlm9cU11nmKJcUJg,941
+bioduck/sql/ncbi/init.sql,sha256=jJXopPdwub-duLmQ4C5thiKn4skul3ck8Ox6X5Gxnlw,499
+bioduck/sql/ncbi/load_assembly_genbank.sql,sha256=Q3Ri6-6AavaDRSkbndp_h9J84LjY-YfRWaRVQPeqGyU,3034
+bioduck/sql/ncbi/load_assembly_refseq.sql,sha256=5V-uHU7i8cNe2hp4nvrDTNAjD-vaAyMRX5LaaurRMgs,3147
+bioduck/sql/ncbi/load_taxonomy.sql,sha256=7SshfMzrPkh_XsInqSAWoGFNr4ww6sC0Vb4iYAmRDNA,1134
+bioduck-0.1.0.dist-info/METADATA,sha256=4H2c2u3oo9FuVyDsCF22BWvM6z7THcaF9qKSeRK2YU0,2873
+bioduck-0.1.0.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+bioduck-0.1.0.dist-info/entry_points.txt,sha256=wWwY0JQj2AyaEtR93ehY7DINkIP2BwUkkUdwXEY6_MA,45
+bioduck-0.1.0.dist-info/top_level.txt,sha256=Vq8pdCUAGk-p-IKDCGyfqrSqFHalzu_WdheYlW-dcLA,8
+bioduck-0.1.0.dist-info/RECORD,,
