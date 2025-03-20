@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: agentiq-llama-index
+Version: 1.0.0
+Summary: Subpackage for Llama-Index integration in AgentIQ
+Keywords: ai,rag,agents
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: llama-index-core==0.12.15
+Requires-Dist: llama-index-embeddings-nvidia==0.3.1
+Requires-Dist: llama-index-llms-nvidia==0.3.1
+Requires-Dist: llama-index-readers-file==0.4.4
+Requires-Dist: llama-index==0.12.15
