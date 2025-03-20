@@ -1,0 +1,15 @@
+defusedxml
+passlib
+vobject>=0.9.6
+pika>=1.1.0
+
+[bcrypt]
+bcrypt
+
+[ldap]
+ldap3
+
+[test]
+pytest>=7
+waitress
+bcrypt
