@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: oqtimal
+Version: 0.0.1
+Summary: An Optimal Transport Library for Deep Learning.
+Author-email: Lars Kühmichel <larskuedev@gmail.com>
+Project-URL: Homepage, https://github.com/LarsKue/oqtimal
+Project-URL: Issues, https://github.com/LarsKue/oqtimal/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# oqtimal
+An Optimal Transport Library for Deep Learning. Supports JAX, Keras 3, PyTorch, and TensorFlow.
