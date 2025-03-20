@@ -1,0 +1,40 @@
+Metadata-Version: 2.2
+Name: yta_audio
+Version: 0.0.28
+Summary: Youtube Autonomous Audio Module.
+Author: Daniel Alcalá
+Author-email: <danielalcalavalera@gmail.com>
+Keywords: youtube autonomous audio module software
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE
+Requires-Dist: yta_general_utils
+Requires-Dist: pydub
+Requires-Dist: moviepy
+Requires-Dist: deepfilternet
+Requires-Dist: whisper_timestamped
+Requires-Dist: faster_whisper
+Requires-Dist: tts
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: pyttsx3
+Requires-Dist: gtts
+Requires-Dist: scamp
+Requires-Dist: elevenlabs
+Requires-Dist: librosa
+Requires-Dist: pedalboard
+Requires-Dist: soundfile
+Requires-Dist: scipy
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+This is the Youtube Autonomous Audio module
