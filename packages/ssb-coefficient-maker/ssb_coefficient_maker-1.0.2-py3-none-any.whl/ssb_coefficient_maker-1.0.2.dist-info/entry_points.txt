@@ -1,0 +1,3 @@
+[console_scripts]
+ssb-coefficient-maker=ssb_coefficient_maker.__main__:main
+
