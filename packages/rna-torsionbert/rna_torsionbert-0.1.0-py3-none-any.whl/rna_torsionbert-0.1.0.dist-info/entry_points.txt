@@ -1,0 +1,3 @@
+[console_scripts]
+rna_torsionbert = rna_torsionbert.rna_torsionBERT_cli:main
+tb_mcq = rna_torsionbert.tb_mcq_cli:main
