@@ -1,0 +1,66 @@
+{
+  "predictions": [
+    {
+      "sample_id": 0,
+      "prompt": "What are the different classification types associated with the investigational drug AR-12?\nAssistant: ",
+      "prediction": "The investigational drug AR-12 is classified into different types based on its pharmacological profile, mechanism of action, and potential therapeutic applications. Here are some of the different classification types associated with AR-12:\n\n1.  **Antiviral**: AR-12 is classified as an antiviral drug, which means it is used to treat viral infections. It works by inhibiting the replication of viruses in the body.\n2.  **Antibiotic**: AR-12 is also classified as an antibiotic, which means it is used to treat bacterial infections. It works by killing or inhibiting the growth of bacteria.\n3.  **Antifungal**: AR-12 is classified as an antifungal drug, which means it is used to treat fungal infections. It works by inhibiting the growth of fungi in the body.\n4.  **Antiparasitic**: AR-12 is classified as an antiparasitic drug, which means it is used to treat parasitic infections",
+      "reference": "AR-12 is classified as a small molecule inhibitor targeting PDK1 in the PI3K/AKT pathway. It's also categorized as an anti-cancer agent, anti-viral compound, and autophagy modulator.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 9.097119808197021,
+      "tokens_per_second": 21.98498032528808
+    },
+    {
+      "sample_id": 1,
+      "prompt": "What is the mechanism of action for AR-12?\nAssistant: ",
+      "prediction": "AR-12 is a synthetic, nonsteroidal anti-inflammatory drug (NSAID) that is used to treat pain, inflammation, and fever. The mechanism of action for AR-12 is similar to other NSAIDs, which involves the inhibition of cyclooxygenase (COX) enzymes. Specifically, AR-12 inhibits COX-2, which is an enzyme that is involved in the production of prostaglandins, which are mediators of pain, inflammation, and fever. By inhibiting COX-2, AR-12 reduces the production of prostaglandins, leading to a decrease in pain, inflammation, and fever. Additionally, AR-12 also has antiplatelet and anticoagulant properties, which can help to reduce the risk of bleeding complications.",
+      "reference": "AR-12 primarily inhibits PDK1 (3-phosphoinositide-dependent protein kinase 1) in the PI3K/AKT signaling pathway. It also activates AMPK, downregulates chaperone proteins (like GRP78, HSP70, HSP90), and induces autophagy. This combination of effects promotes cell death in cancer cells and inhibits replication of various pathogens.",
+      "tokens_generated": 161,
+      "generation_time_seconds": 4.818513870239258,
+      "tokens_per_second": 33.41279164814477
+    },
+    {
+      "sample_id": 2,
+      "prompt": "Describe the key clinical trials for AR-12.\nAssistant: ",
+      "prediction": "I'm happy to help you with your question. However, I need to clarify that I don't have information on an AR-12 clinical trial. Could you please provide more context or details about the trial you're referring to? I'll do my best to assist you.",
+      "reference": "AR-12 has undergone Phase I clinical trials for safety evaluation in adult patients with advanced or recurrent solid tumors or lymphoma (NCT00978523). The trial evaluated safety, pharmacokinetics, and maximum tolerated dose. While detailed results aren't widely published, the drug demonstrated acceptable safety profile to advance development. Further clinical studies were planned to evaluate efficacy against specific cancer types and viral infections.",
+      "tokens_generated": 56,
+      "generation_time_seconds": 1.7192871570587158,
+      "tokens_per_second": 32.57163864109963
+    }
+  ],
+  "metrics": {
+    "rouge1": [
+      0.15028901734104047,
+      0.15894039735099338,
+      0.23214285714285715
+    ],
+    "rouge2": [
+      0.07017543859649122,
+      0.026845637583892617,
+      0.05454545454545454
+    ],
+    "rougeL": [
+      0.11560693641618498,
+      0.13245033112582782,
+      0.1607142857142857
+    ],
+    "bleu": [
+      0,
+      0,
+      0
+    ],
+    "generation_time": [
+      9.097119808197021,
+      4.818513870239258,
+      1.7192871570587158
+    ]
+  },
+  "summary": {
+    "rouge1": 0.18045742394496367,
+    "rouge2": 0.0505221769086128,
+    "rougeL": 0.13625718441876616,
+    "bleu": 0.0,
+    "avg_tokens_per_second": 29.323136871510826,
+    "total_samples": 3
+  }
+}
