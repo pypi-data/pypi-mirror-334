@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: LoggerMan
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: MDit<0.2,>=0.1
+Requires-Dist: PySerials<0.2,>=0.1
+Requires-Dist: ActionMan<0.2,>=0.1
+Requires-Dist: ProtocolMan<0.2,>=0.1
+Requires-Dist: ExceptionMan<0.2,>=0.1
+Requires-Dist: pydantic
+Requires-Dist: rich
