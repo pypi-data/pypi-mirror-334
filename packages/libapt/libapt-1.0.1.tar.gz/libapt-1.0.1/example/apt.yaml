@@ -1,0 +1,12 @@
+arch: arm64
+apt_repos:
+  - apt_repo: http://ports.ubuntu.com/ubuntu-ports
+    distro: noble
+    components:
+      - main
+    key: ubuntu-keyring-2018-archive.gpg
+  - apt_repo: http://ports.ubuntu.com/ubuntu-ports
+    distro: jammy
+    components:
+      - main
+    key: ubuntu-keyring-2018-archive.gpg

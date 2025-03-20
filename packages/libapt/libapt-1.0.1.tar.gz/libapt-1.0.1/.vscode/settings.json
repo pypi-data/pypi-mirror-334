@@ -1,0 +1,47 @@
+{
+    "cSpell.words": [
+        "abstractmethod",
+        "addopts",
+        "armhf",
+        "caplog",
+        "cdimage",
+        "darglint",
+        "dateutil",
+        "doctest",
+        "filterwarnings",
+        "inrelease",
+        "Irgang",
+        "libapt",
+        "minversion",
+        "mypy",
+        "pgpy",
+        "pydantic",
+        "pydocstyle",
+        "pyproject",
+        "pytest",
+        "repr",
+        "riscv",
+        "testpaths",
+        "aptflatrepo",
+        "aptdebrepo",
+        "aptflatrepos",
+        "aptdebrepos",
+        "libyamlconf",
+        "dbus",
+        "Uploaders",
+        "Darcs",
+        "srcs",
+        "imghdr",
+        "deepdiff",
+        "snakeviz"
+    ],
+    "editor.formatOnSave": true,
+	"[python]": {
+    	"editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

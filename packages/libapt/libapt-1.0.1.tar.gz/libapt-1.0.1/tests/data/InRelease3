@@ -1,0 +1,38 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Ubuntu
+Label: Ubuntu
+Suite: noble
+Version: 24.04
+Codename: noble
+Date: Thu, 25 Apr 2024 15:10:33 UTC
+Architectures: amd64 arm64 armhf i386 ppc64el riscv64 s390x
+Components: main restricted universe multiverse
+Description: Ubuntu Noble 24.04
+MD5Sum:
+ 1ae40621b32609d6251d09b2a47ef936        829119597 Contents-amd64
+ 2fc7d01e0a1c7b351738abcd571eec59         51301092 Contents-amd64.gz
+SHA1:
+ daf36358068b71e8064ac4e1f9adb6ae765f72a6        829119597 Contents-amd64
+ 61706fecb4e611d62e5630e51c177c7b7fc59d9b         51301092 Contents-amd64.gz
+SHA256:
+ e945cdeadad8067c9b569e66c058f709d5aa4cd11d8099cc088dc192705e7bc7        829119597 Contents-amd64
+ c8718dbbacd1ab72675513cf0674ff9921fcf781d9f49c4c0eaf68a49c18adc1         51301092 Contents-amd64.gz
+Acquire-By-Hash: yes
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9uyzdiR07anSG3Aihxkg0ZkbyTwFAmYqcpkACgkQhxkg0Zkb
+yTy1ow//fX85IioBgUFZ720K233aS/WKYURW/orgOTDImg7bpz15WkfLltwJyxCj
+IMi5uvnu01q5uo71NfNO+ufqRAQ8xWnB3gc4wo90eF2mkoN9OV9UIWIXXexXnGhS
+5dmU1uz5FlXnMKdTwQmhRBEqLjeSMjRK1enSnq/IpKs0+QRm+wBrmBxJek+sR4TK
+l4sISwxePpyO98FZCKjgc9PmF2uo6dzN+AfEX6kwLyShQZLdg6aqvOfgBUB9d/x8
+Or2XLcZs9RyrQxqyaeAT3edIx2A5uxClrVaKj977xru7PufcxZM4p4drXQyxdPqM
+Ef6ceDLXNEoPOUMi/Rg96PUW/Zr+9T+fLRpZk39qN1f60Z176yNBdrKLItcfL7cw
+t/DUzIRZBS6Ng37uAo5oTPo8nWbsggqDKQQcBAcImoIgrV5KYmmyuyR5ns3zouHy
+JAgcVqApo4r4C+ZIcFhSmRXjwq0f7FK0k2MytqLTNFHBYJi2bpGMEdtl37JJwOzh
+oLeC5P66p4xwg314WvfOGd+k9ctM2hxuGdAiU4VjKxAJJBfln+BCem98ilQth0BB
+boxTNtkQN6T1s/RUWKMQ6L2Dyw1cdNlvy5Jp0zvwZ7Vu7KM26esW2FFPi5YP2IIN
+cjrPfQGtB7pA+Gyby7StViJNXXpaRCStg2FvElhbHcPu8vDRR9I=
+=Wb/6
+-----END PGP SIGNATURE-----

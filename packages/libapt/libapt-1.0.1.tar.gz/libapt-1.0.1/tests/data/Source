@@ -1,0 +1,42 @@
+Package: abseil
+Format: 3.0 (quilt)
+Binary: libabsl-dev, libabsl20220623t64
+Architecture: any
+Version: 20220623.1-3.1ubuntu3
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Benjamin Barenblat <bbaren@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: dpkg-dev (>= 1.22.5), cmake (>= 3.5), debhelper-compat (= 12), g++-12, googletest (>= 1.12) [!mipsel !ppc64] <!nocheck>
+Testsuite: autopkgtest
+Testsuite-Triggers: cmake, g++, libgtest-dev, make, pkg-config
+Homepage: https://abseil.io/
+Description: extensions to the C++ standard library
+ Abseil is an open-source collection of C++ library code designed to augment the
+ C++ standard library. The Abseil library code is collected from Google's C++
+ codebase and has been extensively tested and used in production. In some cases,
+ Abseil provides pieces missing from the C++ standard; in others, Abseil
+ provides alternatives to the standard for special needs.
+Vcs-Browser: https://salsa.debian.org/debian/abseil
+Vcs-Git: https://salsa.debian.org/debian/abseil.git
+Directory: pool/main/a/abseil
+Package-List:
+ libabsl-dev deb libdevel optional arch=any
+ libabsl20220623t64 deb libs optional arch=any
+Files:
+ 0bdff2b9ae7d7682edb73619d90ff09e 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 3c40838276f6e5f67acf9a3e5a5e0bd1 1957272 abseil_20220623.1.orig.tar.gz
+ 1a5a4d628664aea1355429fc76e683e9 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha1:
+ 6c0d98cc24721badfb32aae562b00bc754502a54 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 60f52f4d90cebd82fc77dae1119590ef96e01ed5 1957272 abseil_20220623.1.orig.tar.gz
+ fd95bd8e6fa7168f7f82f4a1a367243666045b49 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha256:
+ f96c82b5cacdc312050bb46cc346adae5d3080d4bab151b7f91561173042fe32 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ abfe2897f3a30edaa74bc34365afe3c2a3cd012091a97dc7e008f7016adcd5fe 1957272 abseil_20220623.1.orig.tar.gz
+ 9d427fae687587f47ff6b3e9d83d396300463572e0af342129a9498a1ed82284 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha512:
+ fc3fa76b206948b66725f1de3c8998a4614ef78a7d9b6629d016a218dc04f0bae7390ede38d561bc3487da18235e0be309f89c0db0eaf191096d18b1d81cb3a1 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 3c7fca91a9bda39a43cbdbd855577f58a988a7dc214ac93ef7e4cb2cc6ec24149bd7a414b4f7caf35511eaaa296260051a3d02b69ee5fd6e3247100b0b12258e 1957272 abseil_20220623.1.orig.tar.gz
+ 0a666f60c5d8bd89ebb9ff99de9b120c0ec8858ca199b1236de31f834007facbd896257bde2efbfadc828b5ccf9e8472b0ba89dcb70af89d49db3763258c070e 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz

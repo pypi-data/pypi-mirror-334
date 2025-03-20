@@ -1,0 +1,27 @@
+Origin: Ubuntu
+Label: Ubuntu
+Suite: noble
+Version: 24.04
+Codename: noble
+Date: Thu, 25 Apr 2024 15:10:33 UTC
+Architectures: amd64 arm64 armhf i386 ppc64el riscv64 s390x
+Components: main restricted universe multiverse
+Description: Ubuntu Noble 24.04
+SHA256:
+ 1ae40621b32609d6251d09b2a47ef936        829119597 Contents-amd64
+ 2fc7d01e0a1c7b351738abcd571eec59         51301092 Contents-amd64.gz
+ a78c03f162892e93e91366e0ec2a4f13        826443945 Contents-arm64
+
+Origin: Ubuntu
+Label: Ubuntu
+Suite: jammy
+Version: 22.04
+Codename: jammy
+Date: Thu, 25 Apr 2024 15:10:33 UTC
+Architectures: amd64 arm64 armhf i386 ppc64el riscv64 s390x
+Components: main restricted universe multiverse
+Description: Ubuntu Noble 24.04
+SHA256:
+ 1ae40621b32609d6251d09b2a47ef936        829119597 Contents-amd64
+ 2fc7d01e0a1c7b351738abcd571eec59         51301092 Contents-amd64.gz
+ a78c03f162892e93e91366e0ec2a4f13        826443945 Contents-arm64

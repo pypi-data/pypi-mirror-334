@@ -1,0 +1,2005 @@
+Package: aalib
+Format: 3.0 (quilt)
+Binary: libaa1-dev, libaa1, libaa-bin
+Architecture: any
+Version: 1.4p5-51.1
+Priority: optional
+Section: libs
+Maintainer: Jonathan Carter <jcc@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dpkg-dev (>= 1.14.9), libgpm-dev [linux-any], libncurses5-dev, libslang2-dev, libx11-dev, patch, texinfo
+Homepage: http://aa-project.sourceforge.net/aalib/
+Vcs-Browser: https://salsa.debian.org/debian/aalib
+Vcs-Git: https://salsa.debian.org/debian/aalib.git
+Directory: pool/main/a/aalib
+Package-List:
+ libaa-bin deb text optional arch=any
+ libaa1 deb libs optional arch=any
+ libaa1-dev deb libdevel optional arch=any
+Files:
+ 65e97d93cb7f19b449c98e7c54d58041 2020 aalib_1.4p5-51.1.dsc
+ 9801095c42bba12edebd1902bcf0a990 391028 aalib_1.4p5.orig.tar.gz
+ 7927b15894d35e38a2eb1fa89fdc1cbf 17368 aalib_1.4p5-51.1.debian.tar.xz
+Checksums-Sha1:
+ 8b6ef25c5a7bebe7118c0f8e14fce3d12261b28c 2020 aalib_1.4p5-51.1.dsc
+ a23269e950a249d2ef93625837cace45ddbce03b 391028 aalib_1.4p5.orig.tar.gz
+ f2d6fb57554187a5c61086ed50212df5988cf807 17368 aalib_1.4p5-51.1.debian.tar.xz
+Checksums-Sha256:
+ f4c63901ad54b05d088a2bf7e637f7c032330b0b96a71272954afd811300dbbe 2020 aalib_1.4p5-51.1.dsc
+ fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee 391028 aalib_1.4p5.orig.tar.gz
+ 15ca4a195c02f23c11bc6b6d372c07ed16a8f76fe306a2e4123bf5f939f70332 17368 aalib_1.4p5-51.1.debian.tar.xz
+Checksums-Sha512:
+ f3b344dcb92646386f906ee434646a41c8e27b7f86f203534411f7a6669584a83a029fb98f7e21d978d8004dd36af32a30e4f829316c0596acc6e979270b6380 2020 aalib_1.4p5-51.1.dsc
+ 3e4506eccce3b81ccbbb79a4a1b90abd39e2259e6043fde90f70b9ca279bd4c37758a047167267b97c4ec92f64fb17c7c8f548114f0d0c6e78ddb9463b5f1299 391028 aalib_1.4p5.orig.tar.gz
+ 81e16c165ed10e5c6c5d58769f517174938ccad98f0edbbe49ca6ee940c363ff697d5bfbb6693e9c5dc96716d2392d01d79d12c78c40c103ff358ebf772852e6 17368 aalib_1.4p5-51.1.debian.tar.xz
+
+Package: abseil
+Format: 3.0 (quilt)
+Binary: libabsl-dev, libabsl20220623t64
+Architecture: any
+Version: 20220623.1-3.1ubuntu3
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Benjamin Barenblat <bbaren@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: dpkg-dev (>= 1.22.5), cmake (>= 3.5), debhelper-compat (= 12), g++-12, googletest (>= 1.12) [!mipsel !ppc64] <!nocheck>
+Testsuite: autopkgtest
+Testsuite-Triggers: cmake, g++, libgtest-dev, make, pkg-config
+Homepage: https://abseil.io/
+Description: extensions to the C++ standard library
+ Abseil is an open-source collection of C++ library code designed to augment the
+ C++ standard library. The Abseil library code is collected from Google's C++
+ codebase and has been extensively tested and used in production. In some cases,
+ Abseil provides pieces missing from the C++ standard; in others, Abseil
+ provides alternatives to the standard for special needs.
+Vcs-Browser: https://salsa.debian.org/debian/abseil
+Vcs-Git: https://salsa.debian.org/debian/abseil.git
+Directory: pool/main/a/abseil
+Package-List:
+ libabsl-dev deb libdevel optional arch=any
+ libabsl20220623t64 deb libs optional arch=any
+Files:
+ 0bdff2b9ae7d7682edb73619d90ff09e 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 3c40838276f6e5f67acf9a3e5a5e0bd1 1957272 abseil_20220623.1.orig.tar.gz
+ 1a5a4d628664aea1355429fc76e683e9 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha1:
+ 6c0d98cc24721badfb32aae562b00bc754502a54 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 60f52f4d90cebd82fc77dae1119590ef96e01ed5 1957272 abseil_20220623.1.orig.tar.gz
+ fd95bd8e6fa7168f7f82f4a1a367243666045b49 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha256:
+ f96c82b5cacdc312050bb46cc346adae5d3080d4bab151b7f91561173042fe32 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ abfe2897f3a30edaa74bc34365afe3c2a3cd012091a97dc7e008f7016adcd5fe 1957272 abseil_20220623.1.orig.tar.gz
+ 9d427fae687587f47ff6b3e9d83d396300463572e0af342129a9498a1ed82284 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+Checksums-Sha512:
+ fc3fa76b206948b66725f1de3c8998a4614ef78a7d9b6629d016a218dc04f0bae7390ede38d561bc3487da18235e0be309f89c0db0eaf191096d18b1d81cb3a1 2627 abseil_20220623.1-3.1ubuntu3.dsc
+ 3c7fca91a9bda39a43cbdbd855577f58a988a7dc214ac93ef7e4cb2cc6ec24149bd7a414b4f7caf35511eaaa296260051a3d02b69ee5fd6e3247100b0b12258e 1957272 abseil_20220623.1.orig.tar.gz
+ 0a666f60c5d8bd89ebb9ff99de9b120c0ec8858ca199b1236de31f834007facbd896257bde2efbfadc828b5ccf9e8472b0ba89dcb70af89d49db3763258c070e 8412 abseil_20220623.1-3.1ubuntu3.debian.tar.xz
+
+Package: accountsservice
+Format: 3.0 (quilt)
+Binary: accountsservice, libaccountsservice0, libaccountsservice-dev, gir1.2-accountsservice-1.0, libaccountsservice-doc
+Architecture: any all
+Version: 23.13.9-2ubuntu6
+Priority: optional
+Section: gnome
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-translations, gobject-introspection (>= 0.9.12-4~), intltool, libdbus-1-dev (>= 1.9.18), libgirepository1.0-dev (>= 1.34), libglib2.0-dev (>= 2.63.5), libpolkit-gobject-1-dev, libsystemd-dev (>= 209) [linux-any], meson (>= 0.50), polkitd, python3-dbus <!nocheck>, python3-dbusmock <!nocheck>, python3-gi <!nocheck>, valac, xmlto
+Build-Depends-Indep: gtk-doc-tools <!nodoc>, libglib2.0-doc <!nodoc>
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential, libcrypt1, libnss-systemd, libpam-elogind, libpam-systemd, polkitd, python3, python3-gi
+Homepage: https://www.freedesktop.org/wiki/Software/AccountsService/
+Vcs-Browser: https://salsa.debian.org/freedesktop-team/accountsservice/tree/ubuntu
+Vcs-Git: https://salsa.debian.org/freedesktop-team/accountsservice.git -b ubuntu
+Directory: pool/main/a/accountsservice
+Package-List:
+ accountsservice deb admin optional arch=any
+ gir1.2-accountsservice-1.0 deb introspection optional arch=any
+ libaccountsservice-dev deb libdevel optional arch=any
+ libaccountsservice-doc deb doc optional arch=all profile=!nodoc
+ libaccountsservice0 deb libs optional arch=any
+Files:
+ 77067db27567d4922225129f64f450cd 3062 accountsservice_23.13.9-2ubuntu6.dsc
+ 03dccfe1b306b7ca19743e86d118e64d 636064 accountsservice_23.13.9.orig.tar.xz
+ c304f069b1013a4947256c1f637dad7e 37780 accountsservice_23.13.9-2ubuntu6.debian.tar.xz
+Checksums-Sha1:
+ efcab68b1ace9fd84ce0016acacb82e46328931f 3062 accountsservice_23.13.9-2ubuntu6.dsc
+ 78419e5fa8fbb485f6b939e180fe26f2efc3c103 636064 accountsservice_23.13.9.orig.tar.xz
+ d6f93d57d3d916a6f9aed803cebe3386940c8856 37780 accountsservice_23.13.9-2ubuntu6.debian.tar.xz
+Checksums-Sha256:
+ eb3a3cb432fcc0d1457ff4b3bd0081d1798a766018f60eb6fe57949a8031c504 3062 accountsservice_23.13.9-2ubuntu6.dsc
+ adda4cdeae24fa0992e7df3ffff9effa7090be3ac233a3edfdf69d5a9c9b924f 636064 accountsservice_23.13.9.orig.tar.xz
+ cb0688afe24ddc71bc01a3713cf2f4e39a98191d8a9a17cf74308942c56cb327 37780 accountsservice_23.13.9-2ubuntu6.debian.tar.xz
+Checksums-Sha512:
+ 43ec0b5cbf667ee536990b3619ba1484f29563c7a09cd42b25f83ea13ad298415bf258bed8b4a8618509cb8e1522a428d59cb9da98804cd939633f4bbddeb5fd 3062 accountsservice_23.13.9-2ubuntu6.dsc
+ c6eb543ce2e07b61bbdfa454e388949bc688517be0536b14f30c66383ed105b15d3fab8b6c62b1eaa08f67d9bdc29b928729d9f7c704f47de4decf0de8e12f89 636064 accountsservice_23.13.9.orig.tar.xz
+ f9ecca82f7da23131270c72d56e87036c1046d7b5ff2e4d151fa41bd7b692aa764497c11268fb104304b92e60d6c57f1ca848d9603a263eb67ca4db6c57df9db 37780 accountsservice_23.13.9-2ubuntu6.debian.tar.xz
+Debian-Vcs-Browser: https://salsa.debian.org/freedesktop-team/accountsservice
+Debian-Vcs-Git: https://salsa.debian.org/freedesktop-team/accountsservice.git
+
+Package: acct
+Format: 3.0 (quilt)
+Binary: acct
+Architecture: any
+Version: 6.6.4-5build1
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Uploaders: Marcos Fouces <marcos@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: debhelper-compat (= 13), texinfo
+Homepage: https://www.gnu.org/software/acct/
+Vcs-Browser: https://salsa.debian.org/pkg-security-team/acct
+Vcs-Git: https://salsa.debian.org/pkg-security-team/acct.git
+Directory: pool/main/a/acct
+Package-List:
+ acct deb admin optional arch=any
+Files:
+ 9813c0c22734813caa4ab28f8fd5d99b 2251 acct_6.6.4-5build1.dsc
+ 7caf66ed43edd11f3a84b9dbac7ebbe7 853273 acct_6.6.4.orig.tar.gz
+ 7b24620590e8fad6d82f48bb85bf33d1 813 acct_6.6.4.orig.tar.gz.asc
+ 0f68d8fca937c55e2b6649af9763478f 21488 acct_6.6.4-5build1.debian.tar.xz
+Checksums-Sha1:
+ c520e257cb44098d1c11f97e94083a7db1f8f547 2251 acct_6.6.4-5build1.dsc
+ bf4bb9c138d325add34a8cd836e44a49bc64dfe9 853273 acct_6.6.4.orig.tar.gz
+ 65b31f677a7f607b99108ec0c46b8ed1b1082acf 813 acct_6.6.4.orig.tar.gz.asc
+ 78010900a24fddad1f281da5e7f9e3ff8075773f 21488 acct_6.6.4-5build1.debian.tar.xz
+Checksums-Sha256:
+ acace99bc3418e011d4a0aadf40d4a5a760cf5cec6af2ce9173fa38ea79e2a55 2251 acct_6.6.4-5build1.dsc
+ 4c15bf2b58b16378bcc83f70e77d4d40ab0b194acf2ebeefdb507f151faa663f 853273 acct_6.6.4.orig.tar.gz
+ 76b6bd4153bb3c5a697db015f4714201535b793e333cb0427d2ca93d37eb2b07 813 acct_6.6.4.orig.tar.gz.asc
+ d50191ebe7897e6be5a221923c353377d95fa8d51defb3289d00ea6bf8da434c 21488 acct_6.6.4-5build1.debian.tar.xz
+Checksums-Sha512:
+ 7f50915b11b23e464578c5190b45aa62be2cd22d49ffd9e39d3872e033ea1266ac37399b9aa502b6709ef6301f9aa7da6caf3f48b8a41e0fc7f9490b29f7fc3b 2251 acct_6.6.4-5build1.dsc
+ 413aa446caece8fd773c92e2995bbaa034f63dd0ced521815a676c49f118e02982862b9c0ab7e60be5212c87d1e82ba6325bda212cf4857392a068d359a1e2c2 853273 acct_6.6.4.orig.tar.gz
+ dbffb8237edacaafe127e439a4c1e8e7b3891f78ea668930ecf0aa9a68a5ef63e925f8c0b4e96b93c7142289552da03e7af835f521fbf90d8bdb73214944d397 813 acct_6.6.4.orig.tar.gz.asc
+ 22ddf29ab51432630510f69728355eb038e2a04246e44ce720e9ca089e8744f139668585d48288c79261653c9e2be54f350dbdad899636e5b733e3da484bb592 21488 acct_6.6.4-5build1.debian.tar.xz
+
+Package: acl
+Format: 3.0 (quilt)
+Binary: acl, libacl1-dev, libacl1, acl-udeb, libacl1-udeb
+Architecture: any
+Version: 2.3.2-1build1
+Priority: required
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Guillem Jover <guillem@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), debhelper (>= 13.10), autoconf, automake, gettext, libtool, libattr1-dev (>= 1:2.4.46-8)
+Testsuite: autopkgtest
+Testsuite-Triggers: autoconf, automake, autopoint, build-essential, libattr1-dev, libtool, pkgconf
+Homepage: https://savannah.nongnu.org/projects/acl/
+Vcs-Browser: https://git.hadrons.org/cgit/debian/pkgs/acl.git
+Vcs-Git: https://git.hadrons.org/git/debian/pkgs/acl.git
+Directory: pool/main/a/acl
+Package-List:
+ acl deb utils optional arch=any
+ acl-udeb udeb debian-installer optional arch=any profile=!noudeb
+ libacl1 deb libs optional arch=any
+ libacl1-dev deb libdevel optional arch=any
+ libacl1-udeb udeb debian-installer optional arch=any profile=!noudeb
+Files:
+ bd6d18f7c6ef365da686be325537e779 2637 acl_2.3.2-1build1.dsc
+ 590765dee95907dbc3c856f7255bd669 371680 acl_2.3.2.orig.tar.xz
+ ea6ee7f69d122317eabf7641aeb083ff 833 acl_2.3.2.orig.tar.xz.asc
+ 65717c1679b96061a063f098ea621301 23384 acl_2.3.2-1build1.debian.tar.xz
+Checksums-Sha1:
+ 5b53d6c457a30f3d25101cbf113d95cbaac41b5b 2637 acl_2.3.2-1build1.dsc
+ 2674394a4061791c77d80fd2089a39c3675a5980 371680 acl_2.3.2.orig.tar.xz
+ 884c1cae6bbc52db9deba2f5523f6624df796201 833 acl_2.3.2.orig.tar.xz.asc
+ 1e15c2b9a58d8d697a84d96c710fea27e2f94699 23384 acl_2.3.2-1build1.debian.tar.xz
+Checksums-Sha256:
+ d17a33638de70cfa9ebfdfe2fecedfe372af6833487d96b31a33ecd75adbf573 2637 acl_2.3.2-1build1.dsc
+ 97203a72cae99ab89a067fe2210c1cbf052bc492b479eca7d226d9830883b0bd 371680 acl_2.3.2.orig.tar.xz
+ 184c6a903490885a096095db67b433a04542c6569f167cbe8115268c0f227273 833 acl_2.3.2.orig.tar.xz.asc
+ 41a3d9f62f9f984daf88e01f8fbb6082c97b9244199860231c36a87030e32f10 23384 acl_2.3.2-1build1.debian.tar.xz
+Checksums-Sha512:
+ 9d4dccda7bc2bf443bef708c2196d9a6d0c75dd6ffcd7842422afac2e3dbc2e63b318b810beb6b0cc7f7b0305ae5759693df5dd4ce67ec7c98199323bb59e654 2637 acl_2.3.2-1build1.dsc
+ c2d061dbfd28c00cecbc1ae614d67f3138202bf4d39b383f2df4c6a8b10b830f33acec620fb211f268478737dde4037d338a5823af445253cb088c48a135099b 371680 acl_2.3.2.orig.tar.xz
+ a425b385e3ce30e7146cf8b143ca269e3edd78af82a21dea76d10ea68215f9abcfb1ed8be24ce3b6dce24e6640df8d5d5f365a47399e37006a66c6a62a41fe41 833 acl_2.3.2.orig.tar.xz.asc
+ 5417edaac1bbd6aba26c579488ef0e7e9c1c87b2467a50f92186d049f315f230c99b507f6d7a1c03d5d5eb6e8ad0a98015e0986350e3da7a78a77468726acb26 23384 acl_2.3.2-1build1.debian.tar.xz
+
+Package: acpid
+Format: 3.0 (quilt)
+Binary: acpid, kacpimon
+Architecture: linux-any
+Version: 1:2.0.34-1ubuntu2
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Josue Ortega <josue@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dpkg-dev (>= 1.15.7), dh-runit (>= 2.8.8)
+Homepage: http://sourceforge.net/projects/acpid2/
+Vcs-Browser: https://salsa.debian.org/debian/acpid
+Vcs-Git: https://salsa.debian.org/debian/acpid.git
+Directory: pool/main/a/acpid
+Package-List:
+ acpid deb admin optional arch=linux-any
+ kacpimon deb utils optional arch=linux-any
+Files:
+ fa44efafa90ed443b50b020ba7e109bd 2049 acpid_2.0.34-1ubuntu2.dsc
+ 988c2e3fd5ba0ea4492d3ba7273af295 159924 acpid_2.0.34.orig.tar.xz
+ 6bf5fa06576cc7e74219927733a4c77d 23760 acpid_2.0.34-1ubuntu2.debian.tar.xz
+Checksums-Sha1:
+ a79df1fbb04765bab70846f1ccfed928b5cf7083 2049 acpid_2.0.34-1ubuntu2.dsc
+ 9322112027e4aa5a8d1b97ec64ef1d150ff0f4fc 159924 acpid_2.0.34.orig.tar.xz
+ f89059ed29f01a34c4606c6b04b99559b67bfe83 23760 acpid_2.0.34-1ubuntu2.debian.tar.xz
+Checksums-Sha256:
+ 66c38b4fb4c8b940cc0da0cf527ea4d38d60e048c2dc74c42ca4e978433c3e3c 2049 acpid_2.0.34-1ubuntu2.dsc
+ 2d095c8cfcbc847caec746d62cdc8d0bff1ec1bc72ef7c674c721e04da6ab333 159924 acpid_2.0.34.orig.tar.xz
+ 6dd18d9f7ec6a062a1f4f1b388925cdb9ad0eaac26000d60789b3d28dfbc508e 23760 acpid_2.0.34-1ubuntu2.debian.tar.xz
+Checksums-Sha512:
+ 234151567885f3129748f95c10df978926ad1fa839af6adca913a1086ed46bbf4b1f25ec6e844be4789d106f0154a12c19b109cda8edb00d1b7757f31965433d 2049 acpid_2.0.34-1ubuntu2.dsc
+ 2bf92295b55bb44fe83074b3e0c1ae639f63edaeea84b2184ae95b38852be40f380d5413110b8c0fcb2efc2ec01bf4764e1dcb97022fc724bebbfc35c0b63c81 159924 acpid_2.0.34.orig.tar.xz
+ 6618263f4784dd3842a732ac05f30eee6b544a8801c6394926b99ba9568c02f088d1c536207c6031a0cc0050efe4263063f8e8370c3afad76e96e62f5249c3bc 23760 acpid_2.0.34-1ubuntu2.debian.tar.xz
+
+Package: adcli
+Format: 3.0 (quilt)
+Binary: adcli
+Architecture: any
+Version: 0.9.2-1ubuntu2
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Laurent Bigonville <bigon@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 12), libkrb5-dev, libldap2-dev, libsasl2-dev, xmlto, xsltproc
+Homepage: https://www.freedesktop.org/software/realmd/
+Vcs-Browser: https://salsa.debian.org/debian/adcli
+Vcs-Git: https://salsa.debian.org/debian/adcli.git
+Directory: pool/main/a/adcli
+Package-List:
+ adcli deb admin optional arch=any
+Files:
+ 20ac5adff26a43bf0a723c0b4fc4b576 1997 adcli_0.9.2-1ubuntu2.dsc
+ 312456b67b97b9316700bca2ddafec02 93680 adcli_0.9.2.orig.tar.bz2
+ defa42c738d01f84d589d0280232d9f8 5876 adcli_0.9.2-1ubuntu2.debian.tar.xz
+Checksums-Sha1:
+ 8775e52e0aaced72b48b01201ebc160c1a407275 1997 adcli_0.9.2-1ubuntu2.dsc
+ 9884a862b9fe26bf20e1aabc9c5e57bcf9c27d68 93680 adcli_0.9.2.orig.tar.bz2
+ 0ebc36f98c211e6c850d71e0c29257dc3ebebba8 5876 adcli_0.9.2-1ubuntu2.debian.tar.xz
+Checksums-Sha256:
+ 310821fbe00588d589d8a14fdd758b433788d51db787031e8366c2fe098e279a 1997 adcli_0.9.2-1ubuntu2.dsc
+ 1288b3ccd7ded42367626a9c4d95d569a37054813be2605a4852dbd9250800b2 93680 adcli_0.9.2.orig.tar.bz2
+ a2350995b476ee3e52bd734cb7fbce28cfbf6df57fe12ca1569f2ed227021791 5876 adcli_0.9.2-1ubuntu2.debian.tar.xz
+Checksums-Sha512:
+ 181ff302d374e40e494c63bb40141a2282618fd8efecd6a26d4e925b4ede5938918ec8d4fe54e946c7d637e6f10a6d3c121d9ff3d3b236a35545ec7f90c8f06c 1997 adcli_0.9.2-1ubuntu2.dsc
+ ae8414a0af389b6845dd92d41446a80a9dc1734b874175323c0e491d99944eab442b95ae6d3a29fc69638d2e73bf8d2c369f6fa50e9ed3968527444b78606286 93680 adcli_0.9.2.orig.tar.bz2
+ 99a0aeb0b18afe4fb9121686a100ebc87a15185299aa09fa0c7be1543fa30120d4260bede7f444f9d7b94498458e6c2f3638b700f62e0df07d885ea17c496771 5876 adcli_0.9.2-1ubuntu2.debian.tar.xz
+
+Package: adduser
+Format: 3.0 (native)
+Binary: adduser
+Architecture: all
+Version: 3.137ubuntu1
+Priority: important
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Adduser Developers <adduser@packages.debian.org>
+Uploaders: Marc Haber <mh+debian-packages@zugschlus.de>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), po4a
+Build-Depends-Indep: gettext
+Testsuite: autopkgtest
+Testsuite-Triggers: cron, ecryptfs-utils, kmod, perl
+Vcs-Browser: https://code.launchpad.net/~ubuntu-core-dev/ubuntu/+source/adduser/+git/adduser
+Vcs-Git: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/adduser
+Directory: pool/main/a/adduser
+Package-List:
+ adduser deb admin important arch=all
+Files:
+ b36072cb68bd81015dacda342cef8671 1862 adduser_3.137ubuntu1.dsc
+ 761e31376e486f7a21ddb4afac03e7d3 280408 adduser_3.137ubuntu1.tar.xz
+Checksums-Sha1:
+ 100694103b61177f27e38e49741508296adb5d03 1862 adduser_3.137ubuntu1.dsc
+ 7b524d7f8f7c1e2ca0242656c5f4e168c3d0ac23 280408 adduser_3.137ubuntu1.tar.xz
+Checksums-Sha256:
+ 3f9e61ffef61902c9eaf1c8738bb987ff882dbba2d22385fccefaa3fcd53a77b 1862 adduser_3.137ubuntu1.dsc
+ f4b0669a5731e1a63fc6eb56a8a4b9e54b19d76ed6c819bf48c1028790e395f3 280408 adduser_3.137ubuntu1.tar.xz
+Checksums-Sha512:
+ 4e32edd8d12689bc8f6fb2b5280b0504bbd19bdd963cebb32a016d87fbeb837cbfb9c4c544b37943adf346d33137c684936591ccbf5c89856a91f2777f00ae49 1862 adduser_3.137ubuntu1.dsc
+ 46979160ef2f6b85097958cd11e549ae48efa24e1719155fd90ae7b322c0adac087cac7d0a709cd084ee11557575b05dfde89a9d63bcfd80fb47779c41098d48 280408 adduser_3.137ubuntu1.tar.xz
+
+Package: adsys
+Format: 3.0 (native)
+Binary: adsys, adsys-windows
+Architecture: any
+Version: 0.14.1build1
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Standards-Version: 4.5.1
+Build-Depends: debhelper-compat (= 13), dh-apport, dh-golang, golang-go (>= 2:1.22~), apparmor, dbus, libdbus-1-dev, libglib2.0-dev, libkrb5-dev, libpam0g-dev, libsmbclient-dev, libwbclient-dev, python3, python3-samba, samba, samba-dsdb-modules
+Testsuite: autopkgtest
+Testsuite-Triggers: @builddeps@
+Homepage: https://github.com/ubuntu/adsys
+Description: AD SYStem integration
+ ADSys is an AD SYStem tool to integrate GPOs with a linux system.
+ It allows one to handle machine and users GPOs, mapping them to dconf keys,
+ apparmor rules, mounts, proxy settings, certificate autoenrollment and running
+ scripts at different points in time.
+Directory: pool/main/a/adsys
+Package-List:
+ adsys deb admin optional arch=any
+ adsys-windows deb admin optional arch=amd64,arm64
+Files:
+ 381a0ff7aaf55c6a7615799f7204ee9e 2146 adsys_0.14.1build1.dsc
+ 6efce25d02ae2159206040b207a17df6 7078076 adsys_0.14.1build1.tar.xz
+Checksums-Sha1:
+ fac452eb088168fac1afca1d8644095a158a6c1f 2146 adsys_0.14.1build1.dsc
+ 292035be92a60fb1c274887905ccc4edb7bbbdd6 7078076 adsys_0.14.1build1.tar.xz
+Checksums-Sha256:
+ 83cfa34be91920fd509315149a3c067aa1f0779e68a68d1202fef501d3277738 2146 adsys_0.14.1build1.dsc
+ 287afb0b65836ce8c889362346414d0ac16ba1f1064d0645bbee46ab0368e1b3 7078076 adsys_0.14.1build1.tar.xz
+Checksums-Sha512:
+ 7ececa1375459937f9fd00ad9c8b7ee959ec4232851c9f73e1cad4b342ea5327b7961883e38f116f8211e07a84bb411b6ee19e7a59577128143c9b3a5dfe9c98 2146 adsys_0.14.1build1.dsc
+ ba22ade7c573f6c14e8e97720223035c05dfc9b87ee9ba7d28cfa3b7264e159421316273861cf2033608a9f81abbbd88c9d1d61276f21380201b1c4afea9d83d 7078076 adsys_0.14.1build1.tar.xz
+Go-Import-Path: github.com/ubuntu/adsys
+
+Package: advancecomp
+Format: 3.0 (quilt)
+Binary: advancecomp
+Architecture: any
+Version: 2.5-1build1
+Priority: optional
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Piotr Ożarowski <piotr@debian.org>
+Standards-Version: 4.1.3
+Build-Depends: debhelper (>= 10), zlib1g-dev, tofrodos
+Homepage: http://www.advancemame.it/
+Directory: pool/main/a/advancecomp
+Package-List:
+ advancecomp deb utils optional arch=any
+Files:
+ 513c8e190660332f21fe8fddf584e630 1872 advancecomp_2.5-1build1.dsc
+ a2878205e123c465fb74abdd2faea998 1215812 advancecomp_2.5.orig.tar.gz
+ b9b169caf81a8bc5ccbdd190e0a5ad69 3684 advancecomp_2.5-1build1.debian.tar.xz
+Checksums-Sha1:
+ 55578f57dba56af34a7e641ee67f8a972680e7ef 1872 advancecomp_2.5-1build1.dsc
+ 6399370883cbf7bedbf0acb363576a74cc79cbca 1215812 advancecomp_2.5.orig.tar.gz
+ 44e74b17eca84b5a97b293f9117d983d96f6f4c9 3684 advancecomp_2.5-1build1.debian.tar.xz
+Checksums-Sha256:
+ 7c59da7a538c1f7601e76285c6543158aef4161c9f8502fd415d3fea1db3e60a 1872 advancecomp_2.5-1build1.dsc
+ b6b4333453f028565896dd3547bc930f062df82832d7992cc130ca951c2890a1 1215812 advancecomp_2.5.orig.tar.gz
+ 63550f1e8cfed07862631fd24436e6b7d5427522e210ecc695e22dd7e8586bd4 3684 advancecomp_2.5-1build1.debian.tar.xz
+Checksums-Sha512:
+ 84b3659840a1c387a31b4d235b0f8384da7f9ce2a8517290d3cb3efcdc9bd9ded99405355a488625ad100a2d78e62524bafe80b78df416c265359a1d8d5f41b7 1872 advancecomp_2.5-1build1.dsc
+ c508526415dc002dad442e3f55202494ab2c49ecac3f5ea6e1a3fe27d224dd9a1a33dace02f59c18123d3f4bc74e3f03556b1cff6541cb88dcaaa32ac35c0043 1215812 advancecomp_2.5.orig.tar.gz
+ c65c2ab5e8ee4d67abdbbd21ad77d76af7dcc60b524966feec21bbdfd8167505d6ab3918a51f029d9068f11f4a7cb6627ef77d3148f3e9c06790feb902e1e81f 3684 advancecomp_2.5-1build1.debian.tar.xz
+
+Package: adwaita-icon-theme
+Format: 3.0 (quilt)
+Binary: adwaita-icon-theme
+Architecture: all
+Version: 46.0-1
+Priority: optional
+Section: misc
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: Iain Lane <laney@debian.org>, Jeremy Bícha <jbicha@ubuntu.com>, Laurent Bigonville <bigon@debian.org>, Marco Trevisan (Treviño) <marco@ubuntu.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Indep: gettext, libgtk-3-bin (>= 3.24.13), librsvg2-bin, librsvg2-common:native, meson (>= 0.64.0), pkgconf, python3:native
+Vcs-Browser: https://salsa.debian.org/gnome-team/adwaita-icon-theme
+Vcs-Git: https://salsa.debian.org/gnome-team/adwaita-icon-theme.git
+Directory: pool/main/a/adwaita-icon-theme
+Package-List:
+ adwaita-icon-theme deb gnome optional arch=all
+Files:
+ d561133ab256972382112627df0559d1 2231 adwaita-icon-theme_46.0-1.dsc
+ 5da8657eb7b6eead02db7e35bbaea442 4596936 adwaita-icon-theme_46.0.orig.tar.xz
+ 1c39e587debe1d57a38ece87f0c187be 44900 adwaita-icon-theme_46.0-1.debian.tar.xz
+Checksums-Sha1:
+ bb9d67bea538bdbd35154deb969bdb482164637c 2231 adwaita-icon-theme_46.0-1.dsc
+ 259fe2564ff8094cc4b1f3a45681f8d1a10bbde8 4596936 adwaita-icon-theme_46.0.orig.tar.xz
+ 2ad11db13a53d146edd78fb8e30c2c56b5b187b0 44900 adwaita-icon-theme_46.0-1.debian.tar.xz
+Checksums-Sha256:
+ bacc24d24c00cb65e1b3b8692d0f96a85503c9ff1c65efcd10c68ff0bff8eac9 2231 adwaita-icon-theme_46.0-1.dsc
+ 4bcb539bd75d64da385d6fa08cbaa9ddeaceb6ac8e82b85ba6c41117bf5ba64e 4596936 adwaita-icon-theme_46.0.orig.tar.xz
+ 50e9baaa96fd0fdd316a48b474cd955b4e5009e102751d7ea3379460f702373b 44900 adwaita-icon-theme_46.0-1.debian.tar.xz
+Checksums-Sha512:
+ b6be04c9b6cf7af5e83b455679baeb30d4eee7be2b9ab77622a652d9a75e4d0f61d62fe9e81796c99f74ffa9296249713ce0a146b96485eb639c68b44cd94e49 2231 adwaita-icon-theme_46.0-1.dsc
+ a497110a0fbbbb0a7a241842a50666f3b9a874be72dfbb462782126d74a3ae98720e749c3912087679fa971707fedfcac00150973e79a3edaf79355255db6e17 4596936 adwaita-icon-theme_46.0.orig.tar.xz
+ 52aa15885bd6074d173d7ada0a9fe1b3aaaccd51828307e77f1c120f0d2c4c8989e8ac3c386ea4b7c287c818688d5b7f8ba3fc53ae5a16dc59236539b3bf5f1b 44900 adwaita-icon-theme_46.0-1.debian.tar.xz
+
+Package: aide
+Format: 3.0 (quilt)
+Binary: aide, aide-common, aide-dynamic
+Architecture: any all
+Version: 0.18.6-2build2
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Aide Maintainers <aide@packages.debian.org>
+Uploaders: Marc Haber <mh+debian-packages@zugschlus.de>, Hannes von Haugwitz <hannes@vonhaugwitz.com>
+Standards-Version: 4.6.2
+Build-Depends: bison, check, debconf-utils, debhelper-compat (= 13), autoconf-archive, flex (>= 2.5.32), libacl1-dev, libattr1-dev, libaudit-dev [linux-any], libcap-dev [linux-any], libext2fs-dev (>= 1.46.2), libmhash-dev (>= 0.9.7), libpcre2-dev, libselinux1-dev [linux-any], pkg-config, po-debconf (>= 0.5.0), zlib1g-dev
+Testsuite: autopkgtest
+Testsuite-Triggers: s-nail
+Homepage: https://aide.github.io
+Vcs-Browser: https://salsa.debian.org/debian/aide
+Vcs-Git: https://salsa.debian.org/debian/aide.git
+Directory: pool/main/a/aide
+Package-List:
+ aide deb admin optional arch=any
+ aide-common deb admin optional arch=all
+ aide-dynamic deb oldlibs optional arch=all
+Files:
+ 870b9283058607a0bf3e1c561b33ef65 2682 aide_0.18.6-2build2.dsc
+ 3f464e9187dc812af140dd0f3f1c58f7 383127 aide_0.18.6.orig.tar.gz
+ 53e5653cc7dd195c4869ce9007520d86 659 aide_0.18.6.orig.tar.gz.asc
+ ed5ffd3a13e698b45f2f36f2786feda8 105460 aide_0.18.6-2build2.debian.tar.xz
+Checksums-Sha1:
+ 808dd343eb5944141689708899c14710fe2034ec 2682 aide_0.18.6-2build2.dsc
+ c699190eba9fcaa29ee362f57fb1a05dd74d947a 383127 aide_0.18.6.orig.tar.gz
+ c1938afcbf0350590d2da6fe69841a34d8424574 659 aide_0.18.6.orig.tar.gz.asc
+ 272c869a19244fc84220e9a1e6194ae212f00452 105460 aide_0.18.6-2build2.debian.tar.xz
+Checksums-Sha256:
+ 1716d93ac1e7ab50923f9291837f8bfd56aba5d4b33ab014f952a75312ab7d74 2682 aide_0.18.6-2build2.dsc
+ 8ff36ce47d37d0cc987762d5d961346d475de74bba8a1832fd006db6edd3c10e 383127 aide_0.18.6.orig.tar.gz
+ 67708696dbf7231c59d85ea71c41e08dba136533c2a24b0d239248bd44385fae 659 aide_0.18.6.orig.tar.gz.asc
+ 28b8472e744c112ce7fcd3b05986d1d64372aa35197b4371406bd525bf4ddf1b 105460 aide_0.18.6-2build2.debian.tar.xz
+Checksums-Sha512:
+ 7204963e048ff31b5d7310d616a8e65009de07ba495a919ce1c38ad62afdbc2717717538adb5bdb10842be03a18e3a405750ffcb8acb0f8a9acaf769f159e893 2682 aide_0.18.6-2build2.dsc
+ c0e7c366029a401bce4cf44762caecada4d4831bfc2f00ebab6cb818ba259fae5409fdfcc7386d2bc9ca91a8e8fe0eb78927205bc75513578b8a3ccd17183744 383127 aide_0.18.6.orig.tar.gz
+ 8aa3ab8e3f43b6e23fc72b70a054f810b636539560e12dfdb706014a6f342fe2d0a3e56b6854f7847db739e124769cc0eacf80b825ce544626bb3d10598c735b 659 aide_0.18.6.orig.tar.gz.asc
+ 5ebe60e4abc78585bead2d157f11c0f4aa8b5e64a48a0870b7522cf55082996e2b51c5041aecb4e8a21ded879bc1a0d239932f6b1df0e53182b922e94f2e2c92 105460 aide_0.18.6-2build2.debian.tar.xz
+
+Package: alabaster
+Format: 3.0 (quilt)
+Binary: python3-alabaster
+Architecture: all
+Version: 0.7.12-1
+Priority: extra
+Section: misc
+Maintainer: Jeremy T. Bouse <jbouse@debian.org>
+Standards-Version: 4.5.1
+Build-Depends: debhelper (>= 12), dh-python, python3-all, python3-setuptools
+Homepage: https://github.com/bitprophet/alabaster
+Vcs-Browser: https://github.com/jbouse-debian/alabaster
+Vcs-Git: https://github.com/jbouse-debian/alabaster.git
+Directory: pool/main/a/alabaster
+Package-List:
+ python3-alabaster deb python optional arch=all
+Files:
+ 458df7533cabfdc8d07873ef24ac94d0 1730 alabaster_0.7.12-1.dsc
+ 3591827fde96d1dd23970fb05410ed04 11242 alabaster_0.7.12.orig.tar.gz
+ 09b11eb96c7380d0b5143bf5f22e1399 13276 alabaster_0.7.12-1.debian.tar.xz
+Checksums-Sha1:
+ 89a8dcb05dc08c7550ca5d4a63418632eac40a48 1730 alabaster_0.7.12-1.dsc
+ 36c11bd5d8e99e2009b643b7f6e91bf2a0fd573b 11242 alabaster_0.7.12.orig.tar.gz
+ aa5f7b73ef6abac1ce703550c2dbd1e5bdcddc3d 13276 alabaster_0.7.12-1.debian.tar.xz
+Checksums-Sha256:
+ ad6e69fdd7f61c78d7094a95fe9a34f4f4a92ad277f29b0a5640a387b8179cbb 1730 alabaster_0.7.12-1.dsc
+ a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02 11242 alabaster_0.7.12.orig.tar.gz
+ b5fa04db576d040a87b01396ffa094dbaa207c1f8b1ab16989019681fcb976cb 13276 alabaster_0.7.12-1.debian.tar.xz
+Checksums-Sha512:
+ fcc303f217cd201b99d4b567ffc671498872ba087ac25d0056c25763749a587865888f3d74fb157ef6474d48fa1f4972f0e8b3332460d9ee7172d825d599db45 1730 alabaster_0.7.12-1.dsc
+ e3bfd0c92ce01f08d5e6d9dc1ef0967ca1f54827e08756f4a0ba7be8d3b8bec7f2e53a169b831ff5ce2d2548f7f52c6e518bcc513e49bb3e4c38274293aebbac 11242 alabaster_0.7.12.orig.tar.gz
+ c5ccfc5d9c7ba7bacf74bcb3be083a9eba32295f8b3b2b007ab895d3030686ada89830aaf4a9b5601e98642ab3f1f35cf1d09cc6b3d4c959713ffedaad1f8e1c 13276 alabaster_0.7.12-1.debian.tar.xz
+
+Package: alembic
+Format: 3.0 (quilt)
+Binary: alembic, python3-alembic
+Architecture: all
+Version: 1.13.1-3
+Priority: optional
+Section: python
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders:  Thomas Goirand <zigo@debian.org>, Ondřej Nový <onovy@debian.org>,
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-changelog, python3-setuptools, python3-sphinx, python3-sphinx-copybutton, python3-sphinx-paramlinks, python3-typing-extensions
+Build-Depends-Indep: python3-dateutil, python3-editor, python3-mako, python3-pytest, python3-sqlalchemy
+Testsuite: autopkgtest, autopkgtest-pkg-python
+Homepage: https://github.com/sqlalchemy/alembic
+Vcs-Browser: https://salsa.debian.org/python-team/packages/alembic
+Vcs-Git: https://salsa.debian.org/python-team/packages/alembic.git
+Directory: pool/main/a/alembic
+Package-List:
+ alembic deb python optional arch=all
+ python3-alembic deb python optional arch=all
+Files:
+ dce12bed1151e43c133e410769009b1b 2347 alembic_1.13.1-3.dsc
+ 534f02ca3850b1d9b8aeeaa17f16cd06 589046 alembic_1.13.1.orig.tar.gz
+ fe03d246010cdfc97d386a0fbab20e22 7964 alembic_1.13.1-3.debian.tar.xz
+Checksums-Sha1:
+ 031ad716d86a2dc33f26268db55b55fde2724c9f 2347 alembic_1.13.1-3.dsc
+ ab3d154283767371727f772ac45478547db0619d 589046 alembic_1.13.1.orig.tar.gz
+ 0dc327f6ba2d4deed0beef520c9c6fed8cfea84e 7964 alembic_1.13.1-3.debian.tar.xz
+Checksums-Sha256:
+ c92c0d462fd82d8e93eefe65e951b56e318c68b5b4dc4eed0670ce59784a1172 2347 alembic_1.13.1-3.dsc
+ da08bb274aa70a4e161a88b1cf1334fbf63c0833a01a8e4f7a770627dac907cd 589046 alembic_1.13.1.orig.tar.gz
+ 4c649dbd830ec91eb44f33037b0211b7e0a00629b2f384e59c96629ec289c1de 7964 alembic_1.13.1-3.debian.tar.xz
+Checksums-Sha512:
+ 41a7a0aa259733612b5f34f198596419f0b75bc0d766f9dd8ce16cba57bed6cba2a4ca28f390d56c7fdd3a5fd764b711ccb0e82dbb616ad5ed1359235cd01240 2347 alembic_1.13.1-3.dsc
+ 85a94874a4c26e8c38f5fa76c0d4ab428a54c663c5a53547d5652e0f081245080168e4696f3afff5b574a5d2a673f02828d1fd77649ed59a150187030776238b 589046 alembic_1.13.1.orig.tar.gz
+ ff3ced0550b03f3a95da1c2efc54b116e91082a8e7a709c0da06055da8968bb790c875ebfc73f41aea3c90de76b7edad802917bd48c21e01b8b3d327a7516266 7964 alembic_1.13.1-3.debian.tar.xz
+
+Package: alsa-driver
+Format: 3.0 (quilt)
+Binary: linux-sound-base, alsa-base, alsa-base-udeb, alsa-source
+Architecture: all
+Version: 1.0.25+dfsg-0ubuntu7
+Priority: optional
+Section: sound
+Maintainer: Ubuntu Core Developers <ubuntu-devel@lists.ubuntu.com>
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>, Elimar Riesebieter <riesebie@lxtec.de>
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7), po-debconf
+Build-Depends-Indep: autoconf, bzip2, cpio
+Homepage: http://www.alsa-project.org/
+Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-audio-dev/alsa-driver/ubuntu
+Directory: pool/main/a/alsa-driver
+Package-List:
+ alsa-base deb sound optional arch=all
+ alsa-base-udeb udeb debian-installer optional arch=all profile=!noudeb
+ alsa-source deb kernel optional arch=all
+ linux-sound-base deb sound optional arch=all
+Files:
+ e0f84ebf907b0bc0ef69811cb03aced9 2500 alsa-driver_1.0.25+dfsg-0ubuntu7.dsc
+ 5b4349327b0d1200b0a97c58926e15a3 3825058 alsa-driver_1.0.25+dfsg.orig.tar.bz2
+ 0f3169e8cb9c4dd95520fb748a600f16 261976 alsa-driver_1.0.25+dfsg-0ubuntu7.debian.tar.bz2
+Checksums-Sha1:
+ c62d58784d989e85747a55d2b86ed4c085b93728 2500 alsa-driver_1.0.25+dfsg-0ubuntu7.dsc
+ 4f40148f91cb3fcc88ea198916ae5970bfe54eda 3825058 alsa-driver_1.0.25+dfsg.orig.tar.bz2
+ 21b81a9092f6cb36f0d22b392ced3c7b79a1f569 261976 alsa-driver_1.0.25+dfsg-0ubuntu7.debian.tar.bz2
+Checksums-Sha256:
+ 8cef5badf12eed81ca3af75224735873aa4a35f264f6ab2f9aeb27e5d62cb984 2500 alsa-driver_1.0.25+dfsg-0ubuntu7.dsc
+ 5367f37c2228269c31ab656cbbefbaafa7e56b2bba4569b25c13f7d62649188c 3825058 alsa-driver_1.0.25+dfsg.orig.tar.bz2
+ 5e427a5b140aa163c8285ab3d26958db6a5d9e79a563528a2444c72e1dbe22c6 261976 alsa-driver_1.0.25+dfsg-0ubuntu7.debian.tar.bz2
+Checksums-Sha512:
+ bed0f187c9df0648a9ebce9ba83f8e44213707a50aec0e38fcc59b18ea9877de79b44463299e48164726f8c341559e9742bedbf4ceaa248dd0e7e0289d9b48a1 2500 alsa-driver_1.0.25+dfsg-0ubuntu7.dsc
+ b70da829ac8892b38a0a570b29719138c65b8fafb62ee7f905894040171a4b2217885d157ec4770c02b38b29df37a9f3bb062677cc305e4dc108bb107a5d1349 3825058 alsa-driver_1.0.25+dfsg.orig.tar.bz2
+ f943efc300fd59a2fa73621bfcbc663c341995dcb6a8470b52c6e9c687f31657bfb67d547f9a67da41d0bac985cafeec64491463525ee005461701d3a23e274f 261976 alsa-driver_1.0.25+dfsg-0ubuntu7.debian.tar.bz2
+Debian-Vcs-Browser: http://svn.debian.org/wsvn/pkg-alsa/trunk/alsa-driver/
+Debian-Vcs-Svn: svn://svn.debian.org/pkg-alsa/trunk/alsa-driver
+
+Package: alsa-lib
+Format: 3.0 (quilt)
+Binary: libasound2t64, libasound2-dev, libasound2-data, libasound2-udeb, libasound2-doc, libasound2-plugin-smixer, libatopology2t64, libatopology-dev
+Architecture: linux-any all
+Version: 1.2.11-1build2
+Priority: optional
+Section: sound
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>, Elimar Riesebieter <riesebie@lxtec.de>, Luke Yelavich <themuso@ubuntu.com>
+Standards-Version: 4.6.2
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13), python3-dev:native, libpython3-dev
+Build-Depends-Indep: doxygen, graphviz
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential
+Homepage: https://www.alsa-project.org/
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-lib
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-lib.git
+Directory: pool/main/a/alsa-lib
+Package-List:
+ libasound2-data deb libs optional arch=all
+ libasound2-dev deb libdevel optional arch=linux-any
+ libasound2-doc deb doc optional arch=all
+ libasound2-plugin-smixer deb libs optional arch=linux-any
+ libasound2-udeb udeb debian-installer optional arch=linux-any
+ libasound2t64 deb libs optional arch=linux-any
+ libatopology-dev deb libdevel optional arch=linux-any
+ libatopology2t64 deb libs optional arch=linux-any
+Files:
+ cfe8e94eeae0007393cfbd260b0de4f5 3059 alsa-lib_1.2.11-1build2.dsc
+ 1c5870770047b6a520d18a43f49e42ea 1107150 alsa-lib_1.2.11.orig.tar.bz2
+ 8c00bb7fd24d373f3970c5eb3108e52d 833 alsa-lib_1.2.11.orig.tar.bz2.asc
+ e0b84d70e6a0ef4a71da63c88fd31108 33556 alsa-lib_1.2.11-1build2.debian.tar.xz
+Checksums-Sha1:
+ 50d788deb14692c818d5e544efd1a1649e6456a4 3059 alsa-lib_1.2.11-1build2.dsc
+ 67561ca8b507c178321970927097968f49310efc 1107150 alsa-lib_1.2.11.orig.tar.bz2
+ 4098802638dc306de10425249a2eec0cf956acf0 833 alsa-lib_1.2.11.orig.tar.bz2.asc
+ 2ee9aa07e776f5df928642f99a89db4dcb556200 33556 alsa-lib_1.2.11-1build2.debian.tar.xz
+Checksums-Sha256:
+ 94a33ac406163b6641769abe260c5fde35df84add595f837d822d283280df34f 3059 alsa-lib_1.2.11-1build2.dsc
+ 9f3f2f69b995f9ad37359072fbc69a3a88bfba081fc83e9be30e14662795bb4d 1107150 alsa-lib_1.2.11.orig.tar.bz2
+ d9c93a9d8fd4c1ce0f90ebda7570c32612bfd3a6572579e87b0ef29c81b9c584 833 alsa-lib_1.2.11.orig.tar.bz2.asc
+ 6d67e5ddc4814b031848c645eec4a990842b603da525016b988f3fac504dfc46 33556 alsa-lib_1.2.11-1build2.debian.tar.xz
+Checksums-Sha512:
+ d981341fa8b318dcb8ffacb57b43bf0bb9f586c151b548da758fd6f1918f9d306eb521ec612cc9ed8dd5926134c40ac654af520500de0e905d7b615a18771057 3059 alsa-lib_1.2.11-1build2.dsc
+ 7bf2c541dff5262c0302a1c716ca10cdb5105f4e0ad48f3341c3c7e975b0c3ea835a298a05974c3e216a85912c368d8025ba3cdda3ff04a7683133ce5b2a286d 1107150 alsa-lib_1.2.11.orig.tar.bz2
+ 22ebba05f37ffe8e38644907e9037379c826ff36940f0c5a96f1c7abd5c2a87109899c362e242d12f079251b8423b8234ae4b333feddad5e220351828e30c732 833 alsa-lib_1.2.11.orig.tar.bz2.asc
+ d4d8d19a5b4bf4f4ea709f3cdcc5e50aff1197678f670b951a8d44d5d024a73b7532cf736366c6b567ea0e9a8524bfb76d4ef0c711a4e42bb98af5bd9ca21596 33556 alsa-lib_1.2.11-1build2.debian.tar.xz
+
+Package: alsa-topology-conf
+Format: 3.0 (quilt)
+Binary: alsa-topology-conf
+Architecture: all
+Version: 1.2.5.1-2
+Priority: optional
+Section: misc
+Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>, Elimar Riesebieter <riesebie@lxtec.de>, Luke Yelavich <themuso@ubuntu.com>
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13), alsa-utils (>= 1.2.1)
+Homepage: https://www.alsa-project.org/
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-topology-conf
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-topology-conf.git
+Directory: pool/main/a/alsa-topology-conf
+Package-List:
+ alsa-topology-conf deb libs optional arch=all
+Files:
+ 12c1566eec17f85c8d369ae9e2ee040f 2406 alsa-topology-conf_1.2.5.1-2.dsc
+ 066d6a980e09a2fa44b4cc1d06ecc0ea 11697 alsa-topology-conf_1.2.5.1.orig.tar.bz2
+ f3638b7d6f5e7475b8ed4015478e3428 833 alsa-topology-conf_1.2.5.1.orig.tar.bz2.asc
+ 3a6c117b29cfd6b20036f75e7fb62a59 4504 alsa-topology-conf_1.2.5.1-2.debian.tar.xz
+Checksums-Sha1:
+ 0922412ddf9e227dde0e7ed2d6a5e98b8c4ad4ae 2406 alsa-topology-conf_1.2.5.1-2.dsc
+ 6ac6a385688604cb17f5453dc444e41f99b24838 11697 alsa-topology-conf_1.2.5.1.orig.tar.bz2
+ 4635bed6ba40db005c6e1d536e9f6104d59cd8e2 833 alsa-topology-conf_1.2.5.1.orig.tar.bz2.asc
+ 36f69f31400fdbd34b20864ae85edb44b57626e8 4504 alsa-topology-conf_1.2.5.1-2.debian.tar.xz
+Checksums-Sha256:
+ cbc142a55f18350f6db5c8f777032f28e72d087053b09344c8f69c5fc0b601a4 2406 alsa-topology-conf_1.2.5.1-2.dsc
+ f7c5bae1545abcd73824bc97f4e72c340e11abea188ba0f1c06f5e0ad776b179 11697 alsa-topology-conf_1.2.5.1.orig.tar.bz2
+ 6430ca4c47ca628ec33c61741f1f79f6ca9f9261b3b66022c3b1a7c1290a2d5f 833 alsa-topology-conf_1.2.5.1.orig.tar.bz2.asc
+ 5928f282a8cb2f74259e1774c35f42cdbdc89781774e5eb38c53e7b763329360 4504 alsa-topology-conf_1.2.5.1-2.debian.tar.xz
+Checksums-Sha512:
+ cd6374963d7f1a56bef3905cde2d4fd79f2afd0ecf060ef7d3c01767bb0f6c8d588d555a133bcd1f4c0c0d7178ee6c93a374489933e8e46df14dde473c572257 2406 alsa-topology-conf_1.2.5.1-2.dsc
+ b34176b213e1afcb61fee19b569d6422a7692b62cf08b0ef651f2fbb1eefe49f25ca6386d0bfcec7152d4b5ed3daa84edb900181d40169e777751ae033125374 11697 alsa-topology-conf_1.2.5.1.orig.tar.bz2
+ f0bf4fbd53f50ca53cf951bb0023e893f5419c3f3f5884aa5c561d2b82f30394d142a00ac0db87040d94a5ce72e4973575ed44d652a86dc1fd526135e9cc3261 833 alsa-topology-conf_1.2.5.1.orig.tar.bz2.asc
+ 2c2e9c396cbffc2a45396517c598bad4a29bec0b060c59c7dfd2f3b6dab3237aac1418a65597014ea41c74b3c13f24c5f1c174a00996680f3c3ee924c4375f02 4504 alsa-topology-conf_1.2.5.1-2.debian.tar.xz
+
+Package: alsa-ucm-conf
+Format: 3.0 (quilt)
+Binary: alsa-ucm-conf
+Architecture: all
+Version: 1.2.10-1ubuntu5
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>, Elimar Riesebieter <riesebie@lxtec.de>, Luke Yelavich <themuso@ubuntu.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: https://www.alsa-project.org/
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-ucm-conf
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-ucm-conf.git
+Directory: pool/main/a/alsa-ucm-conf
+Package-List:
+ alsa-ucm-conf deb libs optional arch=all
+Files:
+ adf39abd003a5892d292b2ca3b31f80a 2174 alsa-ucm-conf_1.2.10-1ubuntu5.dsc
+ fd158570990bf8c99dac52a585afc328 44749 alsa-ucm-conf_1.2.10.orig.tar.bz2
+ bc7d5b2a759b20401557aad6ce8810c1 10252 alsa-ucm-conf_1.2.10-1ubuntu5.debian.tar.xz
+Checksums-Sha1:
+ 29e8c00d9495501ca85b07f0a60cbff0fd4ce693 2174 alsa-ucm-conf_1.2.10-1ubuntu5.dsc
+ 5f1ed71a3e30698b6467c2572896fda146f6f74b 44749 alsa-ucm-conf_1.2.10.orig.tar.bz2
+ d206277382713e46410a0ba95eed1bd8b78f8404 10252 alsa-ucm-conf_1.2.10-1ubuntu5.debian.tar.xz
+Checksums-Sha256:
+ 8ed44ea3bdaaef78719af8b02a03942b658d67ba2e9f657ba9b7c2db086608e4 2174 alsa-ucm-conf_1.2.10-1ubuntu5.dsc
+ 9c21e3f01ff00baa758df17e867cd36e24ebb41a6bec49737e99105e16f2ae97 44749 alsa-ucm-conf_1.2.10.orig.tar.bz2
+ 73966345ca427adb40849d7146b6bd711b3d9940426c393086b1d3c31f649e8c 10252 alsa-ucm-conf_1.2.10-1ubuntu5.debian.tar.xz
+Checksums-Sha512:
+ 69553f578eec77bd9987230e8f6a548564fb60f11009611832f182b841c19ca1ccbf96567a3ff37fae0d0ac0bfaa049f2e3dc80ec0c125c64e687dba5e585de6 2174 alsa-ucm-conf_1.2.10-1ubuntu5.dsc
+ 172956a2c127e9afa5be9c6ada43bfa9fda825823f8f6acbe252edef3381afe3adfa3299c1419f04375599be7721a551c6800be99db44b091611aeb824ffcd72 44749 alsa-ucm-conf_1.2.10.orig.tar.bz2
+ aabdc824f15ba6f74ffdab6478bd3006cda27051c82b55e35ed46f9d12e32c19d37f89f365c9380022837f07bb3a249ec3d0615ab40da66f0313275ef67befcf 10252 alsa-ucm-conf_1.2.10-1ubuntu5.debian.tar.xz
+
+Package: alsa-utils
+Format: 3.0 (quilt)
+Binary: alsa-utils, alsa-utils-udeb
+Architecture: linux-any
+Version: 1.2.9-1ubuntu5
+Priority: optional
+Section: sound
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>, Elimar Riesebieter <riesebie@lxtec.de>, Luke Yelavich <themuso@ubuntu.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), libasound2-dev (>= 1.2.1), libatopology-dev (>= 1.2.2), libfftw3-dev, libncurses-dev, libsamplerate-dev, pkg-config, python3-docutils, systemd, xmlto
+Homepage: https://www.alsa-project.org/
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-utils
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-utils.git
+Directory: pool/main/a/alsa-utils
+Package-List:
+ alsa-utils deb sound optional arch=linux-any
+ alsa-utils-udeb udeb debian-installer optional arch=linux-any
+Files:
+ 01c78ab3ad7a69350cdc3a4a6c4480c3 2648 alsa-utils_1.2.9-1ubuntu5.dsc
+ 095a31a5924695a7cc5b40f9574ba85e 1598424 alsa-utils_1.2.9.orig.tar.bz2
+ 749c5bf5435c036ed19e2ac1c5a71adb 833 alsa-utils_1.2.9.orig.tar.bz2.asc
+ 77ab16028620c97cb106cc92e4f6a35b 33532 alsa-utils_1.2.9-1ubuntu5.debian.tar.xz
+Checksums-Sha1:
+ 14fac774d9bf3980496e9d6ddd91b3a7907bff80 2648 alsa-utils_1.2.9-1ubuntu5.dsc
+ 58425100d7a0ee83c8d50463b484f650345b269f 1598424 alsa-utils_1.2.9.orig.tar.bz2
+ 15b2487f502a03db3f8ce5ec8ddc545f897921f3 833 alsa-utils_1.2.9.orig.tar.bz2.asc
+ dead159a44d0f74a3fc5ea77dd3f931f628ed453 33532 alsa-utils_1.2.9-1ubuntu5.debian.tar.xz
+Checksums-Sha256:
+ 994988da741e594e358de8cfdf2d75d4264c52e81527f8ae64c07f6c5a709178 2648 alsa-utils_1.2.9-1ubuntu5.dsc
+ e7623d4525595f92e11ce25ee9a97f2040a14c6e4dcd027aa96e06cbce7817bd 1598424 alsa-utils_1.2.9.orig.tar.bz2
+ c2be396b14efdf07bc418fd6bf1d566f0065bbacdf6836fed42c0b2141653382 833 alsa-utils_1.2.9.orig.tar.bz2.asc
+ 6f9dd4153d678b53785e9b3529b606aa101ef3fcf383271f60fa040df4eb6ca7 33532 alsa-utils_1.2.9-1ubuntu5.debian.tar.xz
+Checksums-Sha512:
+ 4c57cab361b9f0f4dde0d04669a6ce58b1ff6ccba60c7aa5198fc8b45c1017c9bfd0a29ccd704dc871e272b2bb77f5c9973f57e60ad27f8f0fc48566ef2569be 2648 alsa-utils_1.2.9-1ubuntu5.dsc
+ f46e13fd57ed05ee38d3fa655e57b14335ecf0664dbe03275808383d87d28df153a81151e2e9d8786625f09929c567c89e145508a706a70eeb91ac1b11fb2fd4 1598424 alsa-utils_1.2.9.orig.tar.bz2
+ ae43ab5b4e2646167179d73c7be9becc12dcdfacf20795edd5dff310813730db1623a7db5476accf394c42c21df9f46b58ba443e167d9bef016052abcc38c586 833 alsa-utils_1.2.9.orig.tar.bz2.asc
+ a276682a5f0f51e1038461a223be6108d3af3c5e8de86ca6a8bc366bcb0986262c9c9601d117a9d28d434efdfd958c24830bf3b6ec3bc5b2ecc5f01425409d0a 33532 alsa-utils_1.2.9-1ubuntu5.debian.tar.xz
+
+Package: amavisd-new
+Format: 3.0 (quilt)
+Binary: amavisd-new, amavisd-new-postfix
+Architecture: all
+Version: 1:2.13.0-3ubuntu1
+Priority: extra
+Section: mail
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Brian May <bam@debian.org>
+Uploaders: Henrique de Moraes Holschuh <hmh@debian.org>, Alexander Wirt <formorer@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-apport, dh-dist-zilla, dh-exec, libberkeleydb-perl, libdbi-perl, libmail-dkim-perl, libmime-tools-perl, libnet-ldap-perl, libnet-libidn2-perl | libnet-libidn-perl, libnet-server-perl, libnet-snmp-perl, libtest-class-perl, libtest-most-perl, libunix-syslog-perl, po-debconf, spamassassin
+Testsuite: autopkgtest
+Homepage: https://www.ijs.si/software/amavisd/
+Vcs-Browser: https://salsa.debian.org/debian/amavisd-new
+Vcs-Git: https://salsa.debian.org/debian/amavisd-new.git
+Directory: pool/main/a/amavisd-new
+Package-List:
+ amavisd-new deb mail optional arch=all
+ amavisd-new-postfix deb mail optional arch=all
+Files:
+ fb6fcfb9238df88afd06297d6ffcf6ab 2448 amavisd-new_2.13.0-3ubuntu1.dsc
+ 3b094a92188a8058c3826b265895253f 890624 amavisd-new_2.13.0.orig.tar.bz2
+ 5b103b3db1ee0bf99a14bd070ce5a696 77836 amavisd-new_2.13.0-3ubuntu1.debian.tar.xz
+Checksums-Sha1:
+ 5ba560ad2ce81031a8ca3763521f7295573de4ed 2448 amavisd-new_2.13.0-3ubuntu1.dsc
+ 158b72a0328b5654a2a50a7d036e8ce99fc3a473 890624 amavisd-new_2.13.0.orig.tar.bz2
+ 1209e6456f09c876c236bf422c195ab5223317d5 77836 amavisd-new_2.13.0-3ubuntu1.debian.tar.xz
+Checksums-Sha256:
+ 0c9667efaac679f1115b710582fbdb1d1dbe8888070080fcec2953735eecaa60 2448 amavisd-new_2.13.0-3ubuntu1.dsc
+ deb6e99182f0ee67c382eab454220106aa5d0fd18a564236710f59f07600069b 890624 amavisd-new_2.13.0.orig.tar.bz2
+ 512129d3b6a1b1f5a4045c674c0712fc5670ebff514215cb0db386a12e7ffda5 77836 amavisd-new_2.13.0-3ubuntu1.debian.tar.xz
+Checksums-Sha512:
+ 751b56d0cc87b07fcef66829b0a0eab2075ded06413185a090893bac7ae313ddb4ca51fabc4589dc4909eba71eb96f4a8d94d902dba85b9a3397564d40e8997f 2448 amavisd-new_2.13.0-3ubuntu1.dsc
+ 439590d733790225ae0b270475480ae53ea4125dbb8e9f715fb482cc02b59c8add5a7d28a72b996d5b5678cee92a9aa3aeb9939810a97cc540227889e894ae7c 890624 amavisd-new_2.13.0.orig.tar.bz2
+ bf094f3c373dcef6a1b8fb50f56b060a6b585d48d8a2790ecf627b9b69f4558e4ac4d5789a64116c017ff151f6ca1b109e7b65e9731a4471201bf369ed943b9d 77836 amavisd-new_2.13.0-3ubuntu1.debian.tar.xz
+
+Package: amd64-microcode
+Format: 3.0 (native)
+Binary: amd64-microcode
+Architecture: i386 amd64 x32
+Version: 3.20231019.1ubuntu2
+Priority: extra
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Uploaders: Giacomo Catenazzi <cate@debian.org>
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 9)
+Vcs-Browser: https://salsa.debian.org/hmh/amd64-microcode
+Vcs-Git: https://salsa.debian.org/hmh/amd64-microcode.git
+Directory: pool/main/a/amd64-microcode
+Package-List:
+ amd64-microcode deb non-free-firmware/admin standard arch=i386,amd64,x32
+Files:
+ 80d598d84fa35f6ae23df57aefe1b145 1831 amd64-microcode_3.20231019.1ubuntu2.dsc
+ 1b8c3a0a2266a8324b044ba1736ecdfd 167100 amd64-microcode_3.20231019.1ubuntu2.tar.xz
+Checksums-Sha1:
+ d898b9dda2fd26305d0c9bc48fa2d927fc2b480a 1831 amd64-microcode_3.20231019.1ubuntu2.dsc
+ 0691e9cde5ae22bfe71293085815003a2d0c34b1 167100 amd64-microcode_3.20231019.1ubuntu2.tar.xz
+Checksums-Sha256:
+ 2b1c5f818164e0814ff329a3c6755aa256752a921402f862a5922307de929a0a 1831 amd64-microcode_3.20231019.1ubuntu2.dsc
+ 8c09a365b34f04e218ad393777678bf653bcdaff1e4810af7331ed7e0127e9bd 167100 amd64-microcode_3.20231019.1ubuntu2.tar.xz
+Checksums-Sha512:
+ 8cf2057e2a25776a7095a575adc5d4904fc5a55875b87936f0c6b77e23d43da67ac5ed1923704404125d6862a68d18281d6ee3e1fd93e25c4f75799e8fb7a985 1831 amd64-microcode_3.20231019.1ubuntu2.dsc
+ 2f4b9371e380aaac19a3a2e7bf00b7c9849ecd33120142ddbe464f0304a6fb61d1346d926dd6895423241d8fef6dfeba581ee14f461a8042e3d16bd328cbaeba 167100 amd64-microcode_3.20231019.1ubuntu2.tar.xz
+Autobuild: yes
+
+Package: anacron
+Format: 3.0 (quilt)
+Binary: anacron
+Architecture: any
+Version: 2.3-39ubuntu2
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Lance Lin <lq27267@gmail.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Homepage: http://sourceforge.net/projects/anacron/
+Vcs-Browser: https://salsa.debian.org/debian/anacron
+Vcs-Git: https://salsa.debian.org/debian/anacron.git
+Directory: pool/main/a/anacron
+Package-List:
+ anacron deb admin optional arch=any
+Files:
+ ab417836348e3c17219ab06bd75d4697 1939 anacron_2.3-39ubuntu2.dsc
+ 9fdfc50f5741643332722a9145146278 24085 anacron_2.3.orig.tar.gz
+ 89111cea16a849457523b5fe75d2bf35 24904 anacron_2.3-39ubuntu2.debian.tar.xz
+Checksums-Sha1:
+ 091ff4e9703674d5b5f3a36cd5dacadba78d6f6f 1939 anacron_2.3-39ubuntu2.dsc
+ 12d8ae5b19b859931c81c85fa7e07477b78545a0 24085 anacron_2.3.orig.tar.gz
+ 5a4b3555cb51ee0c732f5a3336ba2a317e0fb001 24904 anacron_2.3-39ubuntu2.debian.tar.xz
+Checksums-Sha256:
+ a3525691393092b460ffd591143a2aa839bb65cf6f3d82ea88a0705db0e9b7cb 1939 anacron_2.3-39ubuntu2.dsc
+ ceee7520bc49f861499f7eff4c7990d21d39d8a1d3e24449947a7ed5aa34761d 24085 anacron_2.3.orig.tar.gz
+ c7878b17d716082745d00a5a52473f13da176adff77c61aafdadb579f5f136d4 24904 anacron_2.3-39ubuntu2.debian.tar.xz
+Checksums-Sha512:
+ b69866cfb0c7d410f97e5fb1063b1294f1dd38107a37923886da27da1f5d09520cb224dc38cb0e4847dd079e3cfed975cb4b4d7c5393eb0231a720a6c5270602 1939 anacron_2.3-39ubuntu2.dsc
+ a6f73d41c336f1ff4b0fbff31d281883d7177bd0c8d18ee4fd56cae85347b6f2e689791993678c3bc8ac26e9a10eb5055258038d7fff21bd27815c1cc2794ce3 24085 anacron_2.3.orig.tar.gz
+ 29977f8253a4d10bd104a985d81162a9d123a9126a5dd5c0385c3c1f8034d5e964a4caad3d5cad85a918bcaca8ba4dea4f33b0e9241fcdf0a47393cc3d797d67 24904 anacron_2.3-39ubuntu2.debian.tar.xz
+
+Package: anope
+Format: 3.0 (quilt)
+Binary: anope
+Architecture: any
+Version: 2.0.12-1build2
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Dominic Hargreaves <dom@earth.li>
+Standards-Version: 4.1.4
+Build-Depends: debhelper-compat (= 13), cmake, default-libmysqlclient-dev, libldap2-dev, libpcre2-dev, libgnutls28-dev, libsqlite3-dev, dh-apparmor
+Homepage: http://www.anope.org/
+Vcs-Browser: https://salsa.debian.org/dom/anope
+Vcs-Git: https://salsa.debian.org/dom/anope.git
+Directory: pool/main/a/anope
+Package-List:
+ anope deb net optional arch=any
+Files:
+ 77ae1c317c91d1b73d57080b190ff87d 1993 anope_2.0.12-1build2.dsc
+ 92be05d8e726178e5c36217ce2043217 1814509 anope_2.0.12.orig.tar.gz
+ f0450a2d9dad3231bb44eb0bd4a71345 42872 anope_2.0.12-1build2.debian.tar.xz
+Checksums-Sha1:
+ 9e33c59640e47bbfeab521846bedadb730e8050d 1993 anope_2.0.12-1build2.dsc
+ 3a7af8b569a5b48a94cb19bd6377e0e98c542911 1814509 anope_2.0.12.orig.tar.gz
+ e2ac65a7b68efe046dcce3d1a5956017e71624e1 42872 anope_2.0.12-1build2.debian.tar.xz
+Checksums-Sha256:
+ c0806323205cbf230b305ee8dce2b95384a2691223d4ed9c2c7b8fdead73cbd1 1993 anope_2.0.12-1build2.dsc
+ eeba1331eaa02a0b05347209604e22df8052d9b10fd19a7633ad1e837f003ff0 1814509 anope_2.0.12.orig.tar.gz
+ e090a2376a569f7c30993b6b690ea30e404610e3f005cd69901bbb81a2179e9f 42872 anope_2.0.12-1build2.debian.tar.xz
+Checksums-Sha512:
+ 83bf6084309ee76947e8e08ef750a14af905c5e4803fe79f6b9557c6a6f18fba82bb734b9b39b3e0ece898c165153306bdc1536e8c62536f1b8754767374bd46 1993 anope_2.0.12-1build2.dsc
+ a18bd143de9b0b213682797ba9600bd27a68595d04036791f970b24ad57ee53bc049fce1a1d211605a547ebc9f1ce50ea1f0a7ea8990590986cc359d7f42007f 1814509 anope_2.0.12.orig.tar.gz
+ 741d2b726264742ce6804fb6cbd4324ee5b3f86de32f9aad02793de15e6c1a8fe763bd75ef007b5057d3ebfa17f424e26be5eb116b9af1f1d29a970cfeef95aa 42872 anope_2.0.12-1build2.debian.tar.xz
+
+Package: aodh
+Format: 3.0 (quilt)
+Binary: aodh-api, aodh-doc, aodh-evaluator, aodh-expirer, aodh-listener, aodh-notifier, python3-aodh, aodh-common
+Architecture: all
+Version: 1:18.0.0-0ubuntu1
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders:  Thomas Goirand <zigo@debian.org>,
+Standards-Version: 4.6.1
+Build-Depends: apache2-dev, debhelper-compat (= 13), dh-apache2, dh-python, openstack-pkg-tools (>= 119ubuntu1~), python3-all, python3-pbr (>= 2.0.0), python3-setuptools, python3-sphinx (>= 2.0.0)
+Build-Depends-Indep: crudini, python3-babel, python3-cachetools (>= 1.1.6), python3-cotyledon (>= 1.7.3), python3-coverage, python3-croniter (>= 0.3.4), python3-dateutil (>= 2.8.2), python3-debtcollector (>= 1.2.0), python3-fixtures (>= 1.3.1), python3-futurist (>= 0.11.0), python3-gabbi (>= 1.30.0), python3-gnocchiclient (>= 6.0.0), python3-heatclient (>= 1.17.0), python3-jsonschema (>= 3.2.0), python3-keystoneauth1 (>= 2.1), python3-keystoneclient (>= 1:1.6.0), python3-keystonemiddleware (>= 5.1.0), python3-lxml (>= 2.3), python3-mock (>= 2.0.0), python3-octaviaclient (>= 1.8.0), python3-openstackdocstheme (>= 2.2.1), python3-oslo.config (>= 1:6.8.0), python3-oslo.context (>= 1:2.22.0), python3-oslo.db (>= 11.0.0), python3-oslo.i18n (>= 1.5.0), python3-oslo.log (>= 4.3.0), python3-oslo.messaging (>= 5.2.0), python3-oslo.middleware (>= 3.22.0), python3-oslo.policy (>= 3.7.0), python3-oslo.reports (>= 1.18.0), python3-oslo.utils (>= 3.5.0), python3-oslo.upgradecheck (>= 1.3.0), python3-oslosphinx, python3-oslotest (>= 1:2.15.0), python3-pastedeploy (>= 1.5.0), python3-pecan (>= 0.8.0), python3-psycopg2, python3-pymysql, python3-reno, python3-requests (>= 2.5.2), python3-retrying, python3-six (>= 1.9.0), python3-sphinxcontrib-pecanwsme (>= 0.10.0), python3-sphinxcontrib.httpdomain (>= 1.8.0), python3-sqlalchemy (>= 1.4.1), python3-sqlalchemy-utils (>= 0.39.0), python3-stestr (>= 2.0.0), python3-stevedore (>= 1:1.5.0), python3-tempest, python3-tenacity (>= 3.2.1), python3-testresources (>= 2.0.0), python3-testscenarios, python3-tooz (>= 1.28.0), python3-tz (>= 2013.6), python3-voluptuous (>= 0.8.10), python3-webob (>= 1:1.2.3), python3-webtest (>= 3.0.0), python3-werkzeug, python3-wsme (>= 0.12.1), subunit, testrepository
+Testsuite: autopkgtest, autopkgtest-pkg-python
+Testsuite-Triggers: rabbitmq-server
+Homepage: https://opendev.org/openstack/aodh
+Vcs-Git: https://git.launchpad.net/~ubuntu-openstack-dev/ubuntu/+source/aodh
+Directory: pool/main/a/aodh
+Package-List:
+ aodh-api deb web optional arch=all
+ aodh-common deb web optional arch=all
+ aodh-doc deb doc optional arch=all
+ aodh-evaluator deb web optional arch=all
+ aodh-expirer deb web optional arch=all
+ aodh-listener deb web optional arch=all
+ aodh-notifier deb web optional arch=all
+ python3-aodh deb python optional arch=all
+Files:
+ ea763b19ea82d8494c8ecd8ad3baac94 4318 aodh_18.0.0-0ubuntu1.dsc
+ 1bbf33334ec1669bb0f51843ad3091c1 253509 aodh_18.0.0.orig.tar.gz
+ 8af4ea0739654a415c8c6099466a3bd5 14944 aodh_18.0.0-0ubuntu1.debian.tar.xz
+Checksums-Sha1:
+ 6f34eb91b39c35bad40c9403c927b6aa836b2c2e 4318 aodh_18.0.0-0ubuntu1.dsc
+ 89485dd50bb82b64741e321941c91f569dc62bac 253509 aodh_18.0.0.orig.tar.gz
+ 8169a7a20398953af964ac3df1b868a851bc6754 14944 aodh_18.0.0-0ubuntu1.debian.tar.xz
+Checksums-Sha256:
+ 6542e9e6bb3069b0bb230a796b0c6863ca9a837baf66b473780caf76c1c5a48f 4318 aodh_18.0.0-0ubuntu1.dsc
+ f1472991e7c60ad603d77bfac47b0a17af187dfe3338ebe2b6e7fcf326539768 253509 aodh_18.0.0.orig.tar.gz
+ 48509bcd2b913f9d05ac62972ff86d2d33c9de82e6757fa1cd468d3a98af036b 14944 aodh_18.0.0-0ubuntu1.debian.tar.xz
+Checksums-Sha512:
+ 1c41a1a1bd44c8ab1460083cf5ea37885e5d1957207dd7bb107bf0c232597f886f1df48ef148cde075360ec807c8d0122d8e8b72cc675e955e4b1d0fdf20b30f 4318 aodh_18.0.0-0ubuntu1.dsc
+ 42fde08ad9a2c2d3551c15cfbfa06f507988dceea40a68cd6d1e0424e83a302c9f61acf5188795a0f5d9603a205422d000ef4e473c0299d72284b51c7c04f44f 253509 aodh_18.0.0.orig.tar.gz
+ e436202984e915d9810af52c4d7ea453b091227ad30a36b17e5d58379be9148996184ea349794847b13095bd2b8a46c34b5ee82d8b040ab0b7463a6d79f3de5c 14944 aodh_18.0.0-0ubuntu1.debian.tar.xz
+
+Package: aom
+Format: 3.0 (quilt)
+Binary: aom-tools, libaom3, libaom-dev, libaom-doc
+Architecture: any all
+Version: 3.8.2-2build1
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Uploaders: James Cowgill <jcowgill@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: cmake (>= 3.6), debhelper-compat (= 13), libyuv-dev, libwebm-dev (>= 1.0.0.30-2~), pkgconf, yasm [any-amd64 any-i386], ffmpeg <!nocheck>, bc <!nocheck>
+Build-Depends-Indep: doxygen
+Testsuite: autopkgtest
+Testsuite-Triggers: bc, build-essential, ffmpeg, pkg-config
+Homepage: https://aomedia.googlesource.com/aom/
+Vcs-Browser: https://salsa.debian.org/multimedia-team/aom
+Vcs-Git: https://salsa.debian.org/multimedia-team/aom.git
+Directory: pool/main/a/aom
+Package-List:
+ aom-tools deb video optional arch=any
+ libaom-dev deb libdevel optional arch=any
+ libaom-doc deb doc optional arch=all
+ libaom3 deb libs optional arch=any
+Files:
+ 4817ce49b90f0e8eda51391c212cd974 2420 aom_3.8.2-2build1.dsc
+ 1548c63ea38e8e4626e347b9e6b73b87 5466676 aom_3.8.2.orig.tar.gz
+ cf5ccc95b57dc63e226b22ab86bc0b68 20144 aom_3.8.2-2build1.debian.tar.xz
+Checksums-Sha1:
+ 68861214625e0556b0cf077053b7bebf0561c414 2420 aom_3.8.2-2build1.dsc
+ 1352e78eec2e0029b681e8b1f37a522903391d4c 5466676 aom_3.8.2.orig.tar.gz
+ fc717054fddae332e0a6fef1bdfc59c67ae172de 20144 aom_3.8.2-2build1.debian.tar.xz
+Checksums-Sha256:
+ 8d9fcc5e6610aacfbf61e5da4e5360028502c5884baa7d8ef7b46523580ecef9 2420 aom_3.8.2-2build1.dsc
+ 08be381e014c3cf508293f9127c8e24cc35262c6e9c805b0a8313cebf99cbcda 5466676 aom_3.8.2.orig.tar.gz
+ 575b041a06e936d44e55caa649e01c3b1ae4678d880568d5d3a4063afcd4f39b 20144 aom_3.8.2-2build1.debian.tar.xz
+Checksums-Sha512:
+ e2be163be3897b5fd263fd2ff5108699f3eb9908988900e10507e487bdd2e843e30d930772c7c2c2ad1985198f8a64261896b4211edd5ba48cd4f59be1958bf0 2420 aom_3.8.2-2build1.dsc
+ fca573bab8653fb99773377444c8890325ba0ba4d2cde7cdcbd5aba3465859b297df3ba9343f5917a46284413743efb0730646ac720bb4abf8324875103ab2e7 5466676 aom_3.8.2.orig.tar.gz
+ 6eb65507d754b1ef1bd7c0da4757e6f7c1b10c1bc85e82f90164a9e14c14021eee85dfed93f0144c6879e60fc86bbe669f6083af018f3a7d3abaf954fc5eec61 20144 aom_3.8.2-2build1.debian.tar.xz
+
+Package: apache2
+Format: 3.0 (quilt)
+Binary: apache2, apache2-data, apache2-bin, apache2-utils, apache2-suexec-pristine, apache2-suexec-custom, apache2-doc, apache2-dev, apache2-ssl-dev, libapache2-mod-md, libapache2-mod-proxy-uwsgi
+Architecture: any all
+Version: 2.4.58-1ubuntu8
+Priority: optional
+Section: web
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Uploaders: Stefan Fritsch <sf@debian.org>, Arno Töll <arno@debian.org>, Ondřej Surý <ondrej@debian.org>, Yadd <yadd@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dpkg-dev (>= 1.16.1~), bison, gawk | awk, jdupes, libapr1-dev, libaprutil1-dev, libbrotli-dev, liblua5.4-dev, libnghttp2-dev, libpcre2-dev, libssl-dev, libxml2-dev, lsb-release, perl, zlib1g-dev, libcurl4-openssl-dev | libcurl4-dev, libjansson-dev
+Build-Conflicts: autoconf2.13
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential, curl, dpkg-dev, expect, gcc, libanyevent-perl, libcrypt-ssleay-perl, libdatetime-perl, libfcgi-perl, libhtml-parser-perl, libhttp-dav-perl, libnet-ssleay-perl, libpcre2-dev, libprotocol-http2-perl, libtime-hires-perl, libwww-perl, nghttp2-client, perl-doc, ssl-cert, wget
+Homepage: https://httpd.apache.org/
+Vcs-Browser: https://salsa.debian.org/apache-team/apache2
+Vcs-Git: https://salsa.debian.org/apache-team/apache2.git
+Directory: pool/main/a/apache2
+Package-List:
+ apache2 deb httpd optional arch=any
+ apache2-bin deb httpd optional arch=any
+ apache2-data deb httpd optional arch=all
+ apache2-dev deb httpd optional arch=any
+ apache2-doc deb doc optional arch=all
+ apache2-ssl-dev deb httpd optional arch=any
+ apache2-suexec-custom deb httpd optional arch=any
+ apache2-suexec-pristine deb httpd optional arch=any
+ apache2-utils deb httpd optional arch=any
+ libapache2-mod-md deb oldlibs optional arch=any
+ libapache2-mod-proxy-uwsgi deb oldlibs optional arch=any
+Files:
+ 3c477fa7c6af09db546d345234598e05 3385 apache2_2.4.58-1ubuntu8.dsc
+ 2b9283d78fe42070d1385508fb31fbe5 9825177 apache2_2.4.58.orig.tar.gz
+ 2ead95f221930fa290599eef06769449 920692 apache2_2.4.58-1ubuntu8.debian.tar.xz
+Checksums-Sha1:
+ 174604a0884d08964e280652f274aa8788cbd3dd 3385 apache2_2.4.58-1ubuntu8.dsc
+ cd04721a2d9abfc634c895853cd555ac659b81e8 9825177 apache2_2.4.58.orig.tar.gz
+ 83ebd01dc86c9a901180ffcf247af6e37ec7fcc8 920692 apache2_2.4.58-1ubuntu8.debian.tar.xz
+Checksums-Sha256:
+ e2370044f3352b920cb0b93499122f4188338297a0b594a1f1b6d964119696cb 3385 apache2_2.4.58-1ubuntu8.dsc
+ 503a7da4a4a27fd496037998b17078dc9fe004db32c657c96cce8356b8aa2eb6 9825177 apache2_2.4.58.orig.tar.gz
+ cd00ec22bcfbd05f74d828904d97331ddae86e0199aeadfa4cc68f944e4df235 920692 apache2_2.4.58-1ubuntu8.debian.tar.xz
+Checksums-Sha512:
+ fe3848cb035ded8cb17e5b924194b01ce5f06900fc417034fb6f26bf8c041de836a7dff866b806eedd5604145c78651cfb95ba24086f1b483dd751e1b4a9aa9f 3385 apache2_2.4.58-1ubuntu8.dsc
+ 5c11faf0572035ef67b27775d975999411c689cb774553175299a9e99b63d3d7138b0c7f15048ec28038494d8513689f916202c2289d557947d8b190d46ca9f3 9825177 apache2_2.4.58.orig.tar.gz
+ 8f7ea7f99181d2f848a2ca04afbfd516133b6f0f7986ec3e1b2fb2658df05c39c574300620fc28d27eede69c3248bd7e1be72aa92a8d6407cd4a01250f492dc2 920692 apache2_2.4.58-1ubuntu8.debian.tar.xz
+
+Package: apg
+Format: 3.0 (quilt)
+Binary: apg
+Architecture: any
+Version: 2.2.3.dfsg.1-5build3
+Priority: optional
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Marc Haber <mh+debian-packages@zugschlus.de>
+Standards-Version: 4.1.0
+Build-Depends: debhelper (>= 9)
+Homepage: http://www.adel.nursat.kz/apg/
+Vcs-Browser: http://git.debian.org/?p=collab-maint/apg.git;a=summary
+Vcs-Git: git://git.debian.org/git/collab-maint/apg.git
+Directory: pool/main/a/apg
+Package-List:
+ apg deb admin optional arch=any
+Files:
+ be3a4a286a1c5118e7f9744ae3fe92a6 1971 apg_2.2.3.dfsg.1-5build3.dsc
+ 7e6292f39d5add6be79b5939d40ceca9 83578 apg_2.2.3.dfsg.1.orig.tar.gz
+ ae63b2dd5fca314c577c401efb07eb13 9752 apg_2.2.3.dfsg.1-5build3.debian.tar.xz
+Checksums-Sha1:
+ 4762bec48338f359a977b44b00318794dfb92ff2 1971 apg_2.2.3.dfsg.1-5build3.dsc
+ 21da954361389b67da1fdc6752ab2d6cd69fcd7b 83578 apg_2.2.3.dfsg.1.orig.tar.gz
+ af4bb8b1def7c241f53286e3bc1454b583ae0f5c 9752 apg_2.2.3.dfsg.1-5build3.debian.tar.xz
+Checksums-Sha256:
+ 3552fd7886b45090f2192ee4bb76c1654b687ba72ebe94ece5d24474ac277521 1971 apg_2.2.3.dfsg.1-5build3.dsc
+ c7e3c556426e2d5d2f599873a71100c5f6d14fa8784e0b1d879916784de801df 83578 apg_2.2.3.dfsg.1.orig.tar.gz
+ 12a165e7da1e68bce06354e7b9e5236468b7f28a54ff62b4bd4140ff5ce96bbb 9752 apg_2.2.3.dfsg.1-5build3.debian.tar.xz
+Checksums-Sha512:
+ 6eabdd5bc1a54c94f418ba408ad593e870f49ae5d04974a5bde084e23fd27a71cd311ab0b86a6a4a4d7afe90627d786feaa93351362adead9f0cf150151f1b8e 1971 apg_2.2.3.dfsg.1-5build3.dsc
+ e6fe4ee6e8ed8c7a5a47bc3ca81266d2a2447e47af3a7cb3d56e890869dc3c1f30433b0b059e4e98c58a4b2125f5cab3c2199f5af7d2f9e83c14b93e6d147862 83578 apg_2.2.3.dfsg.1.orig.tar.gz
+ 12c7d6fecb11b0e8fe08461ad6e72dde8a516b0d9bf46ade17a2084f773d42a356d85d4604520dd5ef7fddb8fb7a0acb4ed38003f63a101e7a2a05e9399a7636 9752 apg_2.2.3.dfsg.1-5build3.debian.tar.xz
+
+Package: apparmor
+Format: 3.0 (quilt)
+Binary: apparmor, apparmor-utils, apparmor-profiles, libapparmor-dev, libapparmor1, libapache2-mod-apparmor, libpam-apparmor, apparmor-notify, python3-libapparmor, python3-apparmor, dh-apparmor
+Architecture: linux-any all
+Version: 4.0.0-beta3-0ubuntu3
+Priority: important
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian AppArmor Team <pkg-apparmor-team@lists.alioth.debian.org>
+Uploaders: intrigeri <intrigeri@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: apache2-dev, autoconf, autoconf-archive, automake, bison, bzip2, chrpath, debhelper-compat (= 13), dejagnu <!nocheck>, dh-apache2, dh-python, dh-sequence-python3, flex, liblocale-gettext-perl <!nocheck>, libpython3-all-dev, libpam-dev, libtool, perl <!nocheck>, pkg-config, po-debconf, python3:any, python3-all:any, python3-all-dev:any, python3-setuptools, swig
+Testsuite: autopkgtest
+Testsuite-Triggers: @builddeps@, apparmor-profiles-extra, bind9, cups-browsed, cups-daemon, evince, haveged, libreoffice-common, libvirt-daemon-system, linux-image-amd64, linux-image-generic, man-db, ntp, onioncircuits, tcpdump, tor
+Homepage: https://apparmor.net/
+Vcs-Browser: https://salsa.debian.org/apparmor-team/apparmor/tree/ubuntu/master
+Vcs-Git: https://salsa.debian.org/apparmor-team/apparmor.git -b ubuntu/master
+Directory: pool/main/a/apparmor
+Package-List:
+ apparmor deb admin optional arch=linux-any
+ apparmor-notify deb admin optional arch=all
+ apparmor-profiles deb admin optional arch=all
+ apparmor-utils deb admin optional arch=all
+ dh-apparmor deb devel optional arch=all
+ libapache2-mod-apparmor deb httpd optional arch=linux-any
+ libapparmor-dev deb libdevel optional arch=linux-any
+ libapparmor1 deb libs optional arch=linux-any
+ libpam-apparmor deb admin optional arch=linux-any
+ python3-apparmor deb python optional arch=all
+ python3-libapparmor deb python optional arch=linux-any
+Files:
+ fc7a8cc67fa2c8c75c11816e1ad63e2e 3407 apparmor_4.0.0-beta3-0ubuntu3.dsc
+ 972134a73755ccccf0b7da78c94f25c8 8239045 apparmor_4.0.0-beta3.orig.tar.gz
+ 948d3deace1c1d537294d540c1a83a8d 120696 apparmor_4.0.0-beta3-0ubuntu3.debian.tar.xz
+Checksums-Sha1:
+ 1e1a45a4da7ce9615d786c19e30b84d4312c13cd 3407 apparmor_4.0.0-beta3-0ubuntu3.dsc
+ 21cf539531705bdcd37463d18f425a6e88d598c1 8239045 apparmor_4.0.0-beta3.orig.tar.gz
+ 0460ff9ea5df219748c28a494c821b87415aac6a 120696 apparmor_4.0.0-beta3-0ubuntu3.debian.tar.xz
+Checksums-Sha256:
+ 177c97251479686d449b75645de2453bed47bb01998b73f87fc28d0beb1fb0ae 3407 apparmor_4.0.0-beta3-0ubuntu3.dsc
+ 471041a4fded3422142e33514d60baa1e56d0353ef99f03f2e1c3dc07a061220 8239045 apparmor_4.0.0-beta3.orig.tar.gz
+ 48f8f6f047233bf7db2ab107ac0d33820bad1a43024228452986bad83783c6bf 120696 apparmor_4.0.0-beta3-0ubuntu3.debian.tar.xz
+Checksums-Sha512:
+ ff0852b736d7c962de3ee293d4715ec0427f9cc4959cab664bf00b77e30f3f2a6c9440f779e4c464e7817562d093afd4977e824fe2ee4667a14d7aa3a7c23fd2 3407 apparmor_4.0.0-beta3-0ubuntu3.dsc
+ 6f3bebf1f066d655d8a99735fd10e8139cc391654c033122f315e02c5c5fe6bafe587421d035758413dca0ef559c1afb1f038b7daffa7099c8cc4559ee3dc035 8239045 apparmor_4.0.0-beta3.orig.tar.gz
+ 13ac858fb5332094d8f90e91edd13d676b5c732801024df8e5910f84375d913d9da663b34d66aafd09a21717254a3dd7a8d2ba6c97e706a9434b4e7a68167121 120696 apparmor_4.0.0-beta3-0ubuntu3.debian.tar.xz
+
+Package: appconfig
+Format: 3.0 (quilt)
+Binary: libappconfig-perl
+Architecture: all
+Version: 1.71-2.3
+Priority: optional
+Section: interpreters
+Maintainer: Stefan Hornburg (Racke) <racke@linuxia.de>
+Standards-Version: 4.0.0
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl
+Directory: pool/main/a/appconfig
+Package-List:
+ libappconfig-perl deb perl optional arch=all
+Files:
+ 3787ee55fb5c35a767aecea902b672f2 1569 appconfig_1.71-2.3.dsc
+ e58f7d05944d75d44e7a62270be22928 56468 appconfig_1.71.orig.tar.gz
+ 89b5d2618a76b7fbd78f34d90dff38e2 3064 appconfig_1.71-2.3.debian.tar.xz
+Checksums-Sha1:
+ 5b9d959b06f2ad0d328645164fb23ab216919973 1569 appconfig_1.71-2.3.dsc
+ 1229826df5f86780b515b0c3ddca03f916259be7 56468 appconfig_1.71.orig.tar.gz
+ 44b48cd4bb66bc91a38b7855dc7edc844f9a277e 3064 appconfig_1.71-2.3.debian.tar.xz
+Checksums-Sha256:
+ c94a4fe5bc85f76b2ca3c1a6218deeabb9460f7ecd3033e045df23aad16d9305 1569 appconfig_1.71-2.3.dsc
+ 342750e3ba650c77d613a5552bcb56e89975949645c5cf8b1722f5e004d37619 56468 appconfig_1.71.orig.tar.gz
+ 49f125d0b94e4d60364c4fe3801da44b9a15cb5c5509b7f056aa59b2838e0020 3064 appconfig_1.71-2.3.debian.tar.xz
+Checksums-Sha512:
+ 8d50bdd21bd66d890fb66aa649ba7d1b7511c02c9afa0a67e2f0884e4d8db5837464ae42b6ec77d2e744a3a7af1ba750bfd7162704eed7f59274d0ca0d255e33 1569 appconfig_1.71-2.3.dsc
+ ff35209f03ae23180ba33b3c6327712e32e4a6a3edeca234cc54c83b1b222c5abff83f4b5f816ed3f48e09fc230fa83ad88645d0df6630c2593142ee0b05c506 56468 appconfig_1.71.orig.tar.gz
+ 998ae49cd266907318c2865233e949595a88e89a1359a0d7acbcc41b5bd13310cdd76d0c5136cc0048425dfac771124c3df7362cc0c231ea2f348464cd960de3 3064 appconfig_1.71-2.3.debian.tar.xz
+
+Package: appdirs
+Format: 3.0 (quilt)
+Binary: python3-appdirs
+Architecture: all
+Version: 1.4.4-4
+Priority: optional
+Section: misc
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Scott Kitterman <scott@kitterman.com>
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools
+Testsuite: autopkgtest
+Testsuite-Triggers: python3-all
+Homepage: https://github.com/ActiveState/appdirs
+Vcs-Browser: https://salsa.debian.org/python-team/packages/appdirs
+Vcs-Git: https://salsa.debian.org/python-team/packages/appdirs.git
+Directory: pool/main/a/appdirs
+Package-List:
+ python3-appdirs deb python optional arch=all
+Files:
+ ebe20c25181b4b79125efd3d887f5a6c 1873 appdirs_1.4.4-4.dsc
+ d6bca12613174185dd9abc8a29f4f012 13470 appdirs_1.4.4.orig.tar.gz
+ 91158ce9d1f1f6bb33c8f563564cdb93 3488 appdirs_1.4.4-4.debian.tar.xz
+Checksums-Sha1:
+ 7225a738198fb3ae11ea112ab87b161ad885da2c 1873 appdirs_1.4.4-4.dsc
+ 1fa04e44b1084338cb7b21e9cf44fce5efb81840 13470 appdirs_1.4.4.orig.tar.gz
+ a8cb816777673d5e4c5493336a9497f8201cb207 3488 appdirs_1.4.4-4.debian.tar.xz
+Checksums-Sha256:
+ f87f7e958ce2031acdebb0ad90391754835cd680563b916f75c03172a5794176 1873 appdirs_1.4.4-4.dsc
+ 7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41 13470 appdirs_1.4.4.orig.tar.gz
+ 76d4b2bab70e00dbaee541031c7376af9f5d839b9462806af338222eb068a688 3488 appdirs_1.4.4-4.debian.tar.xz
+Checksums-Sha512:
+ 342394d09581ce2a6552f70f654e2d408f3ef6a3d492d9db1476f341a8555ed3571eb2f3a3c0cd7a4f9ca0aff70594504162f5033deb3da2ba2fead1c572337e 1873 appdirs_1.4.4-4.dsc
+ 8b0cdd9fd471d45b186aa47607691cf378dabd3edc7b7026a57bd6d6f57698e86f440818a5e23ba4288b35d6bb8cb6eb0106eae8aab09d8863ee15025d300883 13470 appdirs_1.4.4.orig.tar.gz
+ 7570592e227c443226c303c49cb16a9360a3f411836b14d45f9dfc5be0d89e015cc184f135b683d035354c007298cbfa62ae920c5cfd7b5ad67a785fd1b0ecc8 3488 appdirs_1.4.4-4.debian.tar.xz
+
+Package: apport
+Format: 3.0 (quilt)
+Binary: apport, python3-problem-report, python3-apport, apport-core-dump-handler, apport-retrace, apport-valgrind, apport-gtk, apport-kde, dh-apport, apport-noui
+Architecture: all
+Version: 2.28.1-0ubuntu2
+Priority: optional
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-translations, gdb, gir1.2-glib-2.0 (>= 1.29.17), pkgconf, python3-all, python3-gi
+Build-Depends-Indep: default-jdk-headless | java-sdk-headless, dh-python, gir1.2-gtk-3.0 (>= 3.1.90), gir1.2-wnck-3.0, intltool, iputils-ping, kmod, pylint, python3-apt (>= 0.7.9), python3-dbus, python3-distutils-extra (>= 2.24~), python3-launchpadlib, python3-psutil, python3-pytest, python3-requests, python3-rpm, python3-systemd, python3-yaml, python3-zstandard, valgrind
+Testsuite: autopkgtest
+Testsuite-Triggers: dbus, dbus-x11, default-jdk-headless, dictionaries-common, dirmngr, gcc, gnome-icon-theme, gpg, gvfs-daemons, iputils-ping, java-sdk-headless, kmod, libc6-dev, psmisc, python3-dbus, python3-psutil, python3-pytest, python3-systemd, python3-zstandard, ubuntu-dbgsym-keyring, ubuntu-keyring, xvfb
+Homepage: https://wiki.ubuntu.com/Apport
+Vcs-Browser: https://code.launchpad.net/~ubuntu-core-dev/ubuntu/+source/apport/+git/apport
+Vcs-Git: https://git.launchpad.net/~ubuntu-core-dev/ubuntu/+source/apport
+Directory: pool/main/a/apport
+Package-List:
+ apport deb utils optional arch=all
+ apport-core-dump-handler deb utils optional arch=all
+ apport-gtk deb gnome optional arch=all
+ apport-kde deb kde optional arch=all
+ apport-noui deb utils optional arch=all
+ apport-retrace deb devel optional arch=all
+ apport-valgrind deb devel optional arch=all
+ dh-apport deb devel optional arch=all
+ python3-apport deb python optional arch=all
+ python3-problem-report deb python optional arch=all
+Files:
+ e65d64a0e157ec5e6c5d766528e84e06 3510 apport_2.28.1-0ubuntu2.dsc
+ eeff37d2dd222f12bb1c6526aeafcafe 640692 apport_2.28.1.orig.tar.xz
+ 94e0c4f1c4086374a090c40802dbc776 833 apport_2.28.1.orig.tar.xz.asc
+ fd7f0f9d2f6f5354981109147e925ac1 148516 apport_2.28.1-0ubuntu2.debian.tar.xz
+Checksums-Sha1:
+ f7081fbd1883e9496c57c12c3dc4b6e23311d3df 3510 apport_2.28.1-0ubuntu2.dsc
+ 463d838470b27fc561e1095a79c3ab97259aa5cc 640692 apport_2.28.1.orig.tar.xz
+ 5222f7b1ed976b69c6ae6c0138ecd44cbff48783 833 apport_2.28.1.orig.tar.xz.asc
+ 46dae25729374246963a3f4ebc50944cb87566ff 148516 apport_2.28.1-0ubuntu2.debian.tar.xz
+Checksums-Sha256:
+ 3befa9c288577940fe30875cb491db07895eb6a6802787a2ce872df44dacd292 3510 apport_2.28.1-0ubuntu2.dsc
+ b9a834451c835e965660bc20bb4c70368ece37b945a35566fc4b03a5bae31287 640692 apport_2.28.1.orig.tar.xz
+ 68605f2b6fdbce3fcc3bb78de50591112e29cbaa1f69f175e66a1d0f8c6ff09e 833 apport_2.28.1.orig.tar.xz.asc
+ 7d59d728bdd318ba86c59fc50aaf919250317f3b49f7a7c847f848c495d2cdc7 148516 apport_2.28.1-0ubuntu2.debian.tar.xz
+Checksums-Sha512:
+ 0b48ab60900ea0bddbfc0cbf2ca6a31a877759f06fca3270124b912a2077fa535fcec804f463ec18a168c6772a66ddab7263a5d07e223814f164e8ec3a31ea59 3510 apport_2.28.1-0ubuntu2.dsc
+ f8a0061a0f0866661d7e35246746f95b6fb8389ac8d9b88916b13ca52702dc7643756b98522ee2df159a34759a972ab7190a0045f355072210a3c44cfeddad3d 640692 apport_2.28.1.orig.tar.xz
+ 01ce3502e8305e55f20e66fb9376bfdc790d4de5a3f3ed5f35cfeb82aeaa8fc276f79da2019beeb3de7e3dd7375ad8bb07d60c3ef9669c71d6de33d7824d99a0 833 apport_2.28.1.orig.tar.xz.asc
+ 7d48b1d895c1d03df4de5b0881b69ceb1b2543a5e5b7486cbff03458e9936dacd9b884dabc87b26dcdd7fb720a92ecc2a17a1b43dc35491037fa8f3200c2bd69 148516 apport_2.28.1-0ubuntu2.debian.tar.xz
+
+Package: apport-symptoms
+Format: 1.0
+Binary: apport-symptoms
+Architecture: all
+Version: 0.25
+Priority: optional
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-motu@lists.ubuntu.com>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 7)
+Homepage: https://wiki.ubuntu.com/Apport
+Vcs-Git: https://git.launchpad.net/~ubuntu-dev/apport/+git/apport-symptoms
+Directory: pool/main/a/apport-symptoms
+Package-List:
+ apport-symptoms deb utils optional arch=all
+Files:
+ cae6d33754f8780bba672771de88ebac 1379 apport-symptoms_0.25.dsc
+ cd6af443bdd0b4fa57493b7498453fce 21667 apport-symptoms_0.25.tar.gz
+Checksums-Sha1:
+ 5b76350f18552adbe5a6db450148a20db048405a 1379 apport-symptoms_0.25.dsc
+ 80cba1761da373355a5446e6ec4a59fc309b7a27 21667 apport-symptoms_0.25.tar.gz
+Checksums-Sha256:
+ f0d0ee2992c75d5bcf92bc8239640dd109daa16a1515ade2941c3eb2ff3f6132 1379 apport-symptoms_0.25.dsc
+ 1f4d2abec7d45f9462b94eb7d548a0facdce02d44afce9f9708f1bdfbf6e6ec9 21667 apport-symptoms_0.25.tar.gz
+Checksums-Sha512:
+ 4f45b19bacab4daa31f583c49e93250d0b0f13d994902794b856eb0ee2f5f5b11b0b0b39d0f3afd411389cb43b835dea09382bf74c8701e736f33d8fe9500b61 1379 apport-symptoms_0.25.dsc
+ c88fdfb70a0e38ae88e1b107ba9caa382b9cc6344b29b3704a71312cfcaca11e4efa95812d5dee62178c70c2cb6cf1218d296fb5e94975c04d52fce19331c849 21667 apport-symptoms_0.25.tar.gz
+
+Package: appstream
+Format: 3.0 (quilt)
+Binary: appstream, appstream-compose, libappstream5, libappstream-dev, gir1.2-appstream-1.0, libappstreamqt3, libappstreamqt-dev, libappstreamqt5-3, libappstreamqt5-dev, libappstream-compose0, libappstream-compose-dev, gir1.2-appstreamcompose-1.0, appstream-doc, apt-config-icons, apt-config-icons-hidpi, apt-config-icons-large, apt-config-icons-large-hidpi
+Architecture: any all
+Version: 1.0.2-1build6
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klumpp <mak@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), docbook-xsl, gettext, gi-docgen, gobject-introspection, gobject-introspection-bin, gperf, itstool, libcairo2-dev, libcurl4-gnutls-dev | libcurl-dev (>= 7.62), libfontconfig-dev, libgdk-pixbuf-2.0-dev, libgirepository1.0-dev (>= 1.62), libglib2.0-dev (>= 2.62), libjs-highlight.js, libpango1.0-dev, librsvg2-dev (>= 2.48) [amd64 arm64 armel armhf i386 mips64el mipsel ppc64el s390x powerpc ppc64 riscv64 sparc64 x32], libstemmer-dev, libsystemd-dev (>= 242) [linux-any], libxml2-dev, libxmlb-dev (>= 0.3.13), libyaml-dev, meson (>= 0.62), qt6-base-dev, qtbase5-dev, valac, xsltproc
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential
+Homepage: https://www.freedesktop.org/wiki/Distributions/AppStream/
+Vcs-Browser: https://salsa.debian.org/pkgutopia-team/appstream
+Vcs-Git: https://salsa.debian.org/pkgutopia-team/appstream.git
+Directory: pool/main/a/appstream
+Package-List:
+ appstream deb admin optional arch=any
+ appstream-compose deb admin optional arch=amd64,arm64,armel,armhf,i386,mips64el,mipsel,powerpc,ppc64,ppc64el,riscv64,s390x,sparc64,x32
+ appstream-doc deb doc optional arch=all
+ apt-config-icons deb misc optional arch=all
+ apt-config-icons-hidpi deb misc optional arch=all
+ apt-config-icons-large deb misc optional arch=all
+ apt-config-icons-large-hidpi deb misc optional arch=all
+ gir1.2-appstream-1.0 deb introspection optional arch=any
+ gir1.2-appstreamcompose-1.0 deb introspection optional arch=amd64,arm64,armel,armhf,i386,mips64el,mipsel,powerpc,ppc64,ppc64el,riscv64,s390x,sparc64,x32
+ libappstream-compose-dev deb libdevel optional arch=amd64,arm64,armel,armhf,i386,mips64el,mipsel,powerpc,ppc64,ppc64el,riscv64,s390x,sparc64,x32
+ libappstream-compose0 deb libs optional arch=amd64,arm64,armel,armhf,i386,mips64el,mipsel,powerpc,ppc64,ppc64el,riscv64,s390x,sparc64,x32
+ libappstream-dev deb libdevel optional arch=any
+ libappstream5 deb libs optional arch=any
+ libappstreamqt-dev deb libdevel optional arch=any
+ libappstreamqt3 deb libs optional arch=any
+ libappstreamqt5-3 deb libs optional arch=any
+ libappstreamqt5-dev deb libdevel optional arch=any
+Files:
+ d8b305dd797746525c048afe0479b749 4406 appstream_1.0.2-1build6.dsc
+ 00e749276887f816b6d68a7a150e6c97 2629708 appstream_1.0.2.orig.tar.xz
+ c56e2544078a62da27deb7e24fa0bd74 833 appstream_1.0.2.orig.tar.xz.asc
+ 7abb60eb262619ebe5523c7f264822c8 18956 appstream_1.0.2-1build6.debian.tar.xz
+Checksums-Sha1:
+ 2d0ad55b85b51f11e93aa4659554bcb91751ce46 4406 appstream_1.0.2-1build6.dsc
+ 5626d2b8d570fd7742fadb82460dfef9b25080be 2629708 appstream_1.0.2.orig.tar.xz
+ 347e4e857e95a98ea1159a06fd833e61a0f2212f 833 appstream_1.0.2.orig.tar.xz.asc
+ 43c7ea57bb18635ebb6612a40a92537ce2f0d030 18956 appstream_1.0.2-1build6.debian.tar.xz
+Checksums-Sha256:
+ a3075059dfa51c9d9f2160bf4ae7c10570843103a2b228aa0f1a51eb107c7c54 4406 appstream_1.0.2-1build6.dsc
+ 1a5148ca97dcbf5eb6e9c380278bb0d20938569292ea8652df1b3cac8bd2736b 2629708 appstream_1.0.2.orig.tar.xz
+ 9692654e88ff3e9fd38ca1215fa1a906066b6a86bb08748ad91f3218e3aabb56 833 appstream_1.0.2.orig.tar.xz.asc
+ 40fec513c801c5bcedb0072f9caf08f12e80c01ccc2bf949f6219a662782a327 18956 appstream_1.0.2-1build6.debian.tar.xz
+Checksums-Sha512:
+ 582fb63435334ceb12402c989afe49934987d5ea6a50d86d60af90a1485176cd3505e208bddbecf3376195e8a2126e81cddcfae45320a7d276ee96cee8148974 4406 appstream_1.0.2-1build6.dsc
+ e5c109c383e3bf3af3693bfb3146663767c2c61fac0bd421f2ce52242fe7b869effeacc4d207987321dfeb4ab0ba77ece6c1c6eea054a7365204cd955426517a 2629708 appstream_1.0.2.orig.tar.xz
+ 7eae5292746ed4c0e99dd181f8db19034a18aeb3995fc7561103d09ccf5e9f1671f630befecc940712f66e08bb59ebb4f8997170b03550e623fe788cfe927a13 833 appstream_1.0.2.orig.tar.xz.asc
+ 44ec08e1507e32e5d00aad670b5b9d69a312a0b79f26b465058f97cba6ecadda376d6b15e380919ec9b6b09e7aee5acb73e6cb7426a495dd5a752e1c574d2fa9 18956 appstream_1.0.2-1build6.debian.tar.xz
+
+Package: apr
+Format: 3.0 (quilt)
+Binary: libapr1t64, libapr1-dev
+Architecture: any
+Version: 1.7.2-3.1build2
+Priority: optional
+Section: libs
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Uploaders: Stefan Fritsch <sf@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13), autoconf, mawk, uuid-dev, doxygen, netbase <!nocheck>, net-tools <!nocheck>, libtool, python3:any, libsctp-dev [linux-any]
+Homepage: https://apr.apache.org/
+Vcs-Browser: https://salsa.debian.org/apache-team/apr
+Vcs-Git: https://salsa.debian.org/apache-team/apr.git
+Directory: pool/main/a/apr
+Package-List:
+ libapr1-dev deb libdevel optional arch=any
+ libapr1t64 deb libs optional arch=any
+Files:
+ 5696739815555708a1eb07e9e4629a10 2438 apr_1.7.2-3.1build2.dsc
+ 9a00835e4da8c215348e263b550fc130 890218 apr_1.7.2.orig.tar.bz2
+ 1dc4a1894b6dffe8dc585a4b3561c934 833 apr_1.7.2.orig.tar.bz2.asc
+ eed1f903f92460f5a3afab390c686e9c 54660 apr_1.7.2-3.1build2.debian.tar.xz
+Checksums-Sha1:
+ 4a589d32ee82c7b7200818be52269f887efc1d3e 2438 apr_1.7.2-3.1build2.dsc
+ b51e7ff9d1e417ce30c9722c9edef7b88dfbed1f 890218 apr_1.7.2.orig.tar.bz2
+ 3e576eeadc7fc85ada43a11e877df3c8a5da9850 833 apr_1.7.2.orig.tar.bz2.asc
+ 818567596f5126127fc37934324065178708c6bf 54660 apr_1.7.2-3.1build2.debian.tar.xz
+Checksums-Sha256:
+ 23eaf7be1d4382283d2d3b8ecf3815c9216ac89567659ffe26022d07d60ebb75 2438 apr_1.7.2-3.1build2.dsc
+ 75e77cc86776c030c0a5c408dfbd0bf2a0b75eed5351e52d5439fa1e5509a43e 890218 apr_1.7.2.orig.tar.bz2
+ 3e45e804041cfd112d3710db11424e861a6f96e5b8908fcb73bc558f7d480f37 833 apr_1.7.2.orig.tar.bz2.asc
+ c8d00b22fc2a2a2a358e566c3a1888f3162209e8796aa73c09f42a7bdb271527 54660 apr_1.7.2-3.1build2.debian.tar.xz
+Checksums-Sha512:
+ 1a1792fde848014649e33883430c39404939db1f37749d59a82740dee4d100ba566c7bcf40208f6a4e48f158c865cace2021875f3ca34914b5fb79257bfb1a8c 2438 apr_1.7.2-3.1build2.dsc
+ 0a3a27ccc97bbe4865c1bc0b803012e3da6d5b1f17d4fb0da6f5f58eec01f6d2ae1f25e52896ea5f9c5ac04c5fddcfd1ac606b301c322cf40d5c4d4ce0a1b76e 890218 apr_1.7.2.orig.tar.bz2
+ 77da1e516b30032419b36da8453f56c6149ad18631772613adb095b6eccb7606dc51589d33d422572d3fcefe8f6129bfbb06d0ab7fde5848d873856f4ed93940 833 apr_1.7.2.orig.tar.bz2.asc
+ a57d7aff9ac177c804460db631059de826f03fda9fb8d60e272b429f4029205be359a2a15b4c4ecb5f9a37907a45ad2f202ab4a8ca6b4a056e8508704e53a90a 54660 apr_1.7.2-3.1build2.debian.tar.xz
+
+Package: apr-util
+Format: 3.0 (quilt)
+Binary: libaprutil1t64, libaprutil1-ldap, libaprutil1-dbd-mysql, libaprutil1-dbd-sqlite3, libaprutil1-dbd-odbc, libaprutil1-dbd-pgsql, libaprutil1-dev
+Architecture: any
+Version: 1.6.3-1.1ubuntu7
+Priority: optional
+Section: libs
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Uploaders: Stefan Fritsch <sf@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 11), autoconf, mawk, libldap2-dev, libexpat1-dev, libdb-dev, libgdbm-dev, libapr1-dev (>= 1.7.2-3.1build1), libsqlite3-dev, libpq-dev, default-libmysqlclient-dev, unixodbc-dev, doxygen, libssl-dev
+Homepage: https://apr.apache.org/
+Vcs-Browser: https://salsa.debian.org/apache-team/apr-util
+Vcs-Git: https://salsa.debian.org/apache-team/apr-util.git
+Directory: pool/main/a/apr-util
+Package-List:
+ libaprutil1-dbd-mysql deb libs optional arch=any
+ libaprutil1-dbd-odbc deb libs optional arch=any
+ libaprutil1-dbd-pgsql deb libs optional arch=any
+ libaprutil1-dbd-sqlite3 deb libs optional arch=any
+ libaprutil1-dev deb libdevel optional arch=any
+ libaprutil1-ldap deb libs optional arch=any
+ libaprutil1t64 deb libs optional arch=any
+Files:
+ 72469e6d84feebb3343378b8b50b3b3a 2947 apr-util_1.6.3-1.1ubuntu7.dsc
+ b6e8c9b31d938fe5797ceb0d1ff2eb69 432692 apr-util_1.6.3.orig.tar.bz2
+ 46ec16add63af5f15630818c96ce2f1f 833 apr-util_1.6.3.orig.tar.bz2.asc
+ c6910b2caeef5674397bbec500493134 342276 apr-util_1.6.3-1.1ubuntu7.debian.tar.xz
+Checksums-Sha1:
+ 0fd8aa21569c610432939b84fd4f924f03a9feb9 2947 apr-util_1.6.3-1.1ubuntu7.dsc
+ 8c6293a787b69986ce43bc49c7c247d4ff5fc828 432692 apr-util_1.6.3.orig.tar.bz2
+ 2dc47748963f988922fc96e60612a15d42769c48 833 apr-util_1.6.3.orig.tar.bz2.asc
+ 9de23219727231fb6b4dc388a662dce4b37dc4ba 342276 apr-util_1.6.3-1.1ubuntu7.debian.tar.xz
+Checksums-Sha256:
+ 18f7c4fc25b73ad52eed4c1142c0c3206b4cbc6e6b91db9ae28518a400bec4a2 2947 apr-util_1.6.3-1.1ubuntu7.dsc
+ a41076e3710746326c3945042994ad9a4fcac0ce0277dd8fea076fec3c9772b5 432692 apr-util_1.6.3.orig.tar.bz2
+ 5fd08491a2cb35fdbf9fa93d753cfd25e59fe58a75a3f3ed62582ebf2a5b3a51 833 apr-util_1.6.3.orig.tar.bz2.asc
+ 10b2e4da03f0767dbc8ae857db3dcc9e7692fe5ad4ba872818489a1383802e31 342276 apr-util_1.6.3-1.1ubuntu7.debian.tar.xz
+Checksums-Sha512:
+ 67c60bb82cce5913648560305202055bfd02c55d70e4e16644965130b884477a2a60e1e50b80ad2c218d0844ff37f1cace5b87e09731f00cad7548e4e4173b04 2947 apr-util_1.6.3-1.1ubuntu7.dsc
+ 8050a481eeda7532ef3751dbd8a5aa6c48354d52904a856ef9709484f4b0cc2e022661c49ddf55ec58253db22708ee0607dfa7705d9270e8fee117ae4f06a0fe 432692 apr-util_1.6.3.orig.tar.bz2
+ 6c483e823fb032b161b6bcf77f9a43945aee9afbe40050ebf042865434bc533d21168af20d4cdff597b60b782d8ac9322409a5c2a64bf921b22f5add2451d79d 833 apr-util_1.6.3.orig.tar.bz2.asc
+ 64a09f76917cef4552b9494c54677d6c21938c31f0a957f09e6a601849fd14c7461b1d4ca39e854d41a42d723c0ec254cc2751e81600e9e0176d064c73cfb600 342276 apr-util_1.6.3-1.1ubuntu7.debian.tar.xz
+
+Package: apt
+Format: 3.0 (native)
+Binary: apt, libapt-pkg6.0t64, apt-doc, libapt-pkg-dev, libapt-pkg-doc, apt-utils, apt-transport-https
+Architecture: any all
+Version: 2.7.14build2
+Priority: important
+Section: admin
+Maintainer: APT Development Team <deity@lists.debian.org>
+Uploaders: Michael Vogt <mvo@debian.org>, Julian Andres Klode <jak@debian.org>, David Kalnischkies <donkult@debian.org>
+Standards-Version: 4.1.1
+Build-Depends: dpkg-dev (>= 1.22.5) <!pkg.apt.ci>, cmake (>= 3.4), debhelper-compat (= 12), docbook-xml <!nodoc>, docbook-xsl <!nodoc>, dpkg-dev (>= 1.20.8), gettext (>= 0.12), googletest <!nocheck> | libgtest-dev <!nocheck>, libbz2-dev, libdb-dev, libgnutls28-dev (>= 3.4.6), libgcrypt20-dev, liblz4-dev (>= 0.0~r126), liblzma-dev, libseccomp-dev (>= 2.4.2) [amd64 arm64 armel armhf i386 mips mips64el mipsel ppc64el s390x hppa powerpc powerpcspe ppc64 x32], libsystemd-dev [linux-any], libudev-dev [linux-any], libxxhash-dev (>= 0.8), libzstd-dev (>= 1.0), ninja-build, pkg-config, po4a (>= 0.34-2) <!nodoc>, triehash, xsltproc <!nodoc>, zlib1g-dev
+Build-Depends-Indep: doxygen <!nodoc !pkg.apt.nodoxygen>, graphviz <!nodoc !pkg.apt.nodoxygen>, w3m <!nodoc>
+Testsuite: autopkgtest
+Testsuite-Triggers: @builddeps@, aptitude, db-util, dpkg, fakeroot, g++, gdb, gdb-minimal, gnupg, gnupg1, gnupg2, gpgv, gpgv1, gpgv2, libfile-fcntllock-perl, lsof, pkg-config, python3-apt, stunnel4, valgrind, wget
+Vcs-Browser: https://salsa.debian.org/apt-team/apt
+Vcs-Git: https://salsa.debian.org/apt-team/apt.git
+Directory: pool/main/a/apt
+Package-List:
+ apt deb admin required arch=any
+ apt-doc deb doc optional arch=all profile=!nodoc
+ apt-transport-https deb oldlibs optional arch=all
+ apt-utils deb admin required arch=any
+ libapt-pkg-dev deb libdevel optional arch=any
+ libapt-pkg-doc deb doc optional arch=all profile=!nodoc
+ libapt-pkg6.0t64 deb libs optional arch=any
+Files:
+ bf1e7d85775a96fd459e9843f32f72d4 3017 apt_2.7.14build2.dsc
+ f300b89d957cdf70a38d21ebd20604f7 2352948 apt_2.7.14build2.tar.xz
+Checksums-Sha1:
+ 38101c337a85516f44604bd395b5f7ad357d0ac0 3017 apt_2.7.14build2.dsc
+ 2055fbcc9271c4ac03dc85df9a7c84080575efcd 2352948 apt_2.7.14build2.tar.xz
+Checksums-Sha256:
+ ef93d9722d5574261e761ea86eceea74912fc9df46dbee692a065547c0caeafe 3017 apt_2.7.14build2.dsc
+ 7d4d0f2eb95464d175ef6a09b2b8f7040f56a8de77fa3b73de52d80395428410 2352948 apt_2.7.14build2.tar.xz
+Checksums-Sha512:
+ 8b3d295fe3447d9c6aa3b53bc754070b4c27c2d21055ff4b5d4b9e1f2354e1963469d2560034e7f0ddf4b7b47063b878b3682ecb9772638dbaa98a06f0bf8852 3017 apt_2.7.14build2.dsc
+ 02d4e469bccc5f82417b01b8b2193cbc74008e8ff231a2c0733055afc2648e39b6824104376683c4ccf7397ab48f83cbd939d609fe0da00589a63355eba1475f 2352948 apt_2.7.14build2.tar.xz
+
+Package: apt-listchanges
+Format: 3.0 (native)
+Binary: apt-listchanges
+Architecture: all
+Version: 3.27
+Priority: optional
+Section: utils
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 4.5.1
+Build-Depends: debconf, debhelper-compat (= 13), dh-python
+Build-Depends-Indep: docbook-xml, docbook-xsl, gettext, libxml2-utils, po-debconf, po4a, python3, xsltproc
+Vcs-Browser: https://salsa.debian.org/debian/apt-listchanges/
+Vcs-Git: https://salsa.debian.org/debian/apt-listchanges.git
+Directory: pool/main/a/apt-listchanges
+Package-List:
+ apt-listchanges deb utils standard arch=all
+Files:
+ c315c2bcb0894ac81bfa39f966470aab 1723 apt-listchanges_3.27.dsc
+ 4863c27cecbb2bd06acd92559b9b6809 143448 apt-listchanges_3.27.tar.xz
+Checksums-Sha1:
+ 37d901c711f265e3b515b9bc08644ee52d24e278 1723 apt-listchanges_3.27.dsc
+ acd86becf1a36436c84439cdbc1a2f2f264102ad 143448 apt-listchanges_3.27.tar.xz
+Checksums-Sha256:
+ 650a0685172856da76a0245c86ac3476dab409d57ee4e8ffc35bb32deddfc1ed 1723 apt-listchanges_3.27.dsc
+ f19af4f9a32c7a1ccd385593f94fda502d21e51c5eeace4745b28dd0d5b18ae6 143448 apt-listchanges_3.27.tar.xz
+Checksums-Sha512:
+ 1470de6fc9b57810416b100e831a5ba070eae1a472448a1f56880245787c9422d2437b2f247ac8d1dd1c169a9d7a582d9c8a62287a5b6965fbee151513838d7f 1723 apt-listchanges_3.27.dsc
+ 612aac3f36ff36542f432392eb27f0885d08f023d71a679d8e29734671ddce7dba152b1fcac00d1ba0382c2b3000a0b00a78baedc6aac11274220f556eb09a4d 143448 apt-listchanges_3.27.tar.xz
+
+Package: aptdaemon
+Format: 3.0 (quilt)
+Binary: aptdaemon, python3-aptdaemon, python3-aptdaemon.test, aptdaemon-data, python3-aptdaemon.gtk3widgets
+Architecture: all
+Version: 1.1.1+bzr982-0ubuntu44
+Priority: extra
+Section: admin
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Julian Andres Klode <jak@debian.org>
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 7.3), debconf-i18n, dbus, dh-python, dh-translations, python3-all, python3-setuptools, python3-distutils-extra, python3-nose, gir1.2-glib-2.0, gir1.2-gtk-3.0, gir1.2-packagekitglib-1.0 (>= 0.8.9), gir1.2-vte-2.91, python3-apt (>= 0.8.5~ubuntu1), python3-defer (>= 1.0.6), python3-dbus, python3-gi, python3-mock, python3-pkg-resources, iso-codes, pycodestyle, xauth, xvfb
+Testsuite: autopkgtest
+Testsuite-Triggers: fakeroot, gir1.2-gtk-3.0, gir1.2-packagekitglib-1.0, gir1.2-vte-2.91, lintian, pep8, python3-distutils-extra, python3-mock, python3-nose, python3-setuptools, xvfb
+Homepage: https://launchpad.net/aptdaemon
+Directory: pool/main/a/aptdaemon
+Package-List:
+ aptdaemon deb admin extra arch=all
+ aptdaemon-data deb admin extra arch=all
+ python3-aptdaemon deb python extra arch=all
+ python3-aptdaemon.gtk3widgets deb python extra arch=all
+ python3-aptdaemon.test deb python extra arch=all
+Files:
+ ffebd84ea168b51d07a5c0012dea2167 2930 aptdaemon_1.1.1+bzr982-0ubuntu44.dsc
+ 68e1167d441f999b622fb43bec54cce0 1278635 aptdaemon_1.1.1+bzr982.orig.tar.gz
+ 6bdea18b06ae3fd6018a7a1810a9ad32 52860 aptdaemon_1.1.1+bzr982-0ubuntu44.debian.tar.xz
+Checksums-Sha1:
+ 4412ba6ab19d36d4f79ac44e446a17a28b17284e 2930 aptdaemon_1.1.1+bzr982-0ubuntu44.dsc
+ a3c675b1db0dbe2bbc64a2d2a1736f941367a4de 1278635 aptdaemon_1.1.1+bzr982.orig.tar.gz
+ ddf17d402f87b3a343dd6034c22c4f5d977acf41 52860 aptdaemon_1.1.1+bzr982-0ubuntu44.debian.tar.xz
+Checksums-Sha256:
+ c0953f5b2112adfc992a4cb9676650fecca2d9c5da76682661718c04f1c43bbb 2930 aptdaemon_1.1.1+bzr982-0ubuntu44.dsc
+ 8729ce3163279359d2dfd674aa3a4d8af49ff6a99bfd0ef670ddb7ec50698eb6 1278635 aptdaemon_1.1.1+bzr982.orig.tar.gz
+ e24ef8c0007cfd3e4b16d56a7949c3dfec774431f9319bb901d5e56be768b7bb 52860 aptdaemon_1.1.1+bzr982-0ubuntu44.debian.tar.xz
+Checksums-Sha512:
+ f29327ebee0971bb8618272cbddc3930552cd948d4599934316fb88e96358227b06adc2f03fa67fb970553c32af9f9558f58de03f9dd67e5e60ca77fc1f66590 2930 aptdaemon_1.1.1+bzr982-0ubuntu44.dsc
+ f8ef6fb820f8f956d7a93942d171ab1ea67c301d541cc1f33096dc9663d5bb1d698e5672f73eb8a895e53ea23dcd0336ce3ffc16f347804eed80421144b5d5a0 1278635 aptdaemon_1.1.1+bzr982.orig.tar.gz
+ d1d6bf1b656854fdcf1791c3350e3c9ff5ac8ccc18630670c7e33a292583015024a2eb89ef08a6d00aecda0a17f63d1c518af935c56b21d4076d1042c71ea01a 52860 aptdaemon_1.1.1+bzr982-0ubuntu44.debian.tar.xz
+Original-Vcs-Browser: http://bzr.debian.org/loggerhead/apt/aptdaemon/debian-sid
+Original-Vcs-Bzr: nosmart+http://bzr.debian.org/bzr/apt/aptdaemon/debian-sid
+
+Package: argon2
+Format: 3.0 (quilt)
+Binary: libargon2-dev, libargon2-1, argon2, libargon2-1-udeb
+Architecture: any
+Version: 0~20190702+dfsg-4build1
+Priority: important
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Uploaders: Sven Geuer <debmaint@g-e-u-e-r.de>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-exec
+Testsuite: autopkgtest
+Testsuite-Triggers: python3-argon2
+Homepage: https://github.com/P-H-C/phc-winner-argon2
+Vcs-Browser: https://salsa.debian.org/pkg-security-team/argon2
+Vcs-Git: https://salsa.debian.org/pkg-security-team/argon2.git
+Directory: pool/main/a/argon2
+Package-List:
+ argon2 deb utils optional arch=any
+ libargon2-1 deb libs optional arch=any
+ libargon2-1-udeb udeb debian-installer optional arch=any
+ libargon2-dev deb libdevel optional arch=any
+Files:
+ d538ed23b8253edc0961a9cae59fa039 2362 argon2_0~20190702+dfsg-4build1.dsc
+ c3d955c396da00a72ca4bf3fc15fd3f9 725424 argon2_0~20190702+dfsg.orig.tar.xz
+ eae483ffb6970b123e14ae7bed9f9c65 9392 argon2_0~20190702+dfsg-4build1.debian.tar.xz
+Checksums-Sha1:
+ 5f5bdbbd9f20e6859fa57e247a3fe81ee7c2d9a6 2362 argon2_0~20190702+dfsg-4build1.dsc
+ 69c41ff63d0ee00bc5acbd9b495376260c50d24f 725424 argon2_0~20190702+dfsg.orig.tar.xz
+ abd2eb761762d23470a474a0be7eb1c1086a13f0 9392 argon2_0~20190702+dfsg-4build1.debian.tar.xz
+Checksums-Sha256:
+ 2ce9d871da01cb55d60d479ec15264ea6fa6fd60b541be72287c079963602783 2362 argon2_0~20190702+dfsg-4build1.dsc
+ 815f1017b5b0033204778c2e32443257274bc5d9dd16d355c4f7db8189e23dcc 725424 argon2_0~20190702+dfsg.orig.tar.xz
+ 3387a878778e1107495c129d8054b641789ccaa7189b0383a3a5995aefe18f9b 9392 argon2_0~20190702+dfsg-4build1.debian.tar.xz
+Checksums-Sha512:
+ 0d3516c851183381bb73d7b2a12e604282f7ca6ed0d4cca28335c656deb5430cb9131de99de3069b89f5f5ae76415fb9f780d1e1aa3bf89c4d1fed8232f9d14e 2362 argon2_0~20190702+dfsg-4build1.dsc
+ 724c8f03b64830c0d66b5835dc2172f49ad7b351d4902303b73788ff1c6946717c64fe342b3e18831924fdb838e4d7bd06ec8061b8aa5bff08bb7bc28f326b0a 725424 argon2_0~20190702+dfsg.orig.tar.xz
+ 95838bafde0cf099e55426bac0b147218abfdd7348380988efec88d2edb9a01dbdbcd8813ec9534c868addd4ce141db14b0ab34605f1fd52d6617366d6837991 9392 argon2_0~20190702+dfsg-4build1.debian.tar.xz
+
+Package: aspell
+Format: 3.0 (quilt)
+Binary: aspell, aspell-doc, libaspell15, libaspell-dev, libpspell-dev
+Architecture: any all
+Version: 0.60.8.1-1build1
+Priority: optional
+Section: text
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Agustin Martin Domingo <agmartin@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), libncurses-dev, texinfo, autopoint, w3m
+Homepage: http://aspell.net/
+Vcs-Browser: https://salsa.debian.org/debian/aspell
+Vcs-Git: https://salsa.debian.org/debian/aspell.git
+Directory: pool/main/a/aspell
+Package-List:
+ aspell deb text optional arch=any
+ aspell-doc deb doc optional arch=all
+ libaspell-dev deb libdevel optional arch=any
+ libaspell15 deb libs optional arch=any
+ libpspell-dev deb libdevel optional arch=any
+Files:
+ 48012e1be44f96a2f01a3d4be25f4692 2473 aspell_0.60.8.1-1build1.dsc
+ 187bd142f522ada555c7aa6b9cbf56e6 3567205 aspell_0.60.8.1.orig.tar.gz
+ 63a29e4aa0c2faeb3e64ff3e1207f26e 181 aspell_0.60.8.1.orig.tar.gz.asc
+ a21996875aecd236e589f42a477980b8 25632 aspell_0.60.8.1-1build1.debian.tar.xz
+Checksums-Sha1:
+ c6a57ea23ee98626274f597226db86beb739ab6d 2473 aspell_0.60.8.1-1build1.dsc
+ 141f9694b58e4b851dc23e0ccdb3822964100198 3567205 aspell_0.60.8.1.orig.tar.gz
+ 9ac251739dae51c582da838e2037b40ffa1c2c21 181 aspell_0.60.8.1.orig.tar.gz.asc
+ cb219d5f10c9a4ee97010849a47190b2c8af8250 25632 aspell_0.60.8.1-1build1.debian.tar.xz
+Checksums-Sha256:
+ 7fcf9ac683c2ad2099d2264d653cf732e3e4cfd203df83f67b466675de4465ef 2473 aspell_0.60.8.1-1build1.dsc
+ d6da12b34d42d457fa604e435ad484a74b2effcd120ff40acd6bb3fb2887d21b 3567205 aspell_0.60.8.1.orig.tar.gz
+ fb284b44f1853adf456aaf271afa3fe0a23459b587e2fdb17fc9fe08bfff83a0 181 aspell_0.60.8.1.orig.tar.gz.asc
+ 6d3793ee4b605bacae16b97e9c33ecc9e1bd3df37f2024cf637e4fc48fe20135 25632 aspell_0.60.8.1-1build1.debian.tar.xz
+Checksums-Sha512:
+ 474e65389de083c8cbda346f9edc137d9ac3c951d58358128da097b4cc6ebc702927bdd1599078e2d7eee37a9d002e0295fa9ae12b5daafa719cdff8de37ba3f 2473 aspell_0.60.8.1-1build1.dsc
+ 80fa9d7f5f4b8bf66388825ae28403713a2e3eda81fc31f2f452c3e2fe8349cd0fa8f0e4d0d3f8cffe215817229af25aa7be2dba358cb9cdc97e9d2834ba5ca7 3567205 aspell_0.60.8.1.orig.tar.gz
+ 12f9f19611eb48e97e9f6b29092cc53a6c83581909e1e6f8ef987578876ab189a32b41e54552bb144a630ad8aeacd26b582d18476e3d525eb974f08c278493c1 181 aspell_0.60.8.1.orig.tar.gz.asc
+ 181e839044e80735b70b0bcb6ea00f780edefd0bdff40f75fc798866b34cceeb248cd1b226ee719e961bd87521cda3a79a300ef7868f5fdb46f362359337d66d 25632 aspell_0.60.8.1-1build1.debian.tar.xz
+
+Package: aspell-en
+Format: 3.0 (quilt)
+Binary: aspell-en
+Architecture: all
+Version: 2020.12.07-0-1
+Priority: optional
+Section: text
+Maintainer: Dr. Tobias Quathamer <toddy@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper (>= 10), cdbs, dictionaries-common-dev, aspell
+Homepage: http://aspell.net/
+Vcs-Browser: https://salsa.debian.org/debian/aspell-en
+Vcs-Git: https://salsa.debian.org/debian/aspell-en.git
+Directory: pool/main/a/aspell-en
+Package-List:
+ aspell-en deb text optional arch=all
+Files:
+ 8efb5bfdc682ff1d68c08882fcd6e788 2181 aspell-en_2020.12.07-0-1.dsc
+ 5968764e9c3691c30e656a6df751249f 188972 aspell-en_2020.12.07-0.orig.tar.bz2
+ cbfe245c73dd569f9b9bd9fe6b73b9b0 155 aspell-en_2020.12.07-0.orig.tar.bz2.asc
+ 73a5636cc27924cb03a6fe85591cb2fb 8828 aspell-en_2020.12.07-0-1.debian.tar.xz
+Checksums-Sha1:
+ b0d3d4bb54a7f56a577d5801a3ddf781dba18d5b 2181 aspell-en_2020.12.07-0-1.dsc
+ 908b254f283e47c086f12e35e423b54fb9a29b0d 188972 aspell-en_2020.12.07-0.orig.tar.bz2
+ 82aca5334a009f2f6c1f4a7e4c55ee478983ec99 155 aspell-en_2020.12.07-0.orig.tar.bz2.asc
+ c6ed3e1320bd23fbe7ba2df5d825ad8a1f303a82 8828 aspell-en_2020.12.07-0-1.debian.tar.xz
+Checksums-Sha256:
+ 1ab35d294929e04fe9af7df8c7e5e464bf6325a389fd959058bf773f9b17f077 2181 aspell-en_2020.12.07-0-1.dsc
+ 4c8f734a28a088b88bb6481fcf972d0b2c3dc8da944f7673283ce487eac49fb3 188972 aspell-en_2020.12.07-0.orig.tar.bz2
+ b71a898ba4c6cdd8b6577fa33803ab9fe45ed252bd5e59862b309b0527037142 155 aspell-en_2020.12.07-0.orig.tar.bz2.asc
+ 8a10388303b49f24bad855e7053658c38dfd58446a6fe9a886647d9c5e0801c8 8828 aspell-en_2020.12.07-0-1.debian.tar.xz
+Checksums-Sha512:
+ 19336a2abd6dc909cded7152b6ab43726e28f92d2786d9658c9b7c64a5146edb733da3ae361e424cb3979f6dcb10e9ccb9b6cdb363c7c5938f1ba82a9a616425 2181 aspell-en_2020.12.07-0-1.dsc
+ 9ed4e64891242e5e5e7d6ac82a0d1fda3bdc5116bd9d926e787b8f381080b357915f0c9b39cae04c1da0f2ec6e47ffe30a584f7f3bf7d455a46e8518a7858547 188972 aspell-en_2020.12.07-0.orig.tar.bz2
+ d8929e24ec81acc65a5e3795d3da5969c784c23cedb5a3252984d66abdc4af360ea24f0f81e90473a8556b507f607384b27f3f9cd071c38ea4df6c09a08da402 155 aspell-en_2020.12.07-0.orig.tar.bz2.asc
+ 7a4600d15415b2a0e47276b5d000fef11ce75050e36451b5cc87091d595b654cd4d7e735a9f79517345fda834ecfd716f7223fa35bac0afa2637f34c1423ba4c 8828 aspell-en_2020.12.07-0-1.debian.tar.xz
+
+Package: at-spi2-core
+Format: 3.0 (quilt)
+Binary: at-spi2-core, at-spi2-common, at-spi2-core-udeb, libatspi2.0-0t64, libatspi0-udeb, libatspi2.0-dev, gir1.2-atspi-2.0, at-spi2-doc, libatk-adaptor, libatk-adaptor-udeb, libatk-bridge2.0-0t64, libatk-bridge-2.0-0-udeb, libatk-bridge2.0-dev, libatk1.0-0t64, libatk1.0-udeb, libatk1.0-dev, libatk1.0-doc, gir1.2-atk-1.0
+Architecture: any all
+Version: 2.52.0-1build1
+Priority: optional
+Section: misc
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Accessibility Team <pkg-a11y-devel@alioth-lists.debian.net>
+Uploaders: Samuel Thibault <sthibault@debian.org>, Jordi Mallach <jordi@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13), dbus, libdbus-1-dev, dbus-broker [linux-any], libsystemd-dev [linux-any], libglib2.0-dev (>= 2.62), libxml2-dev, libx11-dev, libxtst-dev, meson (>= 0.63.0), pkgconf, gtk-doc-tools, gi-docgen, python3-sphinx, gir1.2-dbus-1.0-dev, gir1.2-glib-2.0-dev, gir1.2-gobject-2.0-dev, gobject-introspection | dh-sequence-gir, xauth <!nocheck>, xvfb <!nocheck>, at-spi2-core <!nocheck>
+Build-Depends-Indep: docbook-xml <!nodoc>, libglib2.0-doc <!nodoc>, libglib2.0-dev-bin <!nodoc>
+Testsuite: autopkgtest
+Testsuite-Triggers: @builddeps@, build-essential, dbus, dbus-daemon, xauth, xvfb
+Homepage: https://wiki.gnome.org/Accessibility
+Vcs-Browser: https://salsa.debian.org/a11y-team/at-spi2-core
+Vcs-Git: https://salsa.debian.org/a11y-team/at-spi2-core.git
+Directory: pool/main/a/at-spi2-core
+Package-List:
+ at-spi2-common deb misc optional arch=all
+ at-spi2-core deb misc optional arch=any
+ at-spi2-core-udeb udeb debian-installer optional arch=any
+ at-spi2-doc deb doc optional arch=all
+ gir1.2-atk-1.0 deb introspection optional arch=any
+ gir1.2-atspi-2.0 deb introspection optional arch=any
+ libatk-adaptor deb misc optional arch=any
+ libatk-adaptor-udeb udeb debian-installer optional arch=any
+ libatk-bridge-2.0-0-udeb udeb debian-installer optional arch=any
+ libatk-bridge2.0-0t64 deb libs optional arch=any
+ libatk-bridge2.0-dev deb libdevel optional arch=any
+ libatk1.0-0t64 deb libs optional arch=any
+ libatk1.0-dev deb libdevel optional arch=any
+ libatk1.0-doc deb doc optional arch=all profile=!nodoc
+ libatk1.0-udeb udeb debian-installer optional arch=any
+ libatspi0-udeb udeb debian-installer optional arch=any
+ libatspi2.0-0t64 deb libs optional arch=any
+ libatspi2.0-dev deb libdevel optional arch=any
+Files:
+ f81f626c9532aa1f235d846df77952be 3906 at-spi2-core_2.52.0-1build1.dsc
+ e6591545b2bf204fe9a58f777bd0b78a 574684 at-spi2-core_2.52.0.orig.tar.xz
+ fe0ddb0f35bf6106a71e2f9b1e423747 19940 at-spi2-core_2.52.0-1build1.debian.tar.xz
+Checksums-Sha1:
+ fc3d45ffcfc58ed347e535b97270b85d322eda1a 3906 at-spi2-core_2.52.0-1build1.dsc
+ cc7e5d0fde70663864ba7c2dc55c069df4b77b92 574684 at-spi2-core_2.52.0.orig.tar.xz
+ c6b73d21742cbd8b313abd065810cbdb07ec4846 19940 at-spi2-core_2.52.0-1build1.debian.tar.xz
+Checksums-Sha256:
+ 16b82af63769eefb96343366f34545f2af2de5c3661c83293f50969de7fa450a 3906 at-spi2-core_2.52.0-1build1.dsc
+ 0ac3fc8320c8d01fa147c272ba7fa03806389c6b03d3c406d0823e30e35ff5ab 574684 at-spi2-core_2.52.0.orig.tar.xz
+ 20bda0a6815fb1e7c6ca286a02b4b70aaa706f304664aad30bd88a4ee163b91c 19940 at-spi2-core_2.52.0-1build1.debian.tar.xz
+Checksums-Sha512:
+ 6ad42457c92f95412be53cd2b229869ce26349ff26392d736109ebc16fd55fa4f79957490e521e6659fac2018be3f10120c00821d150b7c7f64c8c84c176409d 3906 at-spi2-core_2.52.0-1build1.dsc
+ 0482cae97cf5e2295ab56f6ae83db9e1047813a1c3c2b6cd6012f95dfabec1f7a93d0045a1a7c3fabb7a389f71dc43f797b2ad9242e97ddf565cf63948ae146b 574684 at-spi2-core_2.52.0.orig.tar.xz
+ d3791b1651198f23f7d1547c5d5bc7345f1c47b8afc265d6da199f94259fdbeae1b968f883a15cf7ff8b770efeafddbcbd5db0f272b63469e5abc130b43861cd 19940 at-spi2-core_2.52.0-1build1.debian.tar.xz
+
+Package: atkmm1.6
+Format: 3.0 (quilt)
+Binary: libatkmm-1.6-dev, libatkmm-1.6-1v5, libatkmm-1.6-doc
+Architecture: any all
+Version: 2.28.4-1build4
+Priority: optional
+Section: libs
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: Debian Accessibility Team <pkg-a11y-devel@lists.alioth.debian.org>, Jeremy Bícha <jbicha@ubuntu.com>, Krzysztof Klimonda <kklimonda@syntaxhighlighted.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), doxygen, graphviz, libatk1.0-dev (>= 2.12), libglibmm-2.4-dev (>= 2.46.2), libxml-parser-perl <!nodoc>, meson (>= 0.55.0), mm-common (>= 0.9.8), xsltproc
+Homepage: https://www.gtkmm.org/
+Vcs-Browser: https://salsa.debian.org/gnome-team/atkmm
+Vcs-Git: https://salsa.debian.org/gnome-team/atkmm.git
+Directory: pool/main/a/atkmm1.6
+Package-List:
+ libatkmm-1.6-1v5 deb libs optional arch=any
+ libatkmm-1.6-dev deb libdevel optional arch=any
+ libatkmm-1.6-doc deb doc optional arch=all
+Files:
+ 040907c5a94d115d1301c70fd5976b7a 2465 atkmm1.6_2.28.4-1build4.dsc
+ 1e16b8438b5b06f1b4ed701a06b9092c 94148 atkmm1.6_2.28.4.orig.tar.xz
+ d97ae508f242f35104698dfb5fd74226 4748 atkmm1.6_2.28.4-1build4.debian.tar.xz
+Checksums-Sha1:
+ 0a1c484fcb1b7ba2976c28d4e47f099578f7369f 2465 atkmm1.6_2.28.4-1build4.dsc
+ f441756dbf9e6c5343bcffe201daab06507c76f8 94148 atkmm1.6_2.28.4.orig.tar.xz
+ f9990e48a4ff75bfe5ad848432c07ee89450e4b2 4748 atkmm1.6_2.28.4-1build4.debian.tar.xz
+Checksums-Sha256:
+ 3d34cf9ddb75f8147658530af72bceb905dc535b2750adb11afd76286832d352 2465 atkmm1.6_2.28.4-1build4.dsc
+ 8a6e151e9303749609e79cc3e4801153b702998bcf0aab3d9781bb1fdf206944 94148 atkmm1.6_2.28.4.orig.tar.xz
+ a8546a9b6b209e9e49d71a1f58f34ac8f30b2258ac3c6980eeb55d6ef2ba6acd 4748 atkmm1.6_2.28.4-1build4.debian.tar.xz
+Checksums-Sha512:
+ 73831d8289cff844700d4689f8b94498badc2422d53d8c42d455a6e779380709da0c9a0256d4594cd9d24f50176d74ed049d0121b8505a84fa13d173fc9eb895 2465 atkmm1.6_2.28.4-1build4.dsc
+ 2bc297b27bedbc4f003e8bdd8a765d14a92e2f1628d8e84a9a6acf0a19037df6e92c6c1acd0f2072ca3ff05fea6ea2b9c1771398348e11d944949b3714d8bb37 94148 atkmm1.6_2.28.4.orig.tar.xz
+ 601de943aa371fea7cbbfb63e6f959f0f77359906e0dea5e1ec3b0bb597c20e2b2a74e77addec8cbabeb1b7ecae9e8639ba73880a3cd3ba663848f2536b14e5d 4748 atkmm1.6_2.28.4-1build4.debian.tar.xz
+
+Package: attr
+Format: 3.0 (quilt)
+Binary: attr, libattr1-dev, libattr1, attr-udeb, libattr1-udeb
+Architecture: any
+Version: 1:2.5.2-1build1
+Priority: required
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Guillem Jover <guillem@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), debhelper (>= 13.10), autoconf, automake, gettext, libtool
+Testsuite: autopkgtest
+Testsuite-Triggers: autoconf, automake, autopoint, build-essential, libtool
+Homepage: https://savannah.nongnu.org/projects/attr/
+Vcs-Browser: https://git.hadrons.org/cgit/debian/pkgs/attr.git
+Vcs-Git: https://git.hadrons.org/git/debian/pkgs/attr.git
+Directory: pool/main/a/attr
+Package-List:
+ attr deb utils optional arch=any
+ attr-udeb udeb debian-installer optional arch=any profile=!noudeb
+ libattr1 deb libs optional arch=any
+ libattr1-dev deb libdevel optional arch=any
+ libattr1-udeb udeb debian-installer optional arch=any profile=!noudeb
+Files:
+ 150f8f1da395f35ec89605b4e2fbe764 2609 attr_2.5.2-1build1.dsc
+ 4da9c1d25394946434e5913f49d778b6 334180 attr_2.5.2.orig.tar.xz
+ 52351f08e9562bc6af1dd6010d6a96d1 833 attr_2.5.2.orig.tar.xz.asc
+ 6c6570f7ab67ba03c53b7ed2ef83b49e 25964 attr_2.5.2-1build1.debian.tar.xz
+Checksums-Sha1:
+ ba48ca4ecc759904de300495a80fffb0865eff3b 2609 attr_2.5.2-1build1.dsc
+ dfced877779583861401389eea82dfeb88cb5d3a 334180 attr_2.5.2.orig.tar.xz
+ eee0e22675431900d88d16eab9d76c122cffb89e 833 attr_2.5.2.orig.tar.xz.asc
+ c6f9a2bd26f0bdd7c5bad3acaef7da07602a8f78 25964 attr_2.5.2-1build1.debian.tar.xz
+Checksums-Sha256:
+ c10ab895e6ca60c126bd49a1cf5691b8c396a25113e02bd25855f1f89402b1ea 2609 attr_2.5.2-1build1.dsc
+ f2e97b0ab7ce293681ab701915766190d607a1dba7fae8a718138150b700a70b 334180 attr_2.5.2.orig.tar.xz
+ eeac729088d3c6379e91b7596cb3582e46b047c47f0fa3c5c77f9c9e84dc3a4c 833 attr_2.5.2.orig.tar.xz.asc
+ 27f757a758243a88c32bbeacf3e98c97b2049041a88a090af62f0c1035f531e2 25964 attr_2.5.2-1build1.debian.tar.xz
+Checksums-Sha512:
+ ade7958f6b30b2b340bcc352d74aca74cdcee1cc768443f2c3f8c9097aa6ab2e5b9d4a84fc3a2838ea63e86de3275dc6e86fcb5e0d8b8452e53812f51481ee1d 2609 attr_2.5.2-1build1.dsc
+ f587ea544effb7cfed63b3027bf14baba2c2dbe3a9b6c0c45fc559f7e8cb477b3e9a4a826eae30f929409468c50d11f3e7dc6d2500f41e1af8662a7e96a30ef3 334180 attr_2.5.2.orig.tar.xz
+ 16362013313d055dec307bcf755a9846f5153a78309a499f8cac4ff57a2154de2bc8f3b1400e81dba7a0bf0c67aa02a5d464898ed6e4aa721b64ec95fd313968 833 attr_2.5.2.orig.tar.xz.asc
+ 0c75c2fa124b62e7326c4575d1ab6cceb2e6593bcf986f1264aefb02774b5dee48989d3d667dd1cdf4cb71165802f9a03d1658cf12963baaa38123e9c556c58f 25964 attr_2.5.2-1build1.debian.tar.xz
+
+Package: audit
+Format: 3.0 (quilt)
+Binary: auditd, libauparse0t64, libauparse-dev, libaudit1, libaudit-common, libaudit-dev, python3-audit, golang-redhat-audit-dev, audispd-plugins
+Architecture: linux-any all
+Version: 1:3.1.2-2.1build1
+Priority: required
+Section: libs
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Laurent Bigonville <bigon@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: dpkg-dev (>= 1.22.5), debhelper-compat (= 13), dh-python <!nopython>, libcap-ng-dev, libkrb5-dev, libldap2-dev <!pkg.audit.noldap>, libwrap0-dev, linux-libc-dev (>= 5.9~), python3-all-dev:any <!nopython>, libpython3-all-dev <!nopython>, swig
+Build-Depends-Indep: golang-any
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential, pkg-config, python3-all
+Homepage: https://people.redhat.com/sgrubb/audit/
+Vcs-Browser: https://salsa.debian.org/debian/audit
+Vcs-Git: https://salsa.debian.org/debian/audit.git
+Directory: pool/main/a/audit
+Package-List:
+ audispd-plugins deb admin optional arch=linux-any profile=!pkg.audit.noldap
+ auditd deb admin optional arch=linux-any
+ golang-redhat-audit-dev deb golang optional arch=all
+ libaudit-common deb libs optional arch=all
+ libaudit-dev deb libdevel optional arch=linux-any
+ libaudit1 deb libs optional arch=linux-any
+ libauparse-dev deb libdevel optional arch=linux-any
+ libauparse0t64 deb libs optional arch=linux-any
+ python3-audit deb python optional arch=linux-any profile=!nopython
+Files:
+ 110fb633ef9476618024df1f95fecbf4 2877 audit_3.1.2-2.1build1.dsc
+ 9d325b543f79b20a8f7ff2021ebac0c3 1219860 audit_3.1.2.orig.tar.gz
+ 8876e5214d4d21834d092b0eb18bb834 18784 audit_3.1.2-2.1build1.debian.tar.xz
+Checksums-Sha1:
+ 23d30cbf23c58c6168cd3cebbf633337c2a3ca6d 2877 audit_3.1.2-2.1build1.dsc
+ 45cffb1ded9a57a79b33547f58228131d3eb14a6 1219860 audit_3.1.2.orig.tar.gz
+ bfb34382be20caa9d95b8060ba1748a902e7e8a7 18784 audit_3.1.2-2.1build1.debian.tar.xz
+Checksums-Sha256:
+ dd3c6d9bcb80121edfab600967220ab041becff4315d863a88c05052a23d4032 2877 audit_3.1.2-2.1build1.dsc
+ c0b1792d1f0a88c6f1828710509cbb987059fc68712c97669ca90eae103d287d 1219860 audit_3.1.2.orig.tar.gz
+ 498a9378a16d32134bc04a7e85149dd41a1a6185da76688c79f569ee2eae2c69 18784 audit_3.1.2-2.1build1.debian.tar.xz
+Checksums-Sha512:
+ e5395495956f6d36febd6ed2c6f1bed2e51cccff26f3ded5b4d45fc227a42a5acccfc44fb66fc1b2618d9d1709a194c240e3e904d97959ed6408fc821136e0c1 2877 audit_3.1.2-2.1build1.dsc
+ a97003a294ed3671df01e2952688e7d5eef59a35f6891feb53e67c4c7eab9ae8c2d18de41a5b5b20e0ad7156fac93aec05f32f6bc5eea706b42b6f27f676446a 1219860 audit_3.1.2.orig.tar.gz
+ 7ded5cc41efbc9272bd0455c66de696a090b5099a732917de5103a18524ed6ed01337875e18b04e616d56fc37ba8972d52a275cf4416d651395518d16088c43d 18784 audit_3.1.2-2.1build1.debian.tar.xz
+
+Package: authbind
+Format: 1.0
+Binary: authbind
+Architecture: any
+Version: 2.1.3build2
+Priority: extra
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Ian Jackson <ijackson@chiark.greenend.org.uk>
+Standards-Version: 3.9.1
+Directory: pool/main/a/authbind
+Package-List:
+ authbind deb utils optional arch=any
+Files:
+ e9d494a9b32cf3b582fcbe98cfab7d9b 1496 authbind_2.1.3build2.dsc
+ 688cad12a062feff30c56d9ae6d64519 15495 authbind_2.1.3build2.tar.gz
+Checksums-Sha1:
+ fb2ca91e87b8ba323b248669102aa61afa593f4b 1496 authbind_2.1.3build2.dsc
+ 439057f3b70015540e86c11a95234495d468afad 15495 authbind_2.1.3build2.tar.gz
+Checksums-Sha256:
+ bf68d0cf0391a42855cadaa2806104c1aa7aa918d21b121e2363027717b7fbc2 1496 authbind_2.1.3build2.dsc
+ fb947d25915b006a8b18ca8528217810a778ef1193f28c165addb997c5c9d5f3 15495 authbind_2.1.3build2.tar.gz
+Checksums-Sha512:
+ d1d7c1f4f14d214762f04335d7f8fc60067de0c16467f3e6808cbcafb79936e698513eb9f8cb6a46579761d8c0b1ed3f1650fb50e6178a3697dd342b48e0b10d 1496 authbind_2.1.3build2.dsc
+ ae93d511cc8e3449418daac39d1e8c1e6ae502f67c3d75cf08e6f98715083a224cee72350888d6db74f58d779f0041bcb844edac685819bbcf94f2438c5aca29 15495 authbind_2.1.3build2.tar.gz
+
+Package: autoconf
+Format: 3.0 (quilt)
+Binary: autoconf, autoconf-doc
+Architecture: all
+Version: 2.71-3
+Priority: optional
+Section: devel
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Indep: texinfo (>= 4.6), m4 (>= 1.4.13), texlive-base, texlive-plain-generic, texlive-latex-base, texlive-latex-recommended, texlive-fonts-recommended, help2man, cm-super
+Homepage: https://www.gnu.org/software/autoconf/
+Directory: pool/main/a/autoconf
+Package-List:
+ autoconf deb devel optional arch=all
+ autoconf-doc deb doc optional arch=all
+Files:
+ d675dcf7efbd3f663ce5691d34ca7386 1988 autoconf_2.71-3.dsc
+ f64e38d671fdec06077a41eb4d5ee476 2003781 autoconf_2.71.orig.tar.gz
+ 93611f174048f8b121e32cd6f5dedfa9 23896 autoconf_2.71-3.debian.tar.xz
+Checksums-Sha1:
+ bbc3cdda2033616872278a7bdb0c6f792b340339 1988 autoconf_2.71-3.dsc
+ abe5a4bcf06ebd1bbbf81007159df346f5c1db8b 2003781 autoconf_2.71.orig.tar.gz
+ 8041f0af8c00a73f1253066ea8c5c955c23867bd 23896 autoconf_2.71-3.debian.tar.xz
+Checksums-Sha256:
+ 2230ca8950e9b1abeeba54844c9e8184891fa2474a101c25f5d125bdacb92ef2 1988 autoconf_2.71-3.dsc
+ 431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c 2003781 autoconf_2.71.orig.tar.gz
+ 3c12ade6e26e8ccacd8e35de3eb93a1fcf360b02364cbe4690b958a749daf4d7 23896 autoconf_2.71-3.debian.tar.xz
+Checksums-Sha512:
+ 77b5211bc883080da398a9b16ea5455b6e1562c4be7459844b58a61bcf57183bf6440547ef3bcc55b4ece3213347aaaa12dbf1603d5528d037cfb956413e29f6 1988 autoconf_2.71-3.dsc
+ 2bc5331f9807da8754b2ee623a30299cc0d103d6f98068a4c22263aab67ff148b7ad3a1646bd274e604bc08a8ef0ac2601e6422e641ad0cfab2222d60a58c5a8 2003781 autoconf_2.71.orig.tar.gz
+ 12debf9cd25329130b7d9b00b77bbbfb7f3f26cdf6dbe60188203e3a66ed933f693de02c3816856e4157d5843647d7c834c3bd924345a7ac41ad35aac3689f63 23896 autoconf_2.71-3.debian.tar.xz
+
+Package: autodep8
+Format: 3.0 (native)
+Binary: autodep8
+Architecture: all
+Version: 0.28
+Priority: optional
+Section: misc
+Maintainer: Debian CI team <team+ci@tracker.debian.org>
+Uploaders: Antonio Terceiro <terceiro@debian.org>, Martin Pitt <mpitt@debian.org>, Paul Gevers <elbrus@debian.org>, Rafael Laboissière <rafael@debian.org>
+Standards-Version: 4.6.1
+Build-Depends: dctrl-tools, debhelper-compat (= 13), shunit2
+Testsuite: autopkgtest
+Testsuite-Triggers: autopkgtest, moreutils, shunit2
+Vcs-Browser: https://salsa.debian.org/ci-team/autodep8
+Vcs-Git: https://salsa.debian.org/ci-team/autodep8.git
+Directory: pool/main/a/autodep8
+Package-List:
+ autodep8 deb devel optional arch=all
+Files:
+ a9b2ef741b67f74ea26955de334e3436 1769 autodep8_0.28.dsc
+ 7ccab626c43ba7c6af39403e6bea934c 16276 autodep8_0.28.tar.xz
+Checksums-Sha1:
+ 1a129e64017adf4b920928b13299db1f16091489 1769 autodep8_0.28.dsc
+ f29dac533b3867a2fc199780192dd266f1567b14 16276 autodep8_0.28.tar.xz
+Checksums-Sha256:
+ c30a8b4457382929e3d8e9e01347c34ade27d51e7f2f8d1e5f746e05e94f4508 1769 autodep8_0.28.dsc
+ da72642604cb01ee3a0fa2df367f102b31bb1b1381ec4d370d1873142a4415b5 16276 autodep8_0.28.tar.xz
+Checksums-Sha512:
+ 2810f035771d0a382b21e5f8b89ff6404ada773611ce9c53e1a65876c646ec1dff20c63a09c5683c5330b536420ac40e32c42b634ce5d4e831ef3ad7195fe020 1769 autodep8_0.28.dsc
+ 9d28b3ba175f064331a2e76b14cd9c397eeeb0d6539bafe45d6aa6b2b250c8c4eefa46f0e904bb0203ef766eb996ed857cbeacd6d39bcc048a9a880e5015cce0 16276 autodep8_0.28.tar.xz
+
+Package: autofs
+Format: 3.0 (quilt)
+Binary: autofs, autofs-ldap, autofs-hesiod
+Architecture: linux-any
+Version: 5.1.9-1ubuntu4
+Priority: extra
+Section: utils
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Mike Gabriel <sunweaver@debian.org>
+Uploaders:  Debian Edu Packaging Team <debian-edu-pkg-team@lists.alioth.debian.org>,
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), bison, dpkg-dev (>= 1.16.1.1~), e2fsprogs, flex, libhesiod-dev, libkrb5-dev, libldap-dev, libsasl2-dev, libssl-dev, libxml2-dev, pkgconf, sssd-common, libtirpc-dev
+Testsuite: autopkgtest
+Testsuite-Triggers: cifs-utils, krb5-admin-server, krb5-kdc, ldap-utils, libsasl2-modules, libsasl2-modules-db, libsasl2-modules-gssapi-mit, nfs-common, nfs-server, samba, sasl2-bin, schema2ldif, slapd, smbclient
+Homepage: https://www.kernel.org/pub/linux/daemons/autofs/v5/
+Vcs-Browser: https://salsa.debian.org/debian/autofs/
+Vcs-Git: https://salsa.debian.org/debian/autofs.git
+Directory: pool/main/a/autofs
+Package-List:
+ autofs deb utils optional arch=linux-any
+ autofs-hesiod deb utils optional arch=linux-any
+ autofs-ldap deb utils optional arch=linux-any
+Files:
+ a24ded91037a59b427eff9340f6745bb 2552 autofs_5.1.9-1ubuntu4.dsc
+ 06fb59a03c82364a0d788435b6853d70 331872 autofs_5.1.9.orig.tar.xz
+ bb589a1b7a9d436235c7b99447de6373 28088 autofs_5.1.9-1ubuntu4.debian.tar.xz
+Checksums-Sha1:
+ 8e5d907fcabc838ea23537791146a7a0991aeaae 2552 autofs_5.1.9-1ubuntu4.dsc
+ 191969b8d9ef022f608cdaf465b0cc3ea7dcf04e 331872 autofs_5.1.9.orig.tar.xz
+ 77a5e0a4845fab58b3b35c979db38c78f84c24bf 28088 autofs_5.1.9-1ubuntu4.debian.tar.xz
+Checksums-Sha256:
+ 82cd563c140aea880bc35df71b98e83451abcee17ab0b134a3165b0968f5e25d 2552 autofs_5.1.9-1ubuntu4.dsc
+ 87e6af6a03794b9462ea519781e50e7d23b5f7c92cd59e1142c85d2493b3c24b 331872 autofs_5.1.9.orig.tar.xz
+ f6bc4c75041043241d01611c699ce6c8cc0d5459210dad9f68fc967fae71d837 28088 autofs_5.1.9-1ubuntu4.debian.tar.xz
+Checksums-Sha512:
+ 03ad831b19966c8571502f81cad8701d2a8ecd6d61213ddea4bf45ffbe697ac135406d9850592c5c18241fb6dc6c41f9b67a2f9d3c38be3b5c1586fb5e5cda71 2552 autofs_5.1.9-1ubuntu4.dsc
+ 81eb04270727c3fbf9dfb4b07a8dd39beac9068d6289f2f3bb0eabf723c14bec36860d3b2759c46b597bd77e8f3fa521646445e926c95ab63859a3a6c8588dcc 331872 autofs_5.1.9.orig.tar.xz
+ 27d2d5b18eefb6ac8e6ca838d9b9e2f4149326f74d270a9fb20c6f659ddc6182650327c3728d88aac433c5e7197516e2bd518e1cefaf9c3e0bbe6fc7e391b288 28088 autofs_5.1.9-1ubuntu4.debian.tar.xz
+
+Package: automake-1.16
+Format: 3.0 (quilt)
+Binary: automake
+Architecture: all
+Version: 1:1.16.5-1.3ubuntu1
+Priority: optional
+Section: devel
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Eric Dorland <eric@debian.org>
+Standards-Version: 4.5.1.0
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Indep: autoconf, gettext, help2man, install-info, libtool, libtool-bin, pkg-config, texinfo
+Testsuite: autopkgtest
+Testsuite-Triggers: @builddeps@, autopoint, bison, cscope, default-jdk, dejagnu, emacs, expect, flex, gettext, gfortran, gobjc, gobjc++, libglib2.0-dev, lzip, ncompress, python3, python3-docutils, python3-virtualenv, sharutils, texlive, unzip, valac, xutils-dev, zip
+Homepage: https://www.gnu.org/software/automake/
+Vcs-Browser: https://salsa.debian.org/eric/automake-1.16
+Vcs-Git: https://salsa.debian.org/eric/automake-1.16.git
+Directory: pool/main/a/automake-1.16
+Package-List:
+ automake deb devel optional arch=all
+Files:
+ 238a623d70662b0cb079db224557e8b8 2657 automake-1.16_1.16.5-1.3ubuntu1.dsc
+ 4017e96f89fca45ca946f1c5db6be714 1601740 automake-1.16_1.16.5.orig.tar.xz
+ bb6a0e00b284fc74268aa0f18feeeb85 833 automake-1.16_1.16.5.orig.tar.xz.asc
+ 00f94536f18d4780ff412b18d015a619 14624 automake-1.16_1.16.5-1.3ubuntu1.debian.tar.xz
+Checksums-Sha1:
+ 5042237f976997dba740d07db1506ecea3898d47 2657 automake-1.16_1.16.5-1.3ubuntu1.dsc
+ 32fb36e73568271ff506b60c55a6170b67681375 1601740 automake-1.16_1.16.5.orig.tar.xz
+ de9812833bfa65a7a59149e80af157ae25c77737 833 automake-1.16_1.16.5.orig.tar.xz.asc
+ 3eb9ddd92475a0a74f1e3bd9dea20b58eff9adb7 14624 automake-1.16_1.16.5-1.3ubuntu1.debian.tar.xz
+Checksums-Sha256:
+ 7fde2c7aeef7f6d5f12858338804f7bcbb94fab64aff1bda7595dd78a1f31ca6 2657 automake-1.16_1.16.5-1.3ubuntu1.dsc
+ f01d58cd6d9d77fbdca9eb4bbd5ead1988228fdb73d6f7a201f5f8d6b118b469 1601740 automake-1.16_1.16.5.orig.tar.xz
+ 3a161ab65921eed55e1a94251d97c8451d4ba3431b55ca560e95a951b5f1d73a 833 automake-1.16_1.16.5.orig.tar.xz.asc
+ eea918e1fa1287f53f7d2485ab2eef997c1f53087dad7266d8d27133531d1a34 14624 automake-1.16_1.16.5-1.3ubuntu1.debian.tar.xz
+Checksums-Sha512:
+ 8000fe08014aaa9da51cefe063499a6f8932515916e81cd9b4a3201313609804ce69a353a0bbb5d6e0b574107259e0e8e61a7af21f1932f4b2cfcea359ed619f 2657 automake-1.16_1.16.5-1.3ubuntu1.dsc
+ 3084ae543aa3fb5a05104ffb2e66cfa9a53080f2343c44809707fd648516869511500dba50dae67ff10f92a1bf3b5a92b2a0fa01cda30adb69b9da03994d9d88 1601740 automake-1.16_1.16.5.orig.tar.xz
+ 032a7c39abb4cabbefa4eb9c15263baec0902e48c0c81364307361a41fd55be282b9640707c789f5ae572e8e60240e34d1b575a671b5710f5d2a5716fafc2d51 833 automake-1.16_1.16.5.orig.tar.xz.asc
+ 95bf57bcfe7f509c2c1c5e3c6fbe9a407af96dca49ccde0e990580720b301974c882a3a4ae7a9e9bb26c0129918f0847fb480749a315a52204b705a0a277f2c2 14624 automake-1.16_1.16.5-1.3ubuntu1.debian.tar.xz
+
+Package: automat
+Format: 3.0 (quilt)
+Binary: python3-automat
+Architecture: all
+Version: 22.10.0-2
+Priority: optional
+Section: misc
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Free Ekanayaka <freee@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-sequence-python3, python3-all, python3-setuptools, python3-setuptools-scm, python3-wheel, python3-attr, graphviz <!nocheck>, python3-pytest <!nocheck>, python3-twisted <!nocheck>, python3-graphviz <!nocheck>
+Testsuite: autopkgtest-pkg-pybuild
+Homepage: https://pypi.python.org/pypi/Automat
+Vcs-Browser: https://salsa.debian.org/python-team/packages/automat
+Vcs-Git: https://salsa.debian.org/python-team/packages/automat.git
+Directory: pool/main/a/automat
+Package-List:
+ python3-automat deb python optional arch=all
+Files:
+ 098fec7a0b6cd51489a14e9f703e358a 2204 automat_22.10.0-2.dsc
+ 52f84a438863872e13bedf27f2bd33a2 58186 automat_22.10.0.orig.tar.gz
+ 6706ab2c13f8fdc453b7bef1d9f377f7 3164 automat_22.10.0-2.debian.tar.xz
+Checksums-Sha1:
+ b0085182c083bb5e9a4d84cda627d502fea61759 2204 automat_22.10.0-2.dsc
+ 034f9f5ff542177a8443779c5db803e35984c293 58186 automat_22.10.0.orig.tar.gz
+ afe7edffb343815be33e5a63cb364230b5e472b2 3164 automat_22.10.0-2.debian.tar.xz
+Checksums-Sha256:
+ 00c20bbd4966fecaaa7b31f9e3e2890e61f3c5183e08328a27d1af48d89bcd76 2204 automat_22.10.0-2.dsc
+ e9f424466e1cf487e66306819b42cd4dbf76b0f5f7475211d06e48fa944760aa 58186 automat_22.10.0.orig.tar.gz
+ 3bb562ae434b593e5a10a2022d7550504ea941fe6daa1edc8ef29f2e859f5a86 3164 automat_22.10.0-2.debian.tar.xz
+Checksums-Sha512:
+ 22f16f64246d4d2cd36b65ae2fab09af147d29c81101a5e55a25dc0a5998c00f89cdd8ff81bc3e56396ebf549c23bac34f8dba0a2f5ecdea58f3dc3102af5b59 2204 automat_22.10.0-2.dsc
+ 16caea66a8621b7d50e68e94007085218ec40ae0f57599d5076ed1915d4a2ebabd2da66659ba70acb9c6d30bc354bcd6126f913af0c0a005db305ca0c203481d 58186 automat_22.10.0.orig.tar.gz
+ 1fbb68018fb71d585f8135fc2cae6d63567bc8efad98396a698dba8f56ef81bd4de19bea280b0f4c4f3de0d3400997ee57e0e7c06df80f9ab95157efcd458a03 3164 automat_22.10.0-2.debian.tar.xz
+
+
+
+
+
+Package: autopkgtest
+Format: 3.0 (native)
+Binary: autopkgtest
+Architecture: all
+Version: 5.34ubuntu2
+Priority: optional
+Section: devel
+Maintainer: Debian CI team <team+ci@tracker.debian.org>
+Uploaders: Ian Jackson <ijackson@chiark.greenend.org.uk>, Martin Pitt <mpitt@debian.org>, Antonio Terceiro <terceiro@debian.org>, Paul Gevers <elbrus@debian.org>, Simon McVittie <smcv@debian.org>, Paride Legovini <paride@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), fakeroot, procps, pycodestyle | pep8, pyflakes3, python3 (>= 3.3), python3-debian, python3-docutils, python3-mock
+Testsuite: autopkgtest
+Testsuite-Triggers: adduser, autodep8, build-essential, buildah, ca-certificates, catatonit, debhelper, debian-archive-keyring, debootstrap, devscripts, distro-info, dnsmasq, dnsmasq-base, docker.io, dumb-init, fakeroot, golang-github-containernetworking-plugin-dnsname, iptables, libpam-cgfs, lxc, lxc-templates, lxcfs, lxd, mmdebstrap, podman, python3-distro-info, rsync, sbuild, schroot, slirp4netns, tini, uidmap, util-linux
+Vcs-Browser: https://salsa.debian.org/ci-team/autopkgtest
+Vcs-Git: https://salsa.debian.org/ci-team/autopkgtest.git
+Directory: pool/main/a/autopkgtest
+Package-List:
+ autopkgtest deb devel optional arch=all
+Files:
+ ba833665c35bc1131d0b5f02b033ecea 2050 autopkgtest_5.34ubuntu2.dsc
+ f50adde8c253eb63b6fb0f0532d42d4e 223476 autopkgtest_5.34ubuntu2.tar.xz
+Checksums-Sha1:
+ 079fd281af96387d35eb235587657e03318150c4 2050 autopkgtest_5.34ubuntu2.dsc
+ a14e61470938b8004e89aa1e28688b58a4749475 223476 autopkgtest_5.34ubuntu2.tar.xz
+Checksums-Sha256:
+ 0b2f72a133be901253bf14fcb315ea2204f758071f1060c4d1b775369530c189 2050 autopkgtest_5.34ubuntu2.dsc
+ 0fcfb298dc2c083b655d25e80a9458fa9f1618f76ad6c4409f524d0156ee5fa2 223476 autopkgtest_5.34ubuntu2.tar.xz
+Checksums-Sha512:
+ 6ced2a1a66e6bf1511b28cc378084549670f19247b284b3094c9647071e4ee7abcf466d8e7e068911a5908539c04e3b73ffada7bbeaf3f55fe805ff5f3ed20d5 2050 autopkgtest_5.34ubuntu2.dsc
+ e87fb97eed99c4353deffd4013931eac01614d7ef74e284957f35829b72b9481dce741ace6411d669d6afbc7828b2b170cfb14c44368c02ff268dec9577e4035 223476 autopkgtest_5.34ubuntu2.tar.xz

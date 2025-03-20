@@ -1,0 +1,6 @@
+arch: amd64
+apt_repos:
+  - apt_repo: http://archive.ubuntu.com/ubuntu
+    key: http://archive.ubuntu.com/ubuntu/key.pub
+  - apt_repo: http://ports.ubuntu.com/ubuntu-ports
+    arch: arm64

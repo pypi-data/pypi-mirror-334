@@ -1,0 +1,1028 @@
+Package: accountsservice
+Architecture: amd64
+Version: 22.07.5-2ubuntu1.5
+Priority: optional
+Section: gnome
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 500
+Depends: dbus (>= 1.9.18), libaccountsservice0 (= 22.07.5-2ubuntu1.5), libc6 (>= 2.34), libglib2.0-0 (>= 2.63.5), libpolkit-gobject-1-0 (>= 0.99)
+Recommends: default-logind | logind
+Suggests: gnome-control-center
+Filename: pool/main/a/accountsservice/accountsservice_22.07.5-2ubuntu1.5_amd64.deb
+Size: 69982
+MD5sum: 0db1637dad9ed76d01563fdc1b74a3c7
+SHA1: 9af1ee126f99a9c2aecd268af8445a4af71b08fb
+SHA256: 95ef667f9ada1acb2629bb98d3aa004dcf49a694430ac46b72d9add43adc569d
+SHA512: 4520da486daebf911df64d856892f7ba51eaf71660c9247d0d0bc5bcfbe3c80f444befce51d431d85315dd2ca2c843e075cfe8e71ac26db12ee3acbbae1a6178
+Homepage: https://www.freedesktop.org/wiki/Software/AccountsService/
+Description: query and manipulate user account information
+Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-core, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 8aeed0a03c7cd494f0c4b8d977483d7e
+
+Package: adsys
+Architecture: amd64
+Version: 0.9.2~22.04.1
+Built-Using: golang-1.18 (= 1.18.1-1ubuntu1.1)
+Priority: optional
+Section: admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 23428
+Depends: libc6 (>= 2.34), libpam0g (>= 0.99.7.1), libsmbclient (>= 2:4.0.3+dfsg1), init-system-helpers (>= 1.52), python3, python3-samba, samba-dsdb-modules, sssd, sssd-dbus
+Recommends: ubuntu-advantage-desktop-daemon
+Filename: pool/main/a/adsys/adsys_0.9.2~22.04.1_amd64.deb
+Size: 6186404
+MD5sum: ffb1e55d6bbb94f2dc7d18b887c6bd98
+SHA1: a9584cbff82a4ff6e77984362d083ce4ebbf5410
+SHA256: a9e4f50ffc3486f4bb3b1b6bad5ceb742ef408c412d05f3c6d6089d822e8e501
+SHA512: 8b5814e9307ce03a04b1ee108eae1b0b887c96038c3be808bc6d593035870f888f1b49fa3778c2eb8fdfd6dabaad4f9f41c2d48071b1346c41a6bf6471e2d507
+Homepage: https://github.com/ubuntu/adsys
+Description: AD SYStem integration
+Description-md5: 720becc0977ae4c845fb5e5c1a8cdc87
+
+Package: adsys-windows
+Architecture: amd64
+Version: 0.9.2~22.04.1
+Built-Using: golang-1.18 (= 1.18.1-1ubuntu1.1)
+Priority: optional
+Section: admin
+Source: adsys
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 17226
+Filename: pool/main/a/adsys/adsys-windows_0.9.2~22.04.1_amd64.deb
+Size: 7698174
+MD5sum: f7f9ad193280c3e1c11ad65a0819f859
+SHA1: 1087215206a3ec569b57226138e5d3b0f346b744
+SHA256: 61dc99299c8d9d478ca62e1b63023793f192fc8fe63ecb505dbfb8b55589b525
+SHA512: b065b684fc68f36ef64b4dfab734ff8bca40495e16c9c02030030ea686cd6588dab6134b5aad38c64c5ac9794cbdb498ee83fd4f913165a7c8c3c31f03c8694a
+Homepage: https://github.com/ubuntu/adsys
+Description: AD SYStem integration
+Description-md5: 635e799224bffc04240ce9f4d23a46e9
+
+Package: advancecomp
+Architecture: amd64
+Version: 2.1-2.1ubuntu2.1
+Priority: optional
+Section: utils
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Piotr Ożarowski <piotr@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 616
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.3.1), libstdc++6 (>= 9), zlib1g (>= 1:1.1.4)
+Filename: pool/main/a/advancecomp/advancecomp_2.1-2.1ubuntu2.1_amd64.deb
+Size: 170516
+MD5sum: b70f96f2c8ec4bcb6be8a91d29fbfb08
+SHA1: 3e968aa4c46aa5d9757dbf57df7c61ddf5d59f7c
+SHA256: 6d43d7d58e34b8742a843deeb2328e45565f6ba83decc52c59e53b9200340736
+SHA512: c7dd32df2e66d1023716f4255d397772759c3812c094f32c537b8596a7678f8be7f9a83b06309ced628dce1e4d56976e2e7d861b7118606d5c1f044a3a176462
+Homepage: http://www.advancemame.it/
+Description: collection of recompression utilities
+Description-md5: 45269d7ed6ff6092f699fce2e0061b74
+
+Package: amavisd-new
+Architecture: all
+Version: 1:2.12.2-1ubuntu1.1
+Priority: extra
+Section: mail
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Brian May <bam@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 2819
+Provides: amavis
+Pre-Depends: init-system-helpers (>= 1.54~)
+Depends: adduser (>= 3.34), debconf | debconf-2.0, file, libarchive-tar-perl, libarchive-zip-perl (>= 1.14), libberkeleydb-perl, libconvert-tnef-perl (>= 0.06), libconvert-uulib-perl (>= 1.0.5), libdigest-md5-perl, libio-stringy-perl, libmail-dkim-perl, libmailtools-perl (>= 1.58), libmime-base64-perl, libmime-tools-perl, libnet-libidn-perl, libnet-server-perl, libtime-hires-perl, libunix-syslog-perl, libnet-snmp-perl, pax, perl (>= 5.10.1) | libcompress-raw-zlib-perl (>= 2.017), lsb-base (>= 3.0-6), perl:any
+Recommends: libnet-patricia-perl
+Suggests: apt-listchanges (>= 2.35), arj, cabextract, clamav, clamav-daemon, cpio, dspam, lhasa, libauthen-sasl-perl, libdbi-perl (>= 1.43), libjson-perl, liblwp-protocol-https-perl, libmail-dkim-perl (>= 0.31), libnet-ldap-perl (>= 1:0.32), libnet-ssleay-perl, libsnmp-perl, libwww-perl, libzeromq-perl, lzop, nomarch, p7zip, rpm, spamassassin (>= 3.1.0a), unrar, altermime, ripole
+Conflicts: amavis, logcheck (<= 1.2.62)
+Replaces: amavis
+Filename: pool/main/a/amavisd-new/amavisd-new_2.12.2-1ubuntu1.1_all.deb
+Size: 630064
+MD5sum: e0f6167710cbafe3c3de770a4a84e8f0
+SHA1: 65c83f5b0ca248a003be278730cb651c6021e594
+SHA256: a2a61c90325a0352f2e068206bed475781267a2a72c5031d0901ed89c794c14e
+SHA512: e0314d75d980f3895f59581f72c53558fda718c9cf97df8175addd2026e68e82078bc36db19ed5f599b13536a1c649e9ad1f02e4e84b67cdbbc1d7a91a38a92d
+Homepage: https://www.ijs.si/software/amavisd/
+Description: Interface between MTA and virus scanner/content filters
+Description-md5: d95fd9c270e69763b2674a7c7629b731
+
+Package: amd64-microcode
+Architecture: amd64
+Version: 3.20191218.1ubuntu2.2
+Priority: extra
+Section: admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Henrique de Moraes Holschuh <hmh@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 121
+Recommends: initramfs-tools (>= 0.113~) | dracut (>= 044) | tiny-initramfs
+Breaks: intel-microcode (<< 2)
+Filename: pool/main/a/amd64-microcode/amd64-microcode_3.20191218.1ubuntu2.2_amd64.deb
+Size: 69048
+MD5sum: 1466975bd919f0c374d1d3d17dca6f23
+SHA1: dbbd6bb65e5f54e1a06f136132c3ada5a8cb9c08
+SHA256: a495ee7aec5fd1f34a089bd2fb09a10033750998c570e5858712733dc03eef5a
+SHA512: 252d328765647349db31d05c55f2727149761e5a70f4a320493916d041ef71a7bde46f8c97a5c2b136a5c597a24f4435c97cceb4a742a93e65a380e47d898d5b
+Description: Processor microcode firmware for AMD CPUs
+Description-md5: 093f190e183c7cfeca05b52ecd2116e3
+
+Package: anope
+Architecture: amd64
+Version: 2.0.9-1ubuntu0.1
+Priority: optional
+Section: net
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Dominic Hargreaves <dom@earth.li>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 15108
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.3.1), libgnutls30 (>= 3.7.2), libldap-2.5-0 (>= 2.5.4), libmysqlclient21 (>= 8.0.11), libpcre3, libsqlite3-0 (>= 3.5.9), libstdc++6 (>= 11), init-system-helpers (>= 1.51), lsb-base (>= 3.2-14)
+Recommends: default-mta | mail-transport-agent
+Breaks: ircd-hybrid (<< 8.2.23)
+Filename: pool/main/a/anope/anope_2.0.9-1ubuntu0.1_amd64.deb
+Size: 3061776
+MD5sum: 7b07f0f8f14db113bcecec2f60db9286
+SHA1: 3d1c4ec13e0345c3235c2bac910bb16c42bf5bee
+SHA256: ae8d45b46b47a14f4c2fa1719219e8bc5d594af599aa4ed3e49ffcfc7ea6dc7a
+SHA512: 8be2544d48bf1ccd3aeda83e8c7164f8ee2914e1f47bd9c3b1ba48c60cf6cf5d042ced6493fe969534136f15680607053b9590dda49b1828f306d0b81bba21a0
+Homepage: http://www.anope.org/
+Description: IRC Services designed for flexibility and ease of use
+Description-md5: bb0a2350d2094f8bb9b48d9bfdddb1c0
+
+Package: apache2
+Architecture: amd64
+Version: 2.4.52-1ubuntu4.12
+Priority: optional
+Section: web
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 535
+Provides: httpd, httpd-cgi
+Pre-Depends: init-system-helpers (>= 1.54~)
+Depends: apache2-bin (= 2.4.52-1ubuntu4.12), apache2-data (= 2.4.52-1ubuntu4.12), apache2-utils (= 2.4.52-1ubuntu4.12), lsb-base, mime-support, perl:any, procps
+Recommends: ssl-cert
+Suggests: apache2-doc, apache2-suexec-pristine | apache2-suexec-custom, www-browser, ufw
+Conflicts: apache2.2-bin, apache2.2-common
+Replaces: apache2.2-bin, apache2.2-common
+Filename: pool/main/a/apache2/apache2_2.4.52-1ubuntu4.12_amd64.deb
+Size: 97866
+MD5sum: c9ddd9282c41ad0fd7adfd89c142583b
+SHA1: 0ad86b0a36f5d2510014e80098b3b297ab1758f5
+SHA256: e6f6ecedda12ede5ed76c40d8dfd756c979de6346ed2c9a71d71a49a269eb3f3
+SHA512: 9fb5b7ee70e29b332f466d5536d75513062fc1a26ad4c133e72679f92cfc9ab5390f7ff93384496779cc8b8c548a2e2aabf16713ac4256ba1ead7269c8675ec9
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server
+Task: lamp-server
+Description-md5: d02426bc360345e5acd45367716dc35c
+
+Package: apache2-bin
+Architecture: amd64
+Version: 2.4.52-1ubuntu4.12
+Priority: optional
+Section: httpd
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 5085
+Provides: apache2-api-20120211, apache2-api-20120211-openssl1.1
+Depends: perl:any, libapr1 (>= 1.7.0), libaprutil1 (>= 1.6.0), libaprutil1-dbd-sqlite3 | libaprutil1-dbd-mysql | libaprutil1-dbd-odbc | libaprutil1-dbd-pgsql | libaprutil1-dbd-freetds, libaprutil1-ldap, libbrotli1 (>= 0.6.0), libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libcurl4 (>= 7.28.0), libjansson4 (>= 2.4), libldap-2.5-0 (>= 2.5.4), liblua5.3-0, libnghttp2-14 (>= 1.20.0), libpcre3, libssl3 (>= 3.0.0~~alpha1), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Suggests: apache2-doc, apache2-suexec-pristine | apache2-suexec-custom, www-browser
+Filename: pool/main/a/apache2/apache2-bin_2.4.52-1ubuntu4.12_amd64.deb
+Size: 1348494
+MD5sum: 10dbb9da2cfa7708b4bc717196e1fdb2
+SHA1: a6133ee5526e017028aa7ba35e3f05aa3ee2a4fc
+SHA256: 48c083eabd3c7d4afaa1f38a2b14ff468f6ceb4b468ef3f02913ea48bdf2321b
+SHA512: eb645a97fdd83c15ff0d21c1bc0a1bf899b2ddd4ef591b9db76409716afeddede572caa4b1bd66faa83fb7030a169418e04b2b19533d0e78c7d9f1c393a50fcf
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (modules and other binary files)
+Task: lamp-server, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 37901ca6bbb9305b61d0920ecc08204f
+
+Package: apache2-data
+Architecture: all
+Version: 2.4.52-1ubuntu4.12
+Multi-Arch: foreign
+Priority: optional
+Section: httpd
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 856
+Filename: pool/main/a/apache2/apache2-data_2.4.52-1ubuntu4.12_all.deb
+Size: 164836
+MD5sum: 10bcbec7467c81d52d90538cc523b5fa
+SHA1: 01b7fa8191bfc298142c88ab8ec7e7f01130485f
+SHA256: eb4c09b613bdbfe7a90b9740fab973cf80a007b19fd62b88385309254c351d21
+SHA512: 3fcaa98374783ecb55c963378b2d99563da7d61deede046db326166fa531ee2fd12151cd4e6fe917f2385a8c04e8e19ba217aa8d104c46e10f73e3820b2848c3
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (common files)
+Task: lamp-server
+Description-md5: 9f2fab36019a61312dec627d1cd80365
+
+Package: apache2-dev
+Architecture: amd64
+Version: 2.4.52-1ubuntu4.12
+Priority: optional
+Section: httpd
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1053
+Provides: dh-apache2
+Depends: debhelper (>= 10), libapr1-dev, libaprutil1-dev, openssl, perl:any
+Filename: pool/main/a/apache2/apache2-dev_2.4.52-1ubuntu4.12_amd64.deb
+Size: 191078
+MD5sum: 034933c76090dba2f2775f8c617d1d3c
+SHA1: 2abcf3683d9b8d033cd2e492b099aad34145e981
+SHA256: 30ff579b636efb52682f007f445ed09dbc8edaddc330bdf2167bd5e18aad5925
+SHA512: d5fe81b3bd083991672ba4a787f540ab7471d7249aeb8721edbdc5096db20778e81e66a7e5c31600b0a8351704e88d8f810f0e7582f49b7c71f3c02a2a653dd6
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (development headers)
+Description-md5: 8ba6f3b272c39cc7a08a802594285f02
+
+Package: apache2-doc
+Architecture: all
+Version: 2.4.52-1ubuntu4.12
+Priority: optional
+Section: doc
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 25043
+Recommends: apache2
+Filename: pool/main/a/apache2/apache2-doc_2.4.52-1ubuntu4.12_all.deb
+Size: 3872868
+MD5sum: d120461a9a78b37dad81e749476aa9c1
+SHA1: 24999fa79e347fdac25cb8d6f98940d72440b99e
+SHA256: 732dc6e2681c132a8e7e9a515899ff9fdb0f039d9ae76dd855e10ba454d660dc
+SHA512: d0ec2d7f3410830f9a933c70da0c7a5a363c675bd4ccd40f9cbb15ac9a855d615d42cda93e91e194266b1d53a1164f916541567bd6f3431e4d878c1ec7c64e0f
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (on-site documentation)
+Description-md5: 04f8562fb3fd21e5886e40af9aeb7b7d
+
+Package: apache2-ssl-dev
+Architecture: amd64
+Version: 2.4.52-1ubuntu4.12
+Multi-Arch: same
+Priority: optional
+Section: httpd
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 13
+Depends: apache2-dev (= 2.4.52-1ubuntu4.12), libssl-dev
+Filename: pool/main/a/apache2/apache2-ssl-dev_2.4.52-1ubuntu4.12_amd64.deb
+Size: 2978
+MD5sum: c697c3661978198a3a2214ea4099368e
+SHA1: 82a60f08fc959026268ba570d3ed011832a058e0
+SHA256: 66e70d8e42c672788c99061f96bd00947fa74185823242f43978b97119ea7763
+SHA512: 0aab95e9b29bf8673032841b9b9d98f4f43c68b33b5bcaea64c7f210623b1d04609bab2e2d29a82f65a5c842b7cab954fff7a0f0893858946a6cedc4b44b3c8b
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (mod_ssl development headers)
+Description-md5: 160d9bdafec462b08db62740b1eb83d2
+
+Package: apache2-utils
+Architecture: amd64
+Version: 2.4.52-1ubuntu4.12
+Multi-Arch: foreign
+Priority: optional
+Section: net
+Source: apache2
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 398
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.5.0), libc6 (>= 2.34), libcrypt1 (>= 1:4.1.0), libssl3 (>= 3.0.0~~alpha1)
+Filename: pool/main/a/apache2/apache2-utils_2.4.52-1ubuntu4.12_amd64.deb
+Size: 89094
+MD5sum: 439b161025419ec3668e2c67b6e33325
+SHA1: bad49ef442193e9ef619b75524939b0dca2a5820
+SHA256: bdfc5034a5bd958317b0ba8aa26f265573157b77393ee75d1b878a36de69ac6b
+SHA512: 8fd2b257cc46411cea1bc97fbca819b4a128859cbf454bca9319fc9788bb93be247a9f8f1123c3fc14ecf9a56bdf8ff7746b08bae300e04cc90639d4f86c6c08
+Homepage: https://httpd.apache.org/
+Description: Apache HTTP Server (utility programs for web servers)
+Task: lamp-server
+Description-md5: f1e2440381fa90571f125990da6a52fc
+
+Package: apparmor
+Architecture: amd64
+Version: 3.0.4-2ubuntu2.4
+Priority: standard
+Section: admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian AppArmor Team <pkg-apparmor-team@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 2680
+Depends: debconf, lsb-base, debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.34)
+Suggests: apparmor-profiles-extra, apparmor-utils
+Breaks: apparmor-profiles-extra (<< 1.21), fcitx-data (<< 1:4.2.9.1-1ubuntu2), snapd (<< 2.44.3+20.04~)
+Replaces: fcitx-data (<< 1:4.2.9.1-1ubuntu2)
+Filename: pool/main/a/apparmor/apparmor_3.0.4-2ubuntu2.4_amd64.deb
+Size: 598018
+MD5sum: 35e93277a0bed05385d26150637fb019
+SHA1: bdb24a1d5526f977c727a04ccaf761740a67872a
+SHA256: 4ea21af3e9dd0bca7dd6a4831b76cbd6c8f4faa61cfe402945ff664fd3367001
+SHA512: ecc34185880c453b47de54a2f2177fa75447d692e44b1a2135338ff17fe19975c61270ca6b70b32a0a489e836b8a4b94254a5f610042cb6feac1547ba7a3f67c
+Homepage: https://apparmor.net/
+Description: user-space parser utility for AppArmor
+Task: standard, server-minimal
+Description-md5: 9fdfbb456943ca7bfea9e5fd580a5b7f
+
+Package: apparmor-profiles
+Architecture: all
+Version: 3.0.4-2ubuntu2.4
+Priority: extra
+Section: admin
+Source: apparmor
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian AppArmor Team <pkg-apparmor-team@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 356
+Depends: apparmor
+Filename: pool/main/a/apparmor/apparmor-profiles_3.0.4-2ubuntu2.4_all.deb
+Size: 32354
+MD5sum: 9ef186bca6923901aad872d4e76c4bac
+SHA1: 73578084817c366e9397fd7eac847a755cbe0c42
+SHA256: acd552bde51fd4c2ac091ebd306f31f63da1219cb65e669de84ee733f47e58c8
+SHA512: 8708142f665592b63794cad807831141735b1cd00812cdcee2831481473870f5649573f48dea3224e64a8583cd5338a2878cca4a5bd6a6a7a0e2665338d13d62
+Homepage: https://apparmor.net/
+Description: experimental profiles for AppArmor security policies
+Description-md5: 78f6c983f4960b57c9594cf926fa3202
+
+Package: apparmor-utils
+Architecture: all
+Version: 3.0.4-2ubuntu2.4
+Priority: optional
+Section: admin
+Source: apparmor
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian AppArmor Team <pkg-apparmor-team@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 400
+Provides: apparmor-easyprof
+Depends: apparmor, python3-apparmor (= 3.0.4-2ubuntu2.4), python3:any
+Suggests: vim-addon-manager
+Breaks: apparmor-easyprof (<< 3.0.3-4)
+Replaces: apparmor-easyprof (<< 3.0.3-4)
+Filename: pool/main/a/apparmor/apparmor-utils_3.0.4-2ubuntu2.4_all.deb
+Size: 59482
+MD5sum: 437b558d9fc729a41ef4986870bccd58
+SHA1: 17d552e96fc69749a06692d54375721a8258b63e
+SHA256: 15b53ecaa437bebf551dfdc3e15c260303d51bc4d4d09cabd647095a2cc712f3
+SHA512: fe1a39cfe49dac850aeb2d362dd71aae0591c24c8c39729b8a026dd23b30e64739febaa6d7731c089d24691b9daa523f42099891aa8e1f079799351f0239b449
+Homepage: https://apparmor.net/
+Description: utilities for controlling AppArmor
+Description-md5: 71fe4226310f7a4cda967aa2477bddb8
+
+Package: apport
+Architecture: all
+Version: 2.20.11-0ubuntu82.4
+Priority: optional
+Section: utils
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 812
+Provides: core-dump-handler
+Depends: python3, python3-apport (>= 2.20.11-0ubuntu82.4), lsb-base (>= 3.0-6), python3-gi, gir1.2-glib-2.0 (>= 1.29.17)
+Recommends: apport-symptoms, python3-systemd
+Suggests: apport-gtk | apport-kde, policykit-1
+Conflicts: core-dump-handler
+Breaks: python-apport (<< 2.2-0ubuntu1)
+Replaces: core-dump-handler, python-apport (<< 2.2-0ubuntu1)
+Filename: pool/main/a/apport/apport_2.20.11-0ubuntu82.4_all.deb
+Size: 132968
+MD5sum: df37045c91c0485f581475ba28cb5df0
+SHA1: 2a9fe917c4c9883b26ed973fa69d237919150aa3
+SHA256: c4441669d87009b9a57da00abce8f0cbd6ca6347f03f79b9a5c74837881b2ed1
+SHA512: d8dd6c25e069a353462d6f95b3ce88b4f43cba5bfde45a29ddbb61c8687e11a5ecce9fa92f0c5f5072320de1bfb4f15b56d203bf37d0500fff4abd12e7bd2eef
+Homepage: https://wiki.ubuntu.com/Apport
+Description: automatically generate crash reports for debugging
+Task: server-minimal, ubuntu-desktop-minimal, ubuntu-desktop, cloud-image, ubuntu-desktop-raspi, ubuntu-wsl, server, ubuntu-server-raspi, kubuntu-desktop, xubuntu-core, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: c04626471654f9246cf5e28b560d262e
+
+Package: apport-gtk
+Architecture: all
+Version: 2.20.11-0ubuntu82.4
+Priority: optional
+Section: gnome
+Source: apport
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 205
+Depends: python3, python3-apport (>= 2.20.11-0ubuntu82.4), gir1.2-gtk-3.0 (>= 3.1.90), gir1.2-wnck-3.0, python3-gi, apport (>= 0.41), procps, gnome-terminal | x-terminal-emulator, whoopsie-preferences
+Recommends: update-notifier, gdb | gdb-minimal
+Filename: pool/main/a/apport/apport-gtk_2.20.11-0ubuntu82.4_all.deb
+Size: 9602
+MD5sum: dcd7d418411ba85518aa38bd6e49632b
+SHA1: 6ae6db0c498e5ac130b9b62468f40a9c32b9ebc2
+SHA256: 8292cbcd6188a10f96a84963801051cd17e23c0ebe444cea33b70245cdf1af6c
+SHA512: 2e681db44f2cc94fb79e035d028ef17e23c558a68c352ec33cf04666d14e3179f3e5700ce2c22746797a1c5c61918fee9571895cbd9e95e8177af135a9c9f5bc
+Homepage: https://wiki.ubuntu.com/Apport
+Description: GTK+ frontend for the apport crash report system
+Task: ubuntu-desktop-minimal, ubuntu-desktop, xubuntu-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 2f45e17d5bf22355d7921dba196ae6dd
+
+Package: apport-retrace
+Architecture: all
+Version: 2.20.11-0ubuntu82.4
+Priority: optional
+Section: devel
+Source: apport
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 190
+Depends: python3, python3-apport (>= 2.20.11-0ubuntu82.4), python3-launchpadlib, apt, binutils, dpkg-dev, gdb, libc6-dbg | libc6-dbgsym | libc-dbg
+Suggests: gdb-multiarch
+Filename: pool/main/a/apport/apport-retrace_2.20.11-0ubuntu82.4_all.deb
+Size: 13728
+MD5sum: e202bd706c24df8696dc87b5d5cb7339
+SHA1: 851aa2fe58292b91d4ae0fbb347c3ebb82847e8a
+SHA256: 7e65ec48c62d236c9e11af8b8b8d434abce56f6d90f9bb8355680241a82e61e1
+SHA512: 4966a5696669abcaba8cb4f64e85bab76eb2ab6451c050c22f55ceb80a492e1c1aa07c9387d9201a8966a12296699e35465ef7e8d9f6b5b41e55e1283a025901
+Homepage: https://wiki.ubuntu.com/Apport
+Description: tools for reprocessing Apport crash reports
+Description-md5: 7608c287131a28c4611767ba61f02050
+
+Package: aspnetcore-runtime-6.0
+Architecture: amd64
+Version: 6.0.135-0ubuntu1~22.04.1
+Priority: optional
+Section: devel
+Source: dotnet6
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 19994
+Depends: dotnet-runtime-6.0
+Filename: pool/main/d/dotnet6/aspnetcore-runtime-6.0_6.0.135-0ubuntu1~22.04.1_amd64.deb
+Size: 7319686
+MD5sum: 38c5f3e814dc951fe14317525b06a3f0
+SHA1: 5afa04185d172a7441f91e2aec76af4f692067e3
+SHA256: 320a73191001d061fea9692d05b9081086fd9b20214ac03bab2fb8de25214e05
+SHA512: 753cfbb424f27c0fdfd448c3df9f6a0c05f4cd4dc0eb723b5f277a680c97e4524004f8f9cbed3c5f2fa7bc8217b4bd0d6951032a03496d77b39ac45a9722d78c
+Homepage: https://dot.net/core
+Description: ASP dotNET Core runtime
+Description-md5: fdc518644f3313eeddf2f9f06f7fb78d
+
+Package: aspnetcore-runtime-8.0
+Architecture: amd64
+Version: 8.0.10-0ubuntu1~22.04.1
+Priority: optional
+Section: devel
+Source: dotnet8 (8.0.110-8.0.10-0ubuntu1~22.04.1)
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 23684
+Depends: dotnet-runtime-8.0
+Breaks: aspnetcore-runtime-6.0 (<< 6.0.111~)
+Filename: pool/main/d/dotnet8/aspnetcore-runtime-8.0_8.0.10-0ubuntu1~22.04.1_amd64.deb
+Size: 8503184
+MD5sum: 52b5e3c7e1f87dd00a841fef42cbbc15
+SHA1: f0d209e311d7c4f7a63d7f2a6b13435a9a702cda
+SHA256: 745788789b341052393ca6bdbb2bab4facf84520cb049c1ba1d056351af12b55
+SHA512: ac370d44d6c4410eabea47ade8f3375bf9c99142cb450ffaec66c83cd0e97b56b8bbc9968edb31a8be93c71d4bcb4e2f5d073ce37563e8af9d6a983d127c6835
+Homepage: https://dot.net
+Description: ASP.NET Core runtime
+Description-md5: 983c696b5b4b95c1cce3a22fd2df5822
+
+Package: aspnetcore-targeting-pack-6.0
+Architecture: amd64
+Version: 6.0.135-0ubuntu1~22.04.1
+Priority: optional
+Section: devel
+Source: dotnet6
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 11859
+Filename: pool/main/d/dotnet6/aspnetcore-targeting-pack-6.0_6.0.135-0ubuntu1~22.04.1_amd64.deb
+Size: 1456946
+MD5sum: 56c13e3ce09eb6447d544214bae3f077
+SHA1: 97bf91b8211866f0227a1bd3eb3c03b7a8406ad1
+SHA256: 0a65140a084ddd47ffd49c6632017d15af8202f7a473d9d501940677cb6b03fd
+SHA512: 7b2c80af54fd320ac2d513316fd391a023cd1c9ab59679294afa92c611348ce5e9e20ac6ecd05123e27b0847a090e36cde0629424af60e17c31071e5f1ed3a7e
+Homepage: https://dot.net/core
+Description: Internal - targeting pack for Microsoft.AspNetCore.App 6.0
+Description-md5: 693da070a7ae99b94f888e95940e045d
+
+Package: aspnetcore-targeting-pack-8.0
+Architecture: amd64
+Version: 8.0.10-0ubuntu1~22.04.1
+Priority: optional
+Section: devel
+Source: dotnet8 (8.0.110-8.0.10-0ubuntu1~22.04.1)
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 15194
+Breaks: aspnetcore-targeting-pack-6.0 (<< 6.0.111~)
+Filename: pool/main/d/dotnet8/aspnetcore-targeting-pack-8.0_8.0.10-0ubuntu1~22.04.1_amd64.deb
+Size: 1952258
+MD5sum: f06477cfc9eb09f568d140b1e0af3012
+SHA1: 8826fc9c4b3741d4aba22f3363bcb220784dc34a
+SHA256: 1f80105619f9502764c030a236b0e031652b034976d2c943c5c62e72b134eb20
+SHA512: 0829c640a780a78322ff9287625fda3cd730144597b8e099cb52b3f2e7e4cd8469d3ea7eebbd0ab74fbcd7d7cc8b167964d5106addf209b060d7a1656de8f01a
+Homepage: https://dot.net
+Description: Internal - targeting pack for Microsoft.AspNetCore.App 8.0
+Description-md5: 667c3c20480c687d1a3b6b6da422115f
+
+Package: avahi-autoipd
+Architecture: amd64
+Version: 0.8-5ubuntu5.2
+Priority: optional
+Section: net
+Source: avahi
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 125
+Depends: libc6 (>= 2.34), libdaemon0 (>= 0.14), adduser
+Recommends: isc-dhcp-client, iproute2
+Conflicts: zeroconf
+Filename: pool/main/a/avahi/avahi-autoipd_0.8-5ubuntu5.2_amd64.deb
+Size: 41080
+MD5sum: 000ecee2ab6e794ae14b135794283e79
+SHA1: c6a53741e9833fcb3f0d00f4ddda73127df0d475
+SHA256: 574d3204dca7bc845b629e00207b6a0f3a75fcb3a82a942422c967ec3aad7397
+SHA512: 6d7e0a72327f5b70ec94a16a47ae0e78764aa7256f554a711452beeae0e1da65a11a18793ab6ff58b51557e9c12044cd35ba947887a3b5042105e6997bc38886
+Homepage: http://avahi.org/
+Description: Avahi IPv4LL network address configuration daemon
+Task: ubuntu-desktop-minimal, ubuntu-desktop, kubuntu-desktop, kubuntu-full, xubuntu-core, xubuntu-desktop, ubuntustudio-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: acd046468650e18ecf72b9fbe41992f1
+
+Package: avahi-daemon
+Architecture: amd64
+Version: 0.8-5ubuntu5.2
+Multi-Arch: foreign
+Priority: optional
+Section: net
+Source: avahi
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 297
+Pre-Depends: init-system-helpers (>= 1.54~)
+Depends: libavahi-common3 (= 0.8-5ubuntu5.2), libavahi-core7 (= 0.8-5ubuntu5.2), libc6 (>= 2.34), libcap2 (>= 1:2.16), libdaemon0 (>= 0.14), libdbus-1-3 (>= 1.9.14), libexpat1 (>= 2.0.1), adduser, dbus (>= 0.60), lsb-base (>= 3.0-6), bind9-host | host
+Recommends: libnss-mdns (>= 0.11)
+Suggests: avahi-autoipd
+Filename: pool/main/a/avahi/avahi-daemon_0.8-5ubuntu5.2_amd64.deb
+Size: 69720
+MD5sum: 9c1233b17936aaf87c57b2c4b627da51
+SHA1: 4ec81eedd224530f36a6210c2fc5a627de7becb7
+SHA256: 06284056e2d00b0e338a86b507580f1d481ae764fddf9992242173a2a053e37d
+SHA512: 38862b44fef1b1ce3422c3ef9004dbf2495d5a80f0268c8be78c3e9c330eee3bee3d0a1bc0272945093e34284fd886edac1823cdc393e76b4928fd5ca458b445
+Homepage: http://avahi.org/
+Description: Avahi mDNS/DNS-SD daemon
+Task: print-server, ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-core, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 13d651a25febc553220e03e75c6f4c7b
+
+Package: avahi-utils
+Architecture: amd64
+Version: 0.8-5ubuntu5.2
+Priority: optional
+Section: net
+Source: avahi
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 169
+Depends: libavahi-client3 (= 0.8-5ubuntu5.2), libavahi-common3 (= 0.8-5ubuntu5.2), libc6 (>= 2.34), libgdbm6 (>= 1.16), avahi-daemon (= 0.8-5ubuntu5.2)
+Filename: pool/main/a/avahi/avahi-utils_0.8-5ubuntu5.2_amd64.deb
+Size: 26284
+MD5sum: 6d6a77ce776474913d9767da931d420e
+SHA1: b6105cb27fb7015e275fa28f7ef58c907fff1784
+SHA256: 2ae5a724983b0d5ce26be86ac3bbb922429d5fbb1666851d7b29f138368d3646
+SHA512: 4717cb13ced1b462eb81ad69939fe45a79af4b3065623e03ef77c21a86df012bad1a653b83d5ce5189333cd38ebd9b350ee8f7aff704baf40ec3741b742c6592
+Homepage: http://avahi.org/
+Description: Avahi browsing, publishing and discovery utilities
+Task: ubuntu-desktop-minimal, ubuntu-desktop, xubuntu-desktop, lubuntu-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi
+Description-md5: 58895f03e39692a5213ffb4d5bbc3564
+
+Package: awstats
+Architecture: all
+Version: 7.8-2ubuntu0.22.04.1
+Priority: optional
+Section: web
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian QA Group <packages@qa.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 6910
+Depends: perl:any
+Recommends: libnet-xwhois-perl
+Suggests: apache2 | httpd, libnet-dns-perl, libnet-ip-perl, libgeo-ipfree-perl, liburi-perl
+Filename: pool/main/a/awstats/awstats_7.8-2ubuntu0.22.04.1_all.deb
+Size: 1876650
+MD5sum: 10b625047acc9d8f8dadd4f3d07f9280
+SHA1: 14fd6a2bf5120b2e222097c107ff2843b9384852
+SHA256: ced0c64284c50256554d9f0cdeb904cdcfb8ca59b36ad7027e073775dbdda901
+SHA512: 57e8a4a245eac13a0a09c13f5b958ac8ab0cbb45021c73a6192e5ce3ffb37f6a3ece4c32b307441f400b6035b0dbb4977756839da3084f72f47b7b578b28d78c
+Homepage: http://awstats.sourceforge.net/
+Description: powerful and featureful web server log analyzer
+Description-md5: 13563117d747b5d1acdce35986df9f8a
+
+Package: barbican-api
+Architecture: all
+Version: 2:14.0.0-0ubuntu1.1
+Priority: extra
+Section: net
+Source: barbican
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 23
+Depends: apache2 | httpd, libapache2-mod-wsgi-py3, python3-barbican (= 2:14.0.0-0ubuntu1.1)
+Recommends: apache2 (>= 2.4.6-4~) | httpd
+Filename: pool/main/b/barbican/barbican-api_14.0.0-0ubuntu1.1_all.deb
+Size: 2346
+MD5sum: c883d757466dd74bfb7204d14fea1c95
+SHA1: 242e9930185ad8b0557c36032de9a144f7a6368b
+SHA256: 81bca1cf91316f3cd8fba9b6ac699b7540fa9dbd46c15cfe30687e1b3fff52e9
+SHA512: 64e18d4bd3bed3c919bf8311a0446086c31b07b214f06ee762b5768fb95b1c96a4da1efb242278ea9a4cec33fd6171dc99ddf8ec21d694180b55d868919c839a
+Homepage: https://github.com/openstack/barbican
+Description: OpenStack Key Management Service - API Server
+Description-md5: 45ee5de8cade7fd161a6c84705a5ef87
+
+Package: barbican-common
+Architecture: all
+Version: 2:14.0.0-0ubuntu1.1
+Priority: extra
+Section: net
+Source: barbican
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 93
+Depends: adduser
+Filename: pool/main/b/barbican/barbican-common_14.0.0-0ubuntu1.1_all.deb
+Size: 20616
+MD5sum: a5d6d074c5d79b847a8cf5fc6f9518f9
+SHA1: 5a87bf920d28e523a24a5ddc7312130ac0ff4f0c
+SHA256: ec49e3da7252894073e8f7fcfc41221fceb568fdbebe6b807c37f03d2eaa1a10
+SHA512: 36909f08a37d1b3678370a58c1f3be98d1e6c5d3033c846d9e52248f40de180e642db6e0624c24d4cf95e9f802ddddbad69073bd817e0d1c56ab1d2161daa63e
+Homepage: https://github.com/openstack/barbican
+Description: OpenStack Key Management Service - common files
+Description-md5: 4d95b760670212a64f08377a8c5a2483
+
+Package: barbican-doc
+Architecture: all
+Version: 2:14.0.0-0ubuntu1.1
+Priority: extra
+Section: doc
+Source: barbican
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 4416
+Depends: libjs-sphinxdoc (>= 4.3)
+Filename: pool/main/b/barbican/barbican-doc_14.0.0-0ubuntu1.1_all.deb
+Size: 1151720
+MD5sum: 37cce260f36d6a53e8ceb321452d0d3f
+SHA1: 5af4f279ca98d2968bbf51740a8be669cd1dafdc
+SHA256: 647f397f102287456c15c178a5691f3f6347ed57ce85e01c46d6a3dc6a2525e8
+SHA512: ed6008e97fd8638fa8ec83b7758e39dec973fd692f8ad89909b0f9319eff4333c53319afab2d2c8ad1931f8947dbda41bacfafa6c6714426ea53bc01f04138f3
+Homepage: https://github.com/openstack/barbican
+Description: OpenStack Key Management Service - doc
+Description-md5: da0033e2b721a6edca2f5d7640609054
+
+Package: barbican-keystone-listener
+Architecture: all
+Version: 2:14.0.0-0ubuntu1.1
+Priority: extra
+Section: net
+Source: barbican
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 34
+Depends: python3-barbican (= 2:14.0.0-0ubuntu1.1)
+Filename: pool/main/b/barbican/barbican-keystone-listener_14.0.0-0ubuntu1.1_all.deb
+Size: 5300
+MD5sum: 2608afe710b85ac6af62df4503a39901
+SHA1: 618ea09c14088997082d572fa9776689447d279a
+SHA256: 0b7b201c4e2a1e35f7bbe6fcf780b00633b8337d4a1094236847b63eef15fd06
+SHA512: abd7eefa320a33936795925c77ee4c0740d5e40630fd8f16cb9d34973461ca40c70b59b24dc55026b5fc37f0784bd1092474c1181049ace7219078ab2a1bee91
+Homepage: https://github.com/openstack/barbican
+Description: OpenStack Key Management Service - Keystone Listener
+Description-md5: 3b2dcd6d6970412b58a36875763b0e06
+
+Package: barbican-worker
+Architecture: all
+Version: 2:14.0.0-0ubuntu1.1
+Priority: extra
+Section: net
+Source: barbican
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 34
+Depends: python3-barbican (= 2:14.0.0-0ubuntu1.1)
+Filename: pool/main/b/barbican/barbican-worker_14.0.0-0ubuntu1.1_all.deb
+Size: 5272
+MD5sum: c10fa4123279def1b89117dfc18947fe
+SHA1: f619fb9a721f6135d8eb604e36a2ff49ea2a213f
+SHA256: 0a750ae033f626107f9901a38179d661fd8274fcdec48c282e1dabceb5e1d2fc
+SHA512: 8329d27373c0ecacfe4343bb847c26617e9f57c850a12ec7212f4b8304d7bad08d59c73d66c0d4777eeecb4afb0ec6ffccd0efa36016036e82897822cf496cc6
+Homepage: https://github.com/openstack/barbican
+Description: OpenStack Key Management Service - Worker Node
+Description-md5: b22cb6782e75c24e7e352d422f6bb2c8
+
+Package: bash
+Architecture: amd64
+Version: 5.1-6ubuntu1.1
+Multi-Arch: foreign
+Priority: required
+Essential: yes
+Section: shells
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1864
+Pre-Depends: libc6 (>= 2.34), libtinfo6 (>= 6)
+Depends: base-files (>= 2.1.12), debianutils (>= 2.15)
+Recommends: bash-completion (>= 20060301-0)
+Suggests: bash-doc
+Conflicts: bash-completion (<< 20060301-0)
+Replaces: bash-completion (<< 20060301-0), bash-doc (<= 2.05-1)
+Filename: pool/main/b/bash/bash_5.1-6ubuntu1.1_amd64.deb
+Size: 768646
+MD5sum: 839255d7d981045fa5d2ae75aec96185
+SHA1: 429c43bad88f1efe895e3ee581a0cbb913a44b41
+SHA256: ada09ec56baa774af85b01ab8aad32f10ce82aeccbd2889110db318d46e26914
+SHA512: 4f3b4481a27fb7d76aabf58a4bb7571363886739cccbf4fa4b8b4a3f7aabb84fc608bb02194fd1f892e213d4650c89455626688b5e58969eb5e6ae9c7dfa9c54
+Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
+Description: GNU Bourne Again SHell
+Task: minimal
+Description-md5: 3522aa7b4374048d6450e348a5bb45d9
+
+Package: bash-doc
+Architecture: all
+Version: 5.1-6ubuntu1.1
+Priority: optional
+Section: doc
+Source: bash
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 3264
+Depends: dpkg (>= 1.15.4) | install-info
+Replaces: bash (<< 4.3-2)
+Filename: pool/main/b/bash/bash-doc_5.1-6ubuntu1.1_all.deb
+Size: 1784854
+MD5sum: 81c0065c476c4a353595871bf21f5396
+SHA1: 0861c435c9ebaa48460e0e518ce0c769035df4bd
+SHA256: 42467efeb196a2fa5adb3c57d6d5214cab13975f72f696d252fbd90262334fd2
+SHA512: eafcd070ac07f94b201e4806ddb5debbeb46561914f06b840aae220e80a67926688d0d1e0263ca1414d696d8613517db686087b822fa6480cff8ce68f719a088
+Homepage: http://tiswww.case.edu/php/chet/bash/bashtop.html
+Description: Documentation and examples for the GNU Bourne Again SHell
+Description-md5: 232b3e580e9136f4e0c8f65a0c7a5b36
+
+Package: bind9
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Priority: optional
+Section: net
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 966
+Pre-Depends: init-system-helpers (>= 1.54~)
+Depends: adduser, bind9-libs (= 1:9.18.28-0ubuntu0.22.04.1), bind9-utils (= 1:9.18.28-0ubuntu0.22.04.1), debconf | debconf-2.0, dns-root-data, iproute2, lsb-base (>= 3.2-14), netbase, libc6 (>= 2.34), libcap2 (>= 1:2.10), libjson-c5 (>= 0.15), liblmdb0 (>= 0.9.7), libmaxminddb0 (>= 1.3.0), libnghttp2-14 (>= 1.3.0), libssl3 (>= 3.0.0~~alpha1), libuv1 (>= 1.4.2), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Suggests: bind-doc, dnsutils, resolvconf, ufw
+Breaks: bind (<< 1:9.13.6~)
+Replaces: bind (<< 1:9.13.6~)
+Filename: pool/main/b/bind9/bind9_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 260720
+MD5sum: 062c2d9994ddb2887b9b5445635100eb
+SHA1: e2e4c71b49f4c01d24fcaed63c42d3b8f089ecbd
+SHA256: e9cf0f926f526dd17f01bea9757fd992eba6b52c4a56ffd77550247389935a16
+SHA512: e0f3c5e12d458819899b200257ee7ffc94d574706b1a111113f6a679833a01c83b9c3abfe804b6701bd6ea4f1f18a629ec21690f4f504f579eb8072e172cece8
+Homepage: https://www.isc.org/downloads/bind/
+Description: Internet Domain Name Server
+Task: dns-server
+Description-md5: 2cdf89d501b5ca6fe55e945de47cc047
+
+Package: bind9-dev
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Multi-Arch: same
+Priority: optional
+Section: devel
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 1604
+Depends: bind9-libs (= 1:9.18.28-0ubuntu0.22.04.1)
+Breaks: libbind-dev (<< 1:9.16.0~)
+Replaces: libbind-dev (<< 1:9.16.0~)
+Filename: pool/main/b/bind9/bind9-dev_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 264394
+MD5sum: 0d5ce82b36a93bc9b5fb12b5b172184c
+SHA1: 010a4057423dd1111e7bfd1deb73a36483230137
+SHA256: deca394c7ba26a79ff6be32a4c156d613e705fbffe1deb197475f8f6158195e2
+SHA512: 31113853fbe9a3ebfc58d3ada9cf2887596a3b41b14ed8df6ce0334f6087aee670eddcf1441f3e49d711bde1b4c231f2cbf1a11f726a53b1ddd71e94764b8cc8
+Homepage: https://www.isc.org/downloads/bind/
+Description: Static Libraries and Headers used by BIND 9
+Description-md5: 69797331ca76eb64604dd14b287f8572
+
+Package: bind9-dnsutils
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Priority: standard
+Section: net
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 528
+Provides: dnsutils
+Depends: bind9-host | host, bind9-libs (= 1:9.18.28-0ubuntu0.22.04.1), libc6 (>= 2.34), libedit2 (>= 2.11-20080614-0), libidn2-0 (>= 2.0.0), libkrb5-3 (>= 1.6.dfsg.2)
+Conflicts: bind-dnsutils (<< 1:9.13.6~), dnsutils (<< 1:9.13.6~)
+Breaks: bind-dnsutils (<< 1:9.13.6~), dnsutils (<< 1:9.13.6~)
+Filename: pool/main/b/bind9/bind9-dnsutils_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 157336
+MD5sum: eb086bb8105103c9f42f6d2970415afe
+SHA1: 836600f74ca3d0b3ddd136e5a8ff1708e2cf2712
+SHA256: 19c15d7b6ae8d644252ef8defc38256639c9d03d7be9ddf7aa280568cca6ea47
+SHA512: f05db9d56085522a1274d80e7ba675795dcb6438259402c27c21e18a67ced66145bd103b47ae1d50fb31b495c546ce84b8bb11ea476e733b68c9121c75e13568
+Homepage: https://www.isc.org/downloads/bind/
+Description: Clients provided with BIND 9
+Task: standard
+Description-md5: 41cc23046dad427af742ed10a4568530
+
+Package: bind9-doc
+Architecture: all
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Priority: optional
+Section: doc
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 7306
+Breaks: bind-doc (<< 1:9.13.6~)
+Replaces: bind-doc (<< 1:9.13.6~)
+Filename: pool/main/b/bind9/bind9-doc_9.18.28-0ubuntu0.22.04.1_all.deb
+Size: 3204908
+MD5sum: 17ec4ed9c77ac724ea436d6d518a7122
+SHA1: a8c6cd25e6a26af71493a45f487031cb83c1b0d3
+SHA256: 974a396922d4746232a81e571c9cd26dea12e21061e62d9e460a376992cbef43
+SHA512: 796a3cfbee3208f8917cd77ea9a9c309a29cd0ee38e3e1f309771087fd85605bc19ccacecba5b7365699a83d0601428be6697a634cfc04aaa9275dc4765b4a6c
+Homepage: https://www.isc.org/downloads/bind/
+Description: Documentation for BIND 9
+Task: dns-server
+Description-md5: 33e946a174be0a402f3511f1d76b9a00
+
+Package: bind9-host
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Priority: standard
+Section: net
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 184
+Provides: host
+Depends: bind9-libs (= 1:9.18.28-0ubuntu0.22.04.1), libc6 (>= 2.34), libidn2-0 (>= 2.0.0)
+Breaks: bind-host (<< 1:9.13.6~)
+Replaces: bind-host (<< 1:9.13.6~)
+Filename: pool/main/b/bind9/bind9-host_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 52554
+MD5sum: 120ed1a4ee7e89bd2e218a866e713547
+SHA1: a89b51fd79499dddebdf1f04a2de490488055eb9
+SHA256: ed5ea59f07a99ccacb0a4b65693c33e979a1c60820248f461d8dbdeceaed4a5c
+SHA512: 98fca816cdc9dcde83bf3593ab5c7fba2481ea7dc1fcafdaa11a88931e8e9d779a4c599d76ad3318c1f6d9ad1cf9c5a5fd5398643067289817852541d4da24cd
+Homepage: https://www.isc.org/downloads/bind/
+Description: DNS Lookup Utility
+Task: standard
+Description-md5: 2dd2359e6a96f700ef352e6924685162
+
+Package: bind9-libs
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Multi-Arch: same
+Priority: standard
+Section: libs
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 3482
+Depends: libc6 (>= 2.34), libgssapi-krb5-2 (>= 1.17), libjson-c5 (>= 0.15), libkrb5-3 (>= 1.6.dfsg.2), liblmdb0 (>= 0.9.7), libmaxminddb0 (>= 1.3.0), libnghttp2-14 (>= 1.12.0), libssl3 (>= 3.0.0~~alpha1), libuv1 (>= 1.34.2), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Breaks: bind-libs (<< 1:9.13.6~)
+Replaces: bind-libs (<< 1:9.13.6~)
+Filename: pool/main/b/bind9/bind9-libs_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 1255658
+MD5sum: 2a950092f1d6082587431f8b8968bf03
+SHA1: 316305f3910f2616c1ceeb916b478ef7120fa3b9
+SHA256: d53a99f0dc3fd7f373bf8d6050ed6c6e9fdbab01a10f3fc4a25489fe33caa622
+SHA512: a1557c9c7ac653f8d82ac527a54bd96da325d805a37a05c2b782b078cf4074edefd51f516ad3abc8afb6cda283aff21301c7d64688521611aaf236df6a50a50f
+Homepage: https://www.isc.org/downloads/bind/
+Description: Shared Libraries used by BIND 9
+Task: standard
+Description-md5: 5d0130b772445112be93a9bd80da10e6
+
+Package: bind9-utils
+Architecture: amd64
+Version: 1:9.18.28-0ubuntu0.22.04.1
+Priority: optional
+Section: net
+Source: bind9
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian DNS Team <team+dns@tracker.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 661
+Provides: bind9utils
+Depends: bind9-libs (= 1:9.18.28-0ubuntu0.22.04.1), libc6 (>= 2.34)
+Breaks: bind-utils (<< 1:9.13.6~), bind9utils (<< 1:9.12.0~), freeipa
+Replaces: bind-utils (<< 1:9.13.6~), bind9utils (<< 1:9.12.0~)
+Filename: pool/main/b/bind9/bind9-utils_9.18.28-0ubuntu0.22.04.1_amd64.deb
+Size: 161186
+MD5sum: c0ad54bea182ffef3d41ba30d308bd77
+SHA1: ff88d6940a5a316dafe22eb4ea4baa097d4c0e62
+SHA256: 20a9b69da78c31f6e4aa9e7d5c740106ccbd3f7f2b4e048b7d716eaa8391ee56
+SHA512: 5b127704246a72733079b08cbb5bdeae9cfdcbfc31c845519720e7450221001b5da2d576d69f724f539568c93c766b4bba305b47e18caaf9468b5142533ba766
+Homepage: https://www.isc.org/downloads/bind/
+Description: Utilities for BIND 9
+Task: dns-server
+Description-md5: c30ede916daac07ed6c19887e9f7d3f2
+
+Package: binutils
+Architecture: amd64
+Version: 2.38-4ubuntu2.6
+Priority: optional
+Build-Essential: yes
+Section: devel
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 113
+Provides: binutils-gold, elf-binutils
+Depends: binutils-common (= 2.38-4ubuntu2.6), libbinutils (= 2.38-4ubuntu2.6), binutils-x86-64-linux-gnu (= 2.38-4ubuntu2.6)
+Suggests: binutils-doc (>= 2.38-4ubuntu2.6)
+Conflicts: binutils-mingw-w64-i686 (<< 2.23.52.20130612-1+3), binutils-mingw-w64-x86-64 (<< 2.23.52.20130612-1+3), binutils-multiarch (<< 2.27-8), modutils (<< 2.4.19-1)
+Filename: pool/main/b/binutils/binutils_2.38-4ubuntu2.6_amd64.deb
+Size: 3200
+MD5sum: 12dbd40e35818127758fb9a504fd15ae
+SHA1: 6f689840d7711d148b22f6c87fb7a37c37c793b1
+SHA256: 1fc8beaf8ae192b59fcd8733d0dedb1e2ec60b1c0832c23b3e07dd0c77610974
+SHA512: 9b51f30d5c61757343c32d1fc08515cfc4a0e0aa11c2afe7f2cedf16d91a8611e418da5fc02cff7e8c6282853de8a7fc4b9329da6fc26ad237bea3d340dd77e9
+Homepage: https://www.gnu.org/software/binutils/
+Description: GNU assembler, linker and binary utilities
+Task: server-minimal, cloud-image, ubuntu-wsl, server, ubuntu-server-raspi, ubuntustudio-video, ubuntustudio-publishing, ubuntu-mate-core, ubuntu-mate-desktop
+Description-md5: fde49b4cfeaad346a6e094f973da28d7
+
+
+
+
+
+
+

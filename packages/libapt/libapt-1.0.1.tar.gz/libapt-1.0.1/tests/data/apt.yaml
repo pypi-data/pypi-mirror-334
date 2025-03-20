@@ -1,0 +1,12 @@
+arch: amd64
+apt_repos:
+  - apt_repo: http://archive.ubuntu.com/ubuntu
+    distro: jammy
+    components:
+      - main
+      - universe
+  - apt_repo: http://archive.ubuntu.com/ubuntu
+    distro: noble
+    components:
+      - main
+      - universe
