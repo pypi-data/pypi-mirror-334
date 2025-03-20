@@ -1,0 +1,63 @@
+# pygridsio
+
+
+
+## Introduction
+
+This is a python submodule containing IO functionality for reading and writing .asc, .zmap .nc and .tif grids.
+
+## Installation
+
+pygridsio is available via the pypi package registry:
+
+`pip install pygridsio`
+
+## Usage
+
+`from pygridsio.pygridsio import *`
+
+The standard grid class used throughout this project is a Xarray DataArray (see: https://xarray.dev/) with 2 dimensions: x and y.
+
+To read a grid file to this class use:
+
+`grid = read_grid(filename)`
+
+
+You can write a grid to .asc, .zmap, .nc or .tif using the following method:
+
+`write_grid(grid,filename)`
+
+The code will discern which filetype to write out to by the file extension in filename. Note: .asc and .zmap are ascii based files and take up a lot of space. .nc and .tif are binary file types.
+
+
+There is some plotting functionality implemented in pygridsio, this can be accessed using the `pygridsio.grid_plotting` module:
+- The method `pygridsio.grid_plotting.plot_grid` allows you to plot a custom Grid class, or xr.DataArray with multiple options. See the description of the method for more detail.
+- The method `pygridsio.grid_plotting.plot_grid_comparison` Creates a plot comparing two grids values against each other. See the description of the method for more detail.
+- The method `pygridsio.grid_plotting.make_interactive_plot` Creates a interactive .html plot using plotly, this saves to a .html file
+
+### Poetry
+For developing this package further you can use the poetry pacakge manager.
+Install poetry here: https://python-poetry.org/docs/ 
+(note: if you can't run poetry from your terminal, ensure that the poetry.exe is in your environment variables).
+
+Then after cloning this repo to your local machine, run:
+`poetry install`
+
+Which will install a virtual environment in the gitlab repo.
+
+### Verify Installation
+You can verify the installation of the different python packages by running the tests stored in `tests`. 
+In pycharm: Right-click on the folder marked `tests` and click on `Run python tests in test`
+
+## publishing the project to gitlab
+
+First configure the connection between poetry and the gitlab package registry:
+`poetry config repositories.gitlab_pygridsio https://YOURGITLABLOCATION/gitlab/api/v4/projects/17422/packages/pypi`
+
+Add your own personal access token details (https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html):
+`poetry publish --repository gitlab_pygridsio -u"token name" -p "token value"`
+
+Then you can build and publish the project as a new deployment in the package registry:
+`poetry build`
+`poetry publish`
+(make sure the version number you publish is unique)
