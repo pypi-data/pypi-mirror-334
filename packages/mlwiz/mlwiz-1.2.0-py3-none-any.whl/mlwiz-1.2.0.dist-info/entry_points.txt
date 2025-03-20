@@ -1,0 +1,3 @@
+[console_scripts]
+mlwiz-data = mlwiz.build_dataset:main
+mlwiz-exp = mlwiz.launch_experiment:main
