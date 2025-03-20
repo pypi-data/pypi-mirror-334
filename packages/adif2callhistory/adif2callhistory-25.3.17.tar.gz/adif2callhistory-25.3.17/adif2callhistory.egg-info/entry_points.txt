@@ -1,0 +1,2 @@
+[console_scripts]
+adif2callhistory = adif2callhistory.__main__:run
