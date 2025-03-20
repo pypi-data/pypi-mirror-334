@@ -1,0 +1,101 @@
+Metadata-Version: 2.2
+Name: openai-simple-rerank
+Version: 0.1.2
+Summary: 一个简单的rank模型的OPENAI兼容API服务的客户端访问工具。
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: Apache License, Version 2.0
+Keywords: openai-simple-rerank
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: requests
+Requires-Dist: python-environment-settings
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# openai-simple-rerank
+
+一个简单的rank模型的OPENAI兼容API服务的客户端访问工具。
+
+## 安装
+
+```shell
+pip install openai-simple-rerank
+```
+
+## 使用
+
+### 建议使用xinference启动rerank模型
+
+*验证过的模型列表*
+
+- bge-reranker-v2-m3
+
+### 配置变量设置
+
+```shell
+# OPENAI兼容API服务，可以xinference提供
+# 使用OPENAI_RERANK_BASE_URL或RERANK_BASE_URL设置独立的服务地址
+export OPENAI_BASE_URL="http://localhost/v1"
+# OPENAI兼容API服务密钥，一般以sk-开头，共16位长
+# 使用OPENAI_RERANK_API_KEY或RERANK_API_KEY设置独立的服务密码
+export OPENAI_API_KEY=""
+# 默认的文本重排序模型
+export OPENAI_RERANK_MODEL="bge-reranker-v2-m3"
+# 默认的最大字符串长度控制
+export OPENAI_RERANK_MAX_SIZE=1024
+```
+
+### 获取文本向量
+
+*代码*
+```python
+from openai_simple_rerank.base import get_rerank_scores
+
+s1, s2 = get_rerank_scores("hello", ["hi", "world"])
+print(s1, s2)
+```
+
+*输出*
+
+```txt
+0.9953891038894653 0.40583446621894836
+```
+
+## 关于字符串长度控制
+
+- 模型本身一般没有字符串长度控制。
+- 但过长的字符串会导入模型占用内存的增长。
+- 所以默认将字符串长度控制在：1024字。
+- 通过`OPENAI_RERANK_MAX_SIZE`设置默认最大字符串长度。
+- 也可以函数调用中指定最大字符串长度。
+- 注意：所有超过最大长度的字符串将被截断。
+
+
+## 版本记录
+
+### v0.1.0
+
+- 版本首发。
+
+### v0.1.1
+
+- 允许rerank模型使用独立的服务地址及密码。
+
+### v0.1.2
+
+- 使用RuntimeError替换自定义错误类。
