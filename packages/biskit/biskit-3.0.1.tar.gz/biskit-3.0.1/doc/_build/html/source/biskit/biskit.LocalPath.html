@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LocalPath &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LocalPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>LocalPath</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.LocalPath.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="localpath">
+<h1>LocalPath<a class="headerlink" href="#localpath" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="biskit.LocalPath">
+<em class="property">class </em><code class="descclassname">biskit.</code><code class="descname">LocalPath</code><span class="sig-paren">(</span><em>path=None</em>, <em>checkEnv=1</em>, <em>minLen=3</em>, <em>maxSub=1</em>, <em>absolute=1</em>, <em>resolveLinks=0</em>, <em>**vars</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Encapsulate a file name that might look differently in different
+environments depending on environment settings.  The file name has
+an absolute (original) variant but parts of it can be looked up
+from environment or Biskit settings variables (if the original path
+doesn’t exist in the current environment).</p>
+<p>Creating a LocalPath:</p>
+<p>Creating a LocalPath is simple. By default, LocalPath takes a
+normal filename and browses the local biskit.settings and run-time
+environment for variables that can replace part of that path.</p>
+<p>Variable values must be at least 3 char long and contain at least
+one ‘/’ in order to avoid substitution of single letters or ‘/a’
+etc. $PYTHONPATH, $PATH and $PWD are ignored.</p>
+<p>Variables from biskit.settings (thus also .biskit/settings.cfg)
+have priority over normal environment variables both during the
+construction of LocalPath instances and during the reconstruction
+of a locally valid path.</p>
+<p>Using a LocalPath:</p>
+<p>LocalPath tries behaving like the simple absolute path string when it
+comes to slicing etc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="n">LocalPath</span><span class="p">(</span> <span class="s1">&#39;{/home/raik|$USER}/data/x.txt&#39;</span> <span class="p">)</span>
+<span class="n">l</span><span class="p">[:]</span> <span class="o">==</span> <span class="s1">&#39;/home/raik/data/x.txt&#39;</span> <span class="o">==</span> <span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">()</span>
+<span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;.txt&#39;</span>
+<span class="nb">str</span><span class="p">(</span> <span class="n">l</span> <span class="p">)</span> <span class="o">==</span> <span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">()</span>
+
+<span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;{/home/raik|$USER}/data/x.txt&#39;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>&#64;todo:   input:  allow multiple or overlapping substitutions</dt>
+<dd>output: only substitute what is necessary until path exists</dd>
+</dl>
+<p class="rubric">Methods Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.__init__" title="biskit.LocalPath.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></td>
+<td>Create a new environment-dependent path from either a list of fragments and their substitution variable names or from a path or from a formatted string (not implemented).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">absfile</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.dump" title="biskit.LocalPath.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a></td>
+<td>Try to pickle an object to the currently valid path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.exists" title="biskit.LocalPath.exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exists</span></code></a></td>
+<td>Check if path exists</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.formatted" title="biskit.LocalPath.formatted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">formatted</span></code></a></td>
+<td>Get a string representation that describes the original path and all possible substitutions by environment variables.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.get_local" title="biskit.LocalPath.get_local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_local</span></code></a></td>
+<td>Return a valid, absolute path.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_substitution_dict</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.get_substitution_pairs" title="biskit.LocalPath.get_substitution_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_substitution_pairs</span></code></a></td>
+<td>Get all variable/value pairs that are available for path substitutions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.load" title="biskit.LocalPath.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></td>
+<td>Try to unpickle an object from the currently valid path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.local" title="biskit.LocalPath.local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span></code></a></td>
+<td>Cached variant of get_local.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.original" title="biskit.LocalPath.original"><code class="xref py py-obj docutils literal notranslate"><span class="pre">original</span></code></a></td>
+<td>Get the original path (also non-absolute) that is used if the file exists or if there are no environment variables for any of the substitutions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.set" title="biskit.LocalPath.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a></td>
+<td>Assign a new file name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.set_fragments" title="biskit.LocalPath.set_fragments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fragments</span></code></a></td>
+<td>Set new path from list of path fragments and their possible environment variable substitutions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.LocalPath.set_path" title="biskit.LocalPath.set_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_path</span></code></a></td>
+<td>Set a new path and try to identify settings/environment variables that could substitute parts of it.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.LocalPath.set_string" title="biskit.LocalPath.set_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_string</span></code></a></td>
+<td>Set a new path and its substitutable parts from a formatted string.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ex_fragment</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ex_minpath</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude_vars</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>LocalPath Method & Attribute Details</h2><dl class="method">
+<dt id="biskit.LocalPath.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>path=None</em>, <em>checkEnv=1</em>, <em>minLen=3</em>, <em>maxSub=1</em>, <em>absolute=1</em>, <em>resolveLinks=0</em>, <em>**vars</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new environment-dependent path from either a list of
+fragments and their substitution variable names or from a path or
+from a formatted string (not implemented).
+A path will be analyzed to substitute as big chunks as possible
+by environment variables. ~ and ../../ will be expanded both in
+the given path and in the environment variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>[ </em><em>(</em><em>str</em><em>, </em><em>str</em><em>) </em><em>] </em><em>OR str</em>) – path(s)</li>
+<li><strong>checkEnv</strong> (<em>1|0</em>) – look for substitution values among environment
+variables (default 1)</li>
+<li><strong>absolute</strong> (<em>1|0</em>) – normalize file name [1]</li>
+<li><strong>resolveLinks</strong> (<em>1|0</em>) – resolve symbolic links [0]</li>
+<li><strong>maxSub</strong> (<em>int</em>) – maximal number of substitutions [1]</li>
+<li><strong>vars</strong> (<em>param=value</em>) – additional param=value pairs with suggested substitutors</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.get_local">
+<code class="descname">get_local</code><span class="sig-paren">(</span><em>existing=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.get_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.get_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a valid, absolute path. Either the existing original or with
+all substitutions for which environment variables exist.
+This function is time consuming (absfile - os.realpath is the culprit).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>existing</strong> (<em>0|1</em>) – don’t return a non-existing path</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">valid absolute path in current environment</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="biskit.LocalPathError.html#biskit.LocalPathError" title="biskit.LocalPathError"><strong>LocalPathError</strong></a> – if existing==1 and no existing path can be
+constructed via environment variables</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.local">
+<code class="descname">local</code><span class="sig-paren">(</span><em>existing=0</em>, <em>force=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cached variant of get_local.
+Return a valid, absolute path. Either the existing original or with
+all substitutions for which environment variables exist.
+This function is time consuming (absfile - os.realpath is the culprit).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>existing</strong> (<em>0|1</em>) – don’t return a non-existing path [0]</li>
+<li><strong>force</strong> (<em>0|1</em>) – override cached value [0]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">valid absolute (not necessarily existing) path in current
+environment</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="biskit.LocalPathError.html#biskit.LocalPathError" title="biskit.LocalPathError"><strong>LocalPathError</strong></a> – if existing==1 and no existing path can be
+constructed via environment variables</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.formatted">
+<code class="descname">formatted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.formatted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.formatted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string representation that describes the original path and all
+possible substitutions by environment variables.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">formated path e.g. C{ ‘{/home/raik|$USER}/data/x.txt’ }</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.original">
+<code class="descname">original</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.original"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.original" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the original path (also non-absolute) that is used if the file
+exists or if there are no environment variables for any of the
+substitutions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">original path</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>v</em>, <em>checkEnv=1</em>, <em>minLen=3</em>, <em>maxSub=1</em>, <em>absolute=1</em>, <em>resolveLinks=0</em>, <em>**vars</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a new file name. checkEnv, minLen, resolve*, maxSub are
+only considered for path name input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>v</strong> (<em>[ </em><em>(</em><em>str</em><em>,</em><em>str</em><em>) </em><em>] </em><em>OR str</em>) – fragment tuples or path or custom-formatted string</li>
+<li><strong>checkEnv</strong> (<em>0|1</em>) – look for possible substitutions in environment [1]
+(iggnored if v is already formatted like ‘{/x/y|$xy}/z.txt’ )</li>
+<li><strong>minLen</strong> (<em>int</em>) – mininal length of environment variables to consider [3]</li>
+<li><strong>absolute</strong> (<em>1|0</em>) – normalize file name [1]</li>
+<li><strong>resolveLinks</strong> (<em>1|0</em>) – resolve symbolic links [0]</li>
+<li><strong>maxSub</strong> (<em>int</em>) – maximal number of substitutions [1]</li>
+<li><strong>vars</strong> (<em>param=value</em>) – additional param=value pairs with suggested substitutors</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.set_fragments">
+<code class="descname">set_fragments</code><span class="sig-paren">(</span><em>*fragments</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.set_fragments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.set_fragments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set new path from list of path fragments and their possible
+environment variable substitutions. Fragments that can not be
+substituted are given as (str, None).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fragments</strong> (<em>[ </em><em>(</em><em>str</em><em>, </em><em>str</em><em>)</em><em>, </em><em>(</em><em>str</em><em>, </em><em>None</em><em>)</em><em>, </em><em>.</em><em> ]</em>) – list of fragment tuples</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.set_string">
+<code class="descname">set_string</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.set_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.set_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new path and its substitutable parts from a formatted string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – formatted like {/home/raik|$USER}/data/test.txt</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>PathError</strong> – formatted input is not yet implemented</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.set_path">
+<code class="descname">set_path</code><span class="sig-paren">(</span><em>fname</em>, <em>minLen=3</em>, <em>absolute=1</em>, <em>resolveLinks=0</em>, <em>maxSub=1</em>, <em>**vars</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.set_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.set_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a new path and try to identify settings/environment
+variables that could substitute parts of it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> (<em>str</em>) – relative or absolute file name</li>
+<li><strong>minLen</strong> (<em>int</em>) – minimal length of string o to be counted as path</li>
+<li><strong>absolute</strong> (<em>1|0</em>) – normalize file name [1]</li>
+<li><strong>resolveLinks</strong> (<em>1|0</em>) – resolve symbolic links [0]</li>
+<li><strong>maxSub</strong> (<em>int</em>) – maximal number of substitutions [1]</li>
+<li><strong>vars</strong> (<em>param=value</em>) – additional param=value pairs with suggested substitutors</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if path exists</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">1 if if current path exists</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">1|0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to unpickle an object from the currently valid path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">unpickled object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>IOError</strong> – if file can not be found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.dump">
+<code class="descname">dump</code><span class="sig-paren">(</span><em>o</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to pickle an object to the currently valid path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the absolute path to which o was pickled</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.LocalPath.get_substitution_pairs">
+<code class="descname">get_substitution_pairs</code><span class="sig-paren">(</span><em>minLen=3</em>, <em>vars={}</em>, <em>exclude=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/core/localpath.html#LocalPath.get_substitution_pairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.LocalPath.get_substitution_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all variable/value pairs that are available for path substitutions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>minLen</strong> (<em>int</em>) – minimal path length [3]</li>
+<li><strong>vars</strong> (<em>param=value</em>) – additional param=value pairs to consider</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">[ (variable name, value) ] sorted by priority
+(mostly length of value)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[ (str,str) ]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

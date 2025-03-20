@@ -1,0 +1,1528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.tools &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.tools</h1><div class="highlight"><pre>
+<span></span><span class="c1">## numpy-oldnumeric calls replaced by custom script; 09/06/2016</span>
+<span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2007 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">general purpose utility methods.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">osp</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">pickle</span>  <span class="c1">## for Load and Dump</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">from</span> <span class="nn">inspect</span> <span class="k">import</span> <span class="n">getframeinfo</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">localtime</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">from</span> <span class="nn">biskit.core</span> <span class="k">import</span> <span class="n">oldnumeric</span> <span class="k">as</span> <span class="n">N0</span>
+
+<div class="viewcode-block" id="ToolsError"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.ToolsError">[docs]</a><span class="k">class</span> <span class="nc">ToolsError</span><span class="p">(</span> <span class="ne">Exception</span> <span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="PickleError"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.PickleError">[docs]</a><span class="k">class</span> <span class="nc">PickleError</span><span class="p">(</span> <span class="n">ToolsError</span> <span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="errWriteln"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.errWriteln">[docs]</a><span class="k">def</span> <span class="nf">errWriteln</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    print s to standard error with line feed.</span>
+<span class="sd">    </span>
+<span class="sd">    :param s: string</span>
+<span class="sd">    :type  s: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="errWrite"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.errWrite">[docs]</a><span class="k">def</span> <span class="nf">errWrite</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    print s to standard error.</span>
+
+<span class="sd">    :param s: string</span>
+<span class="sd">    :type  s: str    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="flushPrint"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.flushPrint">[docs]</a><span class="k">def</span> <span class="nf">flushPrint</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    print s without line break and flush standard out.</span>
+
+<span class="sd">    :param s: string</span>
+<span class="sd">    :type  s: str    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="lastError"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.lastError">[docs]</a><span class="k">def</span> <span class="nf">lastError</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect type and line of last exception.</span>
+<span class="sd">    </span>
+<span class="sd">    :return: &#39;&lt;ExceptionType&gt; in line &lt;lineNumber&gt;:&lt;Exception arguments&gt;&#39;</span>
+<span class="sd">    :rtype: String</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">why</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">why</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">args</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">getframeinfo</span><span class="p">(</span> <span class="n">trace</span><span class="o">.</span><span class="n">tb_frame</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> in </span><span class="si">%s</span><span class="s2"> line </span><span class="si">%i</span><span class="s2">:</span><span class="se">\n\t</span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]),</span>
+                  <span class="n">file</span><span class="p">,</span> <span class="n">trace</span><span class="o">.</span><span class="n">tb_lineno</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">why</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">trace</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="k">def</span> <span class="nf">lastErrorTrace</span><span class="p">(</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+    <span class="n">tb</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">extract_tb</span><span class="p">(</span> <span class="n">tb</span><span class="p">,</span> <span class="kc">None</span> <span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">pyFile</span> <span class="o">=</span> <span class="n">stripFilename</span><span class="p">(</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%i</span><span class="s1"> (</span><span class="si">%s</span><span class="s1">) </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pyFile</span><span class="p">,</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="dictAdd"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.dictAdd">[docs]</a><span class="k">def</span> <span class="nf">dictAdd</span><span class="p">(</span> <span class="n">dic</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">forceList</span><span class="o">=</span><span class="kc">False</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add value to dic, create list, if dic has already value in key.</span>
+
+<span class="sd">    :param key: dictionary key</span>
+<span class="sd">    :type  key: str</span>
+<span class="sd">    :param value: value</span>
+<span class="sd">    :type  value: any</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">old</span> <span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="n">old</span><span class="p">:</span>
+            <span class="n">dic</span><span class="p">[</span> <span class="n">key</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">old</span> <span class="p">]</span> <span class="o">+</span> <span class="p">[</span> <span class="n">value</span> <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">old</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">old</span><span class="p">:</span>
+                <span class="n">dic</span><span class="p">[</span> <span class="n">key</span> <span class="p">]</span> <span class="o">=</span> <span class="n">old</span> <span class="o">+</span> <span class="p">[</span> <span class="n">value</span> <span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">forceList</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">value</span> <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="absfile"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.absfile">[docs]</a><span class="k">def</span> <span class="nf">absfile</span><span class="p">(</span> <span class="n">filename</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get absolute file path::</span>
+<span class="sd">      - expand ~ to user home, change</span>
+<span class="sd">      - expand ../../ to absolute path</span>
+<span class="sd">      - resolve links</span>
+<span class="sd">      - add working directory to unbound files (&#39;ab.txt&#39;-&gt;&#39;/home/raik/ab.txt&#39;)</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    :param resolveLinks: eliminate any symbolic links (default: 1)</span>
+<span class="sd">    :type  resolveLinks: 1|0</span>
+<span class="sd">    </span>
+<span class="sd">    :return: absolute path or filename</span>
+<span class="sd">    :rtype: string</span>
+
+<span class="sd">    :raise ToolsError: if a ~user part does not translate to an existing path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">filename</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span> <span class="n">osp</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;~&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ToolsError</span><span class="p">(</span><span class="s1">&#39;Could not expand user home in </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">resolveLinks</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span> <span class="n">r</span> <span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="homefile"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.homefile">[docs]</a><span class="k">def</span> <span class="nf">homefile</span><span class="p">(</span> <span class="n">filename</span><span class="p">,</span> <span class="n">otherUser</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ownCopy</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Relativize a file name to ~ or, if it is in another user&#39;s home,</span>
+<span class="sd">    to ~otheruser or, if it is in nobody&#39;s home, to / .</span>
+<span class="sd">    </span>
+<span class="sd">    :class:`splithome()` is used to also guess home directories of other users.</span>
+<span class="sd">    </span>
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    :param otherUser: look also in other user&#39;s home directories (default 1)</span>
+<span class="sd">    :type  otherUser: 1|0</span>
+<span class="sd">    :param ownCopy: replace alien path by path into own home directory if</span>
+<span class="sd">                    possible, e.g. ~other/data/x is replaced</span>
+<span class="sd">                    by ~/data/x if there is such a file. (default 1) Careful!</span>
+<span class="sd">    :type  ownCopy: 1|0</span>
+<span class="sd">                </span>
+<span class="sd">    :return: path or filename</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">absfile</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span>
+    <span class="n">my_home</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+    <span class="n">user_home</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">splithome</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">user_home</span> <span class="o">==</span> <span class="n">my_home</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">user_home</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">otherUser</span> <span class="ow">and</span> <span class="n">user_home</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="c1">## first try to find same path in own home directory</span>
+        <span class="k">if</span> <span class="n">ownCopy</span><span class="p">:</span>
+            <span class="n">my_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">my_home</span><span class="p">,</span> <span class="n">rest</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">my_path</span> <span class="p">):</span>
+                <span class="k">return</span> <span class="n">my_path</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">user_home</span> <span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">user_home</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span> <span class="o">+</span> <span class="n">user</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">f</span></div>
+
+
+<div class="viewcode-block" id="splithome"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.splithome">[docs]</a><span class="k">def</span> <span class="nf">splithome</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Split path into home directory and remaining path. Valid home directories</span>
+<span class="sd">    are folders belonging to the same folder as the current user&#39;s home. I.e.</span>
+<span class="sd">    the method tries also to guess home directories of other users.</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: home folder of some user, remaining path relative to home</span>
+<span class="sd">    :rtype: (str, str)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">home</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span> <span class="s1">&#39;~&#39;</span> <span class="p">)</span>
+    <span class="n">home_base</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">home</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="n">home_base</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">filename</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">home_base</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">user_home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">home_base</span><span class="p">,</span> <span class="n">user</span> <span class="p">)</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">user</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">user_home</span><span class="p">,</span> <span class="n">rest</span></div>
+
+
+<span class="k">def</span> <span class="nf">__pathsplit</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rest</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    from ASPN Python Cookbook</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">+</span><span class="n">rest</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">+</span><span class="n">rest</span>
+    <span class="k">return</span> <span class="n">__pathsplit</span><span class="p">(</span><span class="n">h</span><span class="p">,[</span><span class="n">t</span><span class="p">]</span><span class="o">+</span><span class="n">rest</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__commonpath</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">common</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    from ASPN Python Cookbook</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">l1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">l2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="k">return</span> <span class="p">(</span><span class="n">common</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">__commonpath</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">l2</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">common</span><span class="o">+</span><span class="p">[</span><span class="n">l1</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<div class="viewcode-block" id="relpath"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.relpath">[docs]</a><span class="k">def</span> <span class="nf">relpath</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Translate p2 into a path relative to p1.</span>
+<span class="sd">    </span>
+<span class="sd">    :param p1: base path</span>
+<span class="sd">    :type p1: str</span>
+<span class="sd">    :param p2: target path</span>
+<span class="sd">    :type p2: str</span>
+
+<span class="sd">    :return: relative path p1 -&gt; p2</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">p1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">p2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">p2</span>
+    <span class="p">(</span><span class="n">__common</span><span class="p">,</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">)</span> <span class="o">=</span> <span class="n">__commonpath</span><span class="p">(</span><span class="n">__pathsplit</span><span class="p">(</span><span class="n">p1</span><span class="p">),</span> <span class="n">__pathsplit</span><span class="p">(</span><span class="n">p2</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;../&#39;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">l2</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="o">*</span><span class="n">p</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="stripSuffix"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.stripSuffix">[docs]</a><span class="k">def</span> <span class="nf">stripSuffix</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return file name without ending.</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: filename or path without suffix</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[:</span> <span class="n">filename</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="p">]</span>     <span class="c1"># remove ending</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1">## just in case there is no ending to start with...</span>
+
+    <span class="k">return</span> <span class="n">filename</span></div>
+
+
+<div class="viewcode-block" id="stripFilename"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.stripFilename">[docs]</a><span class="k">def</span> <span class="nf">stripFilename</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return filename without path and without ending.</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: base filename</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span>      <span class="c1"># remove path</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span> <span class="n">name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="p">]</span>     <span class="c1"># remove ending</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>  <span class="c1">## just in case there is no ending to start with...</span>
+
+    <span class="k">return</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="fileLength"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.fileLength">[docs]</a><span class="k">def</span> <span class="nf">fileLength</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Count number of lines in a file.</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: number of lines</span>
+<span class="sd">    :rtype: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="n">filename</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span> <span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;wc&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+                               <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="tempDir"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.tempDir">[docs]</a><span class="k">def</span> <span class="nf">tempDir</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get folder for temporary files - either from environment settings</span>
+<span class="sd">    or &#39;/tmp&#39;</span>
+
+<span class="sd">    :return: directort for temporary files</span>
+<span class="sd">    :rtype: str    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">tempdir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>  <span class="n">tempfile</span><span class="o">.</span><span class="n">tempdir</span>
+
+    <span class="k">return</span> <span class="n">osp</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="file2dic"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.file2dic">[docs]</a><span class="k">def</span> <span class="nf">file2dic</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct dictionary from file with key - value pairs (one per line).</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    </span>
+<span class="sd">    :raise ToolsError: if file can&#39;t be parsed into dictionary</span>
+<span class="sd">    :raise IOError: if file can&#39;t be opened</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span> <span class="n">filename</span> <span class="p">):</span>
+
+            <span class="k">if</span> <span class="s1">&#39;#&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span> <span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="p">]</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="n">l</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">l</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span> <span class="n">line</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">l</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">l</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="n">l</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Error parsing option file </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">filename</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Line: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">line</span> <span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">lastError</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="n">ToolsError</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="get_cmdDict"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.get_cmdDict">[docs]</a><span class="k">def</span> <span class="nf">get_cmdDict</span><span class="p">(</span><span class="n">lst_cmd</span><span class="p">,</span> <span class="n">dic_default</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse commandline options into dictionary of type C{ {&lt;option&gt; : &lt;value&gt;} }</span>
+<span class="sd">    Options are recognised by a leading &#39;-&#39;.</span>
+<span class="sd">    Error handling should be improved.</span>
+<span class="sd">    </span>
+<span class="sd">    Option C{ -x |file_name| } is interpreted as file with additional options.</span>
+<span class="sd">    The key value pairs in lst_cmd replace key value pairs in the</span>
+<span class="sd">    -x file and in dic_default.</span>
+<span class="sd">    </span>
+
+<span class="sd">    :param lst_cmd: list with the command line options::</span>
+<span class="sd">                    e.g. [&#39;-pdb&#39;, &#39;in1.pdb&#39;, &#39;in2.pdb&#39;, &#39;-o&#39;, &#39;out.dat&#39;]</span>
+<span class="sd">    :type  lst_cmd: [str]</span>
+<span class="sd">    :param dic_default: dictionary with default options::</span>
+<span class="sd">                        e.g. {&#39;psf&#39;:&#39;in.psf&#39;}</span>
+<span class="sd">    :type  dic_default: {str : str}</span>
+
+<span class="sd">    :return: command dictionary::</span>
+<span class="sd">             ala {&#39;pdb&#39;:[&#39;in1.pdb&#39;, &#39;in2.pdb&#39;], &#39;psf&#39;:&#39;in.psf&#39;, &#39;o&#39;:&#39;out.dat&#39;}</span>
+<span class="sd">    :rtype: {&lt;option&gt; : &lt;value&gt;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dic_cmd</span> <span class="o">=</span> <span class="p">{}</span>                     <span class="c1"># create return dictionary</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">lst_cmd</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">):</span>               <span class="c1"># this entry is new option</span>
+                <span class="n">current_option</span> <span class="o">=</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>      <span class="c1"># take all but leading &quot;-&quot;</span>
+                <span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># make sure key exists even</span>
+                                              <span class="c1"># w/o value</span>
+                <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>        <span class="c1"># number of values for this option</span>
+            <span class="k">else</span><span class="p">:</span>                  <span class="c1"># this entry is value for latest option</span>
+
+                <span class="k">if</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]</span> <span class="o">=</span> <span class="n">cmd</span>
+
+    <span class="c1"># in case, several values follow after a &quot;-xxx&quot; option convert dictionary</span>
+    <span class="c1"># entry into list and add all elements (until the next &quot;-&quot;) to this list</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>   <span class="c1"># there is already a value assigned</span>
+    <span class="c1"># convert to list</span>
+                        <span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]]</span>
+    <span class="c1"># add value to list</span>
+                    <span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]</span> <span class="o">=</span> <span class="n">dic_cmd</span><span class="p">[</span><span class="n">current_option</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">cmd</span><span class="p">]</span>
+
+                <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">UnboundLocalError</span><span class="p">)</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+        <span class="n">errWriteln</span><span class="p">(</span><span class="s2">&quot;Can&#39;t resolve command line options.</span><span class="se">\n</span><span class="s2"> </span><span class="se">\t</span><span class="s2">Error:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">why</span><span class="p">))</span>
+
+    <span class="c1">## get extra options from external file</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;x&#39;</span> <span class="ow">in</span> <span class="n">dic_cmd</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">file2dic</span><span class="p">(</span> <span class="n">dic_cmd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">dic_cmd</span> <span class="p">)</span>
+            <span class="n">dic_cmd</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="n">errWriteln</span><span class="p">(</span> <span class="s2">&quot;Error opening </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span> <span class="n">dic_cmd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="k">except</span> <span class="n">ToolsError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+        <span class="n">errWriteln</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">why</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="c1">## fill in missing default values</span>
+    <span class="n">dic_default</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">dic_cmd</span> <span class="p">)</span>
+    <span class="n">dic_cmd</span> <span class="o">=</span> <span class="n">dic_default</span>
+
+    <span class="k">return</span> <span class="n">dic_cmd</span></div>
+
+
+<div class="viewcode-block" id="cmdDict"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.cmdDict">[docs]</a><span class="k">def</span> <span class="nf">cmdDict</span><span class="p">(</span> <span class="n">defaultDic</span><span class="o">=</span><span class="p">{}</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convenience implementation of :class:`get_cmdDict`. Take command line options</span>
+<span class="sd">    from sys.argv[1:] and convert them into dictionary.</span>
+<span class="sd">    Example::</span>
+<span class="sd">      &#39;-o out.dat -in 1.pdb 2.pdb 3.pdb -d&#39; will be converted to</span>
+<span class="sd">      {&#39;o&#39;:&#39;out.dat&#39;, &#39;in&#39;: [&#39;1.pdb&#39;, &#39;2.pdb&#39;, &#39;3.pdb&#39;], &#39;d&#39;:&#39;&#39; }</span>
+<span class="sd">      </span>
+<span class="sd">    Option C{ -x |file_name| } is interpreted as file with additional options.</span>
+<span class="sd">    </span>
+<span class="sd">    :param defaultDic: dic with default values.</span>
+<span class="sd">    :type  defaultDic: dic</span>
+
+<span class="sd">    :return: command dictionary</span>
+<span class="sd">    :rtype: dic</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">get_cmdDict</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">defaultDic</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dump"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.dump">[docs]</a><span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;wb&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dump this::</span>
+<span class="sd">      dump(this, filename, gzip = 0)</span>
+<span class="sd">      Supports also &#39;~&#39; or &#39;~user&#39;.</span>
+
+<span class="sd">    Note: Peter Schmidtke : gzip fixed, works now</span>
+<span class="sd">    </span>
+<span class="sd">    Written by Wolfgang Rieping.</span>
+
+<span class="sd">    :param this: object to dump</span>
+<span class="sd">    :type  this: any</span>
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    :param gzip: gzip dumped object (default 0)</span>
+<span class="sd">    :type  gzip: 1|0</span>
+<span class="sd">    :param mode: file handle mode (default w)</span>
+<span class="sd">    :type  mode: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">biskit</span> <span class="k">as</span> <span class="nn">B</span>
+    
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1">## special case: do not slim PDBModels that are pickled to override</span>
+    <span class="c1">## their own source</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">this</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">PDBModel</span> <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">this</span><span class="o">.</span><span class="n">forcePickle</span> \
+       <span class="ow">and</span> <span class="n">osp</span><span class="o">.</span><span class="n">samefile</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">source</span><span class="p">),</span> <span class="n">filename</span> <span class="p">):</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;wb&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">PickleError</span><span class="p">(</span><span class="s2">&quot;mode has to be &#39;wb&#39; (write binary) or &#39;a&#39; (append)&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">gzip</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">gzopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">Dump</span><span class="p">(</span> <span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span><span class="p">):</span>
+    <span class="n">EHandler</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;deprecated: tools.Dump has been renamed to tools.dump&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dump</span><span class="p">(</span> <span class="n">this</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span><span class="o">=</span><span class="n">gzip</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ASCII&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load dumped object from file.</span>
+
+<span class="sd">    Note: Peter Schmidtke : gzip fixed, works now</span>
+<span class="sd">    </span>
+<span class="sd">    Written by Wolfgang Rieping.</span>
+
+<span class="sd">    :param filename: name of file</span>
+<span class="sd">    :type  filename: str</span>
+<span class="sd">    :param gzip: unzip dumped object (default 0)</span>
+<span class="sd">    :type  gzip: 1|0</span>
+<span class="sd">    :param encoding: optional encoding for pickle.load [&#39;ASCII&#39;]</span>
+<span class="sd">    :type encoding: str</span>
+
+<span class="sd">    :return: loaded object</span>
+<span class="sd">    :rtype: any</span>
+
+<span class="sd">    :raise cPickle.UnpicklingError, if the pickle format is not recognized</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">gzip</span> <span class="p">:</span>
+            <span class="n">f</span><span class="o">=</span><span class="n">gzopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>            
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+
+        <span class="n">objects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">eof</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">eof</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">this</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">#, encoding=encoding)</span>
+                <span class="n">objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+                <span class="n">eof</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PickleError</span><span class="p">(</span><span class="s1">&#39;Python pickle </span><span class="si">%s</span><span class="s1"> is corrupted.&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span></div>
+
+<span class="k">def</span> <span class="nf">Load</span><span class="p">(</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+    <span class="n">EHandler</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;deprecated: tools.Load has been renamed to tools.load&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">load</span><span class="p">(</span> <span class="n">filename</span><span class="p">,</span> <span class="n">gzip</span><span class="o">=</span><span class="n">gzip</span> <span class="p">)</span>
+
+
+
+<div class="viewcode-block" id="packageRoot"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.packageRoot">[docs]</a><span class="k">def</span> <span class="nf">packageRoot</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: absolute folder of the biskit python package.</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">biskit</span>
+    <span class="k">return</span> <span class="n">absfile</span><span class="p">(</span> <span class="n">osp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">biskit</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="projectRoot"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.projectRoot">[docs]</a><span class="k">def</span> <span class="nf">projectRoot</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Root of biskit project. That&#39;s the folder **containing** the biskit python</span>
+<span class="sd">    package (the parent folder of `packageRoot`).</span>
+<span class="sd">    </span>
+<span class="sd">    :return: absolute path of the root (parent) folder of current project::</span>
+<span class="sd">             i.e. &#39;/home/raik/py/biskitproject&#39;</span>
+<span class="sd">    :rtype: string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">absfile</span><span class="p">(</span><span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">packageRoot</span><span class="p">(),</span> <span class="s1">&#39;..&#39;</span> <span class="p">))</span></div>
+
+<div class="viewcode-block" id="dataRoot"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.dataRoot">[docs]</a><span class="k">def</span> <span class="nf">dataRoot</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Root of Biskit data directory (formerly &#39;biskit/Biskit/data&#39;).</span>
+<span class="sd">    :return: absolute path</span>
+<span class="sd">    :rtype: string    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">packageRoot</span><span class="p">(),</span> <span class="s1">&#39;data&#39;</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="testRoot"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.testRoot">[docs]</a><span class="k">def</span> <span class="nf">testRoot</span><span class="p">(</span> <span class="n">subfolder</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Root of Biskit test directory.</span>
+<span class="sd">    </span>
+<span class="sd">    :param subfolder: str, optional sub-folder of test data folder</span>
+
+<span class="sd">    :return: absolute path</span>
+<span class="sd">    :rtype: string    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">subfolder</span> <span class="ow">and</span> <span class="n">subfolder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">:</span>
+        <span class="n">subfolder</span> <span class="o">=</span> <span class="n">subfolder</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">packageRoot</span><span class="p">(),</span> <span class="s1">&#39;testdata&#39;</span><span class="p">,</span> <span class="n">subfolder</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="isBinary"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.isBinary">[docs]</a><span class="k">def</span> <span class="nf">isBinary</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if file is a binary.</span>
+<span class="sd">    </span>
+<span class="sd">    :param f: path to existing file</span>
+<span class="sd">    :type  f: str</span>
+
+<span class="sd">    :return: condition</span>
+<span class="sd">    :rtype: 1|0</span>
+<span class="sd">    </span>
+<span class="sd">    :raise OSError: if file doesn&#39;t exist</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">X_OK</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="binExists"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.binExists">[docs]</a><span class="k">def</span> <span class="nf">binExists</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if binary with file name f exists.</span>
+<span class="sd">    </span>
+<span class="sd">    :param f: binary file name</span>
+<span class="sd">    :type  f: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: True if binary file f is found in PATH and is executable</span>
+<span class="sd">    :rtype: 1|0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="n">isBinary</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span> <span class="s1">&#39;PATH&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="p">:</span>
+
+        <span class="n">full_path</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">path</span><span class="p">,</span> <span class="n">f</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">full_path</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">isBinary</span><span class="p">(</span> <span class="n">full_path</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="absbinary"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.absbinary">[docs]</a><span class="k">def</span> <span class="nf">absbinary</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Absolute path of binary.</span>
+<span class="sd">    </span>
+<span class="sd">    :param f: binary file name</span>
+<span class="sd">    :type  f: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: full path to existing binary</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    </span>
+<span class="sd">    :raise IOError: if an executable binary is not found in PATH</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">isBinary</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span>
+
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span> <span class="s1">&#39;PATH&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="p">:</span>
+
+        <span class="n">full_path</span> <span class="o">=</span> <span class="n">osp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">path</span><span class="p">,</span> <span class="n">f</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">full_path</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">isBinary</span><span class="p">(</span> <span class="n">full_path</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="n">full_path</span>
+
+    <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;binary </span><span class="si">%s</span><span class="s1"> not found.&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="platformFolder"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.platformFolder">[docs]</a><span class="k">def</span> <span class="nf">platformFolder</span><span class="p">(</span> <span class="n">f</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a platform-specific subfolder of f for platform-dependent imports.</span>
+<span class="sd">    </span>
+<span class="sd">    :param f: parent folder</span>
+<span class="sd">    :type  f: str</span>
+
+<span class="sd">    :return: path</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">platform</span> <span class="k">as</span> <span class="nn">P</span>
+
+    <span class="n">__version</span> <span class="o">=</span>  <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">P</span><span class="o">.</span><span class="n">python_version</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="s1">&#39;py</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__version</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">machine</span><span class="p">()</span> <span class="p">)</span> <span class="c1">## , P.architecture()[0] )</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="sortString"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.sortString">[docs]</a><span class="k">def</span> <span class="nf">sortString</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sort the letters of a string::</span>
+<span class="sd">      sortString( str ) -&gt; str with sorted letters</span>
+<span class="sd">      </span>
+<span class="sd">    :param s: string to be sorted</span>
+<span class="sd">    :type  s: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: sorted string</span>
+<span class="sd">    :rtype: str  </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="string2Fname"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.string2Fname">[docs]</a><span class="k">def</span> <span class="nf">string2Fname</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove forbidden character from string so that it can be used as a</span>
+<span class="sd">    filename.</span>
+
+<span class="sd">    :param s: string</span>
+<span class="sd">    :type  s: str</span>
+
+<span class="sd">    :return: cleaned string</span>
+<span class="sd">    :rtype: str     </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">forbidden</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">]</span>
+    <span class="n">replaceme</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">forbidden</span><span class="p">)):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">forbidden</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">replaceme</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="toIntList"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.toIntList">[docs]</a><span class="k">def</span> <span class="nf">toIntList</span><span class="p">(</span> <span class="n">o</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert single value or list of values into list of integers.</span>
+<span class="sd">    </span>
+<span class="sd">    :param o: value or list</span>
+<span class="sd">    :type  o: int or [int]</span>
+
+<span class="sd">    :return: list of integer</span>
+<span class="sd">    :rtype: [int]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span> <span class="p">[]</span> <span class="p">):</span>
+        <span class="n">o</span> <span class="o">=</span> <span class="p">[</span> <span class="n">o</span> <span class="p">]</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span> <span class="nb">int</span><span class="p">,</span> <span class="n">o</span> <span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="toIntArray"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.toIntArray">[docs]</a><span class="k">def</span> <span class="nf">toIntArray</span><span class="p">(</span> <span class="n">o</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert single value or list of values to numpy array of int.</span>
+<span class="sd">    </span>
+<span class="sd">    :param o: value or list</span>
+<span class="sd">    :type  o: int or [int]</span>
+
+<span class="sd">    :return: array of integer</span>
+<span class="sd">    :rtype: N0.array(&#39;i&#39;)    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">([])):</span>
+        <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">map</span><span class="p">(</span> <span class="nb">int</span><span class="p">,</span> <span class="n">o</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="toList"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.toList">[docs]</a><span class="k">def</span> <span class="nf">toList</span><span class="p">(</span> <span class="n">o</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a list::</span>
+<span class="sd">      toList(o) -&gt; [o], or o,  if o is already a list</span>
+<span class="sd">    </span>
+<span class="sd">    :param o: value(s)</span>
+<span class="sd">    :type  o: any or [any]</span>
+
+<span class="sd">    :return: list</span>
+<span class="sd">    :rtype: [any]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span> <span class="p">[]</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span> <span class="n">o</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="n">o</span></div>
+
+
+<div class="viewcode-block" id="toStr"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.toStr">[docs]</a><span class="k">def</span> <span class="nf">toStr</span><span class="p">(</span> <span class="n">o</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a string from a list or interger.</span>
+<span class="sd">    Stripping of any flanking witespaces.  </span>
+<span class="sd">    </span>
+<span class="sd">    :param o: value(s)</span>
+<span class="sd">    :type  o: any or [any]</span>
+
+<span class="sd">    :return: list</span>
+<span class="sd">    :rtype: [any]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span> <span class="mi">1</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span> <span class="p">[]</span> <span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">o</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="p">)</span> 
+        <span class="k">return</span> <span class="n">s</span>
+    
+    <span class="k">return</span> <span class="n">o</span></div>
+
+
+<div class="viewcode-block" id="toInt"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.toInt">[docs]</a><span class="k">def</span> <span class="nf">toInt</span><span class="p">(</span> <span class="n">o</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert to intereg if possible::</span>
+<span class="sd">      toInt(o) -&gt; int, int(o) or default if o is impossible to convert.</span>
+
+<span class="sd">    :param o: value</span>
+<span class="sd">    :type  o: any</span>
+<span class="sd">    :param default: value to return if conversion is impossible (default: None)</span>
+<span class="sd">    :type  default: any</span>
+<span class="sd">    </span>
+<span class="sd">    :return: integer OR None </span>
+<span class="sd">    :rtype: int OR None     </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">o</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">o</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default</span></div>
+
+
+<div class="viewcode-block" id="hex2int"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.hex2int">[docs]</a><span class="k">def</span> <span class="nf">hex2int</span><span class="p">(</span> <span class="n">shex</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert hex-code string into float number.</span>
+<span class="sd">    :param s: hex-code, e.g. &#39;FF0B99&#39;</span>
+<span class="sd">    :type  s: str</span>
+<span class="sd">    :return: float</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">shex</span> <span class="o">=</span> <span class="n">shex</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0x&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">16</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shex</span><span class="p">))</span> <span class="p">]</span>
+    <span class="n">factors</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">factors</span> <span class="p">)</span>
+
+    <span class="n">table</span>   <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;0123456789abcdef&#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">))))</span> <span class="p">)</span>
+
+    <span class="n">components</span> <span class="o">=</span> <span class="p">[</span> <span class="n">table</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">*</span><span class="n">f</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span>  <span class="nb">zip</span><span class="p">(</span> <span class="n">shex</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">factors</span> <span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">components</span> <span class="p">)</span></div>
+    
+
+<div class="viewcode-block" id="colorSpectrum"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.colorSpectrum">[docs]</a><span class="k">def</span> <span class="nf">colorSpectrum</span><span class="p">(</span> <span class="n">nColors</span><span class="p">,</span> <span class="n">firstColor</span><span class="o">=</span><span class="s1">&#39;FF0000&#39;</span><span class="p">,</span> <span class="n">lastColor</span><span class="o">=</span><span class="s1">&#39;FF00FF&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a list of &#39;nColors&#39; colors for biggles starting at</span>
+<span class="sd">    &#39;firstColor&#39; ending at &#39;lastColor&#39;</span>
+<span class="sd">    Examples::</span>
+<span class="sd">     free spectrum red FF0000 to green 00FF00</span>
+<span class="sd">     bound spectrum cyan 00FFFF to magenta FF00FF</span>
+
+<span class="sd">    :param nColors: number of colors to create</span>
+<span class="sd">    :type  nColors: int</span>
+<span class="sd">    :param firstColor: first color in hex format (default: FF0000)</span>
+<span class="sd">    :type  firstColor: str</span>
+<span class="sd">    :param lastColor: last color in hex format (default: FF00FF)</span>
+<span class="sd">    :type  lastColor: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: list of colors</span>
+<span class="sd">    :rtype: [int]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">spec</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">dataRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/spectrum.pl &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nColors</span><span class="p">)</span> <span class="o">+</span>\
+                    <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">firstColor</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">lastColor</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span> <span class="n">cmd</span> <span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">out</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;color generation command failed: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cmd</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>    
+        <span class="n">spec</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">hex2int</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="n">s</span>  <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">spec</span></div>
+
+
+<div class="viewcode-block" id="hexColors"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.hexColors">[docs]</a><span class="k">def</span> <span class="nf">hexColors</span><span class="p">(</span> <span class="n">nColors</span><span class="p">,</span> <span class="n">firstColor</span><span class="o">=</span><span class="s1">&#39;FF0000&#39;</span><span class="p">,</span> <span class="n">lastColor</span><span class="o">=</span><span class="s1">&#39;FF00FF&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a list of &#39;nColors&#39; colors for PyMol starting at</span>
+<span class="sd">    &#39;firstColor&#39; ending at &#39;lastColor&#39;</span>
+<span class="sd">    Examples::</span>
+<span class="sd">     free spectrum red FF0000 to green 00FF00</span>
+<span class="sd">     bound spectrum cyan 00FFFF to magenta FF00FF</span>
+<span class="sd">     </span>
+<span class="sd">    :param nColors: number of colors to create</span>
+<span class="sd">    :type  nColors: int</span>
+<span class="sd">    :param firstColor: first color in hex format (default: FF0000)</span>
+<span class="sd">    :type  firstColor: str</span>
+<span class="sd">    :param lastColor: last color in hex format (default: FF00FF)</span>
+<span class="sd">    :type  lastColor: str</span>
+
+<span class="sd">    :return: list of  hex colors</span>
+<span class="sd">    :rtype: [ str ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">spec</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">dataRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/spectrum.pl &#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nColors</span><span class="p">)</span> <span class="o">+</span>\
+                    <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">firstColor</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">lastColor</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span> <span class="n">cmd</span> <span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">out</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;color generation command failed: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cmd</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>    
+        <span class="n">spec</span> <span class="o">+=</span> <span class="p">[</span> <span class="s1">&#39;0x&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="n">s</span>  <span class="p">)</span> <span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">spec</span></div>
+
+
+<div class="viewcode-block" id="rgb2hex"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.rgb2hex">[docs]</a><span class="k">def</span> <span class="nf">rgb2hex</span><span class="p">(</span> <span class="n">rgbColor</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    convert rgb color into 8 bit hex rgb color::</span>
+<span class="sd">      [ 1.0, 0.0, 1.0, ] -&gt; &#39;FF00FF&#39;</span>
+
+<span class="sd">    :param rgbColor: RGB-color e.g. [ 1.0, 0.0, 1.0, ]</span>
+<span class="sd">    :type rgbColor : [float]</span>
+<span class="sd">    </span>
+<span class="sd">    :return: hex colors</span>
+<span class="sd">    :rtype: str </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hexRgb</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>        
+        <span class="n">component</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span> <span class="n">rgbColor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">255</span> <span class="p">)</span> <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">component</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">hexRgb</span> <span class="o">+=</span> <span class="s1">&#39;0&#39;</span> <span class="o">+</span> <span class="n">component</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hexRgb</span> <span class="o">+=</span>  <span class="n">component</span>
+
+    <span class="k">return</span> <span class="n">hexRgb</span></div>
+
+
+<div class="viewcode-block" id="hex2rgb"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.hex2rgb">[docs]</a><span class="k">def</span> <span class="nf">hex2rgb</span><span class="p">(</span> <span class="n">hexColor</span><span class="p">,</span> <span class="nb">str</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    convert 8 bit hex rgb color into  rgb color  ::</span>
+<span class="sd">       &#39;FF00FF&#39; -&gt; [ 1.0, 0.0, 1.0, ] </span>
+
+<span class="sd">    :param hexColor: HEX-color e.g. &#39;FF00FF&#39;</span>
+<span class="sd">    :type  hexColor: str</span>
+<span class="sd">    :param str: return rgb colors as a tring (i.e for PyMol)</span>
+<span class="sd">    :type  str: 1|0</span>
+<span class="sd">    </span>
+<span class="sd">    :return: rgb colors</span>
+<span class="sd">    :rtype: [float]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rgb</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">hexColor</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0x&#39;</span><span class="p">:</span>
+        <span class="n">hexColor</span> <span class="o">=</span> <span class="n">hexColor</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">rgb</span> <span class="o">+=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">hexColor</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span><span class="o">/</span><span class="mf">255.0</span> <span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">rgb_str</span><span class="o">=</span> <span class="s1">&#39;[ </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1">, </span><span class="si">%.3f</span><span class="s1"> ]&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        
+        <span class="k">return</span> <span class="n">rgb_str</span>
+    
+    <span class="k">return</span> <span class="n">rgb</span></div>
+
+
+<div class="viewcode-block" id="dateString"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.dateString">[docs]</a><span class="k">def</span> <span class="nf">dateString</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: DD/MM/YYYY</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%02i</span><span class="s1">/</span><span class="si">%02i</span><span class="s1">/</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="dateSortString"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.dateSortString">[docs]</a><span class="k">def</span> <span class="nf">dateSortString</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: YYYY/MM/DD:hh:mm.ss.ms</span>
+<span class="sd">    :rtype: </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">/</span><span class="si">%02i</span><span class="s2">/</span><span class="si">%02i</span><span class="s2">:</span><span class="si">%02i</span><span class="s2">.</span><span class="si">%02i</span><span class="s2">.</span><span class="si">%02i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="tryRemove"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.tryRemove">[docs]</a><span class="k">def</span> <span class="nf">tryRemove</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wildcard</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove file or folder::</span>
+<span class="sd">     remove(f [,verbose=0, tree=0]), remove if possible, otherwise do nothing</span>
+
+<span class="sd">    :param f: file path</span>
+<span class="sd">    :type  f: str</span>
+<span class="sd">    :param verbose: report failure (default 0)</span>
+<span class="sd">    :type  verbose: 0|1</span>
+<span class="sd">    :param tree: remove whole folder (default 0)</span>
+<span class="sd">    :type  tree: 0|1</span>
+<span class="sd">    :param wildcard: filename contains wildcards (default 0)</span>
+<span class="sd">    :type  wildcard: 0|1</span>
+
+<span class="sd">    :return: 1 if file was removed</span>
+<span class="sd">    :rtype: 1|0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">osp</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">tree</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">errWriteln</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%r</span><span class="s1"> is directory - not removed.&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">wildcard</span><span class="p">:</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">i</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="n">errWriteln</span><span class="p">(</span> <span class="s1">&#39;Warning: Cannot remove </span><span class="si">%r</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">f</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="backup"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.backup">[docs]</a><span class="k">def</span> <span class="nf">backup</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;~&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create backup of file if it already exists.</span>
+<span class="sd">    :param fname: file name</span>
+<span class="sd">    :type  fname: str</span>
+<span class="sd">    :param suffix: suffix to add to backup file name [&#39;~&#39;]</span>
+<span class="sd">    :type  suffix: str</span>
+
+<span class="sd">    :return: True if backup was created, False otherwise</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">absfile</span><span class="p">(</span> <span class="n">fname</span> <span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">fname</span> <span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">suffix</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ensure"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.ensure">[docs]</a><span class="k">def</span> <span class="nf">ensure</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">allowed</span><span class="o">=</span><span class="p">[],</span> <span class="n">forbidden</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check type of a variable</span>
+<span class="sd">    </span>
+<span class="sd">    :param v: variable to test</span>
+<span class="sd">    :type  v: variable</span>
+<span class="sd">    :param t: required type</span>
+<span class="sd">    :type  t: str</span>
+<span class="sd">    :param allowed: list of additional values allowed for v {default: []}</span>
+<span class="sd">    :type  allowed: [str]</span>
+<span class="sd">    </span>
+<span class="sd">    :raise TypeError: if invalid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">allowed</span><span class="p">:</span>
+        <span class="n">allowed</span> <span class="o">=</span> <span class="n">toList</span><span class="p">(</span> <span class="n">allowed</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">allowed</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">allowed</span><span class="p">:</span>
+            <span class="k">return</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;looked for </span><span class="si">%s</span><span class="s1"> but found </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]))</span>
+
+    <span class="k">if</span> <span class="n">forbidden</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">forbidden</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;value </span><span class="si">%s</span><span class="s1"> is not allowed.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="clipStr"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.clipStr">[docs]</a><span class="k">def</span> <span class="nf">clipStr</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="n">expandtabs</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shorten string from end and replace the last characters with suffix::</span>
+<span class="sd">      clipStr( str, length ) -&gt; str, with len( str ) &lt;= length</span>
+
+<span class="sd">    :param s: original string</span>
+<span class="sd">    :type  s: str</span>
+<span class="sd">    :param length: desired length</span>
+<span class="sd">    :type  length: int</span>
+<span class="sd">    :param suffix: suffix (default: ..)</span>
+<span class="sd">    :type  suffix: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: shortend string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">expandtabs</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">()</span>
+        
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">length</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:(</span><span class="n">length</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">suffix</span><span class="p">))]</span> <span class="o">+</span> <span class="n">suffix</span>
+    <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="info"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.info">[docs]</a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span> <span class="n">item</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ::</span>
+<span class="sd">      info( item, short=1) -&gt; Print useful information about item.</span>
+
+<span class="sd">    :param item: query item</span>
+<span class="sd">    :type  item: item</span>
+<span class="sd">    :param short: short version (default: 1)</span>
+<span class="sd">    :type  short: 1|0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## quick and dirty ##</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NAME:    &quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CLASS:   &quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:      &quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TYPE:    &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VALUE:   &quot;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CALLABLE:&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">):</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>   <span class="c1"># Remove leading/trailing whitespace.</span>
+            <span class="k">if</span> <span class="n">short</span><span class="p">:</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DOC:    &quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">short</span><span class="p">),</span> <span class="n">doc</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">METHODS&quot;</span><span class="p">)</span>
+    <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">getattr</span><span class="p">(</span> <span class="n">item</span><span class="p">,</span> <span class="n">m</span> <span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span> <span class="n">item</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="nb">getattr</span><span class="p">(</span> <span class="n">item</span><span class="p">,</span> <span class="n">m</span> <span class="p">),</span> <span class="n">collections</span><span class="o">.</span><span class="n">Callable</span><span class="p">)</span> <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">short</span><span class="p">:</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">doc</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%-15s</span><span class="s2">: &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="s1">&#39;?&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">&#39;</span><span class="o">*</span><span class="p">(</span><span class="ow">not</span> <span class="n">short</span><span class="p">)</span> <span class="o">+</span> <span class="n">doc</span>
+        <span class="k">if</span> <span class="n">short</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">clipStr</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="mi">79</span> <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">item</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">):</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">FIELDS&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%-15s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">clipStr</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="mi">79</span> <span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="PseudoClass"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.PseudoClass">[docs]</a><span class="k">class</span> <span class="nc">PseudoClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Empty class that raises an ImportError upon creation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;Class </span><span class="si">%r</span><span class="s1"> is not available because of missing modules: </span><span class="si">%r</span><span class="s1">&#39;</span> \
+              <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">error</span><span class="p">)))</span></div>
+    
+<div class="viewcode-block" id="tryImport"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.tryImport">[docs]</a><span class="k">def</span> <span class="nf">tryImport</span><span class="p">(</span> <span class="n">module</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">old_as</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to import a class from a module. If that fails, &#39;import&#39; a</span>
+<span class="sd">    default class of the same name that raises an exception when used.</span>
+<span class="sd">    </span>
+<span class="sd">    :param module: name of the module</span>
+<span class="sd">    :type  module: str</span>
+<span class="sd">    :param cls  : name of the class</span>
+<span class="sd">    :type  cls  : str</span>
+<span class="sd">    :param namespace: namespace for the import [default: globals() ]</span>
+<span class="sd">    :type  namespace: dict</span>
+<span class="sd">    </span>
+<span class="sd">    :return: True if import succeeded, False otherwise</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">old_as</span> <span class="o">=</span> <span class="n">old_as</span> <span class="ow">or</span> <span class="bp">cls</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">namespace</span> <span class="ow">or</span> <span class="nb">globals</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;from </span><span class="si">%s</span><span class="s1"> import </span><span class="si">%s</span><span class="s1"> as </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">old_as</span><span class="p">),</span> <span class="n">g</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+        <span class="n">Cls</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,(</span><span class="n">PseudoClass</span><span class="p">,),{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span><span class="n">e</span><span class="p">}</span> <span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">{</span><span class="n">old_as</span><span class="p">:</span> <span class="n">Cls</span><span class="p">}</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="tryImportModule"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.tryImportModule">[docs]</a><span class="k">def</span> <span class="nf">tryImportModule</span><span class="p">(</span> <span class="n">module</span><span class="p">,</span> <span class="n">old_as</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to import a module. If that fails, &#39;import&#39; a dummy module</span>
+<span class="sd">    of the same name.</span>
+
+<span class="sd">    NOTE: as of python 3, the namespace returned by globals() cannot</span>
+<span class="sd">    reach out of the tools module -- this method thus always needs to be</span>
+<span class="sd">    called like this:</span>
+
+<span class="sd">    &gt;&gt;&gt; tryImportModule( &#39;numpy&#39;, namespace=globals() )</span>
+<span class="sd">    </span>
+<span class="sd">    :param module: name of the module</span>
+<span class="sd">    :type  module: str</span>
+<span class="sd">    :param namespace: namespace for the import [default: globals() ]</span>
+<span class="sd">    :type  namespace: dict</span>
+<span class="sd">    </span>
+<span class="sd">    :return: True if import succeeded, False otherwise</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">old_as</span> <span class="o">=</span> <span class="n">old_as</span> <span class="ow">or</span> <span class="n">module</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">namespace</span> <span class="ow">or</span> <span class="nb">globals</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;import </span><span class="si">%s</span><span class="s1"> as </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">old_as</span><span class="p">),</span> <span class="n">g</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">(</span> <span class="n">old_as</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Pseudo module. Import of real one failed.&#39;</span> <span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        
+        <span class="n">g</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">{</span><span class="n">old_as</span><span class="p">:</span> <span class="n">m</span><span class="p">}</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="gzopen"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.gzopen">[docs]</a><span class="k">def</span> <span class="nf">gzopen</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rt&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Open a normal or a gzipped file.</span>
+<span class="sd">    :param fname: file name (can contain ~, .. etc.)</span>
+<span class="sd">    :type  fname: str</span>
+<span class="sd">    :param mode: read/write mode [&#39;r&#39;]</span>
+<span class="sd">    :type  mode: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: file handle</span>
+<span class="sd">    :rtype: file or GZipFile</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">absfile</span><span class="p">(</span> <span class="n">fname</span> <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fname</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;gz&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">mode</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">open</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">mode</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="profile"><a class="viewcode-back" href="../../source/biskit/biskit.tools.html#biskit.tools.profile">[docs]</a><span class="k">def</span> <span class="nf">profile</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Profile the given code fragment and report time-consuming method calls.</span>
+<span class="sd">    :param s: python code fragment, example: &#39;m = PDBModel(&quot;3tgi&quot;)&#39;</span>
+<span class="sd">    :type  s: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">cProfile</span> <span class="k">as</span> <span class="nn">profile</span>
+        <span class="n">fout</span> <span class="o">=</span> <span class="n">tempDir</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/profiling.out&#39;</span>
+
+        <span class="n">profile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="n">fout</span> <span class="p">)</span>
+
+        <span class="c1">## Analyzing</span>
+        <span class="kn">import</span> <span class="nn">pstats</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="n">fout</span><span class="p">)</span>
+
+        <span class="c1">## long steps and methods calling them</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">print_callers</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="n">tryRemove</span><span class="p">(</span> <span class="n">fout</span> <span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ToolsError</span><span class="p">(</span><span class="s1">&#39;Python profiling modules are not installed.&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+       
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test case&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">tempfile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_pickle</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">(</span><span class="s1">&#39;.pickle&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cleanUp</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">tryRemove</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_pickle</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_error_reporting</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Test error trace:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">lastErrorTrace</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">lastErrorTrace</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_ensure_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span> <span class="n">ensure</span><span class="p">(</span> <span class="s1">&#39;teststr&#39;</span><span class="p">,</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">)</span>
+        
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="n">ensure</span><span class="p">(</span> <span class="s1">&#39;teststr&#39;</span><span class="p">,</span> <span class="nb">int</span> <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">test_filehandling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">absfile</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fpdb</span> <span class="o">=</span> <span class="n">testRoot</span><span class="p">(</span> <span class="s1">&#39;/rec/1A2P.pdb&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">VERBOSITY</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;path: &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpdb</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fpdb</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_isBinary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span> <span class="n">isBinary</span><span class="p">(</span><span class="s1">&#39;/usr/bin/nice&#39;</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">EXPECT_colors</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16711680</span><span class="p">,</span> <span class="mi">15493120</span><span class="p">,</span> <span class="mi">11259136</span><span class="p">,</span> <span class="mi">5570304</span><span class="p">,</span> <span class="mi">458570</span><span class="p">,</span> <span class="mi">63925</span><span class="p">,</span> 
+                     <span class="mi">44031</span><span class="p">,</span> <span class="mi">3298559</span><span class="p">,</span> <span class="mi">9901055</span><span class="p">,</span> <span class="mi">16711935</span><span class="p">]</span>
+    <span class="n">EXPECT_hexcolors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0xFF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0xEC6800&#39;</span><span class="p">,</span> <span class="s1">&#39;0xABCD00&#39;</span><span class="p">,</span> <span class="s1">&#39;0x54FF00&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;0x06FF4A&#39;</span><span class="p">,</span> <span class="s1">&#39;0x00F9B5&#39;</span><span class="p">,</span> <span class="s1">&#39;0x00ABFF&#39;</span><span class="p">,</span> <span class="s1">&#39;0x3254FF&#39;</span><span class="p">,</span> 
+                        <span class="s1">&#39;0x9713FF&#39;</span><span class="p">,</span> <span class="s1">&#39;0xFF00FF&#39;</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">test_colorSpectrum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">colorSpectrum</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXPECT_colors</span><span class="p">)</span>
+        
+        <span class="n">hexcolors</span> <span class="o">=</span> <span class="n">hexColors</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">hexcolors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXPECT_hexcolors</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">test_pickling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="s1">&#39;test&#39;</span><span class="p">}</span>
+        <span class="n">dump</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_pickle</span> <span class="p">)</span>
+        <span class="n">d2</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f_pickle</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

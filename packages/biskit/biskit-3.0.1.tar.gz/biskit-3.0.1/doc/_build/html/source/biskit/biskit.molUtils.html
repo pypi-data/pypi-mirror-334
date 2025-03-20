@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>molUtils &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mathUtils" href="biskit.mathUtils.html" />
+    <link rel="prev" title="tools" href="biskit.tools.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.hist.html">hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.tools.html">tools</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">molUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.mathUtils.html">mathUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.match2seq.html">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>molUtils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.molUtils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-biskit.molUtils">
+<span id="molutils"></span><h1>molUtils<a class="headerlink" href="#module-biskit.molUtils" title="Permalink to this headline">¶</a></h1>
+<p>Utilities for handling structures and sequences</p>
+<p class="rubric">Functions Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.molUtils.allAA" title="biskit.molUtils.allAA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">allAA</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">list of all 20 ‘exact’ single AA codes.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.molUtils.allAACodes" title="biskit.molUtils.allAACodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">allAACodes</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">list of all single AA codes, including B, Z, X :rtype: [str]</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.molUtils.cmpAtoms" title="biskit.molUtils.cmpAtoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmpAtoms</span></code></a></td>
+<td>Comparison function for bringing atoms into standard order within residues as defined by <a class="reference internal" href="#biskit.molUtils.atomDic" title="biskit.molUtils.atomDic"><code class="xref py py-class docutils literal notranslate"><span class="pre">atomDic</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.molUtils.elementType" title="biskit.molUtils.elementType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elementType</span></code></a></td>
+<td>Classify an atom as polar or unpolar::   atomType( eLetter ) -&gt; list of types this element belongs to</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.molUtils.resType" title="biskit.molUtils.resType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resType</span></code></a></td>
+<td>Classify residues as aromatic (a), charged (c) or polar (p).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.molUtils.single2longAA" title="biskit.molUtils.single2longAA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">single2longAA</span></code></a></td>
+<td>Convert string of 1-letter AA code into list of 3-letter AA codes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.molUtils.singleAA" title="biskit.molUtils.singleAA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">singleAA</span></code></a></td>
+<td>convert list with 3-letter AA code to list with 1-letter code</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.molUtils.sortAtomsOfModel" title="biskit.molUtils.sortAtomsOfModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sortAtomsOfModel</span></code></a></td>
+<td>Sort atoms within residues into the standard order defined in <a class="reference internal" href="#biskit.molUtils.atomDic" title="biskit.molUtils.atomDic"><code class="xref py py-class docutils literal notranslate"><span class="pre">atomDic</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<p class="rubric">Exceptions Defined in this Module</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.molUtils.MolUtilError" title="biskit.molUtils.MolUtilError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MolUtilError</span></code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>molUtils Module Details</h2><dl class="exception">
+<dt id="biskit.molUtils.MolUtilError">
+<em class="property">exception </em><code class="descclassname">biskit.molUtils.</code><code class="descname">MolUtilError</code><a class="reference internal" href="../../_modules/biskit/molUtils.html#MolUtilError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.MolUtilError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.aaDicStandard">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">aaDicStandard</code><em class="property"> = {'ala': 'A', 'arg': 'R', 'asn': 'N', 'asp': 'D', 'asx': 'B', 'cys': 'C', 'gln': 'Q', 'glu': 'E', 'glx': 'Z', 'gly': 'G', 'his': 'H', 'ile': 'I', 'leu': 'L', 'lys': 'K', 'met': 'M', 'phe': 'F', 'pro': 'P', 'ser': 'S', 'thr': 'T', 'trp': 'W', 'tyr': 'Y', 'val': 'V'}</em><a class="headerlink" href="#biskit.molUtils.aaDicStandard" title="Permalink to this definition">¶</a></dt>
+<dd><p>translate PDB amino acid names to single letter code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.nsDicStandard">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">nsDicStandard</code><em class="property"> = {'a': 'a', 'a3': 'a', 'a5': 'a', 'c': 'c', 'c3': 'c', 'c5': 'c', 'da': 'a', 'da3': 'a', 'da5': 'a', 'dc': 'c', 'dc3': 'c', 'dc5': 'c', 'dg': 'g', 'dg3': 'g', 'dg5': 'g', 'dt': 't', 'dt3': 't', 'dt5': 't', 'g': 'g', 'g3': 'g', 'g5': 'g', 't': 't', 't3': 't', 't5': 't', 'u': 'u', 'u3': 'u', 'u5': 'u'}</em><a class="headerlink" href="#biskit.molUtils.nsDicStandard" title="Permalink to this definition">¶</a></dt>
+<dd><p>same for nucleic acids (incomplete)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.aaDic">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">aaDic</code><em class="property"> = {'ace': 'X', 'ala': 'A', 'arg': 'R', 'asn': 'N', 'asp': 'D', 'asx': 'B', 'cys': 'C', 'cyx': 'C', 'gln': 'Q', 'glu': 'E', 'glx': 'Z', 'gly': 'G', 'hid': 'H', 'hie': 'H', 'hip': 'H', 'his': 'H', 'ile': 'I', 'leu': 'L', 'lys': 'K', 'met': 'M', 'nme': 'X', 'phe': 'F', 'pro': 'P', 'ser': 'S', 'thr': 'T', 'trp': 'W', 'tyr': 'Y', 'unk': 'X', 'val': 'V'}</em><a class="headerlink" href="#biskit.molUtils.aaDic" title="Permalink to this definition">¶</a></dt>
+<dd><p>extend aaDicStandard with non-standard residues</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.nsDic">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">nsDic</code><em class="property"> = {'a': 'a', 'a3': 'a', 'a5': 'a', 'adp': 'a', 'amp': 'a', 'atp': 'a', 'c': 'c', 'c3': 'c', 'c5': 'c', 'cdp': 'c', 'ctp': 'c', 'da': 'a', 'da3': 'a', 'da5': 'a', 'dc': 'c', 'dc3': 'c', 'dc5': 'c', 'dg': 'g', 'dg3': 'g', 'dg5': 'g', 'dt': 't', 'dt3': 't', 'dt5': 't', 'fad': 'f', 'fmp': 'f', 'g': 'g', 'g3': 'g', 'g5': 'g', 'gdp': 'g', 'gmp': 'g', 'gtp': 'g', 'nad': 'n', 't': 't', 't3': 't', 't5': 't', 'tdp': 't', 'ttp': 't', 'u': 'u', 'u3': 'u', 'u5': 'u', 'udp': 'u', 'utp': 'u'}</em><a class="headerlink" href="#biskit.molUtils.nsDic" title="Permalink to this definition">¶</a></dt>
+<dd><p>extend nsDicStandard with non-standard residues</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.xxDic">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">xxDic</code><em class="property"> = {'ca': '+', 'cl-': '-', 'hoh': '~', 'na+': '+', 'nap': 'X', 'ndp': 'X', 'tip3': '~', 'wat': '~'}</em><a class="headerlink" href="#biskit.molUtils.xxDic" title="Permalink to this definition">¶</a></dt>
+<dd><p>translate common hetero residues to pseudo single letter code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.resDicStandard">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">resDicStandard</code><em class="property"> = {'a': 'a', 'a3': 'a', 'a5': 'a', 'ala': 'A', 'arg': 'R', 'asn': 'N', 'asp': 'D', 'asx': 'B', 'c': 'c', 'c3': 'c', 'c5': 'c', 'cys': 'C', 'da': 'a', 'da3': 'a', 'da5': 'a', 'dc': 'c', 'dc3': 'c', 'dc5': 'c', 'dg': 'g', 'dg3': 'g', 'dg5': 'g', 'dt': 't', 'dt3': 't', 'dt5': 't', 'g': 'g', 'g3': 'g', 'g5': 'g', 'gln': 'Q', 'glu': 'E', 'glx': 'Z', 'gly': 'G', 'his': 'H', 'ile': 'I', 'leu': 'L', 'lys': 'K', 'met': 'M', 'phe': 'F', 'pro': 'P', 'ser': 'S', 't': 't', 't3': 't', 't5': 't', 'thr': 'T', 'trp': 'W', 'tyr': 'Y', 'u': 'u', 'u3': 'u', 'u5': 'u', 'val': 'V'}</em><a class="headerlink" href="#biskit.molUtils.resDicStandard" title="Permalink to this definition">¶</a></dt>
+<dd><p>translate standard PDB amino and nucleic acid names to single letter code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.aaAtoms">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">aaAtoms</code><em class="property"> = {'ALA': ['N', 'CA', 'C', 'O', 'CB', 'OXT'], 'ARG': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'NE', 'CZ', 'NH1', 'NH2', 'OXT'], 'ASN': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'ND2', 'OXT'], 'ASP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'OD2', 'OXT'], 'CYS': ['N', 'CA', 'C', 'O', 'CB', 'SG', 'OXT'], 'GLN': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OE1', 'NE2', 'OXT'], 'GLU': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OE1', 'OE2', 'OXT'], 'GLY': ['N', 'CA', 'C', 'O', 'OXT'], 'HIS': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'ND1', 'CD2', 'CE1', 'NE2', 'OXT'], 'ILE': ['N', 'CA', 'C', 'O', 'CB', 'CG1', 'CG2', 'CD1', 'OXT'], 'LEU': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'OXT'], 'LYS': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'CE', 'NZ', 'OXT'], 'MET': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'SD', 'CE', 'OXT'], 'PHE': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ', 'OXT'], 'PRO': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OXT'], 'SER': ['N', 'CA', 'C', 'O', 'CB', 'OG', 'OXT'], 'THR': ['N', 'CA', 'C', 'O', 'CB', 'OG1', 'CG2', 'OXT'], 'TRP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'NE1', 'CE2', 'CE3', 'CZ2', 'CZ3', 'CH2', 'OXT'], 'TYR': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ', 'OH', 'OXT'], 'VAL': ['N', 'CA', 'C', 'O', 'CB', 'CG1', 'CG2', 'OXT']}</em><a class="headerlink" href="#biskit.molUtils.aaAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>heavy atoms of amino acids in standard order, OXT applies to C term only</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.elements">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">elements</code><em class="property"> = {'carbon': ['C', 'CD2', 'CZ2', 'CB', 'CA', 'CG', 'CE', 'CD', 'CZ', 'CH2', 'CE3', 'CD1', 'CE1', 'CZ3', 'CG1', 'CG2', 'CE2'], 'clustering_AB': ['C', 'CA', 'CB'], 'clustering_ABD': ['C', 'CA', 'CB', 'CD', 'CD1', 'OD1', 'SD'], 'clustering_ABDZ': ['C', 'CA', 'CB', 'CD', 'CD1', 'CD2', 'CZ', 'CZ2', 'CZ3', 'ND1', 'ND2', 'NZ', 'OD1', 'OD2', 'SD'], 'clustering_AG': ['C', 'CA', 'CG', 'CG1', 'OG', 'OG1', 'SG'], 'clustering_AGE': ['C', 'CA', 'CG', 'CG1', 'OG', 'OG1', 'SG', 'NE', 'OE1', 'CE1', 'CE', 'CE3'], 'clustering_B': ['C', 'CB'], 'clustering_BD': ['C', 'CB', 'CD', 'CD1', 'OD1', 'SD'], 'clustering_BDZ': ['C', 'CB', 'CD', 'CD1', 'CD2', 'CZ', 'CZ2', 'CZ3', 'ND1', 'ND2', 'NZ', 'OD1', 'OD2', 'SD'], 'clustering_G': ['C', 'CG', 'CG1', 'OG', 'OG1', 'SG'], 'nitrogen': ['NZ', 'ND2', 'NH1', 'NH2', 'ND1', 'NE1', 'NE2', 'NE', 'N'], 'oxygen': ['OG', 'OE2', 'OXT', 'OD1', 'OE1', 'OH', 'OG1', 'OD2', 'O'], 'suplphur': ['SG', 'SD']}</em><a class="headerlink" href="#biskit.molUtils.elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>dictionary of elements</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.aaAtomsH">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">aaAtomsH</code><em class="property"> = {'ALA': {'CA': 1, 'C': 0, 'OXT': 0, 'N': 1, 'O': 0, 'CB': 3}, 'ARG': {'CA': 1, 'NH1': 2, 'CG': 2, 'CZ': 0, 'CD': 2, 'NE': 1, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'NH2': 2, 'OXT': 0}, 'ASN': {'CA': 1, 'CG': 0, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'ND2': 2, 'OXT': 0, 'OD1': 0}, 'ASP': {'CA': 1, 'OD2': 0, 'CG': 0, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'OXT': 0, 'OD1': 0}, 'CYS': {'CA': 1, 'C': 0, 'OXT': 0, 'N': 1, 'O': 0, 'SG': 1, 'CB': 2}, 'GLN': {'CA': 1, 'CG': 2, 'CD': 0, 'OE1': 0, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'NE2': 2, 'OXT': 0}, 'GLU': {'CA': 1, 'OE2': 0, 'CG': 2, 'CD': 0, 'OE1': 0, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'OXT': 0}, 'GLY': {'CA': 1, 'C': 0, 'N': 1, 'O': 0, 'OXT': 0}, 'HIS': {'CA': 1, 'ND1': 1, 'N': 1, 'O': 0, 'CD2': 1, 'CB': 2, 'CE1': 1, 'C': 0, 'NE2': 0, 'OXT': 0, 'CG': 0}, 'ILE': {'CA': 1, 'N': 1, 'O': 0, 'CB': 0, 'C': 0, 'CG1': 1, 'CG2': 3, 'OXT': 0, 'CD1': 3}, 'LEU': {'CA': 1, 'CG': 0, 'N': 1, 'O': 0, 'CD2': 3, 'CB': 2, 'C': 0, 'OXT': 0, 'CD1': 3}, 'LYS': {'CA': 1, 'CG': 2, 'CD': 2, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'CE': 2, 'OXT': 0, 'NZ': 3}, 'MET': {'CA': 1, 'CG': 2, 'N': 1, 'O': 0, 'CB': 2, 'C': 0, 'SD': 0, 'CE': 3, 'OXT': 0}, 'PHE': {'CA': 1, 'CG': 0, 'CZ': 1, 'CD2': 1, 'N': 1, 'O': 0, 'CE2': 1, 'CB': 2, 'CE1': 1, 'C': 0, 'OXT': 0, 'CD1': 1}, 'PRO': {'CA': 1, 'CG': 2, 'CD': 2, 'N': 0, 'O': 0, 'CB': 2, 'C': 0, 'OXT': 0}, 'SER': {'CA': 1, 'C': 0, 'OG': 1, 'OXT': 0, 'N': 1, 'O': 0, 'CB': 2}, 'THR': {'CA': 1, 'N': 1, 'O': 0, 'CB': 0, 'C': 0, 'CG2': 3, 'OXT': 0, 'OG1': 1}, 'TRP': {'CA': 1, 'CG': 0, 'NE1': 1, 'CD2': 0, 'N': 1, 'O': 0, 'CE2': 0, 'CB': 2, 'CZ2': 1, 'C': 0, 'CZ3': 1, 'CE3': 1, 'OXT': 0, 'CD1': 1, 'CH2': 1}, 'TYR': {'CA': 1, 'CG': 0, 'CZ': 0, 'CD2': 1, 'N': 1, 'O': 0, 'CE2': 1, 'CB': 2, 'CE1': 1, 'C': 0, 'OXT': 0, 'OH': 1, 'CD1': 1}, 'VAL': {'CA': 1, 'N': 1, 'O': 0, 'CB': 0, 'C': 0, 'CG1': 3, 'CG2': 3, 'OXT': 0}, 'XXX': {'CA': 1, 'N': 1, 'O': 0, 'C': 0, 'OXT': 0}}</em><a class="headerlink" href="#biskit.molUtils.aaAtomsH" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of attached H for each heavy atom in each amino acid</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.resDic">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">resDic</code><em class="property"> = {'a': 'a', 'a3': 'a', 'a5': 'a', 'ace': 'X', 'ala': 'A', 'arg': 'R', 'asn': 'N', 'asp': 'D', 'asx': 'B', 'c': 'c', 'c3': 'c', 'c5': 'c', 'cys': 'C', 'cyx': 'C', 'da': 'a', 'da3': 'a', 'da5': 'a', 'dc': 'c', 'dc3': 'c', 'dc5': 'c', 'dg': 'g', 'dg3': 'g', 'dg5': 'g', 'dt': 't', 'dt3': 't', 'dt5': 't', 'g': 'g', 'g3': 'g', 'g5': 'g', 'gln': 'Q', 'glu': 'E', 'glx': 'Z', 'gly': 'G', 'hid': 'H', 'hie': 'H', 'hip': 'H', 'his': 'H', 'ile': 'I', 'leu': 'L', 'lys': 'K', 'met': 'M', 'nme': 'X', 'phe': 'F', 'pro': 'P', 'ser': 'S', 't': 't', 't3': 't', 't5': 't', 'thr': 'T', 'trp': 'W', 'tyr': 'Y', 'u': 'u', 'u3': 'u', 'u5': 'u', 'unk': 'X', 'val': 'V'}</em><a class="headerlink" href="#biskit.molUtils.resDic" title="Permalink to this definition">¶</a></dt>
+<dd><p>map AA and NS and some other residue names to single letter code</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.atomDic">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">atomDic</code><em class="property"> = {'ALA': ['N', 'CA', 'C', 'O', 'CB', 'OXT'], 'ARG': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'NE', 'CZ', 'NH1', 'NH2', 'OXT'], 'ASN': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'ND2', 'OXT'], 'ASP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'OD1', 'OD2', 'OXT'], 'ATP': ['PG', 'O1G', 'O2G', 'O3G', 'PB', 'O1B', 'O2B', 'O3B', 'PA', 'O1A', 'O2A', 'O3A', 'O5*', 'C5*', 'C4*', 'O4*', 'C3*', 'O3*', 'C2*', 'O2*', 'C1*', 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4'], 'CYS': ['N', 'CA', 'C', 'O', 'CB', 'SG', 'OXT'], 'DA': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DA3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;, 'H3T'], 'DA5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DC': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DC3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;, 'H3T'], 'DC5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DG': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DG3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;, 'H3T'], 'DG5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DT': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C7', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'DT3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C7', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;, 'H3T'], 'DT5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C7', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O3'&quot;], 'GLN': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OE1', 'NE2', 'OXT'], 'GLU': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OE1', 'OE2', 'OXT'], 'GLY': ['N', 'CA', 'C', 'O', 'OXT'], 'GTP': ['PG', 'O1G', 'O2G', 'O3G', 'PB', 'O1B', 'O2B', 'O3B', 'PA', 'O1A', 'O2A', 'O3A', 'O5*', 'C5*', 'C4*', 'O4*', 'C3*', 'O3*', 'C2*', 'O2*', 'C1*', 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4'], 'HIS': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'ND1', 'CD2', 'CE1', 'NE2', 'OXT'], 'ILE': ['N', 'CA', 'C', 'O', 'CB', 'CG1', 'CG2', 'CD1', 'OXT'], 'LEU': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'OXT'], 'LYS': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'CE', 'NZ', 'OXT'], 'MET': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'SD', 'CE', 'OXT'], 'MG': ['MG'], 'NAP': None, 'NDP': ['P1', 'O1', 'O2', 'O5R', 'C5R', 'O1R', 'C4R', 'C3R', 'O3R', 'C2R', 'O2R', 'C1R', 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', 'O10', 'P2', 'O11', 'O21', 'O51R', 'C51R', 'O11R', 'C41R', 'C31R', 'O31R', 'C21R', 'O21R', 'C11R', 'N11', 'C61', 'C51', 'C71', 'O71', 'N71', 'C41', 'C31', 'C21', 'P3', 'O3', 'O4', 'O5', 'H8', 'H9', 'H7', 'H6', 'H1', 'H5', 'H4', 'H13', 'H11', 'H12', 'H10', 'H18', 'H19', 'H17', 'H16', 'H3', 'H15', 'H2', 'H14', 'H23', 'H24', 'H25', 'H22', 'H21', 'H20'], 'PHE': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ', 'OXT'], 'PRO': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD', 'OXT'], 'RA': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RA3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;, 'H3T'], 'RA5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'N6', 'N1', 'C2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RC': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RC3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;, 'H3T'], 'RC5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'N4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RG': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RG3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;, 'H3T'], 'RG5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N9', 'C8', 'N7', 'C5', 'C6', 'O6', 'N1', 'C2', 'N2', 'N3', 'C4', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RU': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'RU3': ['P', 'O1P', 'O2P', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;, 'H3T'], 'RU5': ['H5T', &quot;O5'&quot;, &quot;C5'&quot;, &quot;C4'&quot;, &quot;O4'&quot;, &quot;C1'&quot;, 'N1', 'C6', 'C5', 'C4', 'O4', 'N3', 'C2', 'O2', &quot;C3'&quot;, &quot;C2'&quot;, &quot;O2'&quot;, &quot;O3'&quot;], 'SER': ['N', 'CA', 'C', 'O', 'CB', 'OG', 'OXT'], 'THR': ['N', 'CA', 'C', 'O', 'CB', 'OG1', 'CG2', 'OXT'], 'TRP': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'NE1', 'CE2', 'CE3', 'CZ2', 'CZ3', 'CH2', 'OXT'], 'TYR': ['N', 'CA', 'C', 'O', 'CB', 'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ', 'OH', 'OXT'], 'VAL': ['N', 'CA', 'C', 'O', 'CB', 'CG1', 'CG2', 'OXT']}</em><a class="headerlink" href="#biskit.molUtils.atomDic" title="Permalink to this definition">¶</a></dt>
+<dd><p>map AA and NS residue names to list of allowed heavy atoms</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.atomSynonyms">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">atomSynonyms</code><em class="property"> = {'CD': 'CD1', &quot;O'&quot;: 'O', &quot;O''&quot;: 'OXT', 'O1': 'O', 'O2': 'OXT', 'OT1': 'O', 'OT2': 'OXT'}</em><a class="headerlink" href="#biskit.molUtils.atomSynonyms" title="Permalink to this definition">¶</a></dt>
+<dd><p>some common synonyms of atom names</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="biskit.molUtils.atomMasses">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">atomMasses</code><em class="property"> = {'C': 12.01115, 'H': 1.00797, 'N': 14.0067, 'O': 15.9994, 'P': 30.9738, 'S': 32.064, 'ZN': 65.39}</em><a class="headerlink" href="#biskit.molUtils.atomMasses" title="Permalink to this definition">¶</a></dt>
+<dd><p><a href="#id1"><span class="problematic" id="id2">**</span></a>dictionary with relative atomic mass of elements {‘H’* – 1.01, ‘ZN’* – 65.39, …}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.allAACodes">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">allAACodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#allAACodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.allAACodes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of all single AA codes, including B, Z, X</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.allAA">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">allAA</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#allAA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.allAA" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of all 20 ‘exact’ single AA codes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.elementType">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">elementType</code><span class="sig-paren">(</span><em>eLetter</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#elementType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.elementType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Classify an atom as polar or unpolar::</dt>
+<dd>atomType( eLetter ) -&gt; list of types this element belongs to</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eLetter</strong> (<em>str</em>) – atom name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">return ‘p’ for polar, ‘u’ for unpolar and None if not
+in classified</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">p|u OR None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.resType">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">resType</code><span class="sig-paren">(</span><em>resCode</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#resType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.resType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify residues as aromatic (a), charged (c) or polar (p).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resCode</strong> (<em>str</em>) – amino acid code</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of types this residue belongs to…</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">a|c|p OR None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.singleAA">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">singleAA</code><span class="sig-paren">(</span><em>seq</em>, <em>xtable=None</em>, <em>nonstandard=True</em>, <em>unknown='?'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#singleAA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.singleAA" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert list with 3-letter AA code to list with 1-letter code</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq</strong> (<em>[</em><em>str</em><em>]</em>) – amino acid sequence in 3-letter code</li>
+<li><strong>xtable</strong> (<em>dict</em>) – dictionary with additional str:single_char mapping</li>
+<li><strong>nonstandard</strong> (<em>bool</em>) – support non-standard residue names (default True)</li>
+<li><strong>unknown</strong> (<em>str</em>) – letter to use for unknown residues [default: ‘?’]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list with 1-letter code; C{ [‘A’,’C’,’L’,’A’…]}</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[str]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.single2longAA">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">single2longAA</code><span class="sig-paren">(</span><em>seq</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#single2longAA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.single2longAA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert string of 1-letter AA code into list of 3-letter AA codes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seq</strong> (<em>str</em>) – amino acid sequence in 1-letter code</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list with the amino acids in 3-letter code</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[str]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.cmpAtoms">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">cmpAtoms</code><span class="sig-paren">(</span><em>a1</em>, <em>a2</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#cmpAtoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.cmpAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comparison function for bringing atoms into standard order
+within residues as defined by <a class="reference internal" href="#biskit.molUtils.atomDic" title="biskit.molUtils.atomDic"><code class="xref py py-class docutils literal notranslate"><span class="pre">atomDic</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a1</strong> (<em>CrossView</em><em> or </em><em>equivalent dictionary</em>) – atom dictionary</li>
+<li><strong>a2</strong> (<em>CrossView</em><em> or </em><em>equivalent dictionary</em>) – atom dictionary</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">int or list of matching positions</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[-1|0|1]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.molUtils.sortAtomsOfModel">
+<code class="descclassname">biskit.molUtils.</code><code class="descname">sortAtomsOfModel</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/molUtils.html#sortAtomsOfModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.molUtils.sortAtomsOfModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort atoms within residues into the standard order defined in <a class="reference internal" href="#biskit.molUtils.atomDic" title="biskit.molUtils.atomDic"><code class="xref py py-class docutils literal notranslate"><span class="pre">atomDic</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a>) – model to sort</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">model with sorted atoms</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel">PDBModel</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.mathUtils.html" class="btn btn-neutral float-right" title="mathUtils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.tools.html" class="btn btn-neutral" title="tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

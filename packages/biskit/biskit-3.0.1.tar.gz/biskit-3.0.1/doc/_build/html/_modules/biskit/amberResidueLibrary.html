@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.amberResidueLibrary &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.amberResidueLibrary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.amberResidueLibrary</h1><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Collect and index AmberResidueType instances from amber topology files.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">PDBModel</span><span class="p">,</span> <span class="n">AmberPrepParser</span><span class="p">,</span> <span class="n">StdLog</span>
+<span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">T</span>
+
+<span class="k">class</span> <span class="nc">AmberResidueLibraryError</span><span class="p">(</span> <span class="ne">Exception</span> <span class="p">):</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="AmberResidueLibrary"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary">[docs]</a><span class="k">class</span> <span class="nc">AmberResidueLibrary</span><span class="p">(</span> <span class="nb">object</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A collection of reference residue types taken from Amber topology files.</span>
+<span class="sd">    By default, the collection is initialized from the four all-atom </span>
+<span class="sd">    library or &quot;off files&quot; in Biskit/data/amber/residues. </span>
+<span class="sd">    The idea here is that the residues of some PDB structure can be matched </span>
+<span class="sd">    against this library in order to assign charges or other properties.</span>
+<span class="sd">    </span>
+<span class="sd">    Matching residue types are indentified by their &#39;atom key&#39;, which is simply</span>
+<span class="sd">    the concatenation of a residue&#39;s atom names in alphabetical order. This</span>
+<span class="sd">    means residues are matched by atom content, not by residue name. That&#39;s</span>
+<span class="sd">    important for modified residues, for example, a C-terminal ALA (with an</span>
+<span class="sd">    additional oxygen) will be matched to the AmberResidueType CALA rather than </span>
+<span class="sd">    to ALA. </span>
+
+<span class="sd">    The default all-atom topologies include hydrogen atoms. Structures without</span>
+<span class="sd">    hydrogens will *not* match. You can add hydrogens with the Reduce class</span>
+<span class="sd">    (Biskit.reduce). </span>
+
+<span class="sd">    Atom names need to conform to Amber conventions -- </span>
+<span class="sd">    this can be ensured with `PDBModel.xplor2amber()`.</span>
+<span class="sd"> </span>
+<span class="sd">    Use</span>
+<span class="sd">    ===</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; model = PDBModel(&#39;mystructure.pdb&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; residue = model.resModels()[0]</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; lib = AmberResidueLibrary()</span>
+<span class="sd">    &gt;&gt;&gt; refres = lib[ residue ]</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; ## or alternatively:</span>
+<span class="sd">    &gt;&gt;&gt; refres = lib[&#39;all_amino03&#39;, &#39;ALA&#39;]</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## list of Amber topology files in decending priority</span>
+    <span class="n">F_RESTYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all_amino03.in&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;all_aminoct03.in&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;all_aminont03.in&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;all_nuc02.in&#39;</span> <span class="p">]</span>
+    
+
+<div class="viewcode-block" id="AmberResidueLibrary.__init__"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topofiles</span><span class="o">=</span><span class="n">F_RESTYPES</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param topofiles: list of topology file names \</span>
+<span class="sd">                          (default `all_*in` in `Biskit/data/amber/residues`)</span>
+<span class="sd">        :type  topofiles: [ str ]</span>
+<span class="sd">        :param log: optional LogFile instance (default STDOUT)</span>
+<span class="sd">        :type  log: biskit.LogFile</span>
+<span class="sd">        :param verbose: add messages to log (default False)</span>
+<span class="sd">        :type  verbose: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>       
+        <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">## residue types indexed by atom key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">## residue types indexed by topo and resname</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">log</span> <span class="ow">or</span> <span class="n">StdLog</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">topofiles</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addTopology</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span></div>
+        
+
+<div class="viewcode-block" id="AmberResidueLibrary.addTopology"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary.addTopology">[docs]</a>    <span class="k">def</span> <span class="nf">addTopology</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topofile</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Include an additional topology (off) library in the collection.</span>
+<span class="sd">        </span>
+<span class="sd">        :param topofile: file name of topology, either full path or</span>
+<span class="sd">                         simple file name which will then be looked for in </span>
+<span class="sd">                         Biskit/data/amber/residues.</span>
+<span class="sd">        :type  topofile: str</span>
+<span class="sd">        </span>
+<span class="sd">        :param override: override topologies or residue entries with same name</span>
+<span class="sd">                         (default False)</span>
+<span class="sd">        :type  override: False</span>
+<span class="sd">        </span>
+<span class="sd">        :return: dictionary of all residue types parsed from topofile indexed</span>
+<span class="sd">                 by three-letter residue name</span>
+<span class="sd">        :rtype : {str : AmberResidueType}</span>
+<span class="sd">        </span>
+<span class="sd">        :raise: AmberResidueLibraryError if override==False and a topology or</span>
+<span class="sd">                a residue with identical atom content have already been </span>
+<span class="sd">                registered.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fbase</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">stripFilename</span><span class="p">(</span> <span class="n">topofile</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">fbase</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">override</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AmberResidueLibraryError</span><span class="p">(</span><span class="s1">&#39;duplicate topology &#39;</span><span class="o">+</span><span class="n">fbase</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;parsing </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">topofile</span> <span class="p">)</span>
+
+        <span class="n">resdic</span> <span class="o">=</span> <span class="n">AmberPrepParser</span><span class="p">(</span> <span class="n">topofile</span> <span class="p">)</span><span class="o">.</span><span class="n">residueDict</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="s1">&#39;Read </span><span class="si">%i</span><span class="s1"> residue definitions.</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">resdic</span><span class="p">)</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span><span class="p">[</span> <span class="n">fbase</span> <span class="p">]</span> <span class="o">=</span> <span class="n">resdic</span>
+        
+        <span class="k">for</span> <span class="n">resname</span><span class="p">,</span> <span class="n">restype</span> <span class="ow">in</span> <span class="n">resdic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">akey</span> <span class="o">=</span> <span class="n">restype</span><span class="o">.</span><span class="n">atomkey</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">akey</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">override</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">AmberResidueLibraryError</span><span class="p">(</span><span class="s1">&#39;duplicate residue entry: </span><span class="si">%s</span><span class="s1"> -&gt; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>\
+                      <span class="p">(</span><span class="n">resname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">code</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="p">[</span> <span class="n">akey</span> <span class="p">]</span> <span class="o">=</span> <span class="n">restype</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span><span class="p">[</span> <span class="n">fbase</span> <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="AmberResidueLibrary.atomkey"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary.atomkey">[docs]</a>    <span class="k">def</span> <span class="nf">atomkey</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">residue</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a string key encoding the atom content of residue.</span>
+<span class="sd">        </span>
+<span class="sd">        :param residue: model or AmberResidue</span>
+<span class="sd">        :type  residue: PDBModel or AmberResidue</span>
+<span class="sd">        :return: key formed from alphabetically sorted atom content of residue</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">residue</span><span class="o">.</span><span class="n">atomkey</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+  
+    
+<div class="viewcode-block" id="AmberResidueLibrary.byAtoms"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary.byAtoms">[docs]</a>    <span class="k">def</span> <span class="nf">byAtoms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">akey</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identify a matching reference residue by atom content.</span>
+<span class="sd">        </span>
+<span class="sd">        :param akey: atomkey or PDBModel with a single residue</span>
+<span class="sd">        :type  akey: str or PDBModel</span>
+
+<span class="sd">        :return: matching reference residue OR None</span>
+<span class="sd">        :rtype: AmberResidueType</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">akey</span><span class="p">,</span> <span class="n">PDBModel</span> <span class="p">):</span>
+            <span class="n">akey</span> <span class="o">=</span> <span class="n">akey</span><span class="o">.</span><span class="n">atomkey</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">akey</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+    
+    
+<div class="viewcode-block" id="AmberResidueLibrary.byName"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary.byName">[docs]</a>    <span class="k">def</span> <span class="nf">byName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rescode</span><span class="p">,</span> <span class="n">topo</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identify matching reference residue by residue name. Note: residue</span>
+<span class="sd">        names are not guaranteed to be unique if several topology files have</span>
+<span class="sd">        been read in (the default set of Amber topologies uses unique names</span>
+<span class="sd">        though). The optional topo parameter can be used to specify in </span>
+<span class="sd">        which topology the residue is looked up.</span>
+<span class="sd">        </span>
+<span class="sd">        Note: residue 3 letter names are all UPPERCASE.</span>
+<span class="sd">        </span>
+<span class="sd">        :param rescode: three-letter name of residue to look up</span>
+<span class="sd">        :type  rescode: str</span>
+<span class="sd">        :param topo: optional (file) name of topology (see also: `topokeys()` )</span>
+<span class="sd">        :type  topo: str</span>
+
+<span class="sd">        :return: matching reference residue</span>
+<span class="sd">        :rtype: AmberResidueType</span>
+<span class="sd">        </span>
+<span class="sd">        :raise: KeyError if the topology or residue name are not found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">topo</span><span class="p">:</span>
+            <span class="n">fbase</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">stripFilename</span><span class="p">(</span> <span class="n">topo</span> <span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span><span class="p">[</span> <span class="n">fbase</span> <span class="p">][</span> <span class="n">rescode</span> <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">topo</span><span class="p">,</span> <span class="n">residues</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">rescode</span> <span class="ow">in</span> <span class="n">residues</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">residues</span><span class="p">[</span><span class="n">rescode</span><span class="p">]</span>
+
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s1">&#39;No residue type found for name &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">rescode</span><span class="p">))</span></div>
+        
+    
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Examples: </span>
+<span class="sd">        </span>
+<span class="sd">            - `reslib[ PDBModel ]` -&gt; `ResidueType` for matching residue</span>
+<span class="sd">            - `reslib[ str(atomkey) ]` -&gt; `ResidueType` with same atom key</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">PDBModel</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="p">[</span> <span class="n">key</span><span class="o">.</span><span class="n">atomkey</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="p">]</span>
+ 
+        
+    <span class="k">def</span> <span class="nf">topokeys</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topoindex</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    
+    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aindex</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div>
+    
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test class&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">test_amberResidueLibrary</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AmberResidueLibrary test&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lib</span> <span class="o">=</span> <span class="n">AmberResidueLibrary</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">)</span>
+        <span class="n">ala</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">byName</span><span class="p">(</span><span class="s1">&#39;ALA&#39;</span><span class="p">,</span> <span class="s1">&#39;all_amino03&#39;</span><span class="p">)</span>
+        <span class="n">r</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lib</span><span class="p">[</span> <span class="n">ala</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">r</span><span class="p">,</span> <span class="n">ala</span> <span class="p">)</span>
+        <span class="n">r</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">byName</span><span class="p">(</span> <span class="s1">&#39;ALA&#39;</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">r</span><span class="p">,</span> <span class="n">ala</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">lib</span> <span class="p">),</span> <span class="mi">114</span> <span class="p">)</span>
+        
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

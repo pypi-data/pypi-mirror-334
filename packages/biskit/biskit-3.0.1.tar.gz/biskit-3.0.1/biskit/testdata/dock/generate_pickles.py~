@@ -1,0 +1,19 @@
+import biskit as B
+import biskit.tools as T
+
+rec = B.PDBModel('rec/1A2P_clean.pdb')
+rec.saveAs('rec/1A2P.model')
+recpsf = B.PCRModel(rec, fPsf='1A2P.psf')
+
+d = {1: recpsf}
+T.dump('rec/1A2P_model.dic')
+
+
+lig = B.PDBModel('lig/1A19_clean.pdb')
+lig.saveAs('lig/1A19.model')
+ligpsf = B.PCRModel(lig, fPsf='1A19.psf')
+
+d = {1: ligpsf}
+T.dump('lig/1A19_model.dic')
+
+

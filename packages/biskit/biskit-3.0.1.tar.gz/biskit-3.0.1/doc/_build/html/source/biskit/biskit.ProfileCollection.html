@@ -1,0 +1,1164 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ProfileCollection &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PDBCleaner" href="biskit.PDBCleaner.html" />
+    <link rel="prev" title="PDBModel" href="biskit.PDBModel.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.PDBModel.html">PDBModel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ProfileCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.PDBCleaner.html">PDBCleaner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.AmberResidueType.html">AmberResidueType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.AmberPrepParser.html">AmberPrepParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.LogFile.html">LogFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.StdLog.html">StdLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.ErrLog.html">ErrLog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>ProfileCollection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.ProfileCollection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="profilecollection">
+<h1>ProfileCollection<a class="headerlink" href="#profilecollection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="biskit.ProfileCollection">
+<em class="property">class </em><code class="descclassname">biskit.</code><code class="descname">ProfileCollection</code><span class="sig-paren">(</span><em>profiles=None</em>, <em>infos=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manage profiles (arrays or lists of values) for Trajectory frames or
+atoms/residues in PDBModel. ProfileCollection resembles a 2-dimensional
+array where the first axis (let’s say row) is accessed by a string key
+rather than an index. Each row has an additional (meta)info dictionary
+assigned to it. The take() and concat() methods operate on the columns,
+i.e. they are applied to all profiles simultaneously.</p>
+<p>By default, profiles of numbers are stored and returned as Numpy.array and
+all others are stored and returned as ordinary list. This behaviour can be
+modified with the option asarray of ProfileCollection.set(). Using both
+lists and arrays is a compromise between the efficiency of Numeric arrays
+and two problems of of the old Numeric module – (1) arrays of objects
+could not be unpickled (Numeric bug) and (2) arrays of strings would end
+up as 2-D arrays of char. The ‘isarray’ entry of a profile’s info
+dictionary tells whether the profile is stored as array or as list. (Since
+we have now replaced Numeric by numpy, we can probably switch to the
+exclusive use of numpy arrays.)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>ProfileCollection p can be used like a dictionary of lists::</dt>
+<dd><p class="first">len( p )          -&gt; number of profiles (== len( p.profiles ) )
+p[‘prof1’]        -&gt; list/array with values of profile ‘prof1’
+del p[‘prof1’]    -&gt; remove a profile
+p[‘prof1’] = [..] -&gt; add/override a profile without additional infos</p>
+<p class="last">‘prof1’ in p      -&gt; True, if collection contains key ‘prof1’
+for k in p:       -&gt; iterate over profile keys
+for k in p.iteritems():  -&gt; iterate over key:profile pairs</p>
+</dd>
+</dl>
+</div></blockquote>
+<blockquote>
+<div><p>Each profile key also has a dictionary of meta infos assigned to it (see
+getInfo(), setInfo(), p.infos). These can be accessed like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;prof1&#39;</span><span class="p">,</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>   <span class="o">-&gt;</span> <span class="n">date</span> <span class="n">of</span> <span class="n">creation</span> <span class="n">of</span> <span class="n">profile</span> <span class="n">named</span> <span class="s1">&#39;prof1&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span><span class="s1">&#39;prof1&#39;</span><span class="p">)</span>  <span class="o">-&gt;</span> <span class="n">returns</span> <span class="nb">all</span> <span class="n">info</span> <span class="n">records</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;prof1&#39;</span><span class="p">,</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;first prof&#39;</span>  <span class="o">-&gt;</span> <span class="n">add</span><span class="o">/</span><span class="n">change</span> <span class="n">single</span> <span class="n">info</span> <span class="n">value</span>
+</pre></div>
+</div>
+</div></blockquote>
+<blockquote>
+<div><p>ProfileCollections can also be viewed from the side (along columns) –
+:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>CrossView`s provide a virtual dictionary with the values of all
+profiles at a certain position. Changes to the dictionary will change
+the value in the underlying profile and vice versa, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atom</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>        <span class="o">-&gt;</span> <span class="n">CrossView</span><span class="p">{</span><span class="s1">&#39;prof1&#39;</span> <span class="p">:</span> <span class="mf">42.0</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="o">...</span> <span class="p">}</span>
+<span class="n">atom</span><span class="p">[</span><span class="s1">&#39;prof1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">33</span>  <span class="o">-&gt;</span> <span class="n">same</span> <span class="k">as</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;prof1&#39;</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="s1">&#39;prof1&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mi">33</span>  <span class="o">-&gt;</span> <span class="n">still</span> <span class="n">the</span> <span class="n">same</span> <span class="n">but</span> <span class="n">much</span> <span class="n">slower</span><span class="p">,</span> <span class="n">use</span> <span class="n">instead</span><span class="o">...</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;prof1&#39;</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span> <span class="mi">33</span>  <span class="o">-&gt;</span> <span class="n">doesn</span><span class="s1">&#39;t invoke CrossView and is thus faster</span>
+
+<span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">-&gt;</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">values</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">profiles</span> <span class="n">are</span> <span class="n">identical</span> <span class="n">at</span>
+                  <span class="n">first</span> <span class="ow">and</span> <span class="n">last</span> <span class="n">position</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterCrossViews</span><span class="p">():</span>  <span class="o">-&gt;</span> <span class="n">iterates</span> <span class="n">over</span> <span class="n">CrossView</span> <span class="n">dictionaries</span>
+<span class="n">p</span><span class="o">.</span><span class="n">toCrossViews</span><span class="p">()</span>              <span class="o">-&gt;</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">CrossViews</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">positions</span>
+</pre></div>
+</div>
+<p>For read-only access, normal dictionaries are faster than CrossViews:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterDicts</span><span class="p">():</span>       <span class="o">-&gt;</span> <span class="n">iterate</span> <span class="n">over</span> <span class="n">normal</span> <span class="n">dictionaries</span>
+<span class="n">p</span><span class="o">.</span><span class="n">toDicts</span><span class="p">()</span>         <span class="o">-&gt;</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">normal</span> <span class="p">(</span><span class="n">but</span> <span class="n">disconnected</span><span class="p">)</span> <span class="n">dictionaries</span>
+</pre></div>
+</div>
+<p>Adding a profile to a ProfileCollection will also ‘magically’
+add an additional key to all existing CrossViews of
+it. CrossViews become invalid if their parent collection is
+garbage collected or re-ordered.</p>
+<p><strong>Note</strong>: The creation of many CrossViews hampers performance.
+We provide a <code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileCollection.iterCrossView</span></code>
+iterator to loop over these pseudo dictionaries for convenience –
+direct iteration over the elements of a profile (array or list)
+is about 100 times faster. If you need to repeatedly read from
+many dictionaries, consider using <a class="reference internal" href="#biskit.ProfileCollection.toDicts" title="biskit.ProfileCollection.toDicts"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileCollection.toDicts</span></code></a>
+and cache the resulting normal (disconnected) dictionaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">toDicts</span><span class="p">()</span> <span class="c1"># &#39;list( p.iterDicts() )&#39; is equivalent but slower</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Profile arrays of float or int are automatically converted to
+arrays of type Float32 or Int32. This is a safety measure
+because we have stumbled over problems when transferring
+pickled objects between 32 and 64 bit machines. With the transition
+to numpy, this may not be needed any longer.</p>
+<p class="last">See also: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileCollection.__picklesave_array</span></code></p>
+</div>
+<p class="rubric">Methods Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.__init__" title="biskit.ProfileCollection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></td>
+<td>Initialize self.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.array_or_list" title="biskit.ProfileCollection.array_or_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_or_list</span></code></a></td>
+<td>Convert to array or list depending on asarray option</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.clear" title="biskit.ProfileCollection.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a></td>
+<td>Delete all::   clear() -&gt; None; delete all profiles and infos.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.clone" title="biskit.ProfileCollection.clone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></a></td>
+<td>Clone (deepcopy) profiles::   clone() -&gt; ProfileCollection (or sub-class)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.compress" title="biskit.ProfileCollection.compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compress</span></code></a></td>
+<td>Extract using a mask::   p.compress( mask ) &lt;==&gt; p.take( N.nonzero( mask ) )</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.concat" title="biskit.ProfileCollection.concat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></a></td>
+<td>Concatenate all profiles in this with corresponding profiles in the given ProfileCollection(s).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.expand" title="biskit.ProfileCollection.expand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand</span></code></a></td>
+<td>Expand profile to have a value also for masked positions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.get" title="biskit.ProfileCollection.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a></td>
+<td><strong>OR</strong> get( (profKey, infoKey), [default] ) -&gt; single value of info dict</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.getInfo" title="biskit.ProfileCollection.getInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInfo</span></code></a></td>
+<td>Use::    getInfo( name ) -&gt; dict with meta infos about profile:</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.hasNoneProfile" title="biskit.ProfileCollection.hasNoneProfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasNoneProfile</span></code></a></td>
+<td>Check wether any profile is None, which means it is waiting to be updated from a source ProfileCollection.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_key</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.isChanged" title="biskit.ProfileCollection.isChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isChanged</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param keys:</th><td class="field-body">only check these profiles (default: None -&gt; means all) :type  keys: [ str ] OR str :return: True, if any of the profiles is tagged as ‘changed’ :rtype: bool</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.items" title="biskit.ProfileCollection.items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code></a></td>
+<td>Get list of tuples of profile names and profiles::   p.items() -&gt; [ (key1, [any]), (key2, [any]), ..) ]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.iterCrossViews" title="biskit.ProfileCollection.iterCrossViews"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterCrossViews</span></code></a></td>
+<td>Iterate over values of all profiles as <code class="xref py py-class docutils literal notranslate"><span class="pre">CrossView</span></code> ‘dictionaries’ indexed by profile name, for example:   &gt;&gt;&gt; for atom in p.iterCrossViews():   …</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.iterDicts" title="biskit.ProfileCollection.iterDicts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iterDicts</span></code></a></td>
+<td>Iterate over (copies of) values of all profiles as normal dictionaries indexed by profile name, for example:   &gt;&gt;&gt; for atom in p.iterCrossViews():   …</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.iteritems" title="biskit.ProfileCollection.iteritems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iteritems</span></code></a></td>
+<td>Iterate over (key : profile) pairs:   &gt;&gt;&gt; for key, profile in p.iteritems():   …</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.killViews" title="biskit.ProfileCollection.killViews"><code class="xref py py-obj docutils literal notranslate"><span class="pre">killViews</span></code></a></td>
+<td>Deactivate any CrossView instances referring to this ProfileCollection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.plot" title="biskit.ProfileCollection.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a></td>
+<td>Plot one or more profiles using Biggles::   plot( name1, [name2, ..],[arg1=x, arg2=y]) -&gt; biggles.FramedPlot</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.plotArray" title="biskit.ProfileCollection.plotArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotArray</span></code></a></td>
+<td>Plot several profiles as a panel of separate plots.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.plotHistogram" title="biskit.ProfileCollection.plotHistogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotHistogram</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param bins:</th><td class="field-body">number of bins (10) :type  bins: int :param ynormalize: normalize histograms to area 1.0 (False) :type  ynormalize: bool :param xnormalize: adapt bin range to min and max of all profiles (True) :type  xnormalize: bool :param xrange: min and max of bin range (None) :type  xrange: (float, float) :param steps: draw histogram steps (True) :type  steps: bool</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.profLength" title="biskit.ProfileCollection.profLength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profLength</span></code></a></td>
+<td>Length of profile::   profLength() -&gt; int; length of first non-None profile or default (0)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.profile2mask" title="biskit.ProfileCollection.profile2mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile2mask</span></code></a></td>
+<td>Convert profile into a mask based on the max and min cutoff values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.remove" title="biskit.ProfileCollection.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a></td>
+<td>Remove profile <strong>OR</strong> info values of profile::   remove( profKey ) -&gt; 1|0, 1 if complete entry has been removed   remove( profKey, infoKey ) -&gt; 1|0, 1 if single info value was removed</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.set" title="biskit.ProfileCollection.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a></td>
+<td>Add/override a profile.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.setInfo" title="biskit.ProfileCollection.setInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInfo</span></code></a></td>
+<td>Add/Override infos about a given profile::   e.g.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.setMany" title="biskit.ProfileCollection.setMany"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMany</span></code></a></td>
+<td>setMany( dict, [infoDict] ) Add/Override many profiles</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.take" title="biskit.ProfileCollection.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a></td>
+<td>Take from profiles using provided indices::   take( indices ) -&gt; ProfileCollection with extract of all profiles</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.toCrossViews" title="biskit.ProfileCollection.toCrossViews"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toCrossViews</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">list of CrossView pseudo dictionaries :rtype: [ CrossView ]</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.toDicts" title="biskit.ProfileCollection.toDicts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toDicts</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">(copies of) values of all profiles as normal dictionaries :rtype: [ dict ]</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.update" title="biskit.ProfileCollection.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a></td>
+<td>Merge other ProfileCollection into this one, replacing existing profiles and info values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.updateMissing" title="biskit.ProfileCollection.updateMissing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">updateMissing</span></code></a></td>
+<td>Merge other ProfileCollection into this one but do not override existing profiles and info records.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.ProfileCollection.values" title="biskit.ProfileCollection.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a></td>
+<td>Get list of all profiles (arrays or lists of values)::   p.values() -&gt; [ [any], [any], …</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.ProfileCollection.version" title="biskit.ProfileCollection.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></td>
+<td>Class version.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>ProfileCollection Method & Attribute Details</h2><dl class="method">
+<dt id="biskit.ProfileCollection.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>profiles=None</em>, <em>infos=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.version">
+<code class="descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">class version number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.values">
+<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.values" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get list of all profiles (arrays or lists of values)::</dt>
+<dd>p.values() -&gt; [ [any], [any], … ]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of lists or arrays</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[ list/array ]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.hasNoneProfile">
+<code class="descname">hasNoneProfile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.hasNoneProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.hasNoneProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check wether any profile is None, which means it is
+waiting to be updated from a source ProfileCollection.
+This method is written such that it is <em>not</em> triggering the
+updating mechanism.
+:return bool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.items" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get list of tuples of profile names and profiles::</dt>
+<dd>p.items() -&gt; [ (key1, [any]), (key2, [any]), ..) ]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of tuples of profile names and profiles</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[ ( str, list/array ) ]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.iteritems">
+<code class="descname">iteritems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.iteritems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.iteritems" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Iterate over (key <span class="classifier-delimiter">:</span> <span class="classifier">profile) pairs:</span></dt>
+<dd><div class="first last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.iterCrossViews">
+<code class="descname">iterCrossViews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.iterCrossViews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.iterCrossViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over values of all profiles as <code class="xref py py-class docutils literal notranslate"><span class="pre">CrossView</span></code> ‘dictionaries’
+indexed by profile name, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterCrossViews</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">atom</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">atom</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The CrossViews remain connected to the profiles and can be
+used to change values in many profiles simultaneously.
+Consider using the somewhat faster <a class="reference internal" href="#biskit.ProfileCollection.iterDicts" title="biskit.ProfileCollection.iterDicts"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileCollection.iterDicts</span></code></a>
+if this is not needed and speed is critical.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">CrossView instances behaving like dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterator over [ CrossView ]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.iterDicts">
+<code class="descname">iterDicts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.iterDicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.iterDicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over (copies of) values of all profiles as normal dictionaries
+indexed by profile name, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">iterCrossViews</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">atom</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">atom</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">iterator over { ‘key1’:v1, ‘key2’:v2 }</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.toCrossViews">
+<code class="descname">toCrossViews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.toCrossViews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.toCrossViews" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of CrossView pseudo dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[ CrossView ]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.toDicts">
+<code class="descname">toDicts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.toDicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.toDicts" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">(copies of) values of all profiles as normal dictionaries</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">[ dict ]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.array_or_list">
+<code class="descname">array_or_list</code><span class="sig-paren">(</span><em>prof</em>, <em>asarray</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.array_or_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.array_or_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to array or list depending on asarray option</p>
+<p>Beware: empty lists will be upgraded to empty Float arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prof</strong> (<em>list OR array</em>) – profile</li>
+<li><strong>asarray</strong> (<em>2|1|0</em>) – 1.. autodetect type, 0.. force list, 2.. force array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">profile</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list OR array</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – </p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><em>prof</em>, <em>mask</em>, <em>default</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand profile to have a value also for masked positions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prof</strong> (<em>list OR array</em>) – input profile</li>
+<li><strong>mask</strong> (<em>[</em><em>int</em><em>]</em>) – atom mask</li>
+<li><strong>default</strong> (<em>any</em>) – default value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">profile</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list OR array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>name</em>, <em>prof</em>, <em>mask=None</em>, <em>default=None</em>, <em>asarray=1</em>, <em>comment=None</em>, <em>**moreInfo</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add/override a profile. None is allowed as special purpose value - in
+which case all other parameters are ignored. Otherwise, the two info
+records ‘version’, ‘changed’ and ‘isarray’ are always modified but can
+be overridden by key=value pairs to this function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – profile name (i.e. key)</li>
+<li><strong>prof</strong> (<em>[</em><em>any</em><em>] </em><em>OR None</em>) – list of values OR None</li>
+<li><strong>mask</strong> (<em>[</em><em>int</em><em>]</em>) – list 1 x N_items of 0|1, if there are less values than
+items, provide mask with 0 for missing values,
+N.sum(mask)==N_items</li>
+<li><strong>default</strong> (<em>any</em>) – value for items masked.
+(default: None for lists, 0 for arrays]</li>
+<li><strong>asarray</strong> (<em>0|1|2</em>) – store as list (0), as array (2) or store numbers as
+array but everything else as list (1) (default: 1)</li>
+<li><strong>comment</strong> (<em>str</em>) – goes into info[name][‘comment’]</li>
+<li><strong>moreInfo</strong> (<em>key=value</em>) – additional key-value pairs for info[name]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if length of prof != length of other profiles</li>
+<li><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if mask is given but N.sum(mask) != len(prof)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.setInfo">
+<code class="descname">setInfo</code><span class="sig-paren">(</span><em>name</em>, <em>**args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.setInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.setInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Add/Override infos about a given profile::</dt>
+<dd>e.g. setInfo(‘relASA’, comment=’new’, params={‘bin’:’whatif’})</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if no profile is found with <a href="#id7"><span class="problematic" id="id8">|name|</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.setMany">
+<code class="descname">setMany</code><span class="sig-paren">(</span><em>profileDict</em>, <em>infos={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.setMany"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.setMany" title="Permalink to this definition">¶</a></dt>
+<dd><p>setMany( dict, [infoDict] ) Add/Override many profiles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>profileDict</strong> (<em>dict</em>) – dict with name:profile pairs</li>
+<li><strong>infos</strong> (<em>dict of dict</em>) – info dicts for each profile, indexed by name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>profKey</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; list of values<a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.get" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>OR</strong>
+get( (profKey, infoKey), [default] ) -&gt; single value of info dict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str OR</em><em> (</em><em>str</em><em>, </em><em>str</em><em>)</em>) – profile key or profile and info key</li>
+<li><strong>default</strong> (<em>any</em>) – default result if no profile is found,
+if None and no profile is found, raise exception</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if no profile is found with <a href="#id9"><span class="problematic" id="id10">|name|</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.getInfo">
+<code class="descname">getInfo</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.getInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.getInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Use::</dt>
+<dd>getInfo( name ) -&gt; dict with meta infos about profile:</dd>
+</dl>
+<p>Guaranteed infos: ‘version’-&gt;str, ‘comment’-&gt;str, ‘changed’-&gt;1|0</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – profile name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict with infos about profile</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if no profile is found with <a href="#id11"><span class="problematic" id="id12">|name|</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.profile2mask">
+<code class="descname">profile2mask</code><span class="sig-paren">(</span><em>profName</em>, <em>cutoff_min=None</em>, <em>cutoff_max=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.profile2mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.profile2mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert profile into a mask based on the max and min cutoff values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>profName</strong> (<em>str</em>) – profile name</li>
+<li><strong>cutoff_min</strong> (<em>float</em>) – lower limit</li>
+<li><strong>cutoff_max</strong> (<em>float</em>) – upper limit</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mask len( get(profName) ) x 1|0</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[1|0]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.take">
+<code class="descname">take</code><span class="sig-paren">(</span><em>indices</em>, <em>*initArgs</em>, <em>**initKw</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.take"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.take" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Take from profiles using provided indices::</dt>
+<dd>take( indices ) -&gt; ProfileCollection with extract of all profiles</dd>
+</dl>
+<p>Any additional parameters are passed to the constructor of the
+new instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>indices</strong> (<em>[</em><em>int</em><em>]</em>) – list of indices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">new profile from indices</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#biskit.ProfileCollection" title="biskit.ProfileCollection">ProfileCollection</a> (or sub-class)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if take error</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.compress">
+<code class="descname">compress</code><span class="sig-paren">(</span><em>cond</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.compress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.compress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Extract using a mask::</dt>
+<dd>p.compress( mask ) &lt;==&gt; p.take( N.nonzero( mask ) )</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cond</strong> (<em>array</em><em> or </em><em>list of int</em>) – mask with 1 for the positions to keep</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>*key</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.remove" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Remove profile <strong>OR</strong> info values of profile::</dt>
+<dd>remove( profKey ) -&gt; 1|0, 1 if complete entry has been removed
+remove( profKey, infoKey ) -&gt; 1|0, 1 if single info value was removed</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>str OR str</em><em>, </em><em>str</em>) – profile name OR name, infoKey</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">sucess status</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">1|0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.concat">
+<code class="descname">concat</code><span class="sig-paren">(</span><em>*profiles</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.concat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate all profiles in this with corresponding profiles in the
+given ProfileCollection(s). Profiles that are not found in all
+ProfileCollections are skipped:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p0</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">p1</span> <span class="p">[,</span> <span class="n">p2</span><span class="p">,</span> <span class="o">..</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">single</span> <span class="n">ProfileCollection</span> <span class="k">with</span> <span class="n">the</span>
+<span class="n">same</span> <span class="n">number</span> <span class="n">of</span> <span class="n">profiles</span> <span class="k">as</span> <span class="n">p0</span> <span class="n">but</span> <span class="k">with</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">p0</span><span class="o">+</span><span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">..</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>profiles</strong> (<a class="reference internal" href="#biskit.ProfileCollection" title="biskit.ProfileCollection"><em>ProfileCollection</em></a><em>(</em><em>s</em><em>)</em>) – profile(s) to concatenate</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">concatenated profile(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ProfileCollection / subclass</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>other</em>, <em>stickyChanged=1</em>, <em>mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge other ProfileCollection into this one, replacing existing
+profiles and info values. This is the obvious translation of
+dict.update(). The changed flag of each profile is set to 1 if:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>an existing profile is overridden with different values</li>
+<li>the profile is marked ‘changed’ in the other collection</li>
+</ol>
+</div></blockquote>
+<p>The two ProfileCollections should have the same dimension in terms of
+atoms, that is p1.profLength() == p2.profLength(). If this is not the
+case, it is possible to ‘mask’ atoms in p1 that are
+are missing in p2. That means the target ProfileCollection can
+have more atoms then the other collection but not vice-versa.</p>
+<dl class="docutils">
+<dt>Example::</dt>
+<dd>p1.profLength() == 10
+p2.profLength() == 5
+p1.update( p2, mask=[0,1,0,1,0,1,0,1,0,1] )</dd>
+</dl>
+<p>…would assign the atom values of the shorter collection p2 to every
+second atom of the longer collection p1.
+If p2 has more items (atoms) per profile than p1, this would not work.
+In this case p2 first needs to be compressed to the same shape
+as p1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">p2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>other</strong> (<a class="reference internal" href="#biskit.ProfileCollection" title="biskit.ProfileCollection"><em>ProfileCollection</em></a>) – profile</li>
+<li><strong>stickyChanged</strong> (<em>0|1</em>) – mark all profiles ‘changed’ that are marked
+‘changed’ in the other collection (default: 1)</li>
+<li><strong>mask</strong> (<em>[</em><em>int</em><em>]</em>) – 1 x N_atoms array of 0|1, if the other collection has less
+atoms than this one, mark those positions with 0 that are
+only existing in this collection
+(N.sum(mask)==self.profLength())</li>
+<li><strong>mask</strong> – N.array of 0 or 1,</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.updateMissing">
+<code class="descname">updateMissing</code><span class="sig-paren">(</span><em>source</em>, <em>copyMissing=1</em>, <em>allowEmpty=0</em>, <em>setChanged=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.updateMissing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.updateMissing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge other ProfileCollection into this one but do not override
+existing profiles and info records. There is one exception:
+Empty profiles (None or []) are replaced but their info records stay
+untouched. If copyMissing=0, profiles that are existing in source but
+not in this collection, are NOT copied (i.e. only empty profiles are
+replaced).</p>
+<p>For each profile copied from the source the ‘changed’ flag is reset
+to <a href="#id13"><span class="problematic" id="id14">|setChanged|</span></a> (default 0), regardless whether or not the profile is
+marked ‘changed’ in the source collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<a class="reference internal" href="#biskit.ProfileCollection" title="biskit.ProfileCollection"><em>ProfileCollection</em></a>) – profile</li>
+<li><strong>copyMissing</strong> (<em>0|1</em>) – copy missing profiles that exist in source
+(default: 1)</li>
+<li><strong>allowEmpty</strong> (<em>0|1</em>) – still tolerate zero-length profiles after update
+(default: 0)</li>
+<li><strong>setChanged</strong> (<em>0|1</em>) – label profiles copied from source as ‘changed’ [0]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><strong>ProfileError</strong></a> – if allowEmpty is 0 and some empty profiles
+cannot be found in source</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.isChanged">
+<code class="descname">isChanged</code><span class="sig-paren">(</span><em>keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.isChanged"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.isChanged" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keys</strong> (<em>[ </em><em>str</em><em> ] </em><em>OR str</em>) – only check these profiles (default: None -&gt; means all)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True, if any of the profiles is tagged as ‘changed’</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.clone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.clone" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Clone (deepcopy) profiles::</dt>
+<dd>clone() -&gt; ProfileCollection (or sub-class)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">profile</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#biskit.ProfileCollection" title="biskit.ProfileCollection">ProfileCollection</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.killViews">
+<code class="descname">killViews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.killViews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.killViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivate any CrossView instances referring to this ProfileCollection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.clear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Delete all::</dt>
+<dd>clear() -&gt; None; delete all profiles and infos.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.profLength">
+<code class="descname">profLength</code><span class="sig-paren">(</span><em>default=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.profLength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.profLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Length of profile::</dt>
+<dd>profLength() -&gt; int; length of first non-None profile or default (0)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>default</strong> (<em>any</em>) – value to return if all profiles are set to None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">length of first non-None profile or 0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>*name</em>, <em>**arg</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.plot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Plot one or more profiles using Biggles::</dt>
+<dd>plot( name1, [name2, ..],[arg1=x, arg2=y]) -&gt; biggles.FramedPlot</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – one or more profile names</li>
+<li><strong>arg</strong> – key=value pairs for Biggles.Curve() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><strong>TypeError</strong> – if profile contains non-number items</li>
+<li><strong>ImportError</strong> – If biggles module could not be imported</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">plot, view using plot.show()</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">biggles.FramedPlot</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.plotArray">
+<code class="descname">plotArray</code><span class="sig-paren">(</span><em>*name</em>, <em>**arg</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.plotArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.plotArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot several profiles as a panel of separate plots.
+:param <a href="#id3"><span class="problematic" id="id4">*</span></a>name: one or more profile names or tuples of profile names
+:type  <a href="#id5"><span class="problematic" id="id6">*</span></a>name: str or (str, str,…)
+:param xkey: profile to be used as x-axis (default: None)
+:type  xkey: str
+:param arg: key=value pairs for Biggles.Curve() function
+:type  arg:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">plot, view using plot.show()</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">biggles.FramedPlot</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TypeError</strong> – if profile contains non-number items</li>
+<li><strong>ImportError</strong> – If biggles module could not be imported</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.ProfileCollection.plotHistogram">
+<code class="descname">plotHistogram</code><span class="sig-paren">(</span><em>*name</em>, <em>**arg</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/profileCollection.html#ProfileCollection.plotHistogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.ProfileCollection.plotHistogram" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bins</strong> (<em>int</em>) – number of bins (10)</li>
+<li><strong>ynormalize</strong> (<em>bool</em>) – normalize histograms to area 1.0 (False)</li>
+<li><strong>xnormalize</strong> (<em>bool</em>) – adapt bin range to min and max of all profiles (True)</li>
+<li><strong>xrange</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – min and max of bin range (None)</li>
+<li><strong>steps</strong> (<em>bool</em>) – draw histogram steps (True)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.PDBCleaner.html" class="btn btn-neutral float-right" title="PDBCleaner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.PDBModel.html" class="btn btn-neutral" title="PDBModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

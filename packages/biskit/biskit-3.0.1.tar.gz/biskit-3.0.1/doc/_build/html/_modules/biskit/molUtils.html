@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.molUtils &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.molUtils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.molUtils</h1><div class="highlight"><pre>
+<span></span><span class="c1">## numpy-oldnumeric calls replaced by custom script; 09/06/2016</span>
+<span class="c1">## Automatically adapted for numpy-oldnumeric Mar 26, 2007 by alter_code1.py</span>
+
+<span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utilities for handling structures and sequences</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">## see: https://www.python.org/dev/peps/pep-0366/</span>
+<span class="c1">## allow relative imports when calling module as main script for testing</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="ow">and</span> <span class="n">__package__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">biskit</span>
+    <span class="n">__package__</span> <span class="o">=</span> <span class="s2">&quot;biskit&quot;</span>
+
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">EHandler</span>
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">tools</span> <span class="k">as</span> <span class="n">t</span>
+<span class="kn">from</span> <span class="nn">biskit.core</span> <span class="k">import</span> <span class="n">oldnumeric</span> <span class="k">as</span> <span class="n">N0</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<div class="viewcode-block" id="MolUtilError"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.MolUtilError">[docs]</a><span class="k">class</span> <span class="nc">MolUtilError</span><span class="p">(</span> <span class="ne">Exception</span> <span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<span class="c1">#: translate PDB amino acid names to single letter code</span>
+<span class="n">aaDicStandard</span> <span class="o">=</span>\
+              <span class="p">{</span><span class="s1">&#39;asp&#39;</span><span class="p">:</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;glu&#39;</span><span class="p">:</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;lys&#39;</span><span class="p">:</span><span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="s1">&#39;his&#39;</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;arg&#39;</span><span class="p">:</span><span class="s1">&#39;R&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;gln&#39;</span><span class="p">:</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="s1">&#39;asn&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;ser&#39;</span><span class="p">:</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;asx&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;glx&#39;</span><span class="p">:</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;phe&#39;</span><span class="p">:</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;trp&#39;</span><span class="p">:</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;tyr&#39;</span><span class="p">:</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;gly&#39;</span><span class="p">:</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;ala&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;ile&#39;</span><span class="p">:</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;leu&#39;</span><span class="p">:</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;cys&#39;</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;met&#39;</span><span class="p">:</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;pro&#39;</span><span class="p">:</span><span class="s1">&#39;P&#39;</span> <span class="p">}</span>
+
+<span class="c1">#: same for nucleic acids (incomplete)</span>
+<span class="n">nsDicStandard</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;a3&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;g3&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;t3&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u3&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;a5&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;t5&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;u5&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;da&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;dg&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;dc&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;dt&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;da3&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;dg3&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;dc3&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;dt3&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;da5&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;dg5&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;dc5&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;dt5&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span>
+                 <span class="p">}</span>
+
+<span class="c1">#: extend aaDicStandard with non-standard residues</span>
+<span class="n">aaDic</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaDicStandard</span> <span class="p">)</span>
+
+<span class="n">aaDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;cyx&#39;</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;hid&#39;</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;hie&#39;</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;hip&#39;</span><span class="p">:</span><span class="s1">&#39;H&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;unk&#39;</span><span class="p">:</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">:</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;nme&#39;</span><span class="p">:</span><span class="s1">&#39;X&#39;</span><span class="p">}</span> <span class="p">)</span><span class="c1">#, &#39;ndp&#39;:&#39;X&#39; } )</span>
+
+<span class="c1">#: extend nsDicStandard with non-standard residues</span>
+<span class="n">nsDic</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">nsDicStandard</span> <span class="p">)</span>
+
+<span class="n">nsDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;atp&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gtp&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;ctp&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;ttp&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;utp&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;adp&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gdp&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;cdp&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;tdp&#39;</span><span class="p">:</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;udp&#39;</span><span class="p">:</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;amp&#39;</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gmp&#39;</span><span class="p">:</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;fad&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;fmp&#39;</span><span class="p">:</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;nad&#39;</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">,</span>
+           <span class="p">}</span> <span class="p">)</span>
+
+<span class="c1">#: translate common hetero residues to pseudo single letter code</span>
+<span class="n">xxDic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tip3&#39;</span><span class="p">:</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;hoh&#39;</span><span class="p">:</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;wat&#39;</span><span class="p">:</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;cl-&#39;</span><span class="p">:</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;na+&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;ca&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;ndp&#39;</span><span class="p">:</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;nap&#39;</span><span class="p">:</span><span class="s1">&#39;X&#39;</span><span class="p">}</span>
+
+<span class="c1">#: translate standard PDB amino and nucleic acid names to single letter code</span>
+<span class="n">resDicStandard</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaDicStandard</span> <span class="p">)</span>
+<span class="n">resDicStandard</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">nsDicStandard</span> <span class="p">)</span>
+
+<span class="c1">#: extend resDicStandard with common non-standard names</span>
+<span class="n">resDic</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaDic</span> <span class="p">)</span>
+<span class="n">resDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">nsDic</span> <span class="p">)</span>
+<span class="n">resDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">xxDic</span> <span class="p">)</span>
+
+<span class="c1">## map non-standard amino acid names to closest standard amino acid</span>
+<span class="c1">##</span>
+<span class="c1">## Data from: http://www.ccp4.ac.uk/html/lib_list.html#peptide_synonyms</span>
+<span class="c1">## More info at: http://xray.bmc.uu.se/hicup/XXX/ where XXX is the residue code</span>
+<span class="c1">##</span>
+<span class="c1">## NOT ADDED:</span>
+<span class="c1">##     SAR  SARCOSINE</span>
+<span class="c1">##     PCA  5-pyrrolidone-2-carboxylic_acid</span>
+<span class="c1">##     INI  Amidinated_lysine_with_methyl_isonicotinimida</span>
+<span class="c1">##     SAH  S-ADENOSYL-L-HOMOCYSTEINE</span>
+<span class="c1">##     SAM  S-ADENOSYLMETHIONINE</span>
+<span class="c1">##     LLP  LYSINE-PYRIDOXAL-5*-PHOSPHATE</span>
+
+<span class="c1">##     ACE  acetyl </span>
+<span class="c1">##     FOR  Formyl</span>
+<span class="c1">##     BOC  TERT-BUTYLOXYCARBONYL GROUP</span>
+<span class="c1">##     MLE  N-METHYLLEUCINE</span>
+<span class="c1">##     MVA  N-METHYLVALINE</span>
+<span class="c1">##     IVA  Isovaleric_acid  </span>
+<span class="c1">##     STA  STATINE</span>
+<span class="c1">##     ETA  ethanolamine</span>
+<span class="c1">##     TFA  TRIFLUOROACETYL GROUP</span>
+<span class="c1">##     ANI  4-TRIFLUOROMEHYLANILINE</span>
+<span class="c1">##     MPR  BETA-MERCAPTOPROPIONATE</span>
+<span class="c1">##     DAM  N-METHYL-ALPHA-BETA-DEHYDROALANINE</span>
+<span class="c1">##     ACB  2-AMINO-3-CARBONYLBUTANOIC ACID</span>
+<span class="c1">##     ADD  2,6,8-TRIMETHYL-3-AMINO-9-BENZYL-9-M</span>
+<span class="c1">##     CXM  N-CARBOXYMETHIONINE</span>
+<span class="c1">##     DIP  DIPENTYLAMINE</span>
+<span class="c1">##     BAL   BETA-ALANINE</span>
+
+<span class="n">nonStandardAA</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;UNK&#39;</span><span class="p">:</span><span class="s1">&#39;ALA&#39;</span><span class="p">,</span> <span class="s1">&#39;ABA&#39;</span><span class="p">:</span><span class="s1">&#39;ALA&#39;</span><span class="p">,</span> <span class="s1">&#39;B2A&#39;</span><span class="p">:</span><span class="s1">&#39;ALA&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ORN&#39;</span><span class="p">:</span><span class="s1">&#39;ARG&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ASX&#39;</span><span class="p">:</span><span class="s1">&#39;ASP&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;CSH&#39;</span><span class="p">:</span><span class="s1">&#39;CYS&#39;</span><span class="p">,</span> <span class="s1">&#39;OCS&#39;</span><span class="p">:</span><span class="s1">&#39;CYS&#39;</span><span class="p">,</span> <span class="s1">&#39;CSO&#39;</span><span class="p">:</span><span class="s1">&#39;CYS&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;GLX&#39;</span><span class="p">:</span><span class="s1">&#39;GLU&#39;</span><span class="p">,</span> <span class="s1">&#39;CGU&#39;</span><span class="p">:</span><span class="s1">&#39;GLU&#39;</span><span class="p">,</span> <span class="s1">&#39;ILG&#39;</span><span class="p">:</span><span class="s1">&#39;GLU&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;B2I&#39;</span><span class="p">:</span><span class="s1">&#39;ILE&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;BLE&#39;</span><span class="p">:</span><span class="s1">&#39;LEU&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;KCX&#39;</span><span class="p">:</span><span class="s1">&#39;LYS&#39;</span><span class="p">,</span> <span class="s1">&#39;BLY&#39;</span><span class="p">:</span><span class="s1">&#39;LYS&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;MSE&#39;</span><span class="p">:</span><span class="s1">&#39;MET&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;B1F&#39;</span><span class="p">:</span><span class="s1">&#39;PHE&#39;</span><span class="p">,</span> <span class="s1">&#39;B2F&#39;</span><span class="p">:</span><span class="s1">&#39;PHE&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;HYP&#39;</span><span class="p">:</span><span class="s1">&#39;PRO&#39;</span><span class="p">,</span> <span class="s1">&#39;5HP&#39;</span><span class="p">:</span><span class="s1">&#39;PRO&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;SEP&#39;</span><span class="p">:</span><span class="s1">&#39;SER&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;TYS&#39;</span><span class="p">:</span><span class="s1">&#39;TYR&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;B2V&#39;</span><span class="p">:</span><span class="s1">&#39;B2V&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;HIE&#39;</span><span class="p">:</span><span class="s1">&#39;HIS&#39;</span><span class="p">,</span> <span class="s1">&#39;HID&#39;</span><span class="p">:</span><span class="s1">&#39;HIS&#39;</span><span class="p">,</span> <span class="s1">&#39;HIP&#39;</span><span class="p">:</span><span class="s1">&#39;HIS&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;CYX&#39;</span><span class="p">:</span><span class="s1">&#39;CYS&#39;</span> <span class="p">}</span>
+
+<span class="c1">#: heavy atoms of amino acids in standard order, OXT applies to C term only</span>
+<span class="n">aaAtoms</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;GLY&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span> <span class="p">],</span>
+         <span class="s1">&#39;ALA&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;VAL&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;LEU&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ILE&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;MET&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span><span class="p">,</span><span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;PRO&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;PHE&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;TRP&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;NE1&#39;</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">,</span><span class="s1">&#39;CE3&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;CZ2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ3&#39;</span><span class="p">,</span><span class="s1">&#39;CH2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;SER&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;THR&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ASN&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;ND2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;GLN&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">,</span><span class="s1">&#39;NE2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;TYR&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">,</span><span class="s1">&#39;OH&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;CYS&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;LYS&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;CE&#39;</span><span class="p">,</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ARG&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;NE&#39;</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">,</span><span class="s1">&#39;NH1&#39;</span><span class="p">,</span><span class="s1">&#39;NH2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;HIS&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;ND1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">,</span><span class="s1">&#39;NE2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;ASP&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;GLU&#39;</span><span class="p">:[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">,</span><span class="s1">&#39;OE2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">]}</span>
+
+<span class="c1">#: dictionary of elements</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;carbon&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;CD2&#39;</span><span class="p">,</span> <span class="s1">&#39;CZ2&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;CG&#39;</span><span class="p">,</span> <span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;CZ&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;CH2&#39;</span><span class="p">,</span> <span class="s1">&#39;CE3&#39;</span><span class="p">,</span> <span class="s1">&#39;CD1&#39;</span><span class="p">,</span> <span class="s1">&#39;CE1&#39;</span><span class="p">,</span> <span class="s1">&#39;CZ3&#39;</span><span class="p">,</span> <span class="s1">&#39;CG1&#39;</span><span class="p">,</span> <span class="s1">&#39;CG2&#39;</span><span class="p">,</span> <span class="s1">&#39;CE2&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;nitrogen&#39;</span><span class="p">:[</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span> <span class="s1">&#39;ND2&#39;</span><span class="p">,</span> <span class="s1">&#39;NH1&#39;</span><span class="p">,</span> <span class="s1">&#39;NH2&#39;</span><span class="p">,</span> <span class="s1">&#39;ND1&#39;</span><span class="p">,</span> <span class="s1">&#39;NE1&#39;</span><span class="p">,</span> <span class="s1">&#39;NE2&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;NE&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;oxygen&#39;</span><span class="p">:[</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span> <span class="s1">&#39;OE2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">,</span> <span class="s1">&#39;OD1&#39;</span><span class="p">,</span> <span class="s1">&#39;OE1&#39;</span><span class="p">,</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span> <span class="s1">&#39;OG1&#39;</span><span class="p">,</span> <span class="s1">&#39;OD2&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;O&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;suplphur&#39;</span><span class="p">:[</span><span class="s1">&#39;SG&#39;</span><span class="p">,</span> <span class="s1">&#39;SD&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;clustering_BDZ&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">,</span><span class="s1">&#39;CZ2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ3&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;ND1&#39;</span><span class="p">,</span><span class="s1">&#39;ND2&#39;</span><span class="p">,</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD2&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_ABDZ&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">,</span><span class="s1">&#39;CZ2&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;CZ3&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;ND1&#39;</span><span class="p">,</span><span class="s1">&#39;ND2&#39;</span><span class="p">,</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD2&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_G&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_B&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;clustering_AG&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_AGE&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span><span class="p">,</span><span class="s1">&#39;NE&#39;</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;CE1&#39;</span><span class="p">,</span><span class="s1">&#39;CE&#39;</span><span class="p">,</span><span class="s1">&#39;CE3&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_BD&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_ABD&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span> <span class="p">],</span>
+             <span class="s1">&#39;clustering_AB&#39;</span><span class="p">:[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">]}</span>
+
+<span class="c1">#: number of attached H for each heavy atom in each amino acid</span>
+<span class="n">aaAtomsH</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;XXX&#39;</span><span class="p">:{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span>
+          <span class="s1">&#39;GLY&#39;</span><span class="p">:{},</span>
+          <span class="s1">&#39;ALA&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;VAL&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;LEU&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;ILE&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CG1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;MET&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CE&#39;</span><span class="p">:</span><span class="mi">3</span> <span class="p">},</span>
+          <span class="s1">&#39;PRO&#39;</span><span class="p">:{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+          <span class="s1">&#39;PHE&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+          <span class="s1">&#39;TRP&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;NE1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CE3&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="s1">&#39;CZ2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CZ3&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CH2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+          <span class="s1">&#39;SER&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+          <span class="s1">&#39;THR&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;ASN&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ND2&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+          <span class="s1">&#39;GLN&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;NE2&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+          <span class="s1">&#39;TYR&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;CD1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OH&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+          <span class="s1">&#39;CYS&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+          <span class="s1">&#39;LYS&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CE&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;NZ&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span>
+          <span class="s1">&#39;ARG&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;NE&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CZ&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;NH1&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;NH2&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+          <span class="s1">&#39;HIS&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;ND1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CD2&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;CE1&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;NE2&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span>
+          <span class="s1">&#39;ASP&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OD2&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span>
+          <span class="s1">&#39;GLU&#39;</span><span class="p">:{</span><span class="s1">&#39;CB&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;OE2&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">aaAtomsH</span><span class="p">:</span>
+    <span class="n">default</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaAtomsH</span><span class="p">[</span><span class="s1">&#39;XXX&#39;</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">default</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">aaAtomsH</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">aaAtomsH</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="o">=</span> <span class="n">default</span>
+
+<span class="c1">## work in progress...heavy atoms of nucleic acids in standard order</span>
+<span class="n">nsAtoms</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;ATP&#39;</span><span class="p">:[</span><span class="s1">&#39;PG&#39;</span><span class="p">,</span> <span class="s1">&#39;O1G&#39;</span><span class="p">,</span> <span class="s1">&#39;O2G&#39;</span><span class="p">,</span> <span class="s1">&#39;O3G&#39;</span><span class="p">,</span> <span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;O1B&#39;</span><span class="p">,</span> <span class="s1">&#39;O2B&#39;</span><span class="p">,</span> <span class="s1">&#39;O3B&#39;</span><span class="p">,</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span> <span class="s1">&#39;O1A&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O2A&#39;</span><span class="p">,</span> <span class="s1">&#39;O3A&#39;</span><span class="p">,</span> <span class="s1">&#39;O5*&#39;</span><span class="p">,</span> <span class="s1">&#39;C5*&#39;</span><span class="p">,</span> <span class="s1">&#39;C4*&#39;</span><span class="p">,</span> <span class="s1">&#39;O4*&#39;</span><span class="p">,</span> <span class="s1">&#39;C3*&#39;</span><span class="p">,</span> <span class="s1">&#39;O3*&#39;</span><span class="p">,</span> <span class="s1">&#39;C2*&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O2*&#39;</span><span class="p">,</span> <span class="s1">&#39;C1*&#39;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;N6&#39;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;C4&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;GTP&#39;</span><span class="p">:[</span><span class="s1">&#39;PG&#39;</span><span class="p">,</span> <span class="s1">&#39;O1G&#39;</span><span class="p">,</span> <span class="s1">&#39;O2G&#39;</span><span class="p">,</span> <span class="s1">&#39;O3G&#39;</span><span class="p">,</span> <span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;O1B&#39;</span><span class="p">,</span> <span class="s1">&#39;O2B&#39;</span><span class="p">,</span> <span class="s1">&#39;O3B&#39;</span><span class="p">,</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span> <span class="s1">&#39;O1A&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O2A&#39;</span><span class="p">,</span> <span class="s1">&#39;O3A&#39;</span><span class="p">,</span> <span class="s1">&#39;O5*&#39;</span><span class="p">,</span> <span class="s1">&#39;C5*&#39;</span><span class="p">,</span> <span class="s1">&#39;C4*&#39;</span><span class="p">,</span> <span class="s1">&#39;O4*&#39;</span><span class="p">,</span> <span class="s1">&#39;C3*&#39;</span><span class="p">,</span> <span class="s1">&#39;O3*&#39;</span><span class="p">,</span> <span class="s1">&#39;C2*&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O2*&#39;</span><span class="p">,</span> <span class="s1">&#39;C1*&#39;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;O6&#39;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;DA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;H8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;N6&#39;</span><span class="p">,</span> <span class="s1">&#39;H61&#39;</span><span class="p">,</span> <span class="s1">&#39;H62&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;2&quot;</span><span class="p">,</span> 
+           <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;DC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;H6&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;H5&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;N4&#39;</span><span class="p">,</span> <span class="s1">&#39;H41&#39;</span><span class="p">,</span> <span class="s1">&#39;H42&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;DG&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;H8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;O6&#39;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;H1&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;H21&#39;</span><span class="p">,</span> <span class="s1">&#39;H22&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;H2&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;DT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;H6&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C7&#39;</span><span class="p">,</span> <span class="s1">&#39;H71&#39;</span><span class="p">,</span> <span class="s1">&#39;H72&#39;</span><span class="p">,</span> <span class="s1">&#39;H73&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;O4&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;H3&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> 
+           <span class="s2">&quot;H2&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;RA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;H8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;N6&#39;</span><span class="p">,</span> <span class="s1">&#39;H61&#39;</span><span class="p">,</span> <span class="s1">&#39;H62&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;O2&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;HO&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;RC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;H6&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;H5&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;N4&#39;</span><span class="p">,</span> <span class="s1">&#39;H41&#39;</span><span class="p">,</span> <span class="s1">&#39;H42&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;O2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;HO&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;RG&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;H8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;O6&#39;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;H1&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;H21&#39;</span><span class="p">,</span> <span class="s1">&#39;H22&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;O2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;HO&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;RU&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;O1P&#39;</span><span class="p">,</span> <span class="s1">&#39;O2P&#39;</span><span class="p">,</span> <span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;H5&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;C4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H4&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;O4&#39;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;C1&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H1&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;H6&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;H5&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;O4&#39;</span><span class="p">,</span> <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;H3&#39;</span><span class="p">,</span> 
+           <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s2">&quot;C3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H3&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;O2&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;HO&#39;2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&#39;&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;MG&#39;</span> <span class="p">:[</span><span class="s1">&#39;MG&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;NDP&#39;</span><span class="p">:[</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;O1&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">,</span> <span class="s1">&#39;O5R&#39;</span><span class="p">,</span> <span class="s1">&#39;C5R&#39;</span><span class="p">,</span> <span class="s1">&#39;O1R&#39;</span><span class="p">,</span> <span class="s1">&#39;C4R&#39;</span><span class="p">,</span> <span class="s1">&#39;C3R&#39;</span><span class="p">,</span> <span class="s1">&#39;O3R&#39;</span><span class="p">,</span> <span class="s1">&#39;C2R&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O2R&#39;</span><span class="p">,</span> <span class="s1">&#39;C1R&#39;</span><span class="p">,</span> <span class="s1">&#39;N9&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;N7&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;N6&#39;</span><span class="p">,</span> <span class="s1">&#39;N1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;N3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;O10&#39;</span><span class="p">,</span> <span class="s1">&#39;P2&#39;</span><span class="p">,</span> <span class="s1">&#39;O11&#39;</span><span class="p">,</span> <span class="s1">&#39;O21&#39;</span><span class="p">,</span> <span class="s1">&#39;O51R&#39;</span><span class="p">,</span> <span class="s1">&#39;C51R&#39;</span><span class="p">,</span> <span class="s1">&#39;O11R&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;C41R&#39;</span><span class="p">,</span> <span class="s1">&#39;C31R&#39;</span><span class="p">,</span> <span class="s1">&#39;O31R&#39;</span><span class="p">,</span> <span class="s1">&#39;C21R&#39;</span><span class="p">,</span> <span class="s1">&#39;O21R&#39;</span><span class="p">,</span> <span class="s1">&#39;C11R&#39;</span><span class="p">,</span> <span class="s1">&#39;N11&#39;</span><span class="p">,</span> <span class="s1">&#39;C61&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;C51&#39;</span><span class="p">,</span> <span class="s1">&#39;C71&#39;</span><span class="p">,</span> <span class="s1">&#39;O71&#39;</span><span class="p">,</span> <span class="s1">&#39;N71&#39;</span><span class="p">,</span> <span class="s1">&#39;C41&#39;</span><span class="p">,</span> <span class="s1">&#39;C31&#39;</span><span class="p">,</span> <span class="s1">&#39;C21&#39;</span><span class="p">,</span> <span class="s1">&#39;P3&#39;</span><span class="p">,</span> <span class="s1">&#39;O3&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;O4&#39;</span><span class="p">,</span> <span class="s1">&#39;O5&#39;</span><span class="p">,</span> <span class="s1">&#39;H8&#39;</span><span class="p">,</span> <span class="s1">&#39;H9&#39;</span><span class="p">,</span> <span class="s1">&#39;H7&#39;</span><span class="p">,</span> <span class="s1">&#39;H6&#39;</span><span class="p">,</span> <span class="s1">&#39;H1&#39;</span><span class="p">,</span> <span class="s1">&#39;H5&#39;</span><span class="p">,</span> <span class="s1">&#39;H4&#39;</span><span class="p">,</span> <span class="s1">&#39;H13&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;H11&#39;</span><span class="p">,</span> <span class="s1">&#39;H12&#39;</span><span class="p">,</span> <span class="s1">&#39;H10&#39;</span><span class="p">,</span> <span class="s1">&#39;H18&#39;</span><span class="p">,</span> <span class="s1">&#39;H19&#39;</span><span class="p">,</span> <span class="s1">&#39;H17&#39;</span><span class="p">,</span> <span class="s1">&#39;H16&#39;</span><span class="p">,</span> <span class="s1">&#39;H3&#39;</span><span class="p">,</span> <span class="s1">&#39;H15&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="s1">&#39;H14&#39;</span><span class="p">,</span> <span class="s1">&#39;H23&#39;</span><span class="p">,</span> <span class="s1">&#39;H24&#39;</span><span class="p">,</span> <span class="s1">&#39;H25&#39;</span><span class="p">,</span> <span class="s1">&#39;H22&#39;</span><span class="p">,</span> <span class="s1">&#39;H26&#39;</span><span class="p">,</span> <span class="s1">&#39;H21&#39;</span><span class="p">,</span> <span class="s1">&#39;H20&#39;</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DA&#39;</span><span class="p">,</span><span class="s1">&#39;DC&#39;</span><span class="p">,</span><span class="s1">&#39;DG&#39;</span><span class="p">,</span><span class="s1">&#39;DT&#39;</span><span class="p">,</span><span class="s1">&#39;RA&#39;</span><span class="p">,</span><span class="s1">&#39;RC&#39;</span><span class="p">,</span><span class="s1">&#39;RG&#39;</span><span class="p">,</span><span class="s1">&#39;RU&#39;</span><span class="p">]:</span>
+    <span class="c1">#delete H</span>
+    <span class="n">nsAtoms</span><span class="p">[</span> <span class="n">res</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">nsAtoms</span><span class="p">[</span><span class="n">res</span><span class="p">]</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;H&#39;</span> <span class="p">]</span>
+
+    <span class="c1"># create 3&#39; and 5&#39; versions</span>
+    <span class="n">nsAtoms</span><span class="p">[</span> <span class="n">res</span> <span class="o">+</span> <span class="s1">&#39;3&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">nsAtoms</span><span class="p">[</span><span class="n">res</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;H3T&#39;</span><span class="p">]</span>
+    <span class="n">nsAtoms</span><span class="p">[</span> <span class="n">res</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H5T&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">nsAtoms</span><span class="p">[</span><span class="n">res</span><span class="p">][</span><span class="mi">3</span><span class="p">:]</span>
+
+<span class="n">nsAtoms</span><span class="p">[</span><span class="s1">&#39;NAP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nsAtoms</span><span class="p">[</span><span class="s1">&#39;NDP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;H26&#39;</span><span class="p">)</span>
+
+<span class="c1">#: map AA and NS and some other residue names to single letter code</span>
+<span class="n">resDic</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaDic</span> <span class="p">)</span>
+<span class="n">resDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">nsDicStandard</span> <span class="p">)</span>
+
+<span class="c1">#: map AA and NS residue names to list of allowed heavy atoms</span>
+<span class="n">atomDic</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">aaAtoms</span> <span class="p">)</span>
+<span class="n">atomDic</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">nsAtoms</span> <span class="p">)</span>
+
+<span class="c1">#: some common synonyms of atom names</span>
+<span class="n">atomSynonyms</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;O&#39;&quot;</span><span class="p">:</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;OT1&#39;</span><span class="p">:</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s2">&quot;O&#39;&#39;&quot;</span><span class="p">:</span><span class="s1">&#39;OXT&#39;</span><span class="p">,</span> <span class="s1">&#39;OT2&#39;</span><span class="p">:</span><span class="s1">&#39;OXT&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;O1&#39;</span><span class="p">:</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">:</span><span class="s1">&#39;OXT&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;CD&#39;</span><span class="p">:</span><span class="s1">&#39;CD1&#39;</span><span class="p">}</span>
+
+<span class="n">hydrogenSynonyms</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;HN&#39;</span><span class="p">,</span>      <span class="s1">&#39;1HE2&#39;</span><span class="p">:</span><span class="s1">&#39;HE21&#39;</span><span class="p">,</span> <span class="s1">&#39;2HE2&#39;</span><span class="p">:</span><span class="s1">&#39;HE22&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;1HH1&#39;</span><span class="p">:</span><span class="s1">&#39;HH11&#39;</span><span class="p">,</span> <span class="s1">&#39;2HH1&#39;</span><span class="p">:</span><span class="s1">&#39;HH12&#39;</span><span class="p">,</span> <span class="s1">&#39;1HH2&#39;</span><span class="p">:</span><span class="s1">&#39;HH21&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;2HH2&#39;</span><span class="p">:</span><span class="s1">&#39;HH22&#39;</span><span class="p">,</span> <span class="s1">&#39;1HD2&#39;</span><span class="p">:</span><span class="s1">&#39;HD21&#39;</span><span class="p">,</span> <span class="s1">&#39;2HD2&#39;</span><span class="p">:</span><span class="s1">&#39;HD22&#39;</span> <span class="p">}</span>
+
+<span class="c1">###################</span>
+<span class="c1">## Hydrogen bond</span>
+<span class="c1">##</span>
+<span class="n">hbonds</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;donors&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GLY&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;ALA&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;VAL&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;LEU&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;ILE&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;MET&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;PRO&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;PHE&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;TRP&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HE1&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;SER&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HG&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;THR&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HG1&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;ASN&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;1HD2&#39;</span><span class="p">,</span><span class="s1">&#39;2HD2&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;GLN&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;1HE2&#39;</span><span class="p">,</span><span class="s1">&#39;2HE2&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;TYR&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HH&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;CYS&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HG&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;LYS&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HZ1&#39;</span><span class="p">,</span><span class="s1">&#39;HZ2&#39;</span><span class="p">,</span><span class="s1">&#39;HZ3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;ARG&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HE&#39;</span><span class="p">,</span><span class="s1">&#39;1HH1&#39;</span><span class="p">,</span><span class="s1">&#39;2HH1&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;1HH2&#39;</span><span class="p">,</span><span class="s1">&#39;2HH2&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;HIS&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">,</span><span class="s1">&#39;HD1&#39;</span><span class="p">,</span><span class="s1">&#39;HE2&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;ASP&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;GLU&#39;</span><span class="p">:[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">]},</span>
+         <span class="s1">&#39;acceptors&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GLY&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span> <span class="p">],</span>
+                       <span class="s1">&#39;ALA&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;VAL&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;LEU&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;ILE&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;MET&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;SD&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;PRO&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;PHE&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;TRP&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;SER&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OG&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;THR&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OG1&#39;</span><span class="p">,</span><span class="s1">&#39;CG2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;ASN&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;GLN&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;TYR&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OH&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;CYS&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;SG&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;LYS&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;ARG&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;HIS&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;ASP&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OD1&#39;</span><span class="p">,</span><span class="s1">&#39;OD2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;GLU&#39;</span><span class="p">:[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;OE1&#39;</span><span class="p">,</span><span class="s1">&#39;OE2&#39;</span><span class="p">,</span> <span class="s1">&#39;OXT&#39;</span><span class="p">]}</span> <span class="p">}</span>
+
+
+<span class="c1">##############################</span>
+<span class="c1">## Polar hydrogen connectivity -- PARAM19</span>
+
+<span class="n">polarH</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;GLY&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ALA&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;VAL&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;LEU&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ILE&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>   
+          <span class="s1">&#39;MET&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;PRO&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;PHE&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;TRP&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HE1&#39;</span><span class="p">:</span><span class="s1">&#39;NE1&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;SER&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HG&#39;</span><span class="p">:</span><span class="s1">&#39;OG&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;THR&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HG1&#39;</span><span class="p">:</span><span class="s1">&#39;OG1&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ASN&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HD21&#39;</span><span class="p">:</span><span class="s1">&#39;ND2&#39;</span><span class="p">,</span><span class="s1">&#39;HD22&#39;</span><span class="p">:</span><span class="s1">&#39;ND2&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;GLN&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HE21&#39;</span><span class="p">:</span><span class="s1">&#39;NE2&#39;</span><span class="p">,</span><span class="s1">&#39;HE22&#39;</span><span class="p">:</span><span class="s1">&#39;NE2&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;TYR&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HH&#39;</span><span class="p">:</span><span class="s1">&#39;OH&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;CYS&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;LYS&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HZ1&#39;</span><span class="p">:</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span><span class="s1">&#39;HZ2&#39;</span><span class="p">:</span><span class="s1">&#39;NZ&#39;</span><span class="p">,</span><span class="s1">&#39;HZ3&#39;</span><span class="p">:</span><span class="s1">&#39;NZ&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ARG&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HE&#39;</span><span class="p">:</span><span class="s1">&#39;NE&#39;</span><span class="p">,</span> <span class="s1">&#39;HH11&#39;</span><span class="p">:</span><span class="s1">&#39;NH1&#39;</span><span class="p">,</span><span class="s1">&#39;HH12&#39;</span><span class="p">:</span><span class="s1">&#39;NH1&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HH21&#39;</span><span class="p">:</span><span class="s1">&#39;NH2&#39;</span><span class="p">,</span><span class="s1">&#39;HH22&#39;</span><span class="p">:</span><span class="s1">&#39;NH2&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;HIS&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;HD1&#39;</span><span class="p">:</span><span class="s1">&#39;ND1&#39;</span><span class="p">,</span><span class="s1">&#39;HE2&#39;</span><span class="p">:</span><span class="s1">&#39;NE2&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;ASP&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">},</span>
+          <span class="s1">&#39;GLU&#39;</span><span class="p">:{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H1&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H2&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;H3&#39;</span><span class="p">:</span><span class="s1">&#39;N&#39;</span><span class="p">}}</span>
+
+
+<span class="c1">## Scoring matrix for protein-protein interaction surfaces</span>
+<span class="c1">## (Volume normalized values, Table IV in reference)</span>
+<span class="c1">##</span>
+<span class="c1">## The Matrix is based on data from a db of 621 noneredundant protein-protein</span>
+<span class="c1">## complexes, a CB-CB (CA for Gly) of 6 A was used</span>
+<span class="c1">##</span>
+<span class="c1">## Reference:</span>
+<span class="c1">## &quot;Residue Frequencies and Pair Preferences at Protein-Protein Interfaces&quot;</span>
+<span class="c1">##            F. Glaser, D. M. Steinberg, I. A. Vakser and N0. Ben-Tal,</span>
+<span class="c1">##            Proteins 43:89-102 (2001)</span>
+<span class="c1">##</span>
+<span class="c1">## Warning. This is just half of the matrix (above diagonal), the residue names</span>
+<span class="c1">## in the pairs is sorted in the same order as in Complex.resPairCounts()</span>
+
+<span class="n">pairScore</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;WW&#39;</span><span class="p">:</span> <span class="mf">5.85</span><span class="p">,</span> <span class="s1">&#39;WY&#39;</span><span class="p">:</span> <span class="mf">6.19</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">:</span> <span class="mf">3.77</span><span class="p">,</span> <span class="s1">&#39;RV&#39;</span><span class="p">:</span> <span class="mf">4.18</span><span class="p">,</span> <span class="s1">&#39;RW&#39;</span><span class="p">:</span> <span class="mf">8.57</span><span class="p">,</span> <span class="s1">&#39;RR&#39;</span><span class="p">:</span> <span class="mf">2.87</span><span class="p">,</span>
+             <span class="s1">&#39;RS&#39;</span><span class="p">:</span> <span class="mf">2.82</span><span class="p">,</span> <span class="s1">&#39;RY&#39;</span><span class="p">:</span> <span class="mf">5.28</span><span class="p">,</span> <span class="s1">&#39;GW&#39;</span><span class="p">:</span> <span class="mf">1.42</span><span class="p">,</span> <span class="s1">&#39;GV&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="s1">&#39;GT&#39;</span><span class="p">:</span> <span class="mf">0.21</span><span class="p">,</span> <span class="s1">&#39;GS&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.53</span><span class="p">,</span>
+             <span class="s1">&#39;GR&#39;</span><span class="p">:</span> <span class="mf">1.59</span><span class="p">,</span> <span class="s1">&#39;GQ&#39;</span><span class="p">:</span> <span class="mf">1.70</span><span class="p">,</span> <span class="s1">&#39;GP&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.51</span><span class="p">,</span> <span class="s1">&#39;GY&#39;</span><span class="p">:</span> <span class="mf">1.25</span><span class="p">,</span> <span class="s1">&#39;GG&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">4.40</span><span class="p">,</span> <span class="s1">&#39;GN&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.54</span><span class="p">,</span>
+             <span class="s1">&#39;GM&#39;</span><span class="p">:</span> <span class="mf">0.91</span><span class="p">,</span> <span class="s1">&#39;GL&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.37</span><span class="p">,</span> <span class="s1">&#39;GK&#39;</span><span class="p">:</span> <span class="mf">1.33</span><span class="p">,</span> <span class="s1">&#39;GI&#39;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s1">&#39;GH&#39;</span><span class="p">:</span> <span class="mf">1.08</span><span class="p">,</span> <span class="s1">&#39;SS&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.09</span><span class="p">,</span>
+             <span class="s1">&#39;IY&#39;</span><span class="p">:</span> <span class="mf">5.61</span><span class="p">,</span> <span class="s1">&#39;HY&#39;</span><span class="p">:</span> <span class="mf">6.05</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">:</span> <span class="mf">4.90</span><span class="p">,</span> <span class="s1">&#39;HS&#39;</span><span class="p">:</span> <span class="mf">0.80</span><span class="p">,</span> <span class="s1">&#39;HP&#39;</span><span class="p">:</span> <span class="mf">2.89</span><span class="p">,</span> <span class="s1">&#39;HQ&#39;</span><span class="p">:</span> <span class="mf">4.00</span><span class="p">,</span>
+             <span class="s1">&#39;HV&#39;</span><span class="p">:</span> <span class="mf">3.21</span><span class="p">,</span> <span class="s1">&#39;HW&#39;</span><span class="p">:</span> <span class="mf">6.46</span><span class="p">,</span> <span class="s1">&#39;HT&#39;</span><span class="p">:</span> <span class="mf">2.71</span><span class="p">,</span> <span class="s1">&#39;KN&#39;</span><span class="p">:</span> <span class="mf">3.17</span><span class="p">,</span> <span class="s1">&#39;HK&#39;</span><span class="p">:</span> <span class="mf">2.72</span><span class="p">,</span> <span class="s1">&#39;HH&#39;</span><span class="p">:</span> <span class="mf">5.37</span><span class="p">,</span>
+             <span class="s1">&#39;HI&#39;</span><span class="p">:</span> <span class="mf">3.38</span><span class="p">,</span> <span class="s1">&#39;HN&#39;</span><span class="p">:</span> <span class="mf">2.38</span><span class="p">,</span> <span class="s1">&#39;HL&#39;</span><span class="p">:</span> <span class="mf">4.88</span><span class="p">,</span> <span class="s1">&#39;HM&#39;</span><span class="p">:</span> <span class="mf">4.65</span><span class="p">,</span> <span class="s1">&#39;ST&#39;</span><span class="p">:</span> <span class="mf">1.91</span><span class="p">,</span> <span class="s1">&#39;PR&#39;</span><span class="p">:</span> <span class="mf">3.99</span><span class="p">,</span>
+             <span class="s1">&#39;PS&#39;</span><span class="p">:</span> <span class="mf">1.33</span><span class="p">,</span> <span class="s1">&#39;PP&#39;</span><span class="p">:</span> <span class="mf">0.60</span><span class="p">,</span> <span class="s1">&#39;PQ&#39;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span> <span class="s1">&#39;PV&#39;</span><span class="p">:</span> <span class="mf">2.90</span><span class="p">,</span> <span class="s1">&#39;PW&#39;</span><span class="p">:</span> <span class="mf">7.87</span><span class="p">,</span> <span class="s1">&#39;PT&#39;</span><span class="p">:</span> <span class="mf">2.65</span><span class="p">,</span>
+             <span class="s1">&#39;PY&#39;</span><span class="p">:</span> <span class="mf">4.22</span><span class="p">,</span> <span class="s1">&#39;IQ&#39;</span><span class="p">:</span> <span class="mf">3.60</span><span class="p">,</span> <span class="s1">&#39;IP&#39;</span><span class="p">:</span> <span class="mf">3.27</span><span class="p">,</span> <span class="s1">&#39;AK&#39;</span><span class="p">:</span> <span class="mf">2.13</span><span class="p">,</span> <span class="s1">&#39;EM&#39;</span><span class="p">:</span> <span class="mf">3.88</span><span class="p">,</span> <span class="s1">&#39;EL&#39;</span><span class="p">:</span> <span class="mf">3.12</span><span class="p">,</span>
+             <span class="s1">&#39;EN&#39;</span><span class="p">:</span> <span class="mf">2.68</span><span class="p">,</span> <span class="s1">&#39;EI&#39;</span><span class="p">:</span> <span class="mf">3.20</span><span class="p">,</span> <span class="s1">&#39;EH&#39;</span><span class="p">:</span> <span class="mf">2.30</span><span class="p">,</span> <span class="s1">&#39;EK&#39;</span><span class="p">:</span> <span class="mf">5.32</span><span class="p">,</span> <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="mf">1.65</span><span class="p">,</span> <span class="s1">&#39;EG&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.89</span><span class="p">,</span>
+             <span class="s1">&#39;EF&#39;</span><span class="p">:</span> <span class="mf">2.87</span><span class="p">,</span> <span class="s1">&#39;IT&#39;</span><span class="p">:</span> <span class="mf">3.05</span><span class="p">,</span> <span class="s1">&#39;EY&#39;</span><span class="p">:</span> <span class="mf">4.54</span><span class="p">,</span> <span class="s1">&#39;ET&#39;</span><span class="p">:</span> <span class="mf">2.88</span><span class="p">,</span> <span class="s1">&#39;EW&#39;</span><span class="p">:</span> <span class="mf">1.20</span><span class="p">,</span> <span class="s1">&#39;IV&#39;</span><span class="p">:</span> <span class="mf">4.91</span><span class="p">,</span>
+             <span class="s1">&#39;EQ&#39;</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">&#39;EP&#39;</span><span class="p">:</span> <span class="mf">3.17</span><span class="p">,</span> <span class="s1">&#39;ES&#39;</span><span class="p">:</span> <span class="mf">2.60</span><span class="p">,</span> <span class="s1">&#39;ER&#39;</span><span class="p">:</span> <span class="mf">5.75</span><span class="p">,</span> <span class="s1">&#39;II&#39;</span><span class="p">:</span> <span class="mf">3.89</span><span class="p">,</span> <span class="s1">&#39;MM&#39;</span><span class="p">:</span> <span class="mf">6.02</span><span class="p">,</span>
+             <span class="s1">&#39;MN&#39;</span><span class="p">:</span> <span class="mf">2.30</span><span class="p">,</span> <span class="s1">&#39;AS&#39;</span><span class="p">:</span> <span class="mf">0.39</span><span class="p">,</span> <span class="s1">&#39;MT&#39;</span><span class="p">:</span> <span class="mf">2.09</span><span class="p">,</span> <span class="s1">&#39;MW&#39;</span><span class="p">:</span> <span class="mf">4.89</span><span class="p">,</span> <span class="s1">&#39;MV&#39;</span><span class="p">:</span> <span class="mf">4.37</span><span class="p">,</span> <span class="s1">&#39;MQ&#39;</span><span class="p">:</span> <span class="mf">4.18</span><span class="p">,</span>
+             <span class="s1">&#39;MP&#39;</span><span class="p">:</span> <span class="mf">3.38</span><span class="p">,</span> <span class="s1">&#39;MS&#39;</span><span class="p">:</span> <span class="mf">1.61</span><span class="p">,</span> <span class="s1">&#39;MR&#39;</span><span class="p">:</span> <span class="mf">3.62</span><span class="p">,</span> <span class="s1">&#39;MY&#39;</span><span class="p">:</span> <span class="mf">4.81</span><span class="p">,</span> <span class="s1">&#39;IL&#39;</span><span class="p">:</span> <span class="mf">4.59</span><span class="p">,</span> <span class="s1">&#39;FP&#39;</span><span class="p">:</span> <span class="mf">4.25</span><span class="p">,</span>
+             <span class="s1">&#39;FQ&#39;</span><span class="p">:</span> <span class="mf">4.25</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">:</span> <span class="mf">4.49</span><span class="p">,</span> <span class="s1">&#39;FS&#39;</span><span class="p">:</span> <span class="mf">1.75</span><span class="p">,</span> <span class="s1">&#39;FT&#39;</span><span class="p">:</span> <span class="mf">3.34</span><span class="p">,</span> <span class="s1">&#39;VV&#39;</span><span class="p">:</span> <span class="mf">3.74</span><span class="p">,</span> <span class="s1">&#39;FV&#39;</span><span class="p">:</span> <span class="mf">4.69</span><span class="p">,</span>
+             <span class="s1">&#39;FW&#39;</span><span class="p">:</span> <span class="mf">5.83</span><span class="p">,</span> <span class="s1">&#39;FY&#39;</span><span class="p">:</span> <span class="mf">5.83</span><span class="p">,</span> <span class="s1">&#39;AV&#39;</span><span class="p">:</span> <span class="mf">2.57</span><span class="p">,</span> <span class="s1">&#39;FF&#39;</span><span class="p">:</span> <span class="mf">5.34</span><span class="p">,</span> <span class="s1">&#39;FG&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s1">&#39;FH&#39;</span><span class="p">:</span> <span class="mf">3.47</span><span class="p">,</span>
+             <span class="s1">&#39;FI&#39;</span><span class="p">:</span> <span class="mf">5.33</span><span class="p">,</span> <span class="s1">&#39;FK&#39;</span><span class="p">:</span> <span class="mf">3.57</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">:</span> <span class="mf">4.86</span><span class="p">,</span> <span class="s1">&#39;FM&#39;</span><span class="p">:</span> <span class="mf">5.28</span><span class="p">,</span> <span class="s1">&#39;FN&#39;</span><span class="p">:</span> <span class="mf">3.11</span><span class="p">,</span> <span class="s1">&#39;EV&#39;</span><span class="p">:</span> <span class="mf">3.22</span><span class="p">,</span>
+             <span class="s1">&#39;NN&#39;</span><span class="p">:</span> <span class="mf">2.92</span><span class="p">,</span> <span class="s1">&#39;NY&#39;</span><span class="p">:</span> <span class="mf">3.66</span><span class="p">,</span> <span class="s1">&#39;NP&#39;</span><span class="p">:</span> <span class="mf">3.09</span><span class="p">,</span> <span class="s1">&#39;NQ&#39;</span><span class="p">:</span> <span class="mf">3.45</span><span class="p">,</span> <span class="s1">&#39;NR&#39;</span><span class="p">:</span> <span class="mf">3.85</span><span class="p">,</span> <span class="s1">&#39;NS&#39;</span><span class="p">:</span> <span class="mf">1.77</span><span class="p">,</span>
+             <span class="s1">&#39;NT&#39;</span><span class="p">:</span> <span class="mf">2.52</span><span class="p">,</span> <span class="s1">&#39;NV&#39;</span><span class="p">:</span> <span class="mf">1.36</span><span class="p">,</span> <span class="s1">&#39;NW&#39;</span><span class="p">:</span> <span class="mf">3.54</span><span class="p">,</span> <span class="s1">&#39;CK&#39;</span><span class="p">:</span> <span class="mf">2.05</span><span class="p">,</span> <span class="s1">&#39;CI&#39;</span><span class="p">:</span> <span class="mf">1.76</span><span class="p">,</span> <span class="s1">&#39;CH&#39;</span><span class="p">:</span> <span class="mf">4.12</span><span class="p">,</span>
+             <span class="s1">&#39;CN&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.42</span><span class="p">,</span> <span class="s1">&#39;CM&#39;</span><span class="p">:</span> <span class="mf">1.84</span><span class="p">,</span> <span class="s1">&#39;CL&#39;</span><span class="p">:</span> <span class="mf">2.93</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span> <span class="mf">7.65</span><span class="p">,</span> <span class="s1">&#39;CG&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;CF&#39;</span><span class="p">:</span> <span class="mf">3.68</span><span class="p">,</span>
+             <span class="s1">&#39;CE&#39;</span><span class="p">:</span> <span class="mf">2.51</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">:</span> <span class="mf">0.24</span><span class="p">,</span> <span class="s1">&#39;CY&#39;</span><span class="p">:</span> <span class="mf">2.47</span><span class="p">,</span> <span class="s1">&#39;CS&#39;</span><span class="p">:</span> <span class="mf">2.48</span><span class="p">,</span> <span class="s1">&#39;CR&#39;</span><span class="p">:</span> <span class="mf">2.81</span><span class="p">,</span> <span class="s1">&#39;CQ&#39;</span><span class="p">:</span> <span class="mf">1.33</span><span class="p">,</span>
+             <span class="s1">&#39;CP&#39;</span><span class="p">:</span> <span class="mf">2.47</span><span class="p">,</span> <span class="s1">&#39;CW&#39;</span><span class="p">:</span> <span class="mf">2.14</span><span class="p">,</span> <span class="s1">&#39;CV&#39;</span><span class="p">:</span> <span class="mf">2.89</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span> <span class="s1">&#39;SY&#39;</span><span class="p">:</span> <span class="mf">2.30</span><span class="p">,</span> <span class="s1">&#39;VW&#39;</span><span class="p">:</span> <span class="mf">2.92</span><span class="p">,</span>
+             <span class="s1">&#39;KK&#39;</span><span class="p">:</span> <span class="mf">3.24</span><span class="p">,</span> <span class="s1">&#39;SW&#39;</span><span class="p">:</span> <span class="mf">2.87</span><span class="p">,</span> <span class="s1">&#39;SV&#39;</span><span class="p">:</span> <span class="mf">1.42</span><span class="p">,</span> <span class="s1">&#39;KM&#39;</span><span class="p">:</span> <span class="mf">3.93</span><span class="p">,</span> <span class="s1">&#39;KL&#39;</span><span class="p">:</span> <span class="mf">3.15</span><span class="p">,</span> <span class="s1">&#39;KS&#39;</span><span class="p">:</span> <span class="mf">2.74</span><span class="p">,</span>
+             <span class="s1">&#39;KR&#39;</span><span class="p">:</span> <span class="mf">2.29</span><span class="p">,</span> <span class="s1">&#39;KQ&#39;</span><span class="p">:</span> <span class="mf">3.50</span><span class="p">,</span> <span class="s1">&#39;KP&#39;</span><span class="p">:</span> <span class="mf">3.75</span><span class="p">,</span> <span class="s1">&#39;KW&#39;</span><span class="p">:</span> <span class="mf">5.76</span><span class="p">,</span> <span class="s1">&#39;KV&#39;</span><span class="p">:</span> <span class="mf">4.45</span><span class="p">,</span> <span class="s1">&#39;KT&#39;</span><span class="p">:</span> <span class="mf">3.67</span><span class="p">,</span>
+             <span class="s1">&#39;KY&#39;</span><span class="p">:</span> <span class="mf">5.26</span><span class="p">,</span> <span class="s1">&#39;DN&#39;</span><span class="p">:</span> <span class="mf">3.85</span><span class="p">,</span> <span class="s1">&#39;DL&#39;</span><span class="p">:</span> <span class="mf">1.40</span><span class="p">,</span> <span class="s1">&#39;DM&#39;</span><span class="p">:</span> <span class="mf">0.36</span><span class="p">,</span> <span class="s1">&#39;DK&#39;</span><span class="p">:</span> <span class="mf">3.90</span><span class="p">,</span> <span class="s1">&#39;DH&#39;</span><span class="p">:</span> <span class="mf">5.20</span><span class="p">,</span>
+             <span class="s1">&#39;DI&#39;</span><span class="p">:</span> <span class="mf">2.30</span><span class="p">,</span> <span class="s1">&#39;DF&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span> <span class="s1">&#39;DG&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="s1">&#39;DD&#39;</span><span class="p">:</span> <span class="mf">0.13</span><span class="p">,</span> <span class="s1">&#39;DE&#39;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span> <span class="s1">&#39;YY&#39;</span><span class="p">:</span> <span class="mf">5.93</span><span class="p">,</span>
+             <span class="s1">&#39;DY&#39;</span><span class="p">:</span> <span class="mf">1.76</span><span class="p">,</span> <span class="s1">&#39;DV&#39;</span><span class="p">:</span> <span class="mf">1.93</span><span class="p">,</span> <span class="s1">&#39;DW&#39;</span><span class="p">:</span> <span class="mf">2.62</span><span class="p">,</span> <span class="s1">&#39;DT&#39;</span><span class="p">:</span> <span class="mf">3.88</span><span class="p">,</span> <span class="s1">&#39;DR&#39;</span><span class="p">:</span> <span class="mf">4.94</span><span class="p">,</span> <span class="s1">&#39;DS&#39;</span><span class="p">:</span> <span class="mf">2.94</span><span class="p">,</span>
+             <span class="s1">&#39;DP&#39;</span><span class="p">:</span> <span class="mf">1.46</span><span class="p">,</span> <span class="s1">&#39;DQ&#39;</span><span class="p">:</span> <span class="mf">3.26</span><span class="p">,</span> <span class="s1">&#39;TY&#39;</span><span class="p">:</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;LN&#39;</span><span class="p">:</span> <span class="mf">2.31</span><span class="p">,</span> <span class="s1">&#39;TW&#39;</span><span class="p">:</span> <span class="mf">5.12</span><span class="p">,</span> <span class="s1">&#39;LL&#39;</span><span class="p">:</span> <span class="mf">4.03</span><span class="p">,</span>
+             <span class="s1">&#39;LM&#39;</span><span class="p">:</span> <span class="mf">5.32</span><span class="p">,</span> <span class="s1">&#39;LV&#39;</span><span class="p">:</span> <span class="mf">4.20</span><span class="p">,</span> <span class="s1">&#39;LW&#39;</span><span class="p">:</span> <span class="mf">5.77</span><span class="p">,</span> <span class="s1">&#39;LT&#39;</span><span class="p">:</span> <span class="mf">2.07</span><span class="p">,</span> <span class="s1">&#39;LR&#39;</span><span class="p">:</span> <span class="mf">4.99</span><span class="p">,</span> <span class="s1">&#39;LS&#39;</span><span class="p">:</span> <span class="mf">1.41</span><span class="p">,</span>
+             <span class="s1">&#39;LP&#39;</span><span class="p">:</span> <span class="mf">2.50</span><span class="p">,</span> <span class="s1">&#39;LQ&#39;</span><span class="p">:</span> <span class="mf">3.46</span><span class="p">,</span> <span class="s1">&#39;LY&#39;</span><span class="p">:</span> <span class="mf">4.19</span><span class="p">,</span> <span class="s1">&#39;AA&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">0.52</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">:</span> <span class="mf">1.46</span><span class="p">,</span> <span class="s1">&#39;AE&#39;</span><span class="p">:</span> <span class="mf">1.71</span><span class="p">,</span>
+             <span class="s1">&#39;AD&#39;</span><span class="p">:</span> <span class="mf">1.13</span><span class="p">,</span> <span class="s1">&#39;AG&#39;</span><span class="p">:</span><span class="o">-</span><span class="mf">1.77</span><span class="p">,</span> <span class="s1">&#39;AF&#39;</span><span class="p">:</span> <span class="mf">3.00</span><span class="p">,</span> <span class="s1">&#39;AI&#39;</span><span class="p">:</span> <span class="mf">2.84</span><span class="p">,</span> <span class="s1">&#39;AH&#39;</span><span class="p">:</span> <span class="mf">2.59</span><span class="p">,</span> <span class="s1">&#39;IS&#39;</span><span class="p">:</span> <span class="mf">1.00</span><span class="p">,</span>
+             <span class="s1">&#39;IR&#39;</span><span class="p">:</span> <span class="mf">3.80</span><span class="p">,</span> <span class="s1">&#39;AM&#39;</span><span class="p">:</span> <span class="mf">2.30</span><span class="p">,</span> <span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="mf">2.77</span><span class="p">,</span> <span class="s1">&#39;IW&#39;</span><span class="p">:</span> <span class="mf">6.24</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">:</span> <span class="mf">1.69</span><span class="p">,</span> <span class="s1">&#39;AQ&#39;</span><span class="p">:</span> <span class="mf">1.72</span><span class="p">,</span>
+             <span class="s1">&#39;AP&#39;</span><span class="p">:</span> <span class="mf">1.22</span><span class="p">,</span> <span class="s1">&#39;IK&#39;</span><span class="p">:</span> <span class="mf">3.23</span><span class="p">,</span> <span class="s1">&#39;AR&#39;</span><span class="p">:</span> <span class="mf">1.90</span><span class="p">,</span> <span class="s1">&#39;IM&#39;</span><span class="p">:</span> <span class="mf">5.25</span><span class="p">,</span> <span class="s1">&#39;AT&#39;</span><span class="p">:</span> <span class="mf">1.21</span><span class="p">,</span> <span class="s1">&#39;AW&#39;</span><span class="p">:</span> <span class="mf">3.37</span><span class="p">,</span>
+             <span class="s1">&#39;IN&#39;</span><span class="p">:</span> <span class="mf">1.59</span><span class="p">,</span> <span class="s1">&#39;AY&#39;</span><span class="p">:</span> <span class="mf">2.47</span><span class="p">,</span> <span class="s1">&#39;VY&#39;</span><span class="p">:</span> <span class="mf">3.95</span><span class="p">,</span> <span class="s1">&#39;QQ&#39;</span><span class="p">:</span> <span class="mf">2.83</span><span class="p">,</span> <span class="s1">&#39;QS&#39;</span><span class="p">:</span> <span class="mf">2.00</span><span class="p">,</span> <span class="s1">&#39;QR&#39;</span><span class="p">:</span> <span class="mf">4.50</span><span class="p">,</span>
+             <span class="s1">&#39;QT&#39;</span><span class="p">:</span> <span class="mf">1.82</span><span class="p">,</span> <span class="s1">&#39;QW&#39;</span><span class="p">:</span> <span class="mf">1.37</span><span class="p">,</span> <span class="s1">&#39;QV&#39;</span><span class="p">:</span> <span class="mf">3.22</span><span class="p">,</span> <span class="s1">&#39;QY&#39;</span><span class="p">:</span> <span class="mf">2.05</span><span class="p">,</span> <span class="s1">&#39;TV&#39;</span><span class="p">:</span> <span class="mf">2.83</span><span class="p">,</span> <span class="s1">&#39;TT&#39;</span><span class="p">:</span> <span class="mf">1.27</span><span class="p">}</span>
+
+<span class="c1">## various constants</span>
+<span class="n">boltzmann</span>    <span class="o">=</span> <span class="mf">1.38066e-23</span>    <span class="c1">## [J/K]</span>
+<span class="n">NA</span>           <span class="o">=</span> <span class="mf">6.02214199e+23</span> <span class="c1">## Avogadro constant [1/mol]</span>
+<span class="n">planck2</span>      <span class="o">=</span> <span class="mf">1.0545727e-34</span>  <span class="c1">## [J s], h/2Pi</span>
+<span class="n">euler</span>        <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">e</span>
+<span class="n">mu</span>           <span class="o">=</span> <span class="mf">1.66056e-27</span>    <span class="c1">## atomic mass unit in [kg]</span>
+<span class="n">angstroem</span>    <span class="o">=</span> <span class="mf">1e-10</span>          <span class="c1">## [m]</span>
+<span class="n">calorie</span>      <span class="o">=</span> <span class="mf">4.184</span>          <span class="c1">## [J]</span>
+
+<span class="c1">#: dictionary with relative atomic mass of elements {&#39;H&#39;:1.01, &#39;ZN&#39;:65.39, ...}</span>
+<span class="n">atomMasses</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.00797</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mf">12.01115</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mf">14.0067</span><span class="p">,</span>
+               <span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mf">32.064</span><span class="p">,</span>  <span class="s1">&#39;O&#39;</span><span class="p">:</span><span class="mf">15.9994</span><span class="p">,</span>  <span class="s1">&#39;P&#39;</span><span class="p">:</span><span class="mf">30.9738</span><span class="p">,</span> <span class="s1">&#39;ZN&#39;</span><span class="p">:</span> <span class="mf">65.39</span> <span class="p">}</span>
+
+<div class="viewcode-block" id="allAACodes"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.allAACodes">[docs]</a><span class="k">def</span> <span class="nf">allAACodes</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: list of all single AA codes, including B, Z, X</span>
+<span class="sd">    :rtype: [str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">aaDic</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">aa</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="allAA"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.allAA">[docs]</a><span class="k">def</span> <span class="nf">allAA</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :return: list of all 20 &#39;exact&#39; single AA codes.</span>
+<span class="sd">    :rtype: [str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">allAACodes</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">]:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">a</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="elementType"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.elementType">[docs]</a><span class="k">def</span> <span class="nf">elementType</span><span class="p">(</span> <span class="n">eLetter</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classify an atom as polar or unpolar::</span>
+<span class="sd">      atomType( eLetter ) -&gt; list of types this element belongs to</span>
+
+<span class="sd">    :param eLetter: atom name</span>
+<span class="sd">    :type  eLetter: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: return &#39;p&#39; for polar, &#39;u&#39; for unpolar and None if not</span>
+<span class="sd">             in classified</span>
+<span class="sd">    :rtype: p|u OR None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;Cl&#39;</span><span class="p">],</span>  <span class="c1">## polar</span>
+             <span class="s1">&#39;u&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">]</span> <span class="p">}</span>          <span class="c1">## unpolar</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">eLetter</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="resType"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.resType">[docs]</a><span class="k">def</span> <span class="nf">resType</span><span class="p">(</span> <span class="n">resCode</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classify residues as aromatic (a), charged (c) or polar (p).</span>
+
+<span class="sd">    :param resCode: amino acid code</span>
+<span class="sd">    :type  resCode: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: list of types this residue belongs to...</span>
+<span class="sd">    :rtype: a|c|p OR None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">],</span>     <span class="c1">## aromatic</span>
+             <span class="s1">&#39;c&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">],</span> <span class="c1">## charged</span>
+             <span class="s1">&#39;p&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">]</span> <span class="p">}</span>        <span class="c1">## polar</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">resCode</span> <span class="ow">in</span> <span class="n">types</span><span class="p">[</span><span class="n">t</span><span class="p">]:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span><span class="n">t</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="singleAA"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.singleAA">[docs]</a><span class="k">def</span> <span class="nf">singleAA</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">xtable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nonstandard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unknown</span><span class="o">=</span><span class="s1">&#39;?&#39;</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    convert list with 3-letter AA code to list with 1-letter code</span>
+<span class="sd">    </span>
+<span class="sd">    :param seq: amino acid sequence in 3-letter code</span>
+<span class="sd">    :type  seq: [str]</span>
+<span class="sd">    :param xtable: dictionary with additional str:single_char mapping</span>
+<span class="sd">    :type  xtable: dict</span>
+<span class="sd">    :param nonstandard: support non-standard residue names (default True)</span>
+<span class="sd">    :type  nonstandard: bool</span>
+<span class="sd">    :param unknown: letter to use for unknown residues [default: &#39;?&#39;]</span>
+<span class="sd">    :type unknown: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: list with 1-letter code; C{ [&#39;A&#39;,&#39;C&#39;,&#39;L&#39;,&#39;A&#39;...]}</span>
+<span class="sd">    :rtype: [str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>             <span class="c1"># will hold 1-letter list</span>
+
+    <span class="n">table</span> <span class="o">=</span> <span class="n">resDicStandard</span>
+    <span class="k">if</span> <span class="n">nonstandard</span><span class="p">:</span> <span class="n">table</span> <span class="o">=</span> <span class="n">resDic</span>
+
+<span class="c1">## Python2.5    </span>
+<span class="c1">##     table = resDic if nonstandard else resDicStandard</span>
+    <span class="k">if</span> <span class="n">xtable</span><span class="p">:</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">table</span> <span class="p">)</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">xtable</span> <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">aa</span> <span class="o">=</span> <span class="n">aa</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">+=</span>  <span class="p">[</span> <span class="n">table</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span> <span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="p">[</span><span class="n">unknown</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="single2longAA"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.single2longAA">[docs]</a><span class="k">def</span> <span class="nf">single2longAA</span><span class="p">(</span> <span class="n">seq</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert string of 1-letter AA code into list of 3-letter AA codes.</span>
+<span class="sd">    </span>
+<span class="sd">    :param seq: amino acid sequence in 1-letter code</span>
+<span class="sd">    :type  seq: str</span>
+<span class="sd">    </span>
+<span class="sd">    :return: list with the amino acids in 3-letter code</span>
+<span class="sd">    :rtype: [str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## invert AA dict</span>
+    <span class="n">invTab</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">aaDicStandard</span><span class="p">:</span>
+        <span class="n">invTab</span><span class="p">[</span> <span class="n">aaDicStandard</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">aa</span> <span class="o">=</span> <span class="n">aa</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">invTab</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">EHandler</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;unknown residue: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">aa</span><span class="p">))</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">&#39;Xaa&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="cmpAtoms"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.cmpAtoms">[docs]</a><span class="k">def</span> <span class="nf">cmpAtoms</span><span class="p">(</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Comparison function for bringing atoms into standard order</span>
+<span class="sd">    within residues as defined by :class:`atomDic`.</span>
+<span class="sd">    </span>
+<span class="sd">    :param a1: atom dictionary</span>
+<span class="sd">    :type  a1: CrossView or equivalent dictionary</span>
+<span class="sd">    :param a2: atom dictionary</span>
+<span class="sd">    :type  a2: CrossView or equivalent dictionary</span>
+<span class="sd">    </span>
+<span class="sd">    :return: int or list of matching positions</span>
+<span class="sd">    :rtype: [-1|0|1]   </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## get standard order within residues</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">atomDic</span><span class="p">[</span> <span class="n">a1</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="p">]</span>
+
+    <span class="n">i1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">target</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">a1</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">i1</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">index</span><span class="p">(</span> <span class="n">a1</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="n">i2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">target</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">a2</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">i2</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">index</span><span class="p">(</span> <span class="n">a2</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">i1</span> <span class="o">&gt;</span> <span class="n">i2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">i1</span> <span class="o">&lt;</span> <span class="n">i2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sortAtomsOfModel"><a class="viewcode-back" href="../../source/biskit/biskit.molUtils.html#biskit.molUtils.sortAtomsOfModel">[docs]</a><span class="k">def</span> <span class="nf">sortAtomsOfModel</span><span class="p">(</span> <span class="n">model</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sort atoms within residues into the standard order defined in :class:`atomDic`.</span>
+<span class="sd">    </span>
+<span class="sd">    :param model: model to sort</span>
+<span class="sd">    :type  model: PDBModel</span>
+
+<span class="sd">    :return: model with sorted atoms</span>
+<span class="sd">    :rtype: PDBModel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## make a copy</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="n">model</span><span class="o">.</span><span class="n">atomRange</span><span class="p">()</span> <span class="p">)</span>
+
+    <span class="c1">## sort atoms</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span> <span class="n">model</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span> <span class="n">cmpAtoms</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span></div>
+
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">test</span> <span class="k">as</span> <span class="n">BT</span>
+        
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test case&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">test_molUtils</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;molUtils test&quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">PDBModel</span>
+
+        <span class="n">S</span> <span class="o">=</span> <span class="bp">self</span>
+        
+        <span class="c1">## load a structure</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span> <span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">(</span><span class="s1">&#39;lig/1A19.pdb&#39;</span> <span class="p">))</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">model_1</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">maskProtein</span><span class="p">()</span> <span class="p">)</span>
+
+        <span class="c1">## now sort in standard order</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">model_2</span> <span class="o">=</span> <span class="n">sortAtomsOfModel</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">model_1</span><span class="p">)</span>
+
+        <span class="c1">## compare the atom order</span>
+        <span class="nb">cmp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">model_1</span><span class="o">.</span><span class="n">atomRange</span><span class="p">():</span>
+            <span class="nb">cmp</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">cmpAtoms</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">model_1</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">S</span><span class="o">.</span><span class="n">model_2</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">N0</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">cmp</span><span class="p">),</span> <span class="mi">159</span> <span class="p">)</span>
+
+        <span class="c1">## get the primaty sequence as a string</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">seq</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">model_1</span><span class="o">.</span><span class="n">sequence</span><span class="p">()</span>
+
+        <span class="c1">## convert it to a list of three letter code</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">seq</span><span class="o">=</span><span class="n">single2longAA</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span>
+
+        <span class="c1">## convert it to a list in one letter code</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">seq</span><span class="o">=</span><span class="n">singleAA</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">seq</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">model_1</span><span class="o">.</span><span class="n">sequence</span><span class="p">()</span> <span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

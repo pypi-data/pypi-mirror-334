@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>match2seq &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="rmsFit" href="biskit.rmsFit.html" />
+    <link rel="prev" title="mathUtils" href="biskit.mathUtils.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.hist.html">hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.tools.html">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.molUtils.html">molUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.mathUtils.html">mathUtils</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>match2seq</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.match2seq.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-biskit.match2seq">
+<span id="match2seq"></span><h1>match2seq<a class="headerlink" href="#module-biskit.match2seq" title="Permalink to this headline">¶</a></h1>
+<p>Match 2 sequences against each other, deleting all positions that differ.
+compareStructures() compares sequences of 2 structures and returns
+a residue mask for each of them.</p>
+<p class="rubric">Functions Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.match2seq.compareModels" title="biskit.match2seq.compareModels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compareModels</span></code></a></td>
+<td>Initiates comparison of the sequences of two structure objects and returns two equal sequence lists (new_seqAA_1 and new_seqAA_2 should be identical) and the corresponding residue position lists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.match2seq.compareSequences" title="biskit.match2seq.compareSequences"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compareSequences</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.match2seq.del2mask" title="biskit.match2seq.del2mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">del2mask</span></code></a></td>
+<td>convert list of (from, to) delete positions into a mask of 0 or 1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.match2seq.expandRepeats" title="biskit.match2seq.expandRepeats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandRepeats</span></code></a></td>
+<td>Expand a text fragment within a larger string so that it includes any sequence repetitions to its right or left edge.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.match2seq.expandRepeatsLeft" title="biskit.match2seq.expandRepeatsLeft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandRepeatsLeft</span></code></a></td>
+<td>recursively identify sequence repeats on left edge of s[start:end]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.match2seq.expandRepeatsRight" title="biskit.match2seq.expandRepeatsRight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandRepeatsRight</span></code></a></td>
+<td>recursively identify sequence repeats on right edge of s[start:end]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.match2seq.getEqual" title="biskit.match2seq.getEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEqual</span></code></a></td>
+<td>Gets only the postions of the sequences that are equal according to the OpCodes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.match2seq.getEqualLists" title="biskit.match2seq.getEqualLists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEqualLists</span></code></a></td>
+<td>Extract information about regions in the sequences that are equal.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.match2seq.getOpCodes" title="biskit.match2seq.getOpCodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOpCodes</span></code></a></td>
+<td>Compares two sequences and returns a list with the information needed to convert the first one sequence into the second.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.match2seq.getSkipLists" title="biskit.match2seq.getSkipLists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSkipLists</span></code></a></td>
+<td>Extracts information about what residues that have to be removed from sequence 1 (delete code) and sequence 2 (insert code).</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">SequenceMatcher</span></code></td>
+<td>SequenceMatcher is a flexible class for comparing pairs of sequences of any type, so long as the sequence elements are hashable.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>match2seq Module Details</h2><dl class="function">
+<dt id="biskit.match2seq.getOpCodes">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">getOpCodes</code><span class="sig-paren">(</span><em>seq_1</em>, <em>seq_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#getOpCodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.getOpCodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares two sequences and returns a list with the information
+needed to convert the first one sequence into the second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq_1</strong> (<em>[ </em><em>str</em><em> ]</em>) – list of single letters</li>
+<li><strong>seq_2</strong> (<em>[ </em><em>str</em><em> ]</em>) – list of single letters</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Optimization code from difflib::
+[(‘delete’, 0, 1, 0, 0), (‘equal’, 1, 4, 0, 3),</p>
+<blockquote>
+<div><p>(‘insert’, 4, 4, 3, 4), (‘equal’, 4, 180, 4, 180)]</p>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[tuples]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.getSkipLists">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">getSkipLists</code><span class="sig-paren">(</span><em>seqDiff</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#getSkipLists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.getSkipLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts information about what residues that have to be removed
+from sequence 1 (delete code) and sequence 2 (insert code).
+Returns deletion codes in the format (start_pos, length).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seqDiff</strong> (<em>[</em><em>tuples</em><em>]</em>) – opcodes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Lists of tuples containing regions of the sequences that
+should be deteted. Example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">strucDel_1</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+<span class="n">strucDel_2</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">207</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[tuple], [tuple]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.getEqualLists">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">getEqualLists</code><span class="sig-paren">(</span><em>seqDiff</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#getEqualLists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.getEqualLists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract information about regions in the sequences that are equal.
+Returns deletion codes in the format (start_pos, length).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seqDiff</strong> (<em>[</em><em>tuples</em><em>]</em>) – opcodes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Lists of tuples containing regions of the sequences that
+are equal. Example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">strucEqual_1</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">216</span><span class="p">)]</span>
+<span class="n">strucEqual_2</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">216</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[tuple], [tuple]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.expandRepeatsLeft">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">expandRepeatsLeft</code><span class="sig-paren">(</span><em>s</em>, <em>start</em>, <em>end</em>, <em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#expandRepeatsLeft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.expandRepeatsLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>recursively identify sequence repeats on left edge of s[start:end]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.expandRepeatsRight">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">expandRepeatsRight</code><span class="sig-paren">(</span><em>s</em>, <em>start</em>, <em>end</em>, <em>length=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#expandRepeatsRight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.expandRepeatsRight" title="Permalink to this definition">¶</a></dt>
+<dd><p>recursively identify sequence repeats on right edge of s[start:end]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.expandRepeats">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">expandRepeats</code><span class="sig-paren">(</span><em>s</em>, <em>start</em>, <em>size</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#expandRepeats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.expandRepeats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand a text fragment within a larger string so that it includes any
+sequence repetitions to its right or left edge.</p>
+<p class="rubric">Example</p>
+<p>ABC[BC]CCCDE  -&gt; A[BCCCC]DE</p>
+<p>The idea here is to avoid alignment missmatches due to duplications.
+The above to sequences could be aligned in several ways, for example:</p>
+<blockquote>
+<div>A–BC—DE      AB—-C-DE
+ABCBCCCCDE  or  ABCBCCCCDE</div></blockquote>
+<p>We don’t know for sure which positions should be kept and which positions
+should be deleted in the longer string. So the most conservative approach
+is to remove the whole ambiguous fragment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s</strong> (<em>str</em>) – input string</li>
+<li><strong>start</strong> (<em>int</em>) – start position of text fragment</li>
+<li><strong>size</strong> (<em>int</em>) – size of text fragment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">start and size of expanded fragment</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(int, int)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.getEqual">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">getEqual</code><span class="sig-paren">(</span><em>seqAA</em>, <em>seqNr</em>, <em>equalList</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#getEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.getEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets only the postions of the sequences that are equal according
+to the OpCodes. This should not be nessesary but might be usefull
+to skip ‘replace’ OpCode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seqAA</strong> (<em>[</em><em>str</em><em>]</em>) – list with the amino acid sequence in one letter code</li>
+<li><strong>seqNr</strong> (<em>[</em><em>int</em><em>]</em>) – list with the amino acid postitons</li>
+<li><strong>equalList</strong> (<em>[</em><em>tuple</em><em>]</em><em>, </em><em>[</em><em>tuple</em><em>]</em>) – Lists of tuples containing regions of the sequences that
+are equal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">lists of amino acids and positions where equal</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[str], [int]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.del2mask">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">del2mask</code><span class="sig-paren">(</span><em>seq</em>, <em>*delpos</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#del2mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.del2mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert list of (from, to) delete positions into a mask of 0 or 1</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.compareSequences">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">compareSequences</code><span class="sig-paren">(</span><em>seqAA_1</em>, <em>seqAA_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#compareSequences"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.compareSequences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="biskit.match2seq.compareModels">
+<code class="descclassname">biskit.match2seq.</code><code class="descname">compareModels</code><span class="sig-paren">(</span><em>model_1</em>, <em>model_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/match2seq.html#compareModels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.match2seq.compareModels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates comparison of the sequences of two structure objects and
+returns two equal sequence lists (new_seqAA_1 and new_seqAA_2 should
+be identical) and the corresponding residue position lists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model_1</strong> (<a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a>) – model</li>
+<li><strong>model_2</strong> (<a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a>) – model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">tuple of atom masks for model_1 and model_2::
+e.g. ( [0001011101111111], [1110000111110111] )</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">([1|0…],[1|0…])</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.rmsFit.html" class="btn btn-neutral float-right" title="rmsFit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.mathUtils.html" class="btn btn-neutral" title="mathUtils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
