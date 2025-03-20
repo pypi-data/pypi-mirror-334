@@ -1,0 +1,481 @@
+$id: https://jsonschemata.repodynamics.com/config/python/pyproject
+title: pyproject.toml
+summary: >-
+  Python [`pyproject.toml`](https://packaging.python.org/en/latest/specifications/pyproject-toml) 
+  specification file.
+description: |
+  `pyproject.toml` is the main configuration file in Python projects
+  for specifying the build system and dependencies.
+  First introduced in [PEP 518](https://peps.python.org/pep-0518) and
+  [PEP 621](https://peps.python.org/pep-0621),
+  it is now the standard build configuration file for Python projects,
+  used by tools such as `pip` and `setuptools` to build and package the application.
+  
+  References:
+  - [Python Packaging User Guide](https://packaging.python.org) by the Python Packaging Authority (PyPA)
+  - [Setuptools User Guide](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html)   
+  - [Pip User Guide](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/)
+type: object
+additionalProperties: false
+properties:
+  build-system:
+    summary: >-
+      [Build system](https://packaging.python.org/en/latest/specifications/pyproject-toml/#declaring-build-system-dependencies-the-build-system-table)
+      specifications.
+    type: object
+    additionalProperties: false
+    required: [ requires ]
+    properties:
+      build-backend:
+        summary: >-
+          [Build backend](https://packaging.python.org/en/latest/glossary/#term-Build-Backend) name.
+        description: |
+          Learn more about [choosing](https://packaging.python.org/en/latest/tutorials/packaging-projects/#choosing-build-backend)
+          and [declaring](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#declaring-the-build-backend)
+          your build backend.
+        type: string
+        examples:
+          - setuptools.build_meta
+          - hatchling.build
+      requires:
+        summary: Build system dependencies.
+        description: |
+          List of dependencies required to execute the build system.
+        type: array
+        minItems: 1
+        uniqueItems: true
+        items:
+          title: Dependency
+          summary: A build system dependency.
+          description: |
+            The dependency must be defined as a string following the
+            [PEP 508](https://peps.python.org/pep-0508)
+            [version specifier specification](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+          type: string
+          minLength: 1
+        examples:
+          - setuptools
+          - setuptools >=72.1.0
+  project:
+    summary: >-
+      [Project metadata](https://packaging.python.org/en/latest/specifications/pyproject-toml/#declaring-project-metadata-the-project-table).
+    description: |
+      This corresponds to [core metadata](https://packaging.python.org/en/latest/specifications/core-metadata)
+      specifications for Python projects, including the project name, version, and description.
+    type: object
+    additionalProperties: false
+    required: [ name ]
+    oneOf:
+      - required: [ version ]
+      - required: [ dynamic ]
+        properties:
+          dynamic:
+            contains:
+              type: string
+              const: version
+    properties:
+      name:
+        summary: Project [name](https://packaging.python.org/en/latest/specifications/pyproject-toml/#name).
+        description: |
+          The name field is the primary identifier for a distribution. 
+          It must conform to the [name format specification](https://packaging.python.org/en/latest/specifications/name-normalization/#name-format).
+        type: string
+        pattern: ^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9])$
+        examples:
+          - MyProject
+          - my-project-2
+      version:
+        summary: Project [version](https://packaging.python.org/en/latest/specifications/pyproject-toml/#version).
+        description: |
+          The version of the project, as defined in the 
+          [Version specifier specification](https://packaging.python.org/en/latest/specifications/version-specifiers/#version-specifiers).
+          It must match the non-normalized 
+          [regular expression](https://packaging.python.org/en/latest/specifications/version-specifiers/#appendix-parsing-version-strings-with-regular-expressions).
+        type: string
+        pattern: ^\s*v?(?:(?:([0-9]+)!)?([0-9]+(?:\.[0-9]+)*)([-_\.]?(a|b|c|rc|alpha|beta|pre|preview)[-_\.]?([0-9]+)?)?((?:-([0-9]+))|(?:[-_\.]?(post|rev|r)[-_\.]?([0-9]+)?))?([-_\.]?(dev)[-_\.]?([0-9]+)?)?)(?:\+(?P<local>[a-z0-9]+(?:[-_\.][a-z0-9]+)*))?\s*$
+        examples:
+          - 1.0.0
+          - 1.2.3a1
+          - 1.2.3.post1
+          - 1!2.0.0
+      description:
+        summary: Project [description](https://packaging.python.org/en/latest/specifications/pyproject-toml/#description).
+        description: |
+          The summary description of the project in one line.
+        $ref: https://jsonschemata.repodynamics.com/string/oneline
+        examples:
+          - A Python package for data analysis.
+          - A Python package for machine learning.
+      readme:
+        summary: Project [readme](https://packaging.python.org/en/latest/specifications/pyproject-toml/#readme).
+        description: |
+          The full description of the project (i.e. the README).
+          The key accepts either a string or a table. 
+          If it is a string then it is a path relative to `pyproject.toml`
+          to a text file containing the full description.
+          The readme key may also take a table. 
+          The `file` key has a string value representing a path 
+          relative to `pyproject.toml` to a file containing the full description. 
+          The `text` key has a string value which is the full description. 
+          These keys are mutually-exclusive.
+        oneOf:
+          - title: Filepath
+            summary: Path to a file containing the full description.
+            $ref: https://jsonschemata.repodynamics.com/path/posix/absolute-from-cwd
+          - title: Details
+            summary: Configuration details for the full description.
+            description: |
+              The `file` and `text` keys are mutually-exclusive,
+              but one of them must be present.
+            type: object
+            additionalProperties: false
+            required: [ content-type ]
+            oneOf:
+              - required: [ file ]
+              - required: [ text ]
+            properties:
+              file:
+                summary: Description filepath.
+                description: |
+                  Path to a file containing the full description.
+                $ref: https://jsonschemata.repodynamics.com/path/posix/absolute-from-cwd
+              text:
+                summary: Description content.
+                description: |
+                  The full description of the project.
+                type: string
+                minLength: 1
+              content-type:
+                summary: Content type of the description.
+                type: string
+                enum:
+                  - text/markdown
+                  - text/x-rst
+                  - text/plain
+              charset:
+                summary: Character encoding of the description.
+                type: string
+                examples:
+                  - UTF-8
+                $ref: https://jsonschemata.repodynamics.com/string/oneline
+      requires-python:
+        summary: Required [Python version](https://packaging.python.org/en/latest/specifications/pyproject-toml/#requires-python).
+        description: |
+          This field specifies the Python version(s) 
+          that the distribution is compatible with. 
+          Installation tools may look at this when picking which version of a project to install.
+          The value must be in the format specified in [Version specifiers](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+          However, it cannot be followed by an environment marker.
+        type: string
+        examples:
+          - '>=3.6'
+          - '>=3.8'
+      license:
+        summary: Project [license](https://packaging.python.org/en/latest/specifications/pyproject-toml/#license).
+        description: |
+          Text string that is a valid [SPDX license expression](https://peps.python.org/pep-0639/#term-license-expression)
+          as defined in [PEP 639](https://peps.python.org/pep-0639).
+          Tools SHOULD validate and perform case normalization of the expression.
+        oneOf:
+          - type: string
+          - type: object
+            additionalProperties: false
+            oneOf:
+              - required: [ file ]
+              - required: [ text ]
+            properties:
+              file:
+                type: string
+              text:
+                type: string
+        examples:
+          - MIT
+          - MIT AND (Apache-2.0 OR BSD-2-Clause)
+          - GPL-3.0-only WITH Classpath-Exception-2.0 OR BSD-3-Clause
+          - LicenseRef-Special-License OR CC0-1.0 OR Unlicense
+      license-files:
+        summary: Project [license files](https://packaging.python.org/en/latest/specifications/pyproject-toml/#license-files).
+        description: |
+          An array specifying paths in the project source tree 
+          relative to the project root directory 
+          (i.e. directory containing pyproject.toml or legacy project configuration files) 
+          to file(s) containing licenses and other legal notices to be distributed with the package.
+          The strings MUST contain valid glob patterns.
+          
+          If the license-files key is present and is set to a value of an empty array, 
+          then tools MUST NOT include any license files and MUST NOT raise an error. 
+          If the license-files key is not defined, tools can decide how to handle license files. 
+          For example they can choose not to include any files or use their own logic 
+          to discover the appropriate files in the distribution.
+        type: array
+        items:
+          title: License file
+          summary: A filename or glob that matches a license file.
+          description: |
+            The filename or glob must be a valid path relative to the root of the project.
+          type: string
+          minLength: 1
+          examples:
+            - LICENSE
+            - LICENSE.txt
+            - LICENSE.*
+      authors:
+        summary: Project [authors](https://packaging.python.org/en/latest/specifications/pyproject-toml/#authors-maintainers).
+        description: |
+          The people or organizations considered to be the “authors” of the project. 
+          The exact meaning is open to interpretation — 
+          it may list the original or primary authors, current maintainers, or owners of the package.
+        type: array
+        uniqueItems: true
+        items:
+          $ref: https://jsonschemata.repodynamics.com/config/python/pyproject-person
+      maintainers:
+        summary: Project [maintainers](https://packaging.python.org/en/latest/specifications/pyproject-toml/#authors-maintainers).
+        description: |
+          The people or organizations considered to be the “maintainers” of the project. 
+          The “maintainers” key is similar to “authors” in that its exact meaning is open to interpretation.
+        type: array
+        uniqueItems: true
+        items:
+          $ref: https://jsonschemata.repodynamics.com/config/python/pyproject-person
+      keywords:
+        summary: Project [keywords](https://packaging.python.org/en/latest/specifications/pyproject-toml/#keywords).
+        description: |
+          An array of strings that provide additional metadata about the project. 
+          These strings are used to help categorize the project and make it more discoverable.
+          Keywords are used by indexing services and package managers
+          to categorize the package and make it easier to find.
+          For example, they are displayed on the package's homepage on PyPI and TestPyPI,
+          and can be used to filter packages in search results.
+        $ref: https://jsonschemata.repodynamics.com/array/unique-strings
+        examples:
+          - data
+          - analysis
+          - machine learning
+      classifiers:
+        summary: >-
+          [Trove classifiers](https://packaging.python.org/en/latest/specifications/pyproject-toml/#classifiers).
+        description: |
+          An array of strings that provide additional metadata about the project. 
+          These strings are used to help categorize the project and make it more discoverable.
+          Classifiers are used by indexing services and package managers
+          to categorize the package and make it easier to find.
+          For example, they are displayed on the package's homepage on PyPI and TestPyPI,
+          and can be used to filter packages in search results.
+          
+          Classifiers are categorized into the following groups:
+          - Development Status
+          - Environment
+          - Framework
+          - Intended Audience
+          - License (DEPRECATED, see `license` field)
+          - Natural Language
+          - Operating System
+          - Programming Language
+          - Topic
+          - Typing
+
+          For a full list of classifiers, see the [PyPI classifiers list](https://pypi.org/classifiers/)
+          or the [`trove-classifiers`](https://github.com/pypa/trove-classifiers/blob/main/src/trove_classifiers/__init__.py)
+          Python package from PyPA.
+        examples:
+          - 'Intended Audience :: Science/Research'
+          - 'Topic :: Scientific/Engineering :: Artificial Intelligence'
+          - Development Status :: 3 - Alpha
+          - Intended Audience :: Developers
+          - 'License :: OSI Approved :: MIT License'
+          - 'Programming Language :: Python :: 3'
+        type: array
+        uniqueItems: true
+        items:
+          title: Trove classifier
+          type: string
+          pattern: '^.+( :: [^::]+)+$'
+      urls:
+        summary: Project [URLs](https://packaging.python.org/en/latest/specifications/pyproject-toml/#urls).
+        description: |
+          A table of URLs where the key is the URL label and the value is the URL itself. 
+          Some keys and URL patterns are recognized by PyPI and other supporting tools
+          and displayed with a custom icon.
+          For more details, see 
+          [Well-known Project URLs in Metadata](https://packaging.python.org/en/latest/specifications/well-known-project-urls/),
+          [PyPI documentation](https://docs.pypi.org/project_metadata/#icons),
+          and the corresponding [Warehouse source code](https://github.com/pypi/warehouse/blob/e69029dc1b23eb2436a940038b927e772238a7bf/warehouse/templates/packaging/detail.html#L20-L62).
+        examples:
+          - Homepage: https://example.com
+            Documentation: https://example.com/docs
+            Source: https://example.com/source
+            Download: https://example.com/download
+            News: https://example.com/news
+            Issue-Tracker: https://example.com/issues
+          - home page: https://example.com
+            docs: https://example.com/docs
+            repository: https://example.com/source
+            changes: https://example.com/news
+            bugs: https://example.com/issues
+        type: object
+        additionalProperties:
+          title: URL
+          summary: URL of a project resource.
+          $ref: https://jsonschemata.repodynamics.com/url/http-ftp-sftp
+      scripts:
+        summary: Project [console scripts](https://packaging.python.org/en/latest/specifications/pyproject-toml/#entry-points).
+        description: |
+          CLI scripts that are installed when the package is installed.
+          This corresponds to the `console_scripts` group in the 
+          [entry points specification](https://packaging.python.org/en/latest/specifications/entry-points/#entry-points). 
+          The key of the table is the name of the entry point
+          (i.e., the user command that will be used to launch it)
+          and the value is the object reference
+          either in the form `importable.module` or `importable.module:object.attr`. 
+          Each of the parts delimited by dots and the colon is a valid Python identifier.
+        $ref: https://jsonschemata.repodynamics.com/config/python/pyproject-entrypoint
+      gui-scripts:
+        summary: Project [GUI scripts](https://packaging.python.org/en/latest/specifications/pyproject-toml/#entry-points).
+        description: |
+          GUI scripts that are installed when the package is installed.
+          This corresponds to the `gui_scripts` group in the 
+          [entry points specification](https://packaging.python.org/en/latest/specifications/entry-points/#entry-points). 
+          The format is the same as `[project.scripts]`.
+        $ref: https://jsonschemata.repodynamics.com/config/python/pyproject-entrypoint
+      entry-points:
+        summary: Project [entry points](https://packaging.python.org/en/latest/specifications/pyproject-toml/#entry-points).
+        description: |
+          A collection of tables where each sub-table’s name is an entry point group. 
+          The key and value semantics are the same as `[project.scripts]`.
+          Users MUST NOT create nested sub-tables but instead 
+          keep the entry point groups to only one level deep.
+        type: object
+        additionalProperties:
+          title: Entry Point Group
+          summary: A group of project entry points.
+          $ref: https://jsonschemata.repodynamics.com/config/python/pyproject-entrypoint
+      dependencies:
+        summary: Project [dependencies](https://packaging.python.org/en/latest/specifications/pyproject-toml/#dependencies-optional-dependencies).
+        description: |
+          A list of [PEP 508](https://peps.python.org/pep-0508)-compliant dependency strings.
+        type: array
+        items:
+          title: Dependency
+          summary: A project dependency.
+          description: |
+            The dependency must be defined as a string following the
+            [PEP 508](https://peps.python.org/pep-0508)
+            [version specifier specification](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+          type: string
+          minLength: 1
+        examples:
+          - 'numpy'
+          - 'numpy>=1.20.0'
+          - 'numpy>=1.20.0, <2.0.0'
+          - 'numpy>=1.20.0, <2.0.0; python_version >= "3.6"'
+      optional-dependencies:
+        summary: Project [optional dependencies](https://packaging.python.org/en/latest/specifications/pyproject-toml/#dependencies-optional-dependencies).
+        description: |
+          A table of optional dependencies where the key is the name of the optional dependency group
+          and the value is an array of [PEP 508](https://peps.python.org/pep-0508)-compliant dependency strings.
+        type: object
+        additionalProperties:
+          title: Optional Dependency Group
+          summary: A group of optional dependencies.
+          type: array
+          items:
+            title: Dependency
+            summary: An optional dependency in the group.
+            description: |
+              The dependency must be defined as a string following the
+              [PEP 508](https://peps.python.org/pep-0508)
+              [version specifier specification](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+            type: string
+            minLength: 1
+        examples:
+          - acc:
+              - tensorflow-gpu
+              - torch
+              - jax
+              - dask
+            cpu:
+              - numpy
+              - scipy
+              - pandas
+      dependency-groups:
+        summary: Project [dependency groups](https://packaging.python.org/en/latest/specifications/dependency-groups/).
+        description: |
+          Introduced in [PEP 735](https://peps.python.org/pep-0735/),
+          dependency groups are a mechanism for storing package requirements 
+          in `pyproject.toml` files such that they are not included in project metadata when it is built.
+          Dependency Groups are suitable for internal development use-cases 
+          like linting and testing, as well as for projects which are not built for distribution, 
+          like collections of related scripts.
+          Fundamentally, Dependency Groups should be thought of as being 
+          a standardized subset of the capabilities of `requirements.txt` files.
+        type: object
+        additionalProperties:
+          title: Dependency Group
+          summary: A group of dependencies.
+          description: |
+            This is similar to optional dependecy groups,
+            but the dependencies are not included in the project metadata when it is built.
+          type: array
+          items:
+            title: Dependency
+            summary: An optional dependency in the group.
+            description: |
+              The dependency must be defined as a string following the
+              [PEP 508](https://peps.python.org/pep-0508)
+              [version specifier specification](https://packaging.python.org/en/latest/specifications/version-specifiers/).
+              Alternatively, it can be a [Dependency Group Include](https://packaging.python.org/en/latest/specifications/dependency-groups/#dependency-group-include),
+              i.e., a table with a single key `include-group`
+              whose value is the name of another dependency group to include.
+            oneOf:
+              - type: string
+                minLength: 1
+              - type: object
+                additionalProperties: false
+                required: [ include-group ]
+                properties:
+                  include-group:
+                    title: Dependency Group Include
+                    summary: Include another dependency group.
+                    description: |
+                      The name of another dependency group to include.
+                    type: string
+      dynamic:
+        summary: Dynamic project [metadata keys](https://packaging.python.org/en/latest/specifications/pyproject-toml/#dynamic).
+        description: |
+          Specifies which keys listed by this PEP were intentionally unspecified 
+          so another tool can/will provide such metadata dynamically. 
+          This clearly delineates which metadata is purposefully 
+          unspecified and expected to stay unspecified compared to 
+          being provided via tooling later on.
+        type: array
+        uniqueItems: true
+        items:
+          title: Dynamic metadata key
+          type: string
+          minLength: 1
+  tool:
+    summary: Arbitrary [tool configurations](https://packaging.python.org/en/latest/specifications/pyproject-toml/#arbitrary-tool-configuration-the-tool-table).
+    description: |
+      The `[tool]` table is where any tool related to your Python project, 
+      not just build tools, can have users specify configuration data 
+      as long as they use a sub-table within `[tool]`, 
+      e.g. the `flit` tool would store its configuration in [tool.flit].
+      
+      A mechanism is needed to allocate names within the tool.* namespace, 
+      to make sure that different projects do not attempt to use 
+      the same sub-table and collide. 
+      Our rule is that a project can use the subtable `tool.$NAME` if, and only if, 
+      they own the entry for `$NAME` in the Cheeseshop/PyPI.
+    type: object
+    additionalProperties:
+      type: object
+    properties:
+      setuptools:
+        summary: >-
+          [Setuptools](https://setuptools.pypa.io/) configuration.
+        $ref: https://jsonschemata.repodynamics.com/config/setuptools
+      versioningit:
+        summary: >-
+          [Versioningit](https://pypi.org/project/versioningit/) configuration.
+        $ref: https://jsonschemata.repodynamics.com/config/versioningit
