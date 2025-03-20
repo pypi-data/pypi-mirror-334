@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: CGETeaching-Project
+Version: 0.1
+Summary: A Simplified CGE Model for Teaching, Calibrated at the Year of 2007 for CHN's IO
+Home-page: https://junexqu.github.io/
+Author: Junxi Qu (HKU)
+Author-email: qujunxi@connect.hku.hk
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+
