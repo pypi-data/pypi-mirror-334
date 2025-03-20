@@ -1,0 +1,42 @@
+[tool.pdm.build]
+includes = [
+    "core_kit",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "core-toolkit"
+version = "0.1.22"
+description = ""
+readme = "README.md"
+authors = [
+    { name = "kras" },
+]
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "sqlalchemy[asyncio,mypy]<3.0.0,>=2.0.36",
+    "asyncpg[typed]<1.0.0,>=0.30.0",
+    "pydantic-settings<3.0.0,>=2.6.1",
+    "pydantic<3.0.0,>=2.10.1",
+    "python-json-logger<3.0.0,>=2.0.7",
+    "grpcio<2.0.0,>=1.68.0",
+    "grpcio-reflection<2.0.0,>=1.68.0",
+    "grpcio-tools<2.0.0,>=1.68.0",
+    "protobuf<6.0.0,>=5.28.3",
+    "grpc-interceptor<1.0.0,>=0.15.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest<9.0.0,>=8.3.3",
+    "pytest-asyncio>=0.24.0,<1.0.0",
+    "mypy<2.0.0,>=1.13.0",
+    "ruff<1.0.0,>=0.7.4",
+    "twine<6.0.0,>=5.1.1",
+    "mypy-protobuf<4.0.0,>=3.6.0",
+]
