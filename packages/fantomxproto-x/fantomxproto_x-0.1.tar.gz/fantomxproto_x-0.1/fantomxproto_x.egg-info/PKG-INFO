@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: fantomxproto-x
+Version: 0.1
+Summary: End-to-end encryption chat protocol
+Home-page: https://github.com/certikpolik1/fantomxryptx
+Author: ALfisene Keita
+Author-email: info@infopeklo.cz
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# VexusProto
+
+VexusProto is an end-to-end encryption chat protocol implemented in Python.
+It uses modern cryptographic algorithms to ensure secure communication.
