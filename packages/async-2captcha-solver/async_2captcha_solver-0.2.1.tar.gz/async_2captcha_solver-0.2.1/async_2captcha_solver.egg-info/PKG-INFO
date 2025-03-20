@@ -1,0 +1,35 @@
+Metadata-Version: 2.2
+Name: async_2captcha_solver
+Version: 0.2.1
+Summary: An Async wrapper for 2captcha solver API
+Author-email: Rune Tech <runetech2024@gmail.com>
+License: The MIT License (MIT)
+        Copyright © 2024 Rune Tech
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Project-URL: Homepage, https://github.com/runetech0/async_2captcha_wrapper
+Project-URL: github, https://github.com/runetech0/async_2captcha_wrapper
+Keywords: async,2captcha,2captcha.com,captcha,solver
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp>=3.10.10
+Requires-Dist: aiohttp_socks>=0.9.0
+
+
+
+# async-2captcha-solver
+
+An async wrapper for 2captcha.com API to solve captchas in async apps.
+
+
+NOTE: This is not a complete API wrapper yet because I have created this for some personal projects but feel free to add more to it.
+
+
+
+
+[See the changelog here](CHANGELOG.md)
