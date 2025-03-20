@@ -1,0 +1,2 @@
+[console_scripts]
+resumebuilder = resumebuilder.cli.main:main
