@@ -1,0 +1,35 @@
+Metadata-Version: 2.2
+Name: diverge
+Version: 4.0.4
+Summary: DIVERGE 4.0: A Python package for detecting functional divergence in protein family evolution
+Home-page: https://github.com/zjupgx/diverge4
+Author: cyc
+Author-email: 3170103839@zju.edu.cn
+Keywords: bioinformatics evolution functional-divergence protein-family
+Description-Content-Type: text/plain
+License-File: LICENSE
+Requires-Dist: biopython
+Requires-Dist: joblib
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: pybind11
+Requires-Dist: pymsaviz
+Requires-Dist: scikit_bio
+Requires-Dist: scipy
+Requires-Dist: setuptools
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+DIVERGE 4.0 is a comprehensive software package for detecting functional divergence in protein family evolution. 
+    It implements various statistical methods to identify amino acid sites that have undergone functional divergence, 
+    including Type-I and Type-II functional divergence. This package is an essential tool for researchers 
+    in evolutionary biology, bioinformatics, and computational biology.
