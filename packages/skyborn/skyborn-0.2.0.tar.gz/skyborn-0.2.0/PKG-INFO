@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: skyborn
+Version: 0.2.0
+Summary: Atmospheric science research utilities
+Author: Qianye Su
+Author-email: suqianye2000@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy
+Requires-Dist: xarray
+Requires-Dist: matplotlib
+Requires-Dist: cartopy
+Requires-Dist: netCDF4
+Requires-Dist: metpy
+Requires-Dist: cfgrib
+Requires-Dist: eccodes
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+Skyborn is a tool for easy plotting ERA5 weather data.
