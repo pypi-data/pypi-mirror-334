@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: keyst-monero-toolkit
+Version: 0.1
+Summary: BIP39 mnemonic/seed to Monero mnemonic tool for Keystone3 pro hardware wallet
+Requires-Python: >=3.12
+Requires-Dist: bip-utils==2.9.3
+Requires-Dist: click>=8.1.8
+Requires-Dist: pycryptodome>=3.21.0
+Requires-Dist: pynacl==1.5.0
+Requires-Dist: pytest>=8.3.5
