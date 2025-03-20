@@ -1,0 +1,28 @@
+Metadata-Version: 2.3
+Name: ground-motion-tools
+Version: 0.1.1
+Summary: 
+License: MIT
+Author: RichardoGu
+Author-email: xiaopenggu@qq.com
+Requires-Python: >=3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: geopy (>=2.4.1,<3.0.0)
+Requires-Dist: numpy (>=2.2.4,<3.0.0)
+Requires-Dist: scipy (>=1.15.2,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Ground-Motion-Tools
+
+## Installation
+
+```commandline
+pip install ground-motion-tools
+```
+
+## 
