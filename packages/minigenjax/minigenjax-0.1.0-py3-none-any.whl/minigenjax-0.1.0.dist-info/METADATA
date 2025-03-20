@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: minigenjax
+Version: 0.1.0
+Summary: 
+License: Apache 2.0
+Author: Colin Smith
+Author-email: colin.smith@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: dm-tree (==0.1.8)
+Requires-Dist: jax (==0.4.38)
+Requires-Dist: jaxtyping (>=0.2.34,<0.3.0)
+Requires-Dist: numpy (<2.0.0)
+Requires-Dist: tensorflow-probability[jax] (>=0.25.0,<0.26.0)
+Description-Content-Type: text/markdown
+
+# minigenjax
+
+See the [CHI memo](https://www.notion.so/chi-mit/minigenjax-11d01b4b8cde805790d3cc6ec359d385?pvs=4)
+
