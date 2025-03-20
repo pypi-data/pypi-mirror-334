@@ -1,0 +1,11 @@
+typer
+jsonschema[format-nongpl]==4.21.1
+
+[:python_version < "3.11"]
+tomli
+
+[dev]
+coverage
+mypy
+pytest
+ruff
