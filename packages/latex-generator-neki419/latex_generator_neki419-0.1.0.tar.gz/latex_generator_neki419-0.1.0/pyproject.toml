@@ -1,0 +1,24 @@
+[project]
+name = "latex-generator-neki419"
+version = "0.1.0"
+description = "Library for generating LaTeX tables and images"
+authors = [
+    {name = "Седляр Никита", email = "nasedliar@edu.hse.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "latex-generator-hw2"
+version = "0.1.0"
+description = "Library for generating LaTeX tables and images"
+authors = ["Седляр Никита <nasedliar@edu.hse.ru>"]
+license = "MIT"
+readme = "README.md"
+
+packages = [{ include = "hw2/latex_generator", from = "." }]
