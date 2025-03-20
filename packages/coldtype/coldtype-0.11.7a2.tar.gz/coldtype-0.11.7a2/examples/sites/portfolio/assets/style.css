@@ -1,0 +1,8 @@
+body {
+  background: lightgreen;
+  font-family: var(--text-font), monospace;
+}
+
+a {
+  color: royalblue;
+}

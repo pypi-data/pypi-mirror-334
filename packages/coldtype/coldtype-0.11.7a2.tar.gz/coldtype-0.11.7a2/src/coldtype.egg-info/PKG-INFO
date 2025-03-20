@@ -1,0 +1,114 @@
+Metadata-Version: 2.2
+Name: coldtype
+Version: 0.11.7a2
+Summary: Functions for manual vectorized typesetting.
+Author-email: Rob Stenson <rob.stenson@gmail.com>
+Project-URL: Homepage, https://coldtype.xyz
+Project-URL: Documentation, https://coldtype.goodhertz.com
+Project-URL: Repository, https://github.com/coldtype/coldtype
+Project-URL: Issues, https://github.com/coldtype/coldtype/issues
+Project-URL: Changelog, https://github.com/coldtype/coldtype/blob/main/CHANGELOG.md
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: fontPens==0.2.4
+Requires-Dist: easing-functions==1.0.4
+Requires-Dist: b3denv>=0.0.12
+Requires-Dist: coldtype-fontgoggles==1.8.4.7b2
+Requires-Dist: skia-pathops
+Requires-Dist: defcon
+Provides-Extra: more-fonts
+Requires-Dist: ufo2ft>=3.2.8; extra == "more-fonts"
+Requires-Dist: coldtype-fontgoggles[more-fonts]==1.8.4.7b2; extra == "more-fonts"
+Provides-Extra: drawbot
+Requires-Dist: numpy; extra == "drawbot"
+Provides-Extra: viewer
+Requires-Dist: glfw; extra == "viewer"
+Requires-Dist: PyOpenGL; extra == "viewer"
+Requires-Dist: skia-python; extra == "viewer"
+Requires-Dist: skia-pathops; extra == "viewer"
+Requires-Dist: numpy; extra == "viewer"
+Requires-Dist: potracer; extra == "viewer"
+Requires-Dist: requests; extra == "viewer"
+Requires-Dist: mido; extra == "viewer"
+Requires-Dist: ufo2ft>=3.2.8; extra == "viewer"
+Requires-Dist: coldtype-fontgoggles[more-fonts]==1.8.4.7b2; extra == "viewer"
+Provides-Extra: unicode
+Requires-Dist: unicodedata2; extra == "unicode"
+Provides-Extra: notebook
+Requires-Dist: skia-pathops; extra == "notebook"
+Requires-Dist: skia-python; extra == "notebook"
+Requires-Dist: potracer; extra == "notebook"
+Requires-Dist: tdqm; extra == "notebook"
+Provides-Extra: audio
+Requires-Dist: pyaudio; extra == "audio"
+Requires-Dist: soundfile; extra == "audio"
+Provides-Extra: website
+Requires-Dist: jinja2; extra == "website"
+Requires-Dist: python-frontmatter; extra == "website"
+Requires-Dist: livereload; extra == "website"
+Requires-Dist: Markdown; extra == "website"
+Requires-Dist: markdown-captions; extra == "website"
+Requires-Dist: beautifulsoup4; extra == "website"
+Requires-Dist: brotli; extra == "website"
+Requires-Dist: lxml; extra == "website"
+Requires-Dist: pygments; extra == "website"
+Requires-Dist: sourcetypes; extra == "website"
+Requires-Dist: favicons; extra == "website"
+
+__⚠️🌋 Disclaimer: this library is alpha-quality; the API is subject to change 🌋⚠️__
+
+---
+
+# Coldtype
+
+_Hello and welcome to `coldtype`, an odd little library for programmatic typography, written for use on [Goodhertz](https://goodhertz.com) projects and [text animations](https://vimeo.com/robstenson)._
+
+For __installation and tutorials__, check out [coldtype.goodhertz.com](https://coldtype.goodhertz.com)
+
+Here’s a quick example:
+
+```python
+from coldtype import *
+
+@renderable((1580, 350))
+def render(r):
+    return P(
+        P(r.inset(10)).outline(10).f(hsl(0.65)),
+        StSt("COLDTYPE", Font.ColdtypeObviously()
+            , fontSize=250
+            , wdth=1
+            , tu=-250
+            , r=1
+            , rotate=15)
+            .align(r)
+            .fssw(hsl(0.65), 1, 5, 1)
+            .translate(0, 5))
+```
+
+Saving that code in a file named test.py and running `coldtype test.py` (or `uv run ct test.py` if you’re using `uv`) results in this image popping up on your screen in a dedicated window:
+
+![An example](https://raw.githubusercontent.com/goodhertz/coldtype/main/examples/renders/simple_render.png)
+
+## Documentation
+
+Check out [coldtype.goodhertz.com](https://coldtype.goodhertz.com) for instructions on installing and getting started with coldtype.
+
+## More Examples
+
+The best way to get familiar with Coldtype is to look at and try modifying some example code, like the animating gif below. To try out this example and many more, check out the [examples/animation](https://github.com/goodhertz/coldtype/tree/main/examples/animations) directory in this repo.
+
+## Contributing
+
+To get a development environment for Coldtype:
+
+```
+git clone https://github.com/coldtype/coldtype.git
+uv sync --extra viewer
+uv run ct examples/animations/808.py
+```
+
+To run tests, etc.
+
+```
+uv sync --extra dev
+```
