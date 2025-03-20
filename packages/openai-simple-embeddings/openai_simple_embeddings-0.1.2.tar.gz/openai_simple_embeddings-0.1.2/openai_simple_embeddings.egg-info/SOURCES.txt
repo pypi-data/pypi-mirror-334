@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+openai_simple_embeddings/__init__.py
+openai_simple_embeddings/base.py
+openai_simple_embeddings/langchain_embeddings.py
+openai_simple_embeddings/settings.py
+openai_simple_embeddings.egg-info/PKG-INFO
+openai_simple_embeddings.egg-info/SOURCES.txt
+openai_simple_embeddings.egg-info/dependency_links.txt
+openai_simple_embeddings.egg-info/not-zip-safe
+openai_simple_embeddings.egg-info/requires.txt
+openai_simple_embeddings.egg-info/top_level.txt
