@@ -1,0 +1,4 @@
+jax>=0.5
+
+[test]
+pytest>=8.3

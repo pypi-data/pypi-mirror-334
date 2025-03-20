@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oqtimal"
+version = "0.0.4"
+authors = [
+    { name = "Lars Kühmichel", email = "larskuedev@gmail.com" },
+]
+description = "An Optimal Transport Library for Deep Learning."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "jax >= 0.5",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest >= 8.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/LarsKue/oqtimal"
+Issues = "https://github.com/LarsKue/oqtimal/issues"
