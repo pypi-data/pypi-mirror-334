@@ -1,0 +1,147 @@
+Metadata-Version: 2.4
+Name: ai-dynamo
+Version: 0.1.0
+Summary: Distributed Inference Framework
+Project-URL: Repository, https://github.com/ai-dynamo/dynamo.git
+Author-email: "NVIDIA Inc." <sw-dl-dynamo@nvidia.com>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: distributed,dynamo,genai,inference,llm,nvidia
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.10
+Requires-Dist: ai-dynamo-runtime==0.1.0
+Requires-Dist: bentoml==1.4.1
+Requires-Dist: kubernetes==32.0.1
+Requires-Dist: pytest>=8.3.4
+Requires-Dist: types-psutil==7.0.0.20250218
+Provides-Extra: all
+Requires-Dist: ai-dynamo-vllm==0.7.2; extra == 'all'
+Requires-Dist: nixl; extra == 'all'
+Provides-Extra: vllm
+Requires-Dist: ai-dynamo-vllm==0.7.2; extra == 'vllm'
+Description-Content-Type: text/markdown
+
+<!--
+SPDX-FileCopyrightText: Copyright (c) 2024-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+SPDX-License-Identifier: Apache-2.0
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+# NVIDIA Dynamo
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![GitHub Release](https://img.shields.io/github/v/release/ai-dynamo/dynamo)](https://github.com/ai-dynamo/dynamo/releases/latest)
+[![Discord](https://dcbadge.limes.pink/api/server/D92uqZRjCZ?style=flat)](https://discord.gg/D92uqZRjCZ)
+
+| **[Guides](docs/guides)** | **[Architecture and Features](docs/architecture.md)** | **[APIs](lib/bindings/python/README.md)** | **[SDK](deploy/dynamo/sdk/README.md)** |
+
+NVIDIA Dynamo is a high-throughput low-latency inference framework designed for serving generative AI and reasoning models in multi-node distributed environments. Dynamo is designed to be inference engine agnostic (supports TRT-LLM, vLLM, SGLang or others) and captures LLM-specific capabilities such as:
+
+- **Disaggregated prefill & decode inference** – Maximizes GPU throughput and facilitates trade off between throughput and latency.
+- **Dynamic GPU scheduling** – Optimizes performance based on fluctuating demand
+- **LLM-aware request routing** – Eliminates unnecessary KV cache re-computation
+- **Accelerated data transfer** – Reduces inference response time using NIXL.
+- **KV cache offloading** – Leverages multiple memory hierarchies for higher system throughput
+
+Built in Rust for performance and in Python for extensibility, Dynamo is fully open-source and driven by a transparent, OSS (Open Source Software) first development approach.
+
+### Installation
+
+The following examples require a few system level packages.
+
+```
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -yq python3-dev libucx0
+
+pip install ai-dynamo[all]
+```
+
+> [!NOTE]
+> TensorRT-LLM Support is currently available on a [branch](https://github.com/ai-dynamo/dynamo/tree/dynamo/trtllm_llmapi_v1/examples/trtllm#building-the-environment)
+
+### Running and Interacting with an LLM Locally
+
+To run a model and interact with it locally you can call `dynamo
+run` with a hugging face model. `dynamo run` supports several backends
+including: `mistralrs`, `sglang`, `vllm`, and `tensorrtllm`.
+
+#### Example Command
+
+```
+dynamo run out=vllm deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+```
+
+```
+? User › Hello, how are you?
+✔ User · Hello, how are you?
+Okay, so I'm trying to figure out how to respond to the user's greeting. They said, "Hello, how are you?" and then followed it with "Hello! I'm just a program, but thanks for asking." Hmm, I need to come up with a suitable reply. ...
+```
+
+### LLM Serving
+
+Dynamo provides a simple way to spin up a local set of inference
+components including:
+
+- **OpenAI Compatible Frontend** – High performance OpenAI compatible http api server written in Rust.
+- **Basic and Kv Aware Router** – Route and load balance traffic to a set of workers.
+- **Workers** – Set of pre-configured LLM serving engines.
+
+To run a minimal configuration you can use a pre-configured
+example.
+
+#### Start Dynamo Distributed Runtime Services
+
+First start the Dynamo Distributed Runtime services:
+
+```bash
+docker compose -f deploy/docker-compose.yml up -d
+```
+
+#### Start Dynamo LLM Serving Components
+
+Next serve a minimal configuration with an http server, basic
+round-robin router, and a single worker.
+
+```bash
+cd examples/llm
+dynamo serve graphs.agg:Frontend -f configs/agg.yaml
+```
+
+#### Send a Request
+
+```bash
+curl localhost:8000/v1/chat/completions   -H "Content-Type: application/json"   -d '{
+    "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "messages": [
+    {
+        "role": "user",
+        "content": "Hello, how are you?"
+    }
+    ],
+    "stream":false,
+    "max_tokens": 300
+  }' | jq
+```
+
