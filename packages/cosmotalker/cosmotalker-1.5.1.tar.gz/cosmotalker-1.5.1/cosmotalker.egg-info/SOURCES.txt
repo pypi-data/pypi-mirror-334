@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+cosmotalker/__init__.py
+cosmotalker/apod.py
+cosmotalker/celestrak.py
+cosmotalker/feedback.py
+cosmotalker/get.py
+cosmotalker/search.py
+cosmotalker/spacex.py
+cosmotalker/ss.txt
+cosmotalker.egg-info/PKG-INFO
+cosmotalker.egg-info/SOURCES.txt
+cosmotalker.egg-info/dependency_links.txt
+cosmotalker.egg-info/top_level.txt
