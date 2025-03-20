@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: PytTorus
+Version: 0.0.2
+Summary: Torus library for orbital mechanics
+Author: Sean Ly
+Author-email: seanly1101@gmail.com
+Requires-Python: >=3.7
+Requires-Dist: pybind11
