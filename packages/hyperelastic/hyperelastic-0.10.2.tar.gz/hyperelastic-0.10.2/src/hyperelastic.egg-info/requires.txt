@@ -1,0 +1,14 @@
+numpy
+scipy
+matplotlib
+
+[docs]
+pydata-sphinx-theme
+sphinx-copybutton
+myst-nb
+
+[test]
+felupe
+sympy
+torch
+einsumt
