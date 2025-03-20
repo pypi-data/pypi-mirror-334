@@ -1,0 +1,46 @@
+[build-system]
+build-backend = "maturin"
+
+requires = [ "maturin>=1.8,<2" ]
+
+[project]
+name = "dg"
+description = "dynamic-graphics-cli"
+keywords = [
+  "dgi",
+  "pyo3",
+  "rust",
+]
+license = "MIT OR Apache-2.0"
+maintainers = [
+  { name = "jesse rubin", email = "jessekrubin@gmail.com" },
+]
+authors = [
+  { name = "jesse rubin", email = "jessekrubin@gmail.com" },
+]
+
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Programming Language :: Rust",
+  "Topic :: Utilities",
+  "Typing :: Typed",
+]
+dynamic = [ "readme", "version" ]
+
+[tool.maturin]
+bindings = "bin"
+requires-python = ">=3.9"
+strip = true

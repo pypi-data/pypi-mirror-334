@@ -1,0 +1,80 @@
+[package]
+name = "dg"
+description = "dynamic-graphics-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+homepage.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+regex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing-subscriber.workspace = true
+tracing.workspace = true
+which.workspace = true
+
+[build-dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+strip = true
+debug = false
+lto = "thin" # or "fat"
+
+# release fat profile
+[profile.bench]
+inherits = "release"
+lto = "fat"
+
+[workspace.package]
+version = "0.0.3"
+authors = [
+  "jesse rubin <jesse@dgi.com>"
+]
+edition = "2021"
+homepage = "https://dgi.com"
+license = "MIT OR Apache-2.0"
+keywords = ["cli"]
+categories = ["api-bindings"]
+
+
+[workspace.dependencies]
+anyhow = "1.0.97"
+clap = { version = "4.5.32", features = ["derive"] }
+regex = "1.11.1"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter", "json"] }
+which = { version = "7.0.2", features = ["regex"] }
+
+[workspace.lints.clippy]
+# groups
+cargo = { level = "warn", priority = -2 }
+all = { level = "warn", priority = -2 }
+pedantic = { level = "warn", priority = -2 }
+correctness = { level = "warn", priority = 2 }
+panic = { level = "warn", priority = -1 }
+style = { level = "warn", priority = 1 }
+perf = { level = "warn", priority = 3 }
+# DENY lints
+unwrap_used = "deny"
+# allow pedantic
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+module_name_repetitions = "allow"
+similar_names = "allow"
+# cargo allowed
+multiple_crate_versions = "allow"
+
