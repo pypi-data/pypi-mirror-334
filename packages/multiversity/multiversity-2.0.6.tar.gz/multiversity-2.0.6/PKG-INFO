@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: multiversity
+Version: 2.0.6
+Summary: Package that includes the code related to the Multiplex Classification Approach and the MultiCaRe dataset.
+Home-page: https://github.com/mauro-nievoff/multiversity
+Author: Mauro Andrés Nievas Offidani
+Author-email: mauro.nievasoffidani@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: owlready2
+Requires-Dist: Bio
+Requires-Dist: lxml
+Requires-Dist: Pillow
+
+# multiversity package
+
+Package that includes the code related to the Multiplex Classification Approach and the MultiCaRe dataset.
