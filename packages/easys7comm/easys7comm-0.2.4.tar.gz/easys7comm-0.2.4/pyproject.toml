@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easys7comm"
+version = "0.2.4"
+authors = [
+  { name="Allan Marum", email="allan.marum@gmail.com" },
+]
+description = "A abstraction of python-snap7"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "License :: OSI Approved :: MIT License",
+]
+
+[tool.poetry.dependencies]
+python-snap7 = "^2.0.0"
+
+[project.urls]
+Homepage = "https://github.com/allanmarum/EasyS7Comm"
+Issues = "https://github.com/allanmarum/EasyS7Comm/issues"
+
