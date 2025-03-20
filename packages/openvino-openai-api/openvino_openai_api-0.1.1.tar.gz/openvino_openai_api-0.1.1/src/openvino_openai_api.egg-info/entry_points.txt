@@ -1,0 +1,2 @@
+[console_scripts]
+openvino-openai-server = openvino_openai_api.cli:main
