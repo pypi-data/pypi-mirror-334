@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.py
+sqlshell/__init__.py
+sqlshell/main.py
+sqlshell/setup.py
+sqlshell.egg-info/PKG-INFO
+sqlshell.egg-info/SOURCES.txt
+sqlshell.egg-info/dependency_links.txt
+sqlshell.egg-info/entry_points.txt
+sqlshell.egg-info/requires.txt
+sqlshell.egg-info/top_level.txt
+sqlshell/sqlshell/__init__.py
+sqlshell/sqlshell/create_test_data.py
+sqlshell/sqlshell/create_test_databases.py
