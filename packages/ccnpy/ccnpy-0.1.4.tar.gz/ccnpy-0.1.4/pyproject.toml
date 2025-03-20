@@ -1,0 +1,58 @@
+[project]
+name = "ccnpy"
+version = "0.1.4"
+description = "A pure python implementation of the CCNx client."
+authors = [
+    { name = "Marc Mosko", email = "marc@mosko.org" },
+]
+
+license = {text="Apache 2.0"}
+readme = "README.md"
+keywords = ["CCNx", "ICN", "Information Centric Networking"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Topic :: System :: Networking"
+]
+requires-python = ">=3.13"
+
+dependencies = [
+    "cryptography >= 43.0.1",
+    "jsbeautifier >= 1.15.1",
+    "crc32c >= 2.7.1",
+    "pytest >= 8.3.3",
+    "coverage >= 7.6.4",
+    "networkx >= 3.4.2",
+    "matplotlib >= 3.9.2",
+    "pydot >= 3.0.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/mmosko/ccnpy"
+Issues = "https://github.com/mmosko/ccnpy/issues"
+
+[tool.coverage.run]  
+branch = true  
+source = ["./ccnpy"]  
+dynamic_context = "test_function" 
+
+[tool.coverage.report]  
+show_missing = true  
+fail_under = 75
+
+[tool.coverage.html]  
+directory = "htmlcov"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+
+[tool.poetry.scripts]
+manifest_writer  = "ccnpy.apps.manifest_writer:run"
+manifest_reader  = "ccnpy.apps.manifest_reader:run"
+packet_reader    = "ccnpy.apps.packet_reader:run"
+
