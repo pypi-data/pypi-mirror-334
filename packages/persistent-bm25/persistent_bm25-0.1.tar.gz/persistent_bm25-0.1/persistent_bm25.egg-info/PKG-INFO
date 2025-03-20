@@ -1,0 +1,6 @@
+Metadata-Version: 2.2
+Name: persistent_bm25
+Version: 0.1
+Requires-Dist: langchain
+Requires-Dist: rank_bm25
+Dynamic: requires-dist
