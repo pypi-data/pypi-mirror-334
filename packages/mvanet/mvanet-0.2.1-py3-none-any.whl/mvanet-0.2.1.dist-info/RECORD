@@ -1,0 +1,15 @@
+mvanet/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mvanet/model/MVANet.py,sha256=kldfyjNfhFFMrJZlRWXeQFV6H6IIM1HWAoW5QrlojjM,25028
+mvanet/model/SwinTransformer.py,sha256=aSGzBmS5wpiargns5K52uSjptfPnO_bXqFwhAC-XY4U,27358
+mvanet/model/__init__.py,sha256=rwGe8gwHZPNc6hIEZWjeonFKjWZAdymZwlLBhGUQSPk,87
+mvanet/predictor.py,sha256=15Q-nOErpXigzYL4l2TS_El5v6kFxcvH6V9NU3i712E,4377
+mvanet/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mvanet/utils/config.py,sha256=Ei93uHKRd8Vlnd2RGYA8To5stHb7icNu1_q6UHo8DvI,432
+mvanet/utils/dataset_strategy_fpn.py,sha256=GjHeRiqM3Tf9o74g6ka_9y8u0cruLQOO_f2mc4NXKYk,8195
+mvanet/utils/misc.py,sha256=S7_kMWmW2ggKj-rb0myeo7YlIb1miSF8EdkHrjRwbTs,2544
+mvanet/utils/saliency_metric.py,sha256=LquRB5dZPL5k0B1i1KKkSFCMRxLKmK8FK6FYhvg_W1I,12429
+mvanet/utils/test_data.py,sha256=tl1KarP-8VrwVIyMlTjoRRClO2wyGq3YsjXBE0-eyOM,4893
+mvanet-0.2.1.dist-info/LICENSE,sha256=8nxujUQoU0QXX7tOHpzR74v-cmHjW-l8FK_zMBGVYUQ,1068
+mvanet-0.2.1.dist-info/METADATA,sha256=BblkA28oP7RyGDTHE3UvMeT2d-bK8rwOS2ceSaTwpIw,7308
+mvanet-0.2.1.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+mvanet-0.2.1.dist-info/RECORD,,
