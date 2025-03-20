@@ -1,0 +1,31 @@
+
+[build-system]
+requires = ["setuptools>=61.0", "versioningit"]
+build-backend = "setuptools.build_meta"
+
+
+# ----------------------------------------- setuptools -------------------------------------------
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true
+
+
+# ----------------------------------------- Project Metadata -------------------------------------
+#
+[project]
+version = "0.1.0"
+name = "LicenseMan"
+requires-python = ">=3.10"
+dependencies = [
+    "LoggerMan >=0.1,<0.2",
+    "PyLinks >=0.1,<0.2",
+    "PkgData >=0.1,<0.2",
+    "PySerials >=0.1,<0.2",
+    "MDit >=0.1,<0.2",
+    "ExceptionMan >=0.1,<0.2",
+    "platformdirs >=4.3,<5",
+]
