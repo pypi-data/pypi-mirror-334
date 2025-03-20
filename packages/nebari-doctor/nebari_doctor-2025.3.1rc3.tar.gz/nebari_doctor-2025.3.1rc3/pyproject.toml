@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nebari_doctor"]
+
+[tool.hatch.metadata]  # TODO: Remove this once nebari dependency issues get worked out
+allow-direct-references = true
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "nebari_doctor/_version.py"
+local_scheme = "node-and-timestamp"
+
+[project]
+name = "nebari_doctor"
+dynamic = ["version"]
+license = "BSD-3-Clause"
+authors = [
+    { name = "Nebari Development Team", email = "connect@quansight.com" },
+]
+dependencies = [
+    "nebari>=2025.3.1",
+    "pydantic_ai==0.0.23",
+    "questionary==2.0.0",
+    "rich==13.9.4",
+    "markdown-it-py>=2.2.0",
+    "pygments>=2.15.0",
+    "loguru",
+    # Optional dependencies for clipboard functionality
+    "pywin32; sys_platform == 'win32'",  # 'win32' is the platform identifier for all Windows versions (both 32-bit and 64-bit)
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=3.5.0",
+    "coverage[toml]",
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "setuptools==63.4.3",
+]
+
+[project.entry-points.nebari]
+nebari-doctor = "nebari_doctor"
+
+[tool.typos]
+files.extend-exclude = ["tests/test_data/pod_logs.py", "resources/"]
+
+[tool.coverage.run]
+branch = true
+source = [
+    "nebari_doctor",
+    "tests",
+]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+    ]
+ignore_errors = false

@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: nebari_doctor
+Version: 2025.3.1rc3
+Author-email: Nebari Development Team <connect@quansight.com>
+License-Expression: BSD-3-Clause
+Requires-Dist: loguru
+Requires-Dist: markdown-it-py>=2.2.0
+Requires-Dist: nebari>=2025.3.1
+Requires-Dist: pydantic-ai==0.0.23
+Requires-Dist: pygments>=2.15.0
+Requires-Dist: pywin32; sys_platform == 'win32'
+Requires-Dist: questionary==2.0.0
+Requires-Dist: rich==13.9.4
+Provides-Extra: dev
+Requires-Dist: coverage[toml]; extra == 'dev'
+Requires-Dist: pre-commit>=3.5.0; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pytest-mock; extra == 'dev'
+Requires-Dist: setuptools==63.4.3; extra == 'dev'

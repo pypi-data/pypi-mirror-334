@@ -1,0 +1,55 @@
+provider: local
+namespace: dev
+nebari_version: 2025.2.2
+project_name: github-actions
+domain: github-actions.nebari.dev
+ci_cd:
+  type: none
+terraform_state:
+  type: remote
+security:
+  keycloak:
+    initial_root_password: pybsly9tpx4tiq81wc9ibgfw09gqoqw5
+  authentication:
+    type: password
+theme:
+  jupyterhub:
+    hub_title: Nebari - github-actions
+    welcome: Welcome! Learn about Nebari's features and configurations in <a href="https://www.nebari.dev/docs/welcome">the
+      documentation</a>. If you have any questions or feedback, reach the team on
+      <a href="https://www.nebari.dev/docs/community#getting-support">Nebari's support
+      forums</a>.
+    hub_subtitle: Your open source data science platform, hosted
+local:
+  kube_context:
+  node_selectors:
+    general:
+      key: kubernetes.io/os
+      value: linux
+    user:
+      key: kubernetes.io/os
+      value: linux
+    worker:
+      key: kubernetes.io/os
+      value: linux
+jupyterlab:
+  default_settings:
+    "@jupyterlab/apputils-extension:themes":
+      theme: JupyterLab Dark
+monitoring:
+  enabled: true
+  overrides:
+    minio:
+      persistence:
+        size: 1Gi
+default_images:
+  jupyterhub: quay.io/nebari/nebari-jupyterhub:jhub-fancy-profiles
+jhub_apps:
+  enabled: true
+  overrides: {startup_apps: [{"username": "service-account-jupyterhub", "servername": "my-startup-server",
+        "user_options": {"display_name": "My Startup Server-", "description": "description",
+          "thumbnail": "data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVR42mNkYPhfz0AEYBxVSF+FAP5FDvcfRYWgAAAAAElFTkSuQmCC",
+          "filepath": "panel_basic.py", "framework": "panel", "public": false, "keep_alive": false,
+          "env": {"MY_ENV_VAR": "MY_VALUE"}, "repository": {"url": "https://github.com/nebari-dev/jhub-apps-from-git-repo-example.git"},
+          "conda_env": "global-mypanel", "profile": "small-instance", "share_with": {
+            "users": [], "groups": ["/users"]}}}]}
