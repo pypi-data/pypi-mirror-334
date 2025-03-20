@@ -1,0 +1,4 @@
+[console_scripts]
+effect-screen-recorder-master = effectScreenRecorderMaster.__main__:main
+esrm = effectScreenRecorderMaster.__main__:main
+srm = effectScreenRecorderMaster.__main__:main
