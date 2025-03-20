@@ -1,0 +1,9 @@
+questionary
+click
+python-dotenv
+halo
+flake8
+black
+
+[dev]
+pytest
