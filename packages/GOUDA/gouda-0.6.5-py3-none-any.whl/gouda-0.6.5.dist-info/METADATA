@@ -1,0 +1,63 @@
+Metadata-Version: 2.2
+Name: GOUDA
+Version: 0.6.5
+Summary: Good Old Utilities for Data Analysis!
+Author: Sean Mullan
+License: MIT
+Project-URL: Homepage, https://github.com/mullans/GOUDA
+Project-URL: Repository, https://github.com/mullans/GOUDA
+Keywords: utilities
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy>=1.21
+Requires-Dist: opencv-python
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: colorama
+Requires-Dist: types-colorama
+Requires-Dist: scipy-stubs
+Requires-Dist: typing-extensions; python_version < "3.10"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+
+
+# GOUDA
+
+[![Anaconda-Server Badge](https://anaconda.org/smullan/gouda/badges/version.svg)](https://anaconda.org/smullan/gouda)
+[![pypi](https://img.shields.io/pypi/v/gouda)](https://pypi.org/project/GOUDA/)
+
+Good Old Utilities for Data Analysis!
+
+## Description
+
+These are a bunch of data/image/filepath/etc utilities that I've made to help with my research projects. Feel free to use them as you would like, and I'd appreciate it if you make a pull request for any fixes/optimizations you may find.
+
+## Installation
+
+gouda can be installed using [pip](https://pypi.org/project/pip/)
+
+    pip install gouda
+
+Alternatively, you can install gouda with [conda](https://docs.conda.io/projects/conda/en/latest/) or [mamba](https://github.com/mamba-org/mamba)
+
+    conda install gouda -c smullan
