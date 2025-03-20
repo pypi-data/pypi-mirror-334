@@ -1,0 +1,50 @@
+Metadata-Version: 2.2
+Name: vbcable_output
+Version: 0.1.0
+Summary: This package outputs audio to the VBCable virtual audio device.
+Author-email: nnnnnnn0090 <nnnnnnn0090@gmail.com>
+Maintainer-email: nnnnnnn0090 <nnnnnnn0090@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/nnnnnnn0090/vbcable_output
+Project-URL: Issue Tracker, https://github.com/nnnnnnn0090/vbcable_output/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sounddevice
+
+# vbcable_output
+
+This package outputs audio to the VBCable virtual audio device.   
+https://vb-audio.com/Cable/
+
+## Installation
+
+You can install the package using pip:
+
+```
+pip install vbcable_output
+```
+
+## Usage
+```python
+import vbcable_output
+
+# Play the given data at the specified rate.
+vbcable_output.play(data, rate)
+
+# Wait for the sound to finish playing.
+vbcable_output.wait()
+
+# Check if the VB-CABLE is installed.
+vbcable_output.is_vbcable_installed() => bool
+```
+
+## Parameters
+    data: The audio data you want to play.
+    rate: The sample rate of the audio.
+
+## License
+MIT License. See the LICENSE file for details.

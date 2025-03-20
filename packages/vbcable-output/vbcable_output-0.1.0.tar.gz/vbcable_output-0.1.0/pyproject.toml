@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vbcable_output"
+version = "0.1.0"
+description = "This package outputs audio to the VBCable virtual audio device."
+readme = "README.md"
+requires-python = ">=3.6"
+license = { text = "MIT" }
+authors = [{ name = "nnnnnnn0090", email = "nnnnnnn0090@gmail.com" }]
+maintainers = [{ name = "nnnnnnn0090", email = "nnnnnnn0090@gmail.com" }]
+dependencies = ["sounddevice"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/nnnnnnn0090/vbcable_output"
+"Issue Tracker" = "https://github.com/nnnnnnn0090/vbcable_output/issues"
