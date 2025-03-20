@@ -1,0 +1,35 @@
+# PYJWT3
+
+## 介绍
+作者：钟阳\
+`pyjwt3` 是一个用于生成和验证JWT令牌的Python模块。
+
+## 安装
+
+你可以通过以下命令安装 `pyjwt3`：
+
+```sh
+pip install pyjwt3
+```
+
+## 代码例程
+### 创建JWT签名
+```python
+import pyjwt3 as jwt
+token = jwt.creatr_sign(aud='jwt.system',sub='username',iss='system',key='000000')
+print(token)
+```
+
+
+### 验证JWT签名，并返回Payload
+```python
+import pyjwt3 as jwt
+#token组成：Bearer + ' ' + jwt.creatr_sign()的返回值
+token = 'Bearer eyJhbGciOiAiSFMyNTYiLCAidHlwZSI6ICJKV1QifQ==.eyJhdWQiOiAiY3JtLnl1bmRhb3d1LmNuIiwgImV4cCI6IDE3NDIxNjcxNDksICJpYXQiOiAxNzQyMDgwNzQ5LCAiaXNzIjogInN5c3RlbSIsICJ1aWQiOiAxLCAic3ViIjogImFkbWluIiwgIm5iZiI6IDE3NDIwODA3NDl9.5YEtizmQHCmWBfFbhPK8bfM7binlThY_uKv--0wU_UY'
+#传入的key一定要和签名时传入的key一样，并且不能泄露
+payload = verify_sign(token=token, key='000000')
+if payload:
+    print('验证通过')
+    print(f'Payload：{payload}')
+
+```
