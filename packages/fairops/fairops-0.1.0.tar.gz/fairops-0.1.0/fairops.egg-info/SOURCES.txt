@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+README.md
+poetry.lock
+pyproject.toml
+requirements_dev.txt
+.github/workflows/ci.yml
+examples/figshare_download.py
+examples/figshare_upload.py
+fairops/__init__.py
+fairops/version.py
+fairops.egg-info/PKG-INFO
+fairops.egg-info/SOURCES.txt
+fairops.egg-info/dependency_links.txt
+fairops.egg-info/requires.txt
+fairops.egg-info/top_level.txt
+fairops/figshare/client.py
