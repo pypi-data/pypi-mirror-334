@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: sktaip-cli
+Version: 0.1.2
+Summary: AIX Platform CLI
+License: Proprietary
+Author: AIX Enterprise
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: sktaip_api (==0.1.3)
