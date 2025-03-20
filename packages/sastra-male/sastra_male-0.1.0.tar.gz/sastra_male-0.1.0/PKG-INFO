@@ -1,0 +1,35 @@
+Metadata-Version: 2.2
+Name: sastra-male
+Version: 0.1.0
+Summary: A package for KNN analysis with PCA in Python
+Home-page: https://github.com/Jeevakrishna/sastra-male
+Author: Jeevakrishna.V
+Author-email: jeevakrishna073@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# sastra-male
+
+A Python package for performing KNN analysis with PCA on datasets.
+
+## Installation
+
+```sh
+pip install sastra-male
