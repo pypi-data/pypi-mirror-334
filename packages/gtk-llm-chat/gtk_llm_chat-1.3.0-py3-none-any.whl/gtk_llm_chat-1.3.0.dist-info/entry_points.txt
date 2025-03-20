@@ -1,0 +1,3 @@
+[console_scripts]
+gtk-llm-applet = gtk_llm_chat.gtk_llm_applet:main
+gtk-llm-chat = gtk_llm_chat.main:main
