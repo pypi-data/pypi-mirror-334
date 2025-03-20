@@ -1,0 +1,15 @@
+.gitignore
+README.md
+pyproject.toml
+uv.lock
+src/manifest.py
+src/pytest_manifest.egg-info/PKG-INFO
+src/pytest_manifest.egg-info/SOURCES.txt
+src/pytest_manifest.egg-info/dependency_links.txt
+src/pytest_manifest.egg-info/entry_points.txt
+src/pytest_manifest.egg-info/requires.txt
+src/pytest_manifest.egg-info/top_level.txt
+tests/__init__.py
+tests/test_manifest.py
+tests/templates/test_manifest.full_manifest_test.yaml
+tests/templates/test_manifest.keyed_manifest_test.yaml

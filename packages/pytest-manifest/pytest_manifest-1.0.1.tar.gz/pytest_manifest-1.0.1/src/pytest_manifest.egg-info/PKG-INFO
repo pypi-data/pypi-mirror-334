@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pytest-manifest
+Version: 1.0.1
+Summary: PyTest plugin for recording and asserting against a manifest file
+Author-email: Conrad Bzura <conradbzura@gmail.com>
+License: MIT License
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+Requires-Dist: pyyaml
+
+# pytest-manifest
+
+`pytest-manifest` is a plugin for the `pytest` testing framework. Its purpose is to provide an easy way to capture and assert test outputs.
+
+## Installation
+
+To install `pytest-manifest`, use pip:
+
+```sh
+pip install pytest-manifest
+```
+
+## Usage
+
+`pytest-manifest` exposes a `manifest` fixture that loads the expected test result from a YAML file and can be asserted against a test output:
+
+```python
+def test(manifest):
+    assert manifest == "actual"
+```
+
+...or load a subset of the file using a key:
+
+```python
+    assert manifest["key"] == "actual"
+```
+
+The manifest file can optionally be overwritten with the actual test result on failed assertions by passing the `--overwrite-manifest`/`-O` flag to `pytest` when executing tests:
+
+```sh
+pytest --overwrite-manifest test.py
+```
+
