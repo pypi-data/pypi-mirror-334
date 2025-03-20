@@ -1,0 +1,5 @@
+[console_scripts]
+wish-knowledge-loader = wish_knowledge_loader.cli:main
+
+[gui_scripts]
+
