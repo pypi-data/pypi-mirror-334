@@ -1,0 +1,72 @@
+Metadata-Version: 2.2
+Name: eservice-unlock-pdf
+Version: 0.1.2
+Summary: A Python package to unlock password-protected PDF files
+Home-page: https://github.com/abcprintf/python-unlock-pdf
+Author: abcprintf
+Author-email: abcprintf@gmail.com
+Project-URL: Documentation, https://github.com/abcprintf/python-unlock-pdf
+Project-URL: Source, https://github.com/abcprintf/python-unlock-pdf
+Project-URL: Tracker, https://github.com/abcprintf/python-unlock-pdf/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pikepdf
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+## python unlock pdf
+
+### Description
+Since I have a pdf file that is locked with a password and I want to open that pdf file without entering the password every time, I want to create a script to unlock the pdf file.
+
+This script is used to unlock a password protected pdf file. It uses the PyPDF2 library to unlock the pdf file. The password is provided as an argument to the script.
+
+### Installation
+```bash
+// create a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Usage
+```bash
+jupyter lab
+
+// run the script
+python unlock_pdf.py locked.pdf unlocked.pdf password
+```
+
+### Testing
+```bash
+tox
+```
+
+### Build
+```bash
+python setup.py sdist bdist_wheel
+
+// check the build
+twine check dist/*
+
+// install the package
+pip install dist/eservice_unlock_pdf-0.1.0-py3-none-any.whl
+```
+
+### uploade to pypi
+```bash
+pip install twine
+
+twine upload dist/*          
+```
