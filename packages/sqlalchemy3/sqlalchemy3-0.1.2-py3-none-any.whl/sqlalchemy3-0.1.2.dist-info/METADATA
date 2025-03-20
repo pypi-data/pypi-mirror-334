@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sqlalchemy3
+Version: 0.1.2
+Summary: Python操作数据库的ORM框架
+Author: zhangdapeng
+Author-email: 1156956636@qq.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiomysql (>=0.2.0,<0.3.0)
+Requires-Dist: aiosqlite (>=0.20.0,<0.21.0)
+Requires-Dist: asyncpg (>=0.30.0,<0.31.0)
+Description-Content-Type: text/markdown
+
+# sqlalchemy3
+
+sqlalchemy的国产化替代品，用法和sqlalchemy完全一样！！！
+
+## 安装
+```shell
+pip install sqlalchemy3
+```
