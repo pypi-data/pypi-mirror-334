@@ -1,0 +1,4 @@
+[console_scripts]
+msps=msps.__main__:main
+testui=tests.manual_test_ui:main
+
