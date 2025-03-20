@@ -1,0 +1,2 @@
+[console_scripts]
+web-to-markdown = web_to_markdown.cli:main
