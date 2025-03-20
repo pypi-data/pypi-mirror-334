@@ -1,0 +1,3 @@
+[console_scripts]
+forbidden = forbidden.main:main
+stresser = stresser.main:main
