@@ -1,0 +1,19 @@
+[project]
+name = "vvlib"
+version = "0.4.1"
+description = "A collection of random (mostly useless) functions"
+authors = [
+    {name = "Vojtech Velebny",email = "velebnyvo@gymla.cz"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "vvlib", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
