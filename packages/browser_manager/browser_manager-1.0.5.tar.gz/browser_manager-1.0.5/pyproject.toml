@@ -1,0 +1,47 @@
+[project]
+name = "browser_manager"
+version = "1.0.5"
+description = "The BrowserManager Library simplifies browser automation and management..."
+authors = [{ name = "Dux Tecnologia", email = "contato@tpereira.com.br" }]
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent'
+]
+
+license = { file = "LICENSE" }
+
+requires-python = ">=3.13"
+
+readme = { file = "README.md", content-type = "text/markdown" }
+
+[project.urls]
+homepage = "https://duxtec.github.io/browser-manager/docs"
+repository = "https://github.com/duxtec/browser-manager"
+documentation = "https://duxtec.github.io/browser-manager/docs"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.2.3"
+
+[tool.poetry.group.tests]
+optional = true
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^7.4"
+
+[tool.poetry.group.selenium]
+optional = true
+
+[tool.poetry.group.selenium.dependencies]
+selenium = "^4.29.0"
+webdriver-manager = "^4.0.2"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+
+[build-system]
+requires = ["setuptools", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
