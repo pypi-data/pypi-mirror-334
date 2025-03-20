@@ -1,0 +1,3 @@
+[console_scripts]
+yd-serve = youdao.serve:main
+youdao = youdao.cmd:main
