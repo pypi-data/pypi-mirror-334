@@ -1,0 +1,28 @@
+torch
+bcrypt
+numpy<2
+scipy
+gurobipy
+pandas
+openpyxl
+reportlab
+psutil
+sympy
+tqdm
+rdkit
+matplotlib
+folium
+orjson
+pyyaml
+
+[:sys_platform != "linux"]
+pywebview
+
+[:sys_platform != "linux" and sys_platform != "darwin"]
+cefpython3
+
+[:sys_platform == "linux"]
+pywebview[gtk]
+
+[:sys_platform == "win32"]
+pywin32
