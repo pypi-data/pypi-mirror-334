@@ -1,0 +1,67 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "rusty-zip"
+requires-python = ">=3.9"
+description = "Python wrapper for Rust's zip crate with legacy ZipCrypto encryption support"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Hao Guan", email = "gh@raptium.net" }
+]
+maintainers = [
+    { name = "Hao Guan", email = "gh@raptium.net" }
+]
+keywords = ["zip", "compression", "zipcrypto", "rust"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Archiving :: Compression",
+]
+dynamic = ["version"]
+dependencies = [
+    "maturin>=1.8.3",
+]
+
+[tool.uv]
+cache-keys = [{file = "pyproject.toml"}, {file = "Cargo.toml"}, {file = "src/*.rs"}]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "rusty_zip._rust"
+python-source = "python_src"
+
+[tool.pytest.ini_options]
+testpaths = ["python_src"]
+python_files = ["test_*.py", "test.py"]
+
+[dependency-groups]
+dev = [
+  "maturin-import-hook>=0.1.0",
+  "pytest >=8.1.1,<9",
+  "pre-commit>=3.6.0",
+  "ruff>=0.3.0",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
