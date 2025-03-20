@@ -1,0 +1,187 @@
+Metadata-Version: 2.2
+Name: prastut-ai
+Version: 1.0.0
+Summary: A modern face recognition-based attendance system
+Author-email: Prastut AI <adminprastutai@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2024 Prastut AI
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/yourusername/prastut-ai
+Project-URL: Repository, https://github.com/yourusername/prastut-ai.git
+Project-URL: Issues, https://github.com/yourusername/prastut-ai/issues
+Keywords: face-recognition,attendance-system,deep-learning,education
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Flask==2.3.3
+Requires-Dist: Werkzeug==2.3.7
+Requires-Dist: gunicorn==21.2.0
+Requires-Dist: python-dotenv==1.0.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: pandas>=2.1.0
+Requires-Dist: requests==2.31.0
+Requires-Dist: openpyxl==3.1.2
+Requires-Dist: Pillow==10.0.0
+Requires-Dist: opencv-python-headless>=4.9.0.80
+Requires-Dist: imutils==0.5.4
+Requires-Dist: facenet-pytorch==2.5.3
+Requires-Dist: deepface==0.0.79
+Requires-Dist: pinecone-client==2.2.4
+Requires-Dist: firebase-admin==6.2.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+
+# Prastut AI - Face Recognition Attendance System
+
+A modern face recognition-based attendance system built with Python (Flask) backend and React frontend.
+
+## Features
+
+- Real-time face detection and recognition
+- Attendance tracking and management
+- Modern React-based user interface
+- Deep learning-powered face recognition using TensorFlow and PyTorch
+- Cloud-based storage using Firebase and Pinecone
+- Cross-platform support (Windows, macOS, Linux)
+
+## Prerequisites
+
+- Python 3.8 or higher
+- Node.js 18.0 or higher
+- npm 8.0 or higher
+- CMake (for building dependencies)
+- C++ build tools (for compiling native modules)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/prastut-ai.git
+cd prastut-ai
+```
+
+2. Install all dependencies (both frontend and backend):
+```bash
+npm run install:all
+```
+
+Or install separately:
+
+For backend:
+```bash
+npm run install:backend
+```
+
+For frontend:
+```bash
+npm run install:frontend
+```
+
+## Development
+
+Start both servers (backend and frontend):
+```bash
+npm start
+```
+
+Or start separately:
+
+Backend server:
+```bash
+npm run start:backend
+```
+
+Frontend development server:
+```bash
+npm run start:frontend
+```
+
+The frontend will be available at `http://localhost:3000` and the backend API at `http://localhost:5000`.
+
+## Scripts
+
+- `npm start` - Start both backend and frontend servers
+- `npm run start:backend` - Start only the backend server
+- `npm run start:frontend` - Start only the frontend development server
+- `npm run install:all` - Install all dependencies (both backend and frontend)
+- `npm run install:backend` - Install backend dependencies
+- `npm run install:frontend` - Install frontend dependencies
+- `npm run build:frontend` - Build the frontend for production
+- `npm run test` - Run backend tests
+- `npm run lint:frontend` - Lint frontend code
+- `npm run format:frontend` - Format frontend code
+- `npm run clean` - Clean up build artifacts and dependencies
+
+## Project Structure
+
+```
+prastut-ai/
+├── app/                    # Frontend React application
+│   ├── src/               # React source files
+│   ├── public/            # Static files
+│   └── package.json       # Frontend dependencies
+├── backend/               # Backend Flask application
+│   ├── venv/             # Python virtual environment
+│   ├── Face_attend.py    # Main backend application
+│   └── requirements.txt   # Backend dependencies
+├── logs/                  # Application logs
+├── package.json          # Project configuration
+└── start.sh             # Development server startup script
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [TensorFlow](https://www.tensorflow.org/)
+- [PyTorch](https://pytorch.org/)
+- [FaceNet](https://github.com/timesler/facenet-pytorch)
+- [DeepFace](https://github.com/serengil/deepface)
+- [React](https://reactjs.org/)
+- [Flask](https://flask.palletsprojects.com/)
