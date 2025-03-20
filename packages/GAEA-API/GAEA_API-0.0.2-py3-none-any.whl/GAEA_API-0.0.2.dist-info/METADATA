@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: GAEA_API
+Version: 0.0.2
+Summary: A client modules for using gaea low-altitude economy gaea_lae_api
+Home-page: http://codebase.gaeaincloud.com:solution/gaea_lae_api_client.git
+Author: Yongtan Wang
+Requires-Python: >=3.10
+Requires-Dist: requests
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
