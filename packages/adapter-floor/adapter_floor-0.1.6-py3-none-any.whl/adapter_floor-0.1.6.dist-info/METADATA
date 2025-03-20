@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: adapter_floor
+Version: 0.1.6
+Summary: A lightweight Python library for precise number flooring and formatting. Includes adaptive decimal precision based on the fractional magnitude.
+Home-page: https://github.com/tnam0x/adaptive_floor
+Author: Nam Tran
+Author-email: namtran4194@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+**⚠️ This package is deprecated. Please install [`adaptive-floor`](https://pypi.org/project/adaptive-floor/) instead.**
