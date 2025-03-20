@@ -1,0 +1,8 @@
+
+[dev]
+black
+isort
+mypy
+ruff
+build
+twine
