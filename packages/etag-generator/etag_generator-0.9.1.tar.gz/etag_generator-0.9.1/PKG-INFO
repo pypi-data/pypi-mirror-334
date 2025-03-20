@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: etag_generator
+Version: 0.9.1
+Summary: Given a JSON object (python dict), generate a stable value suitable as an ETag
+Project-URL: Homepage, https://github.com/paulprogrammer/py-json-etag-generator
+Project-URL: Issues, https://github.com/paulprogrammer/py-json-etag-generator/issues
+Author-email: Paul Williams <paul_williams@epam.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: etag,json
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Requires-Dist: colorlog==6.9.0
+Requires-Dist: iniconfig==2.0.0
+Requires-Dist: pluggy==1.5.0
+Requires-Dist: pytest==8.3.5
+Description-Content-Type: text/markdown
+
+# etag_generator
+
+Given a python list or dictionary that will represents a JSON return value, generate an ETag that is guaranteed to be stable.
+
+Will generate an etag from most data commonly used types:
+* dict
+* list
+* string
+* int / float
+
+Works to create stable identifiers even with complex, multi-level objects.
+
+Does not have the smarts to handle circular references.
+
+Currently doesn't deal with the following data types:
+* tuple
+* classes
+* boolean
+* none
+* other stuff that might exist that isn't in the supported list
+
+## installation
+
+pip install etag_generator
+
+## usage
+
+```python
+from etag_generator import generate_etag
+
+etag = generate_etag({"any_object":"value"})
+```
