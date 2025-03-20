@@ -1,0 +1,34 @@
+[project]
+name = "zolldo"
+version = "1.2"
+description = "A lightweight to-do list."
+authors = [
+  { name="Caleb Aikens", email="zollqir@gmail.com" },
+]
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English"
+]
+
+[project.urls]
+Homepage = "https://github.com/zollqir/zolldo"
+Issues = "https://github.com/zollqir/zolldo/issues"
+
+[project.scripts]
+zolldo = "zolldo.zolldo:cli"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.autopep8]
+max_line_length=140
+ignore="E111,E114,E121" # allow 2-space indents
+verbose=true
+indent-size=2
+aggressive=3
+exit-code=true
