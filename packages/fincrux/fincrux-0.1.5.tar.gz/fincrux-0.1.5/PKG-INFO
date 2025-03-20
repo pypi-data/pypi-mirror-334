@@ -1,0 +1,30 @@
+Metadata-Version: 2.2
+Name: fincrux
+Version: 0.1.5
+Summary: The official Python client library for the Fincrux APIs
+Author: Harshit Bansal
+Author-email: harshitbansal587@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: summary
+
+# Fincrux Python Package
+
+This Python package allows users to interact with the Fincrux API.
+
+## Installation
+
+To install the package, run:
+
+```bash
+pip install fincrux
+```
