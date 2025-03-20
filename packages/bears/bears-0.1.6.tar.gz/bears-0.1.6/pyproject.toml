@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bears"
+dynamic = ["version"]
+authors = [
+    { name = "Abhishek Divekar", email = "adivekar@utexas.edu" }
+]
+description = ""
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license-files = ["LICENSE"]
+dependencies = [
+    "autoenum==1.0.2",
+    "boto3==1.36.19",
+    "cloudpickle==3.1.1",
+    "fastparquet==2024.11.0",
+    "numpy==1.26.4",
+    "openpyxl==3.1.5",
+    "pandas==2.2.1",
+    "pyarrow==14.0.2",
+    "pydantic==2.10.6",
+    "pytest==8.3.4",
+    "pyyaml==6.0.2",
+    "requests==2.32.3",
+    "s3fs==0.4.2",
+    "scikit-learn==1.6.1",
+    "tqdm==4.67.1",
+    "urllib3==2.3.0",
+    "xlrd==2.0.1"
+]
+
+[project.optional-dependencies]
+all = [
+    "orjson",
+    "ray==2.41.0",
+    "ray[default]",
+    "dask==2024.10.0",
+    "dask[complete]",
+    "torch>=2.5.1",
+    "imageio",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110
+fix = true
+force-exclude = true
+extend-exclude = [
+    "__init__.py",
+]
+
+[tool.ruff.lint]
+fixable = [
+    "I",    # Add all rules under isort linter: https://docs.astral.sh/ruff/rules/#isort-i
+    "W",    # Add all rules under whitespace: https://docs.astral.sh/ruff/rules/#warning-w
+    "E401", # multiple-imports-on-one-line: https://docs.astral.sh/ruff/rules/multiple-imports-on-one-line/
+    "E713", # not-in-test: https://docs.astral.sh/ruff/rules/not-in-test/
+    "E721", # type-comparison: https://docs.astral.sh/ruff/rules/type-comparison/
+    "E722", # bare-except: https://docs.astral.sh/ruff/rules/bare-except/
+    "F401", # unused-import: https://docs.astral.sh/ruff/rules/unused-import/
+    "F541", # f-string-missing-placeholders: https://docs.astral.sh/ruff/rules/f-string-missing-placeholders/
+    "F811", # redefined-while-unused: https://docs.astral.sh/ruff/rules/redefined-while-unused/
+    "F841", # unused-variable: https://docs.astral.sh/ruff/rules/unused-variable/
+]
+ignore = [
+    ## Ignored because it makes the code too verbose:
+    "E731", # lambda-assignment: https://docs.astral.sh/ruff/rules/lambda-assignment/
+    "E741", # ambiguous-variable-name: https://docs.astral.sh/ruff/rules/ambiguous-variable-name/
+
+    ## Ignored because it causes no harm (and is needed sometimes):
+    "F841",     # unused-variable: https://docs.astral.sh/ruff/rules/unused-variable/
+]
