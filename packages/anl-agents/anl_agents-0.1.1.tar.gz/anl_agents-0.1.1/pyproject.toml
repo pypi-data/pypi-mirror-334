@@ -1,0 +1,24 @@
+[project]
+name = "anl-agents"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["anl", "tensorflow", "torch", "numpy<2"]
+license = { text = "GNU General Public License v2 or later (GPLv2+)" }
+authors = [
+    { name = "Yasser Mohammad", email = "yasserfarouk@gmail.com" },
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[build-system]
+requires = ["setuptools >= 40.6.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
