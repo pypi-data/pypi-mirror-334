@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: etapy
+Version: 0.0.1
+Summary: Library for PHM
+Author: Edoardo Finamore
+Author-email: edoardo.finamore@gmail.com
+Keywords: python,PHM,ML,Data Analysis,Monitoring
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy==2.2.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+A package that allows to perform Prognostics Healt Monitoring.
