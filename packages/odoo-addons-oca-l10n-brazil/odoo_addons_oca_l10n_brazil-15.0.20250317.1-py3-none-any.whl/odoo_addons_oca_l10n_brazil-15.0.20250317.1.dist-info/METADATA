@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-l10n-brazil
+Version: 15.0.20250317.1
+Summary: Meta package for oca-l10n-brazil Odoo addons
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 15.0
+Requires-Dist: odoo-addon-l10n-br-account<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-account-due-list<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-account-nfe<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-account-payment-order<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-account-withholding<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-base<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-cnab-structure<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-cnpj-search<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-coa<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-coa-generic<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-coa-simple<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-crm<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-cte<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-cte-spec<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-currency-rate-update<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-fiscal<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-fiscal-certificate<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-fiscal-closing<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-fiscal-dfe<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-fiscal-edi<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-hr<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-ie-search<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-mdfe<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-mdfe-spec<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-mis-report<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-nfe<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-nfe-spec<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-nfse<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-nfse-focus<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-purchase<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-resource<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-sale<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-setup-tests<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-stock<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-l10n-br-zip<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-spec-driven-model<15.1dev,>=15.0dev
+
+UNKNOWN
