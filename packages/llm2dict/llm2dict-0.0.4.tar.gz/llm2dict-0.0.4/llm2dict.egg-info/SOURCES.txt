@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+llm2dict/__init__.py
+llm2dict/api.py
+llm2dict/execute.py
+llm2dict/llm2dict.py
+llm2dict/prompt.py
+llm2dict/validate.py
+llm2dict.egg-info/PKG-INFO
+llm2dict.egg-info/SOURCES.txt
+llm2dict.egg-info/dependency_links.txt
+llm2dict.egg-info/requires.txt
+llm2dict.egg-info/top_level.txt
