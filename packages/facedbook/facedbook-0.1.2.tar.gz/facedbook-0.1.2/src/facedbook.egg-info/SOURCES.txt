@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/facedbook/__init__.py
+src/facedbook/__main__.py
+src/facedbook/encoder.py
+src/facedbook/faces.py
+src/facedbook/feelings.py
+src/facedbook/stories.py
+src/facedbook.egg-info/PKG-INFO
+src/facedbook.egg-info/SOURCES.txt
+src/facedbook.egg-info/dependency_links.txt
+src/facedbook.egg-info/entry_points.txt
+src/facedbook.egg-info/requires.txt
+src/facedbook.egg-info/top_level.txt
+tests/test_facedbook.py
