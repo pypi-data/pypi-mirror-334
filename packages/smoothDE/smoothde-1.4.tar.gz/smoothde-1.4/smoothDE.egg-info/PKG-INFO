@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: smoothDE
+Version: 1.4
+Summary: This package uses smoothing to create a density estimate
+Home-page: https://github.com/rhys-m-adams/smoothDE
+Author: Rhys M. Adams
+Author-email: rhys.adams@protonmail.com
+License: MIT
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: scikit-sparse
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
