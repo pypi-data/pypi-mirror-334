@@ -1,0 +1,33 @@
+{#
+    Custom Filters Available in This Template:
+    - camel_case: Converts a string to camelCase (e.g., 'phone_number' → 'phoneNumber').
+    - pascal_case: Converts a string to PascalCase (e.g., 'phone_number' → 'PhoneNumber').
+    - kebab_case: Converts a string to kebab-case (e.g., 'phoneNumber' → 'phone-number').
+    - snake_case: Converts a string to snake_case (e.g., 'PhoneNumber' → 'phone_number').
+    - get_model_file_name: Generates a model file name (e.g., 'phone_number' → 'PhoneNumberModel.ts').
+#}
+{% include 'header.jinja2' %}
+
+import type { ToJSON } from 'stellanow-sdk';
+import { Converters } from 'stellanow-sdk';
+{%- for model in spec.referenced_models %}
+    import { {{ model }}Model } from './{{ model | get_model_file_name }}';
+{% endfor %}
+
+export class {{ spec.name | pascal_case }}Model implements ToJSON {
+    constructor(
+        {% for field in spec.fields -%}
+            public readonly {{ field.mapped_name }}: {{ field.type_str }}{{ "," if not loop.last }}
+        {% endfor -%}
+    ) {}
+
+    public toJSON(): object {
+        return {
+            {% for field in spec.fields -%}
+                {{ field.original_name }}: Converters.convert(this.{{ field.mapped_name }}){{ "," if not loop.last }}
+            {% endfor -%}
+        };
+    }
+}
+
+{%- include 'footer.jinja2' %}
