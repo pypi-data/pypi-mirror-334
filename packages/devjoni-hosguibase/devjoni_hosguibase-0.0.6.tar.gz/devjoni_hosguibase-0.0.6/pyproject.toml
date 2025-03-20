@@ -1,0 +1,25 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devjoni-hosguibase"
+version = "0.0.6"
+authors = [
+  { name="DEV Joni", email="solutions@devjoni.com" },
+]
+description = "A simplified widget toolkit supporting many backends"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+keywords = ["toolkit", "GUI", "tk", "gtk", "p3d"]
+
+[project.urls]
+"Homepage" = "https://github.com/devjonix/hosguibase"
+"Bug Tracker" = "https://github.com/devjonix/hosguibase/issues"
