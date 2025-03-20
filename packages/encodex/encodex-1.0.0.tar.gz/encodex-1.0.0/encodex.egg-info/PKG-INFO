@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: encodex
+Version: 1.0.0
+Summary: A Python package for string encoding, obfuscation, and encryption.
+Home-page: https://github.com/madhead341/encodex
+Author: loser
+Author-email: contact@losr.is-a.dev
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Security :: Cryptography
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: colorama
+
+Encodex is a Python package for string encoding, obfuscation, and encryption. It introduces a custom Base95 encoding method for string manipulation, designed for basic obfuscation and simple encryption tasks. 
+
+### Features:
+- Custom Base95 encoding for strings
+- Obfuscation of Python code
+- Cross-platform (Windows & macOS) support
+- Detailed error logging and debugging
+
+### Installation:
+To install Encodex, simply run:
+```bash
+pip install encodex
+````

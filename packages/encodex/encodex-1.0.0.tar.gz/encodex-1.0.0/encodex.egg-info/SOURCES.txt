@@ -1,0 +1,15 @@
+LICENSE.md
+MANIFEST.in
+README.md
+setup.py
+encodex/__init__.py
+encodex/core.py
+encodex/strings.py
+encodex/version.py
+encodex.egg-info/PKG-INFO
+encodex.egg-info/SOURCES.txt
+encodex.egg-info/dependency_links.txt
+encodex.egg-info/entry_points.txt
+encodex.egg-info/not-zip-safe
+encodex.egg-info/requires.txt
+encodex.egg-info/top_level.txt
