@@ -1,0 +1,6 @@
+requests>=2.19.1
+future>=0.18.2
+orjson<4,>=3.9.15
+
+[aiohttp]
+aiohttp~=3.8
