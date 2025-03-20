@@ -1,0 +1,8 @@
+[console_scripts]
+h-gpu=hao.systems:get_gpu_info
+h-run=hao.cli:run
+h-s3-init=hao.s3:init
+h-split=hao.files:split_cli
+h-vs=hao.vs:run
+hf-download=hao.hf:download
+
