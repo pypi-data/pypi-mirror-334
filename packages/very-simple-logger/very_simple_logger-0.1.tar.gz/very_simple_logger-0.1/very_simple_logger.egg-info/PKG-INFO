@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: very-simple-logger
+Version: 0.1
+Summary: Library to create a simple logger with a standard format.
+Home-page: https://github.com/javierzurdo/Very_Simple_Logger
+Author: Javier S. Zurdo
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+## What is it?
+Simple library to register any LOG comment in the code
+
+## Instalation
+pip install very_simple_logger
+
+## Dependencies
+logging
+
+## License
+MIT License
+
+## Documentation
+from very_simple_logger import Very_Simple_Logger<br/>
+logger = Very_Simple_Logger().logger<br/>
+logger.info(msg)<br/>
