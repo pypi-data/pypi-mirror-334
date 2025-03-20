@@ -1,0 +1,80 @@
+---
+dev:
+  ids: dumb_rgb_led_strip
+  name: Dumb RGB LED Strip
+  mf: Dumb RGB LED Strip Manufacturer
+  mdl: RGB
+  sw: '1.0'
+  sn: rgb_sn_0001
+  hw: rev1
+o:
+  name: led_controller
+  sw: '3.0'
+  url: https://ledsupport.example.com
+cmps:
+  all_leds:
+    p: light
+    clrm: "rgb"
+    unique_id: dumb_rgb_all_leds
+    rgb_stat_t: "stat/MQTT_UID/all_leds/rgb"
+    rgb_cmd_t: "cmnd/MQTT_UID/all_leds/rgb"
+    ret: true
+    name: "All Leds"
+    command_topic: "cmnd/MQTT_UID/all_leds/state"
+    state_topic: "stat/MQTT_UID/all_leds/state"
+  alternate_color:
+    p: switch
+    unique_id: dumb_rgb_all_leds_alternate
+    ret: true
+    name: "Alternate Colors"
+    state_topic: "stat/MQTT_UID/all_leds/alternate"
+    command_topic: "cmnd/MQTT_UID/all_leds/alternate"
+  fireplace:
+    p: switch
+    unique_id: dumb_rgb_all_leds_fireplace
+    ret: true
+    name: "Fireplace Colors"
+    state_topic: "stat/MQTT_UID/all_leds/fireplace"
+    command_topic: "cmnd/MQTT_UID/all_leds/fireplace"
+  cycle_color:
+    p: switch
+    unique_id: dumb_rgb_all_leds_cycle_color
+    ret: true
+    name: "Cycle Colors"
+    state_topic: "stat/MQTT_UID/all_leds/cycle_color"
+    command_topic: "cmnd/MQTT_UID/all_leds/cycle_color"
+  alternate_color_color_one:
+    p: light
+    clrm: "rgb"
+    ret: true
+    unique_id: dumb_rgb_all_leds_alternate_color_one
+    name: "Alternate Color One"
+    rgb_stat_t: "stat/MQTT_UID/all_leds/color_one/rgb"
+    rgb_cmd_t: "cmnd/MQTT_UID/all_leds/color_one/rgb"
+    command_topic: "cmnd/MQTT_UID/all_leds/color_one"
+    state_topic: "stat/MQTT_UID/all_leds/color_one"
+  alternate_color_color_two:
+    p: light
+    clrm: "rgb"
+    ret: true
+    unique_id: dumb_rgb_all_leds_alternate_color_two
+    name: "Alternate Color Two"
+    rgb_stat_t: "stat/MQTT_UID/all_leds/color_two/rgb"
+    rgb_cmd_t: "cmnd/MQTT_UID/all_leds/color_two/rgb"
+    command_topic: "cmnd/MQTT_UID/all_leds/color_two"
+    state_topic: "stat/MQTT_UID/all_leds/color_two"
+  alternate_color_rate:
+    p: number
+    mode: slider
+    min: 0.5
+    max: 32
+    step: 0.5
+    icon: mdi:speed
+    ret: true
+    unique_id: dumb_dumb_rgb_all_leds_alternate_rate
+    name: "Alternating rate"
+    command_topic: "cmnd/MQTT_UID/all_leds/rate"
+    state_topic: "stat/MQTT_UID/all_leds/rate"
+    unit_of_measurement: "s"
+state_topic: dumb_rgb_led_strip/state
+qos: 1
