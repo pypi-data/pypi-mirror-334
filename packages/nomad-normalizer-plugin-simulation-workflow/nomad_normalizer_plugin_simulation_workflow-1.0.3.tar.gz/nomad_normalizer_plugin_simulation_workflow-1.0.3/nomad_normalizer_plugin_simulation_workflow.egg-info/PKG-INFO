@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: nomad-normalizer-plugin-simulation-workflow
+Version: 1.0.3
+Summary: Simulation workflow nomad plugin for NOMAD.
+Author: The NOMAD Authors
+License: Apache-2.0
+Project-URL: homepage, https://github.com/nomad-coe/nomad-normalizer-plugin-simulation-workflow
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: nomad-lab>=1.3.13
+Requires-Dist: nomad-schema-plugin-simulation-workflow>=1.0.1
+Provides-Extra: dev
+Requires-Dist: mypy>=1.15; extra == "dev"
+Requires-Dist: pytest<8,>=5.3.0; extra == "dev"
+Requires-Dist: pytest-timeout>=1.4.2; extra == "dev"
+Requires-Dist: pytest-cov>=2.7.1; extra == "dev"
+Requires-Dist: ruff>=0.6; extra == "dev"
+Requires-Dist: typing-extensions>=4.12; extra == "dev"
+
+This is the normalizer for simulation workflows in NOMAD.

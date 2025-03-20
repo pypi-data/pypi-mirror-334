@@ -1,0 +1,2 @@
+[nomad.plugin]
+simulationworkflownormalizer = simulationworkflownormalizer:simulationworkflow_normalizer_entry_point
