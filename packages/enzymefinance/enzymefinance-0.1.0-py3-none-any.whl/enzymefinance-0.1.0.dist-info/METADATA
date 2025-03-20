@@ -1,0 +1,139 @@
+Metadata-Version: 2.2
+Name: enzymefinance
+Version: 0.1.0
+Summary: Official Python SDK for the Enzyme Protocol
+Author-email: Enzyme <info@enzyme.finance>
+License: MIT License
+        
+        Copyright (c) Enzyme Council DAO.
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/enzymefinance/sdk-python
+Project-URL: Documentation, https://sdk.enzyme.finance
+Project-URL: Repository, https://github.com/enzymefinance/sdk-python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: web3>=7.8.0
+Requires-Dist: requests>=2.32.0
+
+# Enzyme Python SDK
+
+[![License: MIT](https://img.shields.io/github/license/enzymefinance/sdk)](/LICENSE)
+
+This is a work in progress. Your mileage may vary.
+
+
+## Installation
+
+```bash
+pip install enzymefinance
+```
+
+## Getting started
+
+We are currently in the process of writing thorough documentation & tutorials. In the meantime, here there are some quick start examples.
+
+### Reading Vault info
+
+```python
+import asyncio
+from enzymefinance.sdk import vault
+from enzymefinance.sdk.utils.clients import PublicClient
+
+async def main():
+    client = PublicClient(<RPC_URL>)
+    name = await vault.get_name(
+        client=client,
+        vault_proxy=<VAULT_ADDRESS>,
+    )
+    print(name)
+
+asyncio.run(main())
+```
+
+- `<RPC_URL>`: The RPC URL of the network you want to connect to.
+- `<VAULT_ADDRESS>`: The **checksum** address of the vault you want to read.
+
+### Writing Vault info
+
+```python
+import asyncio
+from enzymefinance.sdk import vault
+from enzymefinance.sdk.utils.clients import WalletClient
+
+async def main():
+    client = WalletClient(<RPC_URL>, <PRIVATE_KEY>)
+    tx_params = await vault.set_name(
+        client=client,
+        vault_proxy=<VAULT_ADDRESS>,
+        name="My new vault",
+    )
+    tx_hash = await client.send_transaction(tx_params)
+    print(tx_hash)
+
+asyncio.run(main())
+```
+
+- `<RPC_URL>`: The RPC URL of the network you want to connect to.
+- `<VAULT_ADDRESS>`: The **checksum** address of the vault you want to read.
+- `<PRIVATE_KEY>`: The private key of the account you want to use to send the transaction.
+
+### Get environment info
+
+```python
+from enzymefinance.environment import get_deployment
+
+get_deployment("arbitrum")
+```
+
+### Get one specific abi
+
+```python
+from enzymefinance.abis import abis
+
+abis.IVaultLib
+```
+
+## Community
+
+Check out the following places for support, discussions & feedback:
+
+- Join our [Discord server](https://discord.enzyme.finance)
+- Join our [Telegram group](https://telegram.enzyme.finance)
+- Join the [Discussions on GitHub](https://github.com/enzymefinance/sdk/discussions)
+
+## Authors
+
+- [@guillemap](https://github.com/guillemap)
+
+## License
+
+[MIT](/LICENSE) License
