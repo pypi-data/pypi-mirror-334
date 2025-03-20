@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: commitfmt_darwin
+Version: 0.0.1a6
+Summary: Utility for formatting and verifying the commit message.
+Author-email: Mikhael Khrustik <misha@myrt.co>
+License: MIT
+Keywords: git,hook
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# commitfmt python wrapper
