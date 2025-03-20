@@ -1,0 +1,206 @@
+{% extends "layout.html" %} {% block title %}DAG{% endblock %}
+
+{% block extra_header %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
+
+<style>
+  :host {
+    display: block;
+  }
+  #cy {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+  }
+  .legend {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid;
+  }
+  .legend-shape {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: var(--bs-primary);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="h-100">
+  <div id="cy">
+    <div class="legend" id="cy-legend">
+      <h3>Shape</h3>
+      <div class="legend-item">
+        <div class="legend-shape" style="border-radius: 3px"></div>
+        <span>Internal</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-shape" style="border-radius: 50%"></div>
+        <span>Result</span>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive table-hover">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Parent</th>
+          <th>Nodetype</th>
+          <th>Datatype</th>
+          <th>Result?</th>
+          <th>Docstring</th>
+        </tr>
+      </thead>
+      <tbody id="nodeTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  console.log({{ data|tojson }});
+  let graphData = {{ data|tojson }};
+
+  const nodeTable = document.querySelector("#nodeTable");
+  graphData.nodes
+    .sort((a, b) => ((a.name || "") > (b.name || "") ? 1 : -1))
+    .forEach((node, index) => {
+      let parent = "";
+      if (node.parent) {
+        parent = `<a href=${node.parent_link}>${node.parent}</a>`
+      }
+      nodeTable.innerHTML += `
+        <tr data-node-id="${node.id}">
+          <td><a href=${node.link}>${node.id.substring(0, 8)}</a></td>
+          <td>${node.name || ""}</td>
+          <td>${parent}</td>
+          <td>${node.node_type}</td>
+          <td>${node.data_type}</td>
+          <td>${node.id === graphData.result}</td>
+          <td>${node.doc || ""}</td>
+        </tr>
+      `;
+    });
+
+  document.addEventListener("DOMContentLoaded", function(){
+    initCytoscape();
+  });
+
+  function initCytoscape() {
+    var _style = window.getComputedStyle(document.body)
+    const color_map = {
+      argv: _style.getPropertyValue("--bs-warning-text-emphasis"),
+      literal: _style.getPropertyValue("--bs-primary"),
+      fn: _style.getPropertyValue("--bs-secondary"),
+      import: _style.getPropertyValue("--bs-danger"),
+    };
+
+    const cyNodes = graphData.nodes.map((node) => ({
+      data: {
+        id: node.id,
+        label: node.name ? node.name : "#" + node.id.substring(0, 8),
+        shape: node.id === graphData.result ? "ellipse" : "roundrectangle",
+        color: color_map[node.node_type],
+        doc: node.doc,
+      },
+    }));
+    const cyEdges = graphData.edges
+      .filter((x) => x.type === "node")
+      .map((edge) => ({
+        data: {
+          source: edge.source,
+          target: edge.target,
+        },
+      }));
+
+    const cyContainer = document.querySelector("#cy");
+    const cy = cytoscape({
+      container: cyContainer,
+      elements: {
+        nodes: cyNodes,
+        edges: cyEdges,
+      },
+      style: [
+        {
+          selector: "node",
+          style: {
+            label: "data(label)",
+            "background-color": "data(color)",
+            "border-width": 1,
+            "border-color": "#000",
+            color: "#000",
+            "text-valign": "center",
+            "text-halign": "center",
+            width: 80,
+            height: 30,
+            "font-size": 12,
+            padding: 5,
+            shape: "data(shape)",
+          },
+        },
+        {
+          selector: "edge",
+          style: {
+            width: 1,
+            "line-color": "#7681b3",
+            "target-arrow-color": "#7681b3",
+            "target-arrow-shape": "triangle",
+            "source-arrow-color": "#7681b3",
+            "curve-style": "bezier",
+          },
+        },
+      ],
+      layout: {
+        name: "dagre",
+        rankDir: "TB",
+        nodeSep: 50,
+        rankSep: 100,
+        padding: 50,
+      },
+    });
+    /* cy.cssVars();*/
+
+    const legendTable = document.querySelector("#cy-legend");
+    legendTable.innerHTML = `<h3 style="margin-top: 0">Color</h3>`
+    Object.entries(color_map).forEach(([a, b]) => {
+      const row = document.createElement("div");
+      const c = a.charAt(0).toUpperCase() + a.slice(1);
+      row.classList.add("legend-item")
+      row.innerHTML = `
+        <div class="legend-color" style="border-color: ${b}; background-color: ${b}"></div>
+        <span>${c}</span>
+      `
+      legendTable.appendChild(row);
+    });
+    legendTable.innerHTML += `
+      <h3>Shape</h3>
+      <div class="legend-item">
+        <div class="legend-shape" style="border-radius: 3px"></div>
+        <span>Internal</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-shape" style="border-radius: 50%"></div>
+        <span>Result</span>
+      </div>
+    `
+  }
+</script>
+{% endblock %}
