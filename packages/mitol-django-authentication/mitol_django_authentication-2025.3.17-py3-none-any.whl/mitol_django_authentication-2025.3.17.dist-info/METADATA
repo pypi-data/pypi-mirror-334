@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: mitol-django-authentication
+Version: 2025.3.17
+Summary: MIT Open Learning django app extensions for oauth toolkit
+License-Expression: BSD-3-Clause
+Requires-Python: >=3.10
+Requires-Dist: django-anymail>=6.0
+Requires-Dist: django-stubs>=1.13.1
+Requires-Dist: django>=3.0
+Requires-Dist: djangorestframework>=3.0.0
+Requires-Dist: djoser==2.3.1
+Requires-Dist: mitol-django-common
+Requires-Dist: mitol-django-mail
+Requires-Dist: social-auth-app-django>=5.4.0
+Provides-Extra: touchstone
+Requires-Dist: python3-saml>=1.10.1; (python_version < '3.13') and extra == 'touchstone'
+Description-Content-Type: text/markdown
+
+mitol-django-authentication
+---
+
+This is the Open Learning Django Authentication app. It provides a few key features around authentication:
+
+- User login and registration via [python-social-auth](https://python-social-auth.readthedocs.io/en/latest/)
+- Password reset via extended [Djoser](https://djoser.readthedocs.io/en/latest/) views
+
+
+### Setup
+
+You may need to install xmlsec: `apt-get install libxmlsec1-dev`
