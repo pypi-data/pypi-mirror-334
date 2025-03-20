@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: channel-surfer
+Version: 0.1.4
+Summary: A TUI for managing channel endpoints with ease.
+Home-page: https://github.com/cwilliams001/channel_surfer
+Author: CWilliams
+Author-email: williamsct1@gmail.com
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: rich
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
