@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: agentiq-test
+Version: 1.0.0rc10
+Summary: Testing utilities for AgentIQ 
+Keywords: ai,rag,agents
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: pytest~=8.3
