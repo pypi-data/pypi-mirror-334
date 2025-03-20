@@ -1,0 +1,43 @@
+[project]
+name = "recsa"
+dynamic = ["version"]
+
+[tool.poetry]
+name = "recsa"
+version = "0.14.0"
+description = "Reaction Explorer for Coordination Self-Assembly"
+authors = ["neji-craftsman <142223934+neji-craftsman@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+networkx = "^3.3"
+matplotlib = "^3.8.4"
+pandas = "^2.2.2"
+mypy = "^1.11.1"
+opencv-python = "^4.10.0.84"
+scipy = "^1.14.0"
+pandas-stubs = "^2.2.2.240909"
+pyyaml = "^6.0.2"
+types-pyyaml = "^6.0.12.20240917"
+pydantic = "^2.9.2"
+cachetools = "^5.5.0"
+types-cachetools = "^5.5.0.20240820"
+click = "^8.1.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.2"
+sphinx = "^8.0.2"
+build = "^1.2.2.post1"
+twine = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+recsa = "recsa.cli.main:main"
+
+[tool.setuptools.package-data]
+"recsa" = ["py.typed"]
