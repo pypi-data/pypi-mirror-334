@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: agent-mafia
+Version: 0.0.3
+Summary: agentic mafia for modifying
+Home-page: https://github.com/jaewilson07/agent-mafia
+Author: jaewilson07
+Author-email: jaewilson07@gmail.com
+License: Apache Software License 2.0
+Keywords: nbdev jupyter notebook python
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: black
+Requires-Dist: frontmatter
+Requires-Dist: supabase
+Requires-Dist: slack_bolt
+Requires-Dist: domolibrary
+Provides-Extra: dev
+
+This file will be overwritten by `index.ipynb`
