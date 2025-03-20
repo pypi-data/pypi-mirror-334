@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: global_parser_lib
+Version: 0.1.0
+Summary: A library for parsing various file types including images and audio
+Author-email: Vaia <foundersoffice@vaiaclimate.com>
+Project-URL: Homepage, https://github.com/founders-vaia/global-parser
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: aiohttp
+Requires-Dist: requests
+Requires-Dist: openai-whisper
+Requires-Dist: pdfplumber
+Requires-Dist: pandas
+Requires-Dist: python-docx
+Requires-Dist: fitz
+Requires-Dist: python-pptx
+Requires-Dist: huggingface_hub
+Requires-Dist: openai
+Requires-Dist: python-dotenv
+Requires-Dist: httpx
+Requires-Dist: fastapi
+Requires-Dist: boto3
+Requires-Dist: botocore
+Requires-Dist: transformers
+Requires-Dist: nltk
+Requires-Dist: bs4
+Requires-Dist: langdetect
+Requires-Dist: chardet
+Requires-Dist: pymongo
