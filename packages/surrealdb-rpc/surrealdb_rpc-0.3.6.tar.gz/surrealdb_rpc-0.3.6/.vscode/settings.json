@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "surrealdb_rpc"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

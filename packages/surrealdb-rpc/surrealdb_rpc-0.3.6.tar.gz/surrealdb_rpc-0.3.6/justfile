@@ -1,0 +1,10 @@
+default: clean build upload
+
+clean:
+    rm -rf dist/
+
+build:
+    uv build
+
+upload:
+    twine upload dist/*
