@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+src/PyAudacity_x.egg-info/PKG-INFO
+src/PyAudacity_x.egg-info/SOURCES.txt
+src/PyAudacity_x.egg-info/dependency_links.txt
+src/PyAudacity_x.egg-info/top_level.txt
+src/pyaudacity/__init__.py
+tests/test_pyaudacity.py
