@@ -1,0 +1,18 @@
+Metadata-Version: 2.2
+Name: rmkf
+Version: 0.1.0
+Summary: Research market finance
+Home-page: https://github.com/xikest/research_market_finance
+Author: xikest
+Project-URL: Source, https://github.com/xikest/research_market_finance
+Project-URL: Bug Tracker, https://github.com/xikest/research_market_finance/issues
+Requires-Python: >=3.8
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: selenium
+Dynamic: author
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
