@@ -1,0 +1,2 @@
+[console_scripts]
+wait-for-dep = wait_for_dep.wait_for_dep:main
