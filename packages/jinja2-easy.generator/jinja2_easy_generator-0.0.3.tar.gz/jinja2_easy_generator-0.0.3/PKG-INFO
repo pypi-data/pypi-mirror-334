@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: jinja2-easy.generator
+Version: 0.0.3
+Summary: Jinja2 easy generator
+Home-page: https://github.com/huakim/python-jinja2_easy
+License: GPLv3
+License-File: LICENSE
+Requires-Dist: platformdirs
+Requires-Dist: jinja2
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
