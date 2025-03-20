@@ -1,0 +1,126 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://digitalshoestring.net/recipe.schema.json",
+    "title": "Shoestring Solution Recipe Schema",
+    "description": "A product in the catalog",
+    "type": "object",
+    "properties": {
+        "recipe_vsn": {
+            "description": "Version of the recipe specification that has been used",
+            "type": "string",
+            "pattern": "^\\d+(?:\\.\\d+){2}$"
+        },
+        "solution": {
+            "description": "",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name of the solution this recipe is for",
+                    "type": "string"
+                },
+                "slug": {
+                    "description": "Name of the solution this recipe is for",
+                    "type": "string",
+                    "pattern": "^[a-z_]*$"
+                },
+                "version": {
+                    "description": "Version of the solution this recipe creates",
+                    "type": "string",
+                    "pattern": "^\\d+(?:\\.\\d+){2}$"
+                },
+                "description": {
+                    "description": "A description of the solution",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "slug",
+                "version"
+            ]
+        },
+        "source": {
+            "description": "Key-Value map relating source names to a source description",
+            "type": "object",
+            "patternProperties": {
+                "^.*$": {
+                    "description": "Source description",
+                    "type": "object",
+                    "properties": {
+                        "file": {
+                            "description": "File source description",
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "description": "File system path for the source",
+                                    "type": "string"
+                                },
+                                "mode": {
+                                    "description": "Whether the source should be copied(default) or symlinked",
+                                    "enum": [
+                                        "copy",
+                                        "link"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "path"
+                            ]
+                        },
+                        "git": {
+                            "description": "Git source description",
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "description": "Path to find the repository. If a url, use as is. If a <username or org>/<slug>, assume github. If a <slug>, assume DigitalShoestringSolutions on github",
+                                    "type": "string"
+                                },
+                                "tag": {
+                                    "description": "Specifies the tag to use when pulling the repository (has precedence over branch)",
+                                    "type": "string"
+                                },
+                                "branch": {
+                                    "description": "Specifies which branch to pull",
+                                    "type": "string"
+                                }
+                            },
+                            "$comment": "Ensures there is a (path and tag) or (path and branch) - will also be ok with all 3",
+                            "oneOf": [
+                                {
+                                    "required": [
+                                        "path",
+                                        "tag"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "path",
+                                        "branch"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "$comment": "Ensures that either file or git are specified - will also be ok with both",
+                    "anyOf": [
+                        {
+                            "required": [
+                                "file"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "git"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "required": [
+        "recipe_vsn",
+        "solution",
+        "source"
+    ]
+}
