@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+euler/__init__.py
+euler/angles.py
+euler/convert.py
+euler/matrix.py
+euler/py.typed
+euler/utils.py
+neverlocal_euler.egg-info/PKG-INFO
+neverlocal_euler.egg-info/SOURCES.txt
+neverlocal_euler.egg-info/dependency_links.txt
+neverlocal_euler.egg-info/requires.txt
+neverlocal_euler.egg-info/top_level.txt
+test/test_00_matrix.py
+test/test_01_angles.py
+test/test_02_conversion.py
