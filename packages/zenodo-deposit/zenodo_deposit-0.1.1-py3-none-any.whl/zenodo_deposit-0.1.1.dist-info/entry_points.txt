@@ -1,0 +1,2 @@
+[console_scripts]
+zd = zenodo_deposit.cli:cli
