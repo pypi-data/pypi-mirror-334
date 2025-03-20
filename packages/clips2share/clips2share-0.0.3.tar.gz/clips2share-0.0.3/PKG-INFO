@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: clips2share
+Version: 0.0.3
+Summary: Create a torrent including metadata from a c4s link
+Author: c2s
+Project-URL: Homepage, https://codeberg.org/c2s/clips2share
+Project-URL: Repository, https://codeberg.org/c2s/clips2share.git
+Project-URL: Bug Tracker, https://codeberg.org/c2s/clips2share/issues
+Keywords: torrent,clips4sale,thumbnail
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+Requires-Dist: torf
+Requires-Dist: vcsi
+
+# clips2share
+
