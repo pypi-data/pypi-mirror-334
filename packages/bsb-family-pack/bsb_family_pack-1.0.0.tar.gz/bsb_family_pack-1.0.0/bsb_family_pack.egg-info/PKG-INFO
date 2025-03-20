@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: bsb_family_pack
+Version: 1.0.0
+License-File: LICENSE
+Requires-Dist: python-telegram-bot
+Requires-Dist: sqlite3
+Dynamic: requires-dist

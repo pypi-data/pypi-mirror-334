@@ -1,0 +1,2 @@
+[console_scripts]
+bsb-connect = bsb_monitor:start_monitoring
