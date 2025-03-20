@@ -1,0 +1,2 @@
+def config() -> dict:
+    return {}
