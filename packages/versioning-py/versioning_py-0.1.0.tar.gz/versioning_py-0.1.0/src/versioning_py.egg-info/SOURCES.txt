@@ -1,0 +1,13 @@
+README.md
+setup.py
+src/versioning_py.egg-info/PKG-INFO
+src/versioning_py.egg-info/SOURCES.txt
+src/versioning_py.egg-info/dependency_links.txt
+src/versioning_py.egg-info/entry_points.txt
+src/versioning_py.egg-info/requires.txt
+src/versioning_py.egg-info/top_level.txt
+tests/test_git.py
+tests/test_grammatical_series.py
+tests/test_parser.py
+tests/test_version.py
+tests/test_version_segments.py
