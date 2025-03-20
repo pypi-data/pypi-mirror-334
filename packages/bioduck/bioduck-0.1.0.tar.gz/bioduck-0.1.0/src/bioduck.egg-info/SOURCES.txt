@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/bioduck/__init__.py
+src/bioduck/main.py
+src/bioduck.egg-info/PKG-INFO
+src/bioduck.egg-info/SOURCES.txt
+src/bioduck.egg-info/dependency_links.txt
+src/bioduck.egg-info/entry_points.txt
+src/bioduck.egg-info/requires.txt
+src/bioduck.egg-info/top_level.txt
+src/bioduck/sql/__init__.py
+src/bioduck/sql/ncbi/__init__.py
+src/bioduck/sql/ncbi/enums.sql
+src/bioduck/sql/ncbi/init.sql
+src/bioduck/sql/ncbi/load_assembly_genbank.sql
+src/bioduck/sql/ncbi/load_assembly_refseq.sql
+src/bioduck/sql/ncbi/load_taxonomy.sql
