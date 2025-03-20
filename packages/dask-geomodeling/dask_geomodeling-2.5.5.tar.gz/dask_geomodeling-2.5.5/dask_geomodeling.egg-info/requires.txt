@@ -1,0 +1,13 @@
+dask[delayed]>=2.9
+pandas<2.2,>=1.0
+geopandas>=0.11
+pytz
+numpy<2,>=1.18
+scipy>=1.4
+fiona
+
+[cityhash]
+cityhash
+
+[test]
+pytest
