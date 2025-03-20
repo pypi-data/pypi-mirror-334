@@ -1,0 +1,80 @@
+Metadata-Version: 2.4
+Name: dockler
+Version: 0.0.1
+Summary: Docker launcher / management
+Project-URL: Documentation, https://phil65.github.io/dockler/
+Project-URL: Source, https://github.com/phil65/dockler
+Project-URL: Issues, https://github.com/phil65/dockler/issues
+Project-URL: Discussions, https://github.com/phil65/dockler/discussions
+Project-URL: Code coverage, https://app.codecov.io/gh/phil65/dockler
+Author-email: Philipp Temminghoff <philipptemminghoff@googlemail.com>
+License: MIT License
+        
+        Copyright (c) 2024, Philipp Temminghoff
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# Dockler
+
+[![PyPI License](https://img.shields.io/pypi/l/dockler.svg)](https://pypi.org/project/dockler/)
+[![Package status](https://img.shields.io/pypi/status/dockler.svg)](https://pypi.org/project/dockler/)
+[![Daily downloads](https://img.shields.io/pypi/dd/dockler.svg)](https://pypi.org/project/dockler/)
+[![Weekly downloads](https://img.shields.io/pypi/dw/dockler.svg)](https://pypi.org/project/dockler/)
+[![Monthly downloads](https://img.shields.io/pypi/dm/dockler.svg)](https://pypi.org/project/dockler/)
+[![Distribution format](https://img.shields.io/pypi/format/dockler.svg)](https://pypi.org/project/dockler/)
+[![Wheel availability](https://img.shields.io/pypi/wheel/dockler.svg)](https://pypi.org/project/dockler/)
+[![Python version](https://img.shields.io/pypi/pyversions/dockler.svg)](https://pypi.org/project/dockler/)
+[![Implementation](https://img.shields.io/pypi/implementation/dockler.svg)](https://pypi.org/project/dockler/)
+[![Releases](https://img.shields.io/github/downloads/phil65/dockler/total.svg)](https://github.com/phil65/dockler/releases)
+[![Github Contributors](https://img.shields.io/github/contributors/phil65/dockler)](https://github.com/phil65/dockler/graphs/contributors)
+[![Github Discussions](https://img.shields.io/github/discussions/phil65/dockler)](https://github.com/phil65/dockler/discussions)
+[![Github Forks](https://img.shields.io/github/forks/phil65/dockler)](https://github.com/phil65/dockler/forks)
+[![Github Issues](https://img.shields.io/github/issues/phil65/dockler)](https://github.com/phil65/dockler/issues)
+[![Github Issues](https://img.shields.io/github/issues-pr/phil65/dockler)](https://github.com/phil65/dockler/pulls)
+[![Github Watchers](https://img.shields.io/github/watchers/phil65/dockler)](https://github.com/phil65/dockler/watchers)
+[![Github Stars](https://img.shields.io/github/stars/phil65/dockler)](https://github.com/phil65/dockler/stars)
+[![Github Repository size](https://img.shields.io/github/repo-size/phil65/dockler)](https://github.com/phil65/dockler)
+[![Github last commit](https://img.shields.io/github/last-commit/phil65/dockler)](https://github.com/phil65/dockler/commits)
+[![Github release date](https://img.shields.io/github/release-date/phil65/dockler)](https://github.com/phil65/dockler/releases)
+[![Github language count](https://img.shields.io/github/languages/count/phil65/dockler)](https://github.com/phil65/dockler)
+[![Github commits this week](https://img.shields.io/github/commit-activity/w/phil65/dockler)](https://github.com/phil65/dockler)
+[![Github commits this month](https://img.shields.io/github/commit-activity/m/phil65/dockler)](https://github.com/phil65/dockler)
+[![Github commits this year](https://img.shields.io/github/commit-activity/y/phil65/dockler)](https://github.com/phil65/dockler)
+[![Package status](https://codecov.io/gh/phil65/dockler/branch/main/graph/badge.svg)](https://codecov.io/gh/phil65/dockler/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyUp](https://pyup.io/repos/github/phil65/dockler/shield.svg)](https://pyup.io/repos/github/phil65/dockler/)
+
+[Read the documentation!](https://phil65.github.io/dockler/)
+
