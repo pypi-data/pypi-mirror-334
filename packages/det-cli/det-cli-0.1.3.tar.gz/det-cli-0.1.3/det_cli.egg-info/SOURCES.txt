@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+det_cli/__init__.py
+det_cli/protocol_handler.py
+det_cli/register.py
+det_cli.egg-info/PKG-INFO
+det_cli.egg-info/SOURCES.txt
+det_cli.egg-info/dependency_links.txt
+det_cli.egg-info/entry_points.txt
+det_cli.egg-info/top_level.txt
+det_cli/__pycache__/__init__.cpython-39.pyc
+det_cli/__pycache__/protocol_handler.cpython-39.pyc
+det_cli/__pycache__/register.cpython-39.pyc
