@@ -1,0 +1,17 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+simplejson-stubs/METADATA.toml
+simplejson-stubs/__init__.pyi
+simplejson-stubs/decoder.pyi
+simplejson-stubs/encoder.pyi
+simplejson-stubs/errors.pyi
+simplejson-stubs/py.typed
+simplejson-stubs/raw_json.pyi
+simplejson-stubs/scanner.pyi
+types_simplejson.egg-info/PKG-INFO
+types_simplejson.egg-info/SOURCES.txt
+types_simplejson.egg-info/dependency_links.txt
+types_simplejson.egg-info/top_level.txt
