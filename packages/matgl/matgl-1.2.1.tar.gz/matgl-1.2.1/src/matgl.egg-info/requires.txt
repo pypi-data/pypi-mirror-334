@@ -1,0 +1,14 @@
+ase
+dgl<=2.2.0
+pymatgen
+lightning<=2.5.0.post0
+torch<=2.2.0
+pydantic
+torchdata<=0.7.1
+boto3
+numpy<2.0.0
+
+[ci]
+pytest-cov
+pytest
+coverage
