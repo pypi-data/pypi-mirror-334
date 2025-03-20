@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nsetools"
+version = "2.0.1"
+description = "Python library for extracting realtime data from National Stock Exchange"
+readme = "README.md"
+authors = [
+  { name = "Vivek Jha", email = "vsjha18@gmail.com" }
+]
+license = { text = "MIT" }
+keywords = ["nse", "quote", "market"]
+dependencies = [
+  "six",
+  "dateutils",
+  "requests"
+]
+urls = { Homepage = "http://vsjha18.github.com/nsetools" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["docs*", "tests*", "exp*", "nsetools.egg-info"]
+
+[tool.setuptools]
+include-package-data = true
+
