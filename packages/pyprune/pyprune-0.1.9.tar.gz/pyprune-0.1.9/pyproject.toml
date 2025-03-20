@@ -1,0 +1,56 @@
+[project]
+name = "pyprune"
+version = "0.1.9"
+description = "Backtracking algorithm for constraint satisfaction puzzles."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Miguel Pereira", email = "miguel.b.per@gmail.com"},
+]
+dependencies = [
+    "numpy>=2.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0",
+    "pytest-cov>=6.0.0",
+    "pytest>=8.3.5",
+]
+
+# ------------------------------------------------------------------------------
+# Linting
+# ------------------------------------------------------------------------------
+
+[tool.ruff]
+line-length = 120
+
+# Set of rules taken from https://docs.astral.sh/ruff/linter/#rule-selection
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle
+    "F",  # Pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM",  # flake8-simplify
+]
+
+# Set of rules taken from https://rdrn.me/postmodern-python/
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+strict = ["**/*.py"]
+pythonVersion = "3.11"
+
+# ------------------------------------------------------------------------------
+# Build
+# ------------------------------------------------------------------------------
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyprune"]
