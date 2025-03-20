@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: tgluzitool
+Version: 0.1
+Summary: luzitool-api Python API Modülü
+Home-page: https://luzitool.ct.ws/python-luzitool.php
+Author: Luzi inc
+Author-email: toolup@luzitool.ct.ws
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Requires-Dist: numpy>=1.20.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
