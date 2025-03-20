@@ -1,0 +1,56 @@
+Metadata-Version: 2.2
+Name: cuda-quantum
+Version: 0.10.0
+Summary: Python bindings for the CUDA-Q toolkit for heterogeneous quantum-classical workflows.
+Author: NVIDIA Corporation & Affiliates
+Maintainer: NVIDIA Corporation & Affiliates
+License: Apache License Version 2.0
+        
+        Copyright (c) 2023 - 2025 NVIDIA Corporation & Affiliates
+        All rights reserved.
+        
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        
+            http://www.apache.org/licenses/LICENSE-2.0
+        
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+        
+Project-URL: Homepage, https://developer.nvidia.com/cuda-q
+Project-URL: Documentation, https://nvidia.github.io/cuda-quantum
+Project-URL: Repository, https://github.com/NVIDIA/cuda-quantum
+Project-URL: Releases, https://nvidia.github.io/cuda-quantum/latest/releases.html
+Keywords: cudaq,cuda-quantum,cuda,quantum,quantum computing,nvidia,high-performance computing
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Environment :: GPU :: NVIDIA CUDA
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 11
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 12
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE
+License-File: CITATION.cff
+Provides-Extra: chemistry
+Requires-Dist: scipy==1.10.1; extra == "chemistry"
+Requires-Dist: openfermionpyscf==0.5; extra == "chemistry"
+Requires-Dist: h5py<3.11; extra == "chemistry"
+Provides-Extra: visualization
+Requires-Dist: qutip<5; extra == "visualization"
+Requires-Dist: matplotlib>=3.5; extra == "visualization"
+
+# Welcome to the CUDA-Q Python API
+This package is deprecated and new versions are published under the name `cudaq` instead.
+For more information, please see [CUDA-Q on PyPI](https://pypi.org/project/cudaq).
