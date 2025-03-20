@@ -1,0 +1,6 @@
+{
+    "id": "evoked_difference",
+    "name": "Compute differences",
+    "entry": "EvokedDifference",
+    "description": "Generate a new evoked object with the response curves being differences between the original response curves."
+}

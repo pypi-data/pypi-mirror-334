@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meggie_difference"
+version = "0.2.0"
+description = "Difference plugin for Meggie"
+license = { text = "BSD" }
+dependencies = ["meggie>=1.9.0"]
+
+[project.urls]
+homepage = "https://github.com/cibr-jyu/meggie_difference"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pylama",
+    "pytest",
+    "pytest-qt",
+    "build",
+    "twine",
+    "setuptools",
+]
+test = [
+    "black",
+    "pylama",
+    "pytest",
+    "pytest-qt",
+    "setuptools",
+]

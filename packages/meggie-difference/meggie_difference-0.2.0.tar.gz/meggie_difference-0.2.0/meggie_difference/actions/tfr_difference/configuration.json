@@ -1,0 +1,6 @@
+{
+    "id": "tfr_difference",
+    "name": "Compute differences",
+    "entry": "TFRDifference",
+    "description": "Generate a new tfr object with the powers being power differences between the original powers."
+}
