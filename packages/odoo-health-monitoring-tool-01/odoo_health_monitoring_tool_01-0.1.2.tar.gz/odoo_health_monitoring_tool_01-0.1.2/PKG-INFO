@@ -1,0 +1,45 @@
+Metadata-Version: 2.2
+Name: odoo_health_monitoring_tool_01
+Version: 0.1.2
+Summary: A Django application for monitoring Odoo server metrics
+Home-page: https://github.com/yourusername/odoo-health-report
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django>=3.2.0
+Requires-Dist: asgiref==3.8.1
+Requires-Dist: djangorestframework==3.15.2
+Requires-Dist: psutil==7.0.0
+Requires-Dist: psycopg2-binary==2.9.10
+Requires-Dist: sqlparse==0.5.3
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+A Django application for monitoring Odoo server metrics.
+
+## Installation
+
+```bash
+pip install odoo-health-report
+```
+
+## Usage
+
+```bash
+odoo-health-report
+```
+
+This will start the Django development server and open the application in your default web browser.
