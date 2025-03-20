@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+pytest_slow_last.py
+setup.py
+pytest_slow_last.egg-info/PKG-INFO
+pytest_slow_last.egg-info/SOURCES.txt
+pytest_slow_last.egg-info/dependency_links.txt
+pytest_slow_last.egg-info/entry_points.txt
+pytest_slow_last.egg-info/requires.txt
+pytest_slow_last.egg-info/top_level.txt
+tests/test_slow_last.py
