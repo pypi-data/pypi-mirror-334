@@ -1,0 +1,31 @@
+image: python:3.10
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - pip check
+
+test-job:
+  stage: test
+  before_script:
+    - mkdir -p src/my_collection
+    - echo "Sample text for testing." > src/my_collection/text.
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
+    - echo "Running tests with pytest..."
+    - pytest --maxfail=1 --disable-warnings --verbose
+  timeout: 10m
+
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+  environment: production

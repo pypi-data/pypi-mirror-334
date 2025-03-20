@@ -1,0 +1,26 @@
+[project]
+name = "my-collection"
+version = "0.1.2"
+authors = [
+  { name="Liliia Shpytsia", email="fioletowujsemizwetik@gmail.com" },
+]
+description = "A Python package for text processing and argument parsing"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { text = "MIT"}
+license-files = ["LICENSE"]
+dependencies = ["uv>=0.1.0"]
+
+[project.urls]
+Homepage = "https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging"
+Issues = "https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
