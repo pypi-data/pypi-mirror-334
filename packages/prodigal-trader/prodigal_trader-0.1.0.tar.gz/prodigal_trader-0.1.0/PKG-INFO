@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: prodigal-trader
+Version: 0.1.0
+Summary: A sample Python package
+Home-page: https://github.com/yourusername/my_package
+Author: Your Name
+Author-email: Prodigal AI <outreach@prodigalai.com>
+Project-URL: Homepage, https://github.com/yourusername/my_package
+Project-URL: Repository, https://github.com/yourusername/my_package
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# prodigal-trader
+Main Repo for Prodigal AI Automated Trading Engine
