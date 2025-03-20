@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: turbanet
+Version: 0.2.0
+Summary: A package designed for fast training and inference for large numbers of small neural networks simultaneously.
+Author-email: Ethan Schmitt <ethanschmitt@gmail.com>
+Project-URL: Homepage, https://github.com/EthanSchmitt7/TurbaNet
+Project-URL: Issues, https://github.com/EthanSchmitt7/TurbaNet/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: flax>=0.10.4
+
+# Turba
+A lightweight and user-friendly API wrapper for the JAX library,
+designed to simplify and accelerate the setup of swarm-based training,
+evaluation, and simulation of small neural networks.
