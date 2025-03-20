@@ -1,0 +1,9 @@
+Genshi
+lxml
+python-dateutil
+python-stdnum>=1.0
+trytond_account_payment<6.1,>=6.0
+trytond_company<6.1,>=6.0
+trytond_bank<6.1,>=6.0
+trytond_party<6.1,>=6.0
+trytond<6.1,>=6.0
