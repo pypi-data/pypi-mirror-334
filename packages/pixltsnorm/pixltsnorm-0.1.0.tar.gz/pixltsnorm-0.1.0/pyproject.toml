@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pixltsnorm"]
+
+[project]
+name = "pixltsnorm"
+version = "0.1.0"
+description = "Pixel-based Linear Time Series Normalizer"
+authors = [
+  { name="Joseph Emile Honour Percival", email="ipercival@gmail.com" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["remote sensing", "time series", "normalization"]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "statsmodels"
+]
+classifiers = [
+   "Development Status :: 3 - Alpha",
+   "Programming Language :: Python :: 3",
+   "License :: OSI Approved :: MIT License",
+   "Topic :: Scientific/Engineering :: GIS"
+ ]
+
+[project.optional-dependencies]
+earth_engine = [
+  "earthengine-api>=0.1.350"
+]
+
+dev = [
+    "pytest==8.0.0",
+    "jupyter~=1.0.0",
+    "pre-commit~=3.6.0",
+]
+
+docs = [
+    "mkdocs>=1.4.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocs-jupyter>=0.24.0",
+    "mkdocstrings>=0.21.0",
+    "mkdocstrings-python>=0.10.0",
+    "mkdocs-git-revision-date-plugin>=0.3.2",
+    "pymdown-extensions>=9.10"
+]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/iosefa/pixltsnorm"
+"Source" = "https://github.com/iosefa/pixltsnorm"
