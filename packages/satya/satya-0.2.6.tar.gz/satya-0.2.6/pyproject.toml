@@ -1,0 +1,33 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "satya"
+version = "0.2.6"
+description = "A streaming data validator using Rust and PyO3"
+authors = [{ name = "Rach Pradhan" }]
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Development Status :: 3 - Alpha",
+]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "src"
+module-name = "satya._satya"
+
+[project.urls]
+"Homepage" = "https://github.com/rachpradhan/satya"
+"Bug Tracker" = "https://github.com/rachpradhan/satya/issues"
+
+# This is needed to build from source
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+# Rust toolchain requirements
+[tool.maturin.rust]
+minimum-version = "1.70.0"
