@@ -1,0 +1,42 @@
+{% extends "page.html.j2" %}
+{% from "search_form.html.j2" import search_form %}
+
+{% block container %}
+
+<h1 class="row mb-3">Activities Overview & Search</h1>
+
+<div class="mb-3">
+    {{ search_form(query, equipments_avail, kinds_avail, search_query_favorites, search_query_last, request_url) }}
+</div>
+
+<table class="table table-sort table-arrows">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th class="numeric-sort">Distance</th>
+            <th>Elapsed time</th>
+            <th>Speed / km/h</th>
+            <th>Equipment</th>
+            <th>Kind</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for index, activity in activities %}
+        <tr>
+            <td><a href="{{ url_for('activity.show', id=activity['id']) }}">{{ activity['name'] }}</a></td>
+            <td>
+                {% if activity['start'] is defined %}
+                {{ activity['start']|dt }}
+                {% endif %}
+            </td>
+            <td>{{ '%.1f' % activity["distance_km"] }} km</td>
+            <td>{{ activity.elapsed_time|td }}</td>
+            <td>{{ activity.average_speed_moving_kmh|round(1) }}</td>
+            <td>{{ activity["equipment"] }}</td>
+            <td>{{ activity['kind'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
