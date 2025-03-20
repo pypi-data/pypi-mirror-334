@@ -1,0 +1,3 @@
+[console_scripts]
+deep-research = deep_research_agent.cli:main
+deep-research-ui = deep_research_agent.ui.streamlit_app:main
