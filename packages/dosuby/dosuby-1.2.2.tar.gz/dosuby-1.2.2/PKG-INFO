@@ -1,0 +1,118 @@
+Metadata-Version: 2.2
+Name: dosuby
+Version: 1.2.2
+Summary: A tool for enumerating subdomains of a parent domain
+Home-page: https://github.com/deidax/dosuby
+Author: deidax
+Author-email: deidaxtech@gmail.com
+License: MIT
+Keywords: subdomain enumeration security network
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Security
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: art==6.4
+Requires-Dist: attrs==22.2.0
+Requires-Dist: beautifulsoup4==4.9.3
+Requires-Dist: blessed==1.19.1
+Requires-Dist: certifi==2022.12.7
+Requires-Dist: chardet==4.0.0
+Requires-Dist: dnslib==0.9.23
+Requires-Dist: exceptiongroup==1.1.0
+Requires-Dist: flake8==6.0.0
+Requires-Dist: google==3.0.0
+Requires-Dist: idna==2.10
+Requires-Dist: iniconfig==2.0.0
+Requires-Dist: inquirer==3.1.2
+Requires-Dist: lxml==4.9.2
+Requires-Dist: markdown-it-py==2.2.0
+Requires-Dist: mccabe==0.7.0
+Requires-Dist: mdurl==0.1.2
+Requires-Dist: packaging==23.0
+Requires-Dist: pluggy==1.0.0
+Requires-Dist: pycodestyle==2.10.0
+Requires-Dist: pyflakes==3.0.1
+Requires-Dist: Pygments==2.14.0
+Requires-Dist: pytest==7.2.1
+Requires-Dist: python-editor==1.0.4
+Requires-Dist: pyuseragents==1.0.5
+Requires-Dist: readchar==4.0.3
+Requires-Dist: requests==2.25.1
+Requires-Dist: rich==13.3.3
+Requires-Dist: six==1.16.0
+Requires-Dist: soupsieve==2.3.2.post1
+Requires-Dist: tomli==2.0.1
+Requires-Dist: urllib3==1.26.14
+Requires-Dist: wcwidth==0.2.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Dosuby
+
+Dosuby is a tool developed in Python that aims to enumerate subdomains of a parent domain. It uses multiple techniques for enumeration, allowing for a comprehensive subdomain scan. Additionally, Dosuby has the option to scan the enumerated domains.
+
+## Installation
+
+```bash
+pip install dosuby
+```
+
+## Quick Start
+
+Run the tool simply by typing:
+```bash
+dosuby
+```
+
+## Features
+
+- Multiple subdomain enumeration techniques
+- Comprehensive domain scanning
+- Easy-to-use CLI interface
+
+## Screenshots
+
+Due to PyPI markdown limitations, screenshots are best viewed on the project's GitHub repository:
+- [View Project Screenshots](https://github.com/deidax/dosuby)
+
+## Usage Example
+
+When you run `dosuby`, you'll be presented with an interactive interface to perform subdomain enumeration.
+
+## Contributing
+
+Contributions are welcome! 
+
+If you find a bug or would like to suggest a new feature:
+- Open an issue on GitHub
+- Submit a pull request
+
+## License
+
+This project is licensed under the MIT License. 
+
+See the LICENSE file for full details.
+
+## Contact
+
+- GitHub: [deidax/dosuby](https://github.com/deidax/dosuby)
+- Email: deidaxtech@gmail.com
