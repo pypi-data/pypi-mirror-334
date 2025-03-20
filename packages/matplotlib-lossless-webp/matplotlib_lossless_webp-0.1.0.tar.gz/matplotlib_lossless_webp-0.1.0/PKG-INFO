@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: matplotlib-lossless-webp
+Version: 0.1.0
+Summary: Tiny Python package that forces lossless compression in matplotlib when saving WebP images
+Home-page: https://github.com/ragibson/matplotlib-lossless-webp
+Author: Ryan Gibson
+Author-email: ryan.alex.gibson@gmail.com
+License: MIT
+Keywords: matplotlib lossless webp
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
