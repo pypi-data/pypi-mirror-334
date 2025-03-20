@@ -1,0 +1,17 @@
+[project]
+name = "jnews-mcp-server"
+version = "0.1.0"
+description = "获取今日热点新闻头条信息"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [ "mcp>=1.4.1",]
+[[project.authors]]
+name = "juhemcp"
+email = "dev@juheapi.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+jnews-mcp-server = "jnews_mcp_server:main"
