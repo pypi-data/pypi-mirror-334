@@ -1,0 +1,20 @@
+!   Test
+
+    script Test
+
+    variable Directory
+    variable Name
+
+!    debug step
+
+    put the directory into Directory
+    put the directory cat `/README.md` into Name
+    gosub to TestMe
+    put the directory cat `/Nothing` into Name
+    gosub to TestMe
+    exit
+
+TestMe:
+    if file Name exists print Name cat ` exists`
+    if file Name does not exist print Name cat ` does not exist`
+    return
