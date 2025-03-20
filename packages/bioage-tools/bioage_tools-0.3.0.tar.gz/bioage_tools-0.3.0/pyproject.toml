@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+[tool.hatch.build.hooks.vcs]
+version-file = "src/bioage_tools/_version.py"
+
+[project]
+name = "bioage-tools"
+dynamic = ["version"]
+authors = [
+  { name="Mikhail Krivonosov", email="krivonosov@itmm.unn.ru" },
+]
+description = "Bioage tools package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.15.0",
+    "pandas",
+    "matplotlib>=3.6.2",
+    "scikit-learn",
+    "regression-bias-corrector",
+    "shap"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mike-live/bioage-tools"
+"Bug Tracker" = "https://github.com/mike-live/bioage-tools/issues"
