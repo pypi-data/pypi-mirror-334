@@ -1,0 +1,22 @@
+numpy<3.0,>=1.17
+tno.fl.protocols.logistic_regression~=1.1.0
+
+[:python_version < "3.12"]
+typing_extensions>=4.7.1
+
+[examples]
+tno.fl.protocols.cox_regression[schoenfeld_residuals]
+statsmodels~=0.14
+matplotlib~=3.0
+
+[schoenfeld_residuals]
+mpyc>=0.8
+tno.mpc.mpyc.stubs>=2.9.0
+
+[tests]
+pytest>=8.1
+pytest-asyncio
+tno.fl.protocols.logistic_regression[tests]
+tno.mpc.communication~=4.8
+tno.fl.protocols.cox_regression[schoenfeld_residuals]
+lifelines>=0.28
