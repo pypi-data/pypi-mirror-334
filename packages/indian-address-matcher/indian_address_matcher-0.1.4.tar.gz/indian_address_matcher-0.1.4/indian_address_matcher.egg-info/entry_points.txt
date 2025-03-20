@@ -1,0 +1,2 @@
+[console_scripts]
+address-matcher = address_matcher.cli:main
