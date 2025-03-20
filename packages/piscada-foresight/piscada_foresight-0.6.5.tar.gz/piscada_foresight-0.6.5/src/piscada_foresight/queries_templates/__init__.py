@@ -1,0 +1,1 @@
+"""Init query_manager."""

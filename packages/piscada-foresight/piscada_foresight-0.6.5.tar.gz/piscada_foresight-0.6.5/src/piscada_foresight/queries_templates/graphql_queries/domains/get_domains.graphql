@@ -1,0 +1,40 @@
+query getDomains {
+    domainDefinitions {
+        name
+        prefix
+        description
+        uri
+        traits {
+            name
+            id
+            parent_ids: parentTraits {
+                id
+            }
+            child_ids: childTraits {
+                id
+            }
+            equivalent_ids: equivalentTraits {
+                id
+            }
+            domain_prefix: domain {
+                prefix
+            }
+        }
+        relationships {
+            name
+            id
+            parent_ids: parentRelationships {
+                id
+            }
+            child_ids: childRelationships {
+                id
+            }
+            inverse_ids: inverse {
+                id
+            }
+            domain_prefix: domain {
+                prefix
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "entityId_0": {
+        "name": "360001 Temperature",
+        "trait": {
+            "quantity": {
+                "values": [
+                    {"eventTime": "2025-01-14T09:59:59.786Z", "value": "19.5"},
+                    {"eventTime": "2025-01-14T10:00:03.743Z", "value": "19.559999"},
+                    {"eventTime": "2025-01-14T10:00:11.683Z", "value": "19.5"},
+                    {"eventTime": "2025-01-14T10:00:15.622Z", "value": "19.559999"},
+                    {"eventTime": "2025-01-14T10:00:36.901Z", "value": "19.5"},
+                    {"eventTime": "2025-01-14T10:00:44.77Z", "value": "19.559999"},
+                    {"eventTime": "2025-01-14T10:00:48.708Z", "value": "19.5"}
+                ]
+            }
+        }
+    },
+    "entityId_1": {
+        "name": "360001 Temperature Setpoint",
+        "trait": {
+            "quantity": {
+                "values": [
+                    {"eventTime": "2025-01-14T09:32:32.176Z", "value": "19.5"}
+                ]
+            }
+        }
+    }
+}

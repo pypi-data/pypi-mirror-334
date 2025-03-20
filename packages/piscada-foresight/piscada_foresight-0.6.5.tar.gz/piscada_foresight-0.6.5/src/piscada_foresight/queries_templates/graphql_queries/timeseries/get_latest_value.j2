@@ -1,0 +1,12 @@
+
+query value($entityId: ID!, $eventTime: DateTime) {
+    entity(id: $entityId) {
+        trait(id: "foresight:Datapoint") {
+            quantity(key: "Value") {
+                value(eventTime: $eventTime) {
+                    value
+                }
+            }
+        }
+    }
+}

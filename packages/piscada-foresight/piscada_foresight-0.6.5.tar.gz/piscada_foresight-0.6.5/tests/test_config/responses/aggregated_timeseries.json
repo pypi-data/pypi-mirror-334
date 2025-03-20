@@ -1,0 +1,90 @@
+{
+    "entityId_0": {
+        "name": "360001 Temperature",
+        "trait": {
+            "quantity": {
+                "aggregatedTimeseries": [
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.5",
+                            "aggregationFunction": "min"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.7",
+                            "aggregationFunction": "max"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.6",
+                            "aggregationFunction": "avg"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "10",
+                            "aggregationFunction": "count"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.7",
+                            "aggregationFunction": "last"
+                        }
+                    ]
+                ]
+            }
+        }
+    },
+    "entityId_1": {
+        "name": "360002 Temperature Setpoint",
+        "trait": {
+            "quantity": {
+                "aggregatedTimeseries": [
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "18.0",
+                            "aggregationFunction": "min"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "20.0",
+                            "aggregationFunction": "max"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.0",
+                            "aggregationFunction": "avg"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "12",
+                            "aggregationFunction": "count"
+                        }
+                    ],
+                    [
+                        {
+                            "eventTime": "2025-01-14T09:59:59.786Z",
+                            "value": "19.8",
+                            "aggregationFunction": "last"
+                        }
+                    ]
+                ]
+            }
+        }
+    }
+}

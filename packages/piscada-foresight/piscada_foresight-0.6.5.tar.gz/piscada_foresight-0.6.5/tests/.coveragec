@@ -1,0 +1,6 @@
+[run]
+source = src/piscada_foresight
+branch = True
+
+[report]
+show_missing = True

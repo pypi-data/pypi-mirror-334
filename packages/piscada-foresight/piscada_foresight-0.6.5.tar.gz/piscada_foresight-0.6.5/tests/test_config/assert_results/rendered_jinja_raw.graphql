@@ -1,0 +1,29 @@
+query value(
+$entityId_0: ID!
+$entityId_1: ID!
+$startEventTime: DateTime!
+    $endEventTime: DateTime!
+) {
+entityId_0: entity(id: $entityId_0) {
+        name
+        trait(id: "foresight:Datapoint") {
+            quantity(key: "Value") {
+                values(startEventTime: $startEventTime, endEventTime: $endEventTime) {
+                    eventTime
+                    value
+                }
+            }
+        }
+    }
+entityId_1: entity(id: $entityId_1) {
+        name
+        trait(id: "foresight:Datapoint") {
+            quantity(key: "Value") {
+                values(startEventTime: $startEventTime, endEventTime: $endEventTime) {
+                    eventTime
+                    value
+                }
+            }
+        }
+    }
+}
