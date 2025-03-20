@@ -1,0 +1,35 @@
+Metadata-Version: 2.2
+Name: llpy-helper-lib
+Version: 2.13.1.post1
+Summary: A typing & util lib for LLSE Python runtime
+Author-email: LgCookie <lgc2333@126.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typing-extensions>=4.5.0
+Provides-Extra: dev
+Requires-Dist: setuptools>=76.0.0; extra == "dev"
+Requires-Dist: pip>=25.0.1; extra == "dev"
+Requires-Dist: basedpyright>=1.28.1; extra == "dev"
+Requires-Dist: ruff>=0.11.0; extra == "dev"
+
+# LLSE-Python Helper Lib
+
+A typing & util lib for LLSE Python runtime
+
+为 LLSE Python 运行时开发的 类型提示/工具库
+
+## Install / 安装
+
+Use `pip` or other Python package managers to install globally for type hints.
+
+使用 `pip` 或其他包管理器全局安装来提供类型提示
+
+```shell
+pip install llpy-helper-lib
+```
+
+## Usage / 用法
+
+**[example.py](./example.py)**
