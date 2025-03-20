@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include config *
+recursive-include dicts *
+global-exclude *.py[cod] __pycache__ *.so
+exclude anki_packager.log
+exclude *.pyc
+exclude __pycache__
+exclude *.apkg
