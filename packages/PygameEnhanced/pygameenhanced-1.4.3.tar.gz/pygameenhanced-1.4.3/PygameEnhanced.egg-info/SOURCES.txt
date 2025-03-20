@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+PygameEnhanced/__init__.py
+PygameEnhanced/app.py
+PygameEnhanced.egg-info/PKG-INFO
+PygameEnhanced.egg-info/SOURCES.txt
+PygameEnhanced.egg-info/dependency_links.txt
+PygameEnhanced.egg-info/requires.txt
+PygameEnhanced.egg-info/top_level.txt
+PygameEnhanced/templates/index.html
