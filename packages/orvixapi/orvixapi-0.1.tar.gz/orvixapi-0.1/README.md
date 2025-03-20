@@ -1,0 +1,1 @@
+Orvix Games Modülü, Orvix Games'in API entegrasyonunu kullanan projelerde önemli bir bileşendir. Kullanıcılar, API'yi Python ile kullanmak istediklerinde, bu modülü kullanmaları gerekmektedir. 
