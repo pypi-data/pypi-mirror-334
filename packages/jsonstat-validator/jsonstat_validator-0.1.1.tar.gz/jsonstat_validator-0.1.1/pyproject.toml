@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jsonstat-validator"
+version = "0.1.1"
+description = "A Python validator for the JSON-stat 2.0 standard format, based on Pydantic."
+readme = "README.md"
+authors = [
+    {name = "Ahmed Hassan", email = "ahmedhassan.ahmed@fao.org"},
+]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+]
+keywords = ["json-stat", "validator", "json", "data-engineering", "pydantic", "python", "fao"]
+requires-python = ">=3.8"
+dependencies = [
+    "pydantic>=2.0.0,<3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.1",
+    "build>=1.0.0",
+    "twine>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ahmed-hassan19/jsonstat-validator"
+"Bug Tracker" = "https://github.com/ahmed-hassan19/jsonstat-validator/issues"
+"Documentation" = "https://github.com/ahmed-hassan19/jsonstat-validator#readme"
+
+[tool.setuptools]
+packages = ["jsonstat_validator"]
+
+[tool.pytest.ini_options]
+markers = [
+    "samples: marks tests that use JSON-stat sample files",
+]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 90
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 90
+multi_line_output = 3 
