@@ -1,0 +1,281 @@
+Screen {
+    layout: horizontal;
+}
+
+TopBar {
+    dock: top;
+    background: $primary;
+    height: 1;
+    layout: horizontal;
+
+    #topbar_title {
+        width: 15%;
+        content-align: left middle;
+    }
+    #topbar_statuses {
+        width: 70%;
+        content-align: center middle;
+    }
+    #topbar_help {
+        width: 15%;
+        content-align: right middle;
+        color: gray;
+    }
+}
+
+.active-widget {
+    border: cornflowerblue;
+}
+
+#containers-and-images {
+    width: 20%;
+
+    Button {
+        display: none;
+    }
+}
+
+PockerContainers {
+    border-title-align: center;
+    border-title-color: white 100%;
+    height: 50%;
+    border: gray 10%;
+}
+
+PockerImages {
+    border-title-align: center;
+    border-title-color: white 100%;
+    height: 50%;
+    border: gray 10%;
+}
+
+VerticalScroll {
+    padding: 0;
+    margin: 0;
+}
+
+ContentWindow {
+    width: 99%;
+    border: none;
+}
+
+TabbedContent {
+    width: 81%;
+    background: transparent;
+}
+
+TabPane {
+    padding: 0;
+}
+
+RichLog {
+    border: round cornflowerblue;
+    scrollbar-size: 1 1;
+    border-subtitle-color: white 50%;
+}
+
+LogLines {
+    border: gray 10%;
+    border-title-color: white 100%;
+    scrollbar-size: 1 1;
+    border-subtitle-color: white 50%;
+
+    .loglines--filter-highlight {
+        background: #111111;
+    }
+    .loglines--filter-highlight-selected {
+        background: cornflowerblue;
+        color: auto;
+    }
+}
+
+Input {
+    border: round cornflowerblue;
+    background: transparent;
+    width: 60%;
+}
+
+Switch {
+    margin-top: 1;
+    height: 1;
+    width: 8;
+    background: transparent;
+    border: none
+}
+
+.container {
+    display: none;
+}
+
+.case-sensitive-switch {
+    margin-left: 1;
+}
+
+.label {
+    height: 3;
+    content-align: center middle;
+    width: auto;
+}
+
+#shell-output {
+    height: 90vh;
+    border: wide gray;
+}
+
+#shell-input {
+    width: 100%;
+    display: block;
+}
+
+Footer {
+    color: white;
+    dock: bottom;
+}
+
+Button {
+    height: 1;
+    margin: 0 1 0 0;
+    border: none;
+    width: 50%;
+}
+
+ListItem {
+    height: 1;
+    background: transparent;
+
+    Label {
+        height: 1;
+        width: 40;
+    }
+}
+
+ListItem.selected {
+    height: 1;
+    text-style: bold;
+    background: gray 10%;
+}
+
+ListItem.running {
+    color: green;
+}
+
+ListItem.down {
+    color: gray;
+}
+
+ListItem.stopped {
+    color: red;
+}
+
+Toast.-information .toast--title {
+    text-style: bold;
+}
+
+# When containers-and-images are expanded this is applied.
+.expanded-container {
+    height: 3;
+    margin: 1;
+    padding: 1;
+    background: #131313;
+
+    Button {
+        display: block !important;
+        margin-right: 4;
+        background: cornflowerblue;
+        width: 4;
+    }
+}
+
+Toast {
+    padding: 1;
+}
+
+HelpScreen VerticalScroll {
+    background: $surface;
+    margin: 4 8;
+    height: 1fr;
+    .title {
+        width: auto;
+    }
+    scrollbar-gutter: stable;
+    Markdown {
+        margin:0 2;
+    }        
+    Markdown .code_inline {
+        background: $primary-darken-1;
+        text-style: bold;
+    }
+    Markdown#changelog #block1 {
+        width: 100%;
+        border: none;
+        background: transparent;
+    }
+    MarkdownH1 {
+        width: auto;
+        border: none;
+        background: transparent;
+    }
+    MarkdownH2 {
+        width: auto;
+        border: none;
+        background: transparent;
+    }
+}
+
+StartupError VerticalScroll {
+    background: $surface;
+    margin: 6 12;
+    height: 1fr;
+
+    MarkdownH1 {
+        color: white;
+        background: red 40%;
+    }
+
+    Markdown#help {
+        border: tall cornflowerblue;
+        border-title-align: center;
+        border-title-color: white 100%;
+        padding: 1;
+        background: $background;
+    }
+
+}
+
+SettingsScreen VerticalScroll {
+    background: $surface;
+    margin: 4 8;
+
+    scrollbar-gutter: stable;
+    Markdown {
+        margin: 0 2;
+    }
+}
+
+SettingsScreen Horizontal {
+    background: cornflowerblue 5%;
+    height: 5;
+    margin-left: 3;
+
+    .label {
+        height: 1;
+        margin-top: 1;
+        margin-left: 1;
+        margin-bottom: 1;
+    }
+
+    .switch-with-status {
+        width: 12;
+        height: 1;
+        margin-left: 1;
+    }
+    
+    Switch {
+        margin-left: -2;
+    }
+}
+
+Grid {
+    grid-size: 2 3;
+    grid-gutter: 1 2;
+}
