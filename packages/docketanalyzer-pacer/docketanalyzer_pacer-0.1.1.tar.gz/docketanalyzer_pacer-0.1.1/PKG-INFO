@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: docketanalyzer-pacer
+Version: 0.1.1
+Summary: Docket Analyzer PACER Utilities
+Author: Nathan Dahlberg
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: docketanalyzer-core>=0.1.6
+Requires-Dist: juriscraper>=2.6.55
+Requires-Dist: selenium>=4.18.1
+Provides-Extra: dev
+Requires-Dist: docketanalyzer-core[dev]>=0.1.6; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Docket Analyzer PACER Utilities
+
+## Install
+
+```
+pip install 'docketanalyzer[pacer]'
+```
+
+Configure your PACER credentials and RECAP Token:
+
+```
+da configure pacer
+da configure recap
+```
