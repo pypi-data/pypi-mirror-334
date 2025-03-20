@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: gang_tax_calculator
+Version: 1.0.0
+Summary: A simple tax calculator package
+Author: gangadri yarraballi
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# Calculator Package
+
+A simple tax calculator package that provides basic arithmetic operations.
+
+## Installation
+
+```bash
+pip install .
