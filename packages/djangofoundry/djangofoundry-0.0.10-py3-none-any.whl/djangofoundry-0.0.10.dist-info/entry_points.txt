@@ -1,0 +1,2 @@
+[console_scripts]
+bootstrap = djangofoundry.scripts.app.bootstrap:main
