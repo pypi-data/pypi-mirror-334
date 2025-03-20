@@ -1,0 +1,7 @@
+[console_scripts]
+json2yaml = yamlns.json2yaml:main
+nstemplate = yamlns.nstemplate:main
+nstemplate.py = yamlns.nstemplate:deprecated
+
+[pytest11]
+yamlns_tests = yamlns.pytestutils
