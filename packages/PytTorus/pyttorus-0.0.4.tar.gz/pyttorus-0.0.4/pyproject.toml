@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools", "wheel", "pybind11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PytTorus"
+version = "0.0.4"
+description = "Torus library for orbital mechanics and galactic dynamics modeling"
+authors = [{ name = "Sean Ly", email = "seanly1101@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["pybind11"]
+
+[tool.setuptools]
+packages = ["PytTorus"]
+
+[tool.setuptools.package-data]
+PytTorus = ["Torus/src/utils/*.h", "Torus/src/utils/*.templates", "Torus/src/utils/*.cpp"]
+
+[project.urls]
+Homepage = "https://github.com/seanly/PytTorus"
+Documentation = "https://pytorus.readthedocs.io"
+Source = "https://github.com/seanly/PytTorus"
+
+[tool.pytorus.metadata]
+summary = "High-performance C++-backed Python package for modeling galactic dynamics using torus mapping."
+core_components = [
+    "C++ core for efficient numerical computation",
+    "Python API via pybind11 for flexibility",
+    "Support for matrix and vector operations in orbital mechanics",
+    "Optimized memory management with std::variant for type flexibility"
+]
+design_choices = """
+- **C++ for Performance**: Computationally heavy numerical routines are written in C++ to ensure efficiency.
+- **Python for Usability**: Exposed via `pybind11`, allowing Python users to easily interact with complex numerical operations.
+- **Generic Matrix/Vector Implementation**: Uses template-based structures with `std::variant` for handling different data types (int, double, complex<double>).
+- **Memory Safety & Optimization**: Implements `std::shared_ptr` for safe and efficient memory management.
+- **Scientific Computing Focus**: Designed for researchers and engineers working in galactic dynamics and orbital mechanics.
+"""
+
