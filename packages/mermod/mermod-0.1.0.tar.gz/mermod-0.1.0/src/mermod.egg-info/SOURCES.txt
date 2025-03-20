@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+src/mermod/__init__.py
+src/mermod/_version.py
+src/mermod/io.py
+src/mermod/merging.py
+src/mermod/py.typed
+src/mermod/utils.py
+src/mermod.egg-info/PKG-INFO
+src/mermod.egg-info/SOURCES.txt
+src/mermod.egg-info/dependency_links.txt
+src/mermod.egg-info/requires.txt
+src/mermod.egg-info/top_level.txt
+tests/test_merge.py
