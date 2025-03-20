@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: confidant-client
+Version: 2.7.0
+Summary: A client for confidant, a secret management system.
+Home-page: https://github.com/lyft/python-confidant-client
+Author: Ryan Lane
+Author-email: rlane@lyft.com
+License: apache2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+confidant-client
+================
+
+A client for [confidant](https://lyft.github.io).
+
+Docs
+----
+
+* [Installation](https://lyft.github.io/confidant/install)
+* [Configuration](https://lyft.github.io/confidant/configuration)
+* [Usage](https://lyft.github.io/confidant/using_confidant)
+* [Contribution](https://lyft.github.io/confidant/contributing)
