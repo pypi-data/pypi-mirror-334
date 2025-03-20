@@ -1,0 +1,48 @@
+{% extends 'generic/object_detail.html' %}
+{% load helpers %}
+
+{% block content_left_page %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>TXT Record</strong>
+    </div>
+    <table class="table table-hover panel-body attr-table">
+      <tr>
+        <td>Label</td>
+        <td>{{ object.label }}</td>
+      </tr>
+      <tr>
+        <td>Latitude</td>
+        <td>{{ object.degLat }}° {{ object.minLat }}' {{ object.secLat }}" {{ object.get_dirLat_display }}</td>
+      </tr>
+      <tr>
+        <td>Longitude</td>
+        <td>{{ object.degLong }}° {{ object.minLong }}' {{ object.secLong }}" {{ object.get_dirLong_display }}</td>
+      </tr>
+      <tr>
+        <td>Precision</td>
+        <td>{{ object.precision }}</td>
+      </tr>
+      <tr>
+        <td>Altitude</td>
+        <td>{{ object.altitude }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><span class="label" style="color: {{ object.status.color|fgcolor }}; background-color: #{{ object.status.color }}">{{ object.get_status_display }}</span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="pull-right noprint">
+            <a
+              href="https://geohack.toolforge.org/geohack.php?pagename={{ object.label |urlencode }}&params={{ object.degLat }}_{{ object.minLat }}_{{ object.secLat }}_{{ object.dirLat }}_{{ object.degLong }}_{{ object.minLong }}_{{ object.secLong }}_{{ object.dirLong }}"
+              target="_blank" class="btn btn-primary btn-xs">
+              <i class="mdi mdi-map-marker"></i> Map it
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

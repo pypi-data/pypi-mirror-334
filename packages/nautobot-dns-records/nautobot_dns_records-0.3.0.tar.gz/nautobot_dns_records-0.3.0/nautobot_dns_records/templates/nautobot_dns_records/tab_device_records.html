@@ -1,0 +1,178 @@
+{% extends 'dcim/device.html' %}
+{% load helpers %}
+{% load render_table from django_tables2 %}
+{% load static %}
+
+{% block content %}
+  {% if no_records %}
+    <div class="alert alert-info text-center">No DNS Records found.</div>
+  {% endif %}
+  {% if addressrecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>Address Records</strong>
+      </div>
+      {% render_table addressrecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_addressrecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:addressrecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Address Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if ptrrecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>PTR Records</strong>
+      </div>
+      {% render_table ptrrecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_ptrrecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:ptrrecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add PTR Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if txtrecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>TXT Records</strong>
+      </div>
+      {% render_table txtrecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_txtrecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:txtrecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add TXT Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if cnamerecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>CName Records</strong>
+      </div>
+      {% render_table cnamerecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_cnamerecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:cnamerecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add CName Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if locrecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>LOC Records</strong>
+      </div>
+      {% render_table locrecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_locrecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:locrecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add LOC Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if sshfprecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>SSHFP Records</strong>
+      </div>
+      {% render_table sshfprecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_sshfprecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:sshfprecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add SSHFP Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+  {% if srvrecords_table %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>SRV Records</strong>
+      </div>
+      {% render_table srvrecords_table 'inc/table.html' %}
+
+      <div class="panel-footer noprint">
+        {% if perms.nautbot_dns.add_srvrecord %}
+          <div class="pull-right">
+            <a
+              href="{% url 'plugins:nautobot_dns_records:srvrecord_add' %}?device={{ object.pk }}&return_url={% url 'plugins:nautobot_dns_records:device_records_tab' pk=object.pk %}?tab=nautobot_dns_records:1"
+              class="btn btn-primary btn-xs">
+              <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add SRV Record
+            </a>
+          </div>
+        {% endif %}
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+{% endblock %}

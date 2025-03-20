@@ -1,0 +1,31 @@
+{% extends 'generic/object_edit.html' %}
+{% load static %}
+{% load form_helpers %}
+{% load helpers %}
+
+{% block form %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>Address record</strong>
+    </div>
+
+    <div class="panel-body">
+      {% render_field form.label %}
+      {% render_field form.ttl %}
+      {% render_field form.device %}
+      {% render_field form.address %}
+      {% render_field form.status %}
+    </div>
+  </div>
+  {% if not editing %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>Reverse record</strong>
+    </div>
+    <div class="panel-body">
+      {% render_field form.create_reverse %}
+    </div>
+  </div>
+  {% endif %}
+{% include 'inc/extras_features_edit_form_fields.html' %}
+{% endblock %}

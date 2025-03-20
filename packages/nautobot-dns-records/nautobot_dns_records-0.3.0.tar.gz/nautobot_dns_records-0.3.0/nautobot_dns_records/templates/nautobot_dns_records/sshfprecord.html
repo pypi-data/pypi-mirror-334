@@ -1,0 +1,32 @@
+{% extends 'generic/object_detail.html' %}
+{% load helpers %}
+
+{% block content_left_page %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>TXT Record</strong>
+    </div>
+    <table class="table table-hover panel-body attr-table">
+      <tr>
+        <td>Label</td>
+        <td>{{ object.label }}</td>
+      </tr>
+      <tr>
+        <td>Algorithm</td>
+        <td>{{ object.get_algorithm_display }}</td>
+      </tr>
+      <tr>
+        <td>Hash Type</td>
+        <td>{{ object.get_hashType_display }}</td>
+      </tr>
+      <tr>
+        <td>Fingerprint</td>
+        <td>{{ object.fingerprint }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><span class="label" style="color: {{ object.status.color|fgcolor }}; background-color: #{{ object.status.color }}">{{ object.get_status_display }}</span></td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
