@@ -1,0 +1,12 @@
+six
+urllib3>=1.26.5
+certifi
+
+[dev]
+tox
+
+[dev:python_version < "3.7"]
+pytest==4.6
+
+[dev:python_version >= "3.7"]
+pytest
