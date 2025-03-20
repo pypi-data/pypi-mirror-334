@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.cfg
+setup.py
+geoclass.egg-info/PKG-INFO
+geoclass.egg-info/SOURCES.txt
+geoclass.egg-info/dependency_links.txt
+geoclass.egg-info/requires.txt
+geoclass.egg-info/top_level.txt
+tests/test_satellite.py

@@ -1,0 +1,121 @@
+Metadata-Version: 2.2
+Name: geoclass
+Version: 0.1.0
+Summary: A Python module for satellite image classification and land valuation
+Home-page: https://github.com/yourusername/geoclass
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: tensorflow>=2.8.0
+Requires-Dist: opencv-python>=4.5.0
+Requires-Dist: rasterio>=1.2.0
+Requires-Dist: geopy>=2.2.0
+Requires-Dist: scikit-learn>=0.24.0
+Requires-Dist: requests>=2.26.0
+Requires-Dist: beautifulsoup4>=4.9.0
+Requires-Dist: selenium>=4.0.0
+Requires-Dist: pillow>=8.0.0
+Requires-Dist: matplotlib>=3.4.0
+Requires-Dist: pytest>=6.2.0
+Requires-Dist: python-dotenv>=0.19.0
+Requires-Dist: pyproj>=3.1.0
+Requires-Dist: shapely>=1.8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.2.0; extra == "dev"
+Requires-Dist: black>=21.7b0; extra == "dev"
+Requires-Dist: isort>=5.9.3; extra == "dev"
+Requires-Dist: flake8>=3.9.2; extra == "dev"
+Requires-Dist: mypy>=0.910; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# GeoClass - Land Classification and Valuation System
+
+A Python module for satellite image classification and land valuation using machine learning.
+
+## Features
+
+- Satellite image classification into different land categories
+- Automated land scoring based on proximity to key features
+- Real estate data scraping from major property websites
+- Machine learning-based land price prediction
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Project Structure
+
+```
+geoclass/
+├── geoclass/
+│   ├── satellite/          # Satellite image processing
+│   ├── scoring/            # Land scoring system
+│   ├── scraper/           # Web scraping modules
+│   ├── ml/                # Machine learning models
+│   └── utils/             # Helper functions
+├── tests/                 # Unit tests
+└── examples/              # Usage examples
+```
+
+## Usage
+
+```python
+from geoclass.satellite import ImageClassifier
+from geoclass.scoring import LandScorer
+from geoclass.scraper import PropertyScraper
+from geoclass.ml import PricePredictor
+
+# Initialize components
+classifier = ImageClassifier()
+scorer = LandScorer()
+scraper = PropertyScraper()
+predictor = PricePredictor()
+
+# Process satellite image
+classified_image = classifier.classify("path/to/satellite_image.tif")
+
+# Score land parcels
+land_scores = scorer.score_land(classified_image)
+
+# Scrape property data
+property_data = scraper.scrape_properties(latitude, longitude)
+
+# Predict land prices
+predictions = predictor.predict(property_data, land_scores)
+```
+
+## Development
+
+To run tests:
+```bash
+pytest tests/
+```
+
+## License
+
+MIT License 
