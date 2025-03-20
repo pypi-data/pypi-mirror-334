@@ -1,0 +1,314 @@
+Metadata-Version: 2.2
+Name: hostspace-cli
+Version: 0.1.1
+Summary: A command-line interface tool for managing HostSpace Cloud services
+Author-email: HostSpace <support@hostspace.cloud>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0.0
+Requires-Dist: pyyaml>=6.0.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: rich>=12.0.0
+Requires-Dist: typer>=0.9.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Requires-Dist: build>=1.0.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+
+# HostSpace CLI
+
+A command-line interface tool for managing HostSpace Cloud services, including Kubernetes (HKE), Containers (HCS), and Database (HDS) services.
+
+## Overview
+
+HostSpace CLI provides a unified interface to manage your cloud resources across multiple infrastructure providers. It simplifies the management of:
+
+- HostSpace Kubernetes Engine (HKE)
+- HostSpace Container Service (HCS)
+- HostSpace Database Service (HDS)
+
+## Architecture
+
+```mermaid
+graph TD
+    CLI[HostSpace CLI] --> Auth[Authentication Module]
+    CLI --> Config[Configuration Manager]
+    
+    Auth --> API[HostSpace API Client]
+    Config --> API
+    
+    API --> HKE[HKE Service]
+    API --> HCS[HCS Service]
+    API --> HDS[HDS Service]
+    
+    HKE --> Providers[Infrastructure Providers]
+    HCS --> Providers
+    HDS --> Providers
+    
+    Providers --> Contabo[Contabo]
+    Providers --> Nobus[Nobus]
+    Providers --> DO[Digital Ocean]
+    Providers --> GCP[Google Cloud]
+    Providers --> AWS[AWS]
+    Providers --> Others[Other Providers]
+```
+
+### Key Components
+
+1. **CLI Core**
+   - Command parser and router
+   - Error handling and logging
+   - Output formatting (JSON, YAML, Table)
+
+2. **Authentication Module**
+   - Token-based authentication
+   - API key management
+   - Session handling
+
+3. **Configuration Manager**
+   - User preferences
+   - Provider configurations
+   - Environment management
+
+4. **Service Modules**
+   - HKE module for Kubernetes operations
+   - HCS module for container management
+   - HDS module for database operations
+
+## Installation
+
+### Quick Installation (Recommended)
+```bash
+# Install from Git repository
+pip install git+https://github.com/hostspace/hostspace-cli.git
+```
+
+### Development Installation
+```bash
+# Clone the repository
+git clone https://github.com/hostspace/hostspace-cli.git
+cd hostspace-cli
+
+# Install development dependencies
+pip install -e ".[dev]"
+```
+
+After installation, verify that the CLI is working:
+```bash
+# Check available commands
+hs --help
+
+# Set up your environment (default is production)
+hs env show
+
+# Switch to development environment if needed
+hs env set development
+
+# Login with your API key
+hs auth login
+```
+
+## Environment Management
+
+The CLI supports both production and development environments. You can switch between them using:
+
+```bash
+# Show current environment
+hs env show
+
+# Switch to development environment
+hs env set development
+
+# Switch to production environment
+hs env set production
+```
+
+### Environment Configuration
+- **Production**: Uses `https://aether-api.hostspacecloud.com`
+- **Development**: Uses `https://aether-api-dev.hostspacecloud.com`
+
+## Basic Usage
+
+```bash
+# Authentication
+hs auth login
+hs auth logout
+hs auth status
+
+# Kubernetes (HKE) Operations
+hs hke cluster list
+hs hke cluster create
+hs hke cluster delete <cluster-id>
+hs hke node-pool add <cluster-id>
+
+# Container Service (HCS) Operations
+hs hcs app list
+hs hcs app deploy
+hs hcs app logs <app-id>
+hs hcs app delete <app-id>
+
+# Database Service (HDS) Operations
+hs hds instance list
+hs hds instance create
+hs hds backup create <instance-id>
+hs hds backup list <instance-id>
+```
+
+## Configuration
+
+The CLI uses a configuration file located at `~/.hostspace/config.yaml`:
+
+```yaml
+auth:
+  api_key: "your-api-key"
+  endpoint: "https://aether-api.hostspacecloud.com"
+
+providers:
+  default: "contabo"
+  regions:
+    - name: "us-east"
+      provider: "digital-ocean"
+    - name: "eu-central"
+      provider: "contabo"
+
+output:
+  format: "table"  # or json, yaml
+  color: true
+```
+
+## Development Guide
+
+### Project Structure
+
+```
+hostspace-cli/
+├── README.md
+├── setup.py
+├── requirements/
+│   ├── prod.txt         # Production dependencies
+│   └── dev.txt          # Development dependencies
+├── hostspace/
+│   ├── __init__.py
+│   ├── cli.py
+│   ├── env_commands.py  # Environment management
+│   ├── auth/
+│   │   ├── __init__.py
+│   │   └── commands.py
+│   ├── hke/
+│   │   ├── __init__.py
+│   │   └── commands.py
+│   ├── hcs/
+│   │   ├── __init__.py
+│   │   └── commands.py
+│   ├── hds/
+│   │   ├── __init__.py
+│   │   └── commands.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── config.py
+│       └── api.py
+└── tests/
+    └── ...
+```
+
+### Getting Started with Development
+
+1. Clone the repository:
+```bash
+git clone https://github.com/hostspace/hostspace-cli.git
+cd hostspace-cli
+```
+
+2. Install development dependencies:
+```bash
+pip install -e ".[dev]"
+```
+
+3. Run tests:
+```bash
+pytest
+```
+
+4. Format code:
+```bash
+black .
+isort .
+```
+
+## Publishing to PyPI
+
+### Automated Publishing (Recommended)
+When you create a new release on GitHub, the package will be automatically published to PyPI.
+
+1. First-time setup:
+   - Go to repository Settings > Secrets and Variables > Actions
+   - Add `HOSTSPACE_API_KEY` secret with your API key for testing
+
+2. To publish a new version:
+   - Update version in `pyproject.toml`
+   - Create a new release on GitHub:
+     - Tag: `v0.1.0` (use semantic versioning)
+     - Title: "Release v0.1.0"
+     - Description: Add release notes
+   - GitHub Actions will automatically:
+     - Build the package
+     - Run tests in both environments:
+       - Development: `https://aether-api-dev.hostspacecloud.com`
+       - Production: `https://aether-api.hostspacecloud.com`
+     - Publish to PyPI
+
+### Manual Publishing
+For manual publishing (requires PyPI access):
+
+```bash
+# Install build tools
+pip install build twine
+
+# Build distribution
+python -m build
+
+# Upload to PyPI (you'll need a PyPI token)
+export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=your-pypi-token
+python -m twine upload dist/*
+```
+
+Note: Contact your team lead for:
+- PyPI access token
+- API endpoints:
+  - Production: `https://aether-api.hostspacecloud.com`
+  - Development: `https://aether-api-dev.hostspacecloud.com`
+- Required API keys for testing
+
+## Version Management
+
+When releasing a new version:
+
+1. Update the version in `pyproject.toml`
+2. Create and push a git tag:
+```bash
+git tag v0.1.0  # Use appropriate version
+git push origin v0.1.0
+```
+
+3. Build and publish:
+```bash
+python -m build
+python -m twine upload dist/*
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
