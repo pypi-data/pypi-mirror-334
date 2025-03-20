@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: StructResult
+Version: 0.3.0
+Summary: structural result with exception
+Author-email: Serj Kotilevski <youserj@outlook.com>
+Project-URL: Source, https://github.com/youserj/Result_prj
+Keywords: result,exception
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# Result_prj
+python return struct
