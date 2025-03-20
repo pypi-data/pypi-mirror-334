@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "rp_python_sdk"
+version = "1.1.0"
+description = "Python SDK for Relying Parties to enable simple integration with the Digital Identity ecosystem"
+authors = ["Erik Pragt <erik.pragt@connectid.com.au>"]
+license = "Proprietary"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+authlib = "^1.3.2"
+cryptography = "^44.0.0"
+joserfc = "^1.0.0"
+cffi = "^1.17.1"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+httpx = "^0.28.0"
+toml = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pre-commit = "^4.0.0"
+mypy = "^1.13.0"
+requests-mock = "^1.12.1"
+freezegun = "^1.4.0"
+flake8 = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
