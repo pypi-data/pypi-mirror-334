@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup-mirror.py
+setup.cfg
+xpip_mirror/__init__.py
+xpip_mirror/attribute.py
+xpip_mirror/cmds.py
+xpip_mirror/util.py
+xpip_mirror.egg-info/PKG-INFO
+xpip_mirror.egg-info/SOURCES.txt
+xpip_mirror.egg-info/dependency_links.txt
+xpip_mirror.egg-info/entry_points.txt
+xpip_mirror.egg-info/requires.txt
+xpip_mirror.egg-info/top_level.txt
+xpip_mirror.egg-info/zip-safe
+xpip_mirror/config/__init__.py
+xpip_mirror/config/mirrors.toml
