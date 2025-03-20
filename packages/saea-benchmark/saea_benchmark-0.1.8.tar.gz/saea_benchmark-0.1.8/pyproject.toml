@@ -1,0 +1,78 @@
+[build-system]
+requires = [
+    "flit_core>=3.4",
+    "pyparsing",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "tqdm",
+    "optuna",
+    "scanpy",
+    "matplotlib"
+]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "saea_benchmark"
+version = "0.1.8"
+authors = [
+  { name="Qianyu Zheng", email="zhengqianyu0227@gmail.com" },
+]
+description = "A package for benchmarking biological data spliting methods"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { file="LICENSE" }
+dependencies = [
+    "pyparsing",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "tqdm",
+    "optuna",
+    "scanpy",
+    "matplotlib",
+    "ruff",
+    "pre-commit",
+]
+
+[project.urls]
+Homepage = "https://github.com/qzheng75/saea_benchmark"
+Repository = "https://github.com/qzheng75/saea_benchmark"
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "FA",  # flake8-future-annotations
+]
+ignore = [
+    "F722",  # forward annotation syntax error
+    "F821",  # undefined name
+    "E731",  # lambda expressions
+    "E741",  # ambiguous variable names
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+required-imports = ["from __future__ import annotations"]
+
+[tool.flit.module]
+name = "saea_benchmark"
+source = "src"
