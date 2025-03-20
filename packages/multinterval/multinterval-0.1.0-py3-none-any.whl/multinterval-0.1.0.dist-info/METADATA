@@ -1,0 +1,105 @@
+Metadata-Version: 2.2
+Name: multinterval
+Version: 0.1.0
+Summary: Represent large intervals of numeric/datetime data with a small memory footprint.
+Author-email: Alex Koay <alexkoay88@gmail.com>
+License: The MIT License (MIT)
+        
+        Copyright © 2022 
+        
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the “Software”), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+Project-URL: Homepage, https://github.com/alexkoay/multinterval
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# MultInterval
+
+Represent large intervals of numeric/datetime data in Python with a small memory footprint.
+
+## When to Use
+
+- Your data is a long contiguous stretches (in fixed steps) of data that is separated by few missing gaps.
+- Each data point can be compared to another, and divisble by the step factor (supports datetime/timedelta combinations)
+
+
+## How to Use
+
+```py
+import multinterval as mi
+
+# at instantiation, only a step is necessary
+i = mi.MultInterval(step=5)
+print(list(i))  # outputs []
+
+# the set is fully instantiated only when there is at least one member
+i.include(3)
+print(list(i))  # outputs [3]
+
+
+# include other compatible values, Intervals, MultIntervals
+i.include(8, 13, 23) # include multiple numbers
+i.include(mi.Interval(53, 68, step=5)) # include full intervals
+i.include(
+	mi.MultInterval(
+		step=5,
+		ranges=[mi.Interval(103, 113, step=5), mi.Interval(158, 193, step=5)],
+	)
+)
+print(list(i))  # outputs [3, 8, 13, 23, 53, 58, 63, 103, 108, 158, 163, 168, 173, 178, 183, 188]
+
+
+# exclude any compatible values
+i.exclude(23)
+i.exclude(mi.Interval(13, 108, step=5))
+i.exclude(
+	mi.MultInterval(
+		step=5,
+		ranges=[mi.Interval(53, 178, step=5)],
+	)
+)
+print(list(i))  # outputs [3, 8, 178, 183, 188]
+
+
+# the following will cause errors
+
+# including values not in the same number line will cause an error
+# i.include(7)
+
+# including intervals on a different step
+# i.include(mi.Interval(3, 9, step=3))
+
+# including intervals that do not coincide on the same step
+# i.include(mi.Interval(4, 10, step=5))
+```
+
+## Implementation Details
+
+- Complete intervals are represented with a tuple of inclusive start and exclusive end.
+- Longer intervals with gaps are represented by a list of the complete intervals.
