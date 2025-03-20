@@ -1,0 +1,5 @@
+[console_scripts]
+astro-mcp = astro_mcp:start_astro_mcp
+
+[mcp_server]
+astro = astro_mcp:platform:server
