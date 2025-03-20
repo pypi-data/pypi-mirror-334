@@ -1,0 +1,10 @@
+Test: another_successful_run
+Status: FAILURE
+Command: /bin/bash -c source .venv/bin/activate && echo 'Another successful command with ENV=' && echo $XYZ
+Environment:
+  XYZ=testvalue
+Return code: -2
+Start time: 2025-03-05 20:18:16.406028
+End time: 2025-03-05 20:38:26.539557
+
+--- STDOUT ---

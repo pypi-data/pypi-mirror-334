@@ -1,0 +1,8 @@
+Test: failing_run
+Status: FAILURE
+Command: /bin/bash -c source .venv/bin/activate && exit 1
+Return code: -2
+Start time: 2025-03-05 20:18:16.411224
+End time: 2025-03-05 20:38:26.539206
+
+--- STDOUT ---

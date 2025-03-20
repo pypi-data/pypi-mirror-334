@@ -1,0 +1,19 @@
+Test Summary
+============
+Tests passed: 4/5 (80.0%)
+
+Test Results:
+python_test: FAIL
+  Error: /bin/sh: -c: line 0: syntax error near unexpected token `f'Environment variable: {os.environ.get("ABC", "not set")}''
+  Error: /bin/sh: -c: line 0: `python -c import os; print(f'Environment variable: {os.environ.get("ABC", "not set")}')'
+failing_run: PASS
+successful_run: PASS
+another_successful_run: PASS
+new_parameter_test: PASS
+
+Log Files:
+python_test: 20250314_133941_python_test_FAIL.log
+failing_run: 20250314_133942_failing_run_PASS.log
+successful_run: 20250314_133941_successful_run_PASS.log
+another_successful_run: 20250314_133942_another_successful_run_PASS.log
+new_parameter_test: 20250314_133942_new_parameter_test_PASS.log

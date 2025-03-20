@@ -1,0 +1,18 @@
+Test Summary
+============
+Tests passed: 4/5 (80.0%)
+
+Test Results:
+failing_run: FAIL
+  Error: Command failed with return code 1
+another_successful_run: PASS
+successful_run: PASS
+new_parameter_test: PASS
+python_test: PASS
+
+Log Files:
+failing_run: 20250318_010218_failing_run_FAIL.log
+another_successful_run: 20250318_010218_another_successful_run_PASS.log
+successful_run: 20250318_010218_successful_run_PASS.log
+new_parameter_test: 20250318_010218_new_parameter_test_PASS.log
+python_test: 20250318_010218_python_test_PASS.log

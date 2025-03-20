@@ -1,0 +1,12 @@
+Test: python_test
+Status: SUCCESS
+Command: python -c "import os; print(f'Environment variable: {os.environ.get(\"ABC\", \"not set\")}')"
+Environment:
+  ABC=cats
+  DEBUG=true
+Return code: 0
+Start time: 2025-03-14 15:14:20.248974
+End time: 2025-03-14 15:14:20.280372
+
+--- STDOUT ---
+Environment variable: cats

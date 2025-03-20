@@ -1,0 +1,23 @@
+Test Summary
+============
+Tests passed: 0/4 (0.0%)
+
+Test Results:
+successful_run: FAIL
+  Error: 	-irsD or -c command or -O shopt_option		(invocation only)
+  Error: 	-abefhkmnptuvxBCHP or -o option
+another_successful_run: FAIL
+  Error: 	-irsD or -c command or -O shopt_option		(invocation only)
+  Error: 	-abefhkmnptuvxBCHP or -o option
+failing_run: FAIL
+  Error: 	-irsD or -c command or -O shopt_option		(invocation only)
+  Error: 	-abefhkmnptuvxBCHP or -o option
+python_test: FAIL
+  Error:        ^^^^^^
+  Error: SyntaxError: invalid syntax
+
+Log Files:
+successful_run: 20250305_030724_successful_run_FAIL.log
+another_successful_run: 20250305_030724_another_successful_run_FAIL.log
+failing_run: 20250305_030724_failing_run_FAIL.log
+python_test: 20250305_030724_python_test_FAIL.log

@@ -1,0 +1,18 @@
+Test: python_test
+Status: FAILURE
+Command: python -c -c import os; print(f'Environment variable: {os.environ.get("ABC", "not set")}')
+Environment:
+  ABC=cats
+  DEBUG=true
+Return code: 1
+Start time: 2025-03-05 03:07:24.126507
+End time: 2025-03-05 03:07:24.156909
+
+--- STDOUT ---
+
+
+--- STDERR ---
+  File "<string>", line 1
+    -c import os; print(f'Environment variable: {os.environ.get("ABC", "not set")}')
+       ^^^^^^
+SyntaxError: invalid syntax

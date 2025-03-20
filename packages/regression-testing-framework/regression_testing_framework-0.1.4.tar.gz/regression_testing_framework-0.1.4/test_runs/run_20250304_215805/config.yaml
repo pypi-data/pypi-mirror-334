@@ -1,0 +1,10 @@
+base_command: /bin/bash
+successful_run:
+  params:
+    - { c: "echo 'This command will succeed'" }
+failing_run:
+  params:
+    - { c: "exit 1" }
+another_successful_run:
+  params:
+    - { c: "echo 'Another successful command'" }

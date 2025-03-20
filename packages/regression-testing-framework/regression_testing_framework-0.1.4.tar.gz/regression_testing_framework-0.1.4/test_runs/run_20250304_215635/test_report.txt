@@ -1,0 +1,14 @@
+Test Summary
+============
+Tests passed: 2/3 (66.7%)
+
+Test Results:
+successful_run: PASS
+another_successful_run: PASS
+failing_run: FAIL
+  Error: Command failed with return code 1
+
+Log Files:
+successful_run: 20250305_025635_successful_run_PASS.log
+another_successful_run: 20250305_025635_another_successful_run_PASS.log
+failing_run: 20250305_025635_failing_run_FAIL.log
