@@ -1,0 +1,48 @@
+Welcome to Juham™ documentation!
+================================
+
+.. image:: _static/juham.png
+    :alt: Juha's Ultimate Home Automation Masterpiece
+    :width: 400px
+    :height: 300px
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   juham_core/index.rst
+
+.. include:: ../../README.rst
+
+
+.. include:: ../../LICENSE.rst
+
+
+.. include:: ../../CONTRIBUTING.rst
+
+
+.. include:: ../../CHANGELOG.rst
+
+
+.. include:: ../../TODO.rst
+
+
+
+
+
+
+Classes
+-------
+
+.. inheritance-diagram:: masterpiece.MasterPiece masterpiece.Composite masterpiece.Application 
+   juham_core.Juham juham_core.JuhamThread juham_core.JuhamCloudThread juham_core.JuhamTs
+   :parts: 1
+
+
+
+Index
+=====
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

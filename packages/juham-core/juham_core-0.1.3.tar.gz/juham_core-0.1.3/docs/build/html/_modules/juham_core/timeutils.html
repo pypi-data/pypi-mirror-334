@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>juham_core.timeutils &#8212; juham-core  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/juham.css?v=7a3aeb84" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          juham-core</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../juham_core/index.html">juham_core</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <h1>Source code for juham_core.timeutils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Time management for Juham framework.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+
+<span class="k">def</span> <span class="nf">quantize</span><span class="p">(</span><span class="n">quanta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Quantize the given value.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        quanta (float): resolution for quantization</span>
+<span class="sd">        value (float): value to be quantized</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): quantized value</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        hour_of_a_day = quantize(3600, epoch_seconds)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">value</span> <span class="o">//</span> <span class="n">quanta</span><span class="p">)</span> <span class="o">*</span> <span class="n">quanta</span>
+
+
+<span class="k">def</span> <span class="nf">epoc2utc</span><span class="p">(</span><span class="n">epoch</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts the given epoch time to UTC time string. All time</span>
+<span class="sd">    coordinates are represented in UTC time. This allows the time</span>
+<span class="sd">    coordinate to be mapped to any local time representation without</span>
+<span class="sd">    ambiguity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        epoch (float) : timestamp in UTC time</span>
+<span class="sd">        rc (str): time string describing date, time and time zone e.g 2024-07-08T12:10:22Z</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        UTC time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">utc_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">utc_timestr</span> <span class="o">=</span> <span class="n">utc_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Z&quot;</span>
+    <span class="k">return</span> <span class="n">utc_timestr</span>
+
+
+<span class="k">def</span> <span class="nf">timestampstr</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts the given timestamp to human readable string of format &#39;Y-m-d</span>
+<span class="sd">    H:M:S&#39;.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ts (timestamp):  time stamp to be converted</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rc (string):  human readable date-time string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="timestamp">
+<a class="viewcode-back" href="../../juham_core/index.html#juham_core.timestamp">[docs]</a>
+<span class="k">def</span> <span class="nf">timestamp</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the current date-time in UTC.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rc (datetime):  datetime in UTC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">timestamp_hour</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the hour in 24h format in UTC.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ts (float): timestamp</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        rc (int):  current hour in UTC 0 ...23</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+
+
+<span class="k">def</span> <span class="nf">timestamp_hour_local</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">timezone</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the hour in 24h format in UTC.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ts (float): timestamp</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        rc (int):  current hour in UTC 0 ...23</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">utc_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+
+    <span class="c1"># Convert to your local timezone (e.g., &#39;US/Eastern&#39; for Eastern Time)</span>
+    <span class="n">local_time</span> <span class="o">=</span> <span class="n">utc_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">timezone</span><span class="p">))</span>
+
+    <span class="c1"># Get the hour in your local timezone</span>
+    <span class="k">return</span> <span class="n">local_time</span><span class="o">.</span><span class="n">hour</span>
+
+
+<span class="k">def</span> <span class="nf">is_time_between</span><span class="p">(</span>
+    <span class="n">begin_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">end_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">check_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the given time is within the given timeline. All</span>
+<span class="sd">    timestamps must be in UTC time.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        begin_time (float): Beginning of the timeline (Unix timestamp).</span>
+<span class="sd">        end_time (float): End of the timeline (Unix timestamp).</span>
+<span class="sd">        check_time (Optional[float]): Time to be checked (Unix timestamp). Defaults to current time.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the time is within the timeline.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">time_to_check</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">check_time</span> <span class="k">if</span> <span class="n">check_time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">begin_time</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">begin_time</span> <span class="o">&lt;=</span> <span class="n">time_to_check</span> <span class="o">&lt;=</span> <span class="n">end_time</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Crosses midnight</span>
+        <span class="k">return</span> <span class="n">time_to_check</span> <span class="o">&gt;=</span> <span class="n">begin_time</span> <span class="ow">or</span> <span class="n">time_to_check</span> <span class="o">&lt;=</span> <span class="n">end_time</span>
+
+
+<span class="k">def</span> <span class="nf">is_hour_within_schedule</span><span class="p">(</span><span class="n">hour</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">start_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">stop_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if the given hour is within the scheduled start and stop times.</span>
+
+<span class="sd">    :param hour: int, current hour (0-23)</span>
+<span class="sd">    :param start_time: int, start hour (0-23)</span>
+<span class="sd">    :param stop_time: int, stop hour (0-23)</span>
+<span class="sd">    :return: bool, True if the hour is within the schedule, False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">start_time</span> <span class="o">&lt;</span> <span class="n">stop_time</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">:</span>
+        <span class="c1"># range does not cross midnight</span>
+        <span class="k">return</span> <span class="n">start_time</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="n">stop_time</span>
+    <span class="k">elif</span> <span class="n">stop_time</span> <span class="o">&lt;</span> <span class="n">start_time</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">:</span>
+        <span class="c1"># Range crosses midnight</span>
+        <span class="k">return</span> <span class="n">hour</span> <span class="o">&gt;=</span> <span class="n">start_time</span> <span class="ow">or</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="n">stop_time</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># null schedule, consider always in.</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">elapsed_seconds_in_hour</span><span class="p">(</span><span class="n">ts_utc</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given timestamp in UTC, Compute elapsed seconds within an hour</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ts  (float) : seconds since UTC epoch</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: _description_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts_utc</span><span class="p">)</span>
+    <span class="c1"># Define start time (for example 9:15:30)</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">minute</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Compute the difference between the times</span>
+    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">ts</span> <span class="o">-</span> <span class="n">start_time</span>
+
+    <span class="c1"># Convert the difference to seconds</span>
+    <span class="k">return</span> <span class="n">elapsed_time</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">elapsed_seconds_in_day</span><span class="p">(</span><span class="n">ts_utc</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch the elapsed seconds since the be given time stamp &#39;ts_utc&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: elapsed second today</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convert the float timestamp into a datetime object</span>
+    <span class="n">timestamp_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">ts_utc</span><span class="p">)</span>
+    <span class="c1"># Get the start of today (midnight)</span>
+    <span class="n">midnight</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">timestamp_datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+    <span class="c1"># Calculate the elapsed seconds since midnight</span>
+    <span class="n">elapsed_seconds</span> <span class="o">=</span> <span class="p">(</span><span class="n">timestamp_datetime</span> <span class="o">-</span> <span class="n">midnight</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">elapsed_seconds</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2025, juha meskanen.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

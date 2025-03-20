@@ -1,0 +1,10 @@
+masterpiece>=0.1.33
+masterpiece_influx>=0.1.9
+masterpiece_pahomqtt>=0.1.5
+requests>=2.31
+pytz>=2024.1
+importlib-metadata
+
+[dev]
+check-manifest
+types-pyz

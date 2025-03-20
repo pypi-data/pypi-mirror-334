@@ -1,0 +1,134 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="459pt" height="104pt" viewBox="0.00 0.00 459.00 104.00">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 100)">
+<ns0:title>inheritance29f4097143</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>Application</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:title="Masterpiece application class. Implements startup argument parsing,">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="324,-96 260,-96 260,-76 324,-76 324,-96" />
+<ns0:text text-anchor="middle" x="292" y="-82.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Application</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Composite</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:title="Class implementing hierarchy. Objects of this class can consist of children.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="188,-96 125.5,-96 125.5,-76 188,-76 188,-96" />
+<ns0:text text-anchor="middle" x="156.75" y="-82.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Composite</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Composite-&gt;Application</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M188.32,-86C207.59,-86 232.63,-86 253.15,-86" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="253.89,-87.75 258.89,-86 253.89,-84.25 253.89,-87.75" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>MasterPiece</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:title="An object with a name. Base class of everything. Serves as the">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="70.75,-58 0,-58 0,-38 70.75,-38 70.75,-58" />
+<ns0:text text-anchor="middle" x="35.38" y="-44.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MasterPiece</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>MasterPiece-&gt;Composite</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M69.31,-58.48C84.79,-63.41 103.29,-69.3 119.19,-74.36" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="119.36,-76.25 124.66,-76.1 120.42,-72.92 119.36,-76.25" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>Juham</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="..\juham_core\index.html#juham_core.Juham" ns1:title="Base class for automation objects with MQTT networking." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="183.75,-58 129.75,-58 129.75,-38 183.75,-38 183.75,-58" />
+<ns0:text text-anchor="middle" x="156.75" y="-44.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Juham</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>MasterPiece-&gt;Juham</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M71.22,-48C87.63,-48 107.08,-48 123.18,-48" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="123.65,-49.75 128.65,-48 123.65,-46.25 123.65,-49.75" />
+</ns0:g>
+
+<ns0:g id="node6" class="node">
+<ns0:title>MasterPieceThread</ns0:title>
+<ns0:g id="a_node6"><ns0:a ns1:href="..\juham_core\index.html#juham_core.MasterPieceThread" ns1:title="Base class for threads used for tasks such as data acquisition" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="206.75,-20 106.75,-20 106.75,0 206.75,0 206.75,-20" />
+<ns0:text text-anchor="middle" x="156.75" y="-6.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">MasterPieceThread</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge8" class="edge">
+<ns0:title>MasterPiece-&gt;MasterPieceThread</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M69.31,-37.52C84.05,-32.82 101.54,-27.26 116.92,-22.36" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="117.97,-23.86 122.2,-20.68 116.91,-20.53 117.97,-23.86" />
+</ns0:g>
+
+<ns0:g id="node8" class="node">
+<ns0:title>JuhamTs</ns0:title>
+<ns0:g id="a_node8"><ns0:a ns1:href="..\juham_core\index.html#juham_core.JuhamTs" ns1:title="Base class for automation objects with timeseries database" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="319.5,-58 264.5,-58 264.5,-38 319.5,-38 319.5,-58" />
+<ns0:text text-anchor="middle" x="292" y="-44.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">JuhamTs</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge6" class="edge">
+<ns0:title>Juham-&gt;JuhamTs</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M184.08,-48C205.29,-48 235.24,-48 258.04,-48" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="258.52,-49.75 263.52,-48 258.52,-46.25 258.52,-49.75" />
+</ns0:g>
+
+<ns0:g id="node5" class="node">
+<ns0:title>JuhamCloudThread</ns0:title>
+<ns0:g id="a_node5"><ns0:a ns1:href="..\juham_core\index.html#juham_core.JuhamCloudThread" ns1:title="Data acuisition base class. Responsible for fetching data from clouds and other web" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="341.25,-20 242.75,-20 242.75,0 341.25,0 341.25,-20" />
+<ns0:text text-anchor="middle" x="292" y="-6.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">JuhamCloudThread</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>MasterPieceThread-&gt;JuhamCloudThread</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M206.99,-10C216.48,-10 226.47,-10 236.12,-10" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="236.65,-11.75 241.65,-10 236.65,-8.25 236.65,-11.75" />
+</ns0:g>
+
+<ns0:g id="node7" class="node">
+<ns0:title>JuhamThread</ns0:title>
+<ns0:g id="a_node7"><ns0:a ns1:href="..\juham_core\index.html#juham_core.JuhamThread" ns1:title="Base class of automation classes that need to run automation tasks using asynchronously running thread." target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="451,-58 377.25,-58 377.25,-38 451,-38 451,-58" />
+<ns0:text text-anchor="middle" x="414.12" y="-44.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">JuhamThread</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge5" class="edge">
+<ns0:title>JuhamTs-&gt;JuhamThread</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M319.96,-48C334.99,-48 354.05,-48 371,-48" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="371.39,-49.75 376.39,-48 371.39,-46.25 371.39,-49.75" />
+</ns0:g>
+
+<ns0:g id="node9" class="node">
+<ns0:title>Thread</ns0:title>
+<ns0:g id="a_node9"><ns0:a ns1:title="A class that represents a thread of control.">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="62.38,-20 8.38,-20 8.38,0 62.38,0 62.38,-20" />
+<ns0:text text-anchor="middle" x="35.38" y="-6.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Thread</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge7" class="edge">
+<ns0:title>Thread-&gt;MasterPieceThread</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M62.87,-10C73.85,-10 87.02,-10 99.96,-10" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="100.52,-11.75 105.52,-10 100.52,-8.25 100.52,-11.75" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>
