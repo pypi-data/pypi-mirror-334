@@ -1,0 +1,66 @@
+Metadata-Version: 2.2
+Name: wucai
+Version: 0.1.2
+Summary: 五彩 Python API | python API for wucai ( https://www.wucainote.com , https://marker.dotalk.cn )
+Home-page: https://github.com/Benature/wucai
+Author: Benature Wang
+Author-email: benature246@gmail.com
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: bs4
+Requires-Dist: lxml
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+<a href="https://wucaiapp.com/"><img src="https://www.wucainote.com/_next/image?url=%2Flogo.png&w=64&q=75" height="50" align="right"></a>
+
+# 五彩 Python API
+python API for wucai ( https://www.wucainote.com , https://marker.dotalk.cn )
+
+
+[![PyPI](https://img.shields.io/pypi/v/wucai)](https://pypi.org/project/wucai/)
+
+## 安装 Install
+
+```
+pip install wucai
+```
+
+## 使用 Usage
+
+`token` 请在网页 F12 - Network 中获取
+
+```python
+from wucai import WuCai
+
+token = "eyJxxxxxx"  # your Bearer token here
+
+tags = "待读"
+
+wucai = WuCai(token)
+
+# 根据 tag 搜索卡片
+cards_response = wucai.indexCardList(tags=tags)
+for card in cards_response:
+    print(card)
+    break
+
+# 根据 tag 搜索笔记
+notes_response = wucai.searchTagNote(tags=tags)
+if notes_response['code'] == 1:
+    for note in notes_response['data']['list']:
+        print(note)
+        break
+```
