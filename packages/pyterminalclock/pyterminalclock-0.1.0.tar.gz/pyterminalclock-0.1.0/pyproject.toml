@@ -1,0 +1,19 @@
+[project]
+name = "pyterminalclock"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "ffalcon31415", email = "77492177+ffalcon31415@users.noreply.github.com" }
+]
+requires-python = ">=3.11.3"
+dependencies = [
+    "pyfiglet>=1.0.2",
+]
+
+[project.scripts]
+pyterminalclock = "pyterminalclock:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
