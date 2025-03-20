@@ -1,0 +1,96 @@
+Metadata-Version: 2.2
+Name: chai-chat
+Version: 1.0.1
+Summary: Chat with AI in the terminal
+Author-email: Darik Harter <darik.harter@gmail.com>
+Maintainer-email: Darik Harter <darik.harter@gmail.com>
+Project-URL: Homepage, https://github.com/itsdarik/chai
+Project-URL: Repository, https://github.com/itsdarik/chai
+Project-URL: Issues, https://github.com/itsdarik/chai/issues
+Project-URL: Changelog, https://github.com/itsdarik/chai/releases
+Keywords: ai,anthropic,chai,chat,chatgpt,claude,cli,codestral,gemini,genai,google,gpt,grok,le chat,llm,mistral,ollama,openai,terminal,xai
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Terminals
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Typing :: Typed
+Requires-Python: >=3.13.2
+Description-Content-Type: text/markdown
+Requires-Dist: anthropic>=0.49.0
+Requires-Dist: google-genai>=1.5.0
+Requires-Dist: mistralai>=1.5.1
+Requires-Dist: openai>=1.66.3
+Requires-Dist: rich>=13.9.4
+
+# chai
+
+Chat with AI in the terminal.
+
+**`chai` supports the following providers:**
+- Anthropic (Claude)
+- Google (Gemini)
+- Mistral (Le Chat)
+- OpenAI (ChatGPT)
+- xAI (Grok)
+
+**Why `chai` vs official apps and websites?**
+- No usage limits (pay-as-you-go).
+- Less expensive than subscriptions for light use.
+- No login required after setting API key(s).
+- One interface for multiple providers, models.
+- More private: all chat history is stored locally.
+
+**Why `chai` vs local LLMs (e.g., `ollama`)?**
+- Access leading, state of the art models.
+- No need to download models.
+- No need to buy hardware.
+
+## Installation
+
+```sh
+pip install chai-chat
+```
+
+## Usage
+
+```sh
+chai -h
+```
+
+Use `/?` or `/help` to print available commands.
+
+Set your API key(s):
+
+```sh
+# Anthropic
+export ANTHROPIC_API_KEY='your-anthropic-api-key'
+
+# Google
+export GOOGLE_API_KEY='your-google-api-key'
+
+# Mistral
+export MISTRAL_API_KEY='your-mistral-api-key'
+
+# OpenAI
+export OPENAI_API_KEY='your-openai-api-key'
+
+# xAI
+export XAI_API_KEY='your-xai-api-key'
+```
+
+## Development
+
+1. [Install or update `uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#installation).
+
+2. Run `chai.py`:
+   ```sh
+   uv run chai.py -h
+   ```
