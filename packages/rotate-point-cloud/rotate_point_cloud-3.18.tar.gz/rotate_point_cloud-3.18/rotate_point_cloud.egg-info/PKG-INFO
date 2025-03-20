@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: rotate-point-cloud
+Version: 3.18
+Summary: A utility for rotating point clouds
+Author: tcb
+Author-email: 3035719537@qq.com
+Requires-Python: >=3.8
+Requires-Dist: numpy
+Requires-Dist: open3d
