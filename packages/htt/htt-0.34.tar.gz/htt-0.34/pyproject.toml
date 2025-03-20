@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "htt"
+version = "0.34"
+description = "Utility integrating config, logging, testing."
+authors = ["appleprince <appleprince@example.com>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+ruamel-yaml = "*"
+protobuf = ">=5"
+grpcio = ">=1"
+inuits-python-logging-loki = ">=1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7"
+types-protobuf = ">=5"
+grpc-stubs = ">=1"
+
+[tool.poetry-grpc-plugin]
+proto_path = "proto" # Defaults to module name
+python_out = "."     # Defaults to .
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "UP", # pyupgrade
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

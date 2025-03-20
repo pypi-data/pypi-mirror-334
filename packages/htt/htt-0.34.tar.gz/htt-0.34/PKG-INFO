@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: htt
+Version: 0.34
+Summary: Utility integrating config, logging, testing.
+License: BSD-3-Clause
+Author: appleprince
+Author-email: appleprince@example.com
+Requires-Python: >=3.10
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: grpcio (>=1)
+Requires-Dist: inuits-python-logging-loki (>=1)
+Requires-Dist: protobuf (>=5)
+Requires-Dist: ruamel-yaml
+Description-Content-Type: text/markdown
+
+
