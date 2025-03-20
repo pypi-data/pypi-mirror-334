@@ -1,0 +1,182 @@
+Metadata-Version: 2.4
+Name: my-collection
+Version: 0.1.2
+Summary: A Python package for text processing and argument parsing
+Project-URL: Homepage, https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging
+Project-URL: Issues, https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/issues
+Author-email: Liliia Shpytsia <fioletowujsemizwetik@gmail.com>
+License: MIT
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Requires-Dist: uv>=0.1.0
+Description-Content-Type: text/markdown
+
+# my-collection
+
+[License: MIT](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/blob/dev/LICENSE)  
+[GitLab Repo](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging)
+
+Python-пакет для обробки тексту, включаючи підрахунок унікальних символів,підтримує обробку даних черех командний рядок.
+
+---
+
+## Зміст
+
+- [Посилання проекту](#посилання-проекту)
+- [Встановлення](#встановлення)
+- [Використання](#використання)
+  - [CLI](#cli)
+  - [Використання у Python-коді](#використання-у-python-коді)
+- [Документація](#документація)
+- [Приклади](#приклади)
+- [Оновлення пакету](#оновлення-пакету)
+- [Тестування](#тестування)
+- [Структура проєкту](#структура-проекту)
+- [Пошук проблем](#пошук-проблем)
+
+---
+
+## Посилання проекту
+
+- **Домашня сторінка**: [my-collection на GitLab](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging)  
+- **Випуски**: [Releases](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/releases)  
+- **Ліцензія**: [MIT License](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/blob/dev/LICENSE)  
+- **Відкрити Issue**: [Створити Issue](https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/issues)
+
+---
+
+## Встановлення
+
+```bash
+pip install my-collection
+```
+
+---
+
+## Використання
+
+### CLI
+
+- Для обробки текстового рядка:
+
+```bash
+my-collection --string "This is a test"
+```
+
+- Для обробки текстового файлу:
+
+```bash
+my-collection --file path/to/text.txt
+```
+
+> **Примітка** aргумент `--file` має вищий пріоритет над `--string`. Якщо обидва аргументи не передані, програма 
+завершиться з помилкою.
+
+### Використання у Python-коді
+
+```markdown
+from my_collection import unique_char_count
+
+text = "example text"
+result = unique_char_count(text)
+print(f"Unique character count: {result}")
+```
+
+---
+
+### Документація
+
+1. Відкрий Python-інтерпретатор:
+
+```bash
+python
+```
+
+1. Імпортуй функцію та використовуй `help()`:
+
+```markdown
+from my_collection import unique_char_count
+help(unique_char_count)
+```
+
+---
+
+## Приклади
+
+### Підрахунок унікальних символів у рядку
+
+```markdown
+from my_collection import unique_char_count
+
+print(unique_char_count("abbbccdf"))  # Виведе: 3
+```
+
+### Використання CLI
+
+```bash
+my-collection --string "abbbccdf" 
+# Виведе: Unique character count: 3
+```
+
+---
+
+## Оновлення пакету
+
+```bash
+pip install --upgrade my-collection
+```
+
+---
+
+## Тестування
+
+1. Клонувати репозиторій:
+
+```bash
+git clone https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging.git 
+cd task-5-packaging
+```
+
+1. Встановити залежності для розробки:
+
+```bash
+pip install -r requirements.txt
+```
+
+1. Запустити тести:
+
+```bash
+pytest
+```
+
+---
+
+## Структура проекту
+
+```plaintext
+task_5_packaging/
+- **`src/my_collection/__init__.py`** - ініціалізація пакету.
+- **`src/my_collection/collect_framework.py`** - містить функціонал для обробки даних.
+- **`src/my_collection/text.txt`** - тестовий файл для демонстрації роботи пакету.
+- **`src/my_collection/unique_char.py`** - модуль для підрахунку унікальних символів.
+- **`tests/`** - директорія з тестами для модулів пакету.
+- **`tests/__init__.py`** - ініціалізація пакету.
+- **`tests/test_collect_framework.py`** - тест для пакету.
+- **`tests/test_unique_char.py`** - тест для пакету.
+- **`.flake8`** - налаштування для перевірки стилю коду.
+- **`.gitignore`** - ігнорування файлів у Git.
+- **`.gitlab-ci.yml`** - конфігурація для автоматизації процесів на GitLab.
+- **`pyproject.toml`** - основний файл конфігурації для Python-пакету.
+- **`requirements.txt`** - перелік залежностей, необхідних для роботи пакету.
+```
+---
+
+## Пошук проблем
+- Якщо виникли проблеми, створи [Issue] (https://git.foxminded.ua/liliia-shpytsia-mentoring/task-5-packaging/-/issues) 
+на GitLab.
+
+---
