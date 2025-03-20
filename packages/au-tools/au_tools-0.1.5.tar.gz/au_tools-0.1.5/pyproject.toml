@@ -1,0 +1,51 @@
+[project]
+name = "au-tools"
+version = "0.1.5"
+description = "au - GitHub Classroom Automation Tools"
+authors = [
+    { name = "Paul York", email = "paul@yorkfamily.com" }
+]
+license = "MIT"
+readme = "README.md"
+keywords = [
+    "github", "classroom", "autograde", "automation", 
+]
+requires-python = ">=3.12,<4.0"
+
+dependencies = [
+    "pytest (>=8.3.4,<9.0.0)",
+    "pytest-subtests (>=0.14.1,<0.15.0)",
+    "pylint (>=3.3.4,<4.0.0)",
+    "click (>=8.1.8,<9.0.0)",
+    "dacite (>=1.9.2,<2.0.0)",
+    "tomlkit (>=0.13.2,<0.14.0)",
+    "rich (>=13.9.4,<14.0.0)",
+    "beaupy (>=3.10.1,<4.0.0)",
+    "pytest-timeout (>=2.3.1,<3.0.0)"
+]
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^9.6.7"
+mkdocs-click = "^0.8.1"
+
+[project.scripts]
+au = 'au.cli:main'
+
+[project.urls]
+homepage        = "https://ptyork.github.io/au"
+repository      = "https://github.com/ptyork/au"
+"Bug Tracker"   = "https://github.com/ptyork/au/issues"
+
+[tool.poetry]
+packages = [
+   { include = "au", from = "src" },
+   { include = "f_table", from = "src" },
+   { include = "git_wrap", from = "src" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
