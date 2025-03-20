@@ -1,0 +1,7 @@
+dlt>=1.8.1
+notion-client>=2.3.0
+
+[show]
+dlt[duckdb]>=1.8.1
+streamlit>=1.41.1
+watchdog>=6.0.0
