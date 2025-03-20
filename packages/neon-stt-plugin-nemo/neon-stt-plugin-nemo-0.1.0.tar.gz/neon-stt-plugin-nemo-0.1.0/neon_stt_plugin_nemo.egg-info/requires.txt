@@ -1,0 +1,7 @@
+ovos-plugin-manager>=0.0.24,~=0.0
+ovos-utils>=0.0.30,~=0.0
+streaming-stt-nemo~=0.3
+SpeechRecognition~=3.8
+
+[docker]
+ovos-stt-http-server==0.0.2
