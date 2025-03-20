@@ -1,0 +1,66 @@
+{
+  "predictions": [
+    {
+      "sample_id": 0,
+      "prompt": "What are the different classification types associated with the investigational drug AR-12?\nAssistant: ",
+      "prediction": "The investigational drug AR-12 is classified into different types based on its pharmacological profile, which is determined by its chemical structure. The classification types associated with AR-12 are:\n1.  **Cytotoxic**: AR-12 is classified as a cytotoxic agent, which means it is toxic to rapidly dividing cells, such as cancer cells. This classification is based on its ability to induce apoptosis (programmed cell death) in these cells.\n2.  **Toxic**: AR-12 is also classified as a toxic agent, which means it is toxic to most cells, including normal cells. This classification is based on its ability to cause damage to cells, leading to cell death.\n3.  **Neurotoxic**: AR-12 is classified as a neurotoxic agent, which means it is toxic to the nervous system. This classification is based on its ability to cause damage to the brain and nervous system, leading to symptoms such as seizures, tremors, and muscle",
+      "reference": "AR-12 is classified as a small molecule inhibitor targeting PDK1 in the PI3K/AKT pathway. It's also categorized as an anti-cancer agent, anti-viral compound, and autophagy modulator.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 8.681050062179565,
+      "tokens_per_second": 23.038687551328977
+    },
+    {
+      "sample_id": 1,
+      "prompt": "What is the mechanism of action for AR-12?\nAssistant: ",
+      "prediction": "AR-12 is a synthetic, nonsteroidal anti-inflammatory drug (NSAID) that works by inhibiting the production of prostaglandins, which are hormone-like substances that cause pain, inflammation, and fever. Specifically, AR-12 blocks the enzyme cyclooxygenase (COX), which is responsible for converting arachidonic acid into prostaglandins. By inhibiting COX, AR-12 reduces the production of prostaglandins, leading to a decrease in pain, inflammation, and fever. This mechanism of action is similar to that of other NSAIDs, such as ibuprofen and naproxen.",
+      "reference": "AR-12 primarily inhibits PDK1 (3-phosphoinositide-dependent protein kinase 1) in the PI3K/AKT signaling pathway. It also activates AMPK, downregulates chaperone proteins (like GRP78, HSP70, HSP90), and induces autophagy. This combination of effects promotes cell death in cancer cells and inhibits replication of various pathogens.",
+      "tokens_generated": 131,
+      "generation_time_seconds": 3.850527048110962,
+      "tokens_per_second": 34.021316656967144
+    },
+    {
+      "sample_id": 2,
+      "prompt": "Describe the key clinical trials for AR-12.\nAssistant: ",
+      "prediction": "I'm happy to help you with that. However, I need to clarify that I don't have information on a specific clinical trial called \"AR-12.\" Could you please provide more context or details about the trial you're referring to? I'll do my best to provide a helpful response.\n\nThat being said, I can provide information on some clinical trials that have investigated the use of AR-12, also known as ARN-509, which is a small molecule inhibitor of the epidermal growth factor receptor (EGFR). Here are a few examples:\n\n1. **Clinical Trial 1:** \"ARN-509 in Combination with Erlotinib in Advanced Non-Small Cell Lung Cancer\" (ClinicalTrials.gov ID: NCT03111135)\n\t* This trial investigated the efficacy and safety of ARN-509 in combination with erlotinib in patients with advanced non-small cell lung cancer (NSCLC).\n2. **Clinical Trial 2:** \"AR",
+      "reference": "AR-12 has undergone Phase I clinical trials for safety evaluation in adult patients with advanced or recurrent solid tumors or lymphoma (NCT00978523). The trial evaluated safety, pharmacokinetics, and maximum tolerated dose. While detailed results aren't widely published, the drug demonstrated acceptable safety profile to advance development. Further clinical studies were planned to evaluate efficacy against specific cancer types and viral infections.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 5.841615915298462,
+      "tokens_per_second": 34.23710201080235
+    }
+  ],
+  "metrics": {
+    "rouge1": [
+      0.15384615384615385,
+      0.18749999999999997,
+      0.2318840579710145
+    ],
+    "rouge2": [
+      0.05555555555555555,
+      0.015873015873015876,
+      0.04878048780487805
+    ],
+    "rougeL": [
+      0.12087912087912088,
+      0.15625,
+      0.12560386473429952
+    ],
+    "bleu": [
+      0.026992134631949313,
+      0.009293689425386347,
+      0.011637719322832623
+    ],
+    "generation_time": [
+      8.681050062179565,
+      3.850527048110962,
+      5.841615915298462
+    ]
+  },
+  "summary": {
+    "rouge1": 0.19107673727238947,
+    "rouge2": 0.04006968641114982,
+    "rougeL": 0.1342443285378068,
+    "bleu": 0.015974514460056096,
+    "avg_tokens_per_second": 30.432368739699495,
+    "total_samples": 3
+  }
+}
