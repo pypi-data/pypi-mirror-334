@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = 'src/biprop/__init__.py'
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "v0",
+  "Examples",
+  "tests",
+  "TestSuite.py"
+]
+include = []
+
+[project]
+name = "biprop"
+dynamic = ["version"]
+authors = [
+  { name="Talin Herold"},
+]
+readme = "README.md"
+description = "Python library for biproportional and other apportionment methods."
+license = "GPL-3.0-or-later"
+license-files = ["COPYING.txt"]
+keywords = ["politics", "elections", "apportionment", "biproportional", "pukelsheim"]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy >= 1.17.0",
+    "pandas >= 0.23.2"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/herold-t/biprop"
+Issues = "https://github.com/herold-t/biprop/issues"

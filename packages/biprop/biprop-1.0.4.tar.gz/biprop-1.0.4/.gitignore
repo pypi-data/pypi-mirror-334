@@ -1,0 +1,10 @@
+# ignore everything in pycache directories
+*__pycache__
+# ignore local files and folders used for testing in the v0 and src directories
+brainstorming.txt
+v0/test*
+src/test*
+src/biprop/test*
+tests/test*
+!tests/TestSuite.py
+PyPIToken.txt
