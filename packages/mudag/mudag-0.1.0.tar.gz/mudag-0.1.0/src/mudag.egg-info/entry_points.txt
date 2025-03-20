@@ -1,0 +1,2 @@
+[console_scripts]
+mudag = mudag.cli.cli:main
