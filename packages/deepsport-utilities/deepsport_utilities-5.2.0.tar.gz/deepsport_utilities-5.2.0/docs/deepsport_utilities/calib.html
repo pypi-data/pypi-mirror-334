@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>deepsport_utilities.calib API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>deepsport_utilities.calib</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="deepsport_utilities.calib.crop_around_center"><code class="name flex">
+<span>def <span class="ident">crop_around_center</span></span>(<span>image, width, height)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def crop_around_center(image, width, height):
+    &#34;&#34;&#34; Given a NumPy / OpenCV 2 image, crops it to the given width and height,
+        around it&#39;s centre point
+    &#34;&#34;&#34;
+
+    image_size = (image.shape[1], image.shape[0])
+    image_center = (int(image_size[0] * 0.5), int(image_size[1] * 0.5))
+
+    if width &gt; image_size[0]:
+        width = image_size[0]
+
+    if height &gt; image_size[1]:
+        height = image_size[1]
+
+    x1 = int(image_center[0] - width * 0.5)
+    x2 = int(image_center[0] + width * 0.5)
+    y1 = int(image_center[1] - height * 0.5)
+    y2 = int(image_center[1] + height * 0.5)
+
+    return image[y1:y2, x1:x2]</code></pre>
+</details>
+<div class="desc"><p>Given a NumPy / OpenCV 2 image, crops it to the given width and height,
+around it's centre point</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="deepsport_utilities.calib.Calib"><code class="flex name class">
+<span>class <span class="ident">Calib</span></span>
+<span>(</span><span>*,<br>width: int,<br>height: int,<br>T: numpy.ndarray,<br>R: numpy.ndarray,<br>K: numpy.ndarray,<br>k=None,<br>**_)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Calib(Calib3d):
+    def definition(self, distance):
+        return self.K[0,0]/distance
+
+    def visible_edge(self, edge):
+        return visible_segment(self, edge[0], edge[1])
+
+    def displacement_map(self):
+        w, h = self.width, self.height
+        points2D = Point2D(np.stack(np.meshgrid(np.arange(w), np.arange(h))).reshape(2, w*h))
+        return np.linalg.norm(points2D - self.rectify(points2D), axis=0).reshape(h, w)
+
+    def definition_map(self, distance):
+        &#34;&#34;&#34; Returns a map of definition [px/&lt;distance-unit&gt;] at a given distance from the camera
+        &#34;&#34;&#34;
+        w, h = self.width+2, self.height+2
+        assert w &lt; 5000 and h &lt; 5000, &#34;Invalid image dimensions&#34;
+        points2D = Point2D(np.stack(np.meshgrid(np.arange(w)-1, np.arange(h)-1)).reshape(2, w*h))
+        X = Point2D(self.Kinv@self.rectify(points2D).H).reshape(2, h, w)*distance
+        dist_v = (X[:, :-2, 1:-1]-X[:, 2:, 1:-1])/2
+        dist_h = (X[:, 1:-1, :-2]-X[:, 1:-1, 2:])/2
+        return 2/(np.linalg.norm(dist_h, axis=0) + np.linalg.norm(dist_v, axis=0))
+
+    def get_region_visible_corners_2d(self, points_3d: Point3D, approximate_curve_by_N_segments=10):
+        &#34;&#34;&#34;Return a list of corner points defining the 2D boundaries of a specific 3D region on the image space
+
+        Args:
+            points_3d ([type]): [description]
+            approximate_curve_by_N_segments (int, optional): [description]. Defaults to 10.
+
+        Returns:
+            List[Tuple(int, int)]: a list of 2D coordinates of the corner points of a specific 3D region on the image space
+        &#34;&#34;&#34;
+
+        # Construct the polygon defining the boundaries of the 3D region and projects it, considering the lens distorsion (3D straight lines might be curves on the image)
+        region_3d_coords = points_3d.close().linspace(approximate_curve_by_N_segments+1)
+        region_2d_coords = self.project_3D_to_2D(region_3d_coords)
+        any_coord_outside_img_boundaries = np.any(region_2d_coords &lt; 0) or \
+                                           np.any(region_2d_coords.x &gt;= self.width) or \
+                                           np.any(region_2d_coords.y &gt;= self.height)
+        if not any_coord_outside_img_boundaries:
+            return region_2d_coords
+
+        # Restrict the 2D region polygon to the image space boundaries
+        img_corners = box(minx=0, miny=0, maxx=self.width, maxy=self.height)
+        region_corners = Polygon([r.to_int_tuple() for r in region_2d_coords])
+        region_polygon_restricted_to_img_space = region_corners.intersection(img_corners)
+
+        if region_polygon_restricted_to_img_space:
+            return Point2D(np.array(region_polygon_restricted_to_img_space.exterior.coords).T)
+        else:
+            return Point2D(np.empty(shape=(2, 0), dtype=float))</code></pre>
+</details>
+<div class="desc"><p>Represents a calibrated camera.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>width</code></strong> :&ensp;<code>int</code></dt>
+<dd>image width</dd>
+<dt><strong><code>height</code></strong> :&ensp;<code>int</code></dt>
+<dd>image height</dd>
+<dt><strong><code>T</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>translation vector</dd>
+<dt><strong><code>R</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>rotation matrix</dd>
+<dt><strong><code>K</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>camera matrix holding intrinsic parameters</dd>
+<dt><strong><code>k</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>lens distortion coefficients. Defaults to None.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>calib3d.calib.Calib</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="deepsport_utilities.calib.Calib.definition"><code class="name flex">
+<span>def <span class="ident">definition</span></span>(<span>self, distance)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def definition(self, distance):
+    return self.K[0,0]/distance</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.calib.Calib.definition_map"><code class="name flex">
+<span>def <span class="ident">definition_map</span></span>(<span>self, distance)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def definition_map(self, distance):
+    &#34;&#34;&#34; Returns a map of definition [px/&lt;distance-unit&gt;] at a given distance from the camera
+    &#34;&#34;&#34;
+    w, h = self.width+2, self.height+2
+    assert w &lt; 5000 and h &lt; 5000, &#34;Invalid image dimensions&#34;
+    points2D = Point2D(np.stack(np.meshgrid(np.arange(w)-1, np.arange(h)-1)).reshape(2, w*h))
+    X = Point2D(self.Kinv@self.rectify(points2D).H).reshape(2, h, w)*distance
+    dist_v = (X[:, :-2, 1:-1]-X[:, 2:, 1:-1])/2
+    dist_h = (X[:, 1:-1, :-2]-X[:, 1:-1, 2:])/2
+    return 2/(np.linalg.norm(dist_h, axis=0) + np.linalg.norm(dist_v, axis=0))</code></pre>
+</details>
+<div class="desc"><p>Returns a map of definition [px/<distance-unit>] at a given distance from the camera</p></div>
+</dd>
+<dt id="deepsport_utilities.calib.Calib.displacement_map"><code class="name flex">
+<span>def <span class="ident">displacement_map</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displacement_map(self):
+    w, h = self.width, self.height
+    points2D = Point2D(np.stack(np.meshgrid(np.arange(w), np.arange(h))).reshape(2, w*h))
+    return np.linalg.norm(points2D - self.rectify(points2D), axis=0).reshape(h, w)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.calib.Calib.get_region_visible_corners_2d"><code class="name flex">
+<span>def <span class="ident">get_region_visible_corners_2d</span></span>(<span>self, points_3d: calib3d.points.Point3D, approximate_curve_by_N_segments=10)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_region_visible_corners_2d(self, points_3d: Point3D, approximate_curve_by_N_segments=10):
+    &#34;&#34;&#34;Return a list of corner points defining the 2D boundaries of a specific 3D region on the image space
+
+    Args:
+        points_3d ([type]): [description]
+        approximate_curve_by_N_segments (int, optional): [description]. Defaults to 10.
+
+    Returns:
+        List[Tuple(int, int)]: a list of 2D coordinates of the corner points of a specific 3D region on the image space
+    &#34;&#34;&#34;
+
+    # Construct the polygon defining the boundaries of the 3D region and projects it, considering the lens distorsion (3D straight lines might be curves on the image)
+    region_3d_coords = points_3d.close().linspace(approximate_curve_by_N_segments+1)
+    region_2d_coords = self.project_3D_to_2D(region_3d_coords)
+    any_coord_outside_img_boundaries = np.any(region_2d_coords &lt; 0) or \
+                                       np.any(region_2d_coords.x &gt;= self.width) or \
+                                       np.any(region_2d_coords.y &gt;= self.height)
+    if not any_coord_outside_img_boundaries:
+        return region_2d_coords
+
+    # Restrict the 2D region polygon to the image space boundaries
+    img_corners = box(minx=0, miny=0, maxx=self.width, maxy=self.height)
+    region_corners = Polygon([r.to_int_tuple() for r in region_2d_coords])
+    region_polygon_restricted_to_img_space = region_corners.intersection(img_corners)
+
+    if region_polygon_restricted_to_img_space:
+        return Point2D(np.array(region_polygon_restricted_to_img_space.exterior.coords).T)
+    else:
+        return Point2D(np.empty(shape=(2, 0), dtype=float))</code></pre>
+</details>
+<div class="desc"><p>Return a list of corner points defining the 2D boundaries of a specific 3D region on the image space</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points_3d</code></strong> :&ensp;<code>[type]</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>approximate_curve_by_N_segments</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>[description]. Defaults to 10.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List[Tuple(int, int)]: a list of 2D coordinates of the corner points of a specific 3D region on the image space</p></div>
+</dd>
+<dt id="deepsport_utilities.calib.Calib.visible_edge"><code class="name flex">
+<span>def <span class="ident">visible_edge</span></span>(<span>self, edge)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visible_edge(self, edge):
+    return visible_segment(self, edge[0], edge[1])</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="deepsport_utilities.calib.PanoramicStitcher"><code class="flex name class">
+<span>class <span class="ident">PanoramicStitcher</span></span>
+<span>(</span><span>calibs, output_shape, f=1000, target=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PanoramicStitcher():
+    def __init__(self, calibs, output_shape, f=1000, target=None):
+        w, h = output_shape
+        C = np.mean([calib.C for calib in calibs], axis=0)
+        if target is not None:
+            R = compute_rotation_matrix(target, C)
+        else:
+            q = np.mean([scipy_transform.Rotation.from_matrix(calib.R).as_quat() for calib in calibs], axis=0)
+            R = scipy_transform.Rotation.from_quat(q/np.linalg.norm(q)).as_matrix()
+
+        T = -R@C
+        K = np.array([[f, 0, w/2],
+                      [0, f, h/2],
+                      [0, 0,  1 ]])
+        self.camera = Calib(K=K, T=T, R=R, width=w, height=h)
+        self.calibs = calibs
+
+        self.width, self.height = w, h = self.camera.width, self.camera.height
+        points2D = Point2D(np.stack(np.meshgrid(np.arange(w),np.arange(h))).reshape((2,w*h)))
+        points3D = self.camera.project_2D_to_3D(points2D, Y=0)
+
+        def lookuptable(calib, points3D):
+            corners = self.camera.project_3D_to_2D(calib.project_2D_to_3D(Point2D([calib.w, calib.w, 0, 0], [calib.h, 0, 0, calib.h]), Y=0))
+            center = self.camera.project_3D_to_2D(calib.project_2D_to_3D(Point2D([calib.w/2], [calib.h/2]), Y=0))
+            max_radius = max(np.linalg.norm(corners-center, axis=0))
+
+            output_indices = np.where(np.all([
+                calib.projects_in(points3D),
+                np.linalg.norm(points2D - center, axis=0) &lt;= max_radius # prevents strong distortion to project to the other side of the image
+            ], axis=0))[0] # indices of output pixels that project to calib (and not further than radius away from center of projection)
+            input_indices = calib.project_3D_to_2D(points3D[:,output_indices]).astype(np.int32) # output pixels that project to calib
+            ih, iw = calib.height, calib.width
+            distances = np.min(np.stack(np.meshgrid(iw//2-np.abs(np.arange(-iw//2, iw//2)), ih//2-np.abs(np.arange(-ih//2, ih//2)))), axis=0)
+            return input_indices, output_indices, distances[input_indices.y, input_indices.x]
+        self.lookuptables = [lookuptable(calib, points3D) for calib in self.calibs]
+
+    def __call__(self, images):
+        assert len(set([(shape:=image.shape) for image in images])) == 1, &#34;All images must have the same shape&#34;
+        assert len(set([(dtype:=image.dtype) for image in images])) == 1, &#34;All images must have the same dtype&#34;
+        c = shape[-1] if len(shape) == 3 else 1
+
+        outputs = np.zeros((len(images), self.height*self.width, c))
+        weights = np.zeros((len(images), self.height*self.width))
+        for i, (input_indices, output_indices, weight) in enumerate(self.lookuptables):
+            outputs[i, output_indices] = np.reshape(images[i][input_indices.y, input_indices.x], (-1, c))
+            weights[i, output_indices] = weight
+
+        mask = np.any(weights != 0, axis=0)
+        weights[:,mask] = weights[:,mask]/np.sum(weights[:,mask], axis=0)
+        result = np.ones((self.height*self.width, c))*np.nan
+        result[mask] = np.sum(outputs[:, mask]*weights[:,mask,None], axis=0)
+        return np.squeeze((result.reshape((self.height, self.width, c))).astype(dtype))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="deepsport_utilities" href="index.html">deepsport_utilities</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="deepsport_utilities.calib.crop_around_center" href="#deepsport_utilities.calib.crop_around_center">crop_around_center</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="deepsport_utilities.calib.Calib" href="#deepsport_utilities.calib.Calib">Calib</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.calib.Calib.definition" href="#deepsport_utilities.calib.Calib.definition">definition</a></code></li>
+<li><code><a title="deepsport_utilities.calib.Calib.definition_map" href="#deepsport_utilities.calib.Calib.definition_map">definition_map</a></code></li>
+<li><code><a title="deepsport_utilities.calib.Calib.displacement_map" href="#deepsport_utilities.calib.Calib.displacement_map">displacement_map</a></code></li>
+<li><code><a title="deepsport_utilities.calib.Calib.get_region_visible_corners_2d" href="#deepsport_utilities.calib.Calib.get_region_visible_corners_2d">get_region_visible_corners_2d</a></code></li>
+<li><code><a title="deepsport_utilities.calib.Calib.visible_edge" href="#deepsport_utilities.calib.Calib.visible_edge">visible_edge</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="deepsport_utilities.calib.PanoramicStitcher" href="#deepsport_utilities.calib.PanoramicStitcher">PanoramicStitcher</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

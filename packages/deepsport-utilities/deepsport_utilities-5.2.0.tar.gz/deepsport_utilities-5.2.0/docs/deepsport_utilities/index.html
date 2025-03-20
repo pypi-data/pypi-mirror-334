@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>deepsport_utilities API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>deepsport_utilities</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="deepsport_utilities.calib" href="calib.html">deepsport_utilities.calib</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="deepsport_utilities.court" href="court.html">deepsport_utilities.court</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="deepsport_utilities.dataset" href="dataset/index.html">deepsport_utilities.dataset</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="deepsport_utilities.ds" href="ds/index.html">deepsport_utilities.ds</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="deepsport_utilities.transforms" href="transforms.html">deepsport_utilities.transforms</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="deepsport_utilities.utils" href="utils.html">deepsport_utilities.utils</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="deepsport_utilities.deserialize_keys"><code class="name flex">
+<span>def <span class="ident">deserialize_keys</span></span>(<span>keys, type)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deserialize_keys(keys, type):
+    return list(map(lambda k: type(*k), keys))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.export_dataset"><code class="name flex">
+<span>def <span class="ident">export_dataset</span></span>(<span>dataset: mlworkflow.datasets.Dataset,<br>prefix: str,<br>keys=None,<br>verbose: bool = True,<br>download: bool = True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_dataset(dataset: Dataset, prefix: str, keys=None, verbose: bool=True, download: bool=True):
+    &#34;&#34;&#34; Export a dataset to disk by saving
+        - serialized dataset items in their original database format in a json file,
+        - and a list of necessary files in a txt file.
+        Arguments:
+            - dataset: the dataset to export
+            - prefix: the prefix of the output files
+    &#34;&#34;&#34;
+    files = []
+    items = []
+
+    keys = keys or dataset.keys
+
+    for key in keys:
+        item = dataset.query_item(key, download=download)
+        files = files + list(item.files)
+        items.append(item.db_item)
+    filename = prefix + &#39;-index.json&#39;
+    with open(filename, &#39;w&#39;) as fd:
+        json.dump(items, fd)
+    if verbose:
+        print(f&#34;Dataset index successfully created in &#39;{filename}&#39;&#34;)
+
+    filename = prefix + &#39;-files.txt&#39;
+    with open(filename, &#39;w&#39;) as fd:
+        files = map(lambda x:x+&#39;\n&#39;, files)
+        fd.writelines(files)
+    if verbose:
+        print(f&#34;Dataset file list successfully created in &#39;{filename}&#39;&#34;)
+        print(f&#34;You can zip them by running\n$ zip -r &lt;filename&gt;.zip `cat {filename}`&#34;)</code></pre>
+</details>
+<div class="desc"><p>Export a dataset to disk by saving
+- serialized dataset items in their original database format in a json file,
+- and a list of necessary files in a txt file.</p>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li>dataset: the dataset to export</li>
+<li>prefix: the prefix of the output files</li>
+</ul></div>
+</dd>
+<dt id="deepsport_utilities.find"><code class="name flex">
+<span>def <span class="ident">find</span></span>(<span>path, dirs=None, verbose=True, fail=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find(path, dirs=None, verbose=True, fail=True):
+    if os.path.isabs(path):
+        if not os.path.isfile(path) and not os.path.isdir(path):
+            if not fail:
+                not verbose or print(f&#34;{path} not found&#34;)
+                return None
+            raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), path)
+        return path
+
+    dirs = dirs or [os.getcwd(), *os.getenv(&#34;DATA_PATH&#34;, &#34;&#34;).split(&#34;:&#34;)]
+    for dirname in dirs:
+        if dirname is None:
+            continue
+        tmp_path = os.path.join(dirname, path)
+        if os.path.isfile(tmp_path) or os.path.isdir(tmp_path):
+            not verbose or print(&#34;{} found in {}&#34;.format(path, tmp_path))
+            return tmp_path
+
+    if not fail:
+        not verbose or print(f&#34;{path} not found (searched in {dirs})&#34;)
+        return None
+    raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT),
+                                &#34;{} (searched in {})&#34;.format(path, dirs))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.import_dataset"><code class="name flex">
+<span>def <span class="ident">import_dataset</span></span>(<span>dataset_type: mlworkflow.datasets.Dataset, filename: str, **dataset_config)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def import_dataset(dataset_type: Dataset, filename: str, **dataset_config):
+    &#34;&#34;&#34; Import a dataset exported by `export_dataset` by providing the
+        - dataset Type,
+        - the serialized dataset items in their original database format in a json file,
+        - and the config dictionary required to build each dataset item (dataset dependant)
+    &#34;&#34;&#34;
+    return ImportedDataset(filename=filename, dataset_type=dataset_type, **dataset_config)</code></pre>
+</details>
+<div class="desc"><p>Import a dataset exported by <code><a title="deepsport_utilities.export_dataset" href="#deepsport_utilities.export_dataset">export_dataset()</a></code> by providing the
+- dataset Type,
+- the serialized dataset items in their original database format in a json file,
+- and the config dictionary required to build each dataset item (dataset dependant)</p></div>
+</dd>
+<dt id="deepsport_utilities.serialize_keys"><code class="name flex">
+<span>def <span class="ident">serialize_keys</span></span>(<span>keys)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def serialize_keys(keys):
+    return list(map(tuple, keys)) # keys should already be tuples by design, but here we remove any reference to possible NamedTuple</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="deepsport_utilities.Court"><code class="flex name class">
+<span>class <span class="ident">Court</span></span>
+<span>(</span><span>rule_type='FIBA')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Court():
+    &#34;&#34;&#34; Defines the world 3D coordinates of a Basketball court.
+        Please refer to calib.py if you want to obtain their 2D image coordinates
+    &#34;&#34;&#34;
+    def __init__(self, rule_type=&#34;FIBA&#34;):
+        self.rule_type = rule_type
+        court_type = court_types_from_rule_type.get(rule_type, rule_type)
+        self.court_definition = court_definitions[court_type]
+        self.w, self.h = self.court_definition.width, self.court_definition.height
+
+    @property
+    def corners(self):
+        return Point3D([0,self.w, self.w,0],[0,0,self.h,self.h],[0,0,0,0])
+
+    @property
+    def edges(self):
+        for c1, c2 in zip(self.corners, self.corners.close()[:,1:]):
+            yield c1, c2
+
+    def visible_edges(self, calib: Calib):
+        for edge in self.edges:
+            try:
+                yield calib.visible_edge(edge)
+            except ValueError:
+                continue
+    def projects_in(self, calib: Calib, point2D):
+        point3D = calib.project_2D_to_3D(point2D, Z=0)
+        return point3D.x &gt;= 0 and point3D.x &lt;= self.w and point3D.y &gt;= 0 and point3D.y &lt;= self.h
+
+    def draw_rim(self, image, calib: Calib, color=(128,200,90), thickness=2):
+        pd = ProjectiveDrawer(calib, color, thickness=thickness)
+        offset = self.court_definition.rim_center_offset
+        h = self.court_definition.rim_height
+        r = self.court_definition.rim_radius
+        pd.draw_arc(image, Point3D(offset, self.h/2, -h), r)
+        pd.draw_arc(image, Point3D(self.w-offset, self.h/2, -h), r)
+
+    def draw_poles(self, image, calib: Calib, color=(10,10,10)):
+        pass
+
+    def draw_net(self, image, calib: Calib, color=(128,90,200)):
+        offset = self.court_definition.rim_center_offset
+        r = self.court_definition.rim_radius
+        angles = np.linspace(0, np.pi*2, 20)
+        pd = ProjectiveDrawer(calib, color)
+        for x in [offset, self.w-offset]: # two rims
+            center = Point3D(x, self.h/2, -self.court_definition.rim_height)
+            xts = np.cos(angles)*r + center.x
+            yts = np.sin(angles)*r + center.y
+            xbs = np.cos(angles)*r/2 + center.x
+            ybs = np.sin(angles)*r/2 + center.y
+
+            zs = np.ones_like(angles)*center.z
+            points = Point3D([Point3D(x,y,z) for x,y,z in zip(np.concatenate((xts,xbs)),np.concatenate((yts,ybs)),np.concatenate((zs,zs+40)))])
+            pd.polylines(image, points)
+
+    def _get_three_points_anchors(self):
+        def sign(value):
+            return -1 if value &lt; 0 else 1
+        #    +----------+----------------------------+-----------------------------+----------------------------+------------+
+        #    |          |                            |              ^              |                            |            |
+        #    |          |                            |         RIM  |              |                            |            |
+        #    |          |                            |       offset |              |                            |            |
+        #    |          |                            |              v              |                            |            |
+        #    |          |                            |       -----( X )            |                            |            |
+        #    | 3-POINTS |                            | -------      ^              |                            |            |
+        #    |  limit   |                      ------|-   |         |              |                            |            |
+        #    |&lt;--------&gt;|               -------      |     \        |              |                            |            |
+        #    |          |        -------   Z         |       &#39;.     |              |                            |            |
+        #    |           |-------                    |   alpha  `---|              |                           |             |
+        #    |           |                           |              |              |                           |             |
+        #    |            \                          |              | 3-POINTS     |                          /              |
+        #    |             |                         |              |   dist       |                         |               |
+        #    |              \                        |              |              |                        /                |
+        #    |               \                       +-----+-----------------+-----+                       /                 |
+        #    |                 \                           |        |        |                           /                   |
+        #    |                   &#39;.                         \       |       /                         .&#39;                     |
+        #    |                     &#39;-.                        &#39;.    |    .&#39;                        .-&#39;                       |
+        #    |                        &#39;-.                        `-----´                        .-&#39;                          |
+        #    |                           &#39;--.                       |                       .--&#39;                             |
+        #    |                               &#39;--.                   |                   .--&#39;                                 |
+        #    |                                   &#39;---___            |            ___-ˇ-&#39;                                     |
+        #    |                                          &#39;&#39;-------___v____-------&#39;&#39;                                           |
+        #    |                                                                                                               |
+
+        # The goal of this function is to determine the &#34;alpha&#34; angle (see illustration above).
+        # alpha: angle (in radian) between a a line at the center of the court height, and where the 3-points arc meets the straight line (nearby the &#34;3-POINTS limit&#34; annotation here above)
+        # Y: line from the center of the rim to the point where the 3-points arc meets the straight line (nearby the &#34;3-POINTS limit&#34; annotation here above)
+
+        # See https://mathworld.wolfram.com/Circle-LineIntersection.html for terminology
+        # Note that all the computation are done on a euclidean standard orthonormal basis (positive abscissa pointing to the right, positive ordinate pointing to the top)
+        y1 = 0
+        y2 = - self.w/2 # Arbitary point on the extension of the 3-points line
+        x1 = -(self.h/2 - self.court_definition.three_point_limit) # Considers the center of the 3-points circle at (0, 0), with y-axis inverted
+        x2 = x1
+        dx = x2 - x1
+        dy = y2 - y1
+        dr = np.sqrt(dx**2 + dy**2)
+        det = x1*y2 - x2*y1
+        discriminant = (self.court_definition.three_point_distance**2) * (dr**2) - det**2
+        assert discriminant &gt;= 0 # Two points of intersection (one in the court, the other before the baseline) or 1 point intersection
+        x_intersection = (det*dy + sign(dy)*dx*np.sqrt(discriminant)) / (dr**2)
+        y_intersection = (-det*dx + abs(dy)*np.sqrt(discriminant)) / (dr**2)
+        if y_intersection &gt;= 0: # The estimated intersection is before the rim, compute the second intersection
+            x_intersection = (det*dy - sign(dy)*dx*np.sqrt(discriminant)) / (dr**2)
+            y_intersection = (-det*dx - abs(dy)*np.sqrt(discriminant)) / (dr**2)
+
+        # Compute alpha, the angle between the Z line and the vertical &#34;3-points dist&#34; line
+        Z_line_vector = [0 - 0, 0 + self.court_definition.three_point_distance]
+        three_point_dist_line_vector = [0 - x_intersection, 0 - y_intersection]
+        alpha = np.arccos(np.dot(Z_line_vector, three_point_dist_line_vector)/(np.linalg.norm(Z_line_vector)*np.linalg.norm(three_point_dist_line_vector)))
+
+        return alpha, -y_intersection + self.court_definition.rim_center_offset
+
+    def draw_lines(self, image, calib: Calib, color=(255,255,0), thickness=5):
+        &#34;&#34;&#34;
+            If color is None, use incremental color
+        &#34;&#34;&#34;
+        pd = ProjectiveDrawer(calib, color, thickness)
+
+        N = 100 # maximum number of lines
+        _color = iter(range(1, N)) if color is None else iter([color]*N)
+
+        # draw court borders
+        for edge in self.edges:#self.visible_edges(calib):
+            pd.draw_line(image, edge[0], edge[1], color=next(_color))
+
+        # draw midcourt-line
+        pd.draw_line(image, Point3D(self.w/2,0,0), Point3D(self.w/2,self.h,0), color=next(_color))
+
+        # draw central circle
+        r = self.court_definition.circle_diameter/2
+        pd.draw_arc(image, Point3D(self.w/2,self.h/2,0), r, color=next(_color))
+
+        # draw paints
+        w, l = self.court_definition.key_area_width, self.court_definition.key_area_length
+        # left paint
+        pd.draw_line(image, Point3D(0, self.h/2-w/2, 0), Point3D(l, self.h/2-w/2, 0), color=next(_color))
+        pd.draw_line(image, Point3D(l, self.h/2-w/2, 0), Point3D(l, self.h/2+w/2, 0), color=next(_color))
+        pd.draw_line(image, Point3D(0, self.h/2+w/2, 0), Point3D(l, self.h/2+w/2, 0), color=next(_color))
+        pd.draw_arc(image, Point3D(l, self.h/2,0), r, -np.pi/2, np.pi/2, color=next(_color))
+        # right paint
+        pd.draw_line(image, Point3D(self.w, self.h/2-w/2, 0), Point3D(self.w-l, self.h/2-w/2, 0), color=next(_color))
+        pd.draw_line(image, Point3D(self.w-l, self.h/2-w/2, 0), Point3D(self.w-l, self.h/2+w/2, 0), color=next(_color))
+        pd.draw_line(image, Point3D(self.w, self.h/2+w/2, 0), Point3D(self.w-l, self.h/2+w/2, 0), color=next(_color))
+        pd.draw_arc(image, Point3D(self.w-l,self.h/2,0), r, np.pi/2, 3*np.pi/2, color=next(_color))
+
+        # draw 3-points line
+        offset = self.court_definition.rim_center_offset
+        r = self.court_definition.three_point_distance
+        arc_rad, x_intersection = self._get_three_points_anchors()
+        # left 3-points-line
+        pd.draw_arc(image, Point3D(offset,self.h/2,0), r, -arc_rad, arc_rad, color=next(_color))
+        pd.draw_line(image, Point3D(0,self.court_definition.three_point_limit,0), Point3D(x_intersection,self.court_definition.three_point_limit,0), color=next(_color))
+        pd.draw_line(image, Point3D(0,self.h-self.court_definition.three_point_limit,0), Point3D(x_intersection,self.h-self.court_definition.three_point_limit,0), color=next(_color))
+        # right 3-points-line
+        pd.draw_arc(image, Point3D(self.w-offset,self.h/2,0), r, np.pi -arc_rad, np.pi + arc_rad, color=next(_color))
+        pd.draw_line(image, Point3D(self.w,self.court_definition.three_point_limit,0), Point3D(self.w-x_intersection,self.court_definition.three_point_limit,0), color=next(_color))
+        pd.draw_line(image, Point3D(self.w,self.h-self.court_definition.three_point_limit,0), Point3D(self.w-x_intersection,self.h-self.court_definition.three_point_limit,0), color=next(_color))
+
+    def fill_court(self, image, calib, color=(255, 0, 255)):
+        pd = ProjectiveDrawer(calib, color)
+        pd.fill_polygon(image, self.corners)
+
+    def fill_court_coordinates(self, image, calib):
+        pass
+
+    @property
+    def left_key_area(self):
+        &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the left key area
+        &#34;&#34;&#34;
+        return Point3D([0, self.court_definition.key_area_length, self.court_definition.key_area_length, 0], # x
+                       [self.h/2 - self.court_definition.key_area_width/2, self.h/2 - self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2], # y
+                       [0,0,0,0]) # z
+
+    @property
+    def right_key_area(self):
+        &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the right key area
+        &#34;&#34;&#34;
+        return Point3D([self.w - self.court_definition.key_area_length, self.w, self.w, self.w - self.court_definition.key_area_length], #x
+                       [self.h/2 - self.court_definition.key_area_width/2,  self.h/2 - self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2], # y
+                       [0,0,0,0]) # z
+
+    @property
+    def left_board(self):
+        &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the left basketball board (panel)
+        &#34;&#34;&#34;
+        board_offset = self.court_definition.board_offset
+        board_width = self.court_definition.board_width
+        board_height = self.court_definition.board_height
+        board_elevation = self.court_definition.board_elevation
+        return Point3D([0+board_offset, 0+board_offset, 0+board_offset, 0+board_offset], # x
+                       [self.h/2-board_width/2,self.h/2+board_width/2, self.h/2+board_width/2, self.h/2-board_width/2], # y
+                       [-board_elevation, -board_elevation, -board_elevation-board_height, -board_elevation-board_height]) # z
+
+    @property
+    def right_board(self):
+        &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the right basketball board (panel)
+        &#34;&#34;&#34;
+        board_offset = self.court_definition.board_offset
+        board_width = self.court_definition.board_width
+        board_height = self.court_definition.board_height
+        board_elevation = self.court_definition.board_elevation
+        return Point3D([self.w-board_offset, self.w-board_offset, self.w-board_offset, self.w-board_offset], # x
+                       [self.h/2-board_width/2,self.h/2+board_width/2, self.h/2+board_width/2, self.h/2-board_width/2], # y
+                       [-board_elevation, -board_elevation, -board_elevation-board_height, -board_elevation-board_height]) # z
+
+    def fill_board(self, image, calib: Calib, color=(128,255,128)):
+        pd = ProjectiveDrawer(calib, color)
+        pd.fill_polygon(image, self.left_board)
+        pd.fill_polygon(image, self.right_board)</code></pre>
+</details>
+<div class="desc"><p>Defines the world 3D coordinates of a Basketball court.
+Please refer to calib.py if you want to obtain their 2D image coordinates</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="deepsport_utilities.Court.corners"><code class="name">prop <span class="ident">corners</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def corners(self):
+    return Point3D([0,self.w, self.w,0],[0,0,self.h,self.h],[0,0,0,0])</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.edges"><code class="name">prop <span class="ident">edges</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def edges(self):
+    for c1, c2 in zip(self.corners, self.corners.close()[:,1:]):
+        yield c1, c2</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.left_board"><code class="name">prop <span class="ident">left_board</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def left_board(self):
+    &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the left basketball board (panel)
+    &#34;&#34;&#34;
+    board_offset = self.court_definition.board_offset
+    board_width = self.court_definition.board_width
+    board_height = self.court_definition.board_height
+    board_elevation = self.court_definition.board_elevation
+    return Point3D([0+board_offset, 0+board_offset, 0+board_offset, 0+board_offset], # x
+                   [self.h/2-board_width/2,self.h/2+board_width/2, self.h/2+board_width/2, self.h/2-board_width/2], # y
+                   [-board_elevation, -board_elevation, -board_elevation-board_height, -board_elevation-board_height]) # z</code></pre>
+</details>
+<div class="desc"><p>Return the 3D coordinates of the 4 corners of the left basketball board (panel)</p></div>
+</dd>
+<dt id="deepsport_utilities.Court.left_key_area"><code class="name">prop <span class="ident">left_key_area</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def left_key_area(self):
+    &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the left key area
+    &#34;&#34;&#34;
+    return Point3D([0, self.court_definition.key_area_length, self.court_definition.key_area_length, 0], # x
+                   [self.h/2 - self.court_definition.key_area_width/2, self.h/2 - self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2], # y
+                   [0,0,0,0]) # z</code></pre>
+</details>
+<div class="desc"><p>Return the 3D coordinates of the 4 corners of the left key area</p></div>
+</dd>
+<dt id="deepsport_utilities.Court.right_board"><code class="name">prop <span class="ident">right_board</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def right_board(self):
+    &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the right basketball board (panel)
+    &#34;&#34;&#34;
+    board_offset = self.court_definition.board_offset
+    board_width = self.court_definition.board_width
+    board_height = self.court_definition.board_height
+    board_elevation = self.court_definition.board_elevation
+    return Point3D([self.w-board_offset, self.w-board_offset, self.w-board_offset, self.w-board_offset], # x
+                   [self.h/2-board_width/2,self.h/2+board_width/2, self.h/2+board_width/2, self.h/2-board_width/2], # y
+                   [-board_elevation, -board_elevation, -board_elevation-board_height, -board_elevation-board_height]) # z</code></pre>
+</details>
+<div class="desc"><p>Return the 3D coordinates of the 4 corners of the right basketball board (panel)</p></div>
+</dd>
+<dt id="deepsport_utilities.Court.right_key_area"><code class="name">prop <span class="ident">right_key_area</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def right_key_area(self):
+    &#34;&#34;&#34; Return the 3D coordinates of the 4 corners of the right key area
+    &#34;&#34;&#34;
+    return Point3D([self.w - self.court_definition.key_area_length, self.w, self.w, self.w - self.court_definition.key_area_length], #x
+                   [self.h/2 - self.court_definition.key_area_width/2,  self.h/2 - self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2, self.h/2 + self.court_definition.key_area_width/2], # y
+                   [0,0,0,0]) # z</code></pre>
+</details>
+<div class="desc"><p>Return the 3D coordinates of the 4 corners of the right key area</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="deepsport_utilities.Court.draw_lines"><code class="name flex">
+<span>def <span class="ident">draw_lines</span></span>(<span>self, image, calib: calib3d.calib.Calib, color=(255, 255, 0), thickness=5)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_lines(self, image, calib: Calib, color=(255,255,0), thickness=5):
+    &#34;&#34;&#34;
+        If color is None, use incremental color
+    &#34;&#34;&#34;
+    pd = ProjectiveDrawer(calib, color, thickness)
+
+    N = 100 # maximum number of lines
+    _color = iter(range(1, N)) if color is None else iter([color]*N)
+
+    # draw court borders
+    for edge in self.edges:#self.visible_edges(calib):
+        pd.draw_line(image, edge[0], edge[1], color=next(_color))
+
+    # draw midcourt-line
+    pd.draw_line(image, Point3D(self.w/2,0,0), Point3D(self.w/2,self.h,0), color=next(_color))
+
+    # draw central circle
+    r = self.court_definition.circle_diameter/2
+    pd.draw_arc(image, Point3D(self.w/2,self.h/2,0), r, color=next(_color))
+
+    # draw paints
+    w, l = self.court_definition.key_area_width, self.court_definition.key_area_length
+    # left paint
+    pd.draw_line(image, Point3D(0, self.h/2-w/2, 0), Point3D(l, self.h/2-w/2, 0), color=next(_color))
+    pd.draw_line(image, Point3D(l, self.h/2-w/2, 0), Point3D(l, self.h/2+w/2, 0), color=next(_color))
+    pd.draw_line(image, Point3D(0, self.h/2+w/2, 0), Point3D(l, self.h/2+w/2, 0), color=next(_color))
+    pd.draw_arc(image, Point3D(l, self.h/2,0), r, -np.pi/2, np.pi/2, color=next(_color))
+    # right paint
+    pd.draw_line(image, Point3D(self.w, self.h/2-w/2, 0), Point3D(self.w-l, self.h/2-w/2, 0), color=next(_color))
+    pd.draw_line(image, Point3D(self.w-l, self.h/2-w/2, 0), Point3D(self.w-l, self.h/2+w/2, 0), color=next(_color))
+    pd.draw_line(image, Point3D(self.w, self.h/2+w/2, 0), Point3D(self.w-l, self.h/2+w/2, 0), color=next(_color))
+    pd.draw_arc(image, Point3D(self.w-l,self.h/2,0), r, np.pi/2, 3*np.pi/2, color=next(_color))
+
+    # draw 3-points line
+    offset = self.court_definition.rim_center_offset
+    r = self.court_definition.three_point_distance
+    arc_rad, x_intersection = self._get_three_points_anchors()
+    # left 3-points-line
+    pd.draw_arc(image, Point3D(offset,self.h/2,0), r, -arc_rad, arc_rad, color=next(_color))
+    pd.draw_line(image, Point3D(0,self.court_definition.three_point_limit,0), Point3D(x_intersection,self.court_definition.three_point_limit,0), color=next(_color))
+    pd.draw_line(image, Point3D(0,self.h-self.court_definition.three_point_limit,0), Point3D(x_intersection,self.h-self.court_definition.three_point_limit,0), color=next(_color))
+    # right 3-points-line
+    pd.draw_arc(image, Point3D(self.w-offset,self.h/2,0), r, np.pi -arc_rad, np.pi + arc_rad, color=next(_color))
+    pd.draw_line(image, Point3D(self.w,self.court_definition.three_point_limit,0), Point3D(self.w-x_intersection,self.court_definition.three_point_limit,0), color=next(_color))
+    pd.draw_line(image, Point3D(self.w,self.h-self.court_definition.three_point_limit,0), Point3D(self.w-x_intersection,self.h-self.court_definition.three_point_limit,0), color=next(_color))</code></pre>
+</details>
+<div class="desc"><p>If color is None, use incremental color</p></div>
+</dd>
+<dt id="deepsport_utilities.Court.draw_net"><code class="name flex">
+<span>def <span class="ident">draw_net</span></span>(<span>self, image, calib: calib3d.calib.Calib, color=(128, 90, 200))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_net(self, image, calib: Calib, color=(128,90,200)):
+    offset = self.court_definition.rim_center_offset
+    r = self.court_definition.rim_radius
+    angles = np.linspace(0, np.pi*2, 20)
+    pd = ProjectiveDrawer(calib, color)
+    for x in [offset, self.w-offset]: # two rims
+        center = Point3D(x, self.h/2, -self.court_definition.rim_height)
+        xts = np.cos(angles)*r + center.x
+        yts = np.sin(angles)*r + center.y
+        xbs = np.cos(angles)*r/2 + center.x
+        ybs = np.sin(angles)*r/2 + center.y
+
+        zs = np.ones_like(angles)*center.z
+        points = Point3D([Point3D(x,y,z) for x,y,z in zip(np.concatenate((xts,xbs)),np.concatenate((yts,ybs)),np.concatenate((zs,zs+40)))])
+        pd.polylines(image, points)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.draw_poles"><code class="name flex">
+<span>def <span class="ident">draw_poles</span></span>(<span>self, image, calib: calib3d.calib.Calib, color=(10, 10, 10))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_poles(self, image, calib: Calib, color=(10,10,10)):
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.draw_rim"><code class="name flex">
+<span>def <span class="ident">draw_rim</span></span>(<span>self, image, calib: calib3d.calib.Calib, color=(128, 200, 90), thickness=2)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_rim(self, image, calib: Calib, color=(128,200,90), thickness=2):
+    pd = ProjectiveDrawer(calib, color, thickness=thickness)
+    offset = self.court_definition.rim_center_offset
+    h = self.court_definition.rim_height
+    r = self.court_definition.rim_radius
+    pd.draw_arc(image, Point3D(offset, self.h/2, -h), r)
+    pd.draw_arc(image, Point3D(self.w-offset, self.h/2, -h), r)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.fill_board"><code class="name flex">
+<span>def <span class="ident">fill_board</span></span>(<span>self, image, calib: calib3d.calib.Calib, color=(128, 255, 128))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_board(self, image, calib: Calib, color=(128,255,128)):
+    pd = ProjectiveDrawer(calib, color)
+    pd.fill_polygon(image, self.left_board)
+    pd.fill_polygon(image, self.right_board)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.fill_court"><code class="name flex">
+<span>def <span class="ident">fill_court</span></span>(<span>self, image, calib, color=(255, 0, 255))</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_court(self, image, calib, color=(255, 0, 255)):
+    pd = ProjectiveDrawer(calib, color)
+    pd.fill_polygon(image, self.corners)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.fill_court_coordinates"><code class="name flex">
+<span>def <span class="ident">fill_court_coordinates</span></span>(<span>self, image, calib)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_court_coordinates(self, image, calib):
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.projects_in"><code class="name flex">
+<span>def <span class="ident">projects_in</span></span>(<span>self, calib: calib3d.calib.Calib, point2D)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def projects_in(self, calib: Calib, point2D):
+    point3D = calib.project_2D_to_3D(point2D, Z=0)
+    return point3D.x &gt;= 0 and point3D.x &lt;= self.w and point3D.y &gt;= 0 and point3D.y &lt;= self.h</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Court.visible_edges"><code class="name flex">
+<span>def <span class="ident">visible_edges</span></span>(<span>self, calib: calib3d.calib.Calib)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visible_edges(self, calib: Calib):
+    for edge in self.edges:
+        try:
+            yield calib.visible_edge(edge)
+        except ValueError:
+            continue</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="deepsport_utilities.GenericItem"><code class="flex name class">
+<span>class <span class="ident">GenericItem</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GenericItem(metaclass=abc.ABCMeta):
+    &#34;&#34;&#34; Python object describing dataset item.
+
+        .. important::
+            Attributes that require files to be downloaded (like images) should
+            be decorated with `functools.cached_property` to prevent being read before they get
+            downloaded.
+    &#34;&#34;&#34;
+    @abc.abstractproperty
+    def key(self):
+        &#34;&#34;&#34; Generates the key associated to the Item.
+            Key should to be immutable (eg: NamedTuple).
+        &#34;&#34;&#34;
+        raise NotImplementedError
+    @property
+    def db_item(self):
+        &#34;&#34;&#34; Returns the db_item that creates the python object
+        &#34;&#34;&#34;
+        raise NotImplementedError
+    @abc.abstractproperty
+    def files(self):
+        &#34;&#34;&#34; List files stored on remote storage that belong to the object
+        &#34;&#34;&#34;
+        raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Python object describing dataset item.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Attributes that require files to be downloaded (like images) should
+be decorated with <code>functools.cached_property</code> to prevent being read before they get
+downloaded.</p>
+</div></div>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="deepsport_utilities.ds.instants_dataset.instants_dataset.Instant" href="ds/instants_dataset/instants_dataset.html#deepsport_utilities.ds.instants_dataset.instants_dataset.Instant">Instant</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="deepsport_utilities.GenericItem.db_item"><code class="name">prop <span class="ident">db_item</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def db_item(self):
+    &#34;&#34;&#34; Returns the db_item that creates the python object
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Returns the db_item that creates the python object</p></div>
+</dd>
+<dt id="deepsport_utilities.GenericItem.files"><code class="name">prop <span class="ident">files</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractproperty
+def files(self):
+    &#34;&#34;&#34; List files stored on remote storage that belong to the object
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>List files stored on remote storage that belong to the object</p></div>
+</dd>
+<dt id="deepsport_utilities.GenericItem.key"><code class="name">prop <span class="ident">key</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractproperty
+def key(self):
+    &#34;&#34;&#34; Generates the key associated to the Item.
+        Key should to be immutable (eg: NamedTuple).
+    &#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Generates the key associated to the Item.
+Key should to be immutable (eg: NamedTuple).</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="deepsport_utilities.InstantsDataset"><code class="flex name class">
+<span>class <span class="ident">InstantsDataset</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InstantsDataset(Dataset):
+    items_type = Instant</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>mlworkflow.datasets.Dataset</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="deepsport_utilities.InstantsDataset.items_type"><code class="name">var <span class="ident">items_type</span></code></dt>
+<dd>
+<div class="desc"><p>Python object describing dataset item.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Attributes that require files to be downloaded (like images) should
+be decorated with <code>functools.cached_property</code> to prevent being read before they get
+downloaded.</p>
+</div></div>
+</dd>
+</dl>
+</dd>
+<dt id="deepsport_utilities.Stage"><code class="flex name class">
+<span>class <span class="ident">Stage</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Stage(IntFlag):
+    TRAIN = 1
+    EVAL  = 2</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.IntFlag</li>
+<li>builtins.int</li>
+<li>enum.Flag</li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="deepsport_utilities.Stage.EVAL"><code class="name">var <span class="ident">EVAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Stage.TRAIN"><code class="name">var <span class="ident">TRAIN</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="deepsport_utilities.Subset"><code class="flex name class">
+<span>class <span class="ident">Subset</span></span>
+<span>(</span><span>name: str,<br>stage: <a title="deepsport_utilities.dataset.common.Stage" href="dataset/common.html#deepsport_utilities.dataset.common.Stage">Stage</a>,<br>dataset: mlworkflow.datasets.Dataset,<br>keys=None,<br>repetitions=1,<br>desc=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Subset:
+    def __init__(self, name: str, stage: Stage, dataset: Dataset, keys=None, repetitions=1, desc=None):
+        keys = keys if keys is not None else dataset.keys.all()
+        assert isinstance(keys, (tuple, list)), f&#34;Received instance of {type(keys)} for subset {name}&#34;
+        #assert DataAugmentationDataset.__name__ == dataset.__class__.__name__, &#34;dataset must be an instance of DataAugmentationDataset&#34; # comparing name rather than class enables class being defined in shared git-subtree
+        self.name = name
+        self.type = stage
+        self.dataset = dataset#FilteredDataset(dataset, predicate=lambda k,v: v is not None)
+        self._keys = keys
+        self.keys = keys
+        self.repetitions = repetitions
+        self.desc = desc
+        self.is_training = self.type == Stage.TRAIN
+        loop = None if self.is_training else repetitions
+        self.shuffled_keys = pseudo_random(evolutive=self.is_training)(self.shuffled_keys)
+        self.query_item = pseudo_random(loop=loop, input_dependent=True)(self.query_item)
+
+    def shuffled_keys(self):
+        keys = self.keys * self.repetitions
+        return random.sample(keys, len(keys)) if self.is_training else keys
+
+    def __len__(self):
+        return len(self.keys)*self.repetitions
+
+    def __str__(self):
+        return f&#34;{self.__class__.__name__}&lt;{self.name}&gt;({len(self.keys)}*{self.repetitions})&#34;
+
+    def query_item(self, key):
+        return self.dataset.query_item(key)
+
+    def chunkify(self, keys, chunk_size, drop_last=True):
+        d = []
+        for k in keys:
+            try:
+                v = self.query_item(k)
+            except KeyError:
+                continue
+            if v is None:
+                continue
+            d.append((k, v))
+            if len(d) == chunk_size:  # yield complete sublist and create a new list
+                yield d
+                d = []
+        if not drop_last and d:
+            yield d
+
+    def batches(self, batch_size, keys=None, drop_last=True, *args, **kwargs):
+        keys = keys or self.shuffled_keys()
+        for chunk in self.chunkify(keys, chunk_size=batch_size, drop_last=drop_last):
+            keys, batch = list(zip(*chunk)) # transforms list of (k,v) into list of (k) and list of (v)
+            yield keys, collate_fn(batch)</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="deepsport_utilities.dataset.legacy.BalancedSubset" href="dataset/legacy.html#deepsport_utilities.dataset.legacy.BalancedSubset">BalancedSubset</a></li>
+<li><a title="deepsport_utilities.dataset.legacy.CombinedSubset" href="dataset/legacy.html#deepsport_utilities.dataset.legacy.CombinedSubset">CombinedSubset</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="deepsport_utilities.Subset.batches"><code class="name flex">
+<span>def <span class="ident">batches</span></span>(<span>self, batch_size, keys=None, drop_last=True, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def batches(self, batch_size, keys=None, drop_last=True, *args, **kwargs):
+    keys = keys or self.shuffled_keys()
+    for chunk in self.chunkify(keys, chunk_size=batch_size, drop_last=drop_last):
+        keys, batch = list(zip(*chunk)) # transforms list of (k,v) into list of (k) and list of (v)
+        yield keys, collate_fn(batch)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Subset.chunkify"><code class="name flex">
+<span>def <span class="ident">chunkify</span></span>(<span>self, keys, chunk_size, drop_last=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def chunkify(self, keys, chunk_size, drop_last=True):
+    d = []
+    for k in keys:
+        try:
+            v = self.query_item(k)
+        except KeyError:
+            continue
+        if v is None:
+            continue
+        d.append((k, v))
+        if len(d) == chunk_size:  # yield complete sublist and create a new list
+            yield d
+            d = []
+    if not drop_last and d:
+        yield d</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Subset.query_item"><code class="name flex">
+<span>def <span class="ident">query_item</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_item(self, key):
+    return self.dataset.query_item(key)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="deepsport_utilities.Subset.shuffled_keys"><code class="name flex">
+<span>def <span class="ident">shuffled_keys</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shuffled_keys(self):
+    keys = self.keys * self.repetitions
+    return random.sample(keys, len(keys)) if self.is_training else keys</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="deepsport_utilities.calib" href="calib.html">deepsport_utilities.calib</a></code></li>
+<li><code><a title="deepsport_utilities.court" href="court.html">deepsport_utilities.court</a></code></li>
+<li><code><a title="deepsport_utilities.dataset" href="dataset/index.html">deepsport_utilities.dataset</a></code></li>
+<li><code><a title="deepsport_utilities.ds" href="ds/index.html">deepsport_utilities.ds</a></code></li>
+<li><code><a title="deepsport_utilities.transforms" href="transforms.html">deepsport_utilities.transforms</a></code></li>
+<li><code><a title="deepsport_utilities.utils" href="utils.html">deepsport_utilities.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="deepsport_utilities.deserialize_keys" href="#deepsport_utilities.deserialize_keys">deserialize_keys</a></code></li>
+<li><code><a title="deepsport_utilities.export_dataset" href="#deepsport_utilities.export_dataset">export_dataset</a></code></li>
+<li><code><a title="deepsport_utilities.find" href="#deepsport_utilities.find">find</a></code></li>
+<li><code><a title="deepsport_utilities.import_dataset" href="#deepsport_utilities.import_dataset">import_dataset</a></code></li>
+<li><code><a title="deepsport_utilities.serialize_keys" href="#deepsport_utilities.serialize_keys">serialize_keys</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="deepsport_utilities.Court" href="#deepsport_utilities.Court">Court</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.Court.corners" href="#deepsport_utilities.Court.corners">corners</a></code></li>
+<li><code><a title="deepsport_utilities.Court.draw_lines" href="#deepsport_utilities.Court.draw_lines">draw_lines</a></code></li>
+<li><code><a title="deepsport_utilities.Court.draw_net" href="#deepsport_utilities.Court.draw_net">draw_net</a></code></li>
+<li><code><a title="deepsport_utilities.Court.draw_poles" href="#deepsport_utilities.Court.draw_poles">draw_poles</a></code></li>
+<li><code><a title="deepsport_utilities.Court.draw_rim" href="#deepsport_utilities.Court.draw_rim">draw_rim</a></code></li>
+<li><code><a title="deepsport_utilities.Court.edges" href="#deepsport_utilities.Court.edges">edges</a></code></li>
+<li><code><a title="deepsport_utilities.Court.fill_board" href="#deepsport_utilities.Court.fill_board">fill_board</a></code></li>
+<li><code><a title="deepsport_utilities.Court.fill_court" href="#deepsport_utilities.Court.fill_court">fill_court</a></code></li>
+<li><code><a title="deepsport_utilities.Court.fill_court_coordinates" href="#deepsport_utilities.Court.fill_court_coordinates">fill_court_coordinates</a></code></li>
+<li><code><a title="deepsport_utilities.Court.left_board" href="#deepsport_utilities.Court.left_board">left_board</a></code></li>
+<li><code><a title="deepsport_utilities.Court.left_key_area" href="#deepsport_utilities.Court.left_key_area">left_key_area</a></code></li>
+<li><code><a title="deepsport_utilities.Court.projects_in" href="#deepsport_utilities.Court.projects_in">projects_in</a></code></li>
+<li><code><a title="deepsport_utilities.Court.right_board" href="#deepsport_utilities.Court.right_board">right_board</a></code></li>
+<li><code><a title="deepsport_utilities.Court.right_key_area" href="#deepsport_utilities.Court.right_key_area">right_key_area</a></code></li>
+<li><code><a title="deepsport_utilities.Court.visible_edges" href="#deepsport_utilities.Court.visible_edges">visible_edges</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="deepsport_utilities.GenericItem" href="#deepsport_utilities.GenericItem">GenericItem</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.GenericItem.db_item" href="#deepsport_utilities.GenericItem.db_item">db_item</a></code></li>
+<li><code><a title="deepsport_utilities.GenericItem.files" href="#deepsport_utilities.GenericItem.files">files</a></code></li>
+<li><code><a title="deepsport_utilities.GenericItem.key" href="#deepsport_utilities.GenericItem.key">key</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="deepsport_utilities.InstantsDataset" href="#deepsport_utilities.InstantsDataset">InstantsDataset</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.InstantsDataset.items_type" href="#deepsport_utilities.InstantsDataset.items_type">items_type</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="deepsport_utilities.Stage" href="#deepsport_utilities.Stage">Stage</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.Stage.EVAL" href="#deepsport_utilities.Stage.EVAL">EVAL</a></code></li>
+<li><code><a title="deepsport_utilities.Stage.TRAIN" href="#deepsport_utilities.Stage.TRAIN">TRAIN</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="deepsport_utilities.Subset" href="#deepsport_utilities.Subset">Subset</a></code></h4>
+<ul class="">
+<li><code><a title="deepsport_utilities.Subset.batches" href="#deepsport_utilities.Subset.batches">batches</a></code></li>
+<li><code><a title="deepsport_utilities.Subset.chunkify" href="#deepsport_utilities.Subset.chunkify">chunkify</a></code></li>
+<li><code><a title="deepsport_utilities.Subset.query_item" href="#deepsport_utilities.Subset.query_item">query_item</a></code></li>
+<li><code><a title="deepsport_utilities.Subset.shuffled_keys" href="#deepsport_utilities.Subset.shuffled_keys">shuffled_keys</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
