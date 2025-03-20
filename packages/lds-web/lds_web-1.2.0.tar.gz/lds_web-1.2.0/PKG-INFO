@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: lds_web
+Version: 1.2.0
+Summary: Web浏览器操作辅助
+Home-page: https://github.com/ldsxp/lds_web
+Download-URL: https://pypi.org/project/lds_web
+Author: lds
+Author-email: 85176878@qq.com
+License: GNU GPL 3
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: DrissionPage
+
+# lds_web
+
+## 说明
+
+把使用 DrissionPage 操作 web 浏览器的功能封装为类，方便在不同地方使用
+
+## 接口演示
+
+```python
+
+```
+
