@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: uvicorn_daemonite
+Version: 0.1.0
+Summary: Run you apps as server. A start/stop/status commandline for your ASGI/WSGI compatible frameworks.
+Home-page: https://github.com/etm/uvicorn_daemonite
+Author: Juergen 'eTM' Mangler
+Author-email: juergen.mangler@gmail.com
+License: LGPL
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+Requires-Dist: uvicorn>=0.34.0
+Requires-Dist: psutil>=5.9.8
