@@ -1,0 +1,7 @@
+include dosuby/README.md
+include dosuby/LICENSE
+include dosuby/requirements.txt
+include dosuby/imgs/*.png
+include dosuby/imgs/*.gif
+recursive-include dosuby/infrastructure/libs/Search_Engines_Scraper *
+recursive-include dosuby/src *
