@@ -1,0 +1,3 @@
+[console_scripts]
+ragatanga-init = ragatanga.main:cli_init
+ragatanga-server = ragatanga.main:cli_server
