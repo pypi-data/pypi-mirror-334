@@ -1,0 +1,94 @@
+Metadata-Version: 2.4
+Name: statismo
+Version: 0.1.2
+Summary: A minimal collector of custom metrics for django apps.
+Project-URL: Repository, https://github.com/gotrellis/statismo
+Requires-Python: >=3.10
+Requires-Dist: boto3>=1.0.0
+Requires-Dist: celery>=5.0.0
+Requires-Dist: django>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest-django>=4.5.0; extra == 'dev'
+Requires-Dist: pytest-mock>=3.10.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Provides-Extra: redis
+Requires-Dist: redis>=5.2.1; extra == 'redis'
+Description-Content-Type: text/markdown
+
+Statismo
+========
+
+Statismo is minimal collector of custom metrics for django applications. It
+aggregates statistics into a configurable backend before periodically
+pushing them to an external service such as Cloudwatch.
+
+Currently, supports the following backends:
+
+- Django's database
+- Redis
+
+And the following services:
+
+- AWS Cloudwatch
+
+Installation
+------------
+
+To install statismo, simply run:
+
+```bash
+pip install statismo
+```
+
+To use statismo with redis:
+
+```bash
+pip install statismo[redis]
+```
+
+
+Configuration
+-------------
+
+Add `statismo` to your `INSTALLED_APPS` setting:
+
+```python
+INSTALLED_APPS = [
+    ...,
+    'statismo',
+]
+```
+
+Add the following settings to your `settings.py` to use the django database
+collector, which is suitable for small to medium-sized applications:
+
+```python
+STATISMO_METRIC_COLLECTOR = 'statismo.collectors.db.DatabaseCollector'
+```
+
+For larger applications, you may want to use the Redis collector:
+
+```python
+STATISMO_METRIC_COLLECTOR = 'statismo.collectors.redis.RedisCollector'
+STATISMO_METRIC_URL = 'redis://localhost:6379/0'
+```
+
+Finally, to use a custom namespace for your metrics other than the default of
+`statismo`, add the following setting:
+
+```python
+STATISMO_METRIC_NAMESPACE = 'myapp'
+```
+
+Finally, the periodic task that uploads metrics needs to be enabled. If you're
+using Celery's django integration, this can be done by adding the following to
+your `settings.py`:
+
+```python
+CELERY_BEAT_SCHEDULE = {
+    "accumulate-metrics-every-5-minutes": {
+        "task": "statismo.tasks.accumulate_metrics",
+        "schedule": 60 * 5,
+    }
+}
+```
