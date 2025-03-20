@@ -1,0 +1,115 @@
+[
+    {
+        "title": "Applied math",
+        "description": "This format is common for applied mathematics, numerical analysis, and mathematical modeling papers. It focuses on theory, methods, numerical validation, and analysis of results.",
+        "abstract": "Use the format:\n1. General context of the mathematical or numerical problem.\n2. Mathematical formulation or model being studied.\n3. Methods or numerical techniques applied to solve the problem.\n4. Validation of the proposed methods or model through numerical experiments.\n5. Analysis and discussion of the results obtained, including their implications.",
+        "sections": [
+            {"title":"Introduction", "content": "A brief overview of the research problem, objectives, and motivation."},
+            {"title":"Theoretical Basis", "content": "Background on the mathematical theory, methods, or models that are used in the paper."},
+            {"title":"Methodology", "content": "Explanation of the approach or methods developed or applied in the research."},
+            {"title":"Numerical Results", "content": "Presentation of numerical experiments, data, and results obtained using the proposed methods."},
+            {"title":"Analysis", "content": "Interpretation of the numerical results, comparison with theory or other methods."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of any support or funding received during the research."},
+            {"title":"Conclusions", "content": "Summary of the findings and potential directions for future research."}
+        ]
+    },
+    {
+        "title": "Physics papers",
+        "description": "This format is typical for physics papers, especially in theoretical and experimental physics, focusing on explaining new findings or experimental setups.",
+        "abstract": "Use the format:\n1. General context of the field or topic in physics.\n2. Description of the specific phenomenon or concept being investigated.\n3. Theoretical background or experimental setup.\n4. New findings or experimental results.\n5. Implications or future directions based on the results.",
+        "sections": [
+            {"title":"Introduction", "content": "Overview of the problem and objectives, with a brief summary of relevant background."},
+            {"title":"Theory and Models", "content": "Presentation of the theoretical framework or models used to analyze the problem."},
+            {"title":"Methodology/Experimental Setup", "content": "Details about the experimental methods, setup, or simulations performed."},
+            {"title":"Results", "content": "Presentation of experimental or theoretical results, often including graphs and tables."},
+            {"title":"Discussion", "content": "Interpretation of results in the context of the theory and comparison with previous work."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of contributions, funding, or support."},
+            {"title":"Conclusions", "content": "Concluding remarks and potential implications or future work."}
+        ]
+    },
+    {
+        "title": "Social sciences",
+        "description": "This format is common in social sciences (e.g., sociology, psychology, economics) with a focus on theory, research questions, and empirical validation.",
+        "abstract": "Use the format:\n1. General context of the theoretical framework or background of the topic.\n2. Specific research question or hypothesis being explored.\n3. Empirical methods used to investigate the question.\n4. Key findings or results from the research.\n5. Interpretation of the results and their implications for theory or practice.",
+        "sections": [
+            {"title":"Introduction", "content": "Introduction to the research problem, its importance, and objectives."},
+            {"title":"Literature Review", "content": "Review of existing literature and theoretical frameworks relevant to the research."},
+            {"title":"Research Questions/Hypotheses", "content": "Clear presentation of the research questions or hypotheses being tested."},
+            {"title":"Methodology", "content": "Explanation of the research design, sampling, and data collection methods."},
+            {"title":"Results", "content": "Presentation of statistical analyses or qualitative findings."},
+            {"title":"Discussion", "content": "Interpretation of results in relation to the hypotheses and existing literature."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of any assistance or funding."},
+            {"title":"Conclusions", "content": "Summary of findings and suggestions for future research or practical applications."}
+        ]
+    },
+    {
+        "title": "Biological sciences",
+        "description": "This structure is common in agricultural sciences, agronomic sciences, biology and health sciences, where experiments or observations are the focus and methods need to be reproducible.",
+        "abstract" : "Use the format:\n1. General context of the topic.\n2. Objective of the experiment or observation.\n3. Methodology used, emphasizing reproducibility.\n4. Key findings or observations.\n5. Conclusion and implications of the results.",
+        "sections": [
+            {"title":"Introduction", "content": "Introduction to the research question, background, and objectives."},
+            {"title":"Background", "content": "Review of relevant biological concepts, previous research, or disease models."},
+            {"title":"Materials and Methods", "content": "Detailed description of the materials, techniques, and experimental methods used."},
+            {"title":"Results", "content": "Presentation of experimental data, often with figures and tables."},
+            {"title":"Discussion", "content": "Interpretation of the results, comparison with previous research, and possible clinical implications."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of any financial or academic support."},
+            {"title":"Conclusions", "content": "Summary of results, implications for practice, and future research directions."}
+        ]
+    },
+    {
+        "title": "Chemistry reports",
+        "description": "In chemistry and chemical engineering, this format is used to report on experimental methods, systems design, and reactions or materials.",
+        "abstract": "Use the format:\n1. General context of the topic, including the importance of the chemical process or material.\n2. Specific problem or challenge within the field of chemistry or chemical engineering being addressed.\n3. Experimental methods or systems design used to investigate the problem.\n4. Results obtained from experiments or system testing.\n5. Conclusions and potential implications for future research or practical applications.",
+        "sections": [
+            {"title":"Introduction", "content": "Introduction to the chemical problem, its significance, and the objectives of the study."},
+            {"title":"Literature Review", "content": "Overview of previous research and relevant chemical theories or models."},
+            {"title":"Experimental Section/Materials and Methods", "content": "Detailed description of the chemical experiments, procedures, and equipment used."},
+            {"title":"Results and Discussion", "content": "Presentation and analysis of experimental data, with a focus on interpreting results."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of contributions, resources, or funding."},
+            {"title":"Conclusions", "content": "Summary of findings, implications for chemical processes, and possible future research."}
+        ]
+    },
+    {
+        "title": "Computer science",
+        "description": "This format is used for computer science and software engineering papers, where systems or algorithms are developed and tested.",
+        "abstract" : "Use the format:\n1. General context of the topic.\n 2. Specific problem within the topic that the text focuses on.\n3. Specific computational problem addressed.\n4. Proposed computational solution.\n5. Obtained results.",
+        "sections": [
+            {"title":"Introduction (with related works)", "content": "Introduction to the problem in the context of the state of the art, the goals of the research, and the motivation."},
+            {"title":"System Design/Methodology", "content": "Detailed description of the algorithms, models, or systems being proposed or implemented."},
+            {"title":"Implementation", "content": "Explanation of the implementation of the proposed system or algorithm."},
+            {"title":"Experiments and Results", "content": "Presentation of benchmarks, performance data, and experimental results."},
+            {"title":"Discussion", "content": "Analysis of results, comparison with other approaches, and limitations."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of any support or resources."},
+            {"title":"Conclusions", "content": "Summary of the contributions, results, and potential future work."}
+        ]
+    },
+    {
+        "title": "Philosophy humanities",
+        "description": "This format is typical for philosophy and humanities papers, where the focus is on logical argumentation, analysis, and critique of existing ideas.",
+        "abstract": "Use the format:\n1. Introduction to the philosophical or theoretical context.\n2. Identification of the specific issue or concept being analyzed or critiqued.\n3. Exploration of the relevant arguments, perspectives, or theories.\n4. Critical analysis and evaluation of these arguments or perspectives.\n5. Conclusion, including insights gained and implications for further discussion.",
+        "sections": [
+            {"title":"Introduction", "content": "Introduction to the central research question, context, and goals of the paper."},
+            {"title":"Literature Review", "content": "Review of existing philosophical literature and key concepts."},
+            {"title":"Thesis or Research Question", "content": "Presentation of the central thesis or research question the paper seeks to address."},
+            {"title":"Argumentation", "content": "Logical development of arguments, philosophical analysis, or critique."},
+            {"title":"Discussion", "content": "Reflection on the implications of the arguments and potential counterarguments."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of any support or contributions."},
+            {"title":"Conclusions", "content": "Concluding summary of the arguments and future directions for research."}
+        ]
+    },
+    {
+        "title": "Economics political",
+        "description": "In economics and political science, this format is used to present theoretical models or empirical data related to policy or economic issues.",
+        "abstract": "Use the format:\n1. General context of the economic or political issue.\n2. Specific policy or economic problem being analyzed.\n3. Theoretical model or empirical data used to address the problem.\n4. Analysis of the findings and their implications.\n5. Policy recommendations or conclusions based on the results.",
+        "sections": [
+            {"title":"Introduction", "content": "Overview of the research problem, its importance, and objectives."},
+            {"title":"Literature Review", "content": "Review of relevant theories, models, and previous research in the field."},
+            {"title":"Research Design/Methodology", "content": "Explanation of the research methods, data collection, and analysis techniques."},
+            {"title":"Results", "content": "Presentation of empirical results, often with statistical analyses or case studies."},
+            {"title":"Discussion", "content": "Interpretation of the results in relation to theories and real-world implications."},
+            {"title":"Acknowledgment", "content": "Acknowledgment of support, data sources, or collaborations."},
+            {"title":"Conclusions", "content": "Summary of findings, policy implications, and suggestions for future research."}
+        ]
+    }
+]
+
