@@ -1,0 +1,11 @@
+cudaq_qec/__init__.py,sha256=vCnk8TS-HDCYIlK-hWQLFBeV5SvqQ19klMITTqas45M,1650
+cudaq_qec/_pycudaqx_qec_the_suffix_matters_cudaq_qec.cpython-312-x86_64-linux-gnu.so,sha256=ghtX-U0OrLrb9StJO7Hmnjr9sI1kOR6OGkjYIRBQM4c,422000
+cudaq_qec/patch.py,sha256=kdSvZW8GemnBu3VB_SlAbNyinweErOQnON50XZqXCSI,2134
+cudaq_qec/lib/libcudaq-qec.so,sha256=o3730I-onj8wwjnKjWivixjwpZX0OIJM7j-Q5N2Jtt0,1452352
+cudaq_qec/lib/decoder-plugins/libcudaq-qec-example.so,sha256=3w8r98stYhOZ491Q-ReatLi6bVxZf4NgtSHfYi3J5kM,26984
+cudaq_qec/lib/decoder-plugins/libcudaq-qec-nv-qldpc-decoder.so,sha256=DJySpEiNthy4gUTEaH1Yf6gc-XrY4WE_NkmQA12j-b4,4321528
+cudaq_qec/plugins/codes/example.py,sha256=d2cxL9xunbnNKyyoML46WR5bfPV5Va-igEMl208yUmM,2654
+cudaq_qec/plugins/decoders/example.py,sha256=lMWvDtedVk_4YGvWfSu8VWgdv2l4w9CuZXF_WA0TT8U,1004
+cudaq_qec-0.2.0.dist-info/METADATA,sha256=BLfRuqQxkA-3NoHZHnr5AwlFLzAGKVLEn_h7LGHnlU4,2286
+cudaq_qec-0.2.0.dist-info/WHEEL,sha256=WrVqW3xng8T75rSM955Za4JCNzdPGM34qbXrzKcY-ag,157
+cudaq_qec-0.2.0.dist-info/RECORD,,
