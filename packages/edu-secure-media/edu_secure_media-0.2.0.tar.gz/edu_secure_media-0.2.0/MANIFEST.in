@@ -1,0 +1,12 @@
+graft src
+
+global-exclude *.pyc
+global-exclude __pycache__
+
+prune src/testapp
+
+exclude db.sqlite3
+exclude .coverage
+
+include README.md
+include CHANGELOG.md

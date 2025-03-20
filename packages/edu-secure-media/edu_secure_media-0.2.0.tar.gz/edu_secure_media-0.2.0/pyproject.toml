@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=41", "wheel", "setuptools-git-versioning>=2.0,<3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools-git-versioning]
+enabled = true
+
+[project]
+dynamic = ["version"]
+name = "edu-secure-media"
+readme = "README.md"
+requires-python = ">= 3.9"
+dependencies = [
+    "Django",
+    "django-sendfile2",
+]
+
+[project.optional-dependencies]
+m3 = [
+    "m3-users",
+]
+drf = [
+    "djangorestframework",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["F", "E", "D", "W", "S", "N",]
+ignore = [
+    # Missing docstring in public module
+    "D100",
+    # Missing docstring in public package
+    "D104",
+    # Missing docstring in public nested class
+    "D106",
+    # Missing docstring in __init__
+    "D107",
+    # One-line docstring should fit on one line with quotes
+    "D200",
+    # Blank line required before class docstring
+    "D203",
+    # Multi-line docstring summary should start at the second line
+    "D213",
+    # Missing argument description in the docstring
+    "D417",
+    # use of assert detected (useless with pytest)
+    "S101",
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint.per-file-ignores]
+"*/testapp/*" = ["D", "E", "F", "N", "S"]
+"apps.py" = ["D101"]
+"*/migrations/*" = ["D101"]
