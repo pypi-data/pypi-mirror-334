@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+hydra_email_manager/HydraEmailManager.py
+hydra_email_manager/__init__.py
+hydra_email_manager.egg-info/PKG-INFO
+hydra_email_manager.egg-info/SOURCES.txt
+hydra_email_manager.egg-info/dependency_links.txt
+hydra_email_manager.egg-info/top_level.txt
+tests/test_hydra_email_manager.py
