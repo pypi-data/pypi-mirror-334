@@ -1,0 +1,8 @@
+opencv-python~=4.10.0.84
+shapely<=2.0.4
+pdf2image<=1.17.0
+redis~=5.0.7
+pillow
+requests
+wcwidth
+websockets
