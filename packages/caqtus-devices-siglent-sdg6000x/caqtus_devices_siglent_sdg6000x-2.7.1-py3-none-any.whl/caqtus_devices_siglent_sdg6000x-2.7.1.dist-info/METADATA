@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: caqtus-devices-siglent-sdg6000x
+Version: 2.7.1
+Summary: Contains extension code for caqtus framework for siglent arbitrary waveform generators SDG6000X
+Author-email: light-scattering-io <lecaqtus66@gmail.com>
+License: Copyright 2024 Université Paris-Saclay
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: license.md
+Requires-Python: >=3.12
+Requires-Dist: caqtus-suite>=6.18.1
+Requires-Dist: pyside6!=6.8.1.1,>=6.8.1
+Requires-Dist: pyvisa>=1.14.1
+Description-Content-Type: text/markdown
+
+Readme
+======
+
+Installation
+------------
+
+The following python package must be installed from PyPI: `caqtus-devices-siglent-sdg6000x`.
+
+This package depends on pyvisa, which requires a backend to communicate with the device.
+Follow the instructions in the pyvisa documentation to install the backend of your choice.
+
+You might also need to add the resource for example in NI MAX.
+
+Usage
+-----
+
+The package provides the `caqtus_devices.arbitrary_waveform_generators.siglent_sdg6000x` that
+can be registered with the 
+[`caqtus.extension.Experiment.register_device_extension`](https://caqtus.readthedocs.io/en/latest/_autosummary/caqtus.extension.Experiment.html#caqtus.extension.Experiment.register_device_extension) 
+method.
+
+```python
+from caqtus.extension import Experiment
+from caqtus_devices.arbitrary_waveform_generators.siglent_sdg6000x import extension
+
+my_experiment = Experiment(...)
+my_experiment.register_device_extension(extension)
+```
