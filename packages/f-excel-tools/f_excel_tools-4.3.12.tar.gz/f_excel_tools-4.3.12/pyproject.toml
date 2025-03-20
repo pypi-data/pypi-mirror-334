@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "f-excel-tools"
+version = "4.3.12"
+description = "AWS tools including ECS bash execution"
+authors = ["Filipe Ferreira <ola@filipeandre.com>"]
+readme = "README.md"
+homepage = "https://github.com/filipeandre/f-tools"
+package-mode = true
+
+packages = [
+    { include = "aws"},
+    { include = "resources", from ="aws"}
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+boto3 = "^1.37.13"
+inquirer = "^3.4.0"
+
+[tool.poetry.scripts]
+f-ecs-bash = "ecs_bash:main"
