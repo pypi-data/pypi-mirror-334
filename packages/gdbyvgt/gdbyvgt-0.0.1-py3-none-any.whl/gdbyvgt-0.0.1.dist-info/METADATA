@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: gdbyvgt
+Version: 0.0.1
+Summary: Gradient Descent implementation by Vu Gia Tue
+Home-page: https://github.com/AndrewVu-VuGiaTue/gdbyvgt
+Author: Gia Tue Vu (AndrewVu)
+Author-email: vgt2800@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# gdbyvgt - Gradient Descent by Gia Tue Vu
+
+This library implements **Gradient Descent** for Machine Learning.
+It is simple and easy to use, especially for Linear Regression.
+This library is mainly for beginners.
+This is also my very first library. Hope you enjoy it.
+## Installation
+
+```sh
+pip install gdbyvgt
+
+
