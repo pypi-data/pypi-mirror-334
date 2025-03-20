@@ -1,0 +1,108 @@
+# Chinese (Traditional) translations for lino-cosi.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the lino-cosi project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lino-cosi 21.9.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-05-16 11:35+0600\n"
+"PO-Revision-Date: 2022-05-16 11:35+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hant\n"
+"Language-Team: zh_Hant <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: lino_cosi/lib/contacts/models.py:16 lino_cosi/lib/products/models.py:34
+msgid "General"
+msgstr ""
+
+#: lino_cosi/lib/contacts/models.py:30
+msgid "Address"
+msgstr ""
+
+#: lino_cosi/lib/contacts/models.py:35
+msgid "Contact"
+msgstr ""
+
+#: lino_cosi/lib/contacts/models.py:58
+msgid "Partner ref"
+msgstr ""
+
+#: lino_cosi/lib/contacts/models.py:58
+msgid "How this partner refers to us."
+msgstr ""
+
+#: lino_cosi/lib/cosi/help_texts.py:6
+msgid "See lino.core.plugin.Plugin."
+msgstr ""
+
+#: lino_cosi/lib/cosi/user_types.py:33
+msgid "Anonymous"
+msgstr ""
+
+#: lino_cosi/lib/cosi/user_types.py:34
+msgid "User"
+msgstr ""
+
+#: lino_cosi/lib/cosi/user_types.py:35
+msgid "Administrator"
+msgstr ""
+
+#: lino_cosi/lib/orders/__init__.py:10 lino_cosi/lib/orders/models.py:71
+msgid "Orders"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:49
+msgid "Draft"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:50
+msgid "Registered"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:51
+msgid "Inactive"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:56
+msgid "Register"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:57
+msgid "Deregister"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:70
+msgid "Order"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:247
+msgid "Description"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:248
+msgid "Discount"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:277 lino_cosi/lib/sales/models.py:25
+msgid "Totals"
+msgstr ""
+
+#: lino_cosi/lib/orders/models.py:284
+msgid "Header"
+msgstr ""
+
+#: lino_cosi/lib/products/models.py:13
+msgid "Products"
+msgstr ""
+
+#: lino_cosi/lib/products/models.py:39
+msgid "Sales"
+msgstr ""
+

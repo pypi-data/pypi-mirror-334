@@ -1,0 +1,26 @@
+# use glob syntax.
+syntax: glob
+
+*.bat
+*.elc
+*.pyc
+*~
+*.log
+*.zip
+*.doctrees
+tmp
+default.db
+media
+dist
+docs/api/lino_cosi.*
+
+
+*.egg-info
+.build
+.DS_Store
+
+sihtnumbrid.csv
+.idea
+.coverage
+.eggs/
+.cache/
