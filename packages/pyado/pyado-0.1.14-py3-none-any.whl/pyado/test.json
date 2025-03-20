@@ -1,0 +1,24 @@
+{
+    "access_token": "jwpwa3roi4dqfsagxjbsaxqtla3lrl5dahuqslcspe4xfmmoa5nq",
+    "parent_work_item_url": "https://dev.azure.com/MerckKGaA-IT-H-Projects/ICS/_workitems/edit/1",
+    "url": "https://dev.azure.com/MerckKGaA-IT-H-Projects/eda13f7d-fdea-4116-a459-f4c6707806bf/_apis",
+    "build_id": 4592,
+    "hub_name": "build",
+    "plan_id": "0a2d5016-981d-4569-800e-c4c827647967",
+    "job_id": "c619a968-df36-507a-6ebf-de3e72870626",
+    "log_id": 13,
+    "timeline_id": "0a2d5016-981d-4569-800e-c4c827647967",
+    "repository_id": "bac5d0d0-e9f6-4dd4-a09d-95862fde7c12",
+    "active_task_id": "c619a968-df36-507a-6ebf-de3e72870626",
+    "ticket_id": 1,
+    "test_file_path": ".pre-commit-config.yaml",
+    "test_file_branch": "release/staging",
+    "pr_id": 341,
+    "fields": {
+        "System.AreaPath": "ICS",
+        "System.IterationPath": "ICS",
+        "System.WorkItemType": "Epic",
+        "System.Reason": "Proposed",
+        "System.Title": "Support and Maintenance"
+    }
+}
