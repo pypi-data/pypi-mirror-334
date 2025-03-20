@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slid"
+version = "0.1.1"
+description = "A terminal-based presentation tool that turns Markdown files into interactive slides with code execution capabilities"
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    {name = "Ismael Faro", email = "ismael.faro.sertage@gmail.com"}
+]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "rich",
+    "readchar",
+    "pyperclip",
+]
+
+[project.urls]
+Home = "https://github.com/ismaelfaro/slid.py"
+
+[project.scripts]
+slid = "slid:main"
