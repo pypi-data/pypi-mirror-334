@@ -1,0 +1,196 @@
+# Rebyte Python Library
+
+[![Static Badge](https://img.shields.io/badge/discord-Join_Chat-blue?&color=blue)](https://rebyte.ai/join-discord)
+[![PyPI](https://img.shields.io/pypi/v/rebyte.svg)](https://pypi.python.org/pypi/rebyte)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/rebyte)](https://pypi.python.org/pypi/rebyte)
+[![GitHub issues](https://img.shields.io/github/issues/ReByteAI/bug-tracker)](https://rebyte.ai/feedback)
+[![readthedocs](https://img.shields.io/badge/docs-stable-brightgreen.svg?style=flat)](https://rebyte-ai.gitbook.io/rebyte/)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+The Rebyte Python library provides convenient access to the Rebyte API
+from applications written in the Python language. It includes a
+pre-defined set of classes for API resources that initialize
+themselves dynamically from API responses which makes it compatible
+with a wide range of versions of the Rebyte API.
+
+## Features
+
+1. Generate streaming or non-streaming output.
+2. Use async or sync method.
+3. Support stateful agent memory with thread_id.
+
+## Installation
+
+Python 3.7 and above is required.
+
+```sh
+pip install rebyte
+```
+
+If already installed, update package to the latest version:
+
+```sh
+pip install --upgrade rebyte
+```
+
+If wishing to modify this package, clone and install in editable mode:
+
+```sh
+git clone https://github.com/ReByteAI/rebyte-python.git
+cd rebyte-python
+pip install -e .
+```
+
+## Prerequisites
+
+### ReByte API Key
+
+To get your ReByte API key, follow these steps:
+
+1. Go to the [ReByte website](https://rebyte.ai/) and sign up for an account if you haven't already.
+2. Once you're logged in, go to Settings > API Keys.
+3. Generate a new API key by clicking on the "Generate" button.
+4. Prepare to use it during configuration.
+
+### ReByte Agent Creation
+
+1. You can follow the tutorial in the webpage [ReByte Quick Start](https://rebyte-ai.gitbook.io/rbyte/agents/quick-start) to create your own agent. Or you can use agents in ReByte Community. Open an agent and clone to your personal project.
+
+2. Deploy the agent and get the project_id and agent_id in the following format: https://rebyte.ai/api/sdk/p/{project_id}/a/{agent_id}/r.
+
+## Usage (TODO)
+
+### API
+
+Call the ReByte agent in sync and nonstreaming method:
+
+```python
+from rebyte import RebyteAPIRequestor
+requestor = RebyteAPIRequestor(
+            key=<your api_key>,
+            api_base=<rebyte endpoint, default to https://rebyte.ai>
+        )
+path = f'/api/sdk/p/{project_id}/a/{agent_id}/r'
+data = {
+    "version": "latest",
+    "inputs": [{"messages": [{"role": "user","content": "My name is John"}]}],
+    "config": {}
+}
+res, _, _ = requestor.request(
+    method="POST",
+    url=path,
+    params=data,
+    stream=False
+)
+print(res.data['run']['results'][0][0]["value"]["content"])
+```
+
+### Async API
+
+Async support is available in the API by prepending `a` to a network-bound method:
+
+```python
+import asyncio
+from rebyte import RebyteAPIRequestor
+
+async def main():
+    requestor = RebyteAPIRequestor(
+        key=<your api_key>,
+        api_base=<rebyte endpoint, default to https://rebyte.ai>
+    )
+    path = f'/api/sdk/p/{project_id}/a/{agent_id}/r'
+    data = {
+        "version": "latest",
+        "inputs": [{"messages": [{"role": "user","content": "My name is John"}]}],
+        "config": {}
+    }
+    res, _, _ = await requestor.arequest(
+        method="POST",
+        url=path,
+        params=data,
+        stream=False
+    )
+    print(res.data['run']['results'][0][0]["value"]["content"])
+
+asyncio.run(main())
+```
+
+### Stream API
+
+Streaming support is available in the API by set request in `stream=True` mode:
+
+```python
+from rebyte import RebyteAPIRequestor
+requestor = RebyteAPIRequestor(
+            key=<your api_key>,
+            api_base=<rebyte endpoint, default to https://rebyte.ai>
+        )
+path = f'/api/sdk/p/{project_id}/a/{agent_id}/r'
+data = {
+    "version": "latest",
+    "inputs": [{"messages": [{"role": "user","content": "My name is John"}]}],
+    "config": {},
+    "stream": True
+}
+res, _, _ = requestor.request(
+    method="POST",
+    url=path,
+    params=data,
+    stream=True
+)
+
+for msg in res:
+    # print streaming output message
+    stream_text = msg.get_stream_chunk()
+    if msg and stream_text:
+        print(stream_text)
+```
+
+### API session
+
+```python
+from rebyte import RebyteAPIRequestor
+requestor = RebyteAPIRequestor(
+            key=<your api_key>,
+            api_base=<rebyte endpoint, default to https://rebyte.ai>
+        )
+path = f'/api/sdk/p/{project_id}/a/{agent_id}/r'
+
+# You may use any string as thread_id and try to avoid duplicate thread_ids
+# Note that you must set thread_id if you want to enable stateful actions, such as threads (aka, memory), in your agent.
+# Or you can leave it as empty when the agent has no stateful actions.
+data = {
+    "version": "latest",
+    "inputs": [{"messages": [{"role": "user","content": "Please remember: My name is John"}]}],
+    "config": {},
+    "thread_id" : "ANY_STRING"
+}
+res, _, _ = requestor.request(
+    method="POST",
+    url=path,
+    params=data,
+    stream=False
+)
+print(res.data['run']['results'][0][0]["value"]["content"])
+
+data = {
+    "version": "latest",
+    "inputs": [{"messages": [{"role": "user","content": "Please answer me: What is my name?"}]}],
+    "config": {},
+    "thread_id" : "ANY_STRING"
+}
+res, _, _ = requestor.request(
+    method="POST",
+    url=path,
+    params=data,
+    stream=False
+)
+print(res.data['run']['results'][0][0]["value"]["content"])
+
+```
+
+Please see more examples in [tests/](/test/) and [examples.ipynb](/examples.ipynb).
+
+## Documentation
+
+More information can be found on the [ReByte Documentation Site](https://docs.rebyte.ai).

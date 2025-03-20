@@ -1,0 +1,11 @@
+requests>=2.20
+aiohttp
+
+[:python_version < "3.8"]
+typing_extensions
+
+[dev]
+black~=21.6b0
+pytest==6.*
+pytest-asyncio
+pytest-mock
