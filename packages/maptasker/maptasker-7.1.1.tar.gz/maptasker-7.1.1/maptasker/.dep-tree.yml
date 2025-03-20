@@ -1,0 +1,9 @@
+entrypoints:
+  - main.py
+allow:
+  "src/*.py":
+    - "src/*.py"  # The files in src/utils can only depend on other utils
+deny:
+  "test/*.py":
+    - "**"  # A port cannot have any dependency
+allowCircularDependencies: true
