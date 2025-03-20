@@ -1,0 +1,38 @@
+Metadata-Version: 2.2
+Name: rinexmod
+Version: 3.5.4
+Summary:  Tool to batch modify headers of RINEX Hatanaka compressed files. 
+Home-page: https://github.com/IPGP/rinexmod
+Author: Pierre Sakic
+Author-email: sakic@ipgp.fr
+Keywords: geodesy,gnss,rinex,header,metadata,positioning
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5, <4
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: colorlog
+Requires-Dist: pandas
+Requires-Dist: hatanaka
+Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: setuptools
+Requires-Dist: pycountry
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+rinexmod is a tool to batch modify the headers of GNSS data files in RINEX format, as well as to rename them correctly.
+It supports Hatakana-compressed and non-compressed files, RINEX versions 2 and 3, as well as short and long naming conventions.
+It is developed in python3, and can be run from the command line or directly in API mode by calling a python function.
+The required input metadata can come from a sitelogs file, or be manually entered as arguments to the command line or the called function.
+It is available under the GNU license on the following GitHub repository: https://github.com/IPGP/rinexmod
