@@ -1,0 +1,6 @@
+include *.html
+include assets/*
+include COMMITHASH
+include versioneer.py
+include _version.py
+include ../LICENSE
