@@ -1,0 +1,53 @@
+Metadata-Version: 2.2
+Name: ablina
+Version: 0.3.0
+Summary: A Python package for abstract linear algebra
+Author-email: Daniyal Akif <daniyalakif@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/daniyal1249/ablina
+Project-URL: Documentation, https://ablina.readthedocs.io/en/latest
+Project-URL: Repository, https://github.com/daniyal1249/ablina
+Project-URL: Changelog, https://github.com/daniyal1249/ablina/blob/main/CHANGELOG.md
+Keywords: python,math,linear algebra,vector spaces,computer algebra,sympy
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sympy
+Provides-Extra: visualize
+Requires-Dist: manim; extra == "visualize"
+Provides-Extra: docs
+Requires-Dist: mkdocs; extra == "docs"
+Requires-Dist: mkdocs-material; extra == "docs"
+
+<div style="text-align: center;">
+  <img src="ablina.svg" alt="ablina" style="width: 100%; height: auto;" />
+</div>
+
+## Documentation
+
+https://ablina.readthedocs.io/en/latest
+
+## Installation
+
+Ablina can be installed using pip:
+
+    pip install ablina
+
+or by directly cloning the git repository:
+
+    git clone https://github.com/daniyal1249/ablina.git
+
+and running the following in the cloned repo:
+
+    pip install .
