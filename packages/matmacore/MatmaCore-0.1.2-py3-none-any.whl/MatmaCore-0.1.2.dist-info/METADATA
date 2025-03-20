@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: MatmaCore
+Version: 0.1.2
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: colormaps
+
