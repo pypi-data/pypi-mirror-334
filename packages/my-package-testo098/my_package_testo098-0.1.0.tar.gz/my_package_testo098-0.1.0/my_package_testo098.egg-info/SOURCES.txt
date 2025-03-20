@@ -1,0 +1,13 @@
+LICENCE
+README.md
+setup.py
+my_package_testo098/__init__.py
+my_package_testo098/module1.py
+my_package_testo098/module2.py
+my_package_testo098.egg-info/PKG-INFO
+my_package_testo098.egg-info/SOURCES.txt
+my_package_testo098.egg-info/dependency_links.txt
+my_package_testo098.egg-info/top_level.txt
+tests/__init__.py
+tests/test_module1.py
+tests/test_module2.py

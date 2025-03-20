@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: my_package_testo098
+Version: 0.1.0
+Summary: A simple example private package
+Home-page: https://github.com/Y2nn/my_package_testo098
+Author: Dany
+Author-email: dany19@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# My Package
+
+A simple example package.
+
+## Instalation
+```pip install my_package_testo098```
