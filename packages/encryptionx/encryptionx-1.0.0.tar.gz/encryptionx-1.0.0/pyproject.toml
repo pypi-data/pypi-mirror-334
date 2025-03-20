@@ -1,0 +1,21 @@
+# File: pyproject.toml
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "encryptionx"
+version = "1.0.0"
+description = "A comprehensive encryption library for Python."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Mohammad Taha Gorji", email = "your_email@example.com" }
+]
+requires-python = ">=3.6"
+dependencies = [
+    "pycryptodome"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/encryptionx"

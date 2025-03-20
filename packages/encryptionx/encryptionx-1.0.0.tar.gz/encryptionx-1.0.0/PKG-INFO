@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: encryptionx
+Version: 1.0.0
+Summary: A comprehensive encryption library for Python.
+Home-page: https://github.com/mr-r0ot/encryptionx
+Author: Mohammad Taha Gorji
+Author-email: Mohammad Taha Gorji <your_email@example.com>
+License: MIT License
+        
+        Copyright (c) 2023 Mohammad Taha Gorji
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/yourusername/encryptionx
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pycryptodome
+
+# EncryptionX
+
+EncryptionX is a comprehensive encryption library for Python that supports a wide range of encryption and decryption algorithms including base encoding, hashing, symmetric and asymmetric encryption, and protocol-based encryption such as PGP.
+
+## Features
+
+- **Base Encoding:** Base16, Base32, Base64
+- **Hashing:** MD5, SHA256
+- **Symmetric Encryption:** AES, DES, Triple DES, RC4
+- **Asymmetric Encryption:** RSA
+- **Protocol Encryption:** PGP
+
+## Installation
+
+You can install the package via pip:
+
+```bash
+pip install encryptionx
+Usage Example
+python
+Copy
+Edit
+from encryptionx.encode import Encode
+from encryptionx.decode import Decode
+
+# Define a symmetric key (16 bytes for AES)
+symmetric_key = b'0123456789abcdef'
+
+# Create encoder and decoder instances
+encoder = Encode(key=symmetric_key)
+decoder = Decode(key=symmetric_key)
+
+# Encrypt and decrypt a sample text using AES
+sample_text = "Hello, EncryptionX!"
+encrypted = encoder.aes(sample_text, mode='text', cipher_mode='CBC')
+decrypted = decoder.aes(encrypted, mode='text', cipher_mode='CBC')
+
+print("Encrypted (AES):", encrypted)
+print("Decrypted (AES):", decrypted.decode('utf-8'))
+Requirements
+Python 3.6+
+PyCryptodome
+Author
+Mohammad Taha Gorji
