@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+an_dtesetupmanager/__init__.py
+an_dtesetupmanager/dtesetupmanager.py
+an_dtesetupmanager.egg-info/PKG-INFO
+an_dtesetupmanager.egg-info/SOURCES.txt
+an_dtesetupmanager.egg-info/dependency_links.txt
+an_dtesetupmanager.egg-info/requires.txt
+an_dtesetupmanager.egg-info/top_level.txt
