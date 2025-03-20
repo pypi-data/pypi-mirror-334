@@ -1,0 +1,2 @@
+[console_scripts]
+alpacalert = alpacalert_cmd.__main__:entrypoint

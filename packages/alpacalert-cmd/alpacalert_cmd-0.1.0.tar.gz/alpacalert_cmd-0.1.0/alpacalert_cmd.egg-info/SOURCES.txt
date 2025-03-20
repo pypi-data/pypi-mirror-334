@@ -1,0 +1,13 @@
+backend_shim.py
+pyproject.toml
+alpacalert_cmd/__init__.py
+alpacalert_cmd/__main__.py
+alpacalert_cmd/console_grafana.py
+alpacalert_cmd/console_kubernetes.py
+alpacalert_cmd/console_prometheus.py
+alpacalert_cmd.egg-info/PKG-INFO
+alpacalert_cmd.egg-info/SOURCES.txt
+alpacalert_cmd.egg-info/dependency_links.txt
+alpacalert_cmd.egg-info/entry_points.txt
+alpacalert_cmd.egg-info/requires.txt
+alpacalert_cmd.egg-info/top_level.txt
