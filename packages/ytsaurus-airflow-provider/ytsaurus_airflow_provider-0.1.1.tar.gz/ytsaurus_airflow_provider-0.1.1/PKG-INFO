@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: ytsaurus-airflow-provider
+Version: 0.1.1
+Summary: YTsaurus Apache Airflow provider.
+Author-email: YTsaurus <ilyaibraev@ytsaurus.tech>
+License: Apache License 2.0
+Project-URL: Homepage, https://ytsaurus.tech/
+Project-URL: Source, https://github.com/ytsaurus/ytsaurus-airflow-provider/
+Classifier: Framework :: Apache Airflow
+Classifier: Framework :: Apache Airflow :: Provider
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: apache-airflow>=2.9.0
+Requires-Dist: ytsaurus-client>=0.13.23
+Requires-Dist: ytsaurus-yson>=0.4.3
+Requires-Dist: apache-airflow-providers-amazon[s3fs]>=3.0.0
+Requires-Dist: s3fs<=2024.10.0
+
+# YTsaurus Airflow Provider
+
+## Provider package
+
+This is a apache airflow provider package for [YTsaurus](https://ytsaurus.tech/). All classes for this provider package are in `ytsaurus_airflow_provider` python package.
+
+Documenation is available at [YTsaurus Documentation [EN]](https://ytsaurus.tech/docs/en/api/airflow/start) or [[RU]](https://ytsaurus.tech/docs/ru/api/airflow/start).
+
+## Installation
+
+You can install this package on top of an existing Airflow 2.9+ installation via pip:
+```
+pip install ytsaurus-airflow-provider
+```
+
+The package requires `Python 3.8+`.
+
+## Requirements
+
+PIP package                             | Version required
+----------------------------------------|------------------
+`apache-airflow`                        | `>=2.9.0`
+`ytsaurus-client`                       | `>=0.13.23`
+`ytsaurus-yson`                         | `>=0.4.3`
+`apache-airflow-providers-amazon[s3fs]` | `>=3.0.0`
+`s3fs`                                  | `<=2024.10.0`
