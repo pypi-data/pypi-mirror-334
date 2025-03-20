@@ -1,0 +1,4 @@
+[console_scripts]
+mailq = laim.__main__:mailq
+newaliases = laim.__main__:newaliases
+sendmail = laim.__main__:main
