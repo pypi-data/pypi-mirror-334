@@ -1,0 +1,13 @@
+python-dotenv>=1.0.1
+pydantic>=2.10.4
+pydantic-settings>=2.7.1
+pydantic_core>=2.27.2
+firecrawl-py>=1.8.0
+markdownify>=0.14.1
+rich>=13.9.4
+openai>=1.59.9
+watchdog>=6.0.0
+langchain>=0.3.14
+langchain-core>=0.3.29
+langchain-community>=0.3.14
+duckduckgo_search>=7.5.2
