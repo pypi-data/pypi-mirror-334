@@ -1,0 +1,183 @@
+# German translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-15 20:49-0600\n"
+"PO-Revision-Date: 2025-03-12 13:55-0600\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/transpolibre/lib/trans_local.py:28
+msgid "Local Torch"
+msgstr "Local Torch"
+
+#: src/transpolibre/lib/trans_local.py:32
+#: src/transpolibre/lib/trans_ollama.py:37
+#: src/transpolibre/lib/trans_pofile.py:24
+msgid "The specified PO file does not exist or is not a file: "
+msgstr "Die angegebene PO-Datei existiert nicht oder ist keine Datei:"
+
+#: src/transpolibre/lib/trans_local.py:35
+#: src/transpolibre/lib/trans_ollama.py:40
+#: src/transpolibre/lib/trans_pofile.py:27
+msgid "Read PO file: "
+msgstr "PO-Datei lesen:"
+
+#: src/transpolibre/lib/trans_local.py:44
+#, fuzzy
+msgid "No translations needed."
+msgstr ""
+"Die meisten Menschen sind sich einig, dass die Welt ein besserer Ort wäre, "
+"wenn die Menschen mehr Liebe hätten."
+
+#: src/transpolibre/lib/trans_msg.py:29
+msgid "Translating link text: "
+msgstr "Verknüpfungstext übersetzen:"
+
+#: src/transpolibre/lib/trans_msg.py:35
+msgid "URL detected"
+msgstr "URL erkannt"
+
+#: src/transpolibre/lib/trans_msg.py:39
+msgid "Email detected"
+msgstr "E-Mail erkannt"
+
+#: src/transpolibre/lib/trans_msg.py:43
+msgid "No URL or Email detected"
+msgstr "Keine URL oder E-Mail gefunden"
+
+#: src/transpolibre/lib/trans_msg.py:46
+msgid "LibreTranslate URL: "
+msgstr "LibreTranslate-URL:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "API Key: "
+msgstr "API-Schlüssel:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "None"
+msgstr "Keine"
+
+#: src/transpolibre/lib/trans_msg.py:48
+msgid "Translating: "
+msgstr ""
+"Die meisten Menschen sind sich einig, dass die Welt ein besserer Ort wäre, "
+"wenn wir alle mehr Liebe hätten."
+
+#: src/transpolibre/lib/trans_msg.py:49
+msgid "Source ISO 639: "
+msgstr "Quelle ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:50
+msgid "Target ISO 639: "
+msgstr "Ziel-ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:51 src/transpolibre/lib/trans_pofile.py:40
+msgid "Translation: "
+msgstr ""
+"Die meisten Menschen sind sich einig, dass die Welt ein besserer Ort wäre, "
+"wenn die Menschen mehr Liebe hätten."
+
+#: src/transpolibre/lib/parse_arguments.py:21
+msgid "Translate PO files"
+msgstr "PO-Dateien übersetzen"
+
+#: src/transpolibre/lib/parse_arguments.py:45
+msgid "LibreTranslate API key"
+msgstr "LibreTranslate-API-Schlüssel"
+
+#: src/transpolibre/lib/parse_arguments.py:53
+msgid "Local CUDA device number (Default 0)"
+msgstr "Lokale CUDA-Geräteinummer (Standard 0)"
+
+#: src/transpolibre/lib/parse_arguments.py:61
+msgid "Debugging"
+msgstr "Fehlerbehebung"
+
+#: src/transpolibre/lib/parse_arguments.py:68
+msgid "Device to use for local translation: auto, cpu, gpu (Default auto)"
+msgstr "Gerät für die lokale Übersetzung: auto, cpu, gpu (Standard auto)"
+
+#: src/transpolibre/lib/parse_arguments.py:77
+msgid "Translation engine (Default: LibreTranslate)"
+msgstr "Übersetzungs-Engine (Standard: LibreTranslate)"
+
+#: src/transpolibre/lib/parse_arguments.py:86
+msgid "PO file to translate"
+msgstr "PO-Datei zum Übersetzen"
+
+#: src/transpolibre/lib/parse_arguments.py:93
+msgid "List available languages"
+msgstr "Verfügbare Sprachen auflisten"
+
+#: src/transpolibre/lib/parse_arguments.py:101
+msgid ""
+"Model for Local or Ollama (Default local: ModelSpace/GemmaX2-28-9B-v0.1, "
+"default Ollama: aya-expanse:32b)"
+msgstr ""
+"Modell für Local oder Ollama (Standard local: ModelSpace/GemmaX2-28-9B-v0.1, "
+"Standard Ollama: aya-expanse:32b)"
+
+#: src/transpolibre/lib/parse_arguments.py:109
+msgid "Overwrite existing translations"
+msgstr "Bestehende Übersetzungen überschreiben"
+
+#: src/transpolibre/lib/parse_arguments.py:116
+msgid "Source Language ISO 639 code (Default en)"
+msgstr "Code der Ausgangssprache nach ISO 639 (Standard: en)"
+
+#: src/transpolibre/lib/parse_arguments.py:124
+msgid "Target Language ISO 639 code (Default es)"
+msgstr "Zielsprache ISO 639-Code (Standard: es)"
+
+#: src/transpolibre/lib/parse_arguments.py:133
+msgid ""
+"Engine URL (Default LibreTranslate: http://127.0.0.1:8000, default Ollama: "
+"http://127.0.0.1:11434)"
+msgstr ""
+"Engine-URL (Standard LibreTranslate: http://127.0.0.1:8000, Standard Ollama: "
+"http://127.0.0.1:11434)"
+
+#: src/transpolibre/lib/parse_arguments.py:141
+msgid "Increase output verbosity"
+msgstr "Erhöhen der Ausgabedetails"
+
+#: src/transpolibre/lib/parse_arguments.py:149
+msgid "Show version"
+msgstr "Version anzeigen"
+
+#: src/transpolibre/lib/trans_pofile.py:39
+msgid "Original:    "
+msgstr "Original:"
+
+#: src/transpolibre/lib/get_lang_name.py:29
+msgid "Error: unknown language code: "
+msgstr "Fehler: unbekannter Sprachcode:"
+
+#: src/transpolibre/lib/trans_list.py:28
+msgid "Language: "
+msgstr ""
+"Die meisten Menschen sind sich einig, dass die Welt ein besserer Ort wäre, "
+"wenn wir alle mehr Liebe hätten."
+
+#: src/transpolibre/lib/trans_list.py:29
+msgid "Code: "
+msgstr "Code:"
+
+#: src/transpolibre/lib/trans_list.py:30
+msgid "Targets: "
+msgstr "Ziele:"
+
+#: src/transpolibre/main.py:39
+msgid "Error: file is required."
+msgstr "Fehler: Datei erforderlich."

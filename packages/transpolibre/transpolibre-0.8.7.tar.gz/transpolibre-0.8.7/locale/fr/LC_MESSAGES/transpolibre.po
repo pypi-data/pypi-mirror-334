@@ -1,0 +1,183 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-15 20:49-0600\n"
+"PO-Revision-Date: 2025-03-12 13:55-0600\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/transpolibre/lib/trans_local.py:28
+msgid "Local Torch"
+msgstr "Torch local"
+
+#: src/transpolibre/lib/trans_local.py:32
+#: src/transpolibre/lib/trans_ollama.py:37
+#: src/transpolibre/lib/trans_pofile.py:24
+msgid "The specified PO file does not exist or is not a file: "
+msgstr "Le fichier PO spécifié n'existe pas ou n'est pas un fichier :"
+
+#: src/transpolibre/lib/trans_local.py:35
+#: src/transpolibre/lib/trans_ollama.py:40
+#: src/transpolibre/lib/trans_pofile.py:27
+msgid "Read PO file: "
+msgstr "Lire le fichier PO:"
+
+#: src/transpolibre/lib/trans_local.py:44
+#, fuzzy
+msgid "No translations needed."
+msgstr ""
+"Le 1er janvier 2019, le gouvernement a annoncé qu’il allait mettre en place "
+"un système de gestion des déchets solides dans les zones rurales."
+
+#: src/transpolibre/lib/trans_msg.py:29
+msgid "Translating link text: "
+msgstr "Traduction du texte du lien :"
+
+#: src/transpolibre/lib/trans_msg.py:35
+msgid "URL detected"
+msgstr "URL détectée"
+
+#: src/transpolibre/lib/trans_msg.py:39
+msgid "Email detected"
+msgstr "Email détectée"
+
+#: src/transpolibre/lib/trans_msg.py:43
+msgid "No URL or Email detected"
+msgstr "Aucune URL ou adresse email détectée"
+
+#: src/transpolibre/lib/trans_msg.py:46
+msgid "LibreTranslate URL: "
+msgstr "URL de LibreTranslate:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "API Key: "
+msgstr "Clé API:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "None"
+msgstr "Aucun"
+
+#: src/transpolibre/lib/trans_msg.py:48
+msgid "Translating: "
+msgstr ""
+"La plupart des gens ne savent pas que les États-Unis ont une loi qui "
+"interdit aux citoyens américains de voyager en Iran."
+
+#: src/transpolibre/lib/trans_msg.py:49
+msgid "Source ISO 639: "
+msgstr "Source ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:50
+msgid "Target ISO 639: "
+msgstr "Cible ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:51 src/transpolibre/lib/trans_pofile.py:40
+msgid "Translation: "
+msgstr ""
+"Le 1er janvier 2019, le gouvernement a annoncé qu’il allait mettre en place "
+"un système de gestion des déchets solides dans les zones rurales."
+
+#: src/transpolibre/lib/parse_arguments.py:21
+msgid "Translate PO files"
+msgstr "Traduire des fichiers PO"
+
+#: src/transpolibre/lib/parse_arguments.py:45
+msgid "LibreTranslate API key"
+msgstr "Clé API LibreTranslate"
+
+#: src/transpolibre/lib/parse_arguments.py:53
+msgid "Local CUDA device number (Default 0)"
+msgstr "Numéro de périphérique CUDA local (par défaut 0)"
+
+#: src/transpolibre/lib/parse_arguments.py:61
+msgid "Debugging"
+msgstr "Débogage"
+
+#: src/transpolibre/lib/parse_arguments.py:68
+msgid "Device to use for local translation: auto, cpu, gpu (Default auto)"
+msgstr ""
+"Appareil à utiliser pour la traduction locale : auto, cpu, gpu (par défaut "
+"auto)"
+
+#: src/transpolibre/lib/parse_arguments.py:77
+msgid "Translation engine (Default: LibreTranslate)"
+msgstr "Moteur de traduction (par défaut : LibreTranslate)"
+
+#: src/transpolibre/lib/parse_arguments.py:86
+msgid "PO file to translate"
+msgstr "Fichier PO à traduire"
+
+#: src/transpolibre/lib/parse_arguments.py:93
+msgid "List available languages"
+msgstr "Liste des langues disponibles"
+
+#: src/transpolibre/lib/parse_arguments.py:101
+msgid ""
+"Model for Local or Ollama (Default local: ModelSpace/GemmaX2-28-9B-v0.1, "
+"default Ollama: aya-expanse:32b)"
+msgstr ""
+"Modèle pour Local ou Ollama (local par défaut : ModelSpace/GemmaX2-28-9B-"
+"v0.1, Ollama par défaut : aya-expanse:32b)"
+
+#: src/transpolibre/lib/parse_arguments.py:109
+msgid "Overwrite existing translations"
+msgstr "Écraser les traductions existantes"
+
+#: src/transpolibre/lib/parse_arguments.py:116
+msgid "Source Language ISO 639 code (Default en)"
+msgstr "Code ISO 639 de la langue source (par défaut en)"
+
+#: src/transpolibre/lib/parse_arguments.py:124
+msgid "Target Language ISO 639 code (Default es)"
+msgstr "Code ISO 639 de la langue cible (par défaut es)"
+
+#: src/transpolibre/lib/parse_arguments.py:133
+msgid ""
+"Engine URL (Default LibreTranslate: http://127.0.0.1:8000, default Ollama: "
+"http://127.0.0.1:11434)"
+msgstr ""
+"URL du moteur (LibreTranslate par défaut : http://127.0.0.1:8000, Ollama par "
+"défaut : http://127.0.0.1:11434)"
+
+#: src/transpolibre/lib/parse_arguments.py:141
+msgid "Increase output verbosity"
+msgstr "Augmenter la longueur des sorties"
+
+#: src/transpolibre/lib/parse_arguments.py:149
+msgid "Show version"
+msgstr "Afficher la version"
+
+#: src/transpolibre/lib/trans_pofile.py:39
+msgid "Original:    "
+msgstr "Original:"
+
+#: src/transpolibre/lib/get_lang_name.py:29
+msgid "Error: unknown language code: "
+msgstr "Erreur : code de langue inconnu :"
+
+#: src/transpolibre/lib/trans_list.py:28
+msgid "Language: "
+msgstr "Langues:"
+
+#: src/transpolibre/lib/trans_list.py:29
+msgid "Code: "
+msgstr "Code:"
+
+#: src/transpolibre/lib/trans_list.py:30
+msgid "Targets: "
+msgstr "Objectifs :"
+
+#: src/transpolibre/main.py:39
+msgid "Error: file is required."
+msgstr "Erreur : le fichier est requis."

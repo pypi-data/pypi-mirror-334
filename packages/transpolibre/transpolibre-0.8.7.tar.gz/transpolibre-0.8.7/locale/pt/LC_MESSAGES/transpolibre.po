@@ -1,0 +1,176 @@
+# Portuguese translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-15 20:49-0600\n"
+"PO-Revision-Date: 2025-03-12 13:55-0600\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/transpolibre/lib/trans_local.py:28
+msgid "Local Torch"
+msgstr "Tocha local"
+
+#: src/transpolibre/lib/trans_local.py:32
+#: src/transpolibre/lib/trans_ollama.py:37
+#: src/transpolibre/lib/trans_pofile.py:24
+msgid "The specified PO file does not exist or is not a file: "
+msgstr "O arquivo PO especificado não existe ou não é um arquivo:"
+
+#: src/transpolibre/lib/trans_local.py:35
+#: src/transpolibre/lib/trans_ollama.py:40
+#: src/transpolibre/lib/trans_pofile.py:27
+msgid "Read PO file: "
+msgstr "Ler arquivo PO:"
+
+#: src/transpolibre/lib/trans_local.py:44
+#, fuzzy
+msgid "No translations needed."
+msgstr "O que é que o senhor quer dizer com \"não é uma questão de dinheiro\"?"
+
+#: src/transpolibre/lib/trans_msg.py:29
+msgid "Translating link text: "
+msgstr "Traduzindo o texto do link:"
+
+#: src/transpolibre/lib/trans_msg.py:35
+msgid "URL detected"
+msgstr "URL detectada"
+
+#: src/transpolibre/lib/trans_msg.py:39
+msgid "Email detected"
+msgstr "Email detectado"
+
+#: src/transpolibre/lib/trans_msg.py:43
+msgid "No URL or Email detected"
+msgstr "Nenhuma URL ou e-mail detectada"
+
+#: src/transpolibre/lib/trans_msg.py:46
+msgid "LibreTranslate URL: "
+msgstr "URL do LibreTranslate:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "API Key: "
+msgstr "Chave da API:"
+
+#: src/transpolibre/lib/trans_msg.py:47
+msgid "None"
+msgstr "Nenhum"
+
+#: src/transpolibre/lib/trans_msg.py:48
+msgid "Translating: "
+msgstr "O que é que o senhor quer dizer com \"não é uma questão de dinheiro\"?"
+
+#: src/transpolibre/lib/trans_msg.py:49
+msgid "Source ISO 639: "
+msgstr "Fonte ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:50
+msgid "Target ISO 639: "
+msgstr "ISO 639:"
+
+#: src/transpolibre/lib/trans_msg.py:51 src/transpolibre/lib/trans_pofile.py:40
+msgid "Translation: "
+msgstr "O que é que o senhor quer dizer com \"não é uma questão de dinheiro\"?"
+
+#: src/transpolibre/lib/parse_arguments.py:21
+msgid "Translate PO files"
+msgstr "Traduzir arquivos PO"
+
+#: src/transpolibre/lib/parse_arguments.py:45
+msgid "LibreTranslate API key"
+msgstr "Chave da API do LibreTranslate"
+
+#: src/transpolibre/lib/parse_arguments.py:53
+msgid "Local CUDA device number (Default 0)"
+msgstr "Número do dispositivo CUDA local (padrão 0)"
+
+#: src/transpolibre/lib/parse_arguments.py:61
+msgid "Debugging"
+msgstr "Depuração"
+
+#: src/transpolibre/lib/parse_arguments.py:68
+msgid "Device to use for local translation: auto, cpu, gpu (Default auto)"
+msgstr ""
+"Dispositivo a utilizar para a tradução local: auto, cpu, gpu (padrão auto)"
+
+#: src/transpolibre/lib/parse_arguments.py:77
+msgid "Translation engine (Default: LibreTranslate)"
+msgstr "Motor de tradução (Padrão: LibreTranslate)"
+
+#: src/transpolibre/lib/parse_arguments.py:86
+msgid "PO file to translate"
+msgstr "Arquivo PO para traduzir"
+
+#: src/transpolibre/lib/parse_arguments.py:93
+msgid "List available languages"
+msgstr "Lista de idiomas disponíveis"
+
+#: src/transpolibre/lib/parse_arguments.py:101
+msgid ""
+"Model for Local or Ollama (Default local: ModelSpace/GemmaX2-28-9B-v0.1, "
+"default Ollama: aya-expanse:32b)"
+msgstr ""
+"Modelo para Local ou Ollama (local padrão: ModelSpace/GemmaX2-28-9B-v0.1, "
+"Ollama padrão: aya-expanse:32b)"
+
+#: src/transpolibre/lib/parse_arguments.py:109
+msgid "Overwrite existing translations"
+msgstr "Substituir traduções existentes"
+
+#: src/transpolibre/lib/parse_arguments.py:116
+msgid "Source Language ISO 639 code (Default en)"
+msgstr "Código de idioma de origem ISO 639 (padrão en)"
+
+#: src/transpolibre/lib/parse_arguments.py:124
+msgid "Target Language ISO 639 code (Default es)"
+msgstr "Código ISO 639 da língua de destino (padrão es)"
+
+#: src/transpolibre/lib/parse_arguments.py:133
+msgid ""
+"Engine URL (Default LibreTranslate: http://127.0.0.1:8000, default Ollama: "
+"http://127.0.0.1:11434)"
+msgstr ""
+"URL do motor (padrão LibreTranslate: http://127.0.0.1:8000, padrão Ollama: "
+"http://127.0.0.1:11434)"
+
+#: src/transpolibre/lib/parse_arguments.py:141
+msgid "Increase output verbosity"
+msgstr "Aumentar a verbosidade da saída"
+
+#: src/transpolibre/lib/parse_arguments.py:149
+msgid "Show version"
+msgstr "Mostrar versão"
+
+#: src/transpolibre/lib/trans_pofile.py:39
+msgid "Original:    "
+msgstr "Original:"
+
+#: src/transpolibre/lib/get_lang_name.py:29
+msgid "Error: unknown language code: "
+msgstr "Erro: código de idioma desconhecido:"
+
+#: src/transpolibre/lib/trans_list.py:28
+msgid "Language: "
+msgstr "Língua:"
+
+#: src/transpolibre/lib/trans_list.py:29
+msgid "Code: "
+msgstr "Código:"
+
+#: src/transpolibre/lib/trans_list.py:30
+msgid "Targets: "
+msgstr "Alvos:"
+
+#: src/transpolibre/main.py:39
+msgid "Error: file is required."
+msgstr "Erro: arquivo é necessário."
