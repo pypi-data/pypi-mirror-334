@@ -1,0 +1,36 @@
+- project:
+    queue: freezer
+    templates:
+      - check-requirements
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+      - openstack-python3-jobs
+    check:
+      jobs:
+        - openstack-tox-pylint
+        - freezer-tempest-agent
+        - freezer-tempest-scheduler
+        - freezer-ubuntu
+        - freezer-centos-9-stream
+    gate:
+      jobs:
+        - openstack-tox-pylint
+        - freezer-tempest-agent
+        - freezer-tempest-scheduler
+        - freezer-ubuntu
+        - freezer-centos-9-stream
+
+- job:
+    name: freezer-base
+    parent: freezer-tempest-basic
+    vars:
+      tempest_test_regex: '^(freezer_tempest_plugin.tests.freezer)'
+
+- job:
+    name: freezer-ubuntu
+    parent: freezer-base
+
+- job:
+    name: freezer-centos-9-stream
+    parent: freezer-base
+    nodeset: centos-9-stream
