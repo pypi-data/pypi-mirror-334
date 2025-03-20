@@ -1,0 +1,6 @@
+plugin_type: normalizer
+name: simulationworkflownormalizer
+description: |
+ This is the normalizer for simulation workflows in NOMAD.
+normalizer_class_name: simulationworkflownormalizer.SimulationWorkflowNormalizer
+plugin_source_code_url=None: https://github.com/nomad-coe/nomad-normalizer-plugin-simulation-workflow.git
