@@ -1,0 +1,24 @@
+{
+    "id": "meggie_fooof",
+    "name": "FOOOF",
+    "description": "Enable spectral parameterization with the FOOOF package.",
+    "author": "CIBR",
+    "tabs": [
+        {"id": "fooof",
+         "name": "FOOOF",
+         "inputs": ["spectrum"],
+         "outputs": ["fooof_report"],
+         "input_actions": ["fooof_create"],
+         "output_actions": ["fooof_plot",
+                            "fooof_save",
+                            "fooof_delete",
+                            "fooof_delete_from_all"],
+         "info": ["fooof_info"]}
+    ],
+    "pipelines": [
+        {"id": "fooof_sensor",
+         "name": "FOOOF analysis",
+         "include_tabs": ["preprocessing", "spectrum", "fooof"]
+        }
+    ]
+}
