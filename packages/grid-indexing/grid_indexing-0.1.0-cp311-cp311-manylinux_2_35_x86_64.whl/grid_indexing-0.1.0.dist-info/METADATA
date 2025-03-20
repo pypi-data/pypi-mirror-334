@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: grid-indexing
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: sparse>=0.15
+Requires-Dist: geoarrow-rust-core>=0.4.0b3
+Requires-Dist: shapely>=2.0
+Requires-Dist: numpy>=2.0
+Requires-Dist: cf-xarray>=0.9
+Requires-Dist: xarray>=2024.11.0
+Requires-Dist: pyproj>=3.7
+Requires-Dist: dask[array] ; extra == 'distributed'
+Requires-Dist: pytest ; extra == 'tests'
+Provides-Extra: distributed
+Provides-Extra: tests
+Requires-Python: >=3.10
