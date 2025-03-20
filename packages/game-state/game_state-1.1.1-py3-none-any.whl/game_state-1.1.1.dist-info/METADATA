@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: game_state
+Version: 1.1.1
+Summary: A pygame utility package that allows you to handle different screens in an organized manner.
+Author-email: Jiggly Balls <jigglyballs9000@gmail.com>
+Project-URL: Source, https://github.com/Jiggly-Balls/game-state
+Project-URL: Documentation, https://game-state.readthedocs.io/en/latest/index.html
+Project-URL: Issues, https://github.com/Jiggly-Balls/game-state/issues
+Project-URL: Stars, https://github.com/Jiggly-Balls/game-state/stargazers
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: pygame
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Game-State
+A pygame utility package that allows you to handle different screens in an organized manner.
