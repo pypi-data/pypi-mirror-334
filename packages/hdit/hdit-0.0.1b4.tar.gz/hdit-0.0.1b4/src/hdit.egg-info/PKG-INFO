@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: hdit
+Version: 0.0.1b4
+Summary: The Hourglass Diffusion Transformer (HDiT) is an image generative model that exhibits linear scaling with pixel count, supporting training at high-resolution directly in pixel-space.
+Author-email: Caewinix <Caewinix@yeah.net>
+Project-URL: Homepage, https://github.com/Caewinix/Hourglass-Diffusion-Transformer
+Project-URL: Bug Tracker, https://github.com/Caewinix/Hourglass-Diffusion-Transformer/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einop
+Requires-Dist: torch
+Requires-Dist: dctorch
+Requires-Dist: scipy
+Requires-Dist: torchdiffeq
+Requires-Dist: torchsde
+Requires-Dist: tqdm
+Requires-Dist: pillow
+Requires-Dist: safetensors
+Requires-Dist: torchvision
+Requires-Dist: natten
