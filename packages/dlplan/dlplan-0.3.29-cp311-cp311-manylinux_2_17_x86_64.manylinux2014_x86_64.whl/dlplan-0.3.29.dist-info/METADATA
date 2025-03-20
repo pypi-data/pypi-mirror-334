@@ -1,0 +1,18 @@
+Metadata-Version: 2.2
+Name: dlplan
+Version: 0.3.29
+Summary: A library for using description logics features in planning
+Home-page: https://github.com/rleap-project/dlplan
+Author: Dominik Drexler, Jendrik Seipp and Guillem Francès
+Author-email: dominik.drexler@liu.se
+License-File: LICENSE.md
+Requires-Dist: state_space_generator==0.1.9
+Requires-Dist: cmake>=3.21
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
