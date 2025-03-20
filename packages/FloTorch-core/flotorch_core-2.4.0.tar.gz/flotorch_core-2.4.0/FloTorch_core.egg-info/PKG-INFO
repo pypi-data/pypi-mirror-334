@@ -1,0 +1,18 @@
+Metadata-Version: 2.2
+Name: FloTorch-core
+Version: 2.4.0
+Summary: A Python project for FloTorch
+Author-email: Shiva Krishna <shiva.krishnaah@gmail.com>
+License: MIT
+License-File: LICENSE
+Requires-Dist: langchain==0.3.14
+Requires-Dist: boto3==1.36.2
+Requires-Dist: ollama==0.4.6
+Requires-Dist: PyPDF2==3.0.1
+Requires-Dist: opensearch-py==2.8.0
+Requires-Dist: sagemaker==2.235.2
+Provides-Extra: dev
+Requires-Dist: pytest==8.3.4; extra == "dev"
+Requires-Dist: testcontainers==4.9.0; extra == "dev"
+Requires-Dist: minio==7.2.15; extra == "dev"
+Requires-Dist: moto==5.0.27; extra == "dev"
