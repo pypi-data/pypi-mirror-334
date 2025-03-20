@@ -1,0 +1,1 @@
+from neongram.emoji.emoji import Emoji
