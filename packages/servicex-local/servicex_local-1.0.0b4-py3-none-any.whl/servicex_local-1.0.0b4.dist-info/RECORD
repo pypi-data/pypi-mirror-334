@@ -1,0 +1,14 @@
+servicex_local/__init__.py,sha256=f7XmLuWZY2ci5lHFNhKDGG6TTTUwM1x9fx1BkNw-A1k,239
+servicex_local/adaptor.py,sha256=iEI8tRXp52emrz1OfmytCIgOGsa68FuRMx1G0KMC8yw,9323
+servicex_local/codegen.py,sha256=2bifOEmFrscPrQTcQ2k46fjAljGL2x-2C4vSbBIwpBg,6256
+servicex_local/create_x509.py,sha256=oMTEruDPM3G-IFMCE0LTAbpUV0YMyBNByat6mfSqN7c,1914
+servicex_local/deliver.py,sha256=KIA67M4dS0rTxczdRC6GZHI7Nk3NPpWmwab_aaFEv80,4682
+servicex_local/logging_decorator.py,sha256=RXZulxoSvrmMp9wcZI_Xd_WOh0R9-vOz1g9q0krGR78,842
+servicex_local/science_images.py,sha256=kjK8_Kql2Cadz9Y00RURn5civkKYfX7hJtoULtw8GcY,13289
+servicex_local/version.txt,sha256=eQtlb6AXafb9_DWuCcnUECyWrFSDEBvQVwQiGN8ph6M,22
+servicex_local/templates/transform_single_file.sh,sha256=OKUnTHfP6s0HDbovuUiGPDUTsUmOGUM3y_bm_EILsAo,557
+servicex_local/templates/transformer_capabilities_xaod.json,sha256=QQYxLIknbsyc8g2ZMniP447SStBOGZw7TvHtmtclJR8,397
+servicex_local-1.0.0b4.dist-info/METADATA,sha256=F1FZwaET3_Y8hMWE62AguGP6puigqlv5eAhQv9xLfiU,4998
+servicex_local-1.0.0b4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+servicex_local-1.0.0b4.dist-info/entry_points.txt,sha256=lOyw8dDb1Q7iGbxqN79J8OOGqL2R-hcKYcEHPLoRDTk,68
+servicex_local-1.0.0b4.dist-info/RECORD,,
