@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: book-return-lib
+Version: 0.0.1
+Summary: A library for calculating book return due dates.
+Home-page: https://github.com/yourusername/book-return-lib
+Author: Alfi
+Author-email: alfithomas2002@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
