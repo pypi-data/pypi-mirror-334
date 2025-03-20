@@ -1,0 +1,14 @@
+README.md
+setup.py
+aisi/__init__.py
+aisi/main.py
+aisi.egg-info/PKG-INFO
+aisi.egg-info/SOURCES.txt
+aisi.egg-info/dependency_links.txt
+aisi.egg-info/entry_points.txt
+aisi.egg-info/requires.txt
+aisi.egg-info/top_level.txt
+aisi/__system__/imports.py
+aisi/__system__/index.py
+aisi/__system__/modules/jobs.py
+aisi/__system__/sources/clight.json
