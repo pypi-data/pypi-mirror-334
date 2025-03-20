@@ -1,0 +1,6 @@
+plugin_type: normalizer
+name: soapnormalizer
+description: |
+ This is the normalizer for SOAP in NOMAD.
+normalizer_class_name: soapnormalizer.SoapNormalizer
+plugin_source_code_url=None: https://github.com/nomad-coe/nomad-normalizer-plugin-soap.git
