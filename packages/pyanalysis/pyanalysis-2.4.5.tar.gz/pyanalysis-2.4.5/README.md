@@ -1,0 +1,110 @@
+# Python Library for pyanalysis.ptsecurity.tech
+
+PT PyAnalysis is an analytic system for AppSec processes to inspect python projects by
+Positive Technologies.
+
+## Installation
+
+Install it by running
+```bash
+pip3 install pyanalysis
+```
+
+## Behind the organization's proxy
+
+```python3
+pa_checker = PaClient(
+    username="username", password="password", proxy="http://your-org-proxy.intranet:81"
+)
+```
+
+## Example usage
+
+The full examples in `\tests` folder both for `sync` and `async` code. Use them as
+a reference.
+
+
+```python
+from pyanalysis.client import PaClient
+import os
+
+pa_checker = PaClient(
+    username=os.getenv("pa_login"), password=os.getenv("pa_password")
+)
+
+verdict = pa_checker.find_package("botcity-documents", "0.3.1")
+print(verdict)
+```
+
+```python
+{'status': 'Suspicious',
+ 'why': ['checked by pyanalysis'],
+ 'task_id': None,
+ 'weights_by_versions': {'0.3.1': 250},
+ 'verdicts_by_versions': {'0.3.1': ['anti_analysis::Obfuscation::Packing::Generic',
+   'crypto::base64',
+   'host_interaction::subprocess',
+   'load_code::setup_py',
+   'network::Url']},
+ 'files': {'bac168fe9913bde36752ab4600e149fc19bb6903c2a4d9008b840d46e904cf96': {'versions': ['0.3.1'],
+   'verdicts': ['load_code::setup_py', 'network::Url'],
+   'weight': 30},
+...,
+  '4712e06e2fa77801f18c28453a710ab64e618885aad98fb488c2b80f59613636': {'versions': ['0.3.1'],
+   'verdicts': ['anti_analysis::Obfuscation::Packing::Generic',
+    'crypto::base64'],
+   'weight': 110},
+...
+},
+ 'rules_score': {'load_code::setup_py': 10,
+  'network::Url': 20,
+  'host_interaction::subprocess': 10,
+  'anti_analysis::Obfuscation::Packing::Generic': 100,
+  'crypto::base64': 10,
+  'crypto::base64 + load_code::setup_py': 100},
+ 'anomalies': {}}
+```
+
+```python
+# Fmm, file 4712e06e2fa77801f18c28453a710ab64e618885aad98fb488c2b80f59613636 is packed
+print(pa_checker.kb_file_bytes("4712e06e2fa77801f18c28453a710ab64e618885aad98fb488c2b80f59613636").decode())
+```
+
+```python
+import zlib, base64
+exec(zlib.decompress(base64.b64decode('eJytV+tzozYQ/85fQa8fA...jFhc3mH0=')))
+```
+
+```python
+# Do we have an unpacked version?
+for child in pa_checker.kb_file_meta("4712e06e2fa77801f18c28453a710ab64e618885aad98fb488c2b80f59613636").get("data").get("children"):
+    print("#", child)
+    print(pa_checker.kb_file_bytes(child).decode())
+```
+
+```python
+# bedeb6be112de621869e30b803618a27c89e212411c7ea0222dc42d482b9206f
+G=' '
+D=''
+from typing import List,Optional,Union
+I=enumerate
+E=len
+F=isinstance
+A=int
+J=IndexError
+O=list
+M=min
+U=str
+B=None
+V=bool
+N=False
+W=float
+from botcity.document_processing.parser.entry import Entry as K
+from botcity.document_processing.parser.matcher import DataTypeMatcher as P
+from botcity.document_processing.geometry import Point as C,Polygon as H
+def clear(HTgBY):HTgBY._entries.clear()
+def Q(HTgBY):
+    A=HTgBY;A._entries.sort(key=lambda e:(e.p1.y,e.p1.x))
+    for (B,C) in I(A._entries):C.index=B
+...
+```

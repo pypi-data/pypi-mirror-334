@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyanalysis"
+version = "2.4.5"
+description = "Python Library for pyanalysis.ptsecurity.tech"
+readme = "README.md"
+authors = [{ name = "Stanislav Rakovsky", email = "iam@disasm.me" }]
+license = { text = "MIT" }
+requires-python = ">=3.6"
+dependencies = [
+    "requests>=2.32.0", "aiohttp>=3.8.1", "logzero>=1.7.0"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3"
+  ]
+
+[tool.setuptools]
+packages = { find = {} }
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
