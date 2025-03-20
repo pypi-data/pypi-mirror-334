@@ -1,0 +1,323 @@
+{
+"help_flow#add_item":
+    {'': """\
+neuen eintrag anlegen.
+
+tippe und halte zum importieren
+von sub-listen aus der
+zwischenablage oder einer datei.""",
+    'next_help_id': "help_flow#change_item_id", },
+#----------------------------------
+"help_flow#change_item_id": """\
+in diesem feld des eintrag-editors wird der
+name des eintrags eingegeben bzw. geändert.
+
+ein tip auf den [b]--->[/b] knopf links, wandelt
+einen eintrag in eine sub-liste um. ein
+tip außerhalb des editors schließt diesen.""",
+#----------------------------------
+"help_flow#change_item_sel": """\
+die farbe dieses bildschirm-
+elements zeigt an ob dieser
+eintrag ausgewählt oder
+abgewählt ist.
+
+dieser ist [b]{"ausgewählt" if tuple(self.square_fill_ink) == app.main_app.selected_ink else "abgewählt"}[/b].
+
+tippe zum umzuschalten.
+
+tippe und halte um das export-
+menu anzuzeigen.""",
+#----------------------------------
+"help_flow#confirm_item_deletion": """\
+öffne dialog-fenster zum
+bestätigen der löschung
+des/der gerade fokusierten
+eintrags/sub-liste.""",
+#----------------------------------
+"help_flow#confirm_item_sel": """\
+einträge der sub-liste umschalten
+zwischen [color={get_hex_from_color(main_app.selected_ink)}]ausgewählt[/color] \
+und [color={get_hex_from_color(main_app.unselected_ink)}]abgewählt[/color].
+
+tippe auf die umzuschaltende
+auswahl-farbe. die betroffenen
+einträge werden dann zur
+bestätigung auflistet.
+
+tippe und halte um das export-
+menu anzuzeigen.""",
+#----------------------------------
+"help_flow#confirming_item_sel": """\
+ein tip auf diesen knopf [b]wählt[/b] die
+{"links" if app.landscape else "oberhalb"} aufgelisteten einträge
+der sub-liste [b]{"aus" if self.tap_kwargs['set_sel_to'] else "ab"}[/b].""",
+#----------------------------------
+"help_flow#drag_item": """\
+fokussiere den eintrag
+[b]'{flow_key(self.tap_flow_id)}'[/b]
+(um ihn danach zum beispiel ändern oder
+löschen zu können).
+
+tippe, halte und schiebe um die
+reihenfolge des eintrags zu ändern.
+beim schieben und loslassen auf eine
+sub-liste wird er in diese verschoben.
+ein loslassen über dem knopf mit dem
+[b]<---[/b] symbol (der zum verlassen
+dieser liste) verschiebt den eintrag
+in die liste oberhalb.""",
+#----------------------------------
+"help_flow#edit_item": """\
+name des eintrags ändern oder diesen
+in eine sub-liste umwandeln.""",
+#----------------------------------
+"help_flow#enter_item": """\
+einträge der sub-liste
+[b]'{flow_key(self.tap_flow_id)}'[/b]
+anzeigen.""",
+#----------------------------------
+"help_flow#extract_node": """\
+kopiere oder exportiere einträge
+in das dokumente verzeichnis
+{main_app.documents_root_path}
+oder in die zwischenablage.""",
+#----------------------------------
+"help_flow#import_node": """\
+importiere einträge aus TXT dateien im verzeichnis
+{main_app.documents_root_path}
+in eine neue sub-liste.""",
+#----------------------------------
+"help_flow#jump_node": """\
+wechseln zur liste
+[b]'{main_app.flow_path_text(main_app.flow_path_from_text(self.text), min_len=18, display_root=True)}'[/b].
+
+tippe und halte um das export-
+menu anzuzeigen.""",
+#----------------------------------
+"help_flow#leave_item": """\
+verlasse aktuelle liste, zurück
+zur liste oberhalb.""",
+#----------------------------------
+"help_flow#open_flow_path_jumper":
+    {'': """\
+listen zur auswahl anzeigen.
+
+tippe und halte um das export-
+menu anzuzeigen.""",
+    'after': """\
+wähle die anzuzeigende
+liste aus.""", },
+#----------------------------------
+"help_flow#open_node_info": """\
+zeige informationen zu
+dieser sub-liste.""",
+#----------------------------------
+"help_flow#paste_node": """\
+neue einträge aus der zwischenablage
+einfügen.
+
+beim einfügen mehrzeiliger texte
+legt jede textzeile einen neuen
+eintrag an.""",
+#----------------------------------
+"help_flow#toggle_filter":
+    {'': """\
+[b]{dict(selected='ausgewählte', unselected='abgewählte').get(self.name_part)}[/b]
+einträge
+[b]{"anzeigen" if app.app_states[self.filter_name] else "ausblenden"}[/b].""",
+    'after': """\
+nun werden die [b]{dict(selected='ausgewählten', unselected='abgewählten').get(self.name_part)}[/b]
+einträge [b]{"ausgeblendet/gefiltert" if self.state == 'down' else "angezeigt"}[/b].""", },
+#----------------------------------
+"help_flow#toggle_node_or_item": """\
+typ des {'' if root.title else 'neuen '}eintrags ändern.
+
+tippe um diesen eintrag in
+[b]{'einen normalen eintrag' if self.state == 'down' else 'eine sub-liste'}[/b]
+umzuwandeln.
+
+tippe außerhalb des
+eintrag-editors um
+diesen zu schließen.""",
+#==================================
+'tour_page#lisz_1empty':
+    {'title_text': "listen in listen",
+     'page_text': """\
+einkaufslisten, to-do-listen, wunsch-listen,
+uvw., eine liste kann vielfältige
+anwendungen haben. diese app erlaubt das
+anlegen von listen aller art.
+
+werden mehrere listen benötigt legt man
+eine haupt-liste mit sub-listen an.
+
+einträge und sub-listen können verändert
+und verschoben werden. teile listen mit
+mehr als 15 einträgen in sub-listen auf.""", },
+#----------------------------------
+'tour_page#lisz_2add_item':
+    {'title_text': """\
+eintrag
+anlegen""",
+     'page_text': """\
+mit dem vom tooltip-fenster anvisierten
+grünen knopf wird ein eintrag oder eine
+sub-liste hinzugefügt.
+
+dazu öffnet sich ein popup-fenster zur
+eingabe des namens des eintrags.""", },
+#----------------------------------
+'tour_page#lisz_2enter_id':
+    {'title_text': """\
+eintrags-name
+eingeben""",
+     'page_text': """\
+der name des neuen eintrags wird im
+anvisierten eingabe-feld eingegeben.
+
+auf der nächsten app-tour-seite ist
+der neu angelegte eintrag namens
+[b]{get_text("demo item")}[/b] zu sehen.""", },
+#----------------------------------
+'tour_page#lisz_2entered_id':
+    {'title_text': "eintrag angelegt",
+     'page_text': """\
+der neu angelegte eintrag mit dem namen
+[b]{get_text("demo item")}[/b] ist nun der erste
+und einzige eintrag dieser demo liste.""", },
+#----------------------------------
+'tour_page#lisz_3enter_id':
+    {'title_text': """\
+sub-liste
+anlegen""",
+     'page_text': """\
+auch sub-listen werden mit dem grünen
+knopf angelegt. der name der sub-liste
+wird wie beim eintrag im feld eingegeben.
+
+zusätzlich wird der umschalter links im
+editor-fenster angetippt.""", },
+#----------------------------------
+'tour_page#lisz_3toggle_list':
+    {'page_text': """\
+dieser umschalter ändert einen
+eintrag in eine sub-liste.""", },
+#----------------------------------
+'tour_page#lisz_3u_added_list':
+    {'title_text': "sub-liste angelegt",
+     'page_text': """\
+nun ist neben dem bereits angelegten
+eintrag [b]{get_text("demo item")}[/b], eine sub-liste
+namens [b]{get_text("demo sub-list")}[/b] zu sehen.""", },
+#----------------------------------
+'tour_page#lisz_4navigate_down':
+    {'page_text': """\
+sub-listen haben, im gegensatz zu normalen
+einträgen, links des namens einen ovalen
+knopf mit einem nach rechts weisenden pfeil.
+
+nach einem tip auf diesen knopf werden die
+einträge der sub-liste angezeigt.""", },
+#----------------------------------
+'tour_page#lisz_4navigate_up':
+    {'page_text': """\
+zurück zur liste oberhalb gelangt man
+mit einem tip auf den anvisierten knopf
+mit dem nach links weisenden pfeil.""", },
+#----------------------------------
+'tour_page#lisz_5navigate':
+    {'title_text': "listen-wahl",
+     'page_text': """\
+der schnelle wechsel zu anderen listen
+ist mit dem anvisierten knopf möglich.
+
+die zur auswahl angebotenen sub-listen
+werden mit ihrem vollständigen listen-
+pfad und abgekürzten namen angezeigt.
+
+die obersten haupt-liste wird als
+[b]{FLOW_PATH_ROOT_ID}[/b] angezeigt.""", },
+#==================================
+"after focused '{focused_id}'": "hinter dem fokusierten eintrag '{focused_id}'",
+"before focused item '{focused_id}'": "vor dem fokusierten eintrag '{focused_id}'",
+"cannot be equal to '{FLOW_PATH_ROOT_ID}'": "darf nicht gleich '{FLOW_PATH_ROOT_ID}' sein",
+"cannot contain '{FLOW_PATH_TEXT_SEP}'": "darf '{FLOW_PATH_TEXT_SEP}' nicht enthalten",
+"cannot start with one of the characters '{INVALID_ITEM_ID_PREFIX_CHARS}'":
+    "darf nicht mit einem der zeichen '{INVALID_ITEM_ID_PREFIX_CHARS}' beginnen",
+"confirm deletion of {count} items":
+    {'many': "{count} einträge löschen", 'one': "eintrag löschen", 'zero': "leere sub-liste löschen"},
+"confirm deselection of {count} items in '{root.item_id}'":
+    {'many': "{count} einträge in '{root.item_id}' abwählen",
+     'one': "'{root.item_id}' eintrag abwählen"},
+"confirm selection of {count} items in '{root.item_id}'": {'many': "{count} einträge in '{root.item_id}' auswählen",
+                                                           'one': "'{root.item_id}' eintrag auswählen"},
+"copy all {count} items": "kopiere alle {count} einträge",
+"copy {count} {'' if sel_status else 'un'}selected node items":
+    "kopiere {count} {'ausgewählte' if sel_status else 'abgewählte'} einträge",
+"{count} error(s) in adding {len(items)} item(s)":
+    {'many': "{count} fehler beim anlegen von {len(items)} neuen einträgen",
+     'one':  "fehler beim anlegen eines neuen eintrags"},
+"current list": "aktuelle liste",
+"current list begin": "begin der aktuellen liste",
+"current list end": "ende der aktuellen liste",
+"cut all {count} items": "alle {count} einträge ausschneiden",
+"cut all node items": "alle sub-listen ausschneiden",
+"cut {count} selected items": "schneide {count} ausgewählte einträge aus",
+"cut {count} unselected items": "schneide {count} abgewählte einträge aus",
+"delete all {count} items": "lösche alle {count} einträge",
+"delete all node items": "lösche alle sub-listen",
+"delete {count} selected items": "lösche {count} ausgewählte einträge",
+"delete {count} unselected items": "lösche {count} abgewählte einträge",
+"demo item": "Salz",
+"demo sub item 1": "Ananas",
+"demo sub item 2": "Zitronen",
+"demo sub-list": "Früchte",
+"deselect": "abwählen",
+"error on adding new item '{item_id}'": "fehler beim anlegen des neuen eintrags '{item_id}'",
+"error on editing item '{item_id}'": "fehler beim bearbeiten des eintrags '{item_id}'",
+"export all {count} items": "exportiere alle {count} einträge",
+"export error": "export-fehler",
+"export {count} {'' if sel_status else 'un'}selected node items":
+    "exportiere {count} {'ausgewählte' if sel_status else 'abgewählte'} einträge",
+"{FLOW_PATH_ROOT_ID} list begin": "begin der {FLOW_PATH_ROOT_ID} liste",
+"{FLOW_PATH_ROOT_ID} list end": "ende der {FLOW_PATH_ROOT_ID} liste",
+"focused sub-list": "fokusierte sub-liste",
+"from clipboard": "aus Zwischenablage",
+"from file": "aus Datei",
+"from interchange": "aus Austausch",
+"has to be a string but got {type(item_id)}": "ist keine zeichenkette sondern ein {type(item_id)}",
+"has to be non-empty": "darf nicht leer sein",
+"id": "name",
+"importable items not found in folder '{folder_path}'": "keine importierbaren einträge gefunden in '{folder_path}'",
+"import error(s)": "import-fehler",
+"import file '{file_path}' could not be loaded": "datei '{file_path}' konnte nicht importiert werden",
+"import file '{file_path}' contains more than {IMPORT_NODE_MAX_ITEMS} items ({len(node)})":
+    "import datei '{file_path}' enthält mehr als {IMPORT_NODE_MAX_ITEMS} einträge ({len(node)})",
+"import file '{file_path}' content is invalid or empty; {err_msg}":
+    "datei '{file_path}' ist leer oder enthält ungültige einträge; {err_msg}",
+"import file '{file_path}' is bigger than {IMPORT_NODE_MAX_FILE_LEN} bytes ({file_len})":
+    "zu importierende datei '{file_path}' ist größer als {IMPORT_NODE_MAX_FILE_LEN} bytes ({file_len})",
+"import node/item(s)": "importiere einträge",
+"into focused sub-list '{focused_id}'": "innerhalb der fokusierten sub-liste '{focused_id}'",
+"Irmi's Shopping Lisz": "Irmi's Einkaufslisten",
+"item": "eintrag",
+"items": "einträge",
+"item format parsing error in '{text}'": "fehler beim einlesen eines eintrags aus '{text}'",
+"item id '{item_id}' ": "name des eintrags '{item_id}' ",
+"item id '{new_id}' exists already": "den eintrag '{new_id}' gibt es schon",
+"{info['selected_leaf_count'] + info['unselected_leaf_count']} items":
+    "{info['selected_leaf_count'] + info['unselected_leaf_count']} einträge",
+"neither clipboard nor '{self.documents_root_path}' contains items to import":
+    "weder in der zwischenablage noch in '{self.documents_root_path}' find einträge zum importieren",
+"no extract options available for this item/node": "für diesen eintrag sind keine extrakt optionen verfügbar",
+"node count": "sub-listen",
+"node '{node_id}' with ": "sub-liste '{node_id}' mit ",
+"select": "auswählen",
+"selected leaf count": "ausgewählte einträge",
+"share all {count} items": "teile alle {count} einträge",
+"share {count} {'' if sel_status else 'un'}selected node items":
+    "{count} {'aus' if sel_status else 'ab'}gewählte einträge teilen",
+"text block '{text}' is not a valid importable item": "Textblock-inhalt '{text}' ist kein gültiger Eintrag",
+"unselected leaf count": "abgewählte einträge",
+}
