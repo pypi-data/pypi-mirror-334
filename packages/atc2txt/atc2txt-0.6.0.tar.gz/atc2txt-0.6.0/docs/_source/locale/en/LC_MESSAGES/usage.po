@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Jeff Moe
+# This file is distributed under the same license as the atc2txt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: atc2txt 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-16 12:02-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../../_source/usage.rst:3
+msgid "Usage"
+msgstr ""
+
+#: ../../../_source/usage.rst:4
+msgid "Thusly."
+msgstr ""
+
+#: ../../../_source/usage.rst:7
+msgid "Help"
+msgstr ""
+
+#: ../../../_source/usage.rst:31
+msgid "Overview"
+msgstr ""
+
+#: ../../../_source/usage.rst:32
+msgid "Download a model."
+msgstr ""
+
+#: ../../../_source/usage.rst:33
+msgid "Run the server in one window."
+msgstr ""
+
+#: ../../../_source/usage.rst:34
+msgid "Run the client in another window."
+msgstr ""
+
+#: ../../../_source/usage.rst:37
+msgid "Download"
+msgstr ""
+
+#: ../../../_source/usage.rst:43
+msgid "Server"
+msgstr ""
+
+#: ../../../_source/usage.rst:49
+msgid "Client"
+msgstr ""
+

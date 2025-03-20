@@ -1,0 +1,131 @@
+Metadata-Version: 2.2
+Name: atc2txt
+Version: 0.6.0
+Summary: Automatic speech recognition and transcription of ATC (Air Traffic Control) streams
+Author-email: Jeff Moe <moe@spacecruft.org>
+License: MIT
+Project-URL: Homepage, https://atc2txt.org
+Project-URL: Documentation, https://atc2txt.org
+Project-URL: Repository, https://spacecruft.org/aviation/atc2txt
+Project-URL: Issues, https://spacecruft.org/aviation/atc2txt
+Project-URL: Changelog, https://spacecruft.org/aviation/atc2txt/raw/branch/main/CHANGELOG.txt
+Keywords: air-traffic-control,ASR,ATC,automatic-speech-recognition,torch,TTS,txt-to-speech
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Communications
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE-CC.txt
+License-File: LICENSE-MIT.txt
+Requires-Dist: PyAudio
+Requires-Dist: av
+Requires-Dist: evaluate
+Requires-Dist: faster-whisper==1.1.0
+Requires-Dist: jiwer
+Requires-Dist: kaldialign
+Requires-Dist: numba
+Requires-Dist: numpy<2
+Requires-Dist: onnxruntime==1.17.0
+Requires-Dist: openai-whisper==20240930
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: soundfile
+Requires-Dist: tokenizers==0.20.3
+Requires-Dist: torch
+Requires-Dist: websockets
+Requires-Dist: websocket-client
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: setuptools-scm; extra == "dev"
+Requires-Dist: sphinx; extra == "dev"
+Requires-Dist: sphinx-autobuild; extra == "dev"
+Requires-Dist: sphinx-autodoc-typehints; extra == "dev"
+Requires-Dist: sphinx-intl; extra == "dev"
+Requires-Dist: sphinx-notfound-page; extra == "dev"
+Requires-Dist: sphinx-rtd-theme; extra == "dev"
+Requires-Dist: sphinxcontrib-markdown; extra == "dev"
+Requires-Dist: transpolibre; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+
+# atc2txt
+Automatic speech recognition and transcription of ATC (Air Traffic Control) streams.
+
+* https://atc2txt.org
+* https://spacecruft.org/aviation/atc2txt
+
+# Installation
+Thusly, suit to taste:
+
+```
+git clone https://spacecruft.org/aviation/atc2txt
+cd atc2txt/
+python -m venv venv
+source venv/bin/activate
+pip install -U setuptools pip wheel
+pip install -e .
+```
+
+# Help
+```
+$ atc2txt --help
+usage: atc2txt [-h] [-c] [-D] [-d [DOWNLOAD_MODEL]] [-m MODEL] [-s] [-u URL] [-v] [-V]
+
+Automatic speech recognition and transcription of ATC streams
+
+options:
+  -h, --help            show this help message and exit
+  -c, --client          Run client
+  -D, --debug           Debugging
+  -d [DOWNLOAD_MODEL], --download-model [DOWNLOAD_MODEL]
+                        Download model. Default: https://huggingface.co/jacktol/whisper-medium.en-fine-tuned-for-ATC-faster-whisper
+  -m MODEL, --model MODEL
+                        Model. Default: models/whisper-medium.en-fine-tuned-for-ATC-faster-whisper
+  -s, --server          Run server
+  -u URL, --url URL     URL to stream. Default: http://d.liveatc.net/kden1_1
+  -v, --verbose         Increase output verbosity
+  -V, --version         Show version
+```
+
+# Usage
+* Download a model.
+* Run the server in one window.
+* Run the client in another window.
+
+## Download
+```
+atc2txt --download-model
+```
+
+## Server
+```
+atc2txt --server
+```
+
+## Client
+```
+atc2txt --client
+```
+
+# Upstream
+* https://github.com/collabora/WhisperLive -- MIT License.
+* https://huggingface.co/jacktol/whisper-medium.en-fine-tuned-for-ATC-faster-whisper -- MIT License.
+
+# License
+MIT or Creative Commons CC by SA 4.0 International.
+You may use this code, files, and text under either license.
+
+Unofficial project, not related to upstream projects.
+
+Upstream sources under their respective copyrights.
+
+*Copyright &copy; 2025 Jeff Moe.*

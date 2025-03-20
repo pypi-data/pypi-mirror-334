@@ -1,0 +1,98 @@
+# pyproject.toml
+
+[build-system]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2",
+]
+
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atc2txt"
+dynamic = ["version"]
+authors = [
+    {name = "Jeff Moe", email = "moe@spacecruft.org"},
+]
+description = "Automatic speech recognition and transcription of ATC (Air Traffic Control) streams"
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = [
+    "air-traffic-control",
+    "ASR",
+    "ATC",
+    "automatic-speech-recognition",
+    "torch",
+    "TTS",
+    "txt-to-speech",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+
+dependencies = [
+    "PyAudio",
+    "av",
+    "evaluate",
+    "faster-whisper==1.1.0",
+    "jiwer",
+    "kaldialign",
+    "numba",
+    "numpy<2",
+    "onnxruntime==1.17.0",
+    "openai-whisper==20240930",
+    "python-dotenv",
+    "requests",
+    "scipy",
+    "soundfile",
+    "tokenizers==0.20.3",
+    "torch",
+    "websockets",
+    "websocket-client",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+    "setuptools-scm",
+    "sphinx",
+    "sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "sphinx-intl",
+    "sphinx-notfound-page",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-markdown",
+    "transpolibre",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://atc2txt.org"
+Documentation = "https://atc2txt.org"
+Repository = "https://spacecruft.org/aviation/atc2txt"
+Issues = "https://spacecruft.org/aviation/atc2txt"
+Changelog = "https://spacecruft.org/aviation/atc2txt/raw/branch/main/CHANGELOG.txt"
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/atc2txt/_version.py"
+
+[project.scripts]
+atc2txt = "atc2txt.main:main"
