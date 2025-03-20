@@ -1,0 +1,8 @@
+# This is the configuration file for Rio, an easy to use app & web framework for
+# Python.
+
+
+[app]
+main-module = "devel"
+project-files = ["*.py", "/assets/", "/rio.toml", "!/assets/foo.md"]
+# app-type = "app"
