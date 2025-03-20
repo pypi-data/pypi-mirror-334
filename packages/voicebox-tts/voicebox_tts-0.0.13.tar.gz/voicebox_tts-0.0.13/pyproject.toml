@@ -1,0 +1,96 @@
+# General pyproject.toml options:
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+#
+# setuptools-specific options:
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voicebox-tts"
+authors = [
+    { name = "Austin Bowen", email = "austin.bowen.314@gmail.com" },
+]
+description = "Python text-to-speech library with built-in voice effects and support for multiple TTS engines."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dynamic = ["version"]
+dependencies = [
+    "audioread",
+    "cachetools",
+    "nltk",
+    "numpy",
+    "pedalboard",
+    "scipy",
+    "sounddevice",
+]
+
+[project.optional-dependencies]
+all = [
+    "voicebox-tts[dev]",
+    "voicebox-tts[docs]",
+    "voicebox-tts[test]",
+    "voicebox-tts[amazon-polly]",
+    "voicebox-tts[elevenlabs]",
+    "voicebox-tts[google-cloud-tts]",
+    "voicebox-tts[gtts]",
+    "voicebox-tts[pyttsx3]",
+]
+dev = [
+    "build",
+    "invoke",
+    "twine",
+]
+docs = [
+    "myst-parser",
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+test = [
+    "coverage",
+    "parameterized",
+    "pytest",
+]
+amazon-polly = [
+    "boto3",
+    "boto3-stubs",
+    "boto3-stubs[polly]",
+]
+elevenlabs = [
+    "elevenlabs",
+]
+google-cloud-tts = [
+    "google-cloud-texttospeech",
+]
+gtts = [
+    "gTTS",
+]
+pyttsx3 = [
+    "pyttsx3",
+]
+
+[project.urls]
+Homepage = "https://github.com/austin-bowen/voicebox"
+Issues = "https://github.com/austin-bowen/voicebox/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "voicebox.version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["voicebox*"]
