@@ -1,0 +1,197 @@
+Metadata-Version: 2.2
+Name: internal_link_juicer_api_client
+Version: 1.0.3
+Summary: An Unofficial Python client for the Internal Link Juicer WordPress plugin API.
+Home-page: https://github.com/onur222/internal-link-juicer-api-client
+Author: Onur Gürpınar
+Author-email: onurgurpinar@gmail.com
+Project-URL: Bug Reports, https://github.com/onur222/internal-link-juicer-api-client/issues
+Project-URL: Source, https://github.com/onur222/internal-link-juicer-api-client
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: phpserialize
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# internal-link-juicer-api-client
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A Python client for interacting with the REST API of the **Internal Link Juicer** WordPress plugin. This library simplifies managing your link-building keywords programmatically.
+
+## What is the Internal Link Juicer?
+
+The [Internal Link Juicer](https://wordpress.org/plugins/internal-links/) is a popular, free WordPress plugin that automates the process of internal linking within your website's content. It helps improve SEO and user experience by intelligently linking keywords to relevant posts and pages. This Python client allows you to control the Internal Link Juicer's keyword configurations via its REST API.
+
+## About This Client
+
+This `internal-link-juicer-api-client` is an *unofficial* Python client. It is not developed or endorsed by the creators of the Internal Link Juicer plugin. It provides a convenient and Pythonic way to interact with the API exposed by the companion WordPress plugin, `internal-link-juicer-api` (see installation instructions below).
+
+**A huge thanks to the developers of the [Internal Link Juicer](https://wordpress.org/plugins/internal-links/) for creating such a useful plugin!**
+
+## Key Features
+
+*   **Easy-to-use API:** Simple methods for common operations like `get_definitions()`, `update_definition_by_post_id()`, and `update_definition_by_meta_id()`.
+*   **Pagination Support:** Efficiently retrieve large numbers of keyword definitions.
+*   **Automatic Serialization:** Handles conversion of Python lists to the required PHP serialized format.
+*   **Error Handling:** Robust error handling with informative exceptions (returns `None` on error).
+*   **Secure Authentication:** Uses WordPress Application Passwords for secure API access.
+
+## Use Cases
+
+*   **Bulk Keyword Updates:** Modify keywords across multiple posts simultaneously.
+*   **Automated Content Analysis:** Integrate with content analysis tools.
+*   **Custom Dashboards:** Build custom reporting tools.
+*   **Data Migration:** Transfer keyword definitions between sites.
+*   **Testing and Development:** Simplify testing Internal Link Juicer configurations.
+*   **Data Integration:** Connect Internal Link Juicer data with other SEO tools.
+
+## Prerequisites
+
+Before using this client, you need to install and configure *two* components:
+
+1.  **The `internal-link-juicer-api` WordPress Plugin (Server-Side):** This plugin exposes the REST API endpoints that the Python client interacts with. It's *essential* for this client to work.
+
+2.  **The `internal-link-juicer-api-client` Python Package (Client-Side):** This is the library you're currently reading about.
+
+## Installation
+
+### 1. WordPress Plugin Installation (`internal-link-juicer-api`)
+
+   There are several ways to install this *Wordpress plugin.*
+   * Via direct install (easy way.)
+        1.  Download a pre-build package
+        * Go [Releases page.](https://github.com/onur222/internal-link-juicer-api) of   *internal-link-juicer-api.*.
+       Download  attached .zip.
+      2. Go Your *Wordpress Admin Panel,  Plugins -> Add New ->Upload*, Select Downloaded .zip, click  *Install* button
+        *Activate Plugin*. You must see, *"Internal Link Juicer Api"* inside installed plugins list of Your *Wordpress site.*
+       * **Or,Via clone GITHUB:** Clone this project files under  ***`/wp-content/plugins/`*** : *`internal-link-juicer-api.php`*.and make its directory as:`internal-link-juicer-api`, Create a ilj_api.log empty file near .php,
+          and check all file/directories, permissions and reachability..
+
+**Important:** After installing the plugin, ensure it's activated. Also, ensure that the `ilj_api.log` file exists within the plugin directory and is writable by the webserver. This file is crucial for debugging.
+   After that operation. Plugin and REST API Endpoints are must accessible with your-website/wp-json/../.. route..
+
+### 2. Python Client Installation (`internal-link-juicer-api-client`)
+
+Install the Python client using `pip`:
+
+```bash
+pip install internal-link-juicer-api-client
+```
+**Important; Before that;** create `setup.py`. Use suggestion, that includes all important setting correctly(version requirements, author name, repo.. etc. And PyPi requires  unique project name, double-check. It. And  Follow `pip install -e .` stage and follow others installation / project setting configurations/test stages , in activated `.venv` to prevent, potential problems in package deploy to PyPi, testing client-package before share to other peoples.!.
+
+### 3. Create an Application Password (WordPress)
+
+For security, *do not* use your regular WordPress password. Create an "Application Password" instead:
+
+1.  Go to your WordPress admin dashboard.
+2.  Go to **Users -> Your Profile**.
+3.  Scroll down to the "Application Passwords" section.
+4.  Enter a name for the new password (e.g., "ILJ API Client").
+5.  Click "Add New Application Password."
+6.  **Copy the generated password immediately.** You will *not* be able to see it again. Store it securely.
+
+## Usage Examples
+
+```python
+from internal_link_juicer_api_client import ILJDefinitionAPIClient
+
+# --- Configuration (Replace with your actual credentials and website) ---
+website = "https://your-wordpress-site.com"  # e.g., https://example.com
+username = "your_wordpress_username"  # Your WordPress username
+password = "your_application_password"  # The Application Password you generated
+post_id_to_target = 123  # A post ID that exists on your WordPress site.
+
+# --- Initialize the Client ---
+client = ILJDefinitionAPIClient(website, username, password)
+
+# --- Example 1: Get All Definitions (with Pagination) ---
+
+print("\n--- Example 1: Get All Definitions (Page 1, 5 per page) ---")
+all_definitions_page1 = client.get_definitions(page=1, per_page=5)
+if all_definitions_page1:  # ALWAYS check for None (error handling)
+    for definition in all_definitions_page1:
+        print(
+            f"  Meta ID: {definition['meta_id']}, Post ID: {definition['post_id']}, Value: {definition['meta_value']}")
+
+print("\n--- Example 1: Get All Definitions (Page 2, 5 per page) ---")
+all_definitions_page2 = client.get_definitions(page=2, per_page=5)
+if all_definitions_page2:
+    for definition in all_definitions_page2:
+        print(
+            f"  Meta ID: {definition['meta_id']}, Post ID: {definition['post_id']}, Value: {definition['meta_value']}")
+
+# --- Example 2: Get Definition by Post ID ---
+
+print(f"\n--- Example 2: Get Definition by Post ID ({post_id_to_target}) ---")
+post_definition = client.get_definition_by_post_id(post_id_to_target)
+
+if post_definition:
+    print(f"  Meta ID: {post_definition['meta_id']}")
+    print(f"  Post ID: {post_definition['post_id']}")
+    print(f"  Meta Value: {post_definition['meta_value']}")
+    meta_id_to_update = post_definition['meta_id']  # For use in Example 4
+else:
+    meta_id_to_update = None
+    print(f"No definition found for post ID {post_id_to_target}")
+
+# --- Example 3: Update Definition by Post ID ---
+print(f"\n--- Example 3: Update Definition by Post ID ({post_id_to_target}) ---")
+new_keywords_post = ["keyword1", "keyword2", "keyword 3 with spaces", "123"]
+update_result_post = client.update_definition_by_post_id(post_id_to_target, new_keywords_post)
+
+if update_result_post:
+    print(f"  Update successful! Message: {update_result_post['message']}")
+    # Verify (optional, but good practice):
+    updated_post_definition = client.get_definition_by_post_id(post_id_to_target)
+    if updated_post_definition:
+        print(f"  Updated Value: {updated_post_definition['meta_value']}")
+
+# --- Example 4: Update Definition by Meta ID ---
+if meta_id_to_update:  # check before get operation by id..
+    print(f"\n--- Example 4: Update Definition by Meta ID ({meta_id_to_update}) ---")
+    new_keywords_meta = ["another keyword", "meta keyword"]
+    update_result_meta = client.update_definition_by_meta_id(meta_id_to_update, new_keywords_meta)
+
+    if update_result_meta:
+        print(f"  Update successful! Message: {update_result_meta['message']}")
+
+print(
+    f"\n--Check `ilj_api.log ` file under wp-contents/plugins/internal-link-juicer-api/ directory in your server to get more verbose debug info..")
+
+```
+
+## Dependencies
+
+*   Python 3.7+
+*   `requests`
+*   `phpserialize>=1.3`
+
+## Contributing
+
+You can contribute with; pull request! Fork this repo; apply suggestions/bug fixes. Test carefully. Create pull Request !.....etc).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
