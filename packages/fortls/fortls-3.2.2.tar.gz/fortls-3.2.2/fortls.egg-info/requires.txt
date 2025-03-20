@@ -1,0 +1,25 @@
+json5
+packaging
+
+[:python_version < "3.8"]
+importlib-metadata
+typing-extensions
+
+[dev]
+pytest>=7.2.0
+pytest-cov>=4.0.0
+pytest-xdist>=3.0.2
+black
+isort
+pre-commit
+pydantic
+
+[docs]
+sphinx>=4.0.0
+sphinx-argparse
+sphinx-autodoc-typehints
+sphinx_design
+sphinx-copybutton
+furo
+myst-parser
+sphinx-sitemap

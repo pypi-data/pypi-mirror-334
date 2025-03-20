@@ -1,0 +1,21 @@
+[run]
+omit =
+    fortls/__init__.py
+    fortls/debug.py
+    fortls/version.py
+    fortls/schema.py
+concurrency = multiprocessing
+parallel = true
+sigterm = true
+
+[report]
+exclude_lines =
+    if debug:
+    log.debug
+    except:
+    if not PY3K:
+    def update_m_intrinsics
+    update_m_intrinsics()
+
+[html]
+show_contexts = True
