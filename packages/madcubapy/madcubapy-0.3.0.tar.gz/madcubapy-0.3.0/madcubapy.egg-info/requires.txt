@@ -1,0 +1,15 @@
+astropy>=6.0.0
+matplotlib>=3.6.0
+numpy>=1.23.2
+scipy>=1.9.2
+
+[docs]
+astropy[recommended]
+sphinx
+sphinx-automodapi
+sphinx_changelog
+sphinx-design
+sphinx_gallery
+pydata_sphinx_theme
+matplotlib
+numpydoc
