@@ -1,0 +1,64 @@
+Metadata-Version: 2.2
+Name: quantup_utils
+Version: 1.1.7
+Summary: Quantup utils mainly for EDA and modelling.
+Author: Arkadiusz Kasprzyk
+Author-email: arkadiusz.kasprzyk@quantup.pl
+Project-URL: Repository, https://github.com/QuantUp/qutils/tree/main/utils-1.0
+Project-URL: Bug Reports, https://github.com/QuantUp/qutils/issues/
+Keywords: data,plotting,summary,variables,covariates,data frame,EDA,modelling
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: scikit-learn
+Requires-Dist: statsmodels
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Quantup utils
+
+This is package of tools for EDA and modelling.
+
+Intelligent easy to use and very flexible plot functions giving plots reach in information
+and fitting our analytical needs;
+they are nicely formatted and ready for placing in official reports.
+
+Summary for data frames – much better and more flexible then standard `pd.describe`.
+
+Etc.
+
+Under constant development.
+
+## Installation
+
+    pip install -i https://test.pypi.org/simple/ quantup-utils
+
+## Requirements
+
+    numpy
+    pandas
+    matplotlib
+    scikit-learn
+    statsmodels
+
+Dependencies currently do not install automatically (to be fixed soon).
