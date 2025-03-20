@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-l10n-usa
+Version: 16.0.20250316.0
+Summary: Meta package for oca-l10n-usa Odoo addons
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 16.0
+Requires-Dist: odoo-addon-l10n-us-account-routing<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-l10n-us-form-1099<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-l10n-us-gaap<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-l10n-us-gaap-mis-report<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-l10n-us-mis-financial-report<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-l10n-us-partner-legal-number<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-partner-usps-address-validation<16.1dev,>=16.0dev
+
+UNKNOWN
