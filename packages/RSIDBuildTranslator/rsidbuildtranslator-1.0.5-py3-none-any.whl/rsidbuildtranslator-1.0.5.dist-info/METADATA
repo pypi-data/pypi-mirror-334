@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: RSIDBuildTranslator
+Version: 1.0.5
+Summary: A tool that allows you to add chromosome and position for GRCh37 and GRCh38 based on rsIDs, or add rsIDs based on chromosome and position from either build.
+Project-URL: repository, https://github.com/siddhijain25/RSIDBuildTranslator
+Author: Siddhi Jain
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: gdown==5.2.0
+Requires-Dist: pandas>=2.2.2
+Description-Content-Type: text/markdown
+
+# RSIDBuildTranslator
+
+RSIDBuildTranslator is a tool that annotates genetic data with rsIDs, chromosome, and position from GRCh37 or GRCh38, using whichever is available in your data. The database used in this tool is based on GTEx v10 whole genome sequencing variants from 953 individuals, and has a coverage of roughly 48.5M variants. 
+
+This tool can be used on tabular data like for example, GWAS summary statistics. 
