@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "smartethan"
+version = "0.1.1"
+description = "For Ethan"
+readme = "README.md"
+authors = ["Shiyao Wang <sw1016@georgetown.edu>", "Xueqi Li <lixueqi1213@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
