@@ -1,0 +1,2 @@
+[console_scripts]
+clickhouse-mcp-server = clickhouse_mcp_server:main
