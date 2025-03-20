@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+fracmechpy/__init__.py
+fracmechpy/incpoly.py
+fracmechpy/secant.py
+fracmechpy.egg-info/PKG-INFO
+fracmechpy.egg-info/SOURCES.txt
+fracmechpy.egg-info/dependency_links.txt
+fracmechpy.egg-info/requires.txt
+fracmechpy.egg-info/top_level.txt
+tests/test_incpoly.py
+tests/test_secant.py
