@@ -1,0 +1,2 @@
+Version: 1.10.0
+Arguments: ['D:\\a\\MeshLib\\MeshLib\\venv\\Lib\\site-packages\\delvewheel\\__main__.py', 'repair', '--no-dll', 'msvcp140.dll;vcruntime140_1.dll;vcruntime140.dll', '--add-path', 'D:\\a\\MeshLib\\MeshLib\\source\\x64\\Release', '--analyze-existing', 'D:\\a\\MeshLib\\MeshLib\\scripts\\wheel\\meshlib\\dist\\meshlib-3.0.4.121-py38.py39.py310.py311.py312.py313-none-win_amd64.whl']
