@@ -1,0 +1,26 @@
+[project]
+name = "greeting_name"
+version = "1.4"
+authors = [
+  { name = "gaurav sharma", email = "gauravsh839@gamil.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { text = "MIT" }
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["greeting_name"]
