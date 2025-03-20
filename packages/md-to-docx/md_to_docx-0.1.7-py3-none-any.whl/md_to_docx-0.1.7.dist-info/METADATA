@@ -1,0 +1,142 @@
+Metadata-Version: 2.2
+Name: md-to-docx
+Version: 0.1.7
+Summary: Convert Markdown to DOCX with support for Mermaid diagrams
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/md-to-docx
+Project-URL: Bug Tracker, https://github.com/yourusername/md-to-docx/issues
+Keywords: markdown,docx,mermaid,converter
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Text Processing :: Markup
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: mcp[cli]>=1.3.0
+Requires-Dist: markdown>=3.7
+Requires-Dist: python-docx>=1.1.2
+Requires-Dist: beautifulsoup4>=4.13.3
+Requires-Dist: pillow>=11.1.0
+Requires-Dist: requests>=2.32.3
+
+﻿# Markdown to DOCX Converter
+
+一个功能强大的Markdown转DOCX文档转换器，支持Mermaid图表渲染。
+
+## 特性
+
+- 将Markdown文件转换为Word DOCX格式
+- 自动渲染Mermaid图表为图像
+- 支持代码块格式化和语法高亮
+- 支持表格、列表和其他Markdown元素
+
+## 安装
+
+```bash
+pip install md-to-docx
+```
+
+### 可选依赖
+
+为了增强Mermaid图表渲染功能，可以安装以下可选依赖:
+
+```bash
+# 安装mermaid-py - 功能丰富的Mermaid渲染库
+pip install mermaid-py==0.7.0  # 推荐安装此特定版本以避免兼容性问题
+
+# 或者安装pymermaid - 另一个纯Python的Mermaid渲染选项
+pip install pymermaid
+```
+
+如果没有安装这些可选依赖，系统将使用Kroki API在线渲染Mermaid图表。
+
+## 使用方法
+
+```python
+from md_to_docx import md_to_docx
+
+# 读取 Markdown 文件
+with open('your_file.md', 'r', encoding='utf-8') as f:
+    md_content = f.read()
+
+# 转换为 DOCX
+md_to_docx(md_content, output_file='output.docx')
+```
+
+## Mermaid 图表渲染方式
+
+本工具支持多种 Mermaid 图表渲染方式：
+
+1. **mermaid-py**（推荐）：功能丰富的Mermaid渲染库（版本0.7.0兼容性较好）
+2. **Kroki API**：在线渲染服务，无需本地依赖
+
+渲染引擎会自动按上述顺序尝试，直到成功渲染。
+
+## Debugging Code Block Issues
+
+If you encounter issues with code blocks, you can use these debugging features:
+
+1. **Enable debug mode**:
+   ```bash
+   md-to-docx input.md -o output.docx -d
+   ```
+   This will show detailed information about code block extraction and processing.
+
+2. **Use as a library with debug mode**:
+   ```python
+   from md_to_docx import md_to_docx
+   
+   result = md_to_docx(markdown_content, "output.docx", debug_mode=True)
+   ```
+
+## Common Issues
+
+### Code Blocks Not Displaying Correctly
+
+If code blocks aren't displaying correctly, it might be due to:
+
+1. Special characters in the code that affect the regex pattern matching
+2. Improper code block formatting (e.g., missing newlines)
+3. Incorrect handling of line breaks in the code
+
+### Mermaid Diagrams Not Rendering
+
+If Mermaid diagrams aren't rendering correctly, it might be due to:
+
+1. Mermaid CLI not being installed
+2. Network connection issues preventing access to the Kroki API
+3. Syntax errors in the Mermaid diagram code
+4. 库的版本不兼容（推荐使用mermaid-py==0.7.0）
+
+## Advanced Usage
+
+### Customizing Code Block Formatting
+
+You can modify the `format_code_block` function in the source code to customize code block formatting, such as changing fonts, sizes, or border styles.
+
+### Adding New Markdown Extensions
+
+You can add new Markdown extensions to support additional Markdown features by modifying the `md_to_docx` function:
+
+```python
+from md_to_docx import md_to_docx
+from md_to_docx.core import format_code_block
+
+# Your custom implementation here
+```
+
+## License
+
+MIT
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
