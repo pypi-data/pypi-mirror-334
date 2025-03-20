@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pentit/__init__.py
+pentit/main.py
+pentit.egg-info/PKG-INFO
+pentit.egg-info/SOURCES.txt
+pentit.egg-info/dependency_links.txt
+pentit.egg-info/entry_points.txt
+pentit.egg-info/requires.txt
+pentit.egg-info/top_level.txt
+tests/__init__.py
