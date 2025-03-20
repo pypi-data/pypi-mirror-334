@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: agentiq-mem0ai
+Version: 1.0.0
+Summary: Subpackage for Mem0 memory integration in AgentIQ
+Keywords: ai,agents,memory
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: mem0ai~=0.1.30
