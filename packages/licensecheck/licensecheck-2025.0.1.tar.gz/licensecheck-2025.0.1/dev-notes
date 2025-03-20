@@ -1,0 +1,4 @@
+Grab latest spdx licenses from here:
+https://raw.githubusercontent.com/spdx/license-list-data/refs/heads/main/json/licenses.json
+
+run a cleanup script to get ids to internal rep
