@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "import-volkswagen"
+version = "0.1.2"
+description = "Detect if running in a testing environment and control if methods act (either no-op in a test, or only act in a test)"
+authors = ["mshafer1 <2565361+mshafer1@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/mshafer1/py-vw"
+documentation = "https://mshafer1.github.io/py-vw/"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+packages = [{ include = "vw" }]
+
+[tool.ni-python-styleguide]
+application-import-names = "vw"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+python-decouple = "^3.8"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.5"
+pytest-random-order = "^1.1.1"
+
+[tool.poetry.group.lint.dependencies]
+ni-python-styleguide = "^0.4.6"
+
+
+[tool.poetry.group.tools.dependencies]
+poethepoet = ">=0.30.0"
+
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = ">=5.0"
+sphinx_rtd_theme = ">=1.0"
+sphinx_autoapi = ">=3.4.0"
+myst_parser = ">=3.0"
+
+[tool.poe.tasks]
+build = "poetry build"
+docs = "poetry run sphinx-build docs_config docs"
+lint = "poetry run ni-python-styleguide lint"
+
+# testing
+check ="poetry check"
+pytest = "poetry run pytest --doctest-modules -v"
+unittest = "poetry run python -m unittest discover -s . -v"
+validate = "poetry run python validate.py"
+
+# building and publishing
+version-bump = "poetry version patch"
+version-patch = "poetry version prepatch"
+
+test = ["pytest", "unittest", "validate"]
+all = ["check", "docs", "lint", "test", "build"]
+
+# publish
+publish = ["version-bump", "all", "version-patch"]
+
+[tool.pytest.ini_options]
+addopts = "--random-order"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
