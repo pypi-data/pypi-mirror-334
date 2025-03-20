@@ -1,0 +1,102 @@
+Metadata-Version: 2.4
+Name: text_imp
+Version: 0.1.1
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Rust
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: polars>=0.20.0
+Requires-Dist: pyarrow>=14.0.1
+Requires-Dist: python-dotenv>=1.0.0
+License-File: LICENSE
+Summary: Python bindings for iMessage and Contacts database access
+Keywords: imessage,contacts,macos,database
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://github.com/yourusername/text_imp
+Project-URL: Bug Tracker, https://github.com/yourusername/text_imp/issues
+Project-URL: Documentation, https://github.com/yourusername/text_imp#readme
+
+# Text Imp
+
+Python bindings for iMessage and Contacts database access.
+
+## Installation
+
+This package requires Python 3.8 or later. We use [uv](https://github.com/astral-sh/uv) for package management.
+
+```bash
+uv pip install text_imp
+```
+
+## Development Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/text_imp.git
+cd text_imp
+```
+
+1. Install uv if you haven't already:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+1. Create a virtual environment and install dependencies:
+```bash
+uv venv
+source .venv/bin/activate  # On Unix/macOS
+# or
+.venv\Scripts\activate  # On Windows
+
+# Install the package in editable mode with all dependencies
+uv pip install -e .
+```
+
+## Building from Source
+
+The package uses Maturin for building the Rust extensions. To build from source in one line:
+
+```bash
+uv pip install -e .
+```
+
+Or if you want to build and verify the installation:
+
+```bash
+uv pip install -e . && uv run --with text_imp --no-project -- python -c "import text_imp"
+```
+
+## Usage
+
+See `example.py`
+
+## Requirements
+
+- Python >= 3.8
+- macOS (for iMessage database access)
+- [uv](https://github.com/astral-sh/uv) package manager
+
+## Project Structure
+
+```txt
+text_imp/
+├── src/           # Rust source code
+├── text_imp/      # Python package directory
+├── examples/      # Usage examples
+├── tests/         # Test files
+├── Cargo.toml     # Rust dependencies and configuration
+└── pyproject.toml # Python package configuration
+```
+
