@@ -1,0 +1,153 @@
+Metadata-Version: 2.1
+Name: library_utils
+Version: 0.1.8
+Summary: A collection of utility functions for AWS services
+Home-page: https://github.com/Jiyoung0716/Final_CPP_Project
+Author: x24142816-JiyoungKim
+Author-email: x24142816@student.ncirl.ie
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+==============================================
+   x24142816 Remote worktime tracker Guide
+==============================================
+
+This document provides an overview of the dependencies, setup, and deployment
+steps. 
+And thiw project interacts with AWS services such as S3, DynamoDB, SQS, SNS,
+and CloudWatch.
+
+---------------------------------------------------------
+    1. Required Dependencies
+---------------------------------------------------------
+
+Ensure you have Python 3.6+ installed.
+
+To install the required dependencies, run:
+
+    pip install -r requirements.txt
+
+List of dependencies:
+
+    boto3==1.37.8
+    botocore==1.37.8
+    Django==4.2.19
+    setuptools==59.6.0
+    gunicorn==23.0.0
+    Pillow==11.1.0
+
+(Note: The `requirements.txt` file is located in the project's root directory.)
+
+---------------------------------------------------------
+    2. utils > library 
+---------------------------------------------------------
+# utils - AWS Utilities Library.
+
+
+`utils` is a Python library that provides various utility functions to interact 
+with AWS services such as S3, DynamoDB, SQS, and CloudWatch.
+
+## Features
+
+- **CloudWatch**: Create log groups and streams, and write logs to CloudWatch.
+- **DynamoDB**: Save and update user data and worktime in DynamoDB.
+- **S3**: Manage files in S3 storage.
+- **SQS**: Send and receive messages from SQS.
+- **SNS**: Send notifications using SNS.
+
+## Installation
+
+You can install this library using `pip`:
+
+```bash
+pip install utils
+```
+
+---------------------------------------------------------
+    3. Application Setup & Execution
+---------------------------------------------------------
+### **Clone the Repository**
+    
+    git clone https://github.com/Jiyoung0716/Final_CPP_Project.git
+    cd Final_CPP_Project
+
+For macOS/Linux:
+    
+    python -m venv env
+    source env/bin/activate
+
+For Windows:
+
+    python -m venv env
+    env\Scripts\activate
+
+### **Install Dependencies**
+    
+    pip install -r requirements.txt
+
+### env file** (store sensitive credentials):
+
+    AWS_REGION=us-east-1
+    S3_BUCKET_NAME=x24142816-s3bucket
+    DYNAMODB_TABLE_USERS=Users
+    DYNAMODB_TABLE_WORKTIME=Worktime
+    DYNAMODB_TABLE_PROJECTS=Projects
+    SNS_TOPIC_ARN=arn:aws:sns:us-east-1:278101256714:x24142816-notification
+    SQS_QUEUE_URL=https://sqs.us-east-1.amazonaws.com/278101256714/x24142816_JiyoungKim_Queues
+
+### **Run the Application**
+
+    python manage.py runserver 8080
+    python3 manage.py runserver 8080
+
+---------------------------------------------------------
+    4. Deployment Steps (Elastic Beanstalk)
+---------------------------------------------------------
+
+### **Initialize Elastic Beanstalk**
+    
+    eb init -p python-3.9 Remoteworktimetracker
+
+### **Create an Environment**
+
+    No need since the environment already exists (my-env)
+
+### **Deploy the Application**
+    
+    eb deploy
+
+### **Check Logs**
+    
+    eb logs
+
+### **Open Application**
+    
+    eb open
+
+---------------------------------------------------------
+    5. Configuration Files
+---------------------------------------------------------
+
+### ** `django.config` (Elastic Beanstalk Configuration)**
+
+    Located in `.ebextensions/`, this file contains environment settings for Django.
+
+    option_settings:
+        aws:elasticbeanstalk:container:python:
+            WSGIPath: tracker.wsgi:application
+
+### ** `python-publish.yml` (GitActions)** 
+
+    This GitHub Actions workflow automates the CI/CD process 
+    for publishing a Python package to PyPI.
+    (content: pylint-static analysis, library)
+
+### ** `Procile` (Role to run Django with Gunicorn)**
+    
+    web: gunicorn --bind 0.0.0.0:8080 tracker.wsgi:application
+
