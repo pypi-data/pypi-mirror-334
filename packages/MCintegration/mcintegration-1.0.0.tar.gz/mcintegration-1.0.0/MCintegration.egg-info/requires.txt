@@ -1,0 +1,15 @@
+torch
+numpy
+normflows
+vegas
+mpmath
+matplotlib
+tqdm
+absl-py
+beautifulsoup4
+pandas
+
+[docs]
+mkdocs
+mkdocstrings[python]
+mkdocs-jupyter
