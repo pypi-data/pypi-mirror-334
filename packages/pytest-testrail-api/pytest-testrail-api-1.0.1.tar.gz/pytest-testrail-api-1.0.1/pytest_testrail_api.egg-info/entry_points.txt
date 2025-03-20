@@ -1,0 +1,6 @@
+[pytest11]
+pytest-testrail-api = pytest_testrail_api.configure
+
+[testrail_api]
+test_rail_client = pytest_testrail_api.test_rail
+
