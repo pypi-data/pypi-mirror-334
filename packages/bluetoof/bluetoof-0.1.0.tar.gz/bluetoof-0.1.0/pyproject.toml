@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bluetoof"
+version = "0.1.0"
+description = "Librairie Python pour interagir avec des appareils Bluetooth"
+authors = [{name = "mz4r", email = "mz4rr@proton.me"}]
+license = {text = "MIT"}
+dependencies = ["pybluez"]
+
+[project.urls]
+Homepage = "https://github.com/mz4r/bluetoof"
+Repository = "https://github.com/mz4r/bluetoof"
