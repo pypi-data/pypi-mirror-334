@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: demonproto
+Version: 4.8
+Summary: End-to-end encryption chat protocol
+Home-page: https://github.com/certikpolik1/thecryptoxprotox
+Author: ALfisene Keita
+Author-email: info@infopeklo.cz
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# VexusProto
+DemonProto is an end-to-end encryption chat protocol implemented in Python.
+It uses modern cryptographic algorithms to ensure secure communication.
