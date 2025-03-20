@@ -1,0 +1,1188 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mathUtils &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="match2seq" href="biskit.match2seq.html" />
+    <link rel="prev" title="molUtils" href="biskit.molUtils.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.hist.html">hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.tools.html">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.molUtils.html">molUtils</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mathUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.match2seq.html">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>mathUtils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.mathUtils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-biskit.mathUtils">
+<span id="mathutils"></span><h1>mathUtils<a class="headerlink" href="#module-biskit.mathUtils" title="Permalink to this headline">¶</a></h1>
+<p>general purpose math methods</p>
+<p class="rubric">Functions Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.SD" title="biskit.mathUtils.SD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SD</span></code></a></td>
+<td>Standard deviation, S{sigma}</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.aboveDiagonal" title="biskit.mathUtils.aboveDiagonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aboveDiagonal</span></code></a></td>
+<td>Collect all the values above the diagonal in a square matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.accumulate" title="biskit.mathUtils.accumulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">accumulate</span></code></a></td>
+<td>cumulative sum of C{ a[0], a[0]+a[1], a[0]+a[1]+[a2], …</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.area" title="biskit.mathUtils.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">area</span></code></a></td>
+<td>Numerically add up the area under the given curve.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.arrayEqual" title="biskit.mathUtils.arrayEqual"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arrayEqual</span></code></a></td>
+<td>Compare 2 arrays or lists of numbers for equality.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.cartesian2D" title="biskit.mathUtils.cartesian2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian2D</span></code></a></td>
+<td>Convert from polar (r,w) to rectangular (x,y) x = r cos(w) y = r sin(w) Author: Victor Gil</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.cartesianToPolar" title="biskit.mathUtils.cartesianToPolar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesianToPolar</span></code></a></td>
+<td>Convert cartesian coordinate array to polar coordinate array: C{ x,y,z -&gt; r, S{theta}, S{phi} }</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.cbrt" title="biskit.mathUtils.cbrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cbrt</span></code></a></td>
+<td>cubic root.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.cubic" title="biskit.mathUtils.cubic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubic</span></code></a></td>
+<td>x^3 + ax^2 + bx + c = 0  (or ax^3 + bx^2 + cx + d = 0) With substitution x = y-t and t = a/3, the cubic equation reduces to     y^3 + py + q = 0, where p = b-3t^2 and q = c-bt+2t^3.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.difference" title="biskit.mathUtils.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">difference</span></code></a></td>
+<td>All members of a that are not in b C{ difference([any], [any]) -&gt; [any] }</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.eulerRotation" title="biskit.mathUtils.eulerRotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eulerRotation</span></code></a></td>
+<td>Builds a rotation matrix from successive rotations:   1.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.intersection" title="biskit.mathUtils.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersection</span></code></a></td>
+<td>Intersection of the two lists (i.e.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.linfit" title="biskit.mathUtils.linfit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linfit</span></code></a></td>
+<td>Calculate linear least-square fit to the points given by x and y.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.listToMatrix" title="biskit.mathUtils.listToMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listToMatrix</span></code></a></td>
+<td>Convert result of <a class="reference internal" href="#biskit.mathUtils.matrixToList" title="biskit.mathUtils.matrixToList"><code class="xref py py-class docutils literal notranslate"><span class="pre">matrixToList</span></code></a> back into Numeric array</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.matrixToList" title="biskit.mathUtils.matrixToList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matrixToList</span></code></a></td>
+<td>Convert matrix into standard python list remembering the dimensions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.nonredundant" title="biskit.mathUtils.nonredundant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonredundant</span></code></a></td>
+<td>All members of a list without duplicates C{ noredundant( [any] ) -&gt; [any] }</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.outliers" title="biskit.mathUtils.outliers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outliers</span></code></a></td>
+<td>Iterative detection of outliers in a set of numeric values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.packBinaryMatrix" title="biskit.mathUtils.packBinaryMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">packBinaryMatrix</span></code></a></td>
+<td>Compress sparse array of 0 and ones to list of one-positions (space saving function, upack with <a class="reference internal" href="#biskit.mathUtils.unpackBinaryMatrix" title="biskit.mathUtils.unpackBinaryMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">unpackBinaryMatrix</span></code></a>).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.pairwiseDistances" title="biskit.mathUtils.pairwiseDistances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwiseDistances</span></code></a></td>
+<td>Pairwise distances between two arrays.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.polar2D" title="biskit.mathUtils.polar2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar2D</span></code></a></td>
+<td>Convert from rectangular (x,y) to polar (r,w) r = sqrt(x^2 + y^2) w = arctan(y/x) = [-pi,pi] = [-180,180]</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.polarToCartesian" title="biskit.mathUtils.polarToCartesian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">polarToCartesian</span></code></a></td>
+<td>Convert polar coordinate array to cartesian coordinate array: C{ r, S{theta}, S{phi} -&gt; x,y,z }</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.projectOnSphere" title="biskit.mathUtils.projectOnSphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectOnSphere</span></code></a></td>
+<td>Project the coordinates xyz on a sphere with a given radius around a given center.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.quadratic" title="biskit.mathUtils.quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic</span></code></a></td>
+<td>x^2 + ax + b = 0 (or ax^2 + bx + c = 0) By substituting x = y-t and t = a/2, the equation reduces to y^2 + (b-t^2) = 0 which has easy solution y = +/- sqrt(t^2-b)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.random2DArray" title="biskit.mathUtils.random2DArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random2DArray</span></code></a></td>
+<td>Create randomized 2D array containing ones and zeros.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.randomMask" title="biskit.mathUtils.randomMask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomMask</span></code></a></td>
+<td>Create random array of given lenght and number of ones.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.randomRange" title="biskit.mathUtils.randomRange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomRange</span></code></a></td>
+<td>Creates a set of n unique integers randomly distributed between start and stop.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.randomRotation" title="biskit.mathUtils.randomRotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randomRotation</span></code></a></td>
+<td>Get random rotation matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.removeFromList" title="biskit.mathUtils.removeFromList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeFromList</span></code></a></td>
+<td>Remove all or first occurrence(s) of v from l.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.rotateAxis" title="biskit.mathUtils.rotateAxis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotateAxis</span></code></a></td>
+<td>Calculate a left multiplying rotation matrix that rotates theta rad around vector.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.runningAverage" title="biskit.mathUtils.runningAverage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">runningAverage</span></code></a></td>
+<td>Running average (smoothing) over a given data window.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">slidingAverage</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.union" title="biskit.mathUtils.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">union</span></code></a></td>
+<td>Union of two lists (without duplicates) C{ union( [any], [any] ) -&gt; [any] }</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.unpackBinaryMatrix" title="biskit.mathUtils.unpackBinaryMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unpackBinaryMatrix</span></code></a></td>
+<td>Uncompress array of 0 and 1 that was compressed with <a class="reference internal" href="#biskit.mathUtils.packBinaryMatrix" title="biskit.mathUtils.packBinaryMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">packBinaryMatrix</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.variance" title="biskit.mathUtils.variance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variance</span></code></a></td>
+<td>Variance, S{sigma}^2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.wMean" title="biskit.mathUtils.wMean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wMean</span></code></a></td>
+<td>Weighted mean: Mean of data (x) weighted by (w).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.mathUtils.wSD" title="biskit.mathUtils.wSD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wSD</span></code></a></td>
+<td>Standard deviation of weighted data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.wVar" title="biskit.mathUtils.wVar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wVar</span></code></a></td>
+<td>Variance of weighted (w) data (x).</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<p class="rubric">Exceptions Defined in this Module</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.mathUtils.MathUtilError" title="biskit.mathUtils.MathUtilError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MathUtilError</span></code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>mathUtils Module Details</h2><dl class="exception">
+<dt id="biskit.mathUtils.MathUtilError">
+<em class="property">exception </em><code class="descclassname">biskit.mathUtils.</code><code class="descname">MathUtilError</code><a class="reference internal" href="../../_modules/biskit/mathUtils.html#MathUtilError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.MathUtilError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.accumulate">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">accumulate</code><span class="sig-paren">(</span><em>a</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#accumulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.accumulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>cumulative sum of C{ a[0], a[0]+a[1], a[0]+a[1]+[a2], … }
+normalized by C{ N0.sum( a ) }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> (<em>array</em>) – array(‘f’) or float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.variance">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">variance</code><span class="sig-paren">(</span><em>x</em>, <em>avg=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#variance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.variance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Variance, S{sigma}^2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em><em>(</em><em>'f'</em><em>) or </em><em>float</em>) – data</li>
+<li><strong>avg</strong> (<em>float OR None</em>) – use this average, otherwise calculated from x</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.SD">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">SD</code><span class="sig-paren">(</span><em>x</em>, <em>avg=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#SD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.SD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation, S{sigma}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em><em>(</em><em>'f'</em><em>) or </em><em>float</em>) – data</li>
+<li><strong>avg</strong> (<em>float OR None</em>) – use this average, otherwise calculated from x</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.wMean">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">wMean</code><span class="sig-paren">(</span><em>x</em>, <em>w=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#wMean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.wMean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weighted mean: Mean of data (x) weighted by (w).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em>) – X-D array with numbers</li>
+<li><strong>w</strong> (<em>array</em>) – 1-D array of same length as x with weight factors</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array(‘f’) or float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array(‘f’) or float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.wVar">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">wVar</code><span class="sig-paren">(</span><em>x</em>, <em>w</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#wVar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.wVar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Variance of weighted (w) data (x).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em>) – X-D array with numbers</li>
+<li><strong>w</strong> (<em>array</em>) – 1-D array of same length as x with weight factors</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array(‘f’) or float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array(‘f’) or float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.wSD">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">wSD</code><span class="sig-paren">(</span><em>x</em>, <em>w</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#wSD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.wSD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation of weighted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array</em>) – X-D array with numbers</li>
+<li><strong>w</strong> (<em>array</em>) – 1-D array of same length as x with weight factors</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array(‘f’) or float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array(‘f’) or float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.aboveDiagonal">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">aboveDiagonal</code><span class="sig-paren">(</span><em>pw_m</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#aboveDiagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.aboveDiagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect all the values above the diagonal in a square
+matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pw_m</strong> (<em>2-D array</em>) – symmetric square matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">raveled list of ‘unique’ values without diagonal</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.arrayEqual">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">arrayEqual</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#arrayEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.arrayEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare 2 arrays or lists of numbers for equality.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>array / list</em>) – first array (multi-dimensional is supported)</li>
+<li><strong>b</strong> (<em>array / list</em>) – second array (multi-dimensional is supported)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">1 if array/list a equals array/list b</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">1|0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.pairwiseDistances">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">pairwiseDistances</code><span class="sig-paren">(</span><em>u</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#pairwiseDistances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.pairwiseDistances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pairwise distances between two arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>u</strong> (<em>array</em>) – first array</li>
+<li><strong>v</strong> (<em>array</em>) – second array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array( len(u) x len(v) ) of double</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.randomMask">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">randomMask</code><span class="sig-paren">(</span><em>nOnes</em>, <em>length</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#randomMask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.randomMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create random array of given lenght and number of ones.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nOnes</strong> (<em>int</em>) – number of ones</li>
+<li><strong>length</strong> (<em>int</em>) – lenght of array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array with ones and zeros</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array( 1|0 )</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.random2DArray">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">random2DArray</code><span class="sig-paren">(</span><em>matrix</em>, <em>ranNr=1</em>, <em>mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#random2DArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.random2DArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create randomized 2D array containing ones and zeros.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>matrix</strong> (<em>2D array</em>) – matrix to randomize</li>
+<li><strong>mask</strong> (<em>list</em><em>(</em><em>1|0</em><em>)</em>) – mask OR None (default: None)</li>
+<li><strong>ranNr</strong> (<em>integer</em>) – number of matricies to add up (default: 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">2D array or <a href="#id1"><span class="problematic" id="id2">|ranNr|</span></a> added contact matricies</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype:2D array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#biskit.mathUtils.MathUtilError" title="biskit.mathUtils.MathUtilError"><strong>MathUtilError</strong></a> – if mask does not fit matrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.runningAverage">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">runningAverage</code><span class="sig-paren">(</span><em>x</em>, <em>interval=2</em>, <em>preserve_boundaries=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#runningAverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.runningAverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Running average (smoothing) over a given data window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>list of int/float</em>) – data</li>
+<li><strong>interval</strong> (<em>int</em>) – window size C{ (-(interval-1)/2 to +(interval-1)/2) }
+(default: 2)</li>
+<li><strong>preserve_boundaries</strong> (<em>0|1</em>) – shrink window at edges to keep original
+start and end value (default: 0)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of floats</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[ float ]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.area">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">area</code><span class="sig-paren">(</span><em>curve</em>, <em>start=0.0</em>, <em>stop=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numerically add up the area under the given curve.
+The curve is a 2-D array or list of tupples.
+The x-axis is the first column of this array (curve[:,0]).
+(originally taken from biskit.Statistics.ROCalyzer)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>curve</strong> (<em>[ </em><em>(</em><em>y</em><em>,</em><em>x</em><em>)</em><em>, </em><em>] or </em><em>N0.array</em>) – a list of x,y coordinates</li>
+<li><strong>start</strong> (<em>float</em>) – lower boundary (in x) (default: 0.0)</li>
+<li><strong>stop</strong> (<em>float</em>) – upper boundary (in x) (default: 1.0)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the area underneath the curve between start and stop.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.packBinaryMatrix">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">packBinaryMatrix</code><span class="sig-paren">(</span><em>cm</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#packBinaryMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.packBinaryMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compress sparse array of 0 and ones to list of one-positions
+(space saving function, upack with <a class="reference internal" href="#biskit.mathUtils.unpackBinaryMatrix" title="biskit.mathUtils.unpackBinaryMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">unpackBinaryMatrix</span></code></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cm</strong> (<em>2D array</em>) – X by Y array of int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">{‘shape’:(X,Y), ‘nonzero’:[int] }</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.unpackBinaryMatrix">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">unpackBinaryMatrix</code><span class="sig-paren">(</span><em>pcm</em>, <em>raveled=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#unpackBinaryMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.unpackBinaryMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncompress array of 0 and 1 that was compressed with <a class="reference internal" href="#biskit.mathUtils.packBinaryMatrix" title="biskit.mathUtils.packBinaryMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">packBinaryMatrix</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pcm</strong> (<em>dict</em>) – {‘shape’:(X,Y,..), ‘nonzero’:[int]}</li>
+<li><strong>raveled</strong> (<em>1|0</em>) – return raveled (default: 0)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">N0.array(X by Y by ..) of int</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">2D array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.matrixToList">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">matrixToList</code><span class="sig-paren">(</span><em>cm</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#matrixToList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.matrixToList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert matrix into standard python list remembering the dimensions.
+Unpack with <a class="reference internal" href="#biskit.mathUtils.listToMatrix" title="biskit.mathUtils.listToMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">listToMatrix</span></code></a>.</p>
+<p>Note: Not used right now.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cm</strong> (<em>2D array</em>) – array of int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">{‘shape’:(int,..), ‘lst’:[..] }</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.listToMatrix">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">listToMatrix</code><span class="sig-paren">(</span><em>lcm</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#listToMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.listToMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert result of <a class="reference internal" href="#biskit.mathUtils.matrixToList" title="biskit.mathUtils.matrixToList"><code class="xref py py-class docutils literal notranslate"><span class="pre">matrixToList</span></code></a> back into Numeric array</p>
+<p>Note: Not used right now.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lcm</strong> (<em>dict</em>) – {‘shape’:(int,..), ‘lst’:[..] }</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.eulerRotation">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">eulerRotation</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em>, <em>gamma</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#eulerRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.eulerRotation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Builds a rotation matrix from successive rotations:</dt>
+<dd><ol class="first last arabic simple">
+<li>rotation about y-axis by angle alpha</li>
+<li>rotation about x-axis by angle beta</li>
+<li>rotation about z-axis by angle gamma</li>
+</ol>
+</dd>
+</dl>
+<p>Written by Michael Habeck.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>alpha</strong> (<em>float</em>) – euler angle S{alpha}</li>
+<li><strong>beta</strong> (<em>float</em>) – euler angle S{beta}</li>
+<li><strong>gamma</strong> (<em>float</em>) – euler angle S{gamma}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">3 x 3 array of float</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.randomRotation">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">randomRotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#randomRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.randomRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get random rotation matrix.</p>
+<p>Written by Michael Habeck.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">3 x 3 array of float</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.intersection">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">intersection</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>optimize=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intersection of the two lists (i.e. all values common to both two lists).
+C{ intersection( [any], [any] ) -&gt; [any] }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>[</em><em>any</em><em>]</em>) – first list</li>
+<li><strong>b</strong> (<em>[</em><em>any</em><em>]</em>) – second list</li>
+<li><strong>optimize</strong> (<em>1|0</em>) – result is sorted like the shorter of the two lists
+(default: 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[any]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.nonredundant">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">nonredundant</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#nonredundant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.nonredundant" title="Permalink to this definition">¶</a></dt>
+<dd><p>All members of a list without duplicates
+C{ noredundant( [any] ) -&gt; [any] }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>l</strong> (<em>[</em><em>any</em><em>]</em>) – list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.union">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">union</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#union"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Union of two lists (without duplicates)
+C{ union( [any], [any] ) -&gt; [any] }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>[</em><em>any</em><em>]</em>) – first list</li>
+<li><strong>b</strong> (<em>[</em><em>any</em><em>]</em>) – second list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[any]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.difference">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">difference</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#difference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>All members of a that are not in b
+C{ difference([any], [any]) -&gt; [any] }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>[</em><em>any</em><em>]</em>) – first list</li>
+<li><strong>b</strong> (<em>[</em><em>any</em><em>]</em>) – second list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[any]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.removeFromList">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">removeFromList</code><span class="sig-paren">(</span><em>l</em>, <em>v</em>, <em>all=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#removeFromList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.removeFromList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all or first occurrence(s) of v from l.
+C{ removeFromList( l, v, [all=1] ) }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>l</strong> (<em>[ </em><em>any</em><em> ]</em>) – list</li>
+<li><strong>v</strong> (<em>any</em><em> or </em><em>[ </em><em>any</em><em> ]</em>) – remove these values</li>
+<li><strong>all</strong> (<em>0|1</em>) – remove all occurrences (1) or only first one (0) (default: 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[any]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.randomRange">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">randomRange</code><span class="sig-paren">(</span><em>start</em>, <em>stop</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#randomRange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.randomRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a set of n unique integers randomly distributed between
+start and stop.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> (<em>int</em>) – minimal index</li>
+<li><strong>stop</strong> (<em>int</em>) – 1+maximal index</li>
+<li><strong>n</strong> (<em>int</em>) – number of indices</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">set of unique integers evenly distributed between start and stop</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[int]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.linfit">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">linfit</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#linfit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.linfit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate linear least-square fit to the points given by x and y.
+see U{<a class="reference external" href="http://mathworld.wolfram.com/LeastSquaresFitting.html">http://mathworld.wolfram.com/LeastSquaresFitting.html</a>}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>[ </em><em>float</em><em> ]</em>) – x-data</li>
+<li><strong>y</strong> (<em>[ </em><em>float</em><em> ]</em>) – y-data</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">m, n, r^2 (slope, intersection, corr. coefficient)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float, float, float</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="biskit.BiskitError.html#biskit.BiskitError" title="biskit.BiskitError"><strong>BiskitError</strong></a> – if x and y have different number of elements</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.cartesianToPolar">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">cartesianToPolar</code><span class="sig-paren">(</span><em>xyz</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#cartesianToPolar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.cartesianToPolar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert cartesian coordinate array to polar coordinate array:
+C{ x,y,z -&gt; r, S{theta}, S{phi} }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xyz</strong> (<em>array</em>) – array of cartesian coordinates (x, y, z)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array of polar coordinates (r, theta, phi)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.polarToCartesian">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">polarToCartesian</code><span class="sig-paren">(</span><em>rtp</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#polarToCartesian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.polarToCartesian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert polar coordinate array to cartesian coordinate array:
+C{ r, S{theta}, S{phi} -&gt; x,y,z }</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rtp</strong> (<em>array</em>) – array of cartesian coordinates (r, theta, phi)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array of cartesian coordinates (x, y, z)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.projectOnSphere">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">projectOnSphere</code><span class="sig-paren">(</span><em>xyz</em>, <em>radius=None</em>, <em>center=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#projectOnSphere"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.projectOnSphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the coordinates xyz on a sphere with a given radius around
+a given center.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>xyz</strong> (<em>array N x 3 of float</em>) – cartesian coordinates</li>
+<li><strong>radius</strong> (<em>float</em>) – radius of target sphere, if not provided the maximal
+distance to center will be used (default: None)</li>
+<li><strong>center</strong> (<em>array 0 x 3 of float</em>) – center of the sphere, if not given the average of xyz
+will be assigned to the center (default: None)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array of cartesian coordinates (x, y, z)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.rotateAxis">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">rotateAxis</code><span class="sig-paren">(</span><em>theta</em>, <em>vector</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#rotateAxis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.rotateAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a left multiplying rotation matrix that rotates
+theta rad around vector.</p>
+<p>Taken from: <a class="reference external" href="http://osdir.com/ml/python.bio.devel/2008-09/msg00084.html">http://osdir.com/ml/python.bio.devel/2008-09/msg00084.html</a></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">=</span><span class="n">rotateAxis</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>theta</strong> (<em>float</em>) – the rotation angle</li>
+<li><strong>vector</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>) – the rotation axis</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The rotation matrix, a 3x3 Numeric array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.cbrt">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">cbrt</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#cbrt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.cbrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>cubic root.
+Author: Victor Gil.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.cartesian2D">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">cartesian2D</code><span class="sig-paren">(</span><em>r</em>, <em>w</em>, <em>deg=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#cartesian2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.cartesian2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from polar (r,w) to rectangular (x,y) x = r cos(w) y = r sin(w)
+Author: Victor Gil</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.polar2D">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">polar2D</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>deg=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#polar2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.polar2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from rectangular (x,y) to polar (r,w) r = sqrt(x^2 + y^2)
+w = arctan(y/x) = [-pi,pi] = [-180,180]</p>
+<p>Author: Victor Gil</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.quadratic">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">quadratic</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#quadratic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.quadratic" title="Permalink to this definition">¶</a></dt>
+<dd><p>x^2 + ax + b = 0 (or ax^2 + bx + c = 0) By substituting x = y-t and t = a/2,
+the equation reduces to y^2 + (b-t^2) = 0 which has easy solution
+y = +/- sqrt(t^2-b)</p>
+<p>Author: Victor Gil</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.cubic">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">cubic</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em>, <em>d=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#cubic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.cubic" title="Permalink to this definition">¶</a></dt>
+<dd><p>x^3 + ax^2 + bx + c = 0  (or ax^3 + bx^2 + cx + d = 0)
+With substitution x = y-t and t = a/3, the cubic equation reduces to</p>
+<blockquote>
+<div>y^3 + py + q = 0,</div></blockquote>
+<p>where p = b-3t^2 and q = c-bt+2t^3.  Then, one real root y1 = u+v can
+be determined by solving</p>
+<blockquote>
+<div>w^2 + qw - (p/3)^3 = 0</div></blockquote>
+<dl class="docutils">
+<dt>where w = u^3, v^3.  From Vieta’s theorem,</dt>
+<dd>y1 + y2 + y3 = 0
+y1 y2 + y1 y3 + y2 y3 = p
+y1 y2 y3 = -q,</dd>
+<dt>the other two (real or complex) roots can be obtained by solving</dt>
+<dd>y^2 + (y1)y + (p+y1^2) = 0</dd>
+</dl>
+<p>Author: Victor Gil</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.mathUtils.outliers">
+<code class="descclassname">biskit.mathUtils.</code><code class="descname">outliers</code><span class="sig-paren">(</span><em>a</em>, <em>z=5</em>, <em>it=5</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/mathUtils.html#outliers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.mathUtils.outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterative detection of outliers in a set of numeric values.
+Requirement: len(a) &gt; 0; outlier detection is only performed if len(a)&gt;2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>[ </em><em>float</em><em> ]</em>) – array or list of values</li>
+<li><strong>z</strong> (<em>float</em>) – z-score threshold for iterative refinement of median and SD</li>
+<li><strong>it</strong> (<em>int</em>) – maximum number of iterations</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">outlier mask, median and standard deviation of last iteration</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">N0.array( int ), float, float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.match2seq.html" class="btn btn-neutral float-right" title="match2seq" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.molUtils.html" class="btn btn-neutral" title="molUtils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

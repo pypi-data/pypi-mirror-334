@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AmberResidueLibrary &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AmberResidueLibrary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>AmberResidueLibrary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.AmberResidueLibrary.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="amberresiduelibrary">
+<h1>AmberResidueLibrary<a class="headerlink" href="#amberresiduelibrary" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="biskit.AmberResidueLibrary">
+<em class="property">class </em><code class="descclassname">biskit.</code><code class="descname">AmberResidueLibrary</code><span class="sig-paren">(</span><em>topofiles=['all_amino03.in', 'all_aminoct03.in', 'all_aminont03.in', 'all_nuc02.in'], log=None, verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A collection of reference residue types taken from Amber topology files.
+By default, the collection is initialized from the four all-atom
+library or “off files” in Biskit/data/amber/residues.
+The idea here is that the residues of some PDB structure can be matched
+against this library in order to assign charges or other properties.</p>
+<p>Matching residue types are indentified by their ‘atom key’, which is simply
+the concatenation of a residue’s atom names in alphabetical order. This
+means residues are matched by atom content, not by residue name. That’s
+important for modified residues, for example, a C-terminal ALA (with an
+additional oxygen) will be matched to the AmberResidueType CALA rather than
+to ALA.</p>
+<p>The default all-atom topologies include hydrogen atoms. Structures without
+hydrogens will <em>not</em> match. You can add hydrogens with the Reduce class
+(Biskit.reduce).</p>
+<p>Atom names need to conform to Amber conventions –
+this can be ensured with <a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel.xplor2amber" title="biskit.PDBModel.xplor2amber"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">PDBModel.xplor2amber()</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span><span class="s1">&#39;mystructure.pdb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">residue</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">resModels</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lib</span> <span class="o">=</span> <span class="n">AmberResidueLibrary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">refres</span> <span class="o">=</span> <span class="n">lib</span><span class="p">[</span> <span class="n">residue</span> <span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">## or alternatively:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">refres</span> <span class="o">=</span> <span class="n">lib</span><span class="p">[</span><span class="s1">&#39;all_amino03&#39;</span><span class="p">,</span> <span class="s1">&#39;ALA&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="rubric">Methods Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.AmberResidueLibrary.__init__" title="biskit.AmberResidueLibrary.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param topofiles:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">list of topology file names                           (default <code class="xref any docutils literal notranslate"><span class="pre">all_*in</span></code> in <code class="xref any docutils literal notranslate"><span class="pre">Biskit/data/amber/residues</span></code>) :type  topofiles: [ str ] :param log: optional LogFile instance (default STDOUT) :type  log: biskit.LogFile :param verbose: add messages to log (default False) :type  verbose: bool</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.AmberResidueLibrary.addTopology" title="biskit.AmberResidueLibrary.addTopology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addTopology</span></code></a></td>
+<td>Include an additional topology (off) library in the collection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.AmberResidueLibrary.atomkey" title="biskit.AmberResidueLibrary.atomkey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atomkey</span></code></a></td>
+<td>Create a string key encoding the atom content of residue.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.AmberResidueLibrary.byAtoms" title="biskit.AmberResidueLibrary.byAtoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">byAtoms</span></code></a></td>
+<td>Identify a matching reference residue by atom content.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.AmberResidueLibrary.byName" title="biskit.AmberResidueLibrary.byName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">byName</span></code></a></td>
+<td>Identify matching reference residue by residue name.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">topokeys</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">F_RESTYPES</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>AmberResidueLibrary Method & Attribute Details</h2><dl class="method">
+<dt id="biskit.AmberResidueLibrary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>topofiles=['all_amino03.in', 'all_aminoct03.in', 'all_aminont03.in', 'all_nuc02.in'], log=None, verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>topofiles</strong> (<em>[ </em><em>str</em><em> ]</em>) – list of topology file names                           (default <code class="xref any docutils literal notranslate"><span class="pre">all_*in</span></code> in <code class="xref any docutils literal notranslate"><span class="pre">Biskit/data/amber/residues</span></code>)</li>
+<li><strong>log</strong> (<a class="reference internal" href="biskit.LogFile.html#biskit.LogFile" title="biskit.LogFile"><em>biskit.LogFile</em></a>) – optional LogFile instance (default STDOUT)</li>
+<li><strong>verbose</strong> (<em>bool</em>) – add messages to log (default False)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.AmberResidueLibrary.addTopology">
+<code class="descname">addTopology</code><span class="sig-paren">(</span><em>topofile</em>, <em>override=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary.addTopology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary.addTopology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include an additional topology (off) library in the collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>topofile</strong> (<em>str</em>) – file name of topology, either full path or
+simple file name which will then be looked for in
+Biskit/data/amber/residues.</li>
+<li><strong>override</strong> (<em>False</em>) – override topologies or residue entries with same name
+(default False)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dictionary of all residue types parsed from topofile indexed
+by three-letter residue name</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype : {str : AmberResidueType}</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raise:</th><td class="field-body">AmberResidueLibraryError if override==False and a topology or
+a residue with identical atom content have already been
+registered.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.AmberResidueLibrary.atomkey">
+<code class="descname">atomkey</code><span class="sig-paren">(</span><em>residue</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary.atomkey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary.atomkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a string key encoding the atom content of residue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>residue</strong> (<a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a><em> or </em><em>AmberResidue</em>) – model or AmberResidue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">key formed from alphabetically sorted atom content of residue</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.AmberResidueLibrary.byAtoms">
+<code class="descname">byAtoms</code><span class="sig-paren">(</span><em>akey</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary.byAtoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary.byAtoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify a matching reference residue by atom content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>akey</strong> (<em>str</em><em> or </em><a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a>) – atomkey or PDBModel with a single residue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">matching reference residue OR None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="biskit.AmberResidueType.html#biskit.AmberResidueType" title="biskit.AmberResidueType">AmberResidueType</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.AmberResidueLibrary.byName">
+<code class="descname">byName</code><span class="sig-paren">(</span><em>rescode</em>, <em>topo=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidueLibrary.html#AmberResidueLibrary.byName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueLibrary.byName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify matching reference residue by residue name. Note: residue
+names are not guaranteed to be unique if several topology files have
+been read in (the default set of Amber topologies uses unique names
+though). The optional topo parameter can be used to specify in
+which topology the residue is looked up.</p>
+<p>Note: residue 3 letter names are all UPPERCASE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>rescode</strong> (<em>str</em>) – three-letter name of residue to look up</li>
+<li><strong>topo</strong> (<em>str</em>) – optional (file) name of topology (see also: <code class="xref any docutils literal notranslate"><span class="pre">topokeys()</span></code> )</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">matching reference residue</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="biskit.AmberResidueType.html#biskit.AmberResidueType" title="biskit.AmberResidueType">AmberResidueType</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raise:</th><td class="field-body"><p class="first last">KeyError if the topology or residue name are not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1688 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.profileCollection &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.profileCollection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.profileCollection</h1><div class="highlight"><pre>
+<span></span><span class="c1">## Automatically adapted for numpy-oldnumeric Mar 26, 2007 by alter_code1.py</span>
+
+<span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Manage profiles.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">N</span>
+<span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">T</span>
+<span class="kn">import</span> <span class="nn">biskit.mathUtils</span> <span class="k">as</span> <span class="nn">M</span>
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">EHandler</span>
+<span class="kn">from</span> <span class="nn">biskit.hist</span> <span class="k">import</span> <span class="n">density</span>
+
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="c1">## manual replace UserDict: http://python3porting.com/problems.html#replacing-userdict</span>
+<span class="c1">##from UserDict import DictMixin</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">MutableMapping</span> <span class="k">as</span> <span class="n">DictMixin</span>
+<span class="kn">import</span> <span class="nn">weakref</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">biggles</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">biggles</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="ProfileError"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileError.html#biskit.ProfileError">[docs]</a><span class="k">class</span> <span class="nc">ProfileError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<span class="k">class</span> <span class="nc">_ViewSignal</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">CrossView</span><span class="p">(</span> <span class="n">DictMixin</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CrossView instances provide a dictionary-like read- and writeable</span>
+<span class="sd">    view on one position in a ProfileCollection.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    ========</span>
+<span class="sd">      Let&#39;s assume we have a ProfileCollection p containing 2 profiles</span>
+<span class="sd">      &#39;name&#39; and &#39;mass&#39;:</span>
+
+<span class="sd">        &gt;&gt;&gt; p</span>
+<span class="sd">        ProfileCollection: 2 profiles of length 5</span>
+<span class="sd">        name</span>
+<span class="sd">        {...}</span>
+<span class="sd">               [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;]</span>
+<span class="sd">        mass</span>
+<span class="sd">        {...}</span>
+<span class="sd">               [10, 20, 30, 40, 50]</span>
+
+<span class="sd">      A CrossView on the second position of p will then look like this:</span>
+
+<span class="sd">        &gt;&gt;&gt; view = p[1]</span>
+<span class="sd">        &gt;&gt;&gt; view</span>
+<span class="sd">        CrossView{&#39;name&#39;: &#39;b&#39;, &#39;mass&#39;: 20}</span>
+
+<span class="sd">      And can be used to change the values of this position in the collection:</span>
+
+<span class="sd">        &gt;&gt;&gt; view[&#39;name&#39;] = &#39;X&#39;</span>
+
+<span class="sd">      ... is equivalent to (but slower than):</span>
+
+<span class="sd">        &gt;&gt;&gt; p[&#39;name&#39;][1] = &#39;X&#39;</span>
+
+<span class="sd">      The view can also be used to change several profiles simultaneously:</span>
+
+<span class="sd">        &gt;&gt;&gt; view.update( {&#39;name&#39;:&#39;X&#39;, &#39;mass&#39;:100} )</span>
+
+<span class="sd">      It can I{not} be used to delete a profile position or remove a key.</span>
+
+<span class="sd">    Performance issues:</span>
+<span class="sd">    ===================</span>
+<span class="sd">      Creating and using a CrossView to access a single position in a</span>
+<span class="sd">      profile is not much more costly than the direct</span>
+<span class="sd">      p[&#39;profilename&#39;][index] access -- Both take about 10 times longer</span>
+<span class="sd">      than accessing a normal dictionary.</span>
+<span class="sd">      </span>
+<span class="sd">      However, excessive use of CrossViews can deliver a blow to your</span>
+<span class="sd">      program&#39;s performance. Iterating over a whole ProfileCollection</span>
+<span class="sd">      in form of CrossViews (:class:`ProfileCollection.iterCrossViews`) is</span>
+<span class="sd">      about a factor 100 slower than direct iteration over the</span>
+<span class="sd">      elements of a single profile (array or list). Alternatively,</span>
+<span class="sd">      :class:`ProfileCollection.iterDicts` yields normal disconnected</span>
+<span class="sd">      dictionaries. It is in itself not much faster (30%) than</span>
+<span class="sd">      iterCrossViews but subsequent work with the dictionaries is, at</span>
+<span class="sd">      least, 10 times more efficient.</span>
+
+<span class="sd">    Developer Note:</span>
+<span class="sd">    ===============</span>
+<span class="sd">      As a safety measure, CrossView instances are / should be</span>
+<span class="sd">      invalidated as soon as the underlying ProfileCollection is</span>
+<span class="sd">      re-ordered or removed. To this end, the CrossView only keeps a</span>
+<span class="sd">      weak reference to its parent collection (so that the collection</span>
+<span class="sd">      will not be kept in memory for referencing views alone). Another weak</span>
+<span class="sd">      reference to the collection&#39;s _viewSignal field is used to sense</span>
+<span class="sd">      other changes -- overriding this field signals the killing</span>
+<span class="sd">      (alive=False) of all CrossViews pointing to this collection, see</span>
+<span class="sd">      :class:`ProfileCollection.killViews`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_cease</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">ref</span> <span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">EHandler</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;error in CrossView._cease&#39;</span><span class="p">)</span>
+            <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">index</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param parent: ProfileCollection</span>
+<span class="sd">        :type  parent: ProfileCollection</span>
+<span class="sd">        :param index: position in profile collection</span>
+<span class="sd">        :type  index: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span> <span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cease</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span>  <span class="o">=</span> <span class="n">index</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_signal</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span> <span class="n">parent</span><span class="o">.</span><span class="n">_viewSignal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cease</span> <span class="p">)</span>
+
+        <span class="c1">#: parent collection is alive and position is still correct</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span> <span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">key</span> <span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">key</span> <span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span><span class="s1">&#39;Cannot delete profile key </span><span class="si">%s</span><span class="s1"> (or any other) from &#39;</span>\
+                           <span class="o">+</span><span class="s1">&#39; CrossView instance.&#39;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1">##   def has_key(self, key ):</span>
+<span class="c1">##       assert self.alive, &#39;view on dead or changed profile collection&#39;</span>
+<span class="c1">##</span>
+<span class="c1">##        return key in self.parent().profiles</span>
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span> <span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+            <span class="k">yield</span> <span class="n">k</span>
+            
+    <span class="k">def</span> <span class="nf">iteritems</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over key : value pairs. Keys are all keys from the parent</span>
+<span class="sd">        ProfileCollection, values are the corresponding values at the</span>
+<span class="sd">        position for wich this CrossView was created.</span>
+
+<span class="sd">        :return: key:value pairs</span>
+<span class="sd">        :rtype: iterator over [ ( str, any ) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+            <span class="k">yield</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()[</span> <span class="n">k</span> <span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">toDict</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert this CrossView into a standard dictionary that is detached</span>
+<span class="sd">        from the underlying ProfileCollection.</span>
+
+<span class="sd">        :return: dict with values indexed by parent ProfileCollection&#39;s keys</span>
+<span class="sd">        :rtype: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span> <span class="p">]</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">,</span> <span class="s1">&#39;view on dead or changed profile collection&#39;</span>
+
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">zip</span><span class="p">(</span> <span class="n">keys</span><span class="p">,</span> <span class="n">values</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">alive</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;Dead CrossView{ }&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;CrossView&#39;</span> <span class="o">+</span> <span class="n">DictMixin</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">iterkeys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="ProfileCollection"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection">[docs]</a><span class="k">class</span> <span class="nc">ProfileCollection</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;    </span>
+<span class="sd">    Manage profiles (arrays or lists of values) for Trajectory frames or</span>
+<span class="sd">    atoms/residues in PDBModel. ProfileCollection resembles a 2-dimensional</span>
+<span class="sd">    array where the first axis (let&#39;s say row) is accessed by a string key</span>
+<span class="sd">    rather than an index. Each row has an additional (meta)info dictionary</span>
+<span class="sd">    assigned to it. The take() and concat() methods operate on the columns,</span>
+<span class="sd">    i.e. they are applied to all profiles simultaneously.</span>
+
+<span class="sd">    By default, profiles of numbers are stored and returned as Numpy.array and</span>
+<span class="sd">    all others are stored and returned as ordinary list. This behaviour can be</span>
+<span class="sd">    modified with the option asarray of ProfileCollection.set(). Using both</span>
+<span class="sd">    lists and arrays is a compromise between the efficiency of Numeric arrays</span>
+<span class="sd">    and two problems of of the old Numeric module -- (1) arrays of objects</span>
+<span class="sd">    could not be unpickled (Numeric bug) and (2) arrays of strings would end</span>
+<span class="sd">    up as 2-D arrays of char. The &#39;isarray&#39; entry of a profile&#39;s info</span>
+<span class="sd">    dictionary tells whether the profile is stored as array or as list. (Since</span>
+<span class="sd">    we have now replaced Numeric by numpy, we can probably switch to the</span>
+<span class="sd">    exclusive use of numpy arrays.)</span>
+
+<span class="sd">    Acessing profiles</span>
+<span class="sd">    =================</span>
+
+<span class="sd">      ProfileCollection p can be used like a dictionary of lists::</span>
+<span class="sd">        len( p )          -&gt; number of profiles (== len( p.profiles ) )</span>
+<span class="sd">        p[&#39;prof1&#39;]        -&gt; list/array with values of profile &#39;prof1&#39;</span>
+<span class="sd">        del p[&#39;prof1&#39;]    -&gt; remove a profile</span>
+<span class="sd">        p[&#39;prof1&#39;] = [..] -&gt; add/override a profile without additional infos</span>
+
+<span class="sd">        &#39;prof1&#39; in p      -&gt; True, if collection contains key &#39;prof1&#39;</span>
+<span class="sd">        for k in p:       -&gt; iterate over profile keys</span>
+<span class="sd">        for k in p.iteritems():  -&gt; iterate over key:profile pairs</span>
+
+<span class="sd">    Accessing Metainfo</span>
+<span class="sd">    ==================</span>
+
+<span class="sd">      Each profile key also has a dictionary of meta infos assigned to it (see</span>
+<span class="sd">      getInfo(), setInfo(), p.infos). These can be accessed like::</span>
+<span class="sd">        p[&#39;prof1&#39;,&#39;date&#39;]   -&gt; date of creation of profile named &#39;prof1&#39;</span>
+<span class="sd">        p.getInfo(&#39;prof1&#39;)  -&gt; returns all info records</span>
+<span class="sd">        p[&#39;prof1&#39;,&#39;comment&#39;] = &#39;first prof&#39;  -&gt; add/change single info value</span>
+
+<span class="sd">    CrossViews</span>
+<span class="sd">    ==========</span>
+
+<span class="sd">      ProfileCollections can also be viewed from the side (along columns) --</span>
+<span class="sd">      :class:`CrossView`s provide a virtual dictionary with the values of all</span>
+<span class="sd">      profiles at a certain position. Changes to the dictionary will change</span>
+<span class="sd">      the value in the underlying profile and vice versa, for example::</span>
+
+<span class="sd">        atom = p[10]        -&gt; CrossView{&#39;prof1&#39; : 42.0, &#39;name&#39; : &#39;CA&#39;, ... }</span>
+<span class="sd">        atom[&#39;prof1&#39;] = 33  -&gt; same as p[&#39;prof1&#39;][10] = 33</span>
+<span class="sd">        p[10][&#39;prof1&#39;]= 33  -&gt; still the same but much slower, use instead...</span>
+<span class="sd">        p[&#39;prof1&#39;][10]= 33  -&gt; doesn&#39;t invoke CrossView and is thus faster</span>
+
+<span class="sd">        p[0] == p[-1]  -&gt; True if the values of all profiles are identical at</span>
+<span class="sd">                          first and last position</span>
+
+<span class="sd">        for a in p.iterCrossViews():  -&gt; iterates over CrossView dictionaries</span>
+<span class="sd">        p.toCrossViews()              -&gt; list of CrossViews for all positions</span>
+
+<span class="sd">      For read-only access, normal dictionaries are faster than CrossViews::</span>
+<span class="sd">      </span>
+<span class="sd">        for d in p.iterDicts():       -&gt; iterate over normal dictionaries</span>
+<span class="sd">        p.toDicts()         -&gt; list of normal (but disconnected) dictionaries </span>
+
+<span class="sd">      Adding a profile to a ProfileCollection will also &#39;magically&#39;</span>
+<span class="sd">      add an additional key to all existing CrossViews of</span>
+<span class="sd">      it. CrossViews become invalid if their parent collection is</span>
+<span class="sd">      garbage collected or re-ordered.</span>
+
+<span class="sd">      **Note**: The creation of many CrossViews hampers performance.</span>
+<span class="sd">      We provide a :class:`ProfileCollection.iterCrossView`</span>
+<span class="sd">      iterator to loop over these pseudo dictionaries for convenience --</span>
+<span class="sd">      direct iteration over the elements of a profile (array or list)</span>
+<span class="sd">      is about 100 times faster. If you need to repeatedly read from</span>
+<span class="sd">      many dictionaries, consider using :class:`ProfileCollection.toDicts`</span>
+<span class="sd">      and cache the resulting normal (disconnected) dictionaries::</span>
+<span class="sd">      </span>
+<span class="sd">        cache = p.toDicts() # &#39;list( p.iterDicts() )&#39; is equivalent but slower</span>
+<span class="sd">        </span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ====</span>
+
+<span class="sd">      Profile arrays of float or int are automatically converted to</span>
+<span class="sd">      arrays of type Float32 or Int32. This is a safety measure</span>
+<span class="sd">      because we have stumbled over problems when transferring</span>
+<span class="sd">      pickled objects between 32 and 64 bit machines. With the transition</span>
+<span class="sd">      to numpy, this may not be needed any longer.</span>
+
+<span class="sd">      See also: :class:`ProfileCollection.__picklesave_array`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__CrossView</span> <span class="o">=</span> <span class="n">CrossView</span>
+
+<div class="viewcode-block" id="ProfileCollection.__init__"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">profiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">infos</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span> <span class="o">=</span> <span class="n">profiles</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infos</span> <span class="o">=</span> <span class="n">infos</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">initVersion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">()</span>
+
+        <span class="c1">#: re-create this field to invalidate CrossViews! (see :class:`killViews()`)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_viewSignal</span> <span class="o">=</span> <span class="n">_ViewSignal</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.version"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class version.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: class version number</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;ProfileCollection $Revision$&#39;</span></div>
+
+    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        called for unpickling the object.</span>
+<span class="sd">        Compability fix: Convert Numeric arrays to numpy arrays </span>
+<span class="sd">                         -- requires old Numeric</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">state</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">Numeric</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;astype&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span>
+    
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get profile item::</span>
+<span class="sd">          p[&#39;prof1&#39;]         &lt;==&gt;  p.get( &#39;prof1&#39; )         </span>
+<span class="sd">          p[&#39;prof1&#39;,&#39;info1&#39;] &lt;==&gt;  p.get( &#39;prof1&#39;,&#39;info1&#39; )</span>
+<span class="sd">          p[10]              &lt;==&gt;  CrossView( p, 10 )</span>
+
+<span class="sd">        :return: profile OR meta infos thereof OR CrossView dict</span>
+<span class="sd">        :rtype: list OR array OR any OR CrossView</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">CrossView</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">slice</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__getslice__</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span>
+            
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set profile item::</span>
+<span class="sd">          p[&#39;prof1&#39;] = range(10)      &lt;==&gt; p.set( &#39;prof1&#39;, range(10) )      </span>
+<span class="sd">          p[&#39;prof1&#39;,&#39;info1&#39;]=&#39;comment&#39; &lt;==&gt; p.setInfo(&#39;prof1&#39;,info1=&#39;comment&#39;)</span>
+
+<span class="sd">        :return: item</span>
+<span class="sd">        :rtype: any        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="n">v</span><span class="p">}</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__delitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete profile item::</span>
+<span class="sd">          del p[&#39;prof1&#39;]         &lt;==&gt;  p.remove( &#39;prof1&#39; )          </span>
+<span class="sd">          del p[&#39;prof1&#39;,&#39;info1&#39;] &lt;==&gt;  p.remove( &#39;prof1&#39;, &#39;info1&#39; ) </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__getslice__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">arg</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get list of CrossViews::</span>
+<span class="sd">          p[0:100:5] &lt;==&gt; [ CrossView(p,i) for i in range(0,100,5) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">arg</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span> <span class="o">*</span><span class="n">arg</span> <span class="p">)</span>
+
+        <span class="n">indices</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span> <span class="o">*</span><span class="n">s</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span> <span class="n">CrossView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span> <span class="p">]</span>
+
+    
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: number of profiles in the collection</span>
+<span class="sd">        :rtype: int        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span> <span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if profile contains key::</span>
+<span class="sd">          k in self  &lt;==&gt;  p.has_key( k ) </span>
+
+<span class="sd">        :return: True or False</span>
+<span class="sd">        :rtype: 1|0  </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span>
+
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over profile::</span>
+<span class="sd">          for k in self  &lt;==&gt;  for k in p.keys()</span>
+<span class="sd">        </span>
+<span class="sd">        :return: list of items</span>
+<span class="sd">        :rtype: list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">has_key</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">k</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span>
+
+
+<div class="viewcode-block" id="ProfileCollection.values"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.values">[docs]</a>    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get list of all profiles (arrays or lists of values)::</span>
+<span class="sd">          p.values() -&gt; [ [any], [any], ... ]</span>
+
+<span class="sd">        :return: list of lists or arrays</span>
+<span class="sd">        :rtype: [ list/array ]       </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="ProfileCollection.hasNoneProfile"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.hasNoneProfile">[docs]</a>    <span class="k">def</span> <span class="nf">hasNoneProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check wether any profile is None, which means it is </span>
+<span class="sd">        waiting to be updated from a source ProfileCollection.</span>
+<span class="sd">        This method is written such that it is *not* triggering the </span>
+<span class="sd">        updating mechanism.</span>
+<span class="sd">        :return bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+            
+
+<div class="viewcode-block" id="ProfileCollection.items"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get list of tuples of profile names and profiles::</span>
+<span class="sd">          p.items() -&gt; [ (key1, [any]), (key2, [any]), ..) ]</span>
+
+<span class="sd">        :return: list of tuples of profile names and profiles</span>
+<span class="sd">        :rtype: [ ( str, list/array ) ]       </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="ProfileCollection.iteritems"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.iteritems">[docs]</a>    <span class="k">def</span> <span class="nf">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over (key : profile) pairs:</span>
+<span class="sd">          &gt;&gt;&gt; for key, profile in p.iteritems():</span>
+<span class="sd">          ...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.iterCrossViews"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.iterCrossViews">[docs]</a>    <span class="k">def</span> <span class="nf">iterCrossViews</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over values of all profiles as :class:`CrossView` &#39;dictionaries&#39;</span>
+<span class="sd">        indexed by profile name, for example:</span>
+<span class="sd">          &gt;&gt;&gt; for atom in p.iterCrossViews():</span>
+<span class="sd">          ...     print atom[&#39;name&#39;], atom[&#39;residue_name&#39;]</span>
+
+<span class="sd">        The CrossViews remain connected to the profiles and can be</span>
+<span class="sd">        used to change values in many profiles simultaneously.</span>
+<span class="sd">        Consider using the somewhat faster :class:`ProfileCollection.iterDicts`</span>
+<span class="sd">        if this is not needed and speed is critical.</span>
+
+<span class="sd">        :return: CrossView instances behaving like dictionaries</span>
+<span class="sd">        :rtype: iterator over [ CrossView ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span> <span class="p">):</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">__CrossView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.iterDicts"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.iterDicts">[docs]</a>    <span class="k">def</span> <span class="nf">iterDicts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over (copies of) values of all profiles as normal dictionaries</span>
+<span class="sd">        indexed by profile name, for example:</span>
+<span class="sd">          &gt;&gt;&gt; for atom in p.iterCrossViews():</span>
+<span class="sd">          ...     print atom[&#39;name&#39;], atom[&#39;residue_name&#39;]</span>
+
+<span class="sd">        :return: dictionaries</span>
+<span class="sd">        :rtype: iterator over { &#39;key1&#39;:v1, &#39;key2&#39;:v2 }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">profs</span><span class="o">=</span> <span class="nb">zip</span><span class="p">(</span> <span class="o">*</span><span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span> <span class="p">]</span> <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">profs</span><span class="p">:</span>
+
+            <span class="k">yield</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.toCrossViews"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.toCrossViews">[docs]</a>    <span class="k">def</span> <span class="nf">toCrossViews</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: list of CrossView pseudo dictionaries</span>
+<span class="sd">        :rtype: [ CrossView ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__CrossView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">())</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="ProfileCollection.toDicts"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.toDicts">[docs]</a>    <span class="k">def</span> <span class="nf">toDicts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: (copies of) values of all profiles as normal dictionaries</span>
+<span class="sd">        :rtype: [ dict ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">profs</span><span class="o">=</span> <span class="nb">zip</span><span class="p">(</span> <span class="o">*</span><span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span> <span class="p">]</span> <span class="p">)</span>
+
+        <span class="c1">## a bit faster than list( self.iterDicts() )</span>
+        <span class="k">return</span> <span class="p">[</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span> <span class="p">)</span> <span class="k">for</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">profs</span> <span class="p">]</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">__picklesave_array</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">prof</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert integer arrays to Int32 and float arrays to</span>
+<span class="sd">        Float32. This function is needed because of Numeric issues</span>
+<span class="sd">        when pickles are transferred between 64 and 32 bit</span>
+<span class="sd">        platforms. Rather than letting numpy.array select a</span>
+<span class="sd">        platform-dependent default type, it is safer to assign an</span>
+<span class="sd">        explicit Float32, or Int32.</span>
+
+<span class="sd">        :param prof: the profile array to recast</span>
+<span class="sd">        :type  prof: numpy.array</span>
+
+<span class="sd">        :return: recast array or unchanged original</span>
+<span class="sd">        :rtype:  Numpy.array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">prof</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">prof</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span> <span class="s1">&#39;i&#39;</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">prof</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">prof</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span> <span class="s1">&#39;f&#39;</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">prof</span>
+
+
+<div class="viewcode-block" id="ProfileCollection.array_or_list"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.array_or_list">[docs]</a>    <span class="k">def</span> <span class="nf">array_or_list</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="n">asarray</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to array or list depending on asarray option</span>
+<span class="sd">        </span>
+<span class="sd">        Beware: empty lists will be upgraded to empty Float arrays.</span>
+
+<span class="sd">        :param prof: profile</span>
+<span class="sd">        :type  prof: list OR array</span>
+<span class="sd">        :param asarray: 1.. autodetect type, 0.. force list, 2.. force array</span>
+<span class="sd">        :type  asarray: 2|1|0</span>
+<span class="sd">        </span>
+<span class="sd">        :return: profile</span>
+<span class="sd">        :rtype: list OR array</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="c1">## autodetect type</span>
+            <span class="k">if</span> <span class="n">asarray</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__picklesave_array</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># tolerate strings as profiles</span>
+                    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+    
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prof</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># don&#39;t create arrays from empty lists</span>
+                    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+                
+                <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__picklesave_array</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">]:</span> <span class="c1">## no char or object arrays!</span>
+                    <span class="k">return</span> <span class="n">p</span>
+
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+
+            <span class="c1">## force list</span>
+            <span class="k">if</span> <span class="n">asarray</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                    <span class="k">return</span> <span class="n">prof</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+
+            <span class="c1">## force array</span>
+            <span class="k">if</span> <span class="n">asarray</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__picklesave_array</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+                
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__picklesave_array</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="c1">## Numeric bug: N.array([&#39;&#39;,&#39;&#39;,&#39;&#39;]) raises TypeError</span>
+            <span class="k">if</span> <span class="n">asarray</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">asarray</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span>
+
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span><span class="s2">&quot;Cannot create array from given list. </span><span class="si">%r</span><span class="s2">&quot;</span>\
+                  <span class="o">%</span> <span class="n">T</span><span class="o">.</span><span class="n">lastError</span><span class="p">())</span>
+
+        <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> not allowed as value for asarray&quot;</span> <span class="o">%</span> <span class="n">asarray</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.expand"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.expand">[docs]</a>    <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">default</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Expand profile to have a value also for masked positions.</span>
+
+<span class="sd">        :param prof: input profile</span>
+<span class="sd">        :type  prof: list OR array</span>
+<span class="sd">        :param mask: atom mask</span>
+<span class="sd">        :type  mask: [int]</span>
+<span class="sd">        :param default: default value</span>
+<span class="sd">        :type  default: any</span>
+<span class="sd">        </span>
+<span class="sd">        :return: profile</span>
+<span class="sd">        :rtype: list OR array</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="c1">## optimized variant for arrays</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="n">p</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">default</span>
+                <span class="n">N</span><span class="o">.</span><span class="n">put</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">prof</span> <span class="p">)</span>
+                <span class="k">return</span> <span class="n">p</span>
+
+            <span class="n">p</span> <span class="o">=</span> <span class="p">[</span> <span class="n">default</span> <span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span>
+            <span class="n">prof</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">N</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prof</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">p</span>
+
+        <span class="k">return</span> <span class="n">prof</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.set"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">asarray</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">comment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">moreInfo</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add/override a profile. None is allowed as special purpose value - in</span>
+<span class="sd">        which case all other parameters are ignored. Otherwise, the two info</span>
+<span class="sd">        records &#39;version&#39;, &#39;changed&#39; and &#39;isarray&#39; are always modified but can</span>
+<span class="sd">        be overridden by key=value pairs to this function.</span>
+<span class="sd">        </span>
+<span class="sd">        :param name: profile name (i.e. key)</span>
+<span class="sd">        :type  name: str</span>
+<span class="sd">        :param prof: list of values OR None</span>
+<span class="sd">        :type  prof: [any] OR None</span>
+<span class="sd">        :param mask: list 1 x N_items of 0|1, if there are less values than</span>
+<span class="sd">                      items, provide mask with 0 for missing values,</span>
+<span class="sd">                      N.sum(mask)==N_items</span>
+<span class="sd">        :type  mask: [int]</span>
+<span class="sd">        :param default: value for items masked.</span>
+<span class="sd">                        (default: None for lists, 0 for arrays]</span>
+<span class="sd">        :type  default: any</span>
+<span class="sd">        :param asarray: store as list (0), as array (2) or store numbers as</span>
+<span class="sd">                        array but everything else as list (1) (default: 1)</span>
+<span class="sd">        :type  asarray: 0|1|2</span>
+<span class="sd">        :param comment: goes into info[name][&#39;comment&#39;]</span>
+<span class="sd">        :type  comment: str</span>
+<span class="sd">        :param moreInfo: additional key-value pairs for info[name]</span>
+<span class="sd">        :type  moreInfo: key=value</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError: if length of prof != length of other profiles</span>
+<span class="sd">        :raise ProfileError: if mask is given but N.sum(mask) != len(prof)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">prof</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">name</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;changed&#39;</span> <span class="ow">in</span> <span class="n">moreInfo</span><span class="p">:</span> <span class="n">moreInfo</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">asarray</span><span class="o">=</span><span class="n">asarray</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
+                         <span class="o">**</span><span class="n">moreInfo</span> <span class="p">)</span>           
+            <span class="k">return</span>
+
+        <span class="c1">## consistency check</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">prof</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span>
+                <span class="s2">&quot;Mask doesn&#39;t match profile ( N.sum(mask)!=len(prof) ). &quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> != </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">prof</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array_or_list</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">asarray</span> <span class="p">)</span>
+
+        <span class="c1">## use default == 0 for arrays</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">default</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">## expand profile to have a value also for masked positions</span>
+        <span class="n">prof</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">default</span> <span class="p">)</span>
+
+        <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span> <span class="n">prof</span> <span class="p">)</span> <span class="o">!=</span> <span class="n">l</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span> <span class="s2">&quot;Profile </span><span class="si">%s</span><span class="s2"> has wrong length.&quot;</span> <span class="o">%</span> <span class="n">name</span> <span class="p">)</span>
+
+        <span class="c1">## collect additional infos about this profile</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="p">{}</span> <span class="p">)</span>
+
+        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">dateString</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">comment</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comment</span>
+        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;isarray&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span>
+        <span class="n">info</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">default</span>
+
+        <span class="c1">## optional infos</span>
+        <span class="n">info</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">moreInfo</span> <span class="p">)</span>
+
+        <span class="c1">## new profiles are always changed=1, updated profiles are checked</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;changed&#39;</span> <span class="ow">in</span> <span class="n">moreInfo</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">info</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span> <span class="ow">or</span> \
+                                  <span class="ow">not</span> <span class="n">M</span><span class="o">.</span><span class="n">arrayEqual</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">prof</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">info</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1">## put profile into dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">name</span> <span class="p">]</span> <span class="o">=</span> <span class="n">prof</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span> <span class="n">name</span> <span class="p">]</span> <span class="o">=</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.setInfo"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.setInfo">[docs]</a>    <span class="k">def</span> <span class="nf">setInfo</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add/Override infos about a given profile::</span>
+<span class="sd">          e.g. setInfo(&#39;relASA&#39;, comment=&#39;new&#39;, params={&#39;bin&#39;:&#39;whatif&#39;})</span>
+<span class="sd">        </span>
+<span class="sd">        :raise  ProfileError: if no profile is found with |name|</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="n">args</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.setMany"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.setMany">[docs]</a>    <span class="k">def</span> <span class="nf">setMany</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">profileDict</span><span class="p">,</span> <span class="n">infos</span><span class="o">=</span><span class="p">{}</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        setMany( dict, [infoDict] ) Add/Override many profiles</span>
+
+<span class="sd">        :param profileDict: dict with name:profile pairs</span>
+<span class="sd">        :type  profileDict: dict</span>
+<span class="sd">        :param infos: info dicts for each profile, indexed by name</span>
+<span class="sd">        :type  infos: dict of dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">profileDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">infos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">key</span><span class="p">,{}</span> <span class="p">)</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.get"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get( profKey, [default] ) -&gt; list of values </span>
+<span class="sd">        **OR** </span>
+<span class="sd">        get( (profKey, infoKey), [default] ) -&gt; single value of info dict</span>
+<span class="sd">        </span>
+<span class="sd">        :param name: profile key or profile and info key</span>
+<span class="sd">        :type  name: str OR (str, str)</span>
+<span class="sd">        :param default: default result if no profile is found,</span>
+<span class="sd">                        if None and no profile is found, raise exception</span>
+<span class="sd">        :type  default: any</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError: if no profile is found with |name|</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## get an info value</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">default</span> <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">):</span>
+                <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span> <span class="s1">&#39;No info value found for &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1">## get a profile</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">default</span> <span class="p">)</span>
+
+        <span class="c1">## but tolerate profiles that are set to None -&gt; return None</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span> <span class="s1">&#39;No profile found with name &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.getInfo"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.getInfo">[docs]</a>    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use::</span>
+<span class="sd">           getInfo( name ) -&gt; dict with meta infos about profile::</span>
+<span class="sd">           </span>
+<span class="sd">        Guaranteed infos: &#39;version&#39;-&gt;str, &#39;comment&#39;-&gt;str, &#39;changed&#39;-&gt;1|0</span>
+
+<span class="sd">        :param name: profile name</span>
+<span class="sd">        :type  name: str</span>
+
+<span class="sd">        :return: dict with infos about profile</span>
+<span class="sd">        :rtype: dict</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError: if no profile is found with |name|</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="kc">None</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span> <span class="s1">&#39;No profile info found with name &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.profile2mask"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.profile2mask">[docs]</a>    <span class="k">def</span> <span class="nf">profile2mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">profName</span><span class="p">,</span> <span class="n">cutoff_min</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cutoff_max</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert profile into a mask based on the max and min cutoff values.</span>
+<span class="sd">        </span>
+<span class="sd">        :param profName: profile name</span>
+<span class="sd">        :type  profName: str</span>
+<span class="sd">        :param cutoff_min: lower limit</span>
+<span class="sd">        :type  cutoff_min: float</span>
+<span class="sd">        :param cutoff_max: upper limit</span>
+<span class="sd">        :type  cutoff_max: float</span>
+<span class="sd">        </span>
+<span class="sd">        :return: mask len( get(profName) ) x 1|0</span>
+<span class="sd">        :rtype: [1|0]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">profName</span> <span class="p">)</span>
+
+        <span class="n">cutoff_min</span> <span class="o">=</span> <span class="n">cutoff_min</span> <span class="ow">or</span> <span class="nb">min</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">cutoff_max</span> <span class="o">=</span> <span class="n">cutoff_max</span> <span class="ow">or</span> <span class="nb">max</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">N</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="n">cutoff_min</span> <span class="p">)</span> <span class="o">*</span> <span class="n">N</span><span class="o">.</span><span class="n">less</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="n">cutoff_max</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.take"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.take">[docs]</a>    <span class="k">def</span> <span class="nf">take</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="o">*</span><span class="n">initArgs</span><span class="p">,</span> <span class="o">**</span><span class="n">initKw</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Take from profiles using provided indices::</span>
+<span class="sd">          take( indices ) -&gt; ProfileCollection with extract of all profiles</span>
+
+<span class="sd">        Any additional parameters are passed to the constructor of the</span>
+<span class="sd">        new instance.</span>
+
+<span class="sd">        :param indices: list of indices</span>
+<span class="sd">        :type  indices: [int]</span>
+
+<span class="sd">        :return: new profile from indices</span>
+<span class="sd">        :rtype: ProfileCollection (or sub-class)</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError: if take error</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span> <span class="o">*</span><span class="n">initArgs</span><span class="p">,</span> <span class="o">**</span><span class="n">initKw</span> <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">:</span>
+
+                <span class="n">prof</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="n">prof</span><span class="p">,</span> <span class="n">indices</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="p">[</span> <span class="n">prof</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span> <span class="p">],</span> <span class="n">asarray</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
+
+                <span class="n">result</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">changed</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">(</span> <span class="s2">&quot;Can&#39;t take sub-profile </span><span class="si">%r</span><span class="s2">: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">why</span><span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.compress"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.compress">[docs]</a>    <span class="k">def</span> <span class="nf">compress</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">cond</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract using a mask::</span>
+<span class="sd">          p.compress( mask ) &lt;==&gt; p.take( N.nonzero( mask ) )</span>
+
+<span class="sd">        :param cond: mask with 1 for the positions to keep</span>
+<span class="sd">        :type  cond: array or list of int </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span> <span class="n">cond</span> <span class="p">)</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.remove"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">key</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove profile **OR** info values of profile::</span>
+<span class="sd">          remove( profKey ) -&gt; 1|0, 1 if complete entry has been removed</span>
+<span class="sd">          remove( profKey, infoKey ) -&gt; 1|0, 1 if single info value was removed</span>
+
+<span class="sd">        :param key: profile name OR name, infoKey</span>
+<span class="sd">        :type  key: str OR str, str</span>
+<span class="sd">        </span>
+<span class="sd">        :return: sucess status</span>
+<span class="sd">        :rtype: 1|0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">][</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span>
+
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="mi">1</span></div>
+
+    <span class="k">def</span> <span class="nf">__clonedefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">default</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array mirroring shape and type of &lt;a&gt; but with length &lt;length&gt;</span>
+<span class="sd">        and filled with default value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">length</span>
+        
+        <span class="n">r</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+<div class="viewcode-block" id="ProfileCollection.concat"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.concat">[docs]</a>    <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">profiles</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concatenate all profiles in this with corresponding profiles in the</span>
+<span class="sd">        given ProfileCollection(s). Profiles that are not found in all</span>
+<span class="sd">        ProfileCollections are skipped::</span>
+<span class="sd">          p0.concat( p1 [, p2, ..]) -&gt; single ProfileCollection with the</span>
+<span class="sd">          same number of profiles as p0 but with the length of p0+p1+p2..</span>
+
+<span class="sd">        :param profiles: profile(s) to concatenate</span>
+<span class="sd">        :type  profiles: ProfileCollection(s)</span>
+<span class="sd">        </span>
+<span class="sd">        :return: concatenated profile(s)  </span>
+<span class="sd">        :rtype: ProfileCollection / subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## end recursion (no more arguments)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">profiles</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="nb">next</span> <span class="o">=</span> <span class="n">profiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">()</span>
+        
+        <span class="c1">##!!! BIG FAT WARNING: empty profilecollection does not imply empty model</span>
+        <span class="c1">## an empty PC w/o any profiles currently doesn&#39;t know which length</span>
+        <span class="c1">## is is supposed to have. If profLength == 0 for real, then</span>
+        <span class="c1">## the next PC&#39;s profiles don&#39;t need to be skipped</span>
+        <span class="c1">## Otherwise,</span>
+        <span class="c1">## this creates too-short profiles if the PC parent model has </span>
+        <span class="c1">## non-zero length and simply doesn&#39;t have any profiles registered.</span>
+        
+<span class="c1">##        ## special case 1: concat something to empty profile collection</span>
+<span class="c1">##        if not self.keys():</span>
+<span class="c1">##            return next.clone().concat( *profiles[1:] )</span>
+<span class="c1">##</span>
+<span class="c1">##        ## special case 2: concat empty profile collection to this one</span>
+<span class="c1">##        if not next.keys():</span>
+<span class="c1">##            return self.clone().concat( *profiles[1:] )</span>
+<span class="c1">##                </span>
+        <span class="n">allkeys</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">union</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">next</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
+
+<span class="c1">##        for k, p in self.profiles.items():</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">allkeys</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">pnext</span> <span class="o">=</span> <span class="nb">next</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">infos</span> <span class="o">=</span> <span class="p">{}</span>
+            
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">default</span> <span class="o">=</span> <span class="nb">next</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="s1">&#39;default&#39;</span><span class="p">]</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__clonedefault</span><span class="p">(</span><span class="n">pnext</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">(),</span> <span class="n">default</span><span class="p">)</span>
+                <span class="n">infos</span> <span class="o">=</span> <span class="nb">next</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+                
+            <span class="k">if</span> <span class="n">pnext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">default</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="s1">&#39;default&#39;</span><span class="p">]</span>
+                <span class="n">pnext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__clonedefault</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">next</span><span class="o">.</span><span class="n">profLength</span><span class="p">(),</span> <span class="n">default</span><span class="p">)</span>
+                <span class="n">infos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">):</span>
+                    
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pnext</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">pnext</span> <span class="o">=</span> <span class="n">pnext</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                        
+                    <span class="n">r</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">pnext</span><span class="p">)</span> <span class="p">),</span> <span class="o">**</span><span class="n">infos</span> <span class="p">)</span>
+                    
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">r</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">pnext</span><span class="p">,</span> <span class="o">**</span><span class="n">infos</span> <span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">EHandler</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Profile </span><span class="si">%s</span><span class="s2"> skipped during concat.&quot;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> 
+                                 <span class="n">error</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">k</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="o">*</span><span class="n">profiles</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.update"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">stickyChanged</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge other ProfileCollection into this one, replacing existing</span>
+<span class="sd">        profiles and info values. This is the obvious translation of</span>
+<span class="sd">        dict.update(). The changed flag of each profile is set to 1 if:</span>
+<span class="sd">           1. an existing profile is overridden with different values</span>
+<span class="sd">           2. the profile is marked &#39;changed&#39; in the other collection</span>
+
+<span class="sd">        The two ProfileCollections should have the same dimension in terms of</span>
+<span class="sd">        atoms, that is p1.profLength() == p2.profLength(). If this is not the</span>
+<span class="sd">        case, it is possible to &#39;mask&#39; atoms in p1 that are </span>
+<span class="sd">        are missing in p2. That means the target ProfileCollection can</span>
+<span class="sd">        have more atoms then the other collection but not vice-versa.</span>
+<span class="sd">        </span>
+<span class="sd">        Example::</span>
+<span class="sd">            p1.profLength() == 10</span>
+<span class="sd">            p2.profLength() == 5</span>
+<span class="sd">            p1.update( p2, mask=[0,1,0,1,0,1,0,1,0,1] )</span>
+<span class="sd">        ...would assign the atom values of the shorter collection p2 to every</span>
+<span class="sd">        second atom of the longer collection p1.</span>
+<span class="sd">        If p2 has more items (atoms) per profile than p1, this would not work.</span>
+<span class="sd">        In this case p2 first needs to be compressed to the same shape</span>
+<span class="sd">        as p1::</span>
+<span class="sd">            p1.profLength() == 5</span>
+<span class="sd">            p2.profLength() == 10</span>
+<span class="sd">            p2 = p2.compress( [0,1,0,1,0,1,0,1,0,1] )</span>
+<span class="sd">            p1.update( p2 )</span>
+<span class="sd">          </span>
+<span class="sd">        :param other: profile</span>
+<span class="sd">        :type  other: ProfileCollection</span>
+<span class="sd">        :param stickyChanged: mark all profiles &#39;changed&#39; that are marked</span>
+<span class="sd">                              &#39;changed&#39; in the other collection (default: 1)</span>
+<span class="sd">        :type  stickyChanged: 0|1</span>
+<span class="sd">        :param mask: 1 x N_atoms array of 0|1, if the other collection has less</span>
+<span class="sd">                     atoms than this one, mark those positions with 0 that are</span>
+<span class="sd">                     only existing in this collection </span>
+<span class="sd">                     (N.sum(mask)==self.profLength())</span>
+<span class="sd">        :type  mask: [int]</span>
+<span class="sd">        :param mask: N.array of 0 or 1, </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="n">info</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">other</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="n">changed</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;changed&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">stickyChanged</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">changed</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">info</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.updateMissing"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.updateMissing">[docs]</a>    <span class="k">def</span> <span class="nf">updateMissing</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">copyMissing</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">allowEmpty</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                       <span class="n">setChanged</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge other ProfileCollection into this one but do not override</span>
+<span class="sd">        existing profiles and info records. There is one exception:</span>
+<span class="sd">        Empty profiles (None or []) are replaced but their info records stay</span>
+<span class="sd">        untouched. If copyMissing=0, profiles that are existing in source but</span>
+<span class="sd">        not in this collection, are NOT copied (i.e. only empty profiles are</span>
+<span class="sd">        replaced).</span>
+
+<span class="sd">        For each profile copied from the source the &#39;changed&#39; flag is reset</span>
+<span class="sd">        to |setChanged| (default 0), regardless whether or not the profile is</span>
+<span class="sd">        marked &#39;changed&#39; in the source collection.</span>
+<span class="sd">        </span>
+<span class="sd">        :param source: profile</span>
+<span class="sd">        :type  source: ProfileCollection</span>
+<span class="sd">        :param copyMissing: copy missing profiles that exist in source</span>
+<span class="sd">                            (default: 1)</span>
+<span class="sd">        :type  copyMissing: 0|1</span>
+<span class="sd">        :param allowEmpty: still tolerate zero-length profiles after update</span>
+<span class="sd">                           (default: 0)</span>
+<span class="sd">        :type  allowEmpty: 0|1</span>
+<span class="sd">        :param setChanged: label profiles copied from source as &#39;changed&#39; [0]</span>
+<span class="sd">        :type  setChanged: 0|1</span>
+<span class="sd">        </span>
+<span class="sd">        :raise ProfileError: if allowEmpty is 0 and some empty profiles</span>
+<span class="sd">                             cannot be found in source</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="c1">## replace &quot;None&quot; profiles</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span> <span class="n">key</span> <span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="n">changed</span><span class="o">=</span><span class="n">setChanged</span> <span class="p">)</span>
+
+            <span class="c1">## add profiles that exist in source but not yet in this collection</span>
+            <span class="k">if</span> <span class="n">copyMissing</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">source</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">key</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="n">info</span><span class="p">[</span><span class="s1">&#39;changed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">setChanged</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span><span class="p">,</span> <span class="o">**</span><span class="n">info</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">allowEmpty</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasNoneProfile</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">prof</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">prof</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ProfileError</span><span class="p">((</span><span class="s1">&#39;Trying to update </span><span class="si">%s</span><span class="s1"> profile but cannot find&#39;</span>\
+                           <span class="o">+</span> <span class="s1">&#39; it in source.&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.isChanged"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.isChanged">[docs]</a>    <span class="k">def</span> <span class="nf">isChanged</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param keys: only check these profiles (default: None -&gt; means all)</span>
+<span class="sd">        :type  keys: [ str ] OR str</span>
+<span class="sd">        :return: True, if any of the profiles is tagged as &#39;changed&#39;</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">keys</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span> <span class="n">keys</span> <span class="p">)</span>  <span class="c1">## in case single str is given as argument </span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span> <span class="n">k</span> <span class="p">)[</span><span class="s1">&#39;changed&#39;</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="kc">False</span></div>
+        
+
+<div class="viewcode-block" id="ProfileCollection.clone"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.clone">[docs]</a>    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clone (deepcopy) profiles::</span>
+<span class="sd">          clone() -&gt; ProfileCollection (or sub-class)</span>
+
+<span class="sd">        :return: profile</span>
+<span class="sd">        :rtype: ProfileCollection          </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">profiles</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">),</span>
+                           <span class="n">infos</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">infos</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.killViews"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.killViews">[docs]</a>    <span class="k">def</span> <span class="nf">killViews</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deactivate any CrossView instances referring to this ProfileCollection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_viewSignal</span> <span class="o">=</span> <span class="n">_ViewSignal</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ProfileCollection.clear"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete all::</span>
+<span class="sd">          clear() -&gt; None; delete all profiles and infos.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">killViews</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infos</span> <span class="o">=</span> <span class="p">{}</span></div>
+        
+
+<div class="viewcode-block" id="ProfileCollection.profLength"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.profLength">[docs]</a>    <span class="k">def</span> <span class="nf">profLength</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Length of profile::</span>
+<span class="sd">          profLength() -&gt; int; length of first non-None profile or default (0)</span>
+<span class="sd">        </span>
+<span class="sd">        :param default: value to return if all profiles are set to None</span>
+<span class="sd">        :type  default: any</span>
+<span class="sd">          </span>
+<span class="sd">        :return: length of first non-None profile or 0</span>
+<span class="sd">        :rtype: int     </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">len</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">default</span></div>
+
+
+<div class="viewcode-block" id="ProfileCollection.plot"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">arg</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot one or more profiles using Biggles::</span>
+<span class="sd">          plot( name1, [name2, ..],[arg1=x, arg2=y]) -&gt; biggles.FramedPlot</span>
+<span class="sd">        </span>
+<span class="sd">        :param name: one or more profile names</span>
+<span class="sd">        :type  name: str</span>
+<span class="sd">        :param arg: key=value pairs for Biggles.Curve() function</span>
+<span class="sd">        :type  arg: </span>
+<span class="sd">        :raise TypeError: if profile contains non-number items</span>
+
+<span class="sd">        :return: plot, view using plot.show() </span>
+<span class="sd">        :rtype: biggles.FramedPlot</span>
+
+<span class="sd">        :raise ImportError: If biggles module could not be imported</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">biggles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;module biggles could not be imported&#39;</span><span class="p">)</span>
+
+        <span class="n">plot</span> <span class="o">=</span> <span class="n">biggles</span><span class="o">.</span><span class="n">FramedPlot</span><span class="p">()</span>
+
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">colorSpectrum</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="p">,</span> <span class="s1">&#39;00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;FF00FF&#39;</span><span class="p">)</span> 
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)):</span>
+
+            <span class="n">p</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Cannot plot values of profile </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="c1"># Biggles with its old Numeric cannot handle numpy arrays</span>
+            <span class="n">plot</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">Curve</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">))),</span> <span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                     <span class="o">**</span><span class="n">arg</span> <span class="p">)</span> <span class="p">)</span>
+
+            <span class="n">plot</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">PlotLabel</span><span class="p">(</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="o">-</span><span class="n">i</span><span class="o">/</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                         <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">plot</span></div>
+
+    
+<div class="viewcode-block" id="ProfileCollection.plotArray"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.plotArray">[docs]</a>    <span class="k">def</span> <span class="nf">plotArray</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">arg</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot several profiles as a panel of separate plots.</span>
+<span class="sd">        :param *name: one or more profile names or tuples of profile names</span>
+<span class="sd">        :type  *name: str or (str, str,...)</span>
+<span class="sd">        :param xkey: profile to be used as x-axis (default: None)</span>
+<span class="sd">        :type  xkey: str</span>
+<span class="sd">        :param arg: key=value pairs for Biggles.Curve() function</span>
+<span class="sd">        :type  arg: </span>
+
+<span class="sd">        :return: plot, view using plot.show() </span>
+<span class="sd">        :rtype: biggles.FramedPlot</span>
+
+<span class="sd">        :raise TypeError: if profile contains non-number items</span>
+<span class="sd">        :raise ImportError: If biggles module could not be imported</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">biggles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;module biggles could not be imported&#39;</span><span class="p">)</span>
+
+        <span class="n">plot</span> <span class="o">=</span> <span class="n">biggles</span><span class="o">.</span><span class="n">FramedArray</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="mi">1</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;size&#39;</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+            <span class="n">arg</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="n">xkey</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;xkey&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xkey</span><span class="p">:</span>
+            <span class="n">plot</span><span class="o">.</span><span class="n">xlabel</span> <span class="o">=</span> <span class="n">xkey</span>
+        
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">keys</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="p">(</span> <span class="n">keys</span><span class="p">,</span> <span class="p">)</span>
+                
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">xkey</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">()))</span> <span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                
+                <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="o">.</span><span class="n">colorSpectrum</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="p">,</span> <span class="s1">&#39;00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;FF00FF&#39;</span><span class="p">)</span>
+
+                <span class="n">plot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">Curve</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">**</span><span class="n">arg</span> <span class="p">)</span> <span class="p">)</span>
+    
+                <span class="n">plot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">PlotLabel</span><span class="p">(</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.95</span><span class="o">-</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
+                                                  <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">plot</span></div>
+    
+<div class="viewcode-block" id="ProfileCollection.plotHistogram"><a class="viewcode-back" href="../../source/biskit/biskit.ProfileCollection.html#biskit.ProfileCollection.plotHistogram">[docs]</a>    <span class="k">def</span> <span class="nf">plotHistogram</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">arg</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param bins: number of bins (10)</span>
+<span class="sd">        :type  bins: int</span>
+<span class="sd">        :param ynormalize: normalize histograms to area 1.0 (False)</span>
+<span class="sd">        :type  ynormalize: bool</span>
+<span class="sd">        :param xnormalize: adapt bin range to min and max of all profiles (True)</span>
+<span class="sd">        :type  xnormalize: bool</span>
+<span class="sd">        :param xrange: min and max of bin range (None)</span>
+<span class="sd">        :type  xrange: (float, float)</span>
+<span class="sd">        :param steps: draw histogram steps (True)</span>
+<span class="sd">        :type  steps: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">biggles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;module biggles could not be imported&#39;</span><span class="p">)</span>
+
+        <span class="n">plot</span> <span class="o">=</span> <span class="n">biggles</span><span class="o">.</span><span class="n">FramedArray</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="mi">1</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;size&#39;</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+            <span class="n">arg</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bins&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ynormalize&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">steps</span><span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;steps&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">histrange</span><span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;xrange&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">autorange</span><span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;xnormalize&#39;</span><span class="p">,</span> <span class="n">histrange</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+        
+        <span class="n">xkey</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;xkey&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">xkey</span><span class="p">:</span>
+            <span class="n">plot</span><span class="o">.</span><span class="n">xlabel</span> <span class="o">=</span> <span class="n">xkey</span>
+
+        <span class="k">if</span> <span class="n">autorange</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">keys</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+                    <span class="n">keys</span> <span class="o">=</span> <span class="p">(</span> <span class="n">keys</span><span class="p">,</span> <span class="p">)</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                    <span class="n">v</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">histrange</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">min</span><span class="p">(</span> <span class="n">v</span> <span class="p">),</span> <span class="nb">max</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span>
+            
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">keys</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">tuple</span><span class="p">:</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="p">(</span> <span class="n">keys</span><span class="p">,</span> <span class="p">)</span>
+                
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+
+                <span class="n">h</span> <span class="o">=</span> <span class="n">density</span><span class="p">(</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">nBins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="n">hist</span><span class="p">,</span>
+                             <span class="nb">range</span><span class="o">=</span><span class="n">histrange</span> <span class="p">)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">h</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">h</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+                
+                <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="o">.</span><span class="n">colorSpectrum</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="p">,</span> <span class="s1">&#39;00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;FF00FF&#39;</span><span class="p">)</span>
+
+                <span class="n">plot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">Curve</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">**</span><span class="n">arg</span> <span class="p">)</span> <span class="p">)</span>
+    
+                <span class="n">plot</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">biggles</span><span class="o">.</span><span class="n">PlotLabel</span><span class="p">(</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.95</span><span class="o">-</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
+                                                  <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">plot</span></div>
+
+        
+    <span class="k">def</span> <span class="nf">__shortString</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">maxLen</span> <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="o">&lt;=</span> <span class="n">maxLen</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">s</span>
+
+        <span class="k">return</span> <span class="n">s</span><span class="p">[:</span><span class="n">maxLen</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span>
+
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: string representation within interactive python interpreter.</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;ProfileCollection: </span><span class="si">%i</span><span class="s2"> profiles of length </span><span class="si">%i</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="nb">len</span><span class="p">(</span> <span class="bp">self</span> <span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">profLength</span><span class="p">()</span> <span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="n">k</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__shortString</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="mi">50</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">s</span></div>
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span>  <span class="nn">BT</span>
+        
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">test_ProfileCollection</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;ProfileCollection test&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">string</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;test 1&#39;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;x&#39;</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;t2&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">)),</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;second test&#39;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;y&#39;</span> <span class="p">)</span>
+
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
+        <span class="n">mask</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="p">]</span> <span class="c1">## list of letters</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;t3&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;masked test&#39;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span>
+                    <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">asarray</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">masked profile: &#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;t3&#39;</span><span class="p">]</span> <span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;unmasked profile: &#39;</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;t3&#39;</span><span class="p">]</span> <span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p2</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;t1&#39;</span><span class="p">],</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;overridden&#39;</span><span class="p">,</span> <span class="n">changed</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;t4&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">)),</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;added&#39;</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="p">)</span>  <span class="c1">## concatenate 3 copies of p</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="p">,</span> <span class="n">stickyChanged</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">all</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;t1&#39;</span><span class="p">]</span> <span class="o">==</span>\
+                      <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+    
+
+    <span class="k">def</span> <span class="nf">test_concat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;ProfileCollection.concat test&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">string</span>
+        <span class="kn">import</span> <span class="nn">random</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;letters&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;numbers&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)))</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+                                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">))</span> <span class="p">]</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        
+        <span class="n">empty</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="n">double</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span> <span class="o">=</span> <span class="n">empty</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">])</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">empty</span><span class="p">,</span> <span class="n">empty</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p3</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">double</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">])</span> <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">test_concatempty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="n">p1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">asarray</span><span class="o">=</span><span class="mi">1</span><span class="p">,)</span>
+
+
+    <span class="k">def</span> <span class="nf">test_crossvies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;ProfileCollection.crossviews test&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">string</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">p4</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p4</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p4</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span> <span class="p">)</span>
+        <span class="n">views</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p4</span><span class="o">.</span><span class="n">toCrossViews</span><span class="p">()</span>
+        
+        <span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="p">[</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;letters&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">views</span> <span class="p">]</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">letters</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="p">)</span>
+        
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">p4</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">views</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">alive</span> <span class="ow">is</span> <span class="kc">False</span> <span class="p">)</span> 
+        
+    <span class="k">def</span> <span class="nf">test_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;ProfileCollection.plot* test (only in interactive mode)&quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">random</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span> <span class="o">=</span> <span class="n">ProfileCollection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span> <span class="mi">5000</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">N</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">N</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="p">[</span><span class="s1">&#39;poisson&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">N</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mf">5.</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span> <span class="p">]</span>
+
+        <span class="n">plot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p5</span><span class="o">.</span><span class="n">plotHistogram</span><span class="p">(</span> <span class="s1">&#39;gamma&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span><span class="s1">&#39;poisson&#39;</span><span class="p">),</span> 
+                                      <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xnormalize</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>            
+            <span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">clock</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+
+    <span class="kn">import</span> <span class="nn">profile</span>
+    <span class="n">profile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;report.out&#39;</span> <span class="p">)</span>
+
+    <span class="c1">## Analyzing</span>
+    <span class="kn">import</span> <span class="nn">pstats</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="s1">&#39;report.out&#39;</span><span class="p">)</span>
+
+    <span class="c1">## long steps and methods calling them</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">print_callers</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

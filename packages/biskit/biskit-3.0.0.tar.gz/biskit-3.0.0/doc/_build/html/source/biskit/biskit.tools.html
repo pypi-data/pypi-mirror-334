@@ -1,0 +1,1514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tools &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="molUtils" href="biskit.molUtils.html" />
+    <link rel="prev" title="hist" href="biskit.hist.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.hist.html">hist</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.molUtils.html">molUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.mathUtils.html">mathUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.match2seq.html">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-biskit.tools">
+<span id="tools"></span><h1>tools<a class="headerlink" href="#module-biskit.tools" title="Permalink to this headline">¶</a></h1>
+<p>general purpose utility methods.</p>
+<p class="rubric">Functions Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dump</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">Load</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.absbinary" title="biskit.tools.absbinary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absbinary</span></code></a></td>
+<td>Absolute path of binary.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.absfile" title="biskit.tools.absfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absfile</span></code></a></td>
+<td>Get absolute file path::   - expand ~ to user home, change   - expand ../../ to absolute path   - resolve links   - add working directory to unbound files (‘ab.txt’-&gt;’/home/raik/ab.txt’)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.backup" title="biskit.tools.backup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backup</span></code></a></td>
+<td>Create backup of file if it already exists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.binExists" title="biskit.tools.binExists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binExists</span></code></a></td>
+<td>Check if binary with file name f exists.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.clipStr" title="biskit.tools.clipStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clipStr</span></code></a></td>
+<td>Shorten string from end and replace the last characters with suffix::   clipStr( str, length ) -&gt; str, with len( str ) &lt;= length</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.cmdDict" title="biskit.tools.cmdDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmdDict</span></code></a></td>
+<td>Convenience implementation of <a class="reference internal" href="#biskit.tools.get_cmdDict" title="biskit.tools.get_cmdDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">get_cmdDict</span></code></a>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.colorSpectrum" title="biskit.tools.colorSpectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colorSpectrum</span></code></a></td>
+<td>Creates a list of ‘nColors’ colors for biggles starting at ‘firstColor’ ending at ‘lastColor’ Examples::  free spectrum red FF0000 to green 00FF00  bound spectrum cyan 00FFFF to magenta FF00FF</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.dataRoot" title="biskit.tools.dataRoot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataRoot</span></code></a></td>
+<td>Root of Biskit data directory (formerly ‘biskit/Biskit/data’).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.dateSortString" title="biskit.tools.dateSortString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dateSortString</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">YYYY/MM/DD:hh:mm.ss.ms :rtype:</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.dateString" title="biskit.tools.dateString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dateString</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">DD/MM/YYYY :rtype: str</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.dictAdd" title="biskit.tools.dictAdd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dictAdd</span></code></a></td>
+<td>Add value to dic, create list, if dic has already value in key.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.dump" title="biskit.tools.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a></td>
+<td>Dump this::   dump(this, filename, gzip = 0)   Supports also ‘~’ or ‘~user’.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.ensure" title="biskit.tools.ensure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ensure</span></code></a></td>
+<td>Check type of a variable</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.errWrite" title="biskit.tools.errWrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">errWrite</span></code></a></td>
+<td>print s to standard error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.errWriteln" title="biskit.tools.errWriteln"><code class="xref py py-obj docutils literal notranslate"><span class="pre">errWriteln</span></code></a></td>
+<td>print s to standard error with line feed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.file2dic" title="biskit.tools.file2dic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file2dic</span></code></a></td>
+<td>Construct dictionary from file with key - value pairs (one per line).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.fileLength" title="biskit.tools.fileLength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fileLength</span></code></a></td>
+<td>Count number of lines in a file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.flushPrint" title="biskit.tools.flushPrint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flushPrint</span></code></a></td>
+<td>print s without line break and flush standard out.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.get_cmdDict" title="biskit.tools.get_cmdDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cmdDict</span></code></a></td>
+<td>Parse commandline options into dictionary of type C{ {&lt;option&gt; : &lt;value&gt;} } Options are recognised by a leading ‘-‘.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">getframeinfo</span></code></td>
+<td>Get information about a frame or traceback object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.gzopen" title="biskit.tools.gzopen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gzopen</span></code></a></td>
+<td>Open a normal or a gzipped file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.hex2int" title="biskit.tools.hex2int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex2int</span></code></a></td>
+<td>Convert hex-code string into float number.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.hex2rgb" title="biskit.tools.hex2rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex2rgb</span></code></a></td>
+<td>convert 8 bit hex rgb color into  rgb color  ::    ‘FF00FF’ -&gt; [ 1.0, 0.0, 1.0, ]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.hexColors" title="biskit.tools.hexColors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hexColors</span></code></a></td>
+<td>Creates a list of ‘nColors’ colors for PyMol starting at ‘firstColor’ ending at ‘lastColor’ Examples::  free spectrum red FF0000 to green 00FF00  bound spectrum cyan 00FFFF to magenta FF00FF</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.homefile" title="biskit.tools.homefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">homefile</span></code></a></td>
+<td>Relativize a file name to ~ or, if it is in another user’s home, to ~otheruser or, if it is in nobody’s home, to / .</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.info" title="biskit.tools.info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">info</span></code></a></td>
+<td>::   info( item, short=1) -&gt; Print useful information about item.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.isBinary" title="biskit.tools.isBinary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isBinary</span></code></a></td>
+<td>Check if file is a binary.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.lastError" title="biskit.tools.lastError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lastError</span></code></a></td>
+<td>Collect type and line of last exception.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lastErrorTrace</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.load" title="biskit.tools.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></td>
+<td>Load dumped object from file.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">localtime</span></code></td>
+<td>tm_sec,tm_wday,tm_yday,tm_isdst)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.packageRoot" title="biskit.tools.packageRoot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">packageRoot</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">absolute folder of the biskit python package.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.platformFolder" title="biskit.tools.platformFolder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">platformFolder</span></code></a></td>
+<td>Get a platform-specific subfolder of f for platform-dependent imports.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.profile" title="biskit.tools.profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></a></td>
+<td>Profile the given code fragment and report time-consuming method calls.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.projectRoot" title="biskit.tools.projectRoot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">projectRoot</span></code></a></td>
+<td>Root of biskit project.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.relpath" title="biskit.tools.relpath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relpath</span></code></a></td>
+<td>Translate p2 into a path relative to p1.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.rgb2hex" title="biskit.tools.rgb2hex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgb2hex</span></code></a></td>
+<td>convert rgb color into 8 bit hex rgb color::   [ 1.0, 0.0, 1.0, ] -&gt; ‘FF00FF’</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.sortString" title="biskit.tools.sortString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sortString</span></code></a></td>
+<td>Sort the letters of a string::   sortString( str ) -&gt; str with sorted letters</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.splithome" title="biskit.tools.splithome"><code class="xref py py-obj docutils literal notranslate"><span class="pre">splithome</span></code></a></td>
+<td>Split path into home directory and remaining path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.string2Fname" title="biskit.tools.string2Fname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">string2Fname</span></code></a></td>
+<td>Remove forbidden character from string so that it can be used as a filename.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.stripFilename" title="biskit.tools.stripFilename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stripFilename</span></code></a></td>
+<td>Return filename without path and without ending.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.stripSuffix" title="biskit.tools.stripSuffix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stripSuffix</span></code></a></td>
+<td>Return file name without ending.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.tempDir" title="biskit.tools.tempDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tempDir</span></code></a></td>
+<td>Get folder for temporary files - either from environment settings or ‘/tmp’</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.testRoot" title="biskit.tools.testRoot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">testRoot</span></code></a></td>
+<td>Root of Biskit test directory.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.toInt" title="biskit.tools.toInt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toInt</span></code></a></td>
+<td>Convert to intereg if possible::   toInt(o) -&gt; int, int(o) or default if o is impossible to convert.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.toIntArray" title="biskit.tools.toIntArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toIntArray</span></code></a></td>
+<td>Convert single value or list of values to numpy array of int.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.toIntList" title="biskit.tools.toIntList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toIntList</span></code></a></td>
+<td>Convert single value or list of values into list of integers.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.toList" title="biskit.tools.toList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toList</span></code></a></td>
+<td>Make a list::   toList(o) -&gt; [o], or o,  if o is already a list</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.toStr" title="biskit.tools.toStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">toStr</span></code></a></td>
+<td>Make a string from a list or interger.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.tryImport" title="biskit.tools.tryImport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tryImport</span></code></a></td>
+<td>Try to import a class from a module.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.tryImportModule" title="biskit.tools.tryImportModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tryImportModule</span></code></a></td>
+<td>Try to import a module.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.tryRemove" title="biskit.tools.tryRemove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tryRemove</span></code></a></td>
+<td>Remove file or folder::  remove(f [,verbose=0, tree=0]), remove if possible, otherwise do nothing</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.PseudoClass" title="biskit.tools.PseudoClass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PseudoClass</span></code></a></td>
+<td>Empty class that raises an ImportError upon creation.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions Defined in this Module</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.tools.PickleError" title="biskit.tools.PickleError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PickleError</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.tools.ToolsError" title="biskit.tools.ToolsError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ToolsError</span></code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>tools Module Details</h2><dl class="exception">
+<dt id="biskit.tools.ToolsError">
+<em class="property">exception </em><code class="descclassname">biskit.tools.</code><code class="descname">ToolsError</code><a class="reference internal" href="../../_modules/biskit/tools.html#ToolsError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.ToolsError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="biskit.tools.PickleError">
+<em class="property">exception </em><code class="descclassname">biskit.tools.</code><code class="descname">PickleError</code><a class="reference internal" href="../../_modules/biskit/tools.html#PickleError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.PickleError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.errWriteln">
+<code class="descclassname">biskit.tools.</code><code class="descname">errWriteln</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#errWriteln"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.errWriteln" title="Permalink to this definition">¶</a></dt>
+<dd><p>print s to standard error with line feed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.errWrite">
+<code class="descclassname">biskit.tools.</code><code class="descname">errWrite</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#errWrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.errWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>print s to standard error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.flushPrint">
+<code class="descclassname">biskit.tools.</code><code class="descname">flushPrint</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#flushPrint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.flushPrint" title="Permalink to this definition">¶</a></dt>
+<dd><p>print s without line break and flush standard out.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.lastError">
+<code class="descclassname">biskit.tools.</code><code class="descname">lastError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#lastError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.lastError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect type and line of last exception.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">‘&lt;ExceptionType&gt; in line &lt;lineNumber&gt;:&lt;Exception arguments&gt;’</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">String</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.dictAdd">
+<code class="descclassname">biskit.tools.</code><code class="descname">dictAdd</code><span class="sig-paren">(</span><em>dic</em>, <em>key</em>, <em>value</em>, <em>forceList=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#dictAdd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.dictAdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add value to dic, create list, if dic has already value in key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – dictionary key</li>
+<li><strong>value</strong> (<em>any</em>) – value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.absfile">
+<code class="descclassname">biskit.tools.</code><code class="descname">absfile</code><span class="sig-paren">(</span><em>filename</em>, <em>resolveLinks=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#absfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.absfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Get absolute file path::</dt>
+<dd><ul class="first last simple">
+<li>expand ~ to user home, change</li>
+<li>expand ../../ to absolute path</li>
+<li>resolve links</li>
+<li>add working directory to unbound files (‘ab.txt’-&gt;’/home/raik/ab.txt’)</li>
+</ul>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – name of file</li>
+<li><strong>resolveLinks</strong> (<em>1|0</em>) – eliminate any symbolic links (default: 1)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">absolute path or filename</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">string</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#biskit.tools.ToolsError" title="biskit.tools.ToolsError"><strong>ToolsError</strong></a> – if a ~user part does not translate to an existing path</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.homefile">
+<code class="descclassname">biskit.tools.</code><code class="descname">homefile</code><span class="sig-paren">(</span><em>filename</em>, <em>otherUser=1</em>, <em>ownCopy=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#homefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.homefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relativize a file name to ~ or, if it is in another user’s home,
+to ~otheruser or, if it is in nobody’s home, to / .</p>
+<p><a class="reference internal" href="#biskit.tools.splithome" title="biskit.tools.splithome"><code class="xref py py-class docutils literal notranslate"><span class="pre">splithome()</span></code></a> is used to also guess home directories of other users.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – name of file</li>
+<li><strong>otherUser</strong> (<em>1|0</em>) – look also in other user’s home directories (default 1)</li>
+<li><strong>ownCopy</strong> (<em>1|0</em>) – replace alien path by path into own home directory if
+possible, e.g. ~other/data/x is replaced
+by ~/data/x if there is such a file. (default 1) Careful!</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">path or filename</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.splithome">
+<code class="descclassname">biskit.tools.</code><code class="descname">splithome</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#splithome"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.splithome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split path into home directory and remaining path. Valid home directories
+are folders belonging to the same folder as the current user’s home. I.e.
+the method tries also to guess home directories of other users.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">home folder of some user, remaining path relative to home</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(str, str)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.relpath">
+<code class="descclassname">biskit.tools.</code><code class="descname">relpath</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#relpath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.relpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate p2 into a path relative to p1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>p1</strong> (<em>str</em>) – base path</li>
+<li><strong>p2</strong> (<em>str</em>) – target path</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">relative path p1 -&gt; p2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.stripSuffix">
+<code class="descclassname">biskit.tools.</code><code class="descname">stripSuffix</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#stripSuffix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.stripSuffix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return file name without ending.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">filename or path without suffix</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.stripFilename">
+<code class="descclassname">biskit.tools.</code><code class="descname">stripFilename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#stripFilename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.stripFilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return filename without path and without ending.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">base filename</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.fileLength">
+<code class="descclassname">biskit.tools.</code><code class="descname">fileLength</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#fileLength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.fileLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of lines in a file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">number of lines</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.tempDir">
+<code class="descclassname">biskit.tools.</code><code class="descname">tempDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#tempDir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.tempDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get folder for temporary files - either from environment settings
+or ‘/tmp’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">directort for temporary files</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.file2dic">
+<code class="descclassname">biskit.tools.</code><code class="descname">file2dic</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#file2dic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.file2dic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct dictionary from file with key - value pairs (one per line).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> (<em>str</em>) – name of file</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="#biskit.tools.ToolsError" title="biskit.tools.ToolsError"><strong>ToolsError</strong></a> – if file can’t be parsed into dictionary</li>
+<li><strong>IOError</strong> – if file can’t be opened</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.get_cmdDict">
+<code class="descclassname">biskit.tools.</code><code class="descname">get_cmdDict</code><span class="sig-paren">(</span><em>lst_cmd</em>, <em>dic_default</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#get_cmdDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.get_cmdDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse commandline options into dictionary of type C{ {&lt;option&gt; : &lt;value&gt;} }
+Options are recognised by a leading ‘-‘.
+Error handling should be improved.</p>
+<p>Option C{ -x <a href="#id1"><span class="problematic" id="id2">|file_name|</span></a> } is interpreted as file with additional options.
+The key value pairs in lst_cmd replace key value pairs in the
+-x file and in dic_default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lst_cmd</strong> (<em>[</em><em>str</em><em>]</em>) – list with the command line options::
+e.g. [‘-pdb’, ‘in1.pdb’, ‘in2.pdb’, ‘-o’, ‘out.dat’]</li>
+<li><strong>dic_default</strong> (<em>{str : str}</em>) – dictionary with default options::
+e.g. {‘psf’:’in.psf’}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">command dictionary::
+ala {‘pdb’:[‘in1.pdb’, ‘in2.pdb’], ‘psf’:’in.psf’, ‘o’:’out.dat’}</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">{&lt;option&gt; : &lt;value&gt;}</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.cmdDict">
+<code class="descclassname">biskit.tools.</code><code class="descname">cmdDict</code><span class="sig-paren">(</span><em>defaultDic={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#cmdDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.cmdDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience implementation of <a class="reference internal" href="#biskit.tools.get_cmdDict" title="biskit.tools.get_cmdDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">get_cmdDict</span></code></a>. Take command line options
+from sys.argv[1:] and convert them into dictionary.
+Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;-o out.dat -in 1.pdb 2.pdb 3.pdb -d&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">converted</span> <span class="n">to</span>
+<span class="p">{</span><span class="s1">&#39;o&#39;</span><span class="p">:</span><span class="s1">&#39;out.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;2.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;3.pdb&#39;</span><span class="p">],</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Option C{ -x <a href="#id3"><span class="problematic" id="id4">|file_name|</span></a> } is interpreted as file with additional options.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>defaultDic</strong> (<em>dic</em>) – dic with default values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">command dictionary</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dic</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.dump">
+<code class="descclassname">biskit.tools.</code><code class="descname">dump</code><span class="sig-paren">(</span><em>this</em>, <em>filename</em>, <em>gzip=0</em>, <em>mode='wb'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.dump" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Dump this::</dt>
+<dd>dump(this, filename, gzip = 0)
+Supports also ‘~’ or ‘~user’.</dd>
+</dl>
+<p>Note: Peter Schmidtke : gzip fixed, works now</p>
+<p>Written by Wolfgang Rieping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>this</strong> (<em>any</em>) – object to dump</li>
+<li><strong>filename</strong> (<em>str</em>) – name of file</li>
+<li><strong>gzip</strong> (<em>1|0</em>) – gzip dumped object (default 0)</li>
+<li><strong>mode</strong> (<em>str</em>) – file handle mode (default w)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.load">
+<code class="descclassname">biskit.tools.</code><code class="descname">load</code><span class="sig-paren">(</span><em>filename</em>, <em>gzip=0</em>, <em>encoding='ASCII'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load dumped object from file.</p>
+<p>Note: Peter Schmidtke : gzip fixed, works now</p>
+<p>Written by Wolfgang Rieping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – name of file</li>
+<li><strong>gzip</strong> (<em>1|0</em>) – unzip dumped object (default 0)</li>
+<li><strong>encoding</strong> (<em>str</em>) – optional encoding for pickle.load [‘ASCII’]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">loaded object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">any</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:raise cPickle.UnpicklingError, if the pickle format is not recognized</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.packageRoot">
+<code class="descclassname">biskit.tools.</code><code class="descname">packageRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#packageRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.packageRoot" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">absolute folder of the biskit python package.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.projectRoot">
+<code class="descclassname">biskit.tools.</code><code class="descname">projectRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#projectRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.projectRoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Root of biskit project. That’s the folder <strong>containing</strong> the biskit python
+package (the parent folder of <a class="reference internal" href="#biskit.tools.packageRoot" title="biskit.tools.packageRoot"><code class="xref any py py-func docutils literal notranslate"><span class="pre">packageRoot</span></code></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">absolute path of the root (parent) folder of current project::
+i.e. ‘/home/raik/py/biskitproject’</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.dataRoot">
+<code class="descclassname">biskit.tools.</code><code class="descname">dataRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#dataRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.dataRoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Root of Biskit data directory (formerly ‘biskit/Biskit/data’).
+:return: absolute path
+:rtype: string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.testRoot">
+<code class="descclassname">biskit.tools.</code><code class="descname">testRoot</code><span class="sig-paren">(</span><em>subfolder=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#testRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.testRoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Root of Biskit test directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subfolder</strong> – str, optional sub-folder of test data folder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">absolute path</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.isBinary">
+<code class="descclassname">biskit.tools.</code><code class="descname">isBinary</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#isBinary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.isBinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if file is a binary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>str</em>) – path to existing file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">condition</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">1|0</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>OSError</strong> – if file doesn’t exist</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.binExists">
+<code class="descclassname">biskit.tools.</code><code class="descname">binExists</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#binExists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.binExists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if binary with file name f exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>str</em>) – binary file name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if binary file f is found in PATH and is executable</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">1|0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.absbinary">
+<code class="descclassname">biskit.tools.</code><code class="descname">absbinary</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#absbinary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.absbinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute path of binary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>str</em>) – binary file name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">full path to existing binary</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>IOError</strong> – if an executable binary is not found in PATH</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.platformFolder">
+<code class="descclassname">biskit.tools.</code><code class="descname">platformFolder</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#platformFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.platformFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a platform-specific subfolder of f for platform-dependent imports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> (<em>str</em>) – parent folder</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">path</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.sortString">
+<code class="descclassname">biskit.tools.</code><code class="descname">sortString</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#sortString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.sortString" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Sort the letters of a string::</dt>
+<dd>sortString( str ) -&gt; str with sorted letters</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – string to be sorted</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">sorted string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.string2Fname">
+<code class="descclassname">biskit.tools.</code><code class="descname">string2Fname</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#string2Fname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.string2Fname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove forbidden character from string so that it can be used as a
+filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>s</strong> (<em>str</em>) – string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">cleaned string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.toIntList">
+<code class="descclassname">biskit.tools.</code><code class="descname">toIntList</code><span class="sig-paren">(</span><em>o</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#toIntList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.toIntList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert single value or list of values into list of integers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>o</strong> (<em>int</em><em> or </em><em>[</em><em>int</em><em>]</em>) – value or list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of integer</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[int]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.toIntArray">
+<code class="descclassname">biskit.tools.</code><code class="descname">toIntArray</code><span class="sig-paren">(</span><em>o</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#toIntArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.toIntArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert single value or list of values to numpy array of int.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>o</strong> (<em>int</em><em> or </em><em>[</em><em>int</em><em>]</em>) – value or list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">array of integer</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">N0.array(‘i’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.toList">
+<code class="descclassname">biskit.tools.</code><code class="descname">toList</code><span class="sig-paren">(</span><em>o</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#toList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.toList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Make a list::</dt>
+<dd>toList(o) -&gt; [o], or o,  if o is already a list</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>o</strong> (<em>any</em><em> or </em><em>[</em><em>any</em><em>]</em>) – value(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.toStr">
+<code class="descclassname">biskit.tools.</code><code class="descname">toStr</code><span class="sig-paren">(</span><em>o</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#toStr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.toStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a string from a list or interger.
+Stripping of any flanking witespaces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>o</strong> (<em>any</em><em> or </em><em>[</em><em>any</em><em>]</em>) – value(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">[any]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.toInt">
+<code class="descclassname">biskit.tools.</code><code class="descname">toInt</code><span class="sig-paren">(</span><em>o</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#toInt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.toInt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Convert to intereg if possible::</dt>
+<dd>toInt(o) -&gt; int, int(o) or default if o is impossible to convert.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>o</strong> (<em>any</em>) – value</li>
+<li><strong>default</strong> (<em>any</em>) – value to return if conversion is impossible (default: None)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">integer OR None</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int OR None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.hex2int">
+<code class="descclassname">biskit.tools.</code><code class="descname">hex2int</code><span class="sig-paren">(</span><em>shex</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#hex2int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.hex2int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert hex-code string into float number.
+:param s: hex-code, e.g. ‘FF0B99’
+:type  s: str
+:return: float
+:rtype: float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.colorSpectrum">
+<code class="descclassname">biskit.tools.</code><code class="descname">colorSpectrum</code><span class="sig-paren">(</span><em>nColors</em>, <em>firstColor='FF0000'</em>, <em>lastColor='FF00FF'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#colorSpectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.colorSpectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a list of ‘nColors’ colors for biggles starting at
+‘firstColor’ ending at ‘lastColor’
+Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">free</span> <span class="n">spectrum</span> <span class="n">red</span> <span class="n">FF0000</span> <span class="n">to</span> <span class="n">green</span> <span class="mi">00</span><span class="n">FF00</span>
+<span class="n">bound</span> <span class="n">spectrum</span> <span class="n">cyan</span> <span class="mi">00</span><span class="n">FFFF</span> <span class="n">to</span> <span class="n">magenta</span> <span class="n">FF00FF</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nColors</strong> (<em>int</em>) – number of colors to create</li>
+<li><strong>firstColor</strong> (<em>str</em>) – first color in hex format (default: FF0000)</li>
+<li><strong>lastColor</strong> (<em>str</em>) – last color in hex format (default: FF00FF)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of colors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[int]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.hexColors">
+<code class="descclassname">biskit.tools.</code><code class="descname">hexColors</code><span class="sig-paren">(</span><em>nColors</em>, <em>firstColor='FF0000'</em>, <em>lastColor='FF00FF'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#hexColors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.hexColors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a list of ‘nColors’ colors for PyMol starting at
+‘firstColor’ ending at ‘lastColor’
+Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">free</span> <span class="n">spectrum</span> <span class="n">red</span> <span class="n">FF0000</span> <span class="n">to</span> <span class="n">green</span> <span class="mi">00</span><span class="n">FF00</span>
+<span class="n">bound</span> <span class="n">spectrum</span> <span class="n">cyan</span> <span class="mi">00</span><span class="n">FFFF</span> <span class="n">to</span> <span class="n">magenta</span> <span class="n">FF00FF</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nColors</strong> (<em>int</em>) – number of colors to create</li>
+<li><strong>firstColor</strong> (<em>str</em>) – first color in hex format (default: FF0000)</li>
+<li><strong>lastColor</strong> (<em>str</em>) – last color in hex format (default: FF00FF)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of  hex colors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[ str ]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.rgb2hex">
+<code class="descclassname">biskit.tools.</code><code class="descname">rgb2hex</code><span class="sig-paren">(</span><em>rgbColor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#rgb2hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.rgb2hex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>convert rgb color into 8 bit hex rgb color::</dt>
+<dd>[ 1.0, 0.0, 1.0, ] -&gt; ‘FF00FF’</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rgbColor</strong> – RGB-color e.g. [ 1.0, 0.0, 1.0, ]</td>
+</tr>
+</tbody>
+</table>
+<p>:type rgbColor : [float]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">hex colors</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.hex2rgb">
+<code class="descclassname">biskit.tools.</code><code class="descname">hex2rgb</code><span class="sig-paren">(</span><em>hexColor</em>, <em>str=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#hex2rgb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.hex2rgb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>convert 8 bit hex rgb color into  rgb color  ::</dt>
+<dd>‘FF00FF’ -&gt; [ 1.0, 0.0, 1.0, ]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hexColor</strong> (<em>str</em>) – HEX-color e.g. ‘FF00FF’</li>
+<li><strong>str</strong> (<em>1|0</em>) – return rgb colors as a tring (i.e for PyMol)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">rgb colors</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">[float]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.dateString">
+<code class="descclassname">biskit.tools.</code><code class="descname">dateString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#dateString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.dateString" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">DD/MM/YYYY</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.dateSortString">
+<code class="descclassname">biskit.tools.</code><code class="descname">dateSortString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#dateSortString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.dateSortString" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">YYYY/MM/DD:hh:mm.ss.ms</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.tryRemove">
+<code class="descclassname">biskit.tools.</code><code class="descname">tryRemove</code><span class="sig-paren">(</span><em>f</em>, <em>verbose=0</em>, <em>tree=0</em>, <em>wildcard=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#tryRemove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.tryRemove" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Remove file or folder::</dt>
+<dd>remove(f [,verbose=0, tree=0]), remove if possible, otherwise do nothing</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>f</strong> (<em>str</em>) – file path</li>
+<li><strong>verbose</strong> (<em>0|1</em>) – report failure (default 0)</li>
+<li><strong>tree</strong> (<em>0|1</em>) – remove whole folder (default 0)</li>
+<li><strong>wildcard</strong> (<em>0|1</em>) – filename contains wildcards (default 0)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">1 if file was removed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">1|0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.backup">
+<code class="descclassname">biskit.tools.</code><code class="descname">backup</code><span class="sig-paren">(</span><em>fname</em>, <em>suffix='~'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#backup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create backup of file if it already exists.
+:param fname: file name
+:type  fname: str
+:param suffix: suffix to add to backup file name [‘~’]
+:type  suffix: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if backup was created, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.ensure">
+<code class="descclassname">biskit.tools.</code><code class="descname">ensure</code><span class="sig-paren">(</span><em>v</em>, <em>t</em>, <em>allowed=[]</em>, <em>forbidden=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#ensure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.ensure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check type of a variable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>v</strong> (<em>variable</em>) – variable to test</li>
+<li><strong>t</strong> (<em>str</em>) – required type</li>
+<li><strong>allowed</strong> (<em>[</em><em>str</em><em>]</em>) – list of additional values allowed for v {default: []}</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>TypeError</strong> – if invalid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.clipStr">
+<code class="descclassname">biskit.tools.</code><code class="descname">clipStr</code><span class="sig-paren">(</span><em>s</em>, <em>length</em>, <em>suffix='..'</em>, <em>expandtabs=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#clipStr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.clipStr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Shorten string from end and replace the last characters with suffix::</dt>
+<dd>clipStr( str, length ) -&gt; str, with len( str ) &lt;= length</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s</strong> (<em>str</em>) – original string</li>
+<li><strong>length</strong> (<em>int</em>) – desired length</li>
+<li><strong>suffix</strong> (<em>str</em>) – suffix (default: ..)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">shortend string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.info">
+<code class="descclassname">biskit.tools.</code><code class="descname">info</code><span class="sig-paren">(</span><em>item</em>, <em>short=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>::</dt>
+<dd>info( item, short=1) -&gt; Print useful information about item.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> (<em>item</em>) – query item</li>
+<li><strong>short</strong> (<em>1|0</em>) – short version (default: 1)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="biskit.tools.PseudoClass">
+<em class="property">class </em><code class="descclassname">biskit.tools.</code><code class="descname">PseudoClass</code><a class="reference internal" href="../../_modules/biskit/tools.html#PseudoClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.PseudoClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Empty class that raises an ImportError upon creation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.tryImport">
+<code class="descclassname">biskit.tools.</code><code class="descname">tryImport</code><span class="sig-paren">(</span><em>module</em>, <em>cls</em>, <em>old_as=None</em>, <em>namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#tryImport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.tryImport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to import a class from a module. If that fails, ‘import’ a
+default class of the same name that raises an exception when used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>module</strong> (<em>str</em>) – name of the module</td>
+</tr>
+</tbody>
+</table>
+<p>:param cls  : name of the class
+:type  cls  : str
+:param namespace: namespace for the import [default: globals() ]
+:type  namespace: dict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if import succeeded, False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.tryImportModule">
+<code class="descclassname">biskit.tools.</code><code class="descname">tryImportModule</code><span class="sig-paren">(</span><em>module</em>, <em>old_as=None</em>, <em>namespace=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#tryImportModule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.tryImportModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to import a module. If that fails, ‘import’ a dummy module
+of the same name.</p>
+<p>NOTE: as of python 3, the namespace returned by globals() cannot
+reach out of the tools module – this method thus always needs to be
+called like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tryImportModule</span><span class="p">(</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="nb">globals</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>module</strong> (<em>str</em>) – name of the module</li>
+<li><strong>namespace</strong> (<em>dict</em>) – namespace for the import [default: globals() ]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if import succeeded, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.gzopen">
+<code class="descclassname">biskit.tools.</code><code class="descname">gzopen</code><span class="sig-paren">(</span><em>fname</em>, <em>mode='rt'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#gzopen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.gzopen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a normal or a gzipped file.
+:param fname: file name (can contain ~, .. etc.)
+:type  fname: str
+:param mode: read/write mode [‘r’]
+:type  mode: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">file handle</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">file or GZipFile</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.tools.profile">
+<code class="descclassname">biskit.tools.</code><code class="descname">profile</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/tools.html#profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.tools.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profile the given code fragment and report time-consuming method calls.
+:param s: python code fragment, example: ‘m = PDBModel(“3tgi”)’
+:type  s: str</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.molUtils.html" class="btn btn-neutral float-right" title="molUtils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.hist.html" class="btn btn-neutral" title="hist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hist &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="tools" href="biskit.tools.html" />
+    <link rel="prev" title="gnuplot" href="biskit.gnuplot.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.tools.html">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.molUtils.html">molUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.mathUtils.html">mathUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.match2seq.html">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>hist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.hist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-biskit.hist">
+<span id="hist"></span><h1>hist<a class="headerlink" href="#module-biskit.hist" title="Permalink to this headline">¶</a></h1>
+<p>create a histogram from data</p>
+<p class="rubric">Functions Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.hist.density" title="biskit.hist.density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">density</span></code></a></td>
+<td>returns the normalized histogram of x::   density( data, nBins [,range=None, steps=1, hist=0|1] ) -&gt; array</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.hist.histogram" title="biskit.hist.histogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histogram</span></code></a></td>
+<td>Create a histogram.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+</tbody>
+</table>
+<hr>
+<h2>hist Module Details</h2><dl class="function">
+<dt id="biskit.hist.histogram">
+<code class="descclassname">biskit.hist.</code><code class="descname">histogram</code><span class="sig-paren">(</span><em>data</em>, <em>nbins</em>, <em>range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/hist.html#histogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.hist.histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a histogram.
+Comes from Konrad Hinsen: Scientific Python</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>[</em><em>any</em><em>]</em>) – data list or array</li>
+<li><strong>nbins</strong> (<em>int</em>) – number of bins</li>
+<li><strong>range</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>) </em><em>OR None</em>) – data range to create histogram from (min val, max val)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array (2 x len(data) ) with start of bin and witdh of bin.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="biskit.hist.density">
+<code class="descclassname">biskit.hist.</code><code class="descname">density</code><span class="sig-paren">(</span><em>x</em>, <em>nBins</em>, <em>range=None</em>, <em>steps=1</em>, <em>hist=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/hist.html#density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.hist.density" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>returns the normalized histogram of x::</dt>
+<dd>density( data, nBins [,range=None, steps=1, hist=0|1] ) -&gt; array</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>[</em><em>any</em><em>]</em>) – data list or array</li>
+<li><strong>nBins</strong> (<em>int</em>) – number of bins</li>
+<li><strong>range</strong> (<em>(</em><em>float</em><em>, </em><em>float</em><em>) </em><em>OR None</em>) – data range to create histogram from (min val, max val)</li>
+<li><strong>steps</strong> (<em>1|0</em>) – 1: histogram appears as a discrete graph (default 1)</li>
+<li><strong>hist</strong> (<em>1|0</em>) – 0: normalize histogram (default 0)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array (2 x len(data) ) with start of bin and witdh of bin.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.tools.html" class="btn btn-neutral float-right" title="tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="biskit.gnuplot.html" class="btn btn-neutral" title="gnuplot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.hist &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.hist</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.hist</h1><div class="highlight"><pre>
+<span></span><span class="c1">## numpy-oldnumeric calls replaced by custom script; 09/06/2016</span>
+<span class="c1">## Automatically adapted for numpy-oldnumeric Mar 26, 2007 by alter_code1.py</span>
+
+<span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Wolfgang Rieping</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">create a histogram from data</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">biskit.core.oldnumeric</span> <span class="k">as</span> <span class="nn">N0</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">N</span>
+
+
+<div class="viewcode-block" id="histogram"><a class="viewcode-back" href="../../source/biskit/biskit.hist.html#biskit.hist.histogram">[docs]</a><span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a histogram.</span>
+<span class="sd">    Comes from Konrad Hinsen: Scientific Python</span>
+
+<span class="sd">    :param data: data list or array</span>
+<span class="sd">    :type  data: [any]</span>
+<span class="sd">    :param nbins: number of bins</span>
+<span class="sd">    :type  nbins: int</span>
+<span class="sd">    :param range: data range to create histogram from (min val, max val)</span>
+<span class="sd">    :type  range: (float, float) OR None</span>
+
+<span class="sd">    :return: array (2 x len(data) ) with start of bin and witdh of bin. </span>
+<span class="sd">    :rtype: array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">N0</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">range</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">minimum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">max</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="nb">range</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                              <span class="n">N0</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span>
+                                                  <span class="n">N0</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">min</span><span class="p">)))</span>
+    <span class="n">bin_width</span> <span class="o">=</span> <span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span><span class="o">/</span><span class="n">nbins</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">data</span> <span class="o">-</span> <span class="nb">min</span><span class="p">)</span><span class="o">/</span><span class="n">bin_width</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span>
+    <span class="n">histo</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span>
+        <span class="n">N0</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nbins</span><span class="p">)[:,</span><span class="n">N0</span><span class="o">.</span><span class="n">NewAxis</span><span class="p">],</span> <span class="n">data</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">histo</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">histo</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">N0</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">nbins</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="nb">min</span> <span class="o">+</span> <span class="n">bin_width</span><span class="o">*</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nbins</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bins</span><span class="p">,</span> <span class="n">histo</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="density"><a class="viewcode-back" href="../../source/biskit/biskit.hist.html#biskit.hist.density">[docs]</a><span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nBins</span><span class="p">,</span> <span class="nb">range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hist</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    returns the normalized histogram of x::</span>
+<span class="sd">      density( data, nBins [,range=None, steps=1, hist=0|1] ) -&gt; array</span>
+
+<span class="sd">    :param x: data list or array</span>
+<span class="sd">    :type  x: [any]</span>
+<span class="sd">    :param nBins: number of bins</span>
+<span class="sd">    :type  nBins: int</span>
+<span class="sd">    :param range: data range to create histogram from (min val, max val)</span>
+<span class="sd">    :type  range: (float, float) OR None</span>
+<span class="sd">    :param steps: 1: histogram appears as a discrete graph (default 1)</span>
+<span class="sd">    :type  steps: 1|0</span>
+<span class="sd">    :param hist: 0: normalize histogram (default 0)</span>
+<span class="sd">    :type  hist: 1|0</span>
+
+<span class="sd">    :return: array (2 x len(data) ) with start of bin and witdh of bin. </span>
+<span class="sd">    :rtype: array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nBins</span><span class="p">,</span> <span class="nb">range</span><span class="p">)</span>
+    <span class="n">binWidth</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hist</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">binWidth</span>
+        <span class="n">h</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">i</span>
+
+    <span class="k">if</span> <span class="n">steps</span><span class="p">:</span>
+        <span class="n">half</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">half</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">half</span><span class="p">,</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">half</span><span class="p">,</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">half</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">h</span> <span class="o">=</span> <span class="n">l</span>
+
+    <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">h</span><span class="p">)</span></div>
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test case&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">test_hist</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;hist test&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">1.2</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">density</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">N</span><span class="o">.</span><span class="n">all</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">EXPECT</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">EXPECT</span><span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span>  <span class="mf">4.</span> <span class="p">,</span>   <span class="mf">0.</span> <span class="p">],</span>
+                           <span class="p">[</span>  <span class="mf">4.</span> <span class="p">,</span>   <span class="mf">2.</span> <span class="p">],</span>
+                           <span class="p">[</span>  <span class="mf">6.4</span><span class="p">,</span>   <span class="mf">2.</span> <span class="p">],</span>
+                           <span class="p">[</span>  <span class="mf">6.4</span><span class="p">,</span>   <span class="mf">2.</span> <span class="p">],</span>
+                           <span class="p">[</span>  <span class="mf">8.8</span><span class="p">,</span>   <span class="mf">2.</span> <span class="p">],</span>
+                           <span class="p">[</span>  <span class="mf">8.8</span><span class="p">,</span>   <span class="mf">3.</span> <span class="p">],</span>
+                           <span class="p">[</span> <span class="mf">11.2</span><span class="p">,</span>   <span class="mf">3.</span> <span class="p">],</span>
+                           <span class="p">[</span> <span class="mf">11.2</span><span class="p">,</span>   <span class="mf">0.</span> <span class="p">]])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

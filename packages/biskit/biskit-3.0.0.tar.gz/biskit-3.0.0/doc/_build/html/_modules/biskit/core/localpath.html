@@ -1,0 +1,911 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.core.localpath &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.core.localpath</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.core.localpath</h1><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Path handling.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">T</span>
+<span class="kn">import</span> <span class="nn">biskit.settings</span> <span class="k">as</span> <span class="nn">S</span>
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">EHandler</span>
+<span class="kn">from</span> <span class="nn">biskit.errors</span> <span class="k">import</span> <span class="n">BiskitError</span>
+
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<div class="viewcode-block" id="LocalPathError"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPathError.html#biskit.LocalPathError">[docs]</a><span class="k">class</span> <span class="nc">LocalPathError</span><span class="p">(</span> <span class="n">BiskitError</span> <span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="LocalPath"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath">[docs]</a><span class="k">class</span> <span class="nc">LocalPath</span><span class="p">(</span> <span class="nb">object</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encapsulate a file name that might look differently in different</span>
+<span class="sd">    environments depending on environment settings.  The file name has</span>
+<span class="sd">    an absolute (original) variant but parts of it can be looked up</span>
+<span class="sd">    from environment or Biskit settings variables (if the original path</span>
+<span class="sd">    doesn&#39;t exist in the current environment).</span>
+
+<span class="sd">    Creating a LocalPath:</span>
+
+<span class="sd">    Creating a LocalPath is simple. By default, LocalPath takes a</span>
+<span class="sd">    normal filename and browses the local biskit.settings and run-time</span>
+<span class="sd">    environment for variables that can replace part of that path.</span>
+<span class="sd">    </span>
+<span class="sd">    Variable values must be at least 3 char long and contain at least</span>
+<span class="sd">    one &#39;/&#39; in order to avoid substitution of single letters or &#39;/a&#39;</span>
+<span class="sd">    etc. $PYTHONPATH, $PATH and $PWD are ignored.</span>
+
+<span class="sd">    Variables from biskit.settings (thus also .biskit/settings.cfg)</span>
+<span class="sd">    have priority over normal environment variables both during the</span>
+<span class="sd">    construction of LocalPath instances and during the reconstruction</span>
+<span class="sd">    of a locally valid path.</span>
+
+<span class="sd">    Using a LocalPath:</span>
+
+<span class="sd">    LocalPath tries behaving like the simple absolute path string when it</span>
+<span class="sd">    comes to slicing etc::</span>
+<span class="sd">      l = LocalPath( &#39;{/home/raik|$USER}/data/x.txt&#39; )</span>
+<span class="sd">      l[:] == &#39;/home/raik/data/x.txt&#39; == l.local()</span>
+<span class="sd">      l[-4:] == &#39;.txt&#39;</span>
+<span class="sd">      str( l ) == l.local()</span>
+
+<span class="sd">      l.formatted() == &#39;{/home/raik|$USER}/data/x.txt&#39;</span>
+
+<span class="sd">    @todo:   input:  allow multiple or overlapping substitutions</span>
+<span class="sd">             output: only substitute what is necessary until path exists</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">## pattern for formatted string input</span>
+    <span class="n">ex_fragment</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\{([a-zA-Z0-9_~/ ]+)\|\$([a-zA-Z0-9_]+)\}&#39;</span><span class="p">)</span>
+
+    <span class="c1">## pattern for minimal path fragment that can be substituted</span>
+    <span class="n">ex_minpath</span>  <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;/|~[a-zA-Z0-9_~/ ]+&#39;</span> <span class="p">)</span>
+
+    <span class="c1">## never use these variables</span>
+    <span class="n">exclude_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PWD&#39;</span><span class="p">,</span><span class="s1">&#39;OLDPWD&#39;</span><span class="p">,</span><span class="s1">&#39;PYTHONPATH&#39;</span><span class="p">,</span><span class="s1">&#39;PATH&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="LocalPath.__init__"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkEnv</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">maxSub</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">absolute</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="o">**</span><span class="nb">vars</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new environment-dependent path from either a list of</span>
+<span class="sd">        fragments and their substitution variable names or from a path or</span>
+<span class="sd">        from a formatted string (not implemented).</span>
+<span class="sd">        A path will be analyzed to substitute as big chunks as possible</span>
+<span class="sd">        by environment variables. ~ and ../../ will be expanded both in</span>
+<span class="sd">        the given path and in the environment variables.</span>
+<span class="sd">        </span>
+<span class="sd">        :param path: path(s)</span>
+<span class="sd">        :type  path: [ (str, str) ] OR str</span>
+<span class="sd">        :param checkEnv: look for substitution values among environment</span>
+<span class="sd">                         variables (default 1)</span>
+<span class="sd">        :type  checkEnv: 1|0</span>
+<span class="sd">        :param absolute: normalize file name [1]</span>
+<span class="sd">        :type  absolute: 1|0</span>
+<span class="sd">        :param resolveLinks: resolve symbolic links [0]</span>
+<span class="sd">        :type  resolveLinks: 1|0</span>
+<span class="sd">        :param maxSub: maximal number of substitutions [1]</span>
+<span class="sd">        :type  maxSub: int</span>
+<span class="sd">        :param vars: additional param=value pairs with suggested substitutors</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## list of tuples (absolut,variable_name)</span>
+        <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="n">path</span><span class="p">,</span> <span class="n">checkEnv</span><span class="o">=</span><span class="n">checkEnv</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span>
+                      <span class="n">absolute</span><span class="o">=</span><span class="n">absolute</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="n">resolveLinks</span><span class="p">,</span>
+                      <span class="n">maxSub</span><span class="o">=</span><span class="n">maxSub</span><span class="p">,</span> <span class="o">**</span><span class="nb">vars</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        called for unpickling the object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="c1">## backwards compability</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_LocalPath__hash&#39;</span><span class="p">,</span> <span class="kc">None</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="LocalPath.get_local"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.get_local">[docs]</a>    <span class="k">def</span> <span class="nf">get_local</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">existing</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a valid, absolute path. Either the existing original or with</span>
+<span class="sd">        all substitutions for which environment variables exist.</span>
+<span class="sd">        This function is time consuming (absfile - os.realpath is the culprit).</span>
+<span class="sd">                         </span>
+<span class="sd">        :param existing: don&#39;t return a non-existing path                </span>
+<span class="sd">        :type  existing: 0|1</span>
+<span class="sd">        </span>
+<span class="sd">        :return: valid absolute path in current environment</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        </span>
+<span class="sd">        :raise LocalPathError: if existing==1 and no existing path can be</span>
+<span class="sd">                               constructed via environment variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="o">*</span><span class="p">[</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="p">]</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">result</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="n">substitutions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_substitution_dict</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">env</span>  <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">env</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">substitutions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span> <span class="n">env</span><span class="p">,</span> <span class="nb">abs</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="nb">abs</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">existing</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">result</span> <span class="p">):</span>
+            <span class="k">raise</span> <span class="n">LocalPathError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t construct existing path from </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span>\
+                  <span class="bp">self</span><span class="o">.</span><span class="n">formatted</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.local"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.local">[docs]</a>    <span class="k">def</span> <span class="nf">local</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">existing</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cached variant of get_local.</span>
+<span class="sd">        Return a valid, absolute path. Either the existing original or with</span>
+<span class="sd">        all substitutions for which environment variables exist.</span>
+<span class="sd">        This function is time consuming (absfile - os.realpath is the culprit).</span>
+<span class="sd">                         </span>
+<span class="sd">        :param existing: don&#39;t return a non-existing path [0]</span>
+<span class="sd">        :type  existing: 0|1</span>
+
+<span class="sd">        :param force: override cached value [0]</span>
+<span class="sd">        :type  force: 0|1</span>
+<span class="sd">        </span>
+<span class="sd">        :return: valid absolute (not necessarily existing) path in current</span>
+<span class="sd">                 environment</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        </span>
+<span class="sd">        :raise LocalPathError: if existing==1 and no existing path can be</span>
+<span class="sd">                               constructed via environment variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">existing</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local</span><span class="p">(</span> <span class="n">existing</span><span class="o">=</span><span class="n">existing</span> <span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">existing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="n">r</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+    
+
+<div class="viewcode-block" id="LocalPath.formatted"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.formatted">[docs]</a>    <span class="k">def</span> <span class="nf">formatted</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a string representation that describes the original path and all</span>
+<span class="sd">        possible substitutions by environment variables.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: formated path e.g. C{ &#39;{/home/raik|$USER}/data/x.txt&#39; }</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">absolut</span><span class="p">,</span><span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">var</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">+=</span> <span class="s2">&quot;{</span><span class="si">%s</span><span class="s2">|$</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">absolut</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">+=</span> <span class="n">absolut</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.original"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.original">[docs]</a>    <span class="k">def</span> <span class="nf">original</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the original path (also non-absolute) that is used if the file</span>
+<span class="sd">        exists or if there are no environment variables for any of the</span>
+<span class="sd">        substitutions.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: original path</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="o">*</span><span class="n">result</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.set"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">checkEnv</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">maxSub</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+             <span class="n">absolute</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="nb">vars</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assign a new file name. checkEnv, minLen, resolve*, maxSub are</span>
+<span class="sd">        only considered for path name input.</span>
+<span class="sd">        </span>
+<span class="sd">        :param v: fragment tuples or path or custom-formatted string</span>
+<span class="sd">        :type  v: [ (str,str) ] OR str</span>
+<span class="sd">        :param checkEnv: look for possible substitutions in environment [1]</span>
+<span class="sd">              (iggnored if v is already formatted like &#39;{/x/y|$xy}/z.txt&#39; )</span>
+<span class="sd">        :type  checkEnv: 0|1</span>
+<span class="sd">        :param minLen: mininal length of environment variables to consider [3]</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        :param absolute: normalize file name [1]</span>
+<span class="sd">        :type  absolute: 1|0</span>
+<span class="sd">        :param resolveLinks: resolve symbolic links [0]</span>
+<span class="sd">        :type  resolveLinks: 1|0</span>
+<span class="sd">        :param maxSub: maximal number of substitutions [1]</span>
+<span class="sd">        :type  maxSub: int</span>
+<span class="sd">        :param vars: additional param=value pairs with suggested substitutors</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_fragments</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_string</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> <span class="ow">and</span> <span class="p">(</span><span class="n">checkEnv</span> <span class="ow">or</span> <span class="nb">vars</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_path</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="n">absolute</span><span class="p">,</span>
+                                  <span class="n">maxSub</span><span class="o">=</span><span class="n">maxSub</span><span class="p">,</span>
+                                  <span class="n">resolveLinks</span><span class="o">=</span><span class="n">resolveLinks</span><span class="p">,</span> <span class="o">**</span><span class="nb">vars</span> <span class="p">)</span>
+        
+        <span class="k">raise</span> <span class="n">LocalPathError</span><span class="p">(</span><span class="s1">&#39;incompatible value for LocalPath&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.set_fragments"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.set_fragments">[docs]</a>    <span class="k">def</span> <span class="nf">set_fragments</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fragments</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set new path from list of path fragments and their possible</span>
+<span class="sd">        environment variable substitutions. Fragments that can not be</span>
+<span class="sd">        substituted are given as (str, None).</span>
+<span class="sd">        </span>
+<span class="sd">        :param fragments: list of fragment tuples</span>
+<span class="sd">        :type  fragments: [ (str, str), (str, None), .. ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="o">=</span> <span class="n">fragments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.set_string"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.set_string">[docs]</a>    <span class="k">def</span> <span class="nf">set_string</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set a new path and its substitutable parts from a formatted string.</span>
+<span class="sd">        </span>
+<span class="sd">        :param s: formatted like {/home/raik|$USER}/data/test.txt</span>
+<span class="sd">        :type  s: str</span>
+
+<span class="sd">        :raise PathError: formatted input is not yet implemented</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fragments</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ex_fragment</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">pos</span><span class="p">:</span>
+                <span class="n">fragments</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()],</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">]</span>
+
+            <span class="n">fragments</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span> <span class="p">]</span>
+
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="n">fragments</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)],</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_fragments</span><span class="p">(</span> <span class="o">*</span><span class="n">fragments</span> <span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">absfile</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="n">resolveLinks</span> <span class="p">)</span>
+
+
+<div class="viewcode-block" id="LocalPath.set_path"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.set_path">[docs]</a>    <span class="k">def</span> <span class="nf">set_path</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                  <span class="n">maxSub</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="nb">vars</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set a new path and try to identify settings/environment</span>
+<span class="sd">        variables that could substitute parts of it.</span>
+<span class="sd">        </span>
+<span class="sd">        :param fname: relative or absolute file name</span>
+<span class="sd">        :type  fname: str</span>
+<span class="sd">        :param minLen: minimal length of string o to be counted as path</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        :param absolute: normalize file name [1]</span>
+<span class="sd">        :type  absolute: 1|0</span>
+<span class="sd">        :param resolveLinks: resolve symbolic links [0]</span>
+<span class="sd">        :type  resolveLinks: 1|0</span>
+<span class="sd">        :param maxSub: maximal number of substitutions [1]</span>
+<span class="sd">        :type  maxSub: int</span>
+<span class="sd">        :param vars: additional param=value pairs with suggested substitutors</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">env_items</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">get_substitution_pairs</span><span class="p">(</span> <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="n">resolveLinks</span><span class="o">=</span><span class="n">resolveLinks</span> <span class="p">)</span>
+        
+        <span class="n">fragments</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span> <span class="n">fname</span><span class="p">,</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">]</span> <span class="c1">## default result</span>
+
+        <span class="n">substitutions</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">env_items</span><span class="p">:</span>
+            <span class="n">old</span> <span class="o">=</span> <span class="n">fragments</span>
+            <span class="n">fragments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__substitute</span><span class="p">(</span> <span class="n">fragments</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
+
+            <span class="n">substitutions</span> <span class="o">+=</span> <span class="p">(</span><span class="n">old</span> <span class="o">!=</span> <span class="n">fragments</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">substitutions</span> <span class="o">==</span> <span class="n">maxSub</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="o">=</span> <span class="n">fragments</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cache</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.exists"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if path exists</span>
+<span class="sd">        </span>
+<span class="sd">        :return: 1 if if current path exists</span>
+<span class="sd">        :rtype: 1|0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.load"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Try to unpickle an object from the currently valid path.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: unpickled object </span>
+<span class="sd">        :rtype: any</span>
+<span class="sd">        </span>
+<span class="sd">        :raise IOError: if file can not be found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">T</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">(</span> <span class="n">existing</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">except</span> <span class="n">LocalPathError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;Cannot find file </span><span class="si">%s</span><span class="s2"> (constructed from </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span>\
+                  <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">())</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span> <span class="bp">self</span> <span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="LocalPath.dump"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">o</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Try to pickle an object to the currently valid path.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: the absolute path to which o was pickled</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()</span>
+            <span class="n">T</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="n">o</span> <span class="p">)</span>
+            <span class="k">return</span> <span class="n">f</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">T</span><span class="o">.</span><span class="n">errWriteln</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t dump to </span><span class="si">%s</span><span class="s2"> (constructed from </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span>\
+                         <span class="bp">self</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span>
+            <span class="k">raise</span></div>
+
+    <span class="k">def</span> <span class="nf">__find_subpath</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">subpath</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return sub-path but only if enclosed by path separators.</span>
+<span class="sd">        Looks complicated for what it does...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">seps</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">)</span> <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">seps</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">)</span> \
+                     <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">]</span> <span class="p">]</span>
+            
+        <span class="n">seps</span> <span class="o">+=</span> <span class="p">[</span> <span class="nb">len</span><span class="p">(</span> <span class="n">path</span> <span class="p">)</span> <span class="p">]</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="n">subpath</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">seps</span> <span class="ow">and</span> <span class="n">pos</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">subpath</span><span class="p">)</span> <span class="ow">in</span> <span class="n">seps</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pos</span>
+
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    
+
+    <span class="k">def</span> <span class="nf">__substitute</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fragments</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Look in all not yet substituted fragments for parts that can be</span>
+<span class="sd">        substituted by value and, if successful, create a new fragment</span>
+<span class="sd">        </span>
+<span class="sd">        :param fragments: fragment tuples</span>
+<span class="sd">        :type  fragments: [ (str, str) ]</span>
+<span class="sd">        :param name: substitution variable name</span>
+<span class="sd">        :type  name: str</span>
+<span class="sd">        :param value: susbtitution value in current environment</span>
+<span class="sd">        :type  value: str</span>
+<span class="sd">        </span>
+<span class="sd">        :return: fragment tuples</span>
+<span class="sd">        :rtype: [ (str, str) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">subst</span> <span class="ow">in</span> <span class="n">fragments</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">subst</span><span class="p">:</span>   <span class="c1">## unsubstituted fragment</span>
+
+<span class="c1">##                     pos = abs.find( value )</span>
+                    <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_subpath</span><span class="p">(</span> <span class="nb">abs</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                        <span class="n">end</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span> <span class="n">value</span> <span class="p">)</span>
+
+                        <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">pos</span><span class="p">],</span> <span class="nb">abs</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">end</span><span class="p">],</span> <span class="nb">abs</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+
+                        <span class="k">if</span> <span class="n">f1</span><span class="p">:</span>
+                            <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="p">]</span> <span class="c1">## unsubstituted head</span>
+                        <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">]</span>     <span class="c1">## new substitution</span>
+                        <span class="k">if</span> <span class="n">f3</span><span class="p">:</span>
+                            <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="p">]</span> <span class="c1">## unsubstituted tail</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="n">subst</span><span class="p">)</span> <span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="n">subst</span> <span class="p">)</span> <span class="p">]</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="n">EHandler</span><span class="o">.</span><span class="n">fatal</span><span class="p">(</span><span class="s2">&quot;Substituting path fragments: </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+                                 <span class="nb">str</span><span class="p">(</span> <span class="n">fragments</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">name: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="o">+</span>
+                                 <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">value:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+
+    <span class="k">def</span> <span class="nf">__is_path</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check whether an object is a path string (existing or not).</span>
+<span class="sd">        </span>
+<span class="sd">        :param minLen: minimal length of string o to be counted as path</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        </span>
+<span class="sd">        :return: 1|0</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">type</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span> <span class="o">==</span> <span class="nb">str</span> \
+              <span class="ow">and</span> <span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">o</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>\
+              <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">minLen</span> <span class="p">)</span>
+<span class="c1">##              and o.find(&#39;:&#39;) == -1 )</span>
+        <span class="k">if</span> <span class="n">r</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">o</span> <span class="p">)</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+    <span class="k">def</span> <span class="nf">__path_vars</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: [ (variable name, path) ] sorted by length of value</span>
+<span class="sd">        :rtype: [ (str,str) ]</span>
+
+<span class="sd">        .. seealso:: `__paths_in_settings` and `__paths_in_env`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">vars</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="n">exclude</span> <span class="o">=</span> <span class="n">exclude</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__is_path</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="p">]</span>
+
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span>
+                  <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude_vars</span> <span class="p">]</span>
+
+        <span class="n">pairs</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">pairs</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="p">[</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pairs</span> <span class="p">]</span>
+        
+
+    <span class="k">def</span> <span class="nf">__paths_in_settings</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all setting variables looking like a path, sorted by length</span>
+
+<span class="sd">        :param minLen: minimal path length [3]</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        :param vars: alternative param=value pairs to consider</span>
+<span class="sd">                     instead of environment</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        </span>
+<span class="sd">        :return: [ (variable name, value) ] sorted by length of value</span>
+<span class="sd">        :rtype: [ (str,str) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__path_vars</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span><span class="p">,</span>
+                                 <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="n">exclude</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude_vars</span> <span class="p">)</span> <span class="p">)</span>
+
+        
+    <span class="k">def</span> <span class="nf">__paths_in_env</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all environment variables with at least one &#39;/&#39; sorted by length.</span>
+
+<span class="sd">        :param minLen: minimal path length [3]</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        :param vars: alternative param=value pairs to consider</span>
+<span class="sd">                     instead of environment</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        </span>
+<span class="sd">        :return: [ (variable name, value) ] sorted by length of value</span>
+<span class="sd">        :rtype: [ (str,str) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__path_vars</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span><span class="p">,</span>
+                                 <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="n">exclude</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude_vars</span> <span class="p">)</span> <span class="p">)</span>
+
+
+<div class="viewcode-block" id="LocalPath.get_substitution_pairs"><a class="viewcode-back" href="../../../source/biskit/biskit.LocalPath.html#biskit.LocalPath.get_substitution_pairs">[docs]</a>    <span class="k">def</span> <span class="nf">get_substitution_pairs</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all variable/value pairs that are available for path substitutions.</span>
+
+<span class="sd">        :param minLen: minimal path length [3]</span>
+<span class="sd">        :type  minLen: int</span>
+<span class="sd">        :param vars: additional param=value pairs to consider</span>
+<span class="sd">        :type  vars: param=value</span>
+<span class="sd">        </span>
+<span class="sd">        :return: [ (variable name, value) ] sorted by priority</span>
+<span class="sd">                 (mostly length of value)</span>
+<span class="sd">        :rtype: [ (str,str) ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__paths_in_settings</span><span class="p">(</span><span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span> <span class="p">)</span>
+        <span class="n">r</span> <span class="o">+=</span><span class="bp">self</span><span class="o">.</span><span class="n">__paths_in_env</span><span class="p">(</span>     <span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+
+    <span class="k">def</span> <span class="nf">get_substitution_dict</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">minLen</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_substitution_pairs</span><span class="p">(</span><span class="n">minLen</span><span class="o">=</span><span class="n">minLen</span><span class="p">,</span><span class="nb">vars</span><span class="o">=</span><span class="nb">vars</span><span class="p">,</span>
+                                                <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: Same as local(). string representation for print and str()</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: formatted output (Python representation)</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;LocalPath[ </span><span class="si">%s</span><span class="s2"> ]&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatted</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Time costly when repeated many times.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: length of file name in current environment</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__getslice__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()[</span><span class="n">a</span><span class="p">:</span><span class="n">b</span><span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">i</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
+
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        supports this == other -&gt; 0|1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">other</span><span class="p">,</span> <span class="n">LocalPath</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">fragments</span>
+
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        supports this != other -&gt; 0|1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">other</span><span class="p">,</span> <span class="n">LocalPath</span> <span class="p">):</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fragments</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">fragments</span>
+
+
+    <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        if __eq__ or __cmp__ are defined hash has to be defined too, otherwise</span>
+<span class="sd">        the objects cannot be used as keys in dictionaries (needed for Complex-</span>
+<span class="sd">        ModelRegistry).</span>
+<span class="sd">        </span>
+<span class="sd">        :return: int</span>
+<span class="sd">        :rtype: </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatted</span><span class="p">()</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__hash</span></div>
+
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test class&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">test_LocalPath</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;LocalPath test&quot;&quot;&quot;</span>
+
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PRJ_INTERFACES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+
+        <span class="n">S</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">LocalPath</span><span class="p">()</span>
+
+        <span class="c1">## Example 1; create from fragments</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">set_fragments</span><span class="p">(</span>
+            <span class="p">(</span><span class="s1">&#39;/home/Bis/johan&#39;</span><span class="p">,</span><span class="s1">&#39;PRJ_INTERFACES&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;/c11/com_wet/ref.com&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">+=</span> <span class="p">[</span> <span class="s1">&#39;Example 1:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">())</span> <span class="p">]</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="s1">&#39;johan&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span>
+
+        <span class="c1">## Example 2; create from path with custom variable</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">set_path</span><span class="p">(</span> <span class="s1">&#39;/home/Bis/raik/data/tb/interfaces/c11/com_wet/ref.com&#39;</span><span class="p">,</span>
+                    <span class="n">USER</span><span class="o">=</span><span class="s1">&#39;/home/Bis/raik&#39;</span> <span class="p">)</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">+=</span>  <span class="p">[</span> <span class="s1">&#39;Example 2:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">())</span> <span class="p">]</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span>\
+             <span class="s1">&#39;{/home/Bis/raik|$USER}/data/tb/interfaces/c11/com_wet/ref.com&#39;</span> <span class="p">)</span>
+
+        <span class="c1">## Example 3; create from non-existing path</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">set_path</span><span class="p">(</span> <span class="s1">&#39;/home/xyz/data/tb/interfaces/c11/com_wet/ref.com&#39;</span> <span class="p">)</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">+=</span> <span class="p">[</span> <span class="s1">&#39;Example 3:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">())</span> <span class="p">]</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">()</span> <span class="o">==</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span>
+
+        <span class="c1">## Example 4; create from existing path with automatic substitution</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">set_path</span><span class="p">(</span> <span class="n">T</span><span class="o">.</span><span class="n">testRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/com&#39;</span> <span class="p">)</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">+=</span> <span class="p">[</span> <span class="s1">&#39;Example 4:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">())</span> <span class="p">]</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span>
+                       <span class="s1">&#39;{</span><span class="si">%s</span><span class="s1">|$projectRoot}/biskit/testdata/com&#39;</span> <span class="o">%</span> <span class="n">T</span><span class="o">.</span><span class="n">projectRoot</span><span class="p">())</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="c1">## Example 5; rule out stray substitutions</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">set_path</span><span class="p">(</span> <span class="n">T</span><span class="o">.</span><span class="n">projectRoot</span><span class="p">()</span><span class="o">+</span> <span class="s1">&#39;/xy/com&#39;</span><span class="p">,</span> <span class="n">maxSub</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">TMP</span><span class="o">=</span><span class="s1">&#39;/xy&#39;</span><span class="p">)</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">path</span> <span class="o">+=</span> <span class="p">[</span> <span class="s1">&#39;Example 5:</span><span class="se">\n</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">local</span><span class="p">())</span> <span class="p">]</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">formatted</span><span class="p">(),</span>
+                       <span class="s1">&#39;{</span><span class="si">%s</span><span class="s1">|$projectRoot}/xy/com&#39;</span><span class="o">%</span> <span class="n">T</span><span class="o">.</span><span class="n">projectRoot</span><span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="n">S</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">fragments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;projectRoot&#39;</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">S</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+      
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

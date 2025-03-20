@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.gnuplot &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.gnuplot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.gnuplot</h1><div class="highlight"><pre>
+<span></span><span class="c1">## numpy-oldnumeric calls replaced by custom script; 09/06/2016</span>
+<span class="c1">## Automatically adapted for numpy-oldnumeric Mar 26, 2007 by alter_code1.py</span>
+
+<span class="c1"># Simple Gnuplot interface.</span>
+<span class="c1">#</span>
+<span class="c1"># Written by Konrad Hinsen &lt;hinsen@ibs.ibs.fr&gt;</span>
+<span class="c1"># last revision: 1998-1-19</span>
+<span class="c1">#</span>
+<span class="c1"># Caution: If you use a Gnuplot version earlier than 3.6beta,</span>
+<span class="c1"># every call for a screen display creates another gnuplot</span>
+<span class="c1"># process; these processes are never closed. There seems to be no</span>
+<span class="c1"># other way to make gnuplot behave as it should.</span>
+
+<span class="c1"># Modified by Niklas Blomberg, EMBL to include box and scatterplots</span>
+
+<span class="c1"># Modified by Raik Gruenberg, IP:</span>
+<span class="c1">#   allow importing even if gnuplot is not installed,</span>
+<span class="c1">#   check gnuplot.installed == 1, to be sure the program runs</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simple Gnuplot interface.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">tempfile</span>
+
+<span class="n">installed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">old_version</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#</span>
+<span class="c1"># Test if Gnuplot is new enough to know the option -persist</span>
+<span class="c1">#</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">gnuplot</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;gnuplot -persist &#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39; 2&gt;&amp;1&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">gnuplot</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">gnuplot</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">old_version</span> <span class="o">=</span> <span class="n">response</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;-persist&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="n">installed</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1">#</span>
+<span class="c1"># List in which pipes to Gnuplot processes are stored to prevent them from</span>
+<span class="c1"># being closed at the end of the plot function.</span>
+<span class="c1">#</span>
+<span class="n">_gnuplot_pipes</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">#</span>
+<span class="c1"># Check if data object is a sequence</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">_isSequence</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">try</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
+<span class="c1">#</span>
+<span class="c1"># Generate the Gnuplot data files and command string for standard plots</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">_plotData</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">plotlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">is_sequence</span> <span class="o">=</span> <span class="n">_isSequence</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">point</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;plot &#39;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">plotlist</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;  notitle w l, &#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> \
+                        <span class="s1">&#39;&quot;  using 1:&#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; notitle w l, &#39;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+<span class="c1">#</span>
+<span class="c1"># plot of multiple lists with labels</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">_plotWithLabels</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">plotlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;dictionary&#39;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="k">for</span> <span class="nb">set</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">is_sequence</span> <span class="o">=</span> <span class="n">_isSequence</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">point</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;plot &#39;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">plotlist</span><span class="p">:</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;  title &quot;</span><span class="si">%s</span><span class="s1">&quot; w l, &#39;</span> <span class="o">%</span><span class="n">key</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> \
+                        <span class="s1">&#39;&quot;  using 1:&#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; title &quot;</span><span class="si">%s</span><span class="s1">&quot; w l, &#39;</span> <span class="o">%</span><span class="n">key</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+<span class="c1">###########################################################################</span>
+<span class="c1"># Barplot of data</span>
+<span class="c1">###########################################################################</span>
+
+<span class="k">def</span> <span class="nf">_barGraphPlotData</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    _barGraphPlotData(data):</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plotlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">is_sequence</span> <span class="o">=</span> <span class="n">_isSequence</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">point</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;plot &#39;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">plotlist</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot; notitle with boxes , &#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> \
+                        <span class="s1">&#39;&quot;  using 1:&#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;notitle with boxes , &#39;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="c1">#print command</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+<span class="c1">###########################################################################</span>
+<span class="c1"># Scatterplots</span>
+<span class="c1">###########################################################################</span>
+
+<span class="k">def</span> <span class="nf">_scatterData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;points&#39;</span><span class="p">):</span>
+    <span class="n">plotlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">is_sequence</span> <span class="o">=</span> <span class="n">_isSequence</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">point</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;plot &#39;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">plotlist</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;  notitle  with </span><span class="si">%s</span><span class="s1">, &#39;</span> \
+                    <span class="o">%</span><span class="n">marker</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> \
+                        <span class="s1">&#39;&quot;  using 1:&#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; notitle  with </span><span class="si">%s</span><span class="s1">, &#39;</span> \
+                        <span class="o">%</span><span class="n">marker</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+
+<span class="c1"># additional</span>
+
+<span class="k">def</span> <span class="nf">_scatterData3D</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">plotlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">is_sequence</span> <span class="o">=</span> <span class="n">_isSequence</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">coordinate</span> <span class="ow">in</span> <span class="n">point</span><span class="p">:</span>
+                    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_sequence</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plotlist</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">filename</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;splot &#39;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">plotlist</span><span class="p">:</span>
+        <span class="n">filename</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot;  notitle  with points, &#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> \
+                        <span class="s1">&#39;&quot;  using 1:&#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; notitle  with points, &#39;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+
+
+<span class="c1">#</span>
+<span class="c1"># Generate the Gnuplot data files and command string for parallel-axes plots</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">_parallelAxesPlotData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+    <span class="n">naxes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">lower</span>
+    <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">naxes</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> </span><span class="si">%g</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">origin</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="n">lower</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="n">upper</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">margin</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="n">upper</span><span class="o">-</span><span class="n">lower</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">naxes</span><span class="p">):</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> </span><span class="si">%g</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">origin</span><span class="p">,</span> <span class="n">lower</span><span class="o">-</span><span class="n">margin</span><span class="p">))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> </span><span class="si">%g</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">origin</span><span class="p">,</span> <span class="n">upper</span><span class="o">+</span><span class="n">margin</span><span class="p">))</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;plot &#39;</span> <span class="o">+</span> <span class="s1">&#39;[</span><span class="si">%d</span><span class="s1">:</span><span class="si">%d</span><span class="s1">] [</span><span class="si">%g</span><span class="s1">:</span><span class="si">%g</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">origin</span><span class="o">+</span><span class="n">naxes</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                                             <span class="n">lower</span><span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="n">upper</span><span class="o">+</span><span class="n">margin</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot; index 0 notitle w l, &quot;&#39;</span> <span class="o">+</span> \
+            <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;&quot; index 1 notitle w l lt -1</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span>
+
+<span class="c1">#</span>
+<span class="c1"># Execute a Gnuplot command</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;file&#39;</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;set terminal postscript</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;set output &quot;&#39;</span> <span class="o">+</span> <span class="n">keywords</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&quot;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;gnuplot &#39;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">old_version</span><span class="p">:</span>
+            <span class="n">gnuplot</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;gnuplot 1&gt; /dev/null 2&gt;&amp;1&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;set terminal x11</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">_gnuplot_pipes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gnuplot</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;sleep 2s&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gnuplot</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;gnuplot -persist 1&gt; /dev/null 2&gt;&amp;1&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;set terminal x11</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;quit</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">gnuplot</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+
+
+<span class="c1">#</span>
+<span class="c1"># Generate a plot</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span> <span class="o">=</span> <span class="n">_plotData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plotWithLabels</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span> <span class="o">=</span> <span class="n">_plotWithLabels</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1">#Generate Boxplot</span>
+<span class="c1">#</span>
+<div class="viewcode-block" id="boxPlot"><a class="viewcode-back" href="../../source/biskit/biskit.gnuplot.html#biskit.gnuplot.boxPlot">[docs]</a><span class="k">def</span> <span class="nf">boxPlot</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    boxPlot</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span> <span class="o">=</span>  <span class="n">_barGraphPlotData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+    <span class="k">return</span></div>
+<span class="c1">#</span>
+<span class="c1">#Scatterplot</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="n">keywords</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;points&#39;</span>
+    <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span> <span class="o">=</span> <span class="n">_scatterData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="p">)</span>
+    <span class="n">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Generate a parallel-axes plot</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">parallelAxesPlot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">origin</span> <span class="o">=</span> <span class="n">keywords</span><span class="p">[</span><span class="s1">&#39;origin&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">origin</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">command</span><span class="p">,</span> <span class="n">filelist</span> <span class="o">=</span> <span class="n">_parallelAxesPlotData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
+    <span class="n">_execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">filelist</span><span class="p">,</span> <span class="n">keywords</span><span class="p">)</span>
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test case&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fout</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">(</span><span class="s1">&#39;ps&#39;</span><span class="p">,</span><span class="s1">&#39;testgnuplot_&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cleanUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">T</span>
+        <span class="n">T</span><span class="o">.</span><span class="n">tryRemove</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">fout</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_plot2ps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;gnuplot.plot to file test&quot;&quot;&quot;</span>
+        <span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;plot written to &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_scatter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;gnuplot.scatter test (interactive only)&quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">numpy.random.mtrand</span> <span class="k">import</span> <span class="n">poisson</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">scatter</span><span class="p">(</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">50</span><span class="p">,(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>  <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_plot</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;gnuplot.plot test&quot;&quot;&quot;</span>
+        <span class="c1"># List of (x, y) pairs</span>
+        <span class="c1"># plot([(0.,1),(1.,5),(2.,3),(3.,4)])</span>
+        <span class="c1"># plot( zip( range(10), range(10) ) )</span>
+
+        <span class="c1"># Two plots; each given by a 2d array</span>
+        <span class="kn">import</span> <span class="nn">biskit.core.oldnumeric</span> <span class="k">as</span> <span class="nn">N0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">plot</span><span class="p">(</span> <span class="n">N0</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">])),</span> <span class="n">N0</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">])))</span>
+
+    <span class="k">def</span> <span class="nf">test_parallelAxesPlot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;gnuplot.parallelAxesPlot test (interactive only)&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]]</span>
+            <span class="n">parallelAxesPlot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

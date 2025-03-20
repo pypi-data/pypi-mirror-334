@@ -1,0 +1,697 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AmberResidueType &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AmberPrepParser" href="biskit.AmberPrepParser.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.PDBModel.html">PDBModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.ProfileCollection.html">ProfileCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.PDBCleaner.html">PDBCleaner</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AmberResidueType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.AmberPrepParser.html">AmberPrepParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.LogFile.html">LogFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.StdLog.html">StdLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.ErrLog.html">ErrLog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>AmberResidueType</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.AmberResidueType.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="amberresiduetype">
+<h1>AmberResidueType<a class="headerlink" href="#amberresiduetype" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="biskit.AmberResidueType">
+<em class="property">class </em><code class="descclassname">biskit.</code><code class="descname">AmberResidueType</code><span class="sig-paren">(</span><em>name=None</em>, <em>code=None</em>, <em>letter=None</em>, <em>source=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidues.html#AmberResidueType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">biskit.pdbModel.PDBModel</span></code></p>
+<p>Standard description of a certain class of residues.</p>
+<p>In addition to the normal PDBModel things, this class defines three
+additional fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li>name   … the full long residue name (str), e.g. ‘Alanine’</li>
+<li>code   … the three-letter name used in PDB files (str), e.g. ‘ALA’</li>
+<li>letter … the single-letter residue code (str), e.g. ‘A’</li>
+</ul>
+</div></blockquote>
+<p>The order and names of atoms are supposed to serve as a reference to check
+and normalize actual residues parsed from PDB files.</p>
+<p>Currently, AmberResidueTypes can only be created from Amber prep library
+files.</p>
+<p>An alternative method would be to create AmberResidueTypes from some
+standard PDB file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span><span class="s1">&#39;standard_aa.pdb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">standard_res</span> <span class="o">=</span> <span class="p">[</span> <span class="n">AmberResidueType</span><span class="p">(</span> <span class="n">res</span> <span class="p">)</span> <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">resModels</span><span class="p">()</span> <span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="biskit.AmberPrepParser.html"><span class="doc">AmberPrepParser</span></a></p>
+</div>
+<p class="rubric">Methods Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.AmberResidueType.__init__" title="biskit.AmberResidueType.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param name:</th><td class="field-body">full residue name (converted to lower letters) :type  name: str :param code: three-letter residue code (converted to upper letters) :type  code: str :param letter: single-letter residue code (converted to upper letter) :type  letter: str :param source: pdb file, model or structure of residue from which to                extract all the other data :type  source: PDBModel or str</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">addChainFromSegid</span></code></td>
+<td>Takes the last letter of the segment ID and adds it as chain ID.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">addChainId</span></code></td>
+<td>Assign consecutive chain identifiers A - Z to all atoms.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">argsort</span></code></td>
+<td>Prepare sorting atoms within residues according to comparison function.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atom2chainIndices</span></code></td>
+<td>Convert atom indices to chain indices.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atom2chainMask</span></code></td>
+<td>Mask (set to 0) chains for which all atoms are masked (0) in atomMask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atom2resIndices</span></code></td>
+<td>Get list of indices of residues for which any atom is in indices.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atom2resMask</span></code></td>
+<td>Mask (set 0) residues for which all atoms are masked (0) in atomMask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atom2resProfile</span></code></td>
+<td>Get a residue profile where each residue has the value that its first atom has in the atom profile.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atomNames</span></code></td>
+<td>Return a list of atom names from start to stop RESIDUE index</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atomRange</span></code></td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">atomRange</span><span class="p">()</span> <span class="o">==</span> <span class="nb">range</span><span class="p">(</span> <span class="n">m</span><span class="o">.</span><span class="n">lenAtoms</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">atomkey</span></code></td>
+<td>Create a string key encoding the atom content of this model independent of the order in which atoms appear within residues.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">biomodel</span></code></td>
+<td>Return the ‘biologically relevant assembly’ of this model according to the information in the PDB’s BIOMT record (captured in info[‘BIOMT’]).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></td>
+<td>Geometric centar of model.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">centerOfMass</span></code></td>
+<td>Center of mass of PDBModel.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">centered</span></code></td>
+<td>Get model with centered coordinates.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chain2atomIndices</span></code></td>
+<td>Convert chain indices into atom indices.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chain2atomMask</span></code></td>
+<td>Convert chain mask to atom mask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chainBreaks</span></code></td>
+<td>Identify discontinuities in the molecule’s backbone.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chainEndIndex</span></code></td>
+<td>Get the position of the each residue’s last atom.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chainIndex</span></code></td>
+<td>Get indices of first atom of each chain.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">chainMap</span></code></td>
+<td>Get chain index of each atom.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">clone</span></code></td>
+<td>Clone PDBModel.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">compareAtoms</span></code></td>
+<td>Get list of atom indices for this and reference model that converts both into 2 models with identical residue and atom content.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">compareChains</span></code></td>
+<td>Get list of corresponding chain indices for this and reference model.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">compress</span></code></td>
+<td>Compress PDBmodel using mask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">concat</span></code></td>
+<td>Concatenate atoms, coordinates and profiles.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">disconnect</span></code></td>
+<td>Disconnect this model from its source (if any).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">equals</span></code></td>
+<td>Compares the residue and atom sequence in the given range.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">extendIndex</span></code></td>
+<td>Translate a list of positions that is defined, e.g., on residues (/chains) to a list of atom positions AND also return the starting position of each residue (/chain) in the new sub-list of atoms.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">extendMask</span></code></td>
+<td>Translate a mask that is defined,e.g., on residues(/chains) to a mask that is defined on atoms.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></td>
+<td>Extract atoms that match a combination of key=values.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">filterIndex</span></code></td>
+<td>Get atom positions that match a combination of key=values.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></td>
+<td>Least-square fit this model onto refMode</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">getAtoms</span></code></td>
+<td>Get atom CrossViews that can be used like dictionaries.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPdbCode</span></code></td>
+<td>Return pdb code of model.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">getXyz</span></code></td>
+<td>Get coordinates, fetch from source PDB or pickled PDBModel, if necessary.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">index2map</span></code></td>
+<td>Create a map of len_i length, giving the residue(/chain) numer of each atom, from list of residue(/chain) starting positions.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code></td>
+<td>Get atom indices conforming condition.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">indicesFrom</span></code></td>
+<td>Get atom indices conforming condition applied to an atom profile.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">keep</span></code></td>
+<td>Replace atoms,coordinates,profiles of this(!) model with sub-set.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lenAtoms</span></code></td>
+<td>Number of atoms in model.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lenBiounits</span></code></td>
+<td>Number of biological assemblies defined in PDB BIOMT record, if any.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lenChains</span></code></td>
+<td>Number of chains in model.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">lenResidues</span></code></td>
+<td>Number of residues in model.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">magicFit</span></code></td>
+<td>Superimpose this model onto a ref.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">map2index</span></code></td>
+<td>Identify the starting positions of each residue(/chain) from a map giving the residue(/chain) number of each atom.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask</span></code></td>
+<td>Get atom mask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskBB</span></code></td>
+<td>Short cut for mask of all backbone atoms.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskCA</span></code></td>
+<td>Short cut for mask of all CA atoms.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskCB</span></code></td>
+<td>Short cut for mask of all CB I{and} CA of GLY.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskDNA</span></code></td>
+<td>Short cut for mask of all atoms in DNA (based on residue name).</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskF</span></code></td>
+<td>Create list whith result of atomFunction( atom ) for each atom.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskFrom</span></code></td>
+<td>Create an atom mask from the values of a specific profile.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskH</span></code></td>
+<td>Short cut for mask of hydrogens.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskH2O</span></code></td>
+<td>Short cut for mask of all atoms in residues named TIP3, HOH and  WAT</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskHeavy</span></code></td>
+<td>Short cut for mask of all heavy atoms.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskHetatm</span></code></td>
+<td>Short cut for mask of all HETATM</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskNA</span></code></td>
+<td>Short cut for mask of all atoms in DNA or RNA (based on residue name).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskProtein</span></code></td>
+<td>Short cut for mask containing all atoms of amino acids.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskRNA</span></code></td>
+<td>Short cut for mask of all atoms in RNA (based on residue name).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">maskSolvent</span></code></td>
+<td>Short cut for mask of all atoms in residues named TIP3, HOH, WAT, Na+, Cl-, CA, ZN</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass</span></code></td>
+<td>Molecular weight of PDBModel.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">masses</span></code></td>
+<td>Collect the molecular weight of all atoms in PDBModel.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">mergeChains</span></code></td>
+<td>Merge two adjacent chains.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">mergeResidues</span></code></td>
+<td>Merge two adjacent residues.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></td>
+<td>Get a quick &amp; dirty overview over the content of a PDBModel.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code></td>
+<td>Use::    profile( name, updateMissing=0) -&gt; atom or residue profile</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile2atomMask</span></code></td>
+<td>Same as <code class="xref py py-class docutils literal notranslate"><span class="pre">profile2mask</span></code>, but converts residue mask to atom mask.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile2mask</span></code></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param cutoff_min:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">low value cutoff (all values &gt;= cutoff_min) :type  cutoff_min: float :param cutoff_max: high value cutoff (all values &lt; cutoff_max) :type  cutoff_max: float</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profile2resList</span></code></td>
+<td>Group the profile values of each residue’s atoms into a separate list.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileChangedFromDisc</span></code></td>
+<td>Check if profile has changed compared to source.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">profileInfo</span></code></td>
+<td>Use:</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></td>
+<td>Convenience access to the 3 different remove methods.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeProfile</span></code></td>
+<td>Remove residue or atom profile(s)</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeRes</span></code></td>
+<td>Remove all atoms with a certain residue name.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">renameAmberRes</span></code></td>
+<td>Rename special residue names from Amber back into standard names (i.e CYX S{-&gt;} CYS )</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">renumberResidues</span></code></td>
+<td>Make all residue numbers consecutive and remove any insertion code letters.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">report</span></code></td>
+<td>Print (or return) a brief description of this model.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">reportAtoms</span></code></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param i:</th><td class="field-body">optional list of atom positions to report (default: all) :type i:  [ int ] :return: formatted string with atom and residue names similar to PDB :rtype:  str</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">res2atomIndices</span></code></td>
+<td>Convert residue indices to atom indices.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">res2atomMask</span></code></td>
+<td>Convert residue mask to atom mask.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">res2atomProfile</span></code></td>
+<td>Get an atom profile where each atom has the value its residue has in the residue profile.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resEndIndex</span></code></td>
+<td>Get the position of the each residue’s last atom.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resIndex</span></code></td>
+<td>Get the position of the each residue’s first atom.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resList</span></code></td>
+<td>Return list of lists of atom pseudo dictionaries per residue, which allows to iterate over residues and atoms of residues.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resMap</span></code></td>
+<td>Get list to map from any atom to a continuous residue numbering (starting with 0).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resMapOriginal</span></code></td>
+<td>Generate list to map from any atom to its ORIGINAL(!) PDB residue number.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">resModels</span></code></td>
+<td>Creates one new PDBModel for each residue in the parent PDBModel.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">residusMaximus</span></code></td>
+<td>Take list of value per atom, return list where all atoms of any residue are set to the highest value of any atom in that residue.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">rms</span></code></td>
+<td>Rmsd between two PDBModels.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">saveAs</span></code></td>
+<td>Pickle this PDBModel to a file, set the ‘source’ field to this file name and mark atoms, xyz, and profiles  as unchanged.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequence</span></code></td>
+<td>Amino acid sequence in one letter code.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPdbCode</span></code></td>
+<td>Set model pdb code.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSource</span></code></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param source:</th><td class="field-body">LocalPath OR PDBModel OR str</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">setXyz</span></code></td>
+<td>Replace coordinates.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">slim</span></code></td>
+<td>Remove xyz array and profiles if they haven’t been changed and could hence be loaded from the source file (only if there is a source file…).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></td>
+<td>Apply a given sort list to the atoms of this model.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">sourceFile</span></code></td>
+<td>Name of pickled source or PDB file.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">structureFit</span></code></td>
+<td>Structure-align this model onto a reference model using the external TM-Align program (which needs to be installed).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.AmberResidueType.take" title="biskit.AmberResidueType.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a></td>
+<td>Overriding PDBModel.take to rescue and copy additional fields</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">takeChains</span></code></td>
+<td>Get copy of this model with only the given chains.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">takeResidues</span></code></td>
+<td>Copy the given residues into a new model.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></td>
+<td>Transform coordinates of PDBModel.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation</span></code></td>
+<td>Get the transformation matrix which least-square fits this model onto the other model.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unequalAtoms</span></code></td>
+<td>Identify atoms that are not matching between two models.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsort</span></code></td>
+<td>Undo a previous sorting on the model itself (no copy).</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></td>
+<td>Read coordinates, atoms, fileName, etc.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">validSource</span></code></td>
+<td>Check for a valid source on disk.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">writePdb</span></code></td>
+<td>Save model as PDB file.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">xplor2amber</span></code></td>
+<td>Rename atoms so that tleap from Amber can read the PDB.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyzChangedFromDisc</span></code></td>
+<td>Tell whether xyz can currently be reconstructed from a source on disc.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">xyzIsChanged</span></code></td>
+<td>Tell if xyz or atoms have been changed compared to source file or source object (which can be still in memory).</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDB_KEYS</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>AmberResidueType Method & Attribute Details</h2><dl class="method">
+<dt id="biskit.AmberResidueType.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name=None</em>, <em>code=None</em>, <em>letter=None</em>, <em>source=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidues.html#AmberResidueType.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueType.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str</em>) – full residue name (converted to lower letters)</li>
+<li><strong>code</strong> (<em>str</em>) – three-letter residue code (converted to upper letters)</li>
+<li><strong>letter</strong> (<em>str</em>) – single-letter residue code (converted to upper letter)</li>
+<li><strong>source</strong> (<a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><em>PDBModel</em></a><em> or </em><em>str</em>) – pdb file, model or structure of residue from which to
+extract all the other data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.AmberResidueType.take">
+<code class="descname">take</code><span class="sig-paren">(</span><em>i</em>, <em>rindex=None</em>, <em>cindex=None</em>, <em>*initArgs</em>, <em>**initKw</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/amberResidues.html#AmberResidueType.take"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.AmberResidueType.take" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overriding PDBModel.take to rescue and copy additional fields</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit.AmberPrepParser.html" class="btn btn-neutral float-right" title="AmberPrepParser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

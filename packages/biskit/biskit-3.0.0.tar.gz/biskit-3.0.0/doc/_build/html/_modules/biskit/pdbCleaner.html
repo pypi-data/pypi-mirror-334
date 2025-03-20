@@ -1,0 +1,959 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.pdbCleaner &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.pdbCleaner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.pdbCleaner</h1><div class="highlight"><pre>
+<span></span><span class="c1">## numpy-oldnumeric calls replaced by custom script; 09/06/2016</span>
+<span class="c1">## Automatically adapted for numpy-oldnumeric Mar 26, 2007 by alter_code1.py</span>
+
+<span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Clean PDB-files so that they can be used for MD. This module is a </span>
+<span class="sd">(still partial) re-implementation of the vintage pdb2xplor script.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">biskit.molUtils</span> <span class="k">as</span> <span class="nn">MU</span>
+<span class="kn">import</span> <span class="nn">biskit.mathUtils</span> <span class="k">as</span> <span class="nn">M</span>
+<span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">t</span>
+<span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">PDBModel</span><span class="p">,</span> <span class="n">StdLog</span>
+
+<span class="kn">import</span> <span class="nn">biskit.core.oldnumeric</span> <span class="k">as</span> <span class="nn">N0</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="k">class</span> <span class="nc">CleanerError</span><span class="p">(</span> <span class="ne">Exception</span> <span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">CappingError</span><span class="p">(</span> <span class="n">CleanerError</span> <span class="p">):</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="PDBCleaner"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner">[docs]</a><span class="k">class</span> <span class="nc">PDBCleaner</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PDBCleaner performs the following tasks:</span>
+<span class="sd">    </span>
+<span class="sd">      * remove HETAtoms from PDB</span>
+<span class="sd">      * replace non-standard AA by its closest standard AA</span>
+<span class="sd">      * remove non-standard atoms from standard AA residues</span>
+<span class="sd">      * delete atoms that follow missing atoms (in a chain)</span>
+<span class="sd">      * remove multiple occupancy atoms (except the one with highest occupancy)</span>
+<span class="sd">      * add ACE and NME capping residues to C- and N-terminals or chain breaks</span>
+<span class="sd">        (see capTerminals(), this is NOT done automatically in process())</span>
+
+<span class="sd">    Usage:</span>
+<span class="sd">    =======</span>
+
+<span class="sd">      &gt;&gt;&gt; c = PDBCleaner( model )</span>
+<span class="sd">      &gt;&gt;&gt; c.process()</span>
+<span class="sd">      &gt;&gt;&gt; c.capTerminals( auto=True )</span>
+
+<span class="sd">    This will modify the model in-place and report changes to STDOUT.</span>
+<span class="sd">    Alternatively, you can specify a log file instance for the output.</span>
+<span class="sd">    PDBCleaner.process accepts several options to modify the processing.</span>
+<span class="sd">    </span>
+<span class="sd">    Capping</span>
+<span class="sd">    =======</span>
+<span class="sd">    </span>
+<span class="sd">    Capping will add N-methyl groups to free C-terminal carboxy ends</span>
+<span class="sd">    or Acetyl groups to free N-terminal Amines and will thus &#39;simulate&#39; the</span>
+<span class="sd">    continuation of the protein chain -- a common practice in order to </span>
+<span class="sd">    prevent fake terminal charges. The automatic discovery of missing residues</span>
+<span class="sd">    is guess work at best. The more conservative approach is to use,</span>
+<span class="sd">    for example:</span>
+<span class="sd">    </span>
+<span class="sd">      &gt;&gt;&gt; c.capTerminals( breaks=1, capC=[0], capN=[2] )</span>
+<span class="sd">      </span>
+<span class="sd">    In this case, only the chain break detection is used for automatic capping</span>
+<span class="sd">    -- the last residue before a chain break is capped with NME and the first</span>
+<span class="sd">    residue after the chain break is capped with ACE. Chain break detection</span>
+<span class="sd">    relies on PDBModel.chainBreaks() (via PDBModel.chainIndex( breaks=1 )).</span>
+<span class="sd">    The normal terminals to be capped are now specified explicitely. The first</span>
+<span class="sd">    chain (not counting chain breaks) will receive a NME C-terminal cap and the</span>
+<span class="sd">    third chain of the PDB will receive a N-terminal ACE cap. </span>
+<span class="sd">    </span>
+<span class="sd">    Note: Dictionaries with standard residues and atom content are defined</span>
+<span class="sd">          in Biskit.molUtils. This is a duplicate effort with the new strategy</span>
+<span class="sd">          to parse Amber prep files for very similar information</span>
+<span class="sd">          (AmberResidueType, AmberResidueLibrary) and should change once we </span>
+<span class="sd">          implement a real framework for better residue handling. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#: these atoms always occur at the tip of of a chain or within a ring</span>
+    <span class="c1">#: and, if missing, will not trigger the removal of other atoms</span>
+    <span class="n">TOLERATE_MISSING</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;CG2&#39;</span><span class="p">,</span> <span class="s1">&#39;CD1&#39;</span><span class="p">,</span> <span class="s1">&#39;CD2&#39;</span><span class="p">,</span> <span class="s1">&#39;OG1&#39;</span><span class="p">,</span> <span class="s1">&#39;OE1&#39;</span><span class="p">,</span> <span class="s1">&#39;NH1&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;OD1&#39;</span><span class="p">,</span> <span class="s1">&#39;OE1&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;H5T&#39;</span><span class="p">,</span><span class="s2">&quot;O5&#39;&quot;</span><span class="p">,</span> <span class="p">]</span>
+
+    <span class="c1">## PDB with ACE capping residue</span>
+    <span class="n">F_ace_cap</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">dataRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/amber/leap/ace_cap.pdb&#39;</span>
+    <span class="c1">## PDB with NME capping residue</span>
+    <span class="n">F_nme_cap</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">dataRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/amber/leap/nme_cap.pdb&#39;</span>
+
+<div class="viewcode-block" id="PDBCleaner.__init__"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">fpdb</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param fpdb: pdb file OR PDBModel instance</span>
+<span class="sd">        :type  fpdb: str OR Biskit.PDBModel</span>
+<span class="sd">        :param log: biskit.LogFile object (default: STDOUT)</span>
+<span class="sd">        :type  log: biskit.LogFile</span>
+<span class="sd">        :param verbose: log warnings and infos (default: True)</span>
+<span class="sd">        :type  verbose: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span> <span class="n">fpdb</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">log</span> <span class="ow">or</span> <span class="n">StdLog</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span></div>
+
+
+    <span class="k">def</span> <span class="nf">logWrite</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="mi">1</span> <span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">msg</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">force</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PDBCleaner.remove_multi_occupancies"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.remove_multi_occupancies">[docs]</a>    <span class="k">def</span> <span class="nf">remove_multi_occupancies</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Keep only atoms with alternate A field (well, or no alternate).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pdbCode</span> <span class="o">+</span>
+                           <span class="s1">&#39;: Removing multiple occupancies of atoms ...&#39;</span><span class="p">)</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">to_be_removed</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;alternate&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">str_id</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                                              <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">],</span>
+                                              <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">])</span>
+
+                    <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;alternate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+                        <span class="n">a</span><span class="p">[</span><span class="s1">&#39;alternate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">float</span><span class="p">(</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;occupancy&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+                            <span class="n">to_be_removed</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">i</span> <span class="p">]</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span>
+                                    <span class="s1">&#39;removing </span><span class="si">%s</span><span class="s1"> (</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span>
+                                    <span class="p">(</span><span class="n">str_id</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;alternate&#39;</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;occupancy&#39;</span><span class="p">]))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span>
+                                 <span class="p">(</span><span class="s1">&#39;keeping non-A duplicate </span><span class="si">%s</span><span class="s1"> because of 1.0 &#39;</span><span class="o">+</span>
+                                  <span class="s1">&#39;occupancy&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">str_id</span> <span class="p">)</span>
+
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s2">&quot;Error removing duplicate: &quot;</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">lastError</span><span class="p">()</span> <span class="p">)</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">to_be_removed</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Removed </span><span class="si">%i</span><span class="s1"> atoms&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span> <span class="n">to_be_removed</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;No atoms with multiple occupancies to remove&#39;</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PDBCleaner.replace_non_standard_AA"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.replace_non_standard_AA">[docs]</a>    <span class="k">def</span> <span class="nf">replace_non_standard_AA</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">amber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace amino acids with none standard names with standard</span>
+<span class="sd">        amino acids according to :class:`MU.nonStandardAA`</span>
+<span class="sd">        </span>
+<span class="sd">        :param amber: don&#39;t rename HID, HIE, HIP, CYX, NME, ACE [0]</span>
+<span class="sd">        :type  amber: 1||0</span>
+<span class="sd">        :param keep: names of additional residues to keep</span>
+<span class="sd">        :type keep:  [ str ]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">standard</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">MU</span><span class="o">.</span><span class="n">atomDic</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="n">keep</span>
+
+        <span class="k">if</span> <span class="n">amber</span><span class="p">:</span>
+            <span class="n">standard</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;HID&#39;</span><span class="p">,</span> <span class="s1">&#39;HIE&#39;</span><span class="p">,</span> <span class="s1">&#39;HIP&#39;</span><span class="p">,</span> <span class="s1">&#39;CYX&#39;</span><span class="p">,</span> <span class="s1">&#39;NME&#39;</span><span class="p">,</span> <span class="s1">&#39;ACE&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+        <span class="n">replaced</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pdbCode</span> <span class="o">+</span>
+                          <span class="s1">&#39;: Looking for non-standard residue names...&#39;</span><span class="p">)</span>
+
+        <span class="n">resnames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">atomRange</span><span class="p">():</span>
+
+            <span class="n">resname</span> <span class="o">=</span> <span class="n">resnames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">resname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">standard</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">resname</span> <span class="ow">in</span> <span class="n">MU</span><span class="o">.</span><span class="n">nonStandardAA</span><span class="p">:</span>
+                    <span class="n">resnames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">MU</span><span class="o">.</span><span class="n">nonStandardAA</span><span class="p">[</span> <span class="n">resname</span> <span class="p">]</span>
+
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;renamed </span><span class="si">%s</span><span class="s1"> </span><span class="si">%i</span><span class="s1"> to </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> \
+                                     <span class="p">(</span><span class="n">resname</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">MU</span><span class="o">.</span><span class="n">nonStandardAA</span><span class="p">[</span> <span class="n">resname</span> <span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">resnames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ALA&#39;</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Warning: unknown residue name </span><span class="si">%s</span><span class="s1"> </span><span class="si">%i</span><span class="s1">: &#39;</span> \
+                                  <span class="o">%</span> <span class="p">(</span><span class="n">resname</span><span class="p">,</span> <span class="n">i</span> <span class="p">)</span> <span class="p">)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">-&gt;renamed to ALA.&#39;</span><span class="p">)</span>
+
+                <span class="n">replaced</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%i</span><span class="s1"> atoms with non-standard residue names.&#39;</span><span class="o">%</span> \
+                          <span class="n">replaced</span> <span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__standard_res</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">resname</span><span class="p">,</span> <span class="n">amber</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if resname is a standard residue (according to :class:`MU.atomDic`)</span>
+<span class="sd">        if not return the closest standard residue (according to</span>
+<span class="sd">        :class:`MU.nonStandardAA`).</span>
+<span class="sd">        </span>
+<span class="sd">        :param resname: 3-letter residue name</span>
+<span class="sd">        :type  resname: str</span>
+<span class="sd">        </span>
+<span class="sd">        :return: name of closest standard residue or resname itself</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">resname</span> <span class="ow">in</span> <span class="n">MU</span><span class="o">.</span><span class="n">atomDic</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">resname</span>
+
+        <span class="k">if</span> <span class="n">resname</span> <span class="ow">in</span> <span class="n">MU</span><span class="o">.</span><span class="n">nonStandardAA</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">MU</span><span class="o">.</span><span class="n">nonStandardAA</span><span class="p">[</span> <span class="n">resname</span> <span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">resname</span>
+
+
+<div class="viewcode-block" id="PDBCleaner.remove_non_standard_atoms"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.remove_non_standard_atoms">[docs]</a>    <span class="k">def</span> <span class="nf">remove_non_standard_atoms</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        First missing standard atom triggers removal of standard atoms that</span>
+<span class="sd">        follow in the standard order. All non-standard atoms are removed too.</span>
+<span class="sd">        Data about standard atoms are taken from :class:`MU.atomDic` and symomym</span>
+<span class="sd">        atom name is defined in :class:`MU.atomSynonyms`.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: number of atoms removed</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s2">&quot;Checking content of standard amino-acids...&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">resList</span><span class="p">():</span>
+
+            <span class="n">resname</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__standard_res</span><span class="p">(</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">resname</span> <span class="o">==</span> <span class="s1">&#39;DC5&#39;</span><span class="p">:</span>
+                <span class="k">pass</span>
+            
+            <span class="c1">## bugfix: ignore non-standard residues that have no matching </span>
+            <span class="c1">## standard residue</span>
+            <span class="k">if</span> <span class="n">resname</span> <span class="ow">in</span> <span class="n">MU</span><span class="o">.</span><span class="n">atomDic</span><span class="p">:</span>
+                
+                <span class="n">standard</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span> <span class="n">MU</span><span class="o">.</span><span class="n">atomDic</span><span class="p">[</span> <span class="n">resname</span> <span class="p">]</span> <span class="p">)</span>
+    
+                <span class="c1">## replace known synonyms by standard atom name</span>
+                <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">standard</span> <span class="ow">and</span> <span class="n">MU</span><span class="o">.</span><span class="n">atomSynonyms</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="ow">in</span> <span class="n">standard</span><span class="p">:</span>
+                        <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MU</span><span class="o">.</span><span class="n">atomSynonyms</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: renaming </span><span class="si">%s</span><span class="s1"> to </span><span class="si">%s</span><span class="s1"> in </span><span class="si">%s</span><span class="s1"> </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span>\
+                                          <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pdbCode</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                                           <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">]))</span>
+    
+                <span class="n">anames</span>   <span class="o">=</span> <span class="p">[</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">res</span> <span class="p">]</span>
+                <span class="n">keep</span> <span class="o">=</span> <span class="mi">1</span>
+    
+                <span class="c1">## kick out all standard atoms that follow a missing one</span>
+                <span class="n">rm</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">standard</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">anames</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">TOLERATE_MISSING</span><span class="p">):</span>
+                        <span class="n">keep</span> <span class="o">=</span> <span class="mi">0</span>
+    
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">keep</span><span class="p">:</span>
+                        <span class="n">rm</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">n</span> <span class="p">]</span>
+    
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">rm</span><span class="p">:</span>
+                    <span class="n">standard</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">n</span> <span class="p">)</span>
+    
+                <span class="c1">## keep only atoms that are standard (and not kicked out above)</span>
+                <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+    
+                    <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">standard</span><span class="p">:</span>
+                        <span class="n">mask</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: removing atom </span><span class="si">%s</span><span class="s1"> in </span><span class="si">%s</span><span class="s1"> </span><span class="si">%i</span><span class="s1"> &#39;</span><span class="o">%</span>\
+                                          <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pdbCode</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                                           <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">]))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">mask</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Removed &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N0</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">))</span> <span class="o">+</span>
+                          <span class="s1">&#39; atoms because they were non-standard&#39;</span> <span class="o">+</span>
+                          <span class="s1">&#39; or followed a missing atom.&#39;</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">N0</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PDBCleaner.capACE"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.capACE">[docs]</a>    <span class="k">def</span> <span class="nf">capACE</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">checkgap</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cap N-terminal of given chain.</span>
+
+<span class="sd">        Note: In order to allow the capping of chain breaks,</span>
+<span class="sd">        the chain index is, by default, based on model.chainIndex(breaks=True), </span>
+<span class="sd">        that means with chain break detection activated! This is not the </span>
+<span class="sd">        default behaviour of PDBModel.chainIndex or takeChains or chainLength. </span>
+<span class="sd">        Please use the wrapping method capTerminals() for more convenient </span>
+<span class="sd">        handling of the index.</span>
+
+<span class="sd">        :param model: model</span>
+<span class="sd">        :type  model: PDBMode</span>
+<span class="sd">        :param chain: index of chain to be capped</span>
+<span class="sd">        :type  chain: int</span>
+<span class="sd">        :param breaks: consider chain breaks when identifying chain boundaries</span>
+<span class="sd">        :type  breaks: bool</span>
+<span class="sd">        </span>
+<span class="sd">        :return: model with added NME capping</span>
+<span class="sd">        :rtype : PDBModel</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Capping N-terminal of chain </span><span class="si">%i</span><span class="s1"> with ACE&#39;</span> <span class="o">%</span> <span class="n">chain</span> <span class="p">)</span>
+
+        <span class="n">c_start</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">c_end</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">)</span>
+        <span class="n">Nterm_is_break</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">Cterm_is_break</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        <span class="k">if</span> <span class="n">breaks</span><span class="p">:</span>
+            <span class="n">Nterm_is_break</span> <span class="o">=</span> <span class="n">c_start</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">()</span>
+            <span class="n">Cterm_is_break</span> <span class="o">=</span> <span class="n">c_end</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">()</span>
+            
+        <span class="n">m_ace</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">F_ace_cap</span> <span class="p">)</span>
+
+        <span class="n">chains_before</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="n">chain</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">m_chain</span>       <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="p">[</span><span class="n">chain</span><span class="p">],</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">chains_after</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="n">chain</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_start</span><span class="p">)),</span>
+                                          <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+
+        <span class="n">m_term</span>  <span class="o">=</span> <span class="n">m_chain</span><span class="o">.</span><span class="n">resModels</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">## we need 3 atoms for superposition, CB might mess things up but</span>
+        <span class="c1">## could help if there is no HN</span>
+        <span class="c1">##        if &#39;HN&#39; in m_term.atomNames():</span>
+        <span class="n">m_ace</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;CB&#39;</span><span class="p">]</span> <span class="p">)</span>  <span class="c1">## use backbone &#39;C&#39; rather than CB for fitting </span>
+
+        <span class="c1">## rename overhanging residue in cap PDB</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">m_ace</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;ACE&#39;</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;chain_id&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;chain_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;segment_id&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;segment_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">## fit cap onto first residue of chain</span>
+        <span class="n">m_ace</span> <span class="o">=</span> <span class="n">m_ace</span><span class="o">.</span><span class="n">magicFit</span><span class="p">(</span> <span class="n">m_term</span> <span class="p">)</span>
+
+        <span class="n">cap</span> <span class="o">=</span> <span class="n">m_ace</span><span class="o">.</span><span class="n">resModels</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">serial</span> <span class="o">=</span> <span class="n">m_term</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">cap</span><span class="p">)</span>
+        <span class="n">cap</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span> <span class="n">serial</span><span class="p">,</span> <span class="n">serial</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">cap</span><span class="p">)))</span>
+
+        <span class="c1">## concat cap on chain</span>
+        <span class="n">m_chain</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">m_chain</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+        <span class="c1">## re-assemble whole model</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">chains_before</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">m_chain</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="ow">not</span> <span class="n">Nterm_is_break</span><span class="p">)</span>
+            
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">chains_after</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="ow">not</span> <span class="n">Cterm_is_break</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">checkgap</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">r</span><span class="o">.</span><span class="n">lenChains</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">):</span>
+            <span class="k">raise</span> <span class="n">CappingError</span><span class="p">(</span><span class="s1">&#39;Capping ACE would mask a chain break. &#39;</span><span class="o">+</span>\
+                  <span class="s1">&#39;This typically indicates a tight gap with high risk of &#39;</span><span class="o">+</span>\
+                  <span class="s1">&#39;clashes and other issues.&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="PDBCleaner.capNME"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.capNME">[docs]</a>    <span class="k">def</span> <span class="nf">capNME</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">checkgap</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cap C-terminal of given chain. </span>
+
+<span class="sd">        Note: In order to allow the capping of chain breaks,</span>
+<span class="sd">        the chain index is, by default, based on model.chainIndex(breaks=True), </span>
+<span class="sd">        that means with chain break detection activated! This is not the </span>
+<span class="sd">        default behaviour of PDBModel.chainIndex or takeChains or chainLength.</span>
+<span class="sd">        Please use the wrapping method capTerminals() for more convenient </span>
+<span class="sd">        handling of the index.</span>
+
+<span class="sd">        :param model: model</span>
+<span class="sd">        :type  model: PDBMode</span>
+<span class="sd">        :param chain: index of chain to be capped</span>
+<span class="sd">        :type  chain: int</span>
+<span class="sd">        :param breaks: consider chain breaks when identifying chain boundaries</span>
+<span class="sd">        :type  breaks: bool</span>
+<span class="sd">        </span>
+<span class="sd">        :return: model with added NME capping residue</span>
+<span class="sd">        :rtype : PDBModel</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Capping C-terminal of chain </span><span class="si">%i</span><span class="s1"> with NME.&#39;</span> <span class="o">%</span> <span class="n">chain</span> <span class="p">)</span>
+        <span class="n">m_nme</span>   <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">F_nme_cap</span> <span class="p">)</span>
+
+        <span class="n">c_start</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">c_end</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">)</span>
+
+        <span class="n">Nterm_is_break</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">Cterm_is_break</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">breaks</span><span class="p">:</span>
+            <span class="n">Nterm_is_break</span> <span class="o">=</span> <span class="n">c_start</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">()</span>
+            <span class="n">Cterm_is_break</span> <span class="o">=</span> <span class="n">c_end</span><span class="p">[</span><span class="n">chain</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">()</span>
+         
+        <span class="n">chains_before</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="n">chain</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">m_chain</span>       <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="p">[</span><span class="n">chain</span><span class="p">],</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+        <span class="n">chains_after</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeChains</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="n">chain</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_start</span><span class="p">)),</span>
+                                          <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">)</span>
+
+        <span class="n">m_term</span>  <span class="o">=</span> <span class="n">m_chain</span><span class="o">.</span><span class="n">resModels</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1">## rename overhanging residue in cap PDB, renumber cap residue</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">m_nme</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;NME&#39;</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;chain_id&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;chain_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">a</span><span class="p">[</span><span class="s1">&#39;segment_id&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">m_term</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;segment_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">## chain should not have any terminal O after capping</span>
+        <span class="n">m_chain</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;OXT&#39;</span><span class="p">]</span> <span class="p">)</span>            
+
+        <span class="c1">## fit cap onto last residue of chain</span>
+        <span class="n">m_nme</span> <span class="o">=</span> <span class="n">m_nme</span><span class="o">.</span><span class="n">magicFit</span><span class="p">(</span> <span class="n">m_term</span> <span class="p">)</span>
+        
+        <span class="n">cap</span> <span class="o">=</span> <span class="n">m_nme</span><span class="o">.</span><span class="n">resModels</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">serial</span> <span class="o">=</span> <span class="n">m_term</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">cap</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span> <span class="n">serial</span><span class="p">,</span> <span class="n">serial</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">cap</span><span class="p">)))</span>
+
+        <span class="c1">## concat cap on chain</span>
+        <span class="n">m_chain</span> <span class="o">=</span> <span class="n">m_chain</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">cap</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+
+        <span class="c1">## should be obsolete now</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span> <span class="n">m_chain</span><span class="p">,</span> <span class="s1">&#39;_PDBModel__terAtoms&#39;</span><span class="p">,</span> <span class="p">[])</span> <span class="o">!=</span> <span class="p">[]:</span>
+            <span class="n">m_chain</span><span class="o">.</span><span class="n">_PDBModel__terAtoms</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">len</span><span class="p">(</span> <span class="n">m_chain</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">]</span>
+        <span class="k">assert</span> <span class="n">m_chain</span><span class="o">.</span><span class="n">lenChains</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
+
+        <span class="c1">## re-assemble whole model</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">chains_before</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">m_chain</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="ow">not</span> <span class="n">Nterm_is_break</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span> <span class="n">chains_after</span><span class="p">,</span> <span class="n">newChain</span><span class="o">=</span><span class="ow">not</span> <span class="n">Cterm_is_break</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">checkgap</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">c_start</span><span class="p">)</span> <span class="o">!=</span> <span class="n">r</span><span class="o">.</span><span class="n">lenChains</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span> <span class="p">):</span>
+            <span class="k">raise</span> <span class="n">CappingError</span><span class="p">(</span><span class="s1">&#39;Capping NME would mask a chain break. &#39;</span><span class="o">+</span>\
+                  <span class="s1">&#39;This typically indicates a tight gap with high risk of &#39;</span><span class="o">+</span>\
+                  <span class="s1">&#39;clashes and other issues.&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">r</span></div>
+
+
+<div class="viewcode-block" id="PDBCleaner.convertChainIdsNter"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.convertChainIdsNter">[docs]</a>    <span class="k">def</span> <span class="nf">convertChainIdsNter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">chains</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert normal chain ids to chain ids considering chain breaks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chains</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">chains</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">(),</span> <span class="n">chains</span> <span class="p">)</span> 
+        <span class="c1">## convert back to chain indices but this time including chain breaks</span>
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">atom2chainIndices</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span></div>
+        
+<div class="viewcode-block" id="PDBCleaner.convertChainIdsCter"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.convertChainIdsCter">[docs]</a>    <span class="k">def</span> <span class="nf">convertChainIdsCter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">chains</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert normal chain ids to chain ids considering chain breaks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chains</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">chains</span>
+        <span class="c1">## fetch last atom of given chains</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">(),</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="p">)])</span> <span class="p">)</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">N0</span><span class="o">.</span><span class="n">take</span><span class="p">(</span> <span class="n">index</span><span class="p">,</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">chains</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1">## convert back to chain indices but this time including chain breaks</span>
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">atom2chainIndices</span><span class="p">(</span> <span class="n">i</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span></div>
+    
+
+<div class="viewcode-block" id="PDBCleaner.unresolvedTerminals"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.unresolvedTerminals">[docs]</a>    <span class="k">def</span> <span class="nf">unresolvedTerminals</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Autodetect (aka &quot;guess&quot;) which N- and C-terminals are most likely not</span>
+<span class="sd">        the real end of each chain. This guess work is based on residue </span>
+<span class="sd">        numbering:</span>
+<span class="sd">        </span>
+<span class="sd">        * unresolved N-terminal: a protein residue with a residue number &gt; 1</span>
+
+<span class="sd">        * unresolved C-terminal: a protein residue that does not contain either</span>
+<span class="sd">                               OXT or OT or OT1 or OT2 atoms</span>
+<span class="sd">                               </span>
+<span class="sd">        :param model: PDBModel</span>
+<span class="sd">        </span>
+<span class="sd">        :return: chains with unresolved N-term, with unresolved C-term</span>
+<span class="sd">        :rtype : ([int], [int])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">c_first</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">()</span>
+        <span class="n">c_last</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">()</span>
+        
+        <span class="n">capN</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">pos</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">c_first</span><span class="p">)</span>\
+                 <span class="k">if</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">][</span><span class="n">pos</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">]</span>
+        
+        <span class="n">capN</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">capN</span> <span class="k">if</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">][</span><span class="n">c_first</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">!=</span> <span class="s1">&#39;ACE&#39;</span><span class="p">]</span>
+        
+        <span class="n">capN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterProteinChains</span><span class="p">(</span> <span class="n">model</span><span class="p">,</span> <span class="n">capN</span><span class="p">,</span> <span class="n">c_first</span> <span class="p">)</span>
+        
+        <span class="n">capC</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">pos</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">c_last</span><span class="p">):</span>
+            <span class="n">atoms</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">takeResidues</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">atom2resIndices</span><span class="p">([</span><span class="n">pos</span><span class="p">]))</span><span class="o">.</span><span class="n">atomNames</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="ow">not</span><span class="p">(</span> <span class="s1">&#39;OXT&#39;</span> <span class="ow">in</span> <span class="n">atoms</span> <span class="ow">or</span> <span class="s1">&#39;OT&#39;</span> <span class="ow">in</span> <span class="n">atoms</span> <span class="ow">or</span> <span class="s1">&#39;OT1&#39;</span> <span class="ow">in</span> <span class="n">atoms</span> <span class="ow">or</span> \
+                    <span class="s1">&#39;OT2&#39;</span> <span class="ow">in</span> <span class="n">atoms</span> <span class="p">):</span>
+                <span class="n">capC</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">i</span> <span class="p">]</span>
+
+        <span class="n">capC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterProteinChains</span><span class="p">(</span> <span class="n">model</span><span class="p">,</span> <span class="n">capC</span><span class="p">,</span> <span class="n">c_last</span> <span class="p">)</span>
+                  
+        <span class="k">return</span> <span class="n">capN</span><span class="p">,</span> <span class="n">capC</span></div>
+    
+    <span class="c1">#@todo filter for protein positions in breaks=1</span>
+
+    <span class="k">def</span> <span class="nf">filterProteinChains</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">chains</span><span class="p">,</span> <span class="n">chainindex</span> <span class="p">):</span>
+        <span class="n">maskProtein</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">maskProtein</span><span class="p">()</span>
+        <span class="n">chains</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chains</span> <span class="k">if</span> <span class="n">maskProtein</span><span class="p">[</span> <span class="n">chainindex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">chains</span>
+
+<div class="viewcode-block" id="PDBCleaner.capTerminals"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.capTerminals">[docs]</a>    <span class="k">def</span> <span class="nf">capTerminals</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">capN</span><span class="o">=</span><span class="p">[],</span> <span class="n">capC</span><span class="o">=</span><span class="p">[],</span>
+                      <span class="n">checkgap</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add NME and ACE capping residues to chain breaks or normal N- and </span>
+<span class="sd">        C-terminals. Note: these capping residues contain hydrogen atoms.</span>
+<span class="sd">        </span>
+<span class="sd">        Chain indices for capN and capC arguments can be interpreted either</span>
+<span class="sd">        with or without chain break detection enabled. For example, let&#39;s</span>
+<span class="sd">        assume we have a two-chain protein with some missing residues (chain</span>
+<span class="sd">        break) in the first chain:</span>
+<span class="sd">        </span>
+<span class="sd">        A:   MGSKVSK---FLNAGSK</span>
+<span class="sd">        B:   FGHLAKSDAK</span>
+
+<span class="sd">        Then:</span>
+<span class="sd">          capTerminals( breaks=False, capN=[1], capC=[1]) will add N-and </span>
+<span class="sd">          C-terminal caps to chain B.</span>
+<span class="sd">        However:</span>
+<span class="sd">          capTerminals( breaks=True, capN=[1], capC=[1]) will add N- and </span>
+<span class="sd">          C-terminal caps to the second fragment of chain A.</span>
+<span class="sd">          </span>
+<span class="sd">        </span>
+<span class="sd">        Note: this operation *replaces* the internal model.</span>
+<span class="sd">        </span>
+<span class="sd">        :param auto: put ACE and NME capping residue on chain breaks</span>
+<span class="sd">                     and on suspected false N- and C-termini (default: False)</span>
+<span class="sd">        :type  auto: bool</span>
+<span class="sd">        :param breaks: switch on chain break detection before interpreting</span>
+<span class="sd">                       capN and capC</span>
+<span class="sd">        :type  breaks: False</span>
+<span class="sd">        :param capN: indices of chains that should get ACE cap (default: [])</span>
+<span class="sd">        :type  capN: [int]</span>
+<span class="sd">        :param capC: indices of chains that should get NME cap (default: [])</span>
+<span class="sd">        :type  capC: [int]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+        <span class="n">c_len</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">lenChains</span><span class="p">()</span>
+        <span class="n">i_breaks</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">chainBreaks</span><span class="p">()</span>
+            
+        <span class="k">if</span> <span class="n">auto</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">breaks</span><span class="p">:</span>
+                <span class="n">capN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertChainIdsNter</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">capN</span> <span class="p">)</span>
+                <span class="n">capC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convertChainIdsCter</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">capC</span> <span class="p">)</span>
+
+            <span class="n">breaks</span><span class="o">=</span><span class="kc">True</span>
+            <span class="n">capN</span><span class="p">,</span> <span class="n">capC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unresolvedTerminals</span><span class="p">(</span> <span class="n">m</span> <span class="p">)</span>
+        
+            <span class="n">end_broken</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">atom2chainIndices</span><span class="p">(</span> <span class="n">m</span><span class="o">.</span><span class="n">chainBreaks</span><span class="p">(),</span> <span class="n">breaks</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+            
+            <span class="n">capC</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">union</span><span class="p">(</span> <span class="n">capC</span><span class="p">,</span> <span class="n">end_broken</span> <span class="p">)</span>
+            <span class="n">capN</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">union</span><span class="p">(</span> <span class="n">capN</span><span class="p">,</span> <span class="n">N0</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">end_broken</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>
+            
+        <span class="n">capN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterProteinChains</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">capN</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">chainIndex</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">))</span>
+        <span class="n">capC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filterProteinChains</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">capC</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">chainEndIndex</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">capN</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">capACE</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">checkgap</span><span class="o">=</span><span class="n">checkgap</span> <span class="p">)</span>
+            <span class="k">assert</span> <span class="n">m</span><span class="o">.</span><span class="n">lenChains</span><span class="p">()</span> <span class="o">==</span> <span class="n">c_len</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%i</span><span class="s1"> != </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> \
+                   <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">lenChains</span><span class="p">(),</span> <span class="n">c_len</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">chainBreaks</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_breaks</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">N0</span><span class="o">.</span><span class="n">Int32</span><span class="p">,</span> <span class="s1">&#39;serial_number not int&#39;</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">capC</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">capNME</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="n">breaks</span><span class="p">,</span> <span class="n">checkgap</span><span class="o">=</span><span class="n">checkgap</span> <span class="p">)</span>
+            <span class="k">assert</span> <span class="n">m</span><span class="o">.</span><span class="n">lenChains</span><span class="p">()</span> <span class="o">==</span> <span class="n">c_len</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">chainBreaks</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_breaks</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span></div>
+
+    
+    
+<div class="viewcode-block" id="PDBCleaner.process"><a class="viewcode-back" href="../../source/biskit/biskit.PDBCleaner.html#biskit.PDBCleaner.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">keep_hetatoms</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">amber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keep_xaa</span><span class="o">=</span><span class="p">[]</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove Hetatoms, waters. Replace non-standard names.</span>
+<span class="sd">        Remove non-standard atoms.</span>
+<span class="sd">        </span>
+<span class="sd">        :param keep_hetatoms: option</span>
+<span class="sd">        :type  keep_hetatoms: 0||1</span>
+<span class="sd">        :param amber: don&#39;t rename amber residue names (HIE, HID, CYX,..)</span>
+<span class="sd">        :type  amber: 0||1</span>
+<span class="sd">        :param keep_xaa: names of non-standard residues to be kept</span>
+<span class="sd">        :type  keep_xaa: [ str ]</span>
+<span class="sd">        </span>
+<span class="sd">        :return: PDBModel (reference to internal)</span>
+<span class="sd">        :rtype: PDBModel</span>
+<span class="sd">        </span>
+<span class="sd">        :raise CleanerError: if something doesn&#39;t go as expected ...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_hetatoms</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">maskHetatm</span><span class="p">()</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">maskH2O</span><span class="p">()</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">maskH</span><span class="p">()</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">remove_multi_occupancies</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">replace_non_standard_AA</span><span class="p">(</span> <span class="n">amber</span><span class="o">=</span><span class="n">amber</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="n">keep_xaa</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">remove_non_standard_atoms</span><span class="p">()</span>
+
+
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyboardInterrupt</span><span class="p">(</span> <span class="n">why</span> <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logWrite</span><span class="p">(</span><span class="s1">&#39;Error: &#39;</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">lastErrorTrace</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="n">CleanerError</span><span class="p">(</span> <span class="s1">&#39;Error cleaning model: </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">why</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span></div></div>
+
+
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test class &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">biskit</span> <span class="k">import</span> <span class="n">LogFile</span>
+        <span class="kn">import</span> <span class="nn">tempfile</span>
+
+
+    <span class="k">def</span> <span class="nf">test_PDBCleaner</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;PDBCleaner general test&quot;&quot;&quot;</span>
+        
+        <span class="c1">## Loading PDB...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/rec/1A2P_rec_original.pdb&#39;</span><span class="p">,</span>
+                             <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">,</span>
+                             <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">mass</span><span class="p">(),</span> <span class="mf">34029.0115499993</span><span class="p">,</span> <span class="mi">7</span> <span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">test_DNACleaning</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;PDBCleaner DNA test&quot;&quot;&quot;</span>
+        <span class="c1">## Loading PDB...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;amber/entropy/0_com.pdb&#39;</span><span class="p">,</span>
+                             <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">dna</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">amber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">dna</span><span class="o">.</span><span class="n">mass</span><span class="p">(),</span> <span class="mf">26953.26</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span>
+        
+        
+    <span class="k">def</span> <span class="nf">test_Capping</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;PDBCleaner.capTerminals test&quot;&quot;&quot;</span>
+        <span class="c1">## Loading PDB...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/rec/1A2P_rec_original.pdb&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="p">)</span>       
+        <span class="bp">self</span><span class="o">.</span><span class="n">m2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2</span><span class="o">.</span><span class="n">atomNames</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">atomNames</span><span class="p">()</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">m3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="o">.</span><span class="n">removeRes</span><span class="p">(</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capC</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">capN</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="o">.</span><span class="n">takeChains</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">sequence</span><span class="p">()[:</span><span class="mi">18</span><span class="p">],</span> 
+                          <span class="s1">&#39;XVINTFDGVADXXKLPDN&#39;</span> <span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Testing automatic chain capping...</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m4</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">(</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m4</span><span class="o">.</span><span class="n">takeChains</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">sequence</span><span class="p">()[:</span><span class="mi">18</span><span class="p">],</span> 
+                          <span class="s1">&#39;XVINTFDGVADXXKLPDN&#39;</span> <span class="p">)</span>
+        
+        
+    <span class="k">def</span> <span class="nf">test_capping_internal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m3</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">(</span><span class="s1">&#39;pdbclean/foldx_citche.pdb&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="o">.</span><span class="n">takeChains</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># pick second chain; has chain break</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c3</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">)</span> 
+        
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c3</span><span class="o">.</span><span class="n">capACE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">checkgap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">lenChains</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> 
+                         <span class="bp">self</span><span class="o">.</span><span class="n">m3</span><span class="o">.</span><span class="n">lenChains</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        
+<span class="k">class</span> <span class="nc">FailingTest</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test class &quot;&quot;&quot;</span>
+    
+    <span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="n">BT</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">,</span> <span class="n">BT</span><span class="o">.</span><span class="n">FAILS</span><span class="p">]</span>
+        
+    <span class="k">def</span> <span class="nf">test_capping_extra</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;PDBCleaner.capTerminals extra challenge&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m2</span> <span class="o">=</span> <span class="n">PDBModel</span><span class="p">(</span> <span class="n">t</span><span class="o">.</span><span class="n">testRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/pdbclean/foldx_citche.pdb&#39;</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">CappingError</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;OK: CappingError has been raised indicating clash.&#39;</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m2</span><span class="o">.</span><span class="n">takeChains</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">chainBreaks</span><span class="p">()),</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

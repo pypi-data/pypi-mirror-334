@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>biskit.amberResidues &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/biskit.html">Biskit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>biskit.amberResidues</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for biskit.amberResidues</h1><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Biskit, a toolkit for the manipulation of macromolecular structures</span>
+<span class="c1">## Copyright (C) 2004-2016 Raik Gruenberg &amp; Johan Leckner</span>
+<span class="c1">##</span>
+<span class="c1">## This program is free software; you can redistribute it and/or</span>
+<span class="c1">## modify it under the terms of the GNU General Public License as</span>
+<span class="c1">## published by the Free Software Foundation; either version 3 of the</span>
+<span class="c1">## License, or any later version.</span>
+<span class="c1">##</span>
+<span class="c1">## This program is distributed in the hope that it will be useful,</span>
+<span class="c1">## but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU</span>
+<span class="c1">## General Public License for more details.</span>
+<span class="c1">##</span>
+<span class="c1">## You find a copy of the GNU General Public License in the file</span>
+<span class="c1">## license.txt along with this program; if not, write to the Free</span>
+<span class="c1">## Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.</span>
+<span class="c1">##</span>
+<span class="c1">##</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Read Amber residue topology from Amber &quot;off&quot; libraries.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">N</span>
+<span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">osp</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">biskit.tools</span> <span class="k">as</span> <span class="nn">T</span>
+<span class="kn">import</span> <span class="nn">biskit</span> <span class="k">as</span> <span class="nn">B</span>
+<span class="kn">import</span> <span class="nn">biskit.molUtils</span> <span class="k">as</span> <span class="nn">M</span>
+ 
+<span class="k">class</span> <span class="nc">AmberPrepError</span><span class="p">(</span> <span class="ne">Exception</span> <span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">AmberPrepChargeMissmatch</span><span class="p">(</span> <span class="n">AmberPrepError</span> <span class="p">):</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="AmberResidueType"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueType.html#biskit.AmberResidueType">[docs]</a><span class="k">class</span> <span class="nc">AmberResidueType</span><span class="p">(</span> <span class="n">B</span><span class="o">.</span><span class="n">PDBModel</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Standard description of a certain class of residues.</span>
+<span class="sd">    </span>
+<span class="sd">    In addition to the normal PDBModel things, this class defines three</span>
+<span class="sd">    additional fields:</span>
+<span class="sd">        * name   ... the full long residue name (str), e.g. &#39;Alanine&#39;</span>
+<span class="sd">        * code   ... the three-letter name used in PDB files (str), e.g. &#39;ALA&#39;</span>
+<span class="sd">        * letter ... the single-letter residue code (str), e.g. &#39;A&#39;</span>
+<span class="sd">        </span>
+<span class="sd">    The order and names of atoms are supposed to serve as a reference to check</span>
+<span class="sd">    and normalize actual residues parsed from PDB files.</span>
+<span class="sd">    </span>
+<span class="sd">    Currently, AmberResidueTypes can only be created from Amber prep library</span>
+<span class="sd">    files.</span>
+<span class="sd">    </span>
+<span class="sd">    An alternative method would be to create AmberResidueTypes from some </span>
+<span class="sd">    standard PDB file::</span>
+<span class="sd">    </span>
+<span class="sd">        &gt;&gt;&gt; m = PDBModel(&#39;standard_aa.pdb&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; standard_res = [ AmberResidueType( res ) for res in m.resModels() ]</span>
+<span class="sd">    </span>
+<span class="sd">    .. seealso:: `biskit.AmberPrepParser`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="AmberResidueType.__init__"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueType.html#biskit.AmberResidueType.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">letter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span>  <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param name: full residue name (converted to lower letters)</span>
+<span class="sd">        :type  name: str</span>
+<span class="sd">        :param code: three-letter residue code (converted to upper letters)</span>
+<span class="sd">        :type  code: str</span>
+<span class="sd">        :param letter: single-letter residue code (converted to upper letter)</span>
+<span class="sd">        :type  letter: str</span>
+<span class="sd">        :param source: pdb file, model or structure of residue from which to </span>
+<span class="sd">                       extract all the other data</span>
+<span class="sd">        :type  source: PDBModel or str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>      <span class="c1">## &#39;alanine&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>      <span class="c1">## &#39;ALA&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">letter</span>  <span class="c1">## &#39;A&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        
+        <span class="n">B</span><span class="o">.</span><span class="n">PDBModel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span> <span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">source</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__fromPDB</span><span class="p">()</span></div>
+        
+
+    <span class="k">def</span> <span class="nf">__fromPDB</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">singleAA</span><span class="p">(</span> <span class="p">[</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="p">]</span> <span class="p">)</span>
+        
+        
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;[</span><span class="si">%s</span><span class="s1"> </span><span class="si">%3s</span><span class="s1"> </span><span class="si">%3i</span><span class="s1"> atoms: </span><span class="si">%s</span><span class="s1"> ]&#39;</span> <span class="o">%</span> \
+               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span>
+    
+<div class="viewcode-block" id="AmberResidueType.take"><a class="viewcode-back" href="../../source/biskit/biskit.AmberResidueType.html#biskit.AmberResidueType.take">[docs]</a>    <span class="k">def</span> <span class="nf">take</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rindex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cindex</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+          <span class="o">*</span><span class="n">initArgs</span><span class="p">,</span> <span class="o">**</span><span class="n">initKw</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Overriding PDBModel.take to rescue and copy additional fields&quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">PDBModel</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rindex</span><span class="p">,</span> <span class="n">cindex</span><span class="p">,</span> <span class="o">*</span><span class="n">initArgs</span><span class="p">,</span> <span class="o">**</span><span class="n">initKw</span> <span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">letter</span>
+        <span class="k">return</span> <span class="n">r</span></div></div>
+
+       
+<div class="viewcode-block" id="AmberPrepParser"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser">[docs]</a><span class="k">class</span> <span class="nc">AmberPrepParser</span><span class="p">(</span> <span class="nb">object</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse Amber Residue libraries (off or prep files) which are usually found </span>
+<span class="sd">    in amber/dat/leap/prep.</span>
+<span class="sd">    </span>
+<span class="sd">    Usage::</span>
+<span class="sd">    </span>
+<span class="sd">        p = AmberOffParser( &#39;all_amino03.in&#39; )</span>
+<span class="sd">        residues = [ r for r in p.residueTypes() ]</span>
+<span class="sd">        </span>
+<span class="sd">    Returns AmberResidue instances that can be handled like a PDBModel</span>
+<span class="sd">    although the xyz array contains relative Z-coordinates not real cartesian</span>
+<span class="sd">    ones. Atom profiles of the AmberResidue instance include:</span>
+<span class="sd">        * charge ... atomic partial charge (float)</span>
+<span class="sd">        * name   ... atom name (str)</span>
+<span class="sd">        * amber_type ... Amber atom type (str)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">F_DEFAULT</span> <span class="o">=</span> <span class="s1">&#39;all_amino03.in&#39;</span>
+    
+<div class="viewcode-block" id="AmberPrepParser.__init__"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_in</span><span class="o">=</span><span class="kc">None</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param f_in: amber &quot;off&quot; or &quot;prep&quot; file with residue definitions</span>
+<span class="sd">                     if not existing, we will look for a file with this name</span>
+<span class="sd">                     in the Biskit data folder (data/amber/residues)</span>
+<span class="sd">                     (default: &#39;all_amino03.in&#39;)</span>
+<span class="sd">        :type  f_in: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f_in</span> <span class="o">=</span> <span class="n">f_in</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">F_DEFAULT</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">osp</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">f_in</span> <span class="p">)</span> <span class="p">):</span>
+            <span class="n">f_in</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">dataRoot</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;/amber/residues/&#39;</span> <span class="o">+</span> <span class="n">f_in</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstrecord</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;db[0-9]+\.dat&#39;</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span> <span class="n">T</span><span class="o">.</span><span class="n">absfile</span><span class="p">(</span> <span class="n">f_in</span> <span class="p">),</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstrecord</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#skip until first residue</span></div>
+  
+
+    <span class="k">def</span> <span class="nf">residueBlocks</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">i_from</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">i_to</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span> <span class="n">i_from</span> <span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">i_to</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="n">i_from</span> <span class="p">:</span> <span class="n">i_to</span><span class="p">]</span>
+            <span class="n">i_from</span> <span class="o">=</span> <span class="n">i_to</span> <span class="o">+</span> <span class="mi">4</span>
+            <span class="n">i_to</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span> <span class="n">i_from</span> <span class="p">)</span>
+            
+    
+<div class="viewcode-block" id="AmberPrepParser.atomLines"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser.atomLines">[docs]</a>    <span class="k">def</span> <span class="nf">atomLines</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;:param s: str, atom block</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;0.0&#39;</span><span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">10</span> <span class="p">)</span>
+
+        <span class="n">h</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        
+        <span class="n">line</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">line</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span> <span class="nf">parseCharges</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span> <span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;CHARGE&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="p">]</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="p">]</span>
+        
+        <span class="n">endpos1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;LOOP&#39;</span><span class="p">)</span>
+        <span class="n">endpos2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;IMPROPER&#39;</span><span class="p">)</span>
+        <span class="n">endpos</span> <span class="o">=</span> <span class="n">endpos2</span>
+        <span class="k">if</span> <span class="n">endpos1</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">endpos1</span> <span class="o">&lt;</span> <span class="n">endpos2</span><span class="p">:</span>
+            <span class="n">endpos</span> <span class="o">=</span> <span class="n">endpos1</span>
+        
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="n">endpos</span> <span class="p">]</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    
+<div class="viewcode-block" id="AmberPrepParser.parseResidue"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser.parseResidue">[docs]</a>    <span class="k">def</span> <span class="nf">parseResidue</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;:param s: str, residue record</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span>
+        <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">atoms</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;serial_number&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;name&#39;</span><span class="p">:[],</span> <span class="s1">&#39;amber_type&#39;</span><span class="p">:[],</span>
+                 <span class="s1">&#39;xyz&#39;</span><span class="p">:[],</span> <span class="s1">&#39;partial_charge&#39;</span><span class="p">:[]</span> <span class="p">}</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomLines</span><span class="p">(</span> <span class="n">s</span> <span class="p">):</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;serial_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;amber_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+            <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">items</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1">## BIG FAT WARNING: charge column sometimes deviates from </span>
+                <span class="c1">## charge record further down -- only use as fall-back</span>
+                <span class="c1">## Example mess up: HIP in all_amino03</span>
+                <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;partial_charge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">items</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>  <span class="c1">## charge column is not always present</span>
+            
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1">## the charge record seems more reliable but is not always there</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parseCharges</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">]</span> <span class="p">):</span>
+                <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;HISTIDINE PLUS&#39;</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">raise</span> <span class="n">AmberPrepChargeMissmatch</span><span class="p">(</span><span class="s1">&#39;broken charge record in &#39;</span><span class="o">+</span>\
+                      <span class="n">r</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
+            <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;partial_charge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="n">AmberPrepChargeMissmatch</span> <span class="k">as</span> <span class="n">why</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;partial_charge&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">raise</span> <span class="n">AmberPrepError</span><span class="p">(</span><span class="s1">&#39;failed to parse charges for &#39;</span><span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
+
+        <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;partial_charge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;partial_charge&#39;</span><span class="p">],</span> <span class="n">N</span><span class="o">.</span><span class="n">float</span> <span class="p">)</span>
+        <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">],</span> <span class="n">N</span><span class="o">.</span><span class="n">float</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">atoms</span></div>
+
+    
+<div class="viewcode-block" id="AmberPrepParser.createResidue"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser.createResidue">[docs]</a>    <span class="k">def</span> <span class="nf">createResidue</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">atoms</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">AmberResidueType</span><span class="p">(</span> <span class="o">**</span><span class="n">res</span> <span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">singleAA</span><span class="p">(</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">code</span><span class="p">]</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">xyz</span> <span class="o">=</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">xyz</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="n">PDBModel</span><span class="o">.</span><span class="n">PDB_KEYS</span><span class="p">:</span>
+            <span class="n">r</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+        
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ATOM&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;residue_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">code</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;residue_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;occupancy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;after_ter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="n">r</span><span class="p">[</span><span class="s1">&#39;temperature_factor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        
+        <span class="k">del</span> <span class="n">atoms</span><span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">profile</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+    
+    <span class="k">def</span> <span class="nf">residueTypes</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="k">for</span> <span class="n">resblock</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">residueBlocks</span><span class="p">():</span>
+            <span class="n">r</span><span class="p">,</span> <span class="n">atoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parseResidue</span><span class="p">(</span> <span class="n">resblock</span> <span class="p">)</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">createResidue</span><span class="p">(</span> <span class="n">r</span><span class="p">,</span> <span class="n">atoms</span> <span class="p">)</span>
+        
+<div class="viewcode-block" id="AmberPrepParser.residueDict"><a class="viewcode-back" href="../../source/biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser.residueDict">[docs]</a>    <span class="k">def</span> <span class="nf">residueDict</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: dict, residue types indexed by 3-letter residue code,</span>
+<span class="sd">                 example: {&#39;ala&#39;:[AmberResidueType ALA], &#39;cys&#39;:[...}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">[(</span><span class="n">res</span><span class="o">.</span><span class="n">code</span><span class="p">,</span><span class="n">res</span><span class="p">)</span> <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">residueTypes</span><span class="p">()]</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div></div>
+            
+
+<span class="c1">#############</span>
+<span class="c1">##  TESTING        </span>
+<span class="c1">#############</span>
+<span class="kn">import</span> <span class="nn">biskit.test</span> <span class="k">as</span> <span class="nn">BT</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">BT</span><span class="o">.</span><span class="n">BiskitTest</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test class&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">test_amberPrepParser</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AmberPrepParser test&quot;&quot;&quot;</span>
+
+        <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="n">T</span><span class="o">.</span><span class="n">dataRoot</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;/amber/residues/*in&#39;</span><span class="p">)</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span> <span class="n">osp</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="p">]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;working on &#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">AmberPrepParser</span><span class="p">(</span> <span class="n">f</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="p">[</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">residueTypes</span><span class="p">()</span> <span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">)</span>
+        
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">parsed </span><span class="si">%i</span><span class="s1"> residue types from </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">),</span> <span class="n">f</span><span class="p">))</span>
+            <span class="n">results</span><span class="p">[</span> <span class="n">f</span> <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;all_amino03.in&#39;</span><span class="p">]),</span> <span class="mi">33</span> <span class="p">)</span>
+        
+        <span class="n">dic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">residueDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="n">dic</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">],</span> <span class="n">AmberResidueType</span><span class="p">)</span> <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;all_nuc02.in&#39;</span><span class="p">]:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+                
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">BT</span><span class="o">.</span><span class="n">localTest</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

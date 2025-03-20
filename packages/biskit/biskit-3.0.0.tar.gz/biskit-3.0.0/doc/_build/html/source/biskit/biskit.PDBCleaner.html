@@ -1,0 +1,598 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PDBCleaner &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="ProfileCollection" href="biskit.ProfileCollection.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../biskit.html">Biskit</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../biskit.html#main-classes">Main Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="biskit.PDBModel.html">PDBModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.ProfileCollection.html">ProfileCollection</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PDBCleaner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.AmberResidueType.html">AmberResidueType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.AmberPrepParser.html">AmberPrepParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.LogFile.html">LogFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.StdLog.html">StdLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit.ErrLog.html">ErrLog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#interaction-with-external-programs">Interaction with external programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#supporting-classes-and-modules">Supporting classes and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#helper-modules">Helper Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biskit.html#errors">Errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../biskit.html">Biskit</a> &raquo;</li>
+        
+      <li>PDBCleaner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/source/biskit/biskit.PDBCleaner.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdbcleaner">
+<h1>PDBCleaner<a class="headerlink" href="#pdbcleaner" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="biskit.PDBCleaner">
+<em class="property">class </em><code class="descclassname">biskit.</code><code class="descname">PDBCleaner</code><span class="sig-paren">(</span><em>fpdb</em>, <em>log=None</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PDBCleaner performs the following tasks:</p>
+<blockquote>
+<div><ul class="simple">
+<li>remove HETAtoms from PDB</li>
+<li>replace non-standard AA by its closest standard AA</li>
+<li>remove non-standard atoms from standard AA residues</li>
+<li>delete atoms that follow missing atoms (in a chain)</li>
+<li>remove multiple occupancy atoms (except the one with highest occupancy)</li>
+<li>add ACE and NME capping residues to C- and N-terminals or chain breaks
+(see capTerminals(), this is NOT done automatically in process())</li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">PDBCleaner</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">(</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>This will modify the model in-place and report changes to STDOUT.
+Alternatively, you can specify a log file instance for the output.
+PDBCleaner.process accepts several options to modify the processing.</p>
+<p>Capping will add N-methyl groups to free C-terminal carboxy ends
+or Acetyl groups to free N-terminal Amines and will thus ‘simulate’ the
+continuation of the protein chain – a common practice in order to
+prevent fake terminal charges. The automatic discovery of missing residues
+is guess work at best. The more conservative approach is to use,
+for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">capTerminals</span><span class="p">(</span> <span class="n">breaks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">capC</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">capN</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, only the chain break detection is used for automatic capping
+– the last residue before a chain break is capped with NME and the first
+residue after the chain break is capped with ACE. Chain break detection
+relies on PDBModel.chainBreaks() (via PDBModel.chainIndex( breaks=1 )).
+The normal terminals to be capped are now specified explicitely. The first
+chain (not counting chain breaks) will receive a NME C-terminal cap and the
+third chain of the PDB will receive a N-terminal ACE cap.</p>
+<dl class="docutils">
+<dt>Note: Dictionaries with standard residues and atom content are defined</dt>
+<dd>in Biskit.molUtils. This is a duplicate effort with the new strategy
+to parse Amber prep files for very similar information
+(AmberResidueType, AmberResidueLibrary) and should change once we
+implement a real framework for better residue handling.</dd>
+</dl>
+<p class="rubric">Methods Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.__init__" title="biskit.PDBCleaner.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param fpdb:</th><td class="field-body">pdb file OR PDBModel instance :type  fpdb: str OR Biskit.PDBModel :param log: biskit.LogFile object (default: STDOUT) :type  log: biskit.LogFile :param verbose: log warnings and infos (default: True) :type  verbose: bool</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.PDBCleaner.capACE" title="biskit.PDBCleaner.capACE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capACE</span></code></a></td>
+<td>Cap N-terminal of given chain.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.capNME" title="biskit.PDBCleaner.capNME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capNME</span></code></a></td>
+<td>Cap C-terminal of given chain.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.PDBCleaner.capTerminals" title="biskit.PDBCleaner.capTerminals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capTerminals</span></code></a></td>
+<td>Add NME and ACE capping residues to chain breaks or normal N- and C-terminals.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.convertChainIdsCter" title="biskit.PDBCleaner.convertChainIdsCter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convertChainIdsCter</span></code></a></td>
+<td>Convert normal chain ids to chain ids considering chain breaks.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.PDBCleaner.convertChainIdsNter" title="biskit.PDBCleaner.convertChainIdsNter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convertChainIdsNter</span></code></a></td>
+<td>Convert normal chain ids to chain ids considering chain breaks.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">filterProteinChains</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">logWrite</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.process" title="biskit.PDBCleaner.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a></td>
+<td>Remove Hetatoms, waters.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.PDBCleaner.remove_multi_occupancies" title="biskit.PDBCleaner.remove_multi_occupancies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_multi_occupancies</span></code></a></td>
+<td>Keep only atoms with alternate A field (well, or no alternate).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.remove_non_standard_atoms" title="biskit.PDBCleaner.remove_non_standard_atoms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_non_standard_atoms</span></code></a></td>
+<td>First missing standard atom triggers removal of standard atoms that follow in the standard order.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#biskit.PDBCleaner.replace_non_standard_AA" title="biskit.PDBCleaner.replace_non_standard_AA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_non_standard_AA</span></code></a></td>
+<td>Replace amino acids with none standard names with standard amino acids according to <code class="xref py py-class docutils literal notranslate"><span class="pre">MU.nonStandardAA</span></code></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.unresolvedTerminals" title="biskit.PDBCleaner.unresolvedTerminals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unresolvedTerminals</span></code></a></td>
+<td>Autodetect (aka “guess”) which N- and C-terminals are most likely not the real end of each chain.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Overview</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">F_ace_cap</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">F_nme_cap</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#biskit.PDBCleaner.TOLERATE_MISSING" title="biskit.PDBCleaner.TOLERATE_MISSING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TOLERATE_MISSING</span></code></a></td>
+<td>these atoms always occur at the tip of of a chain or within a ring and, if missing, will not trigger the removal of other atoms</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>PDBCleaner Method & Attribute Details</h2><dl class="attribute">
+<dt id="biskit.PDBCleaner.TOLERATE_MISSING">
+<code class="descname">TOLERATE_MISSING</code><em class="property"> = ['O', 'CG2', 'CD1', 'CD2', 'OG1', 'OE1', 'NH1', 'OD1', 'OE1', 'H5T', &quot;O5'&quot;]</em><a class="headerlink" href="#biskit.PDBCleaner.TOLERATE_MISSING" title="Permalink to this definition">¶</a></dt>
+<dd><p>these atoms always occur at the tip of of a chain or within a ring
+and, if missing, will not trigger the removal of other atoms</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>fpdb</em>, <em>log=None</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpdb</strong> (<em>str OR Biskit.PDBModel</em>) – pdb file OR PDBModel instance</li>
+<li><strong>log</strong> (<a class="reference internal" href="biskit.LogFile.html#biskit.LogFile" title="biskit.LogFile"><em>biskit.LogFile</em></a>) – biskit.LogFile object (default: STDOUT)</li>
+<li><strong>verbose</strong> (<em>bool</em>) – log warnings and infos (default: True)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.remove_multi_occupancies">
+<code class="descname">remove_multi_occupancies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.remove_multi_occupancies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.remove_multi_occupancies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only atoms with alternate A field (well, or no alternate).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.replace_non_standard_AA">
+<code class="descname">replace_non_standard_AA</code><span class="sig-paren">(</span><em>amber=0</em>, <em>keep=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.replace_non_standard_AA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.replace_non_standard_AA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace amino acids with none standard names with standard
+amino acids according to <code class="xref py py-class docutils literal notranslate"><span class="pre">MU.nonStandardAA</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amber</strong> (<em>1||0</em>) – don’t rename HID, HIE, HIP, CYX, NME, ACE [0]</li>
+<li><strong>keep</strong> (<em>[ </em><em>str</em><em> ]</em>) – names of additional residues to keep</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.remove_non_standard_atoms">
+<code class="descname">remove_non_standard_atoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.remove_non_standard_atoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.remove_non_standard_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>First missing standard atom triggers removal of standard atoms that
+follow in the standard order. All non-standard atoms are removed too.
+Data about standard atoms are taken from <code class="xref py py-class docutils literal notranslate"><span class="pre">MU.atomDic</span></code> and symomym
+atom name is defined in <code class="xref py py-class docutils literal notranslate"><span class="pre">MU.atomSynonyms</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of atoms removed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.capACE">
+<code class="descname">capACE</code><span class="sig-paren">(</span><em>model</em>, <em>chain</em>, <em>breaks=True</em>, <em>checkgap=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.capACE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.capACE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cap N-terminal of given chain.</p>
+<p>Note: In order to allow the capping of chain breaks,
+the chain index is, by default, based on model.chainIndex(breaks=True),
+that means with chain break detection activated! This is not the
+default behaviour of PDBModel.chainIndex or takeChains or chainLength.
+Please use the wrapping method capTerminals() for more convenient
+handling of the index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<em>PDBMode</em>) – model</li>
+<li><strong>chain</strong> (<em>int</em>) – index of chain to be capped</li>
+<li><strong>breaks</strong> (<em>bool</em>) – consider chain breaks when identifying chain boundaries</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">model with added NME capping</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype : PDBModel</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.capNME">
+<code class="descname">capNME</code><span class="sig-paren">(</span><em>model</em>, <em>chain</em>, <em>breaks=True</em>, <em>checkgap=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.capNME"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.capNME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cap C-terminal of given chain.</p>
+<p>Note: In order to allow the capping of chain breaks,
+the chain index is, by default, based on model.chainIndex(breaks=True),
+that means with chain break detection activated! This is not the
+default behaviour of PDBModel.chainIndex or takeChains or chainLength.
+Please use the wrapping method capTerminals() for more convenient
+handling of the index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> (<em>PDBMode</em>) – model</li>
+<li><strong>chain</strong> (<em>int</em>) – index of chain to be capped</li>
+<li><strong>breaks</strong> (<em>bool</em>) – consider chain breaks when identifying chain boundaries</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">model with added NME capping residue</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype : PDBModel</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.convertChainIdsNter">
+<code class="descname">convertChainIdsNter</code><span class="sig-paren">(</span><em>model</em>, <em>chains</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.convertChainIdsNter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.convertChainIdsNter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert normal chain ids to chain ids considering chain breaks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.convertChainIdsCter">
+<code class="descname">convertChainIdsCter</code><span class="sig-paren">(</span><em>model</em>, <em>chains</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.convertChainIdsCter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.convertChainIdsCter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert normal chain ids to chain ids considering chain breaks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.unresolvedTerminals">
+<code class="descname">unresolvedTerminals</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.unresolvedTerminals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.unresolvedTerminals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autodetect (aka “guess”) which N- and C-terminals are most likely not
+the real end of each chain. This guess work is based on residue
+numbering:</p>
+<ul class="simple">
+<li>unresolved N-terminal: a protein residue with a residue number &gt; 1</li>
+<li><dl class="first docutils">
+<dt>unresolved C-terminal: a protein residue that does not contain either</dt>
+<dd>OXT or OT or OT1 or OT2 atoms</dd>
+</dl>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> – PDBModel</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">chains with unresolved N-term, with unresolved C-term</td>
+</tr>
+</tbody>
+</table>
+<p>:rtype : ([int], [int])</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.capTerminals">
+<code class="descname">capTerminals</code><span class="sig-paren">(</span><em>auto=False</em>, <em>breaks=False</em>, <em>capN=[]</em>, <em>capC=[]</em>, <em>checkgap=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.capTerminals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.capTerminals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add NME and ACE capping residues to chain breaks or normal N- and
+C-terminals. Note: these capping residues contain hydrogen atoms.</p>
+<p>Chain indices for capN and capC arguments can be interpreted either
+with or without chain break detection enabled. For example, let’s
+assume we have a two-chain protein with some missing residues (chain
+break) in the first chain:</p>
+<p>A:   MGSKVSK—FLNAGSK
+B:   FGHLAKSDAK</p>
+<dl class="docutils">
+<dt>Then:</dt>
+<dd>capTerminals( breaks=False, capN=[1], capC=[1]) will add N-and
+C-terminal caps to chain B.</dd>
+<dt>However:</dt>
+<dd>capTerminals( breaks=True, capN=[1], capC=[1]) will add N- and
+C-terminal caps to the second fragment of chain A.</dd>
+</dl>
+<p>Note: this operation <em>replaces</em> the internal model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>auto</strong> (<em>bool</em>) – put ACE and NME capping residue on chain breaks
+and on suspected false N- and C-termini (default: False)</li>
+<li><strong>breaks</strong> (<em>False</em>) – switch on chain break detection before interpreting
+capN and capC</li>
+<li><strong>capN</strong> (<em>[</em><em>int</em><em>]</em>) – indices of chains that should get ACE cap (default: [])</li>
+<li><strong>capC</strong> (<em>[</em><em>int</em><em>]</em>) – indices of chains that should get NME cap (default: [])</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="biskit.PDBCleaner.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>keep_hetatoms=0</em>, <em>amber=0</em>, <em>keep_xaa=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/biskit/pdbCleaner.html#PDBCleaner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#biskit.PDBCleaner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Hetatoms, waters. Replace non-standard names.
+Remove non-standard atoms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>keep_hetatoms</strong> (<em>0||1</em>) – option</li>
+<li><strong>amber</strong> (<em>0||1</em>) – don’t rename amber residue names (HIE, HID, CYX,..)</li>
+<li><strong>keep_xaa</strong> (<em>[ </em><em>str</em><em> ]</em>) – names of non-standard residues to be kept</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">PDBModel (reference to internal)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel">PDBModel</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>CleanerError</strong> – if something doesn’t go as expected …</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="biskit.ProfileCollection.html" class="btn btn-neutral" title="ProfileCollection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Biskit &mdash; biskit 3.0.0a1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PDBModel" href="biskit/biskit.PDBModel.html" />
+    <link rel="prev" title="Welcome to biskit’s documentation!" href="../index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> biskit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Biskit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-classes">Main Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.PDBModel.html">PDBModel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.ProfileCollection.html">ProfileCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.PDBCleaner.html">PDBCleaner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.AmberResidueType.html">AmberResidueType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.AmberPrepParser.html">AmberPrepParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.LogFile.html">LogFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.StdLog.html">StdLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.ErrLog.html">ErrLog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interaction-with-external-programs">Interaction with external programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.AmberResidueLibrary.html">AmberResidueLibrary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#supporting-classes-and-modules">Supporting classes and modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.LocalPath.html">LocalPath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#helper-modules">Helper Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.gnuplot.html">gnuplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.hist.html">hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.tools.html">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.molUtils.html">molUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.mathUtils.html">mathUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.match2seq.html">match2seq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.rmsFit.html">rmsFit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#errors">Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.EHandler.html">EHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.BiskitError.html">BiskitError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.LocalPathError.html">LocalPathError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.PDBError.html">PDBError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="biskit/biskit.ProfileError.html">ProfileError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">biskit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Biskit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source/biskit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="biskit">
+<h1>Biskit<a class="headerlink" href="#biskit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="main-classes">
+<h2>Main Classes<a class="headerlink" href="#main-classes" title="Permalink to this headline">¶</a></h2>
+<p>The most important classes which can be directly imported from the <a class="reference internal" href="#"><span class="doc">Biskit</span></a>
+namespace.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.PDBModel.html#biskit.PDBModel" title="biskit.PDBModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDBModel</span></code></a></td>
+<td>Store and manipulate coordinates and atom infos stemming from a PDB file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.ProfileCollection.html#biskit.ProfileCollection" title="biskit.ProfileCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProfileCollection</span></code></a></td>
+<td>Manage profiles (arrays or lists of values) for Trajectory frames or atoms/residues in PDBModel.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.PDBCleaner.html#biskit.PDBCleaner" title="biskit.PDBCleaner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDBCleaner</span></code></a></td>
+<td>PDBCleaner performs the following tasks:</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">Trajectory</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnsembleTraj</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">Residue</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.AmberResidueType.html#biskit.AmberResidueType" title="biskit.AmberResidueType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberResidueType</span></code></a></td>
+<td>Standard description of a certain class of residues.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.AmberPrepParser.html#biskit.AmberPrepParser" title="biskit.AmberPrepParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberPrepParser</span></code></a></td>
+<td>Parse Amber Residue libraries (off or prep files) which are usually found in amber/dat/leap/prep.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.LogFile.html#biskit.LogFile" title="biskit.LogFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogFile</span></code></a></td>
+<td>Simple log file that can be passed between objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.StdLog.html#biskit.StdLog" title="biskit.StdLog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StdLog</span></code></a></td>
+<td>Print to std out.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.ErrLog.html#biskit.ErrLog" title="biskit.ErrLog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ErrLog</span></code></a></td>
+<td>Print to stderr instead.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="interaction-with-external-programs">
+<h2>Interaction with external programs<a class="headerlink" href="#interaction-with-external-programs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">Executor</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExeConfig</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExeConfigCache</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberCrdEntropist</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberCrdParser</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberLeap</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberParmBuilder</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberRstParser</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.AmberResidueLibrary.html#biskit.AmberResidueLibrary" title="biskit.AmberResidueLibrary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AmberResidueLibrary</span></code></a></td>
+<td>A collection of reference residue types taken from Amber topology files.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">TMAlign</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="supporting-classes-and-modules">
+<h2>Supporting classes and modules<a class="headerlink" href="#supporting-classes-and-modules" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">BioUnit</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.LocalPath.html#biskit.LocalPath" title="biskit.LocalPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalPath</span></code></a></td>
+<td>Encapsulate a file name that might look differently in different environments depending on environment settings.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettingsManager</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">SettingsParser</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="helper-modules">
+<h2>Helper Modules<a class="headerlink" href="#helper-modules" title="Permalink to this headline">¶</a></h2>
+<p>Modules with utility and helper methods.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.gnuplot.html#module-biskit.gnuplot" title="biskit.gnuplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gnuplot</span></code></a></td>
+<td>Simple Gnuplot interface.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.hist.html#module-biskit.hist" title="biskit.hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hist</span></code></a></td>
+<td>create a histogram from data</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.tools.html#module-biskit.tools" title="biskit.tools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tools</span></code></a></td>
+<td>general purpose utility methods.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.molUtils.html#module-biskit.molUtils" title="biskit.molUtils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">molUtils</span></code></a></td>
+<td>Utilities for handling structures and sequences</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.mathUtils.html#module-biskit.mathUtils" title="biskit.mathUtils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mathUtils</span></code></a></td>
+<td>general purpose math methods</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.match2seq.html#module-biskit.match2seq" title="biskit.match2seq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match2seq</span></code></a></td>
+<td>Match 2 sequences against each other, deleting all positions that differ.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.rmsFit.html#module-biskit.rmsFit" title="biskit.rmsFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmsFit</span></code></a></td>
+<td>superimpose 2 structures iteratively</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>Errors that are raised by biskit classes.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.EHandler.html#biskit.EHandler" title="biskit.EHandler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EHandler</span></code></a></td>
+<td>Default Error Handler for Biskit classes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.BiskitError.html#biskit.BiskitError" title="biskit.BiskitError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BiskitError</span></code></a></td>
+<td>Root for all Errors raised by Biskit scripts.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.LocalPathError.html#biskit.LocalPathError" title="biskit.LocalPathError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalPathError</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="biskit/biskit.PDBError.html#biskit.PDBError" title="biskit.PDBError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDBError</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="biskit/biskit.ProfileError.html#biskit.ProfileError" title="biskit.ProfileError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProfileError</span></code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="biskit/biskit.PDBModel.html" class="btn btn-neutral float-right" title="PDBModel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to biskit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Raik Grünberg.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.0.0a1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+Metadata-Version: 2.2
+Name: biskit
+Version: 3.0.0
+Summary: A Python platform for structural bioinformatics
+Home-page: https://github.com/graik/biskit
+Download-URL: https://github.com/graik/biskit/archive/refs/tags/v3.0.0.tar.gz
+Author: Raik Gruenberg, Johan Leckner and others
+Author-email: raik.gruenberg@crg.es
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Intended Audience :: Science/Research
+Classifier: Development Status :: 5 - Production/Stable
+Provides: biskit
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: parmed
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: provides
+Dynamic: requires-dist
+Dynamic: summary
+
+Biskit is a modular, object-oriented Python library for structural
+ bioinformatics research. It facilitates the manipulation and analysis
+ of macromolecular structures, protein complexes, and molecular
+ dynamics trajectories. For efficient number crunching, Biskit objects
+ tightly integrate with numpy. Biskit also offers a platform for the
+ integration of external programs and new algorithms into complex
+ workflows. Calculations are thus often delegated to established
+ programs like Xplor-NIH, Amber, Delphi, T-Coffee, TMAlign, Reduce and
+ Modeller.
