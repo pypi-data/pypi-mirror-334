@@ -1,0 +1,172 @@
+[global]
+extra-index-url = "https://pypi.nvidia.com/simple"
+
+[project]
+name = "roboverse-py"
+version = "0.1.17"
+requires-python = ">=3.8,<3.11"
+dependencies = [
+    "dm-control==1.0.27",
+    "einops==0.4.1",
+    "flask==3.1.0",
+    "gym==0.23.1",
+    "gymnasium==0.29.0",
+    "h5py==3.12.1",
+    "hydra-core==1.2.0",
+    "imageio==2.36.1",
+    "huggingface-hub==0.29.1",
+    "ipdb==0.13.13",
+    "jax-jumpy==1.0.0",
+    "jedi==0.19.2",
+    "jinja2==3.1.5",
+    "kiwisolver==1.4.5",
+    "loguru==0.7.3",
+    "lxml==5.3.1",
+    "markdown==3.6",
+    "networkx==3.2.1",
+    "numba==0.60.0",
+    "numpy==1.26.4",
+    "numpy-quaternion",
+    "opencv-python==4.10.0.82",
+    "pandas==2.2.2",
+    "scikit-image",
+    "scipy",
+    "zarr==2.18",
+    "trimesh==4.5.3",
+    "tqdm==4.67.1",
+    "termcolor==2.4.0",
+    "tensorboard==2.11.0",
+    "tensorboardx==2.6.2.2",
+    "matplotlib",
+    "beautifulsoup4",
+    "rich==13.9.4",
+    "torch>=2.0.0",
+    "torchvision",
+    "datasets>=2.8.0",
+    "Mako",
+    "colorlog",
+    "colorama>=0.4",
+    "tyro",
+    "rootutils"
+]
+
+[tool.ruff]
+line-length = 120
+format.preview = true
+lint.preview = false
+target-version = "py38"
+lint.select = [
+    "B",    # flake8: bugbear
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "FA",   # flake8: future annotations
+    "I",    # isort
+    "PLC",  # pylint
+    "PLE",  # pylint
+    "PLW",  # pylint
+    "UP",   # pyupgrade
+    "NPY",  # numpy-specific rules
+    "RUF",  # ruff-defined rules
+    "T20",  # flake8: check prints
+    "D",    # pydocstyle
+]
+lint.ignore = [
+    "B007",  # allow used loop control variable without leading underscore
+    "E266",  # allow multiple leading # in comments
+    "E402",  # allow imports not at the top of the file
+    "E501",  # allow long lines
+    "E722",  # allow bare except
+    "F403",  # allow `from module import *`
+    "F841",  # allow unused variable
+    "PLC0206",  # allow directly iterating over a dict
+    "PLC0415",  # allow imports not at the top of the file
+    "PLC1901",  # allow `if some_string == ""`
+    "PLW1514",  # allow open without encoding argument
+    "PLW2901",  # allow for loop variable overwriting
+    "PLW0602", "PLW0603", "PLW0604",  # allow global variables, TODO: add docstring and remove this
+    "UP031",  # allow `%` to be used to format strings
+    "NPY002",  # allow legacy `numpy.random` functions
+    "RUF003",  # allow ambiguous characters in comments
+    "RUF005",  # allow using `+` to concatenate collections
+    "RUF009",  # allow function calls in dataclass default values
+    "RUF012",  # allow mutable class attributes
+]
+extend-exclude = [
+    "roboverse_learn",
+    "wandb",
+    "third_party",
+    "tmp",
+    "roboverse_data",
+    "assets",
+    "docker"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["metasim*"]
+
+[project.optional-dependencies]
+sapien = ["sapien==2.2.2"]
+sapien3 = ["sapien3==3.0.0b1"]
+pybullet = ["pybullet==3.2.6"]
+mujoco = ["mujoco==3.3.0"]
+omniverse = ["omniverse-kit==106.5.0"]
+teleop = ["pygame==2.1.0"]
+
+[tool.ruff.lint.per-file-ignores]
+"metasim/sim/isaaclab/**.py" = ["D", "FA"]  # since isaaclab only supports Python 3.10; FIXME: Feishi remove D
+## For normal scripts, allow print statements, allow no docstrings
+"scripts/**.py" = ["T20", "D"]
+"metasim/scripts/_private/**.py" = ["T20", "D"]
+"metasim/scripts/RL/**.py" = ["T20", "D"]
+"metasim/cfg/tasks/open6dor/utils/**.py" = ["T20", "D"]
+"metasim/cfg/tasks/maniskill/utils/**.py" = ["T20", "D"]
+## For long-term-support scripts, allow no docstrings
+"metasim/scripts/**.py" = ["D"]
+## For unit test, allow no docstrings
+"metasim/test/**.py" = ["D"]
+## For special tasks, allow no docstrings
+"metasim/cfg/tasks/maniskill/{pick_single_egad,pick_single_ycb,peg_insertion_side}.py" = ["D"]
+"metasim/cfg/tasks/open6dor/task/**.py" = ["D"]
+## For python files in docs and dashboard folder, allow no docstrings
+"docs/**.py" = ["D"]
+"dashboard/**.py" = ["D"]
+## For tasks, allow no docstrings in public modules
+"metasim/cfg/tasks/**/*.py" = ["D100"]
+## Temporary disable linting for quick testing
+"metasim/cfg/checkers/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/cfg/robots/**.py" = ["D"]  # FIXME: whoever in charge of the robot add docstring and remove this
+"metasim/cfg/scenes/**.py" = ["D"]  # FIXME: Charlie add docstring and remove this
+"metasim/cfg/tasks/arnold/**.py" = ["D"]  # FIXME: Steven add docstring and remove this
+"metasim/cfg/tasks/calvin/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/cfg/tasks/debug/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/cfg/tasks/dmcontrol/**.py" = ["D"]  # FIXME: Charlie add docstring and remove this
+"metasim/cfg/tasks/fetch/**.py" = ["D"]  # FIXME: Haoran add docstring and remove this
+"metasim/cfg/tasks/gapartnet/**.py" = ["D"]  # FIXME: Haoran add docstring and remove this
+"metasim/cfg/tasks/isaacgym_envs/**.py" = ["D"]  # FIXME: Charlie add docstring and remove this
+"metasim/cfg/tasks/libero/**.py" = ["D"]  # FIXME: Peihao add docstring and remove this
+"metasim/cfg/tasks/maniskill/**.py" = ["D"]  # FIXME: Yuyang add docstring and remove this
+"metasim/cfg/tasks/open6dor/**.py" = ["D"]  # FIXME: Haoran and Yufei add docstring and remove this
+"metasim/cfg/tasks/rlbench/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/cfg/tasks/robosuite/**.py" = ["D"]  # FIXME: Jiangran add docstring and remove this
+"metasim/cfg/tasks/simpler_env/**.py" = ["D"]  # FIXME: Boshi add docstring and remove this
+"metasim/cfg/tasks/skillblender/**.py" = ["D"]  # FIXME: Haoran add docstring and remove this
+"metasim/cfg/tasks/metaworld/**.py" = ["D"]  # FIXME: Siheng add docstring and remove this
+"metasim/double_sim/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/sim/blender/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/sim/genesis/**.py" = ["D"]  # FIXME: Haoran add docstring and remove this
+"metasim/sim/isaacgym/**.py" = ["D"]  # FIXME: Haoran add docstring and remove this
+"metasim/sim/mujoco/**.py" = ["D"]  # FIXME: Charlie add docstring and remove this
+"metasim/sim/pyrep/**.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/sim/gym_env.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/sim/base.py" = ["D"]  # FIXME: Feishi add docstring and remove this
+"metasim/utils/kinematics_utils.py" = ["D"]  # FIXME: Yuyang add docstring and remove this
+"metasim/utils/teleop_utils.py" = ["D"]  # FIXME: Chaoyi add docstring and remove this
+"metasim/utils/viz_utils.py" = ["D"]  # FIXME: Yuyang add docstring and remove this
+
+[tool.ruff.lint.isort]
+known-first-party = ["metasim"]
+known-third-party = ["wandb"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
