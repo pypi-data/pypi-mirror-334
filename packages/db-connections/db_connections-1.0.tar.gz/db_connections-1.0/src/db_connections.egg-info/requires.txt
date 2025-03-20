@@ -1,0 +1,4 @@
+pandas>=1.0.0
+sqlalchemy>=1.4.0
+pyodbc>=4.0.30
+python-dotenv>=0.15.0

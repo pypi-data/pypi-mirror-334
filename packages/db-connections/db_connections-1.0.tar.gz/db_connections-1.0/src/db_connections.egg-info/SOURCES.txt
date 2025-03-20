@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/db_connections.egg-info/PKG-INFO
+src/db_connections.egg-info/SOURCES.txt
+src/db_connections.egg-info/dependency_links.txt
+src/db_connections.egg-info/requires.txt
+src/db_connections.egg-info/top_level.txt
+src/quick_db_connection/__init__.py
+src/quick_db_connection/connection.py
