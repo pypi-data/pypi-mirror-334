@@ -1,0 +1,34 @@
+Metadata-Version: 2.2
+Name: gitobserver
+Version: 0.1.0
+Summary: Automotic Git tool for file commiting
+Home-page: https://github.com/k2pme/gitobserver
+Author: K2pme
+Author-email: cmantsila0@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: watchdog
+Requires-Dist: colorama
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Git Auto Versioning
+
+## Description
+Ce projet permet d'automatiser le versioning Git en surveillant les fichiers modifiés et en effectuant des commits et pushs automatiques.
+
+## Installation
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/git-auto-versioning.git
