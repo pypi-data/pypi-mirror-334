@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: utm_cli
+Version: 0.1.11
+Summary: A CLI tool for UTM server
+Author: Tong He
+Author-email: hetongapp@gmail.com
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: typer>=0.15.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
