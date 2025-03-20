@@ -1,0 +1,9 @@
+coverage
+mypy
+pre-commit
+ruff
+
+# to build and deploy package
+build
+pip
+twine
