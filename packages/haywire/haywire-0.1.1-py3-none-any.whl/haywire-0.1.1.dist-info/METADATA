@@ -1,0 +1,18 @@
+Metadata-Version: 2.2
+Name: haywire
+Version: 0.1.1
+Summary: Calculations for welded wire mesh sheets.
+Author-email: Scott Windsor <windsorwindsor2@protonmail.com>
+Project-URL: Homepage, https://github.com/windsorwindsor2/haywire
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+#haywire
+
+##Overview
+Calculation and representation of welded wire mesh sheets.
