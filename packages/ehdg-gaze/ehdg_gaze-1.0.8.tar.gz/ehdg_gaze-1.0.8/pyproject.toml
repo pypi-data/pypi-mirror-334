@@ -1,0 +1,59 @@
+[project]
+name = "ehdg_gaze"
+version = "1.0.8"
+authors = [
+  { name="Zaw Lin Tun", email="zawlintun1511@gmail.com" },
+]
+description = "Eye Health Diagnostic Group Gaze Detector"
+readme = "README.md"
+dependencies = [
+    "setuptools>=61.0",
+    "opencv-python>=4.8.1.78",
+    "numpy>=1.26.1",
+    "omegaconf>=2.3.0",
+    "scipy",
+    "torch",
+    "torchvision",
+    "face-alignment",
+    "mediapipe",
+    "pyyaml",
+    "timm"
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+ehdg_gaze = "ehdg_gaze.ehdg_gaze:main"
+
+[project.urls]
+"Homepage" = "https://github.com/jtur044/ehdg_gaze"
+"Bug Tracker" = "https://github.com/jtur044/ehdg_gaze/issues"
+
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "opencv-python>=4.8.1.78",
+    "numpy>=1.26.1",
+    "omegaconf>=2.3.0",
+    "scipy",
+    "torch",
+    "torchvision",
+    "face-alignment",
+    "mediapipe",
+    "pyyaml",
+    "timm"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ehdg_gaze = ["*", "*/*", "*/*/*"]
