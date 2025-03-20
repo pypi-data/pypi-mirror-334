@@ -1,0 +1,146 @@
+Metadata-Version: 2.2
+Name: vecstream
+Version: 0.1.0
+Summary: A lightweight, efficient vector database with similarity search capabilities
+Home-page: https://github.com/torinetheridge/vecstream
+Author: Torin Etheridge
+Author-email: torin.etheridge@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: scipy>=1.6.0
+Requires-Dist: scikit-learn>=1.0.0
+Requires-Dist: sentence-transformers>=2.2.0
+Requires-Dist: click>=8.0.0
+Requires-Dist: rich>=10.0.0
+Requires-Dist: tqdm>=4.65.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# VecStream
+
+A lightweight, efficient vector database with similarity search capabilities, optimized for machine learning applications.
+
+## Features
+
+- 🚀 Fast in-memory vector storage and retrieval
+- 🔍 Semantic similarity search using cosine similarity
+- 📊 Built-in text embedding using Sentence Transformers
+- 💻 Clean CLI interface for easy interaction
+- 🛠 Python API for programmatic access
+
+## Installation
+
+```bash
+pip install vecstream
+```
+
+## CLI Usage
+
+VecStream provides a command-line interface for common operations:
+
+### Add a text entry
+```bash
+vecstream add "Your text here" text_id_1
+```
+
+### Search for similar entries
+```bash
+vecstream search "Query text" --k 5 --threshold 0.5
+```
+
+### Get vector by ID
+```bash
+vecstream get text_id_1
+```
+
+### Remove vector
+```bash
+vecstream remove text_id_1
+```
+
+### Show database info
+```bash
+vecstream info
+```
+
+### Clear database
+```bash
+vecstream clear
+```
+
+## Python API Usage
+
+```python
+from vecstream import VectorStore, IndexManager, QueryEngine
+from sentence_transformers import SentenceTransformer
+
+# Initialize components
+store = VectorStore()
+index_manager = IndexManager(store)
+query_engine = QueryEngine(index_manager)
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Add vectors
+text = "Example text"
+vector = model.encode(text)
+store.add("doc1", vector)
+
+# Search
+query_vector = model.encode("Search query")
+results = query_engine.search(query_vector, k=5)
+for id, similarity in results:
+    print(f"Match {id}: {similarity:.4f}")
+```
+
+## Performance
+
+- Fast query response times (typically < 10ms)
+- Efficient memory usage
+- Linear scaling with dataset size
+- Support for concurrent queries
+
+## Technical Details
+
+- Uses Sentence Transformers for text embedding
+- 384-dimensional vectors by default
+- Cosine similarity for vector comparison
+- In-memory storage with optional persistence
+- Rich CLI interface with progress indicators
+
+## Requirements
+
+- Python 3.8+
+- numpy
+- scipy
+- scikit-learn
+- sentence-transformers
+- click
+- rich
+
+## License
+
+MIT License
+
+## Author
+
+Torin Etheridge
