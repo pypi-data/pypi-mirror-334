@@ -1,0 +1,16 @@
+LICENSE.md
+README.md
+pyproject.toml
+ssc/__init__.py
+ssc/cli.py
+ssc/auth/__init__.py
+ssc/auth/auth.py
+ssc/links/__init__.py
+ssc/links/checker.py
+ssc/links/saver.py
+tests/test_checker.py
+webpages_validator_ssc.egg-info/PKG-INFO
+webpages_validator_ssc.egg-info/SOURCES.txt
+webpages_validator_ssc.egg-info/dependency_links.txt
+webpages_validator_ssc.egg-info/entry_points.txt
+webpages_validator_ssc.egg-info/top_level.txt

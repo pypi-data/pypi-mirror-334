@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webpages-validator-ssc"
+version = "0.2.2"
+description = "A simple command-line utility for checking a webpage."
+authors = [{ name = "Ildar Gaziev", email = "ildar@gaziev.info" }]
+readme = "README.md"
+requires-python = ">=3.6"
+license = { text = "MIT" }
+
+[tool.setuptools.packages.find]
+include = ["ssc*"]
+exclude = ["tests*"]
+
+[project.urls]
+Homepage = "https://github.com/ildar-gaziev/simple-site-checker"
+repository = "https://github.com/ildar-gaziev/simple-site-checker"
+
+[project.scripts]
+ssc = "ssc.cli:main"
