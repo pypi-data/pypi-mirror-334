@@ -1,0 +1,99 @@
+Metadata-Version: 2.2
+Name: TomatoPy
+Version: 0.1.0
+Summary: An empty package
+Home-page: https://github.com/talagluck/tomatopy
+Author: Tal Gluck
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# 🍅 TomatoPy
+
+Welcome to TomatoPy, the revolutionary Python library that brings the art of cooking to your code! While we can't actually manipulate physical ingredients (yet), TomatoPy provides a fun and educational way to learn about Python programming through the lens of cooking.
+
+## 🌟 Features
+
+- **Ingredient Manipulation**: Create and manage virtual ingredients with realistic properties
+- **Cooking Operations**: Simulate cooking processes with precise control
+- **Pizza Creation System**: Build and customize virtual pizzas
+- **Taste Testing Module**: Analyze and compare flavor profiles
+- **Kitchen Hardware Interface**: Interact with virtual kitchen equipment
+
+## 🚀 Quick Start
+
+```python
+from tomatopy import Tomato, Kitchen
+
+# Create a fresh tomato
+my_tomato = Tomato(ripeness=0.8, variety="San Marzano")
+
+# Set up your virtual kitchen
+kitchen = Kitchen()
+
+# Start cooking!
+sauce = kitchen.cook(my_tomato, method="simmer", duration="30m")
+```
+
+## 📚 Documentation Spaces
+
+Our documentation is organized into three specialized spaces:
+
+1. **Main Documentation**: Core technical documentation for users
+2. **Chef's Cookbook**: Community recipes and creative applications
+3. **Developer Hub**: Technical information for contributors
+
+## 🎯 Getting Started
+
+- [Installation Guide](getting-started/installation.md)
+- [Quick Start Tutorial](getting-started/quick-start.md)
+- [Basic Concepts](getting-started/basic-concepts.md)
+
+## 🛠️ Core Modules
+
+- [Ingredient Manipulation](core-modules/ingredient-manipulation.md)
+- [Cooking Operations](core-modules/cooking-operations.md)
+- [Pizza Creation System](core-modules/pizza-creation-system.md)
+- [Taste Testing Module](core-modules/taste-testing-module.md)
+- [Kitchen Hardware Interface](core-modules/kitchen-hardware-interface.md)
+
+## 📖 Tutorials
+
+- [Making Your First Marinara](tutorials/making-your-first-marinara.md)
+- [Perfect Pizza Production](tutorials/perfect-pizza-production.md)
+- [Advanced Flavor Profiling](tutorials/advanced-flavor-profiling.md)
+
+## 🍳 Recipes Library
+
+- [Classic Tomato Dishes](recipes-library/classic-tomato-dishes.md)
+- [Experimental Creations](recipes-library/experimental-creations.md)
+
+## ⭐ Best Practices
+
+- [Code Efficiency](best-practices/code-efficiency.md)
+- [Virtual Kitchen Management](best-practices/virtual-kitchen-management.md)
+
+## 📚 API Reference
+
+- [tomato Module](api-reference/tomato-module.md)
+- [cook Module](api-reference/cook-module.md)
+- [pizza Module](api-reference/pizza-module.md)
+- [taste Module](api-reference/taste-module.md)
+- [hardware Module](api-reference/hardware-module.md)
+
+## 🤝 Contributing
+
+We welcome contributions! Please visit our [Developer Hub](https://tomatopy.dev/developer) for guidelines and information about contributing to TomatoPy.
+
+---
+
+> **Note**: While TomatoPy is a fictional package created to demonstrate documentation best practices, the concepts and examples presented are real and educational. 
