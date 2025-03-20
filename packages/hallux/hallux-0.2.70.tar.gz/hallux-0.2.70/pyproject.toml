@@ -1,0 +1,104 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hallux"
+dynamic = ["version"]
+authors = [
+  { name="Hallux Team", email="team@hallux.dev" },
+]
+description = "Hallux - Convenient AI Code Quality Assistant"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+requires-python = ">=3.8, <4.0"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+  'PyGithub==2.1.1',
+  'colorlog==6.7.0',
+  'requests==2.32.0',
+  'unidiff==0.7.5',
+  'litellm==1.48.7'
+]
+
+[project.optional-dependencies]
+test = [
+  'mypy==1.4.1',
+  'black==24.3.0',
+  'ruff==0.0.272',
+  'pytest==8.3.3',
+  'pytest-cov==5.0.0',
+  'isort==5.12.0',
+  'wheel==0.40.0',
+  'pyinstaller>=5.13.1',
+]
+
+[tool.setuptools.dynamic]
+version = {file = "hallux/VERSION"}
+
+[project.scripts]
+hallux = 'hallux.main:main'
+
+[project.urls]
+"Homepage" = "https://github.com/halluxdev/hallux"
+"Bug Tracker" = "https://github.com/halluxdev/hallux/issues"
+
+
+[tool.ruff]
+select = ["F", "E", "W", "I001"]
+line-length = 120
+show-fixes = false
+target-version = "py311"
+task-tags = ["TODO", "FIXME"]
+exclude = [
+    "tests/test-python-project",
+    ".git",
+    ".ruff_cache",
+    ".scannerwork",
+    ".vscode",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "htmlcov",
+    "dist",
+    "node_modules",
+    "venv",
+    "scripts",
+]
+
+
+[tool.black]
+line-length = 120
+target-version = ["py38"]
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.direnv
+    | \.eggs
+    | \.git
+    | \.tox
+    | \.venv
+    | _build
+    | build
+    | dist
+    | venv
+  )/
+)
+'''
+
+
+[tool.isort]
+line_length = 120
