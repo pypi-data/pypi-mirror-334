@@ -1,0 +1,73 @@
+Metadata-Version: 2.2
+Name: physicstool
+Version: 0.0.0
+Summary: A simple Python package to do basic physics calculations.
+Author-email: Marc van der Sluys <git@vandersluys.nl>
+License: EUPL 1.2
+Project-URL: GitHub, https://github.com/MarcvdSluys/physicstool
+Project-URL: ReadTheDocs, https://physicstool.readthedocs.io
+Keywords: physics,technology,natural sciences
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: numpy
+
+# physicstool #
+
+![PyPI](https://img.shields.io/pypi/v/physicstool?color=%230A0) ![PyPI -
+Downloads](https://img.shields.io/pypi/dm/physicstool) [![Documentation
+Status](https://readthedocs.org/projects/physicstool/badge/?version=latest)](https://physicstool.readthedocs.io/en/latest/?badge=latest)
+![PyPI - License](https://img.shields.io/pypi/l/physicstool?color=%230A0)
+
+A simple Python package to do basic physics calculations.
+
+The code is being developed by [Marc van der Sluys](https://marc.vandersluys.nl) of the Department of Physics
+at Utrecht University in The Netherlands, and the Netherlands Institute of Nuclear and High-Energy Physics
+(Nikhef) in Amsterdam.  The evTool package can be used under the conditions of the [EUPL
+1.2](https://www.eupl.eu/1.2/en/) licence.
+
+
+## Installation ##
+
+This package can be installed using `pip install physicstool`.  This should automatically install the
+dependency packages `numpy`, if they haven't been installed already.  If you are
+installing by hand, ensure that these packages are installed as well.
+
+
+## Example use ##
+
+```python
+"""Example Python script using the physicstool package."""
+
+import physicstool
+
+```
+
+## physicstool pages ##
+
+* [Pypi](https://pypi.org/project/physicstool/): physicstool Python package
+* [GitHub](https://github.com/MarcvdSluys/physicstool/): physicstool source code
+* [ReadTheDocs](https://physicstool.readthedocs.io/): physicstool documentation
+
+
+## Author and licence ##
+
+* Author: Marc van der Sluys
+* Contact: https://marc.vandersluys.nl
+* Licence: [EUPL 1.2](https://www.eupl.eu/1.2/en/)
+
+
+## References ##
+
+
+<sub>Copyright (c) 2025 Marc van der Sluys</sub>
