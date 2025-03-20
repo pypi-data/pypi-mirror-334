@@ -1,0 +1,16 @@
+numpy
+scipy
+seaborn
+tqdm
+rdflib
+joblib
+cobra
+networkx
+pympler
+memory-profiler
+ipywidgets
+nbdev
+jupyterlab-quarto
+ray[data,serve,train,tune]
+
+[dev]
