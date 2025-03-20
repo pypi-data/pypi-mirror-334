@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: PyBadger
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: PyLinks<0.2,>=0.1
+Requires-Dist: HTMP<0.2,>=0.1
+Requires-Dist: ProtocolMan<0.2,>=0.1
+Requires-Dist: IPython
