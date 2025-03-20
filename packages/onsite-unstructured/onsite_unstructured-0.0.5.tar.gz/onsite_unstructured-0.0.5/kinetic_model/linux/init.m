@@ -1,0 +1,13 @@
+x0=-27.92254;
+y0=292.5054;
+yaw=-1.3;
+v0=0;
+acc=2.0;
+gear=1;
+steer=-0.0;
+slope=-0.3;
+load('a_brake.mat');
+load('a_thr.mat');
+load('brake.mat');
+load('thr.mat');
+modelName='VehicleModel_SJTU';

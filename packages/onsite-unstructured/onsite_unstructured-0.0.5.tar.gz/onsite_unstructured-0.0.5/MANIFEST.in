@@ -1,0 +1,14 @@
+include LICENSE
+
+include kinetic_model/linux/*.slxp
+include kinetic_model/linux/*.mat
+include kinetic_model/linux/*.m
+include kinetic_model/linux/*.slx
+include kinetic_model/linux/*.slxc
+include kinetic_model/win/*.slxp
+include kinetic_model/win/*.mat
+include kinetic_model/win/*.m
+include kinetic_model/win/*.slx
+include kinetic_model/win/*.slxc
+include kinetic_model/win/*.mexw64
+include data/*.npy
