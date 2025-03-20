@@ -1,0 +1,5 @@
+[console_scripts]
+etroc1-gui = i2c_gui2.etroc1_gui:main
+etroc2-gui = i2c_gui2.etroc2_gui:main
+i2c-gui = i2c_gui2.base_gui:main
+i2c-version = i2c_gui2.entry_points:version
