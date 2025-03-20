@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slid"  # Replace with your actual package name
+version = "0.1.0"  # Your package version
+description = "A terminal-based presentation tool that turns Markdown files into interactive slides with code execution capabilities"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+]
