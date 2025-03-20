@@ -1,0 +1,25 @@
+from dosuby.src.interfaces.subdomain_enumerator_service import SubdomainEnumeratorService
+from dosuby.src.core.application.use_cases.{{class}}_enumeration_use_case import {{Class}}EnumerationUseCase
+from dosuby.src.core.domain.target import Target
+from dosuby.src.adapter.{{class}}.{{class}}_adapter import {{Class}}Adapter
+from dosuby.src.interfaces.success_response import SuccessResponse
+
+from dosuby.src.interfaces.success_response import SuccessResponse
+from dosuby.src.core.application.strategies.{{class}}.cli.{{class}}_cli_enumeration_strategy import {{Class}}CliEnumerationStrategy
+
+class {{Class}}CliService(SubdomainEnumeratorService):
+    
+ 
+    def __init__(self, enumeration_strategy={{Class}}CliEnumerationStrategy(), success_response=SuccessResponse()) -> None:
+        super().__init__(enumeration_strategy, success_response)
+    
+    
+    def build_enumerator(self, target: Target):
+        {{class}}_adapter = {{Class}}Adapter()
+        target_{{class}}_usecase = {{Class}}EnumerationUseCase({{class}}={{class}}_adapter)
+        result = target_{{class}}_usecase.execute(target=target)
+        return result
+    
+    def process_enumerator(self, result) -> SuccessResponse:
+        return self.enumeration_strategy.enumeration_process(subdomains_links=result, success_response=self.success_response)     
+                                                            
