@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md-to-docx"
+version = "0.1.7"
+description = "Convert Markdown to DOCX with support for Mermaid diagrams"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["markdown", "docx", "mermaid", "converter"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Text Processing :: Markup",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.3.0",
+    "markdown>=3.7",
+    "python-docx>=1.1.2",
+    "beautifulsoup4>=4.13.3",
+    "pillow>=11.1.0",
+    "requests>=2.32.3",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/md-to-docx"
+"Bug Tracker" = "https://github.com/yourusername/md-to-docx/issues"
+
+[project.scripts]
+md-to-docx = "md_to_docx:main"
+md-to-docx-server = "md_to_docx:serve"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["md_to_docx"] 
