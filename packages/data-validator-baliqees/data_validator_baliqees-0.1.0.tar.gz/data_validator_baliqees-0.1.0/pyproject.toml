@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-validator-baliqees" 
+version = "0.1.0"
+description = "A simple data validator for phone numbers, dates, and URLs."
+authors = [{name = "Baliqees Oladunjoye", email = "baliqees.oladunjoye@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["pytest"]
+
+[tool.setuptools]
+packages = ["personal_data_validator"]
+
+[project.urls]
+Homepage = "https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye"
+Repository = "https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye"
+Issues = "https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye/issues"

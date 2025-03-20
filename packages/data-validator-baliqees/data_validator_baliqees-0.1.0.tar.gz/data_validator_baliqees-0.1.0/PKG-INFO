@@ -1,0 +1,58 @@
+Metadata-Version: 2.2
+Name: data-validator-baliqees
+Version: 0.1.0
+Summary: A simple data validator for phone numbers, dates, and URLs.
+Author-email: Baliqees Oladunjoye <baliqees.oladunjoye@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye
+Project-URL: Repository, https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye
+Project-URL: Issues, https://github.com/Data-Epic/data-validator-Baliqees-Oladunjoye/issues
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+
+**Data Validator**
+Overview
+Data Validator is a Python package that provides validation utilities for personal data such as dates, URLs, emails and other structured inputs. It ensures that input data conforms to expected formats and prevents invalid data from being processed.
+Features
+Date Validation: Supports multiple formats (YYYY-MM-DD, DD-MM-YYYY, MM-DD-YYYY)
+URL Validation: Ensures URLs follow standard format
+Expandable: Easily extendable for other data validation needs
+Installation
+You can install the package via pip:
+pip install datavalidator
+
+**Usage**
+Import and use the validators in your Python project:
+from personal_data_validator.validator import DateValidator, URLValidator
+
+# Validate Date
+date_validator = DateValidator("2024-03-11")
+print(date_validator.validate())  # Output: "Valid date"
+
+# Validate URL
+url_validator = URLValidator("https://example.com")
+print(url_validator.validate())  # Output: "Valid URL"
+
+**Running Tests**
+To run the test suite, use pytest:
+pytest
+
+**Contributing**
+Contributions are welcome! To contribute:
+Fork the repository.
+Create a new branch (feature-branch).
+Make your changes and commit them.
+Push to your fork and submit a pull request.
+For major changes, please open an issue first to discuss what you would like to change.
+
+**License**
+This project is licensed under the MIT License.
+
+**Author**
+Baliqees Oladunjoye
+For inquiries, contact: baliqees.oladunjoye@gmail.com
+
+
+
+
