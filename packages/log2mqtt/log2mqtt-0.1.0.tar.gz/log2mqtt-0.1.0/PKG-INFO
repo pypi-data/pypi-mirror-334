@@ -1,0 +1,73 @@
+Metadata-Version: 2.3
+Name: log2mqtt
+Version: 0.1.0
+Summary: Pipe standard input to an MQTT server
+License: MIT License
+         
+         Copyright (c) 2025 Harvey Lelliott
+         
+         Permission is hereby granted, free of charge, to any person obtaining a copy
+         of this software and associated documentation files (the "Software"), to deal
+         in the Software without restriction, including without limitation the rights
+         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+         copies of the Software, and to permit persons to whom the Software is
+         furnished to do so, subject to the following conditions:
+         
+         The above copyright notice and this permission notice shall be included in all
+         copies or substantial portions of the Software.
+         
+         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+         SOFTWARE.
+Keywords: log,logging,mqtt
+Author: Harvey Lelliott
+Author-email: harveylelliott@duck.com
+Requires-Python: >=3.10
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Topic :: Terminals
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: paho-mqtt (>=2.1.0,<3.0.0)
+Project-URL: Homepage, https://github.com/flip-dots/log2mqtt
+Project-URL: Issues, https://github.com/flip-dots/log2mqtt/issues
+Project-URL: Repository, https://github.com/flip-dots/log2mqtt
+Description-Content-Type: text/markdown
+
+# log2mqtt
+
+Simple Python program to publish standard input to an MQTT server on a desired topic.
+
+## Installation
+
+The program can be installed using PIP.
+
+```bash
+pip install log2mqtt
+```
+
+## Usage
+
+Expected usage of the program is piping the standard output of a program you want to
+monitor the logs of into into the program. This looks something like:
+
+```bash
+my_program | python3 -m log2mqtt -s wss://mqtt.myserver.com:443 -u my_user -p my_pass -t /my_mqtt_topic
+```
+
+## What Does It Do?
+
+It publishes the standard output of the piped program to an MQTT server. Each break in the standard output is published as a new message and this program exits cleanly when the logged process terminates.
+
+## But Why?
+
+I made a custom home assistant card which reads the sensor history of an MQTT sensor and renders it as a terminal, this allows me to monitor the logs of my scripts right in my home assistant instance without having to mess around with more complicated logging tools.
+
