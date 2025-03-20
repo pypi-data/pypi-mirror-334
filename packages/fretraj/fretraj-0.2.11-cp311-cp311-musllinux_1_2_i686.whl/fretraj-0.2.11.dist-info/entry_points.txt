@@ -1,0 +1,5 @@
+[console_scripts]
+fretraj = fretraj.console:main
+fretraj_gui = fretraj.fretraj_gui:main
+pymol_vis = fretraj.console:pymol_vis
+vmd_vis = fretraj.console:vmd_vis
