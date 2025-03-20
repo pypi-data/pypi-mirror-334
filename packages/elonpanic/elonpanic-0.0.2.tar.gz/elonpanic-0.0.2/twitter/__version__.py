@@ -1,0 +1,5 @@
+__title__ = "elonpanic"
+__description__ = "Implementation of X/Twitter v1, v2, and GraphQL APIs with proxy support."
+__version__ = "0.0.2"
+__author__ = "Richard"
+__license__ = "MIT"
