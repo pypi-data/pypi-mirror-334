@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+tests/__init__.py
+tests/test_aicmd.py
+vigi_assist.egg-info/PKG-INFO
+vigi_assist.egg-info/SOURCES.txt
+vigi_assist.egg-info/dependency_links.txt
+vigi_assist.egg-info/entry_points.txt
+vigi_assist.egg-info/requires.txt
+vigi_assist.egg-info/top_level.txt
