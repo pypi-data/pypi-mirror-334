@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "crgb"
+version = "1.0.2"
+description = "Colors for terminal styling"
+authors = ["graymiss"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

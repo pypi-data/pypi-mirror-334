@@ -1,0 +1,128 @@
+# crgb
+
+The `crgb` module provides a comprehensive set of color manipulation tools in Python. It includes a variety of static and dynamic colors, as well as functions to create and mix colors. This module is designed for developers who want to work with colors in a flexible and dynamic way.
+
+## Overview
+
+### Class: `Colors`
+
+The `Colors` class contains:
+
+- **54 color variables** representing different colors.
+- **3 lists**:
+  - `static_colors`: Colors that are static (e.g., 'red') and cannot be faded.
+  - `dynamic_colors`: Colors that can be faded (e.g., 'blue_to_purple').
+  - `all_colors`: A combination of both static and dynamic colors.
+
+### Functions
+
+The `Colors` class provides the following functions:
+
+- **`StaticRGB(r: int, g: int, b: int) -> str`**: 
+  Create a fixed/static color using RGB values.
+
+- **`DynamicRGB(r1: int, g1: int, b1: int, r2: int, g2: int, b2: int) -> list`**: 
+  Create a faded/dynamic color (coming soon).
+
+- **`StaticMIX(colors: list, _start: bool = True) -> str`**: 
+  Mix two or more static colors.
+
+- **`DynamicMIX(colors: list)`**: 
+  Mix two or more dynamic colors.
+
+- **`Symbol(symbol: str, col: str, col_left_right: str, left: str = '[', right: str = ']') -> str`**: 
+  Create a colored symbol (e.g., '[!]').
+
+## Color Variables
+
+### Dynamic Colors
+
+- `black_to_white`
+- `black_to_red`
+- `black_to_green`
+- `black_to_blue`
+- `white_to_black`
+- `white_to_red`
+- `white_to_green`
+- `white_to_blue`
+- `red_to_black`
+- `red_to_white`
+- `red_to_yellow`
+- `red_to_purple`
+- `green_to_black`
+- `green_to_white`
+- `green_to_yellow`
+- `green_to_cyan`
+- `blue_to_black`
+- `blue_to_white`
+- `blue_to_cyan`
+- `blue_to_purple`
+- `yellow_to_red`
+- `yellow_to_green`
+- `purple_to_red`
+- `purple_to_blue`
+- `cyan_to_green`
+- `cyan_to_blue`
+- `red_to_blue`
+- `red_to_green`
+- `green_to_blue`
+- `green_to_red`
+- `blue_to_red`
+- `blue_to_green`
+- `rainbow`
+
+### Static Colors
+
+- `red`
+- `green`
+- `blue`
+- `white`
+- `black`
+- `gray`
+- `yellow`
+- `purple`
+- `cyan`
+- `orange`
+- `pink`
+- `turquoise`
+- `light_gray`
+- `dark_gray`
+- `light_red`
+- `light_green`
+- `light_blue`
+- `dark_red`
+- `dark_green`
+- `dark_blue`
+- `reset`
+
+## Usage
+
+To use the `crgb` module, simply import it and create colors using the provided functions. Here's an example:
+
+```python
+from crgb import Colors
+
+# Create a static color
+static_color = Colors.StaticRGB(255, 0, 0)  # Red
+
+# Create a dynamic color (when available)
+# dynamic_color = Colors.DynamicRGB(255, 0, 0, 0, 0, 255)  # Fades from red to blue
+
+# Mix static colors
+mixed_static = Colors.StaticMIX([Colors.red, Colors.blue])
+
+# Create a colored symbol
+colored_symbol = Colors.Symbol('!', Colors.red, Colors.white)
+```
+
+## Installation
+
+To install the `crgb` module, simply clone the repository or download the module file and include it in your project.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
