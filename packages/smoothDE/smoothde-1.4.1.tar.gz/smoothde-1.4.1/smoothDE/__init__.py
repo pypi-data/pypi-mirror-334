@@ -1,0 +1,5 @@
+"""
+smoothDE
+
+Smooth density estimator
+"""
