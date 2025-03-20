@@ -1,0 +1,9 @@
+@startuml
+
+Interface Chef
+
+Chef <|-- Boost
+Chef <|-- Fry
+Chef <|-- Bake
+
+@enduml
