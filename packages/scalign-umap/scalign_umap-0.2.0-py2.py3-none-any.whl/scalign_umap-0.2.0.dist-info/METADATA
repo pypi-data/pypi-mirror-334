@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: scalign-umap
+Version: 0.2.0
+Summary: fork from package umap-learn 0.5.8 for usage from scalign package. contains additional bug fixes
+License: BSD
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.23)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: scikit-learn (>=1.6)
+Requires-Dist: numba (>=0.51.2)
+Requires-Dist: pynndescent (>=0.5)
+Requires-Dist: tqdm
+Provides-Extra: parametric
+Requires-Dist: tensorflow (>=2.1) ; extra == 'parametric'
+Requires-Dist: keras (>=3.0) ; extra == 'parametric'
+
