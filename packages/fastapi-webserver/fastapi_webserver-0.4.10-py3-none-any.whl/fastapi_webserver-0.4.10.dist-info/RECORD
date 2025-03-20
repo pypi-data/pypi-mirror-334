@@ -1,0 +1,16 @@
+webserver/__init__.py,sha256=psfLykBh7hgc5sLzV7pn27ZK_u1TneffggLBQCTI_Kw,2581
+webserver/config.py,sha256=oaaC9l7Jt05s3Y8ebARva2VyP8sZErlOeG27Ha3mUdI,9286
+webserver/core.py,sha256=kVlyYAcQlJ0Sq0jwdkWjjuNQODB8GuuhHOsmDq0JN2E,2482
+webserver/env.py,sha256=Tw9Ss657tGn9THazmyIhiImCNSoeTHm_pPaQz2yhNtA,894
+webserver/frontend/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+webserver/frontend/css.py,sha256=LTk5KGpHKYZ3El7kU8zhLxZqT8ffRr8G6ma3VLGVW1k,895
+webserver/http/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+webserver/http/headers.py,sha256=3QlM_QY08BL2z1KErgVc7UL_j-ypC8lt4LiZv9TkS-I,1090
+webserver/http/proxies.py,sha256=oRrtYLbCLiM15j2mZHbSSkaJR8YhDqL1owulj7lb5yg,3731
+webserver/notifications/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+webserver/notifications/smtp.py,sha256=fDKuVBfCKrnw8MIa601UkU72n6dO96oqJTjjSOQZLXo,4455
+fastapi_webserver-0.4.10.dist-info/LICENSE.md,sha256=610JUeIPgtCLsDgMmSBooqPuUd48LpWcfAuCKUxORhg,3993
+fastapi_webserver-0.4.10.dist-info/METADATA,sha256=VkabYoSByjbnWrg48jV99I0_ZK1xp1Slg7I44ZR_b70,8196
+fastapi_webserver-0.4.10.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+fastapi_webserver-0.4.10.dist-info/top_level.txt,sha256=8jIEF0xw_wOp781sLf1tK4692Ltmk2BDNB5yhDih8Oo,10
+fastapi_webserver-0.4.10.dist-info/RECORD,,
