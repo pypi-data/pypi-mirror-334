@@ -1,0 +1,41 @@
+Metadata-Version: 2.2
+Name: owui-pipelines
+Version: 0.1.4
+Summary: Package for OWUI pipelines
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: azure-ai-projects>=1.0.0b7
+Requires-Dist: azure-ai-resources>=1.0.0b9
+Requires-Dist: azure-identity>=1.21.0
+Requires-Dist: python-dotenv>=1.0.1
+
+# owui-pipelines
+
+Package for OWUI pipelines
+
+## Installation
+
+```bash
+pip install owui-pipelines
+```
+
+## Usage
+
+```python
+import owui_pipelines
+
+# Your code here
+```
+
+## CLI Usage
+
+```bash
+owui-pipelines --version
+```
+
+## Development
+
+```bash
+# Install in development mode
+pip install -e .
+```
