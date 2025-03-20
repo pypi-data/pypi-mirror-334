@@ -1,0 +1,7 @@
+pytest
+pandas
+numpy
+typing>=3.10.0.0
+cython>=3.0.12
+duckdb>=1.2.1
+build>=1.2.2.post1
