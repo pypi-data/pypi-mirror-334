@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: http-server-pytest-fixtures
+Version: 0.0.2
+Home-page: https://github.com/mwatts15/http-server-pytest-fixtures
+Author: Mark Watts
+Author-email: mark@openworm.org
+Classifier: Framework :: Pytest
+Requires-Dist: requests
+Requires-Dist: pytest
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
