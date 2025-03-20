@@ -1,0 +1,31 @@
+<soapenv:Envelope
+   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+   xmlns:ns0="http://smev.gosuslugi.ru/ns0120315" 
+   xmlns:v="http://sz.service.bars-open.ru/ddu-privileges/v.1.0" 
+   xmlns:inc="http://www.w3.org/2004/08/xop/include">
+	<soapenv:Body>
+		<v:GetResponseRequest>
+			<ns0:Message>
+				<ns0:Sender>
+					<ns0:Code>CIRT01161</ns0:Code>
+					<ns0:Name>Государственный информационный центр Республики Татарстан</ns0:Name>
+				</ns0:Sender>
+				<ns0:Recipient>
+					<ns0:Code>MSP</ns0:Code>
+					<ns0:Name>Меры социальной поддержки</ns0:Name>
+				</ns0:Recipient>
+				<ns0:Originator>
+					<ns0:Code>CIRT01161</ns0:Code>
+					<ns0:Name>Государственный информационный центр Республики Татарстан</ns0:Name>
+				</ns0:Originator>
+				<ns0:TypeCode>GSRV</ns0:TypeCode>
+				<ns0:Status>PING</ns0:Status>
+				<ns0:Date>2015-03-24T12:34:56.1020Z</ns0:Date>
+				<ns0:ExchangeType>2</ns0:ExchangeType>
+				<ns0:OriginRequestIdRef>d346587d-78c6-423e-b53f-66bb17b71a85</ns0:OriginRequestIdRef>
+				<ns0:TestMsg>TRUE</ns0:TestMsg>
+			</ns0:Message>
+			<ns0:MessageData/>
+		</v:GetResponseRequest>
+	</soapenv:Body>
+</soapenv:Envelope>

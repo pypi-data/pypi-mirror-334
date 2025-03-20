@@ -1,0 +1,394 @@
+<report>
+  <!-- ========================================== -->
+  <!-- Показатели по количеству заявлений и детей -->
+  <!-- ========================================== -->
+  <!-- Общее количество поданных заявлений на постановку в очередь -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Общее количество заявлений поданных с Портала -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>С портала</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Общее количество заявлений поданных при личном обращении -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>При личном обращении</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Общее количество поданных заявлений на постановку в очередь в негосударственные ДОО -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Негосударственные</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Общее количество поданных заявлений на постановку в очередь в ИП -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>ИП</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Общее количество поданных заявлений на постановку в очередь в группы кратковременного пребывания детей -->
+  <assertion>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Все</status>
+    <delivery>Все</delivery>
+    <group_type>Группы кратковременного пребывания</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди (отложенный спрос) -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди (отложенный спрос)</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди (с учетом детей, желающих сменить ДОО) -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди и желающие сменить ДОО</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, имеющих право на льготное зачисление -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Имеются льготы</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, имеющих право на льготное зачисление на основании федеральных льгот -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Федеральные льготы</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, имеющих право на льготное зачисление на основании региональных льгот -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Региональные льготы</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди с ограниченными возможностями здоровья -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Ограниченные возможности здоровья</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, нуждающихся в оздоровительных группах -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Нуждающиеся в оздоровительных группах</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, нуждающихся в компенсирующих группах -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Нуждающиеся в компенсирующих группах</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди в негосударственные ДОО -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Негосударственные</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди у ИП, реализующих программы дошкольного образования -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>ИП</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди в группы кратковременного пребывания -->
+  <assertion>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Группы кратковременного пребывания</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей в очереди, необеспеченных местом в ДОО -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди</status>
+    <delivery>Все</delivery>
+    <group_type>Нет</group_type>
+    <doo_type>Нет</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество зачисленных детей -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, желающие сменить ДОО -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Желающие сменить ДОО</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в семейные дошкольные группы -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Семейные дошкольные группы</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в группы для детей с ограниченными возможностями здоровья -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Группы для детей с ограниченными возможностями здоровья</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в компенсирующих группах -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Компенсирующие группы</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в оздоровительных группах -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Оздоровительные группы</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в негосударственные ДОО -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Негосударственные</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных  у ИП, реализующих программы дошкольного образования -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>ИП</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в группы кратковременного пребывания -->
+  <assertion>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Группы кратковременного пребывания</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в группы по присмотру и уходу в негосударственных ДОО -->
+  <assertion>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Группы по присмотру и уходу</group_type>
+    <doo_type>Негосударственные</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей, зачисленных в группы по присмотру и уходу в ИП -->
+  <assertion>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Группы по присмотру и уходу</group_type>
+    <doo_type>ИП</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество детей -->
+  <assertion>
+    <age_category>от 2 месяцев до 6 месяцев</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>В очереди и зачислены</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- Количество отказов -->
+  <assertion>
+    <age_category>Все</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <status>Отказано в услуге</status>
+    <delivery>Все</delivery>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </assertion>
+  <!-- ======================================= -->
+  <!-- Показатели по количеству свободных мест -->
+  <!-- ======================================= -->
+  <!-- Количество свободных мест на дату сбора отчета -->
+  <capacity>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <group_type>Все</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </capacity>
+  <!-- Количество свободных мест в группах для детей с ограниченными возможностями здоровья -->
+  <capacity>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <group_type>Группы для детей с ограниченными возможностями здоровья</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </capacity>
+  <!-- Количество свободных мест в негосударственных ДОО -->
+  <capacity>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <group_type>Все</group_type>
+    <doo_type>Негосударственные</doo_type>
+    <count>0</count>
+  </capacity>
+  <!-- Количество свободных мест у ИП -->
+  <capacity>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <group_type>Все</group_type>
+    <doo_type>ИП</doo_type>
+    <count>0</count>
+  </capacity>
+  <!-- Количество свободных мест в группах кратковременного пребывания -->
+  <capacity>
+    <age_category>от 2 месяцев до 3 лет</age_category>
+    <health_needs>Все</health_needs>
+    <benefit>Все</benefit>
+    <group_type>Группы кратковременного пребывания</group_type>
+    <doo_type>Все</doo_type>
+    <count>0</count>
+  </capacity>
+</report>

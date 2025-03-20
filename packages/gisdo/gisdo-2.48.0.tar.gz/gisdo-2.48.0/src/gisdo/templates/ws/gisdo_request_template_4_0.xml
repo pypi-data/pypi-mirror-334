@@ -1,0 +1,103 @@
+{% spaceless %}
+{% autoescape off %}
+
+{% load gisdo_filters %}
+
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='http://eo.edu.ru/v4/stylesheet.xsl'?>
+<push_data_request xmlns="http://eo.edu.ru/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://eo.edu.ru/v4 http://eo.edu.ru/v4/schema.xsd">
+	<schema_version>4.0</schema_version>
+    <system name="{{ doc.header.system_name|escape }}"
+            vendor="ЗАО БАРС Груп"
+            version="{{ doc.header.version|escape }}"
+            email="{{ doc.header.email|escape }}"
+            install_type="{{ doc.header.install_type }}"/>
+    <reports>
+        <municipality oktmo="{{ doc.municipality_unit.oktmo }}"
+                              epgu_link="{{ doc.municipality_unit.epgu_link|escape|cutspace }}"
+                              rpgu_link="{{ doc.municipality_unit.rpgu_link|escape|cutspace }}"
+                              name_mouo="{{ doc.municipality_unit.name_mouo|escape }}"
+                              site_mouo="{{ doc.municipality_unit.site_mouo|escape|cutspace }}"
+                              address_mouo="{{ doc.municipality_unit.address_mouo|escape }}"
+                              email_mouo="{{ doc.municipality_unit.email_mouo|escape|cutspace }}"
+                              phones_mouo="{{ doc.municipality_unit.phones_mouo|escape|cutspace }}"
+                              regulation="{{ doc.municipality_unit.regulation|escape|cutspace }}"
+                              fix_area="{{ doc.municipality_unit.fix_area|escape|cutspace }}">
+					<common>
+						<no_doo_act age_0_3="{{ doc.municipality_unit.no_doo_act_0_3 }}" age_3_7="{{ doc.municipality_unit.no_doo_act_3_7 }}"/>
+                    	<no_doo_def age_0_3="{{ doc.municipality_unit.no_doo_def_0_3 }}" age_3_7="{{ doc.municipality_unit.no_doo_def_3_7 }}"/>
+                    	<medic age_0_3="{{ doc.municipality_unit.medic_0_3 }}" age_3_7="{{ doc.municipality_unit.medic_3_7 }}" />
+                    	<family age_0_3="{{ doc.municipality_unit.family_0_3 }}" age_3_7="{{ doc.municipality_unit.family_3_7 }}"/>
+					</common>
+					<organizations>
+                        {% for unit in doc.units %}
+                        <organization code="{{ unit.organization.code|escape }}"
+                                      name="{{ unit.organization.name|escape }}"
+                                      type="{{ unit.organization.type|escape }}"
+                                      status="{{ unit.organization.status }}"
+                                      structure="{{ unit.organization.structure }}"
+                                      director="{{ unit.organization.director|escape }}"
+                                      worktime="{{ unit.organization.worktime|escape }}"
+                                      meal_serving_type="Общее питание"
+                                      license="{{ unit.organization.license }}"
+                                      type_area="{{ unit.organization.type_area }}"
+                                      fias_org_guid="{{ unit.organization.fias_org_guid }}"
+                                      org_address="{{ unit.organization.org_address|escape }}"
+                                      website="{{ unit.organization.website|escape|cutspace }}"
+                                      email="{{ unit.organization.email|escape|cutspace }}"
+                                      phone="{{ unit.organization.phone|escape|cutspace}}"
+                                      additional_education="{{ unit.organization.additional_education|escape }}"
+                                      feature="{{ unit.organization.features|escape }}"
+                                      num_filial="{{ unit.organization.num_filial }}"
+                                      num_building="{{ unit.organization.num_building }}"
+                                      num_group="{{ unit.organization.num_group }}"
+                                      partner_doo="{{ unit.organization.partner_doo }}">
+                            <buildings>
+                                {% for building in unit.buildings %}
+                                <building fias_house_guid="{{ building.fias_house_guid }}"
+                                          id="{{ building.id|escape }}"
+                                          name="{{ building.name|escape }}"
+                                          plain_address="{{ building.plain_address|escape }}"
+                                          depreciation="{{ building.depreciation }}"
+                                          building_type_area="{{ building.building_type_area }}"
+                                          type_building="{{ building.type_building }}"
+                                          filial="{{ building.filial }}">
+                                    {% for group in building.groups %}
+                                        <group id="{{ group.id }}"
+                                               age_from="{{ group.ageFrom }}"
+                                               age_to="{{ group.ageTo }}"
+                                               {% if group.name %} name="{{ group.name|escape }}" {% endif %}
+                                               orientation="{{ group.orientation }}"
+                                               {% if group.ovzType %} ovz_type="{{ group.ovzType }}"  {% endif %}
+                                               {% if group.wellness %} wellness="{{ group.wellness }}"  {% endif %}
+                                               worktime_group="{{ group.work_time_group }}"
+                                               activity="{{ group.activity }}"
+                                               capacity="{{ group.capacity }}"
+                                               enrolled="{{ group.enrolled }}"
+                                               free_space="{{ group.free_space }}"
+                                               ovz_deti="{{ group.ovz_deti }}"
+                                               subgroup="{{ group.subgroup }}"
+                                               add_cont="{{ group.add_cont }}"
+                                               transfer_space="{{ group.transfer_space }}"
+                                               partner_group="{{ group.partner_group }}"
+                                               partner="{{ group.partner }}"/>
+                                    {% endfor %}
+                                </building>
+                                {% endfor %}
+                            </buildings>
+                            {% for index in unit.indices %}
+                                <{{ index.name }}
+                                    {% for age_category in index.age_categories %}
+                                        {{ age_category.name }}="{{ age_category.value }}"
+                                    {% endfor %}
+                                />
+                            {% endfor %}
+                        </organization>
+                        {% endfor %}
+		            </organizations>
+		        </municipality>
+    </reports>
+</push_data_request>
+{% endautoescape %}
+{% endspaceless %}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:types="http://www.bars-open.ru/gisdo"
+    xmlns:ws="http://www.bars-open.ru/gisdo_service"
+    targetNamespace="http://www.bars-open.ru/gisdo_service">
+    <wsdl:types>
+        <xs:schema targetNamespace="http://www.bars-open.ru/gisdo_service" >
+            <xs:import namespace="http://www.bars-open.ru/gisdo" schemaLocation="gisdo_types.xsd"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="push_data_in">
+        <wsdl:part name="request" element="types:push_data_request"/>
+    </wsdl:message>
+    <wsdl:portType name="push_data_soap">
+        <wsdl:operation name="push_data">
+            <wsdl:documentation>Регистрация данных</wsdl:documentation>
+            <wsdl:input message="ws:push_data_in"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="push_data_soap" type="ws:push_data_soap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="push_data">
+            <soap:operation soapAction="http://www.bars-open.ru/gisdo/push_data" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="push_data_post" type="ws:push_data_soap">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="push_data">
+            <http:operation location="/push_data"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="push_data_service">
+        <wsdl:documentation>Регистрация данных</wsdl:documentation>
+        <wsdl:port name="push_data_soap" binding="ws:push_data_soap">
+            <soap:address location="http://www.bars-open.ru/gisdo/push_data"/>
+        </wsdl:port>
+        <wsdl:port name="push_data_post" binding="ws:push_data_post">
+            <http:address location="http://www.bars-open.ru/gisdo/push_data"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

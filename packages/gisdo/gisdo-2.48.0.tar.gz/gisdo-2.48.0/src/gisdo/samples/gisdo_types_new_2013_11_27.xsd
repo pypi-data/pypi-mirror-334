@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://Fed.edu.segment/gisdo" targetNamespace="http://Fed.edu.segment/gisdo" elementFormDefault="qualified">
+  <xs:element name="push_data_request">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="schema_version" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Версия схемы данных</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="1.0">
+                <xs:annotation>
+                  <xs:documentation>Базовая схема данных</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="report_date" type="xs:date" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Дата отчёта</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="send_time" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Дата, Время отправки</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="report" type="report" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="report">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="locality" type="locality" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            К какому териториальному уровню относятся данные
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="assertion" type="assertion" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Информация о текущей статистики заявлений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="capacity" type="capacity" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Информация о текущем количестве мест</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="locality_base">
+    <xs:sequence>
+      <xs:element name="federal_district" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            К какому федеральному округу относятся данные
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Код федерального округа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Название федерального округа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="state" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>К какому региону относятся данные</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Код региона</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Название гериона</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="section" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>К какому району относятся данные</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Код району</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Название района</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OKATO" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>ОКАТО района</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OKMO" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>ОКМО района</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="municipality" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            К какому муниципальному образованию относятся данные
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Идентификатор</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Наименование МО</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OKATO" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>ОКАТО MO</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OKMO" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>ОКМО MO</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OKTMO" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>ОКТMО МО</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="locality_to_settlement">
+    <xs:sequence>
+      <xs:group ref="locality_base" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="settlement" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            К какому населеннуму пункту относятся данные
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Код объекта</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Название объекта</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="locality_to_district">
+    <xs:sequence>
+      <xs:group ref="locality_to_settlement" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="district" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>К какому району относятся данные</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Идентификатор</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Наименование района</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="locality_to_unit">
+    <xs:sequence>
+      <xs:group ref="locality_to_district" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="unit" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>К какому учреждению относятся данные</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Идентификатор</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Наименование учреждения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="locality">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:group ref="locality_base" minOccurs="1" maxOccurs="1"/>
+      <xs:group ref="locality_to_district" minOccurs="1" maxOccurs="1"/>
+      <xs:group ref="locality_to_settlement" minOccurs="1" maxOccurs="1"/>
+      <xs:group ref="locality_to_unit" minOccurs="1" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:group name="children_dimensions">
+    <xs:sequence>
+      <xs:element name="age_category" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Возврастная категория</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Все"/>
+            <xs:enumeration value="от 2 месяцев до 3 лет"/>
+            <xs:enumeration value="от 3 до 5 лет"/>
+            <xs:enumeration value="от 5 до 7,5 лет"/>
+            <xs:enumeration value="от 2 месяцев до 6 месяцев"/>
+            <xs:enumeration value="от 6 месяцев до 1 года"/>
+            <xs:enumeration value="от 1 года до 1,5 года"/>
+            <xs:enumeration value="от 1,5 до 2 лет"/>
+            <xs:enumeration value="от 2 до 2,5 лет"/>
+            <xs:enumeration value="от 2,5 до 3 лет"/>
+            <xs:enumeration value="от 3 до 3,5 лет"/>
+            <xs:enumeration value="от 3,5 до 4 лет"/>
+            <xs:enumeration value="от 4 до 4,5 лет"/>
+            <xs:enumeration value="от 4,5 до 5 лет"/>
+            <xs:enumeration value="от 5 до 5,5 лет"/>
+            <xs:enumeration value="от 5,5 до 6 лет"/>
+            <xs:enumeration value="от 6 до 6,5 лет"/>
+            <xs:enumeration value="от 6,5 до 7 лет"/>
+            <xs:enumeration value="от 7 до 7,5 лет"/>
+            <xs:enumeration value="от 2 месяцев до 3 лет"/>
+            <xs:enumeration value="от 3 до 5 лет"/>
+            <xs:enumeration value="от 5 до 7,5 лет"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="health_needs" type="health_needs" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Ограниченность возможностей здоровья</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="benefit" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Льгота</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Все"/>
+            <xs:enumeration value="Нет"/>
+            <xs:enumeration value="Имеются льготы"/>
+            <xs:enumeration value="Федеральная льгота"/>
+            <xs:enumeration value="Региональная льгота"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="custom" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Дополнительный срез данных</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Код среза</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Название среза</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Значение среза</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="doo_type" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Вид ДОУ</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Все"/>
+            <xs:enumeration value="Нет"/>
+            <xs:enumeration value="Негосударственные"/>
+            <xs:enumeration value="ИП"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="group_type" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Специализация группы</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Все"/>
+          <xs:enumeration value="Нет"/>
+          <xs:enumeration value="Семейные дошкольные группы"/>
+          <xs:enumeration value="Группы кратковременного пребывания"/>
+          <xs:enumeration value="Группы для детей с ограниченными возможностями здоровья"/>
+          <xs:enumeration value="Компенсирующие группы"/>
+          <xs:enumeration value="Оздоровительные группы"/>
+          <xs:enumeration value="Группы по присмотру и уходу"/>
+        </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:simpleType name="health_needs">
+    <xs:annotation>
+      <xs:documentation>Ограниченность возможностей</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Все"/>
+      <xs:enumeration value="Ограниченные возможности здоровья"/>
+      <xs:enumeration value="Нуждающиеся в оздоровительных группах"/>
+      <xs:enumeration value="Нуждающиеся в компенсирующих группах"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="assertion">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:group ref="children_dimensions"/>
+      <xs:element name="status" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Статус заявления</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Все"/>
+            <xs:enumeration value="В очереди"/>
+            <xs:enumeration value="В очереди (отложенный спрос)"/>
+            <xs:enumeration value="Зачислены"/>
+            <xs:enumeration value="Желающие сменить ДОО"/>
+            <xs:enumeration value="В очереди и зачислены"/>
+            <xs:enumeration value="В очереди и желающие сменить ДОО"/>
+            <xs:enumeration value="Отказано в услуге"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="delivery" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Вид подачи заявления</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Все"/>
+            <xs:enumeration value="При личном обращении"/>
+            <xs:enumeration value="С портала"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="count" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Количество заявлений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="capacity">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:group ref="children_dimensions"/>
+      <xs:element name="count" type="xs:int" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Количество свободных мест</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
