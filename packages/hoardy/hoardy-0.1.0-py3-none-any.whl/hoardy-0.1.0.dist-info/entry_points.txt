@@ -1,0 +1,3 @@
+[console_scripts]
+hoardy = hoardy.__main__:main
+hy = hoardy.__main__:main
