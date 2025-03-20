@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+potoos/__init__.py
+potoos/client.py
+potoos.egg-info/PKG-INFO
+potoos.egg-info/SOURCES.txt
+potoos.egg-info/dependency_links.txt
+potoos.egg-info/requires.txt
+potoos.egg-info/top_level.txt
+potoos/models/__init__.py
+potoos/models/anomaly.py
+potoos/models/config.py
+tests/test_client.py
