@@ -1,0 +1,2 @@
+[console_scripts]
+initialize-discordus = discordus.init_app:main
