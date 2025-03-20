@@ -1,0 +1,24 @@
+services:
+  # A Docker web service
+  - type: web
+    name: pleach
+    runtime: docker
+    dockerfilePath: ./docker/render.Dockerfile
+    repo: https://github.com/pleach-ai/pleach
+    branch: main
+    plan: standard
+    healthCheckPath: /health_check
+    autoDeploy: false
+    envVars:
+      - key: PLEACH_DATABASE_URL
+        value: sqlite:////app/data/.cache/pleach/pleach.db
+      - key: PLEACH_HOST
+        value: 0.0.0.0
+      - key: PLEACH_PORT
+        # default render port https://docs.render.com/web-services#port-binding
+        value: 10000
+      - key: PLEACH_LOG_LEVEL
+        value: INFO
+    disk:
+      name: pleach-data
+      mountPath: /app/data

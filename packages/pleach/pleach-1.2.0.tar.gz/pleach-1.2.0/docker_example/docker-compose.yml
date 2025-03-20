@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  pleach:
+    image: gaaviai/pleach:latest # or another version tag on https://hub.docker.com/r/gaaviai/pleach 
+    pull_policy: always               # set to 'always' when using 'latest' image
+    ports:
+      - "7860:7860"
+    depends_on:
+      - postgres
+    environment:
+      - PLEACH_DATABASE_URL=postgresql://varunadmin:Pleach1257@ai-poc.cpusyswyq2gm.us-east-1.rds.amazonaws.com:5432/pleach-v2
+      # This variable defines where the logs, file storage, monitor data and secret keys are stored.
+      - PLEACH_CONFIG_DIR=/app/pleach
+    volumes:
+      - pleach-data:/app/pleach
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: varunadmin
+      POSTGRES_PASSWORD: Pleach1257
+      POSTGRES_DB: pleach
+    expose:
+      - 5432
+    volumes:
+      - pleach-postgres:/var/lib/postgresql/data
+
+volumes:
+  pleach-postgres:
+  pleach-data:

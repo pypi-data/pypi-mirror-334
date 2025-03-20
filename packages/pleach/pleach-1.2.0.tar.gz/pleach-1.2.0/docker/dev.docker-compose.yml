@@ -1,0 +1,47 @@
+networks:
+  dev-pleach:
+
+services:
+  pleach:
+    build:
+      context: ..
+      dockerfile: docker/dev.Dockerfile
+    image: dev-pleach
+    container_name: dev-pleach
+    restart: always  # Changed from "always" to prevent continuous restarts
+    ports:
+      - "7860:7860"
+      - "3000:3000"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PLEACH_DATABASE_URL=postgresql://varunadmin:Pleach1257@ai-poc.cpusyswyq2gm.us-east-1.rds.amazonaws.com:5432/pleach-v2
+      - PLEACH_SUPERUSER=admin
+      - PLEACH_SUPERUSER_PASSWORD=varun1257
+      - PLEACH_CONFIG_DIR=/app/pleach
+    env_file:
+      - ../.env
+    volumes:
+      - ../:/app
+      - venv_data:/app/.venv
+      - pleach_data:/app/pleach
+      - logs:/app/logs
+    networks:
+      - dev-pleach
+
+volumes:
+  venv_data:
+  pleach_data:
+  logs:
+
+  # postgres:
+  #   container_name: postgres
+  #   image: pgvector/pgvector:pg16
+  #   environment:
+  #     POSTGRES_USER: pleach
+  #     POSTGRES_PASSWORD: pleach
+  #     POSTGRES_DB: pleach
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     -  dev-pleach
+
