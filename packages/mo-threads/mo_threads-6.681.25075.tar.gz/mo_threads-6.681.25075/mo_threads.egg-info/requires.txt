@@ -1,0 +1,14 @@
+mo-dots==10.678.25061
+mo-future==7.678.25061
+mo-logs==8.678.25061
+mo-math==7.678.25061
+mo-times==5.678.25061
+
+[tests]
+mo-testing>=8.674.25037
+jx-python>=4.673.25037
+psutil>=7.0.0
+objgraph>=3.6.2
+mo-files>=6.672.25036
+mo-json>=6.679.25061
+filelock>=3.16.1
