@@ -1,0 +1,38 @@
+Metadata-Version: 2.2
+Name: metalogger
+Version: 1.0.1
+Summary: Асинхронный логгер с ротацией файлов и цветным выводом
+Author-email: Welk <advusdt@gmail.com>
+Project-URL: Homepage, https://github.com/welkmeta/metalogger
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: aiofiles>=24.1.0
+
+# Metalogger
+
+Асинхронный логгер для Python с поддержкой:
+- Ротации логов
+- Цветного вывода в консоль
+- Фильтрации записей
+- Интеграции со стандартным logging
+- Уникальные уровни логгирования
+
+## Установка
+```bash
+pip install metalogger
+
+```
+## Пример использования
+
+```
+from metalogger import Metalog, ConsoleHandler, FileHandler
+
+metalog = Metalog(
+    handlers=[
+        ConsoleHandler(),
+        FileHandler("app.log")
+    ]
+)
