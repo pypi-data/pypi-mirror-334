@@ -1,0 +1,13 @@
+q_alchemy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+q_alchemy/initialize.py,sha256=dyS67eJm-INdfoMXFmU6V-WCS5-T5d5H7m6qaaqMZiI,14032
+q_alchemy/parser/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+q_alchemy/parser/qasm_pennylane.py,sha256=sMVyuOoe81BynpVjMYsLypzJgcOLMcbPjSRwwwUnslM,8450
+q_alchemy/pennylane_integration.py,sha256=YVh8OzWS9HqqS9tS3DMGvGY6_Rk7CZqtNCVYxUAoftU,2849
+q_alchemy/pyarrow_data.py,sha256=x6EuJ4GplOX9_RnGYj8zX3DUbxt8cRDMWI03aiA3Ywk,2528
+q_alchemy/qiskit_integration.py,sha256=D7UQEYC3CqflwnmDOy09h-50ILgPbtSGDGNXo9qqDlE,3325
+q_alchemy/qiskit_to_pennylane.py,sha256=6UPH2Qe5a-Q4vl2k6U-8oMbQHfqlIlZ-WxzmYKYzJ1Q,4309
+q_alchemy_sdk_py-0.2.15.dist-info/METADATA,sha256=EyzUmj9d7rA_0dDi_fOcIu_e-ynXY4o7aOXQFWqloAE,5274
+q_alchemy_sdk_py-0.2.15.dist-info/WHEEL,sha256=thaaA2w1JzcGC48WYufAs8nrYZjJm8LqNfnXFOFyCC4,90
+q_alchemy_sdk_py-0.2.15.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+q_alchemy_sdk_py-0.2.15.dist-info/licenses/LICENSE,sha256=_0DaideWMJhqlqn6PDwJOtLcwqz_i5mSFxJsvAvB8Io,11556
+q_alchemy_sdk_py-0.2.15.dist-info/RECORD,,
