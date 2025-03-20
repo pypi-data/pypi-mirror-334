@@ -1,0 +1,57 @@
+[project]
+name = "pydiful"
+version = "0.1.1"
+authors = [
+    { name="Erik Horn", email="info@erikhorn.de" }
+]
+
+description = "Dependency-Injection Framework inspired by ASP.NET."
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+
+]
+license = "GPL-3.0-only"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.12"
+
+
+dependencies = [
+    "coverage>=7.6.12",
+    "dataclasses>=0.8",
+    "hatchling>=1.27.0",
+    "loguru>=0.7.3",
+    "pydantic>=2.10.6",
+    "setuptools>=76.0.0",
+    "wheel>=0.45.1",
+]
+[project.urls]
+Homepage = "https://github.com/eHorn96/pydiful"
+Issues = "https://github.com/eHorn/pydiful/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "coverage[toml]>=7.6.12",
+    "devtools>=0.12.2",
+    "pytest>=8.3.5",
+    "ruff>=0.11.0",
+    "twine>=6.1.0",
+]
+
+
+[tool.mypy]
+mypy_path = "./typings"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.coverage.paths]
+sources = './src'
+exclude = './typings'
+
+[tool.coverage.exclude]

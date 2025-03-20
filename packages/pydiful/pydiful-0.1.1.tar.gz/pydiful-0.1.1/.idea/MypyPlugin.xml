@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MypySettings">
+    <option name="arguments" value="--follow-imports silent --exclude \.pyi$ --check-untyped-defs" />
+    <option name="mypyExecutable" value="/Library/Frameworks/Python.framework/Versions/3.12/bin/mypy" />
+    <option name="projectDirectory" value="$PROJECT_DIR$" />
+  </component>
+</project>

@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d46" for="node" attr.name="metric_tag_dependencies" attr.type="float"/>
+<key id="d45" for="node" attr.name="metric_tag_debug" attr.type="float"/>
+<key id="d44" for="node" attr.name="metric_tag_param" attr.type="float"/>
+<key id="d43" for="node" attr.name="metric_tag_typevar" attr.type="float"/>
+<key id="d42" for="node" attr.name="metric_tag_case" attr.type="float"/>
+<key id="d41" for="node" attr.name="metric_tag_instance" attr.type="float"/>
+<key id="d40" for="node" attr.name="metric_tag_lifetime" attr.type="float"/>
+<key id="d39" for="node" attr.name="metric_tag_dict" attr.type="float"/>
+<key id="d38" for="node" attr.name="metric_tag_serviceprovider" attr.type="float"/>
+<key id="d37" for="node" attr.name="metric_tag_servicelifetime" attr.type="float"/>
+<key id="d36" for="node" attr.name="metric_tag_concrete" attr.type="float"/>
+<key id="d35" for="node" attr.name="metric_tag_has" attr.type="float"/>
+<key id="d34" for="node" attr.name="metric_tag_keyerror" attr.type="float"/>
+<key id="d33" for="node" attr.name="metric_tag_been" attr.type="float"/>
+<key id="d32" for="node" attr.name="metric_tag_abstract" attr.type="float"/>
+<key id="d31" for="node" attr.name="metric_tag_interfacenotregistered" attr.type="float"/>
+<key id="d30" for="node" attr.name="metric_tag_incompatibleimplementation" attr.type="float"/>
+<key id="d29" for="node" attr.name="metric_tag_str" attr.type="float"/>
+<key id="d28" for="node" attr.name="metric_tag_fetch" attr.type="float"/>
+<key id="d27" for="node" attr.name="metric_tag_int" attr.type="float"/>
+<key id="d26" for="node" attr.name="metric_tag_db" attr.type="float"/>
+<key id="d25" for="node" attr.name="metric_tag_pass" attr.type="float"/>
+<key id="d24" for="node" attr.name="metric_tag_classes" attr.type="float"/>
+<key id="d23" for="node" attr.name="metric_tag_mock" attr.type="float"/>
+<key id="d22" for="node" attr.name="metric_tag_abstractmockrepository" attr.type="float"/>
+<key id="d21" for="node" attr.name="metric_tag_abstractmockdatabase" attr.type="float"/>
+<key id="d20" for="node" attr.name="metric_tag_servicecollection" attr.type="float"/>
+<key id="d19" for="node" attr.name="metric_tag_hostapplicationbuilder" attr.type="float"/>
+<key id="d18" for="node" attr.name="metric_tag_transient" attr.type="float"/>
+<key id="d17" for="node" attr.name="metric_tag_bool" attr.type="float"/>
+<key id="d16" for="node" attr.name="metric_tag_type" attr.type="float"/>
+<key id="d15" for="node" attr.name="metric_tag_scoped" attr.type="float"/>
+<key id="d14" for="node" attr.name="metric_tag_concreteimplementation" attr.type="float"/>
+<key id="d13" for="node" attr.name="metric_tag_singleton" attr.type="float"/>
+<key id="d12" for="node" attr.name="metric_tag_typeddict" attr.type="float"/>
+<key id="d11" for="node" attr.name="metric_fan-out-dependency-graph" attr.type="long"/>
+<key id="d10" for="node" attr.name="metric_fan-in-dependency-graph" attr.type="long"/>
+<key id="d9" for="node" attr.name="metric_file_result_dependency_graph_louvain-modularity-in-file" attr.type="long"/>
+<key id="d8" for="node" attr.name="metric_tag_services" attr.type="float"/>
+<key id="d7" for="node" attr.name="metric_tag_builder" attr.type="float"/>
+<key id="d6" for="node" attr.name="metric_tag_pydiful" attr.type="float"/>
+<key id="d5" for="node" attr.name="metric_sloc-in-file" attr.type="long"/>
+<key id="d4" for="node" attr.name="metric_number-of-methods-in-file" attr.type="long"/>
+<key id="d3" for="node" attr.name="result_name" attr.type="string"/>
+<key id="d2" for="node" attr.name="display_name" attr.type="string"/>
+<key id="d1" for="node" attr.name="file" attr.type="boolean"/>
+<key id="d0" for="node" attr.name="directory" attr.type="boolean"/>
+<graph edgedefault="directed"><node id="src">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src</data>
+</node>
+<node id="src/pydiful">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful</data>
+</node>
+<node id="src/.mypy_cache">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache</data>
+</node>
+<node id="src/pydiful/mocks">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks</data>
+</node>
+<node id="src/pydiful/exceptions">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions</data>
+</node>
+<node id="src/pydiful/.mypy_cache">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache</data>
+</node>
+<node id="src/pydiful/interfaces">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/interfaces</data>
+</node>
+<node id="src/pydiful/__init__.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">__init__.py</data>
+  <data key="d3">src/pydiful/__init__.py</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d6">0.6599978831063311</data>
+  <data key="d7">0.5641421634519215</data>
+  <data key="d8">0.49613144801649817</data>
+  <data key="d9">4</data>
+  <data key="d10">0</data>
+  <data key="d11">1</data>
+</node>
+<node id="src/pydiful/utils.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">utils.py</data>
+  <data key="d3">src/pydiful/utils.py</data>
+  <data key="d4">0</data>
+  <data key="d5">14</data>
+  <data key="d12">0.49351473486531794</data>
+  <data key="d13">0.42183842910518443</data>
+  <data key="d14">0.3290098232435453</data>
+  <data key="d15">0.3290098232435453</data>
+  <data key="d16">0.2993069750858768</data>
+  <data key="d17">0.28122561940345625</data>
+  <data key="d18">0.28122561940345625</data>
+  <data key="d9">0</data>
+  <data key="d10">3</data>
+  <data key="d11">3</data>
+</node>
+<node id="src/pydiful/pydiful.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">pydiful.py</data>
+  <data key="d3">src/pydiful/pydiful.py</data>
+  <data key="d4">0</data>
+  <data key="d5">4</data>
+  <data key="d19">0.6493114199920319</data>
+  <data key="d20">0.5802707225043368</data>
+  <data key="d7">0.36916017992086964</data>
+  <data key="d8">0.32465570999601595</data>
+  <data key="d9">1</data>
+  <data key="d10">0</data>
+  <data key="d11">2</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache</data>
+</node>
+<node id="src/pydiful/mocks/__init__.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">__init__.py</data>
+  <data key="d3">src/pydiful/mocks/__init__.py</data>
+  <data key="d4">0</data>
+  <data key="d5">3</data>
+  <data key="d21">0.6211090553406483</data>
+  <data key="d22">0.6211090553406483</data>
+  <data key="d23">0.36332212716975637</data>
+  <data key="d24">0.31055452767032415</data>
+  <data key="d9">6</data>
+  <data key="d10">0</data>
+  <data key="d11">0</data>
+</node>
+<node id="src/pydiful/mocks/mocks.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">mocks.py</data>
+  <data key="d3">src/pydiful/mocks/mocks.py</data>
+  <data key="d4">14</data>
+  <data key="d5">42</data>
+  <data key="d25">0.4394715271067063</data>
+  <data key="d26">0.4113151561672303</data>
+  <data key="d27">0.4113151561672303</data>
+  <data key="d21">0.35157722168536504</data>
+  <data key="d28">0.3084863671254227</data>
+  <data key="d22">0.2636829162640238</data>
+  <data key="d29">0.23189436198635116</data>
+  <data key="d9">0</data>
+  <data key="d10">0</data>
+  <data key="d11">2</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/_typeshed">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/_typeshed</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/zipfile">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/zipfile</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/sys">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/sys</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/os">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/os</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/importlib">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/importlib</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/collections">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/collections</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/email">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/email</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/zipfile/_path">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/zipfile/_path</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/importlib/resources">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/importlib/resources</data>
+</node>
+<node id="src/pydiful/mocks/.mypy_cache/3.12/importlib/metadata">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/mocks/.mypy_cache/3.12/importlib/metadata</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache</data>
+</node>
+<node id="src/pydiful/exceptions/__init__.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">__init__.py</data>
+  <data key="d3">src/pydiful/exceptions/__init__.py</data>
+  <data key="d4">0</data>
+  <data key="d5">5</data>
+  <data key="d30">0.7071067811865475</data>
+  <data key="d31">0.7071067811865475</data>
+  <data key="d9">2</data>
+  <data key="d10">0</data>
+  <data key="d11">1</data>
+</node>
+<node id="src/pydiful/exceptions/exceptions.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">exceptions.py</data>
+  <data key="d3">src/pydiful/exceptions/exceptions.py</data>
+  <data key="d4">3</data>
+  <data key="d5">23</data>
+  <data key="d32">0.39078369624944426</data>
+  <data key="d16">0.39078369624944426</data>
+  <data key="d33">0.32217343446289376</data>
+  <data key="d34">0.32217343446289376</data>
+  <data key="d35">0.27538212315046323</data>
+  <data key="d9">2</data>
+  <data key="d10">2</data>
+  <data key="d11">1</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/_typeshed">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/_typeshed</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/zipfile">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/zipfile</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/sys">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/sys</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/os">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/os</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/importlib">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/importlib</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/collections">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/collections</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/email">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/email</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/zipfile/_path">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/zipfile/_path</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/importlib/resources">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/importlib/resources</data>
+</node>
+<node id="src/pydiful/exceptions/.mypy_cache/3.12/importlib/metadata">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/exceptions/.mypy_cache/3.12/importlib/metadata</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/_typeshed">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/_typeshed</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/zipfile">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/zipfile</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/sys">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/sys</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/os">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/os</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/importlib">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/importlib</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/collections">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/collections</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/email">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/email</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/interfaces">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/interfaces</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful/mocks">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful/mocks</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful/out">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful/out</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful/exceptions">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful/exceptions</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful/interfaces">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful/interfaces</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/pydiful/out/interfaces">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/pydiful/out/interfaces</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/zipfile/_path">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/zipfile/_path</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/importlib/resources">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/importlib/resources</data>
+</node>
+<node id="src/pydiful/.mypy_cache/3.12/importlib/metadata">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/pydiful/.mypy_cache/3.12/importlib/metadata</data>
+</node>
+<node id="src/pydiful/interfaces/ServiceCollection.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">ServiceCollection.py</data>
+  <data key="d3">src/pydiful/interfaces/ServiceCollection.py</data>
+  <data key="d4">3</data>
+  <data key="d5">15</data>
+  <data key="d32">0.47875480669925524</data>
+  <data key="d16">0.47875480669925524</data>
+  <data key="d36">0.3191698711328368</data>
+  <data key="d37">0.26515405250399404</data>
+  <data key="d38">0.26515405250399404</data>
+  <data key="d39">0.22491643740970257</data>
+  <data key="d40">0.22491643740970257</data>
+  <data key="d9">1</data>
+  <data key="d10">2</data>
+  <data key="d11">3</data>
+</node>
+<node id="src/pydiful/interfaces/__init__.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">__init__.py</data>
+  <data key="d3">src/pydiful/interfaces/__init__.py</data>
+  <data key="d4">0</data>
+  <data key="d5">1</data>
+  <data key="d19">0.7456361389075636</data>
+  <data key="d38">0.6663533209604499</data>
+  <data key="d9">5</data>
+  <data key="d10">0</data>
+  <data key="d11">0</data>
+</node>
+<node id="src/pydiful/interfaces/ServiceProvider.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">ServiceProvider.py</data>
+  <data key="d3">src/pydiful/interfaces/ServiceProvider.py</data>
+  <data key="d4">3</data>
+  <data key="d5">47</data>
+  <data key="d16">0.4426354061120885</data>
+  <data key="d32">0.39345369432185645</data>
+  <data key="d41">0.34657956160799114</data>
+  <data key="d40">0.34657956160799114</data>
+  <data key="d42">0.3243746584577896</data>
+  <data key="d39">0.20794773696479468</data>
+  <data key="d43">0.20794773696479468</data>
+  <data key="d9">3</data>
+  <data key="d10">2</data>
+  <data key="d11">5</data>
+</node>
+<node id="src/pydiful/interfaces/HostApplicationBuilder.py">
+  <data key="d0">False</data>
+  <data key="d1">True</data>
+  <data key="d2">HostApplicationBuilder.py</data>
+  <data key="d3">src/pydiful/interfaces/HostApplicationBuilder.py</data>
+  <data key="d4">7</data>
+  <data key="d5">68</data>
+  <data key="d36">0.3614492622601966</data>
+  <data key="d16">0.3614492622601966</data>
+  <data key="d32">0.316268104477672</data>
+  <data key="d44">0.2547103837946338</data>
+  <data key="d45">0.22349195601826308</data>
+  <data key="d46">0.22349195601826308</data>
+  <data key="d20">0.2001854296223804</data>
+  <data key="d9">1</data>
+  <data key="d10">1</data>
+  <data key="d11">6</data>
+</node>
+<node id="src/.mypy_cache/3.12">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12</data>
+</node>
+<node id="src/.mypy_cache/3.12/pydiful">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/pydiful</data>
+</node>
+<node id="src/.mypy_cache/3.12/_typeshed">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/_typeshed</data>
+</node>
+<node id="src/.mypy_cache/3.12/zipfile">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/zipfile</data>
+</node>
+<node id="src/.mypy_cache/3.12/sys">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/sys</data>
+</node>
+<node id="src/.mypy_cache/3.12/os">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/os</data>
+</node>
+<node id="src/.mypy_cache/3.12/importlib">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/importlib</data>
+</node>
+<node id="src/.mypy_cache/3.12/collections">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/collections</data>
+</node>
+<node id="src/.mypy_cache/3.12/email">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/email</data>
+</node>
+<node id="src/.mypy_cache/3.12/pydiful/interfaces">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/pydiful/interfaces</data>
+</node>
+<node id="src/.mypy_cache/3.12/zipfile/_path">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/zipfile/_path</data>
+</node>
+<node id="src/.mypy_cache/3.12/importlib/resources">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/importlib/resources</data>
+</node>
+<node id="src/.mypy_cache/3.12/importlib/metadata">
+  <data key="d0">True</data>
+  <data key="d1">False</data>
+  <data key="d2">src/.mypy_cache/3.12/importlib/metadata</data>
+</node>
+<edge source="src" target="src/pydiful"/>
+<edge source="src" target="src/.mypy_cache"/>
+<edge source="src/pydiful" target="src/pydiful/mocks"/>
+<edge source="src/pydiful" target="src/pydiful/exceptions"/>
+<edge source="src/pydiful" target="src/pydiful/.mypy_cache"/>
+<edge source="src/pydiful" target="src/pydiful/interfaces"/>
+<edge source="src/pydiful" target="src/pydiful/__init__.py"/>
+<edge source="src/pydiful" target="src/pydiful/utils.py"/>
+<edge source="src/pydiful" target="src/pydiful/pydiful.py"/>
+<edge source="src/.mypy_cache" target="src/.mypy_cache/3.12"/>
+<edge source="src/pydiful/mocks" target="src/pydiful/mocks/.mypy_cache"/>
+<edge source="src/pydiful/mocks" target="src/pydiful/mocks/__init__.py"/>
+<edge source="src/pydiful/mocks" target="src/pydiful/mocks/mocks.py"/>
+<edge source="src/pydiful/exceptions" target="src/pydiful/exceptions/.mypy_cache"/>
+<edge source="src/pydiful/exceptions" target="src/pydiful/exceptions/__init__.py"/>
+<edge source="src/pydiful/exceptions" target="src/pydiful/exceptions/exceptions.py"/>
+<edge source="src/pydiful/.mypy_cache" target="src/pydiful/.mypy_cache/3.12"/>
+<edge source="src/pydiful/interfaces" target="src/pydiful/interfaces/ServiceCollection.py"/>
+<edge source="src/pydiful/interfaces" target="src/pydiful/interfaces/__init__.py"/>
+<edge source="src/pydiful/interfaces" target="src/pydiful/interfaces/ServiceProvider.py"/>
+<edge source="src/pydiful/interfaces" target="src/pydiful/interfaces/HostApplicationBuilder.py"/>
+<edge source="src/pydiful/mocks/.mypy_cache" target="src/pydiful/mocks/.mypy_cache/3.12"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/_typeshed"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/zipfile"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/sys"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/os"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/importlib"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/collections"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12" target="src/pydiful/mocks/.mypy_cache/3.12/email"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12/zipfile" target="src/pydiful/mocks/.mypy_cache/3.12/zipfile/_path"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12/importlib" target="src/pydiful/mocks/.mypy_cache/3.12/importlib/resources"/>
+<edge source="src/pydiful/mocks/.mypy_cache/3.12/importlib" target="src/pydiful/mocks/.mypy_cache/3.12/importlib/metadata"/>
+<edge source="src/pydiful/exceptions/.mypy_cache" target="src/pydiful/exceptions/.mypy_cache/3.12"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/_typeshed"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/zipfile"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/sys"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/os"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/importlib"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/collections"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12" target="src/pydiful/exceptions/.mypy_cache/3.12/email"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12/zipfile" target="src/pydiful/exceptions/.mypy_cache/3.12/zipfile/_path"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12/importlib" target="src/pydiful/exceptions/.mypy_cache/3.12/importlib/resources"/>
+<edge source="src/pydiful/exceptions/.mypy_cache/3.12/importlib" target="src/pydiful/exceptions/.mypy_cache/3.12/importlib/metadata"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/pydiful"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/_typeshed"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/zipfile"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/sys"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/os"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/importlib"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/collections"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/email"/>
+<edge source="src/pydiful/.mypy_cache/3.12" target="src/pydiful/.mypy_cache/3.12/interfaces"/>
+<edge source="src/pydiful/.mypy_cache/3.12/pydiful" target="src/pydiful/.mypy_cache/3.12/pydiful/mocks"/>
+<edge source="src/pydiful/.mypy_cache/3.12/pydiful" target="src/pydiful/.mypy_cache/3.12/pydiful/out"/>
+<edge source="src/pydiful/.mypy_cache/3.12/pydiful" target="src/pydiful/.mypy_cache/3.12/pydiful/exceptions"/>
+<edge source="src/pydiful/.mypy_cache/3.12/pydiful" target="src/pydiful/.mypy_cache/3.12/pydiful/interfaces"/>
+<edge source="src/pydiful/.mypy_cache/3.12/zipfile" target="src/pydiful/.mypy_cache/3.12/zipfile/_path"/>
+<edge source="src/pydiful/.mypy_cache/3.12/importlib" target="src/pydiful/.mypy_cache/3.12/importlib/resources"/>
+<edge source="src/pydiful/.mypy_cache/3.12/importlib" target="src/pydiful/.mypy_cache/3.12/importlib/metadata"/>
+<edge source="src/pydiful/.mypy_cache/3.12/pydiful/out" target="src/pydiful/.mypy_cache/3.12/pydiful/out/interfaces"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/pydiful"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/_typeshed"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/zipfile"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/sys"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/os"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/importlib"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/collections"/>
+<edge source="src/.mypy_cache/3.12" target="src/.mypy_cache/3.12/email"/>
+<edge source="src/.mypy_cache/3.12/pydiful" target="src/.mypy_cache/3.12/pydiful/interfaces"/>
+<edge source="src/.mypy_cache/3.12/zipfile" target="src/.mypy_cache/3.12/zipfile/_path"/>
+<edge source="src/.mypy_cache/3.12/importlib" target="src/.mypy_cache/3.12/importlib/resources"/>
+<edge source="src/.mypy_cache/3.12/importlib" target="src/.mypy_cache/3.12/importlib/metadata"/>
+</graph></graphml>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4590ed7e-e9d1-43b4-8a05-45bc43ecdf16" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/MypyPlugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/pydiful.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/ruff.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/exceptions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/exceptions/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/interfaces/HostApplicationBuilder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/interfaces/ServiceCollection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/interfaces/ServiceProvider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/interfaces/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/mocks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/mocks/mocks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/pydiful.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pydiful/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_inject.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_integration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_service_collection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/exceptions/exceptions.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/interfaces/HostApplicationBuilder.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/interfaces/ServiceCollection.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/interfaces/ServiceProvider.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/mocks/mocks.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typings/pydiful.pyi" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Stub" />
+        <option value="package.json" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/typing.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2uLpUogqezySkROz6YLsKMZPMqb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Python tests.Python tests for test_dependency_injection.test_container.executor": "Run",
+    "Python tests.Python tests for test_inject.test_prepare.executor": "Run",
+    "Python tests.Python tests for test_integration.test_correct_application_build.executor": "Run",
+    "Python tests.Python tests in tests.executor": "Coverage",
+    "Python tests.Run Tests.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "last_opened_file_path": "/Users/erik/PycharmProjects/pydiful/src/pydiful",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "works.szabope.mypy.configurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="PyCoverageOptionsProvider">
+    <option name="myBranchCoverage" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pydiful" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/typings" />
+      <recent name="$PROJECT_DIR$/src/typings/exceptions" />
+      <recent name="$PROJECT_DIR$/src/typings/interfaces" />
+      <recent name="$PROJECT_DIR$/src/typings/mocks" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Run Tests">
+    <configuration name="Python tests for test_dependency_injection.test_container" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydiful" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_dependency_injection.test_container&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_integration.test_correct_application_build" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pydiful" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_integration.test_correct_application_build&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_integration.test_correct_application_build" />
+        <item itemvalue="Python tests.Python tests for test_dependency_injection.test_container" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4590ed7e-e9d1-43b4-8a05-45bc43ecdf16" name="Changes" comment="" />
+      <created>1742037726402</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742037726402</updated>
+      <workItem from="1742037727546" duration="2877000" />
+      <workItem from="1742046486347" duration="19795000" />
+      <workItem from="1742072716020" duration="16340000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pydiful$.coverage" NAME=" Coverage Results" MODIFIED="1742089913823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+</project>

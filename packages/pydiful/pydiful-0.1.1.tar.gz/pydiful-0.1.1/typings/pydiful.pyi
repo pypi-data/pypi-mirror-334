@@ -1,0 +1,5 @@
+from interfaces.HostApplicationBuilder import HostApplicationBuilder
+from interfaces.ServiceCollection import ServiceCollection
+
+builder = HostApplicationBuilder
+services = ServiceCollection
