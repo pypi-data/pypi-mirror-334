@@ -1,0 +1,130 @@
+Metadata-Version: 2.2
+Name: xss-detector
+Version: 0.1.0
+Summary: A package for detecting XSS attacks using machine learning
+Home-page: https://github.com/firedragonironfist/xss-detector
+Author: Yousuf
+Author-email: firedragonironfist998@gmail.com
+Project-URL: Bug Tracker, https://github.com/firedragonironfist/xss-detector/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow>=2.5.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: scikit-learn>=0.24.0
+Requires-Dist: flask>=2.0.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: kagglehub>=0.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# XSS Detector
+
+A Python package for detecting Cross-Site Scripting (XSS) attacks using machine learning.
+
+## Installation
+
+```bash
+pip install xss-detector
+```
+
+## Features
+
+- Detect XSS attacks in text, URLs, files, and HTTP requests
+- Command-line interface for quick checks
+- REST API for integration with other tools
+- Deep learning model trained on a comprehensive XSS dataset
+- Automated model training and management
+
+## Quick Start
+
+### Command Line Usage
+
+Check a specific string for XSS:
+
+```bash
+xss-detector check "<script>alert(1)</script>"
+```
+
+Check a file for XSS:
+
+```bash
+xss-detector file suspicious.html
+```
+
+Check a URL:
+
+```bash
+xss-detector url "https://example.com/?param=value"
+```
+
+Start the API server:
+
+```bash
+xss-detector server --port 5000
+```
+
+### Python API Usage
+
+```python
+from xss_detector import XSSDetector
+
+# Initialize the detector
+detector = XSSDetector()
+
+# Check a single string
+result = detector.detect('<img src="x" onerror="alert(1)">')
+print(f"XSS detected: {result['is_xss']}, Confidence: {result['confidence']}")
+
+# Analyze a full HTTP request
+analysis = detector.analyze_request(
+    url_params={'search': 'something<script>alert(1)</script>'},
+    headers={'User-Agent': 'Mozilla/5.0'},
+    cookies={'session': 'abc123'}
+)
+print(f"Request contains XSS: {analysis['xss_detected']}")
+```
+
+### REST API Usage
+
+Start the server:
+
+```bash
+xss-detector server
+```
+
+Then make requests:
+
+```bash
+# Check a single string
+curl -X POST http://localhost:5000/check \
+  -H "Content-Type: application/json" \
+  -d '{"text": "<script>alert(1)</script>"}'
+
+# Analyze a full request
+curl -X POST http://localhost:5000/proxy \
+  -H "Content-Type: application/json" \
+  -d '{"param": "<img src=x onerror=alert(1)>"}'
+```
+
+## Model Training
+
+The package automatically downloads a dataset and trains a model on first use. To manually train a new model:
+
+```bash
+xss-detector train
+```
+
+## License
+
+MIT
