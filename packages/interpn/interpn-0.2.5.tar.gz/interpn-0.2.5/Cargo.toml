@@ -1,0 +1,27 @@
+[package]
+name = "_interpn"
+version = "0.1.5"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "_interpn"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "^0.24.0"
+numpy = "^0.24.0"
+interpn = {version = "0.4.5", default_features = false}
+#interpn = { path = "../interpn/interpn" }
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+lto = true
+strip = true
+overflow-checks = true
+
+[profile.dev]
+opt-level = 3
+codegen-units = 1
+lto = true
