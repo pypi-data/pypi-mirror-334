@@ -1,0 +1,2 @@
+[console_scripts]
+xss-detector = xss_detector.cli:main
