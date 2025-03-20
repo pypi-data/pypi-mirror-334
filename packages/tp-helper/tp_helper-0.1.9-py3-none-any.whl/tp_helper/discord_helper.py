@@ -1,0 +1,114 @@
+import logging
+import aiohttp
+from typing import Optional
+
+
+class DiscordHelper:
+    RED = 16711680
+    GREEN = 5025616
+    YELLOW = 16776960
+
+    def __init__(self, url: str):
+        self.url: str = url
+        self.title: Optional[str] = None
+        self.description: Optional[str] = None
+        self.color: Optional[int] = None
+        self.notify_everyone: bool = False
+
+    def reset(self) -> "DiscordHelper":
+        """Сбрасывает все параметры сообщения к значениям по умолчанию."""
+        self.title = None
+        self.description = None
+        self.color = None
+        self.notify_everyone = False
+        return self
+
+    def set_title(self, title: str) -> "DiscordHelper":
+        """Устанавливает заголовок сообщения."""
+        self.title = title
+        return self
+
+    def set_description(self, description: str) -> "DiscordHelper":
+        """Устанавливает описание сообщения."""
+        self.description = description
+        return self
+
+    def set_color(self, color: int) -> "DiscordHelper":
+        """Устанавливает цвет сообщения (в формате int)."""
+        self.color = color
+        return self
+
+    def set_color_red(self) -> "DiscordHelper":
+        """Устанавливает цвет сообщения на красный (ошибка)."""
+        return self.set_color(self.RED)
+
+    def set_color_green(self) -> "DiscordHelper":
+        """Устанавливает цвет сообщения на зеленый (успех, информация)."""
+        return self.set_color(self.GREEN)
+
+    def set_color_yellow(self) -> "DiscordHelper":
+        """Устанавливает цвет сообщения на желтый (предупреждение)."""
+        return self.set_color(self.YELLOW)
+
+    def set_notify_everyone(self, notify: bool) -> "DiscordHelper":
+        """Определяет, следует ли упоминать @everyone в сообщении."""
+        self.notify_everyone = notify
+        return self
+
+    async def send_error(self, message: str = None, desc: Optional[str] = None):
+        """Отправляет сообщение об ошибке."""
+        if self.title is None:
+            self.set_title("[Error]")
+        if desc:
+            self.set_description(desc)
+        self.set_color_red().set_notify_everyone(True)
+        await self.send(message)
+
+    async def send_warning(self, message: str = None, desc: Optional[str] = None):
+        """Отправляет предупреждающее сообщение."""
+        if self.title is None:
+            self.set_title("[Warning]")
+        if desc:
+            self.set_description(desc)
+        self.set_color_yellow().set_notify_everyone(True)
+        await self.send(message)
+
+    async def send_info(self, message: str = None, desc: Optional[str] = None):
+        """Отправляет информационное сообщение."""
+        if self.title is None:
+            self.set_title("[Info]")
+        if desc:
+            self.set_description(desc)
+        self.set_color_green()
+        await self.send(message)
+
+    async def send(self, message: str):
+        """Отправляет сообщение с текущими параметрами."""
+        await self._send_embed_message(message)
+
+    async def _send_embed_message(self, message: str):
+        """Отправляет сообщение в Discord через Webhook, используя параметры из self."""
+        payload = {
+            "content": f"{'@everyone ' if self.notify_everyone else ''}{message}",
+            "tts": False,
+            "username": "Система уведомлений",
+            "embeds": [
+                {
+                    "title": self.title,
+                    "description": self.description,
+                    "color": self.color,
+                }
+            ],
+        }
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(self.url, json=payload) as response:
+                    if response.status != 204:
+                        logging.warning(
+                            f"Ошибка отправки в Discord: {response.status} - {await response.text()}"
+                        )
+        except Exception as e:
+            logging.error(f"Ошибка при отправке сообщения в Discord: {e}")
+
+        self.reset()
