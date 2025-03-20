@@ -1,0 +1,6 @@
+yt-dlp==2025.02.19
+ConfigArgParse>=1.7
+srt>=3.5.3
+
+[test]
+pytest>=8.0.0

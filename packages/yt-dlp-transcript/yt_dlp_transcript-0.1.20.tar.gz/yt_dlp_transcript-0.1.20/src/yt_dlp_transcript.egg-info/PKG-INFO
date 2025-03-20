@@ -1,0 +1,48 @@
+Metadata-Version: 2.2
+Name: yt-dlp-transcript
+Version: 0.1.20
+Summary: Handy yt-dlp wrapper to download Youtube videos transcripts
+Author-email: Alexander Ryabov <alex.ryabov@gmail.com>
+Project-URL: Homepage, https://github.com/haron/yt-dlp-transcript
+Project-URL: Issues, https://github.com/haron/yt-dlp-transcript/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: yt-dlp==2025.02.19
+Requires-Dist: ConfigArgParse>=1.7
+Requires-Dist: srt>=3.5.3
+Provides-Extra: test
+Requires-Dist: pytest>=8.0.0; extra == "test"
+
+# yt-dlp-transcript
+
+A handy wrapper for `yt-dlp` to download transcripts for YouTube videos.
+
+## Usage
+
+    uvx yt-dlp-transcript https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+or:
+
+    pip install yt-dlp-transcript
+    yt-dlp-transcript https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+## Options:
+
+    > yt-dlp-transcript -h
+    usage: yt-dlp-transcript [-h] [-l LANGUAGE] [-v] url
+
+    positional arguments:
+      url                   Youtube URL
+
+    options:
+      -h, --help            show this help message and exit
+      -l LANGUAGE, --language LANGUAGE
+                            subtitles language (default: en)
+      -v, --verbose         verbose mode (default: False)
+
+## Usage in Python code
+
+    from yt_dlp_transcript import yt_dlp_transcript
+    print(yt_dlp_transcript("https://www.youtube.com/watch?v=dQw4w9WgXcQ"))
