@@ -1,0 +1,17 @@
+bluesky
+numpy
+ophyd
+pcdsdevices
+pcdsutils
+toolz
+
+[doc]
+docs-versions-menu
+ipython
+sphinx
+sphinx_rtd_theme
+sphinxcontrib-jquery
+
+[test]
+pytest
+pytest-timeout
