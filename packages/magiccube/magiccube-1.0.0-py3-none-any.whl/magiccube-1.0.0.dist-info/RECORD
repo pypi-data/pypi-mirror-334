@@ -1,0 +1,16 @@
+magiccube/__init__.py,sha256=XUI7LfUrPq-Wu1_nm2oIsuLp1yW_MEIy2chTizqfSOw,43
+magiccube/cube.py,sha256=2-jIuXKFmBw8Ep0LRedpdShyfyXv6H9doaYVMIM03y0,12113
+magiccube/cube_base.py,sha256=yGs2nz0fQHJgSLurjXJyPGP8CJjwh3r3b3XyVphIwLo,2017
+magiccube/cube_move.py,sha256=XJGh1e031sPHxtRwlYQd5nLzmiVmLmQATZuvYrGKp_A,5186
+magiccube/cube_piece.py,sha256=J7GFnFs8XAdBkmmnkJcfGoLvOBCVI112XAcqomxizMs,3731
+magiccube/cube_print.py,sha256=8tP51-YyfZKpjC6VToXtOlHmn3p4NBi8U13vWKq-y2w,2435
+magiccube/optimizer/move_optimizer.py,sha256=95VWHudrwhbPFjx_MukYwb6SjE7k2DoSkkqzsvdE0qw,2859
+magiccube/solver/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+magiccube/solver/basic/basic_solver.py,sha256=4aIJG113ZktDd3nK3bbHrvLaXnP4cI_AiYnJUj0OFuk,5257
+magiccube/solver/basic/solver_base.py,sha256=IS2XAHWsdKvuUmLXo9n3VsTaCgCSFYDj6GxnIv4ZeoM,4751
+magiccube/solver/basic/solver_stages.py,sha256=ox3SmFLoorh5kBbDfU7zZRLi4uKpA7pi19ac-uLwhCs,13395
+magiccube-1.0.0.dist-info/LICENSE,sha256=JL03QEx5CI_QIDZXs2K5K5AX8yNl0VNn4yUXa0ndG1U,1516
+magiccube-1.0.0.dist-info/METADATA,sha256=MfDjO7K98v0FwpwkVNlt-f6gOrvg0vcHfC24jHqvtGI,3885
+magiccube-1.0.0.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+magiccube-1.0.0.dist-info/top_level.txt,sha256=wtaPyPNc6hsQ6uSLDL7JJcRRSW5Ro6EIDwMRMrIhOIE,10
+magiccube-1.0.0.dist-info/RECORD,,
