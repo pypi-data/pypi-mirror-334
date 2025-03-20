@@ -1,0 +1,13 @@
+numpy
+tifffile
+click
+
+[all]
+imagecodecs
+matplotlib
+czifile
+oiffile
+netpbmfile
+
+[test]
+pytest
