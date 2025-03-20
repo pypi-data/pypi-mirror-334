@@ -1,0 +1,68 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bigdance"
+version = "0.2.0"
+dependencies = [
+  "numpy",
+  "pandas",
+  "beautifulsoup4",
+  "requests",
+  "lxml",
+  "urllib3",
+  "html5lib",
+  "seaborn",
+  "matplotlib",
+  "scipy",
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Taylor Firman", email = "tefirman@gmail.com"},
+]
+maintainers = [
+  {name = "Taylor Firman", email = "tefirman@gmail.com"}
+]
+description = "March Madness Bracket Pool Simulator"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["college basketball", "warren nolan"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov",
+  "black",
+  "isort",
+  "ruff",
+  "pre-commit",
+]
+
+[project.urls]
+Homepage = "https://taylorfirman.com"
+Repository = "https://github.com/tefirman/bigdance.git"
+"Bug Tracker" = "https://github.com/tefirman/bigdance/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+]
