@@ -1,0 +1,430 @@
+Metadata-Version: 2.1
+Name: itk-tubetk
+Version: 1.4.1
+Summary: An open-source toolkit, led by Kitware, Inc., for the segmentation, registration, and analysis of tubes (e.g., blood vessels) in images.
+Keywords: itk,InsightToolkit,Tubes,Vessels,Nerves,Ultrasound,MRI,CT,Medical
+Author-Email: "Stephen R. Aylward" <stephen.aylward@kitware.com>
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                https://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               https://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Software Development :: Libraries
+Project-URL: Download, https://github.com/InsightSoftwareConsortium/ITKTubeTK
+Project-URL: Homepage, https://github.com/InsightSoftwareConsortium/ITKTubeTK
+Project-URL: Repository, https://github.com/InsightSoftwareConsortium/ITKTubeTK
+Project-URL: Issues, https://github.com/InsightSoftwareConsortium/ITKTubeTK/issues
+Requires-Python: >=3.9
+Requires-Dist: itk==5.4.*
+Requires-Dist: numpy
+Requires-Dist: itk-minimalpathextraction>=1.2.6
+Requires-Dist: recommonmark; extra == "doc"
+Requires-Dist: Sphinx==3.3.0; extra == "doc"
+Requires-Dist: sphinx-rtd-theme==0.5.0; extra == "doc"
+Requires-Dist: sphinx-autodoc-typehints==1.11.1; extra == "doc"
+Requires-Dist: typing-extensions; extra == "doc"
+Provides-Extra: doc
+Description-Content-Type: text/markdown
+
+ITKTubeTK: Tubular Object Extraction, Registration, and Analysis
+================================================================
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/InsightSoftwareConsortium/ITKTubeTK/blob/master/LICENSE)
+
+[![Build, test, package](https://github.com/InsightSoftwareConsortium/ITKTubeTK/actions/workflows/build-test-package.yml/badge.svg)](https://github.com/InsightSoftwareConsortium/ITKTubeTK/actions/workflows/build-test-package.yml)
+
+[![Documentation Status](https://readthedocs.org/projects/tubetk/badge/?version=latest)](https://tubetk.readthedocs.io/en/latest/?badge=latest)
+
+Available in C++ and Python for Linux, Windows, and MacOS.
+
+Overview
+--------
+
+TubeTK is an open-source toolkit for the segmentation, registration, and analysis of tubes and surfaces in images, developed by [Kitware, Inc.](https://www.kitware.com)
+
+Tubes and surfaces, as generalized 1D and 2D manifolds in N-dimensional images, are essential components in a variety of image analysis tasks. Instances of tubular structures in images include blood vessels in magnetic resonance angiograms and b-mode ultrasound images, wires in microscopy images of integrated circuits, roads in aerial photographs, and nerves in confocal microscopy.
+
+A guiding premise of TubeTK is that by focusing on 1D and 2D manifolds we can devise methods that are insensitive to the modality, noise, contrast, and scale of the images being analyzed and to the arrangement and deformations of the objects in them. In particular, we propose that TubeTK's manifold methods offer improved performance for many applications, compared to methods involving the analysis of independent geometric measures (e.g., edges and corners) or requiring complete shape models.
+
+TubeTK offers various interface layers:
+
+* [TubeTK/src](src): This is the algorithms library.   It is the lowest level of access to the methods of TubeTK.  It is only available via C++, and it requires considerable expertise to effectively combine and call its methods to do anything useful.   Interfacing directly with these algorithms is not recommended and is not well supported. Unit-level testing is performed continuously on these methods.
+
+* [TubeTK/include](include): This is the ITK interface to select methods in `TubeTK/src`.  This level of interface is intended for ITK users and Python scripts writers.  The methods exposed represent a level of modularization that invites experimentation, integration with other toolkits (e.g., Scikit-Learn), and development of processing pipelines that accomplish significant image analysis goals.  The interface is available as an ITK Extension and thereby available via Python using Wrapped ITK.
+
+* [TubeTK/examples/Applications](examples/Applications): These are optional command-line interface applications.  These applications are mostly also available via the TubeTK/include interface, and thereby are available via python.  Expansion of ITK will focus on the TubeTK/include directory, and new applications will only rarely be added.  These applications are built when the cmake options BUILD_EXAMPLES is enabled.  These applications also require SlicerExecutionModel, see https://github.com/Slicer/SlicerExecutionModel.   
+
+Installing TubeTK
+=================
+
+There are now a full set of wheels for itk-TubeTK on Pypi, and they are
+SOMEWHAT compatible with ITK v5.4. Regretfully getting them to work
+required changes to ITK, and those changes aren't incorporated into
+ITK v5.4. We will have to wait for the ITK v6.0 release, which will
+likely be a few months from now.
+
+So, for 90+% of the functionality working (certain Spatial Object I/O
+methods will fail), you can use itk-tubetk 1.4.0 from pypi
+
+    > pip install itk-tubetk
+
+HOWEVER, for 100% functionality working, IF you are running Windows
+with Python 3.11, I have created a full set of wheels for ITK,
+ITKMinimumPathExtraction, and ITKTubeTK and uploaded them to the
+TEST pypi server.  You can install them into a new Python venv (one
+without ITK already installed), via
+
+   > python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ itk itk-minimalpathextraction itk-tubetk
+
+This should then install the following packages/wheels, ON WINDOWS machines
+with Python 3.11 ONLY:
+
+```
+itk                       5.4.0.20240629
+itk-core                  5.4.0.20240629
+itk-filtering             5.4.0.20240629
+itk-io                    5.4.0.20240629
+itk-minimalpathextraction 2.0.0.20240629
+itk-numerics              5.4.0.20240629
+itk-registration          5.4.0.20240629
+itk-segmentation          5.4.0.20240629
+itk-tubetk                1.4.0.20240629
+```
+
+I will also upload Ubuntu 22.04 wheels to the PyPiTEST server. If you
+need other wheels, please email me at stephen@aylward.org. However, my
+time (like everyone's time) is quite booked so there will be a delay.
+I will also get ITK master updated asap to build with the latest TubeTK
+and MinimalPathExtraction...
+
+Thanks for your patience!
+
+Installing Additional Examples
+==============================
+
+For additional examples of how to use TubeTK, see
+
+*** pytubetk 
+
+This is a new project that will evolve to be the primary
+source of examples for python tubetk.  It is very much a work-in-progress.
+The scripts will be helpful, but they may require updates to work with
+current itk-tubetk wheels:
+    https://github.com/aylward/pytubetk/tree/main/examples
+
+Compiling TubeTK
+================
+
+We stronly reocmmend that you use the Python version of TubeTK, as
+described above.  However, if you wish to compile TubeTK from scratch
+(e.g., because you wish to modify it or use its C++ interface), then
+use the version of TubeTK that is bundled with ITK. ITKTubeTK is
+available as a official ITK Remote Module, see instructions given
+earlier in this document.
+
+Details on compiling ITK (and optionally compiling its example applications and wrapping it for python) are described next.
+
+Within ITK
+----------
+
+If you decide to compile TubeTK instead of using its convenient Python interface (see above), then when you configure ITK (https://github.com/InsightSoftwareConsortium/ITK) using CMake (https://cmake.org/), you must set the following options
+
+* CMAKE_BUILD_TYPE = Release
+* ITK_WRAP_PYTHON = On
+* Module_TubeTK = On
+
+and then, when you build ITK, TubeTK will be automatically built as well.  Additionally, if you enable Python wrapping for ITK, that wrapping will include TubeTK.
+
+Example Applications
+--------------------
+
+To build TubeTK's example applications, you must do the following: 
+
+1) Build Slicer Execution Model: https://github.com/Slicer/SlicerExecutionModel
+2) Set the following configuration options in CMake for ITK:
+    * BUILD_EXAMPLES = On
+    * SlicerExecutionModel_DIR = \<Path to your build of Slicer Execution Model\>
+
+We then recommend adding the following paths to your user environment:
+
+For Python
+----------
+
+Again, our recommendation is to use the freely avaible and easy-to install
+Python wrapping of TubeTK that is available as described earlier in this
+document.
+    
+However, if you are compiling your own version of ITK/TubeTK, and you
+have set ITK_WRAP_PYTHON = On, then when you compile ITK, you will
+generate the Python interface for ITK and TubeTK. To use itk and 
+itk-tubetk within you python environment, copy the file
+
+    ITK-build/Wrapping/Generators/Python/WrapITK.pth 
+
+into your python's site-packages directory, e.g.,
+
+    venv/Lib/site-packages
+
+For more info, see https://stackoverflow.com/questions/122327/how-do-i-find-the-location-of-my-python-site-packages-directory
+
+Then you can test your configuration:
+
+    $ python -c "import itk"
+
+and
+
+    $ python -c "from itk import TubeTK"
+
+Both of the above commands should execute and return without errors.   Otherwise, please post a detailed description (of what you've done and what error you received) on the TubeTK issue tracker: https://github.com/InsightSoftwareConsortium/ITKTubeTK/issues
+
+Roadmap
+=======
+
+Our roadmap includes:
+* Continue to add examples to the pytubetk repo
+* Use TubeTK segmentations to create MONAI models for vessel segmentation.
+
+Acknowledgements
+----------------
+
+If you find TubeTK to be useful for your work, please cite the following publication when publishing your work:
+* S. R. Aylward and E. Bullitt, "Initialization, noise, singularities, and scale in height ridge traversal for tubular object centerline extraction," Medical Imaging, IEEE Transactions on, vol. 21, no. 2, pp. 61-75, 2002.
+
+The development of TubeTK has been supported, in part, by the following grants:
+
+* [NCI](https://www.cancer.gov/) under award numbers R01CA138419, R01CA170665, R43CA165621, and R44CA143234;
+* [NIBIB](https://www.nibib.nih.gov) (NBIB) of the National Institutes of Health (NIH) under award numbers R01EB014955, R41EB015775, R43EB016621, and U54EB005149;
+* [NIBIB](https://www.nibib.nih.gov) and [NIGMS](https://www.nigms.nih.gov) R01EB021396;
+* [NINDS](https://www.ninds.nih.gov) R42NS086295 and R41NS081792;
+* [Defense Advanced Research Projects Agency](https://www.darpa.mil) (DARPA) under the TRUST program.
+
+License
+-------
+
+This software is distributed under the Apache 2.0 license. Please see
+the *LICENSE* file for details.
+
+References
+----------
+
+( See also [Stephen R. Aylward @ Google Scholar](https://scholar.google.com/citations?user=jHEgTSwAAAAJ&hl=en) )
+
+* D.F. Pace, S.R. Aylward, M. Niethammer, "A Locally Adaptive Regularization Based on Anisotropic Diffusion for Deformable Image Registration of Sliding Organs," Medical Imaging, IEEE Transactions on , vol.32, no.11, pp.2114,2126, Nov. 2013 doi: 10.1109/TMI.2013.2274777
+* E. Bullitt, D. Zeng, B. Mortamet, A. Ghosh, S. R. Aylward, W. Lin, B. L. Marks, and K. Smith, "The effects of healthy aging on intracerebral blood vessels visualized by magnetic resonance angiography," NEUROBIOLOGY OF AGING, vol. 31, no. 2, pp. 290-300, Feb. 2010.
+* E. Bullitt, M. Ewend, J. Vredenburgh, A. Friedman, W. Lin, K. Wilber, D. Zeng, S. R. Aylward, and D. Reardon, "Computerized assessment of vessel morphological changes during treatment of glioblastoma multiforme: Report of a case imaged serially by MRA over four years," NEUROIMAGE, vol. 47, pp. T143-T151, Aug. 2009.
+* E. Bullitt, K. Muller, I. Jung, W. Lin, and S. Aylward, "Analyzing attributes of vessel populations," MEDICAL IMAGE ANALYSIS, vol. 9, no. 1, pp. 39-49, Feb. 2005.
+* S. Aylward, J. Jomier, S. Weeks, and E. Bullitt, "Registration and analysis of vascular images," INTERNATIONAL JOURNAL OF COMPUTER VISION, vol. 55, no. 2-3, pp. 123-138, Dec. 2003.
+* E. Bullitt, G. Gerig, S. Pizer, W. Lin, and S. Aylward, "Measuring tortuosity of the intracerebral vasculature from MRA images," IEEE TRANSACTIONS ON MEDICAL IMAGING, vol. 22, no. 9, pp. 1163-1171, Sep. 2003.
+* S. R. Aylward and E. Bullitt, "Initialization, noise, singularities, and scale in height ridge traversal for tubular object centerline extraction," Medical Imaging, IEEE Transactions on, vol. 21, no. 2, pp. 61-75, 2002.
+* S. Aylward, S. Pizer, D. Eberly, and E. Bullitt, "Intensity Ridge and Widths for Tubular Object Segmentation and Description," in MMBIA '96: Proceedings of the 1996 Workshop on Mathematical Methods in Biomedical Image Analysis (MMBIA '96), Washington, DC, USA, 1996, p. 131.
