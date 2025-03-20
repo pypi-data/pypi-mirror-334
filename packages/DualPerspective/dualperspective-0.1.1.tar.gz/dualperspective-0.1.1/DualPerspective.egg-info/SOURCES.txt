@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+DualPerspective/__init__.py
+DualPerspective/core.py
+DualPerspective.egg-info/PKG-INFO
+DualPerspective.egg-info/SOURCES.txt
+DualPerspective.egg-info/dependency_links.txt
+DualPerspective.egg-info/requires.txt
+DualPerspective.egg-info/top_level.txt
+tests/test_core.py
