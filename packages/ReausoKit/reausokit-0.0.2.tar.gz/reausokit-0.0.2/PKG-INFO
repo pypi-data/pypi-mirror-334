@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: ReausoKit
+Version: 0.0.2
+Summary: Some util functionality for Python Projects.
+Project-URL: Homepage, https://github.com/reauso/ReausoKit
+Author-email: Rene Ebertowski <r.ebertowski@gmx.de>
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: numpy
+Description-Content-Type: text/markdown
+
+# PythonUtil
+Some util functionality for Python Projects.
