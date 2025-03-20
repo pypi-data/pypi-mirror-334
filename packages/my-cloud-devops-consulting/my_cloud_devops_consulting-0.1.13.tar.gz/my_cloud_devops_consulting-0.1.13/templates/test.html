@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulting Homepage</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">CDC</div>
+        <h1>Cloud & DevOps Consulting</h1>
+        <nav aria-label="Main Navigation">
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('contact_form') }}">Contact Form</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <h2>Empowering Your Cloud & DevOps Journey</h2>
+        <p>
+          We specialize in delivering Cloud and DevOps consulting services
+          tailored to meet your unique business needs.
+        </p>
+        <button onclick="window.location.href='{{ url_for('services') }}'">
+          Explore Services
+        </button>
+      </section>
+
+      <!-- Video Section (only if logged in) -->
+      {% if video_url %}
+      <section class="video-section">
+        <h2>Watch Our Video</h2>
+        <video controls>
+          <source src="{{ video_url }}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+      {% endif %}
+
+      <!-- Services Highlights -->
+      <section class="services-highlight">
+        <h3>Our Key Services</h3>
+        <div class="service-cards">
+          <div class="card">
+            <h4>Cloud Consulting</h4>
+            <p>
+              Cloud migration, strategy, and optimization tailored for your
+              business.
+            </p>
+            <a href="{{ url_for('services') }}" class="btn-link">Learn More</a>
+          </div>
+          <div class="card">
+            <h4>DevOps Solutions</h4>
+            <p>
+              CI/CD pipelines, automated infrastructure, and efficient delivery.
+            </p>
+            <a href="{{ url_for('services') }}" class="btn-link">Learn More</a>
+          </div>
+          <div class="card">
+            <h4>Security & Compliance</h4>
+            <p>
+              Ensure security and compliance across your cloud and on-premise
+              environments.
+            </p>
+            <a href="{{ url_for('services') }}" class="btn-link">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Links Section -->
+      <section class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="{{ url_for('services') }}">View Our Services</a></li>
+          <li><a href="{{ url_for('contact') }}">Get in Touch</a></li>
+          <li><a href="{{ url_for('contact_form') }}">Contact Form</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="contact-info">
+        <p>
+          Phone: 240 298 1823 | Email:
+          <a href="mailto:mmutagha@gmail.com">mmutagha@gmail.com</a>
+        </p>
+      </div>
+      <p>&copy; 2024 Cloud & DevOps Consulting. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</html>
+<button class="scroll-to-top" onclick="scrollToTop()">↑ Top</button>
+
+</body> 
+
+
+
+
+# register
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/register.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">CDC</div>
+        <h1>Register for Cloud & DevOps Consulting</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('contact_form') }}">Contact Form</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="register-form">
+        <h2>Register</h2>
+        <!-- Flash messages for feedback -->
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+
+        <form method="POST" action="{{ url_for('register') }}">
+          <label for="username">Username:</label><br />
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+          /><br /><br />
+          <label for="password">Password:</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+          /><br /><br />
+          <button type="submit">Register</button>
+        </form>
+        <p>
+          Already have an account?
+          <a href="{{ url_for('login') }}">Login here</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="contact-info">
+        <p>
+          Phone: 240 298 1823 | Email:
+          <a href="mailto:mmutagha@gmail.com">mmutagha@gmail.com</a>
+        </p>
+      </div>
+      <p>&copy; 2024 Cloud & DevOps Consulting. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+  </body>
+</html>
+
+
+
+# app 
+from flask import Flask, render_template, request, redirect, url_for, session
+from pymongo import MongoClient
+from werkzeug.security import generate_password_hash, check_password_hash
+import boto3
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Change this to a secure value
+
+# AWS S3 Configuration (Remove credentials from code for security)
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id='your_aws_access_key',
+    aws_secret_access_key='your_aws_secret_key',
+    region_name='us-east-1'
+)
+bucket_name = 'my-websites-videos'
+
+# MongoDB Configuration (Remove sensitive credentials)
+client = MongoClient("your_mongodb_connection_string")
+db = client['my-database']
+users_collection = db['inventory_collection']
+
+@app.route('/')
+def home():
+    video_url = None
+    if 'username' in session:
+        video_url = f"https://{bucket_name}.s3.amazonaws.com/videos/death%20row.mp4"
+    return render_template('index.html', video_url=video_url)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        user = users_collection.find_one({'username': username})
+        if user and check_password_hash(user['password'], password):
+            session['username'] = username
+            return redirect(url_for('home'))
+        else:
+            return "Invalid username or password"
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        hashed_password = generate_password_hash(password)
+        user_data = {'username': username, 'password': hashed_password}
+        users_collection.insert_one(user_data)
+        return redirect(url_for('login'))
+    return render_template('register.html')
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/contact-form', methods=['GET', 'POST'])
+def contact_form():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        message = request.form['message']
+        contact_data = {'name': name, 'email': email, 'phone': phone, 'message': message}
+        db.contacts.insert_one(contact_data)
+        return redirect(url_for('home'))
+    return render_template('contact-form.html')
+
+if __name__ == '__main__':
+    app.run(debug=True,port=8080)
+
+
