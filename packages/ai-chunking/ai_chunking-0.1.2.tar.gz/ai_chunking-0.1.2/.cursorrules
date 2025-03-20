@@ -1,0 +1,44 @@
+# Cursor rules for creating a PyPi Python package
+
+# 1. Ensure your package has a unique name that is not already taken on PyPi.
+# 2. Create a setup.py file with the necessary metadata and configuration for your package.
+# 3. Include a README.md file to provide a description of your package.
+# 4. Add a LICENSE file to specify the licensing terms for your package.
+# 5. Ensure your package has an __init__.py file to make it a proper Python package.
+# 6. Write tests for your package and include them in a tests/ directory.
+# 7. Use a version control system like Git to manage your package's source code.
+# 8. Register an account on PyPi if you don't already have one.
+# 9. Use tools like twine to upload your package to PyPi.
+# 10. Follow best practices for Python packaging and distribution.
+
+# Example setup.py content:
+"""
+from setuptools import setup, find_packages
+
+setup(
+    name='your_package_name',
+    version='0.1.0',
+    packages=find_packages(),
+    install_requires=[
+        # List your package dependencies here
+    ],
+    author='Your Name',
+    author_email='your.email@example.com',
+    description='A brief description of your package',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    url='https://github.com/yourusername/your-repo',
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+    ],
+    python_requires='>=3.6',
+)
+"""
+
+# Example commands to upload your package to PyPi:
+# python setup.py sdist bdist_wheel
+# twine upload dist/*
+# End Generation Here
+
