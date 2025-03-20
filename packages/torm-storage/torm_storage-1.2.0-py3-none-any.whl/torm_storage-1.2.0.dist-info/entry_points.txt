@@ -1,0 +1,3 @@
+[console_scripts]
+dev=torm_storage.package:test
+
