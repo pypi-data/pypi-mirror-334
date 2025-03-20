@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: tagfinder
+Version: 0.1.1
+Summary: A tool to find the latest Docker image tag based on a short name
+Author-email: wxzhuyeah <wxzhuyeah@gmail.com>
+Keywords: container,docker,finder,image,tag
+Requires-Python: >=3.10
+Requires-Dist: click>=8.0.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: tenacity>=8.0.0

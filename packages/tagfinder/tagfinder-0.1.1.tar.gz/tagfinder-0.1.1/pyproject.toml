@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tagfinder"
+dynamic = ["version"]
+description = "A tool to find the latest Docker image tag based on a short name"
+authors = [
+    { name = "wxzhuyeah", email = "wxzhuyeah@gmail.com" },
+]
+dependencies = [
+    "click>=8.0.0",
+    "requests>=2.25.0",
+    "tenacity>=8.0.0",
+]
+requires-python = ">=3.10"
+keywords = ["docker", "image", "tag", "finder", "container"]
+
+[project.scripts]
+tagfinder = "tagfinder.cli:cli"
+
+[tool.hatch.version]
+path = "src/tagfinder/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tagfinder"]
