@@ -1,0 +1,26 @@
+# pyproject.toml (Recommended)
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intura-ai"  # Replace with your package name
+version = "0.0.2"  # Initial version
+authors = [
+    { name = "Intura", email = "hello@intura.co" },
+]
+description = "A short description of your package."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Replace with your license
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests>=2.26.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/intura-co/intura-ai" #Replace
+"Bug Tracker" = "https://github.com/intura-co/intura-ai/issues" #Replace

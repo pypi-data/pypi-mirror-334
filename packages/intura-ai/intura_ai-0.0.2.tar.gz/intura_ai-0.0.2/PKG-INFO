@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: intura-ai
+Version: 0.0.2
+Summary: A short description of your package.
+Author-email: Intura <hello@intura.co>
+Project-URL: Homepage, https://github.com/intura-co/intura-ai
+Project-URL: Bug Tracker, https://github.com/intura-co/intura-ai/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.26.0
+
+# intura-ai
+intura ai for experimentation llm platform
