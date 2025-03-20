@@ -1,0 +1,54 @@
+Metadata-Version: 2.2
+Name: aisystems
+Version: 0.1.0
+Summary: A Python package for AI systems
+Home-page: https://github.com/ayushexel/aisystems
+Author: Ayush Chaurasia
+Author-email: ayush.chaurarsia@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# AI Systems
+
+A Python package for AI systems development and implementation.
+
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install aisystems
+```
+
+## Usage
+
+```python
+from aisystems import AISystem
+
+# Example usage will be added in future versions
+```
+
+## Features
+
+- Basic AI system infrastructure
+- More features coming soon
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
