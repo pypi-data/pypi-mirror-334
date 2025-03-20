@@ -1,0 +1,4 @@
+[console_scripts]
+det-register = det_cli.register:register_protocol
+det-update = det_cli.protocol_handler:handle_protocol
+
