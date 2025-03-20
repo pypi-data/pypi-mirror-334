@@ -1,0 +1,3 @@
+from _typeshed import Incomplete as Incomplete
+
+def Expera(framework_settings, model_structure, modelling_settings, simulator_settings, design_decisions, j, swps: Incomplete | None = None): ...
