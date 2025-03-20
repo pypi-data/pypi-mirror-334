@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: icem
+Version: 0.5
+Summary: Create Gmsh FEM discretization from GDSII file
+Project-URL: Homepage, https://github.com/fbengineering/icem
+Project-URL: Documentation, https://fbengineering.gitlab.io/icem
+Author-email: Federico Beffa <beffa@fbengineering.ch>
+License-Expression: GPL-3.0-or-later
+Keywords: EM,discretization,fem,finite-element,gds
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Requires-Dist: gmsh
+Requires-Dist: klayout>=0.28.0
+Requires-Dist: more-itertools>=10.5.0
+Requires-Dist: numpy>=1.26
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
+Description-Content-Type: text/markdown
+
+<!--
+SPDX-FileCopyrightText: 2025 Federico Beffa <beffa@fbengineering.ch>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
+ICEM
+====
+
+Python library for converting integrated circuit (IC) structures described in GDS files into finite-element models for electromagnetic (EM) computation. Documentation can be found [here](https://fbengineering.gitlab.io/icem).
+
+Dependencies
+------------
+
+`icem` depends on the following Python libraries:
+
+* gmsh
+* klayout
+* more-itertools
+* numpy
+
+Installation
+------------
+
+`icem` is available on [PyPi](https://pypi.org/). The easiest way to install it on Unix-like systems is via `pip`:
+
+```bash
+pip install icem
+```
+
+Alternatively you can download the Python distribution archives from the release page, or download the source code and add its location to the environment variable `PYTHONPATH`.
