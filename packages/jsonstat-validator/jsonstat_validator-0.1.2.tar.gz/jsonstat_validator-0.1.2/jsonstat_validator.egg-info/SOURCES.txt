@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+jsonstat_validator/__init__.py
+jsonstat_validator/validator.py
+jsonstat_validator.egg-info/PKG-INFO
+jsonstat_validator.egg-info/SOURCES.txt
+jsonstat_validator.egg-info/dependency_links.txt
+jsonstat_validator.egg-info/requires.txt
+jsonstat_validator.egg-info/top_level.txt
+tests/test_custom.py
+tests/test_official_samples.py
