@@ -1,0 +1,12 @@
+aioboto3
+pyperclip
+questionary
+tqdm
+boto3
+pillow
+
+[dev]
+pytest
+pytest-cov
+flake8
+black
