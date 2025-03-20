@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  djangofoundry:
+    image: djangofoundry
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        GIT_USERNAME: GitUsername
+        GIT_EMAIL: myemail@gmail.com
+    ports:
+      - 8000:8000

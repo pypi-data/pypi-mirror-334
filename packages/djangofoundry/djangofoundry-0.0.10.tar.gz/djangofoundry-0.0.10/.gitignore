@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Django
+*.log
+*.pot
+*.mo
+*.sqlite3
+db.sqlite3
+#migrations/
+
+# Angular
+node_modules/
+dist/
+*.js.map
+*.d.ts
+
+# Sass
+*.css.map
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# IDEs
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+package-lock.json
+
+# Application
+*.log
+.dev/
+pylint.out
+*.egg-info
