@@ -1,0 +1,33 @@
+[project]
+name = "chatplotlib"
+version = "0.1.1"
+description = "A Large Language Model Auxiliary Data Visualization Tool Based on Matplotlib"
+authors = [
+    {name = "wuyao1997",email = "wuyao1997@qq.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "openai (>=1.54)",
+    "matplotlib (>=3.8.0)",
+    "toml (>=0.10.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+name = "chatplotlib"
+version = "0.1.0"
+description = "A Large Language Model Auxiliary Data Visualization Tool Based on Matplotlib"
+authors = ["wuyao1997"]
+readme = ["README.md", "./docs/README.zh_cn.md"]
+packages = [
+    {include ="chatplotlib"},
+    {include ="docs/README.zh_cn.md"}
+]
+
