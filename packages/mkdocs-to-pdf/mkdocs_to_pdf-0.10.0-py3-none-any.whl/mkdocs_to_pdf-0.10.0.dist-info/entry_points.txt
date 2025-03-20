@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+to-pdf = mkdocs_to_pdf.plugin:WithPdfPlugin
