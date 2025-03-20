@@ -1,0 +1,91 @@
+Metadata-Version: 2.2
+Name: pareto-front
+Version: 0.0.2
+Summary: A package for computing Pareto fronts
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: multipledispatch
+Requires-Dist: pyprojroot
+Requires-Dist: python-dotenv
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: darglint; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: interrogate; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pylint; extra == "dev"
+Requires-Dist: ipykernel; extra == "dev"
+Requires-Dist: ipywidgets; extra == "dev"
+Requires-Dist: jupyter; extra == "dev"
+Requires-Dist: jupyterlab; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: bumpversion; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs; extra == "docs"
+Requires-Dist: mkdocs-material; extra == "docs"
+Requires-Dist: mkdocstrings; extra == "docs"
+Requires-Dist: mknotebooks; extra == "docs"
+
+# pareto-front
+
+Welcome to the repository for the pareto-front project!
+
+## Quickstart
+
+### Using pixi (recommended)
+
+This project uses pyproject.toml for both Python packaging and pixi configuration.
+
+```bash
+# Install pixi if you don't have it already
+curl -fsSL https://pixi.sh/install.sh | bash
+
+# Create a development environment
+pixi install
+
+# Activate the environment
+pixi shell
+
+# Run tests
+pixi run test
+
+# Build documentation
+pixi run docs
+
+# Development environment with additional tools
+pixi install --environment dev
+
+# Documentation environment
+pixi install --environment docs
+```
+
+<!-- uncomment if relevant
+### Install from PyPI
+
+```python
+pip install pareto-front
+```
+-->
+### Install from source
+
+```bash
+pip install git@github.com:ericmjl/pareto-front
+```
+
+### Build and preview docs
+
+```bash
+mkdocs serve
+```
+
+## Why this project exists
+
+This project exists to provide a small library of functions
+that calculate pareto fronts on data.

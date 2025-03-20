@@ -1,0 +1,126 @@
+# https://setuptools.pypa.io/en/latest/userguide/quickstart.html
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pareto-front"
+version = "0.0.2"
+description = "A package for computing Pareto fronts"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "multipledispatch",
+    "pyprojroot",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "darglint",
+    "flake8",
+    "interrogate",
+    "pre-commit",
+    "pylint",
+    "ipykernel",
+    "ipywidgets",
+    "jupyter",
+    "jupyterlab",
+    "build",
+    "bumpversion",
+    "twine",
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings",
+    "mknotebooks",
+]
+
+[tool.setuptools]
+packages = ["pareto_front"]
+include-package-data = true
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+fail-under = 100
+exclude = ["setup.py", "docs", "build", "examples"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+verbose = 2
+quiet = false
+whitelist-regex = []
+color = true
+
+[tool.pytest.ini_options]
+addopts = "-v --cov --cov-report term-missing"
+testpaths = [
+    "tests",
+]
+
+[tool.isort]
+profile = "black"
+
+# Pixi configuration
+[tool.pixi.project]
+name = "pareto-front"
+version = "0.0.2"
+description = "A package for computing Pareto fronts"
+channels = ["conda-forge"]
+platforms = ["osx-64", "osx-arm64", "linux-64", "win-64"]
+
+[tool.pixi.tasks]
+test = "pytest -v --cov --cov-report term-missing tests/"
+lint = "pre-commit run --all-files"
+docs = "mkdocs serve"
+build = "python -m build"
+
+[tool.pixi.feature.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+
+[tool.pixi.feature.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+mkdocstrings = "*"
+mknotebooks = "*"
+
+[tool.pixi.environments]
+default = {features = [], solve-group = "default"}
+dev = {features = ["dev"], solve-group = "default"}
+docs = {features = ["docs"], solve-group = "default"}
