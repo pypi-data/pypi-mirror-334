@@ -1,0 +1,2 @@
+{command} molpro/{name}.inp
+
