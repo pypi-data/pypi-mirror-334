@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: tkzs-bd-ads-db-tool
+Version: 0.2.2
+Summary: 基于sqlalchemy的数据库管理工具
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pymysql>=1.1.1
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: sqlalchemy>=2.0.39

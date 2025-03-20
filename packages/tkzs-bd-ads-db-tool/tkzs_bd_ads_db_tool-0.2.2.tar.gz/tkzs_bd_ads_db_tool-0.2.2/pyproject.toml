@@ -1,0 +1,11 @@
+[project]
+name = "tkzs-bd-ads-db-tool"
+version = "0.2.2"
+description = "基于sqlalchemy的数据库管理工具"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pymysql>=1.1.1",
+    "python-dotenv>=1.0.1",
+    "sqlalchemy>=2.0.39",
+]
