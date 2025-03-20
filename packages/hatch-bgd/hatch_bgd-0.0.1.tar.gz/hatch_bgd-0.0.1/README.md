@@ -1,0 +1,64 @@
+# hatch-bgd
+
+**​b**ase version, ​latest **G**it commit ID, and ​latest update **d**ate
+
+---
+
+This provides a plugin for [Hatch](https://github.com/pypa/hatch) that automatically generates the version string in the format "base-version+git-commit-id.date" (e.g. `1.0.0+g4926eb8.d20250318`)
+
+**Table of Contents**
+
+- [Global dependency](#global-dependency)
+- [Version source](#version-source)
+  - [Version source options](#version-source-options)
+  - [Version source environment variables](#version-source-environment-variables)
+- [License](#license)
+
+## Global dependency
+
+Ensure `hatch-bgd` is defined within the `build-system.requires` field in your `pyproject.toml` file.
+
+```toml
+[build-system]
+requires = ["hatchling", "hatch-bgd"]
+build-backend = "hatchling.build"
+```
+
+## Version source
+
+The [version source plugin](https://hatch.pypa.io/latest/plugins/version-source/reference/) name is `bgd`.
+
+- ***pyproject.toml***
+
+    ```toml
+    [tool.hatch.version]
+    source = "bgd"
+    ```
+
+- ***hatch.toml***
+
+    ```toml
+    [version]
+    source = "bgd"
+    ```
+
+### Version source options
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `base-version` | `str` | - |
+| `build-type` | `str` | When selecting between `dev` and `release`, if `dev` is chosen, a local version identifier in the format `f"{latest Git commit ID}.{latest update date}"` will be automatically appended after the `base-version`. |
+
+
+### Display version
+
+`hatch version` will print the version to the terminal without modifying the source directory.
+
+```console
+$ hatch version
+1.0.0+g4926eb8.d20250318
+```
+
+## License
+
+`hatch-bgd` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
