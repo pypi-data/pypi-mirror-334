@@ -1,0 +1,6 @@
+[console_scripts]
+libxr_config_cubemx_project = libxr.ConfigCubemxProject:main
+libxr_generate_code = libxr.GeneratorCode:main
+libxr_generate_stm32_cmake = libxr.GeneratorSTM32CMake:main
+libxr_generate_stm32_it = libxr.GeneratorSTM32IT:main
+libxr_parse_ioc = libxr.PeripheralAnalyzer:main
