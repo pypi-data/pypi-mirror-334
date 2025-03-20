@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: alpacalert
+Version: 0.1.0
+Summary: Alpacalert is a monitoring tool which understands your infrastructure as interacting services
+Author: lilatomic
+Maintainer: lilatomic
+Project-URL: Homepage, https://github.com/lilatomic/alpacalert
+Project-URL: Repository, https://github.com/lilatomic/alpacalert.git
+Project-URL: Documentation, https://alpacalert.readthedocs.io/en/latest/
+Project-URL: Changelog, https://github.com/lilatomic/alpacalert/blob/main/docs/CHANGELOG.rst
+Project-URL: Issues, https://github.com/lilatomic/alpacalert/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet :: Log Analysis
+Requires-Python: <4,>=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0
+Requires-Dist: kr8s~=0.14.0
+Requires-Dist: requests~=2.0
+Requires-Dist: cachetools~=5.0
+Requires-Dist: typing_extensions~=4.0
