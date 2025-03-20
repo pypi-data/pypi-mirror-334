@@ -1,0 +1,17 @@
+runtimepy>=5.10.1
+vcorelib>=3.5.0
+
+[test]
+pylint
+flake8
+black
+ruff
+mypy
+isort
+yamllint
+yambs
+vmklib>=2.0.3
+sphinx
+sphinx-book-theme
+setuptools-wrapper
+types-setuptools

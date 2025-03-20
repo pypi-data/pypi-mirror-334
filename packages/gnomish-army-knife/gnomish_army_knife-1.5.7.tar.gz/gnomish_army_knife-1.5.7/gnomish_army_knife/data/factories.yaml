@@ -1,0 +1,9 @@
+---
+includes:
+  - package://runtimepy/factories.yaml
+
+factories:
+  - {name: gnomish_army_knife.net.LogServer}
+  - {name: gnomish_army_knife.net.LogWriter}
+  - {name: gnomish_army_knife.net.TcpCombatLogEvent}
+  - {name: gnomish_army_knife.net.WebsocketCombatLogEvent}
