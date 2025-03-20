@@ -1,0 +1,32 @@
+[project]
+name = "dsbase"
+version = "0.1.2.dev1"
+description = "Python utilities and helpers for logging, environment management, file operations, and more"
+authors = [{ name = "Danny Stewart", email = "danny@stewart.cc" }]
+readme = "README.md"
+urls = { repository = "https://github.com/dannystewart/dsbase" }
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "halo>=0.0.31",
+    "natsort>=8.4.0",
+    "platformdirs (>=4.3.6)",
+    "pygments (>=2.19.1)",
+    "python-dateutil (>=2.9.0.post0)",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "send2trash>=1.8.3",
+    "termcolor>=2.5.0",
+    "types-requests (>=2.32.0.20250306)",
+    "types-send2trash>=1.8.2.7",
+    "tzdata (>=2025.1)",
+]
+
+[tool.poetry.group.dev.dependencies]
+mypy = ">=1.15.0"
+ruff = ">=0.10.0"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
