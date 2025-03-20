@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: lielab
+Version: 0.4.2
+Summary: Lielab is a Python-wrapped C++ library implementing various objects and routines for numerical finite-dimensional Lie-theory.
+Home-page: https://github.com/sandialabs/Lielab
+Author: Michael J. Sparapany
+Author-email: mjspara@sandia.gov
+Platform: any
+Requires-Python: >=3.6
+Requires-Dist: numpy>=1.16.3
+Provides-Extra: dev
+Requires-Dist: numpy>=1.16.3; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: platform
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Lielab is a Python-wrapped C++ library implementing various objects and routines for numerical finite-dimensional Lie-theory.
