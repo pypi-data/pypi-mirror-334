@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="agresta_project" model="ir.ui.view">
+        <field name="name">Agresta Project Task updates</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <data>
+                <field  name="privacy_visibility" position="before">
+                    <field name="hourly_price" widget="monetary"/>
+                    <field name="execution_weight" widget="radio"/>
+                </field>
+            </data>
+        </field>
+    </record>
+    <record id="agresta_project_list_update" model="ir.ui.view">
+        <field name="name">Agresta Project List Updates</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <data>
+                <field  name="stage_id" position="before">
+                    <field name="hourly_price" widget="monetary" optional="hide"/>
+                    <field name="total_budget" optional="hide"/>
+                    <field name="last_update_execution_amount" optional="hide"/>
+                    <field name="last_update_execution_pcnt" optional="hide"/>
+                    <field name="last_update_total_hours" optional="hide"/>
+                    <field name="last_update_material_expenses" optional="hide"/>
+                    <field name="last_update_total_incomes" optional="hide"/>
+                    <field name="hourly_expenses" optional="hide"/>
+                    <field name="balance_hours" optional="hide"/>
+                    <field name="total_expenses" optional="hide" />
+                    <field name="hourly_expenses" optional="hide"/>
+                    <field name="real_time_evaluation" optional="hide"/>
+                </field>
+            </data>
+        </field>
+    </record>
+    <record id="project_invoice_form" model="ir.ui.view">
+        <field name="name">Project invoice form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="hr_timesheet.project_invoice_form" />
+        <field name="arch" type="xml">
+            <data>
+                <field name="allocated_hours" position="attributes">
+                    <attribute name="readonly">true</attribute>
+                </field>
+                <field name="allocated_hours" position="after">
+                    <field name="hourly_expenses"/>
+                    <field name="balance_hours"/>
+                    <field name="total_expenses" />
+                    <field name="execution_kpi"/>
+                    <field name="real_time_evaluation"/>
+                </field>
+            </data>
+        </field>
+    </record>
+</odoo>
