@@ -1,0 +1,11 @@
+numpy
+pandas
+pyserial
+tensorflow
+tqdm
+joblib
+
+[dev]
+pytest
+flake8
+black
