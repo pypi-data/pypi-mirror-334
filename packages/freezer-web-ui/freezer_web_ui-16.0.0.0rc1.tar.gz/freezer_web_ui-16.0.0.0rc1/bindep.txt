@@ -1,0 +1,10 @@
+# A build time dependency
+# these are needed to compile Python dependencies from sources
+python3-all-dev [platform:dpkg !platform:ubuntu-precise test]
+python3-devel [platform:rpm test]
+build-essential [platform:dpkg test]
+libmariadb-dev-compat [platform:dpkg test]
+mariadb [platform:rpm test]
+mariadb-client [platform:dpkg test]
+mariadb-devel [platform:rpm test]
+mariadb-server [test]
