@@ -1,0 +1,35 @@
+[project]
+name = "usdrate"
+version = "0.2.5"
+description = "usdrate is a lightweight CLI tool that retrieves and caches USD/JPY mid rate exchange data from 77bank's website. It automatically fetches data for the current and past 7 years, stores the results in a package-local cache, and allows you to easily query the mid rate for any specific date."
+authors = [
+    { name = "kon0n0", email = "kono@ms1.kononet.jp" }
+]
+dependencies = [
+    "pandas",
+    "requests",
+    "beautifulsoup4",
+    "arrow>=1.3.0",
+    "selenium>=4.29.0",
+    "logflex==0.1.6"
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = "MIT"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/usdrate"]
+
+[project.scripts]
+usdrate = "usdrate.cli:main"

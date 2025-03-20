@@ -1,0 +1,107 @@
+Metadata-Version: 2.4
+Name: usdrate
+Version: 0.2.5
+Summary: usdrate is a lightweight CLI tool that retrieves and caches USD/JPY mid rate exchange data from 77bank's website. It automatically fetches data for the current and past 7 years, stores the results in a package-local cache, and allows you to easily query the mid rate for any specific date.
+Author-email: kon0n0 <kono@ms1.kononet.jp>
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: arrow>=1.3.0
+Requires-Dist: beautifulsoup4
+Requires-Dist: logflex==0.1.6
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: selenium>=4.29.0
+Description-Content-Type: text/markdown
+
+# usdrate
+
+`usdrate`は、七十七銀行の為替情報サイトからUSD/JPYの仲値データを取得・キャッシュし、指定した日付の為替レートを簡単に問い合わせるためのCLIツールです。RSUの申告の際に過去にVestされた際の仲値を一々調べるのが辛くなって作りました。
+
+## 動作概要
+
+- キャッシュデータの確認をし、なかった場合は現在の西暦および過去7年分（合計8年分）の為替データを七十七銀行から取得します。
+- キャッシュデータはパッケージ内のキャッシュディレクトリに保存され、以降の実行で再利用されます。
+- 指定した日付のUSD/JPY仲値をコマンドラインから問い合わせができます。
+
+## インストール
+
+以下のコマンドでインストールできます:
+
+    pip install usdrate
+
+**ChromeDriverについて**
+
+`-p`オプションを利用する場合はChromeDriverが必要になります。
+
+ChromeDriverのインストール方法については、以下のURLを参照し、手動でインストールしてください:
+
+https://developer.chrome.com/docs/chromedriver/downloads?hl=ja
+
+## 使い方
+
+### 基本的な使い方
+
+指定した日付の為替仲値を取得するには、以下のようにコマンドを実行します:
+
+    usdrate 2024/08/27
+    The USD/JPY mid rate on 2024-08-27 is 144.86.
+
+このコマンドは、2024年8月27日のUSD/JPY仲値を表示します。
+
+### キャッシュの更新
+
+キャッシュを更新したい場合は、`--update`または`-u`オプションを使用します:
+
+    usdrate 2024/01/01 --update
+
+### PDF出力機能
+
+`-p`（または`--pdfoutput`）オプションを指定すると、確定申告時の根拠資料となるPDFもダウンロードします。
+- 過去の年度のPDFは、既に存在する場合はダウンロードされません。
+- 今年のデータに関しては毎日更新されるため、`-p`が指定された場合は既存のPDFがあっても最新のPDFに更新されます。
+
+### 一括問い合わせ機能
+
+`-b`（または`--bulk`）オプションを使用すると、Enter区切りで日付が記載されたファイルを指定できます。
+この場合、ファイル内の各日付に対してUSD/JPYの仲値が順次表示されます。
+
+#### 一括問い合わせファイルの例
+
+以下は、一括問い合わせ用のファイル例です。
+各行に問い合わせたい日付を記入します:
+
+    2024/08/27
+    2024/08/28
+    2024/09/01
+
+このようなファイルを用意し、`-b`オプションで指定してください。
+
+## Release情報
+
+### 0.2.3リリース
+
+以下の機能拡張が追加されています:
+- **Retry処理の追加:** 一時的に七十七銀行へのアクセスができなかったとしても3回retryするように変更。
+
+### 0.2.2リリース
+
+以下の機能拡張が追加されています:
+- **loggerの導入:** 一部print文をloggerに置き換えました。
+
+### 0.2.0リリース
+
+以下の機能拡張が追加されています:
+
+- **PDF出力:** HTMLからPDFを生成し、キャッシュディレクトリ内の`pdfs`フォルダに保存します。
+  特に、今年のデータは常に最新の状態に更新されます。
+
+- **一括問い合わせ:** 複数の日付を1つのファイルに記載することで、一度に複数の日付の仲値を問い合わせることができます。
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## 作者
+
+kon0n0 (kono@ms1.kononet.jp)

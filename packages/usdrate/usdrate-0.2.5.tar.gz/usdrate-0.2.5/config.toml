@@ -1,0 +1,19 @@
+[general]
+log_level = "INFO"
+verbose = true
+trace = false
+#format = "[%(asctime)s] [%(levelname)s]: %(message)s"
+format = "[%(asctime)s] [%(levelname)s][%(module)s]: %(message)s"
+
+enable_dynamic_reloading = false
+
+[general.color_settings]
+enable_color = true
+datefmt = "%Y-%m-%d %H:%M:%S"
+reset = true
+log_colors = { DEBUG = "cyan", INFO = "green", WARNING = "yellow", ERROR = "red", CRITICAL = "red,bg_white" }
+style = "%"
+
+[file_handler]
+
+[syslog_handler]
