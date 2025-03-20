@@ -1,0 +1,7 @@
+HAS_CUDA = 0
+ORT_VERSION = '1.19.2'
+ORT_VERSION_INT = 1192
+CXX_FLAGS = '-include stdint.h -Wall -Wno-unknown-pragmas -Wextra -mavx2 -mf16c -fPIC'
+CMAKE_CXX_STANDARD_REQUIRED = 'ON'
+CMAKE_CXX_EXTENSIONS = 'OFF'
+CMAKE_CXX_STANDARD = 20
