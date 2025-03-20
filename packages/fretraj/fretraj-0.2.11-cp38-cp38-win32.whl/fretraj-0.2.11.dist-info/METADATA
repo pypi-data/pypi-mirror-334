@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: fretraj
+Version: 0.2.11
+Summary: Predicting FRET with accessible-contact volumes
+Author-email: Fabio Steffen <fabio.steffen@chem.uzh.ch>, "Roland K.O. Sigel" <roland.sigel@chem.uzh.ch>, Richard Börner <richard.boerner@hs-mittweida.de>
+License: GPL-3.0-or-later
+Project-URL: Repository, https://github.com/RNA-FRETools/fretraj
+Project-URL: Documentation, https://rna-fretools.github.io/fretraj/
+Project-URL: Issues, https://rna-fretools.github.io/fretraj/issues
+Keywords: FRET,single-molecule,molecular dynamics,PDB,structure prediction
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Jupyter
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: numba
+Requires-Dist: pandas
+Requires-Dist: mdtraj
+Requires-Dist: tqdm
+Requires-Dist: jsonschema
+Requires-Dist: importlib-metadata
+Provides-Extra: dev
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: jupyter-book ; extra == 'docs'
+Requires-Dist: ipywidgets ; extra == 'docs'
+Requires-Dist: matplotlib ; extra == 'docs'
+Requires-Dist: seaborn ; extra == 'docs'
+
+<img src="https://raw.githubusercontent.com/fdsteffen/fretraj/master/docs/images/fretraj_logo_readme.png">
+
+[![Build and deploy](https://github.com/RNA-FRETools/fretraj/actions/workflows/build.yml/badge.svg)](https://github.com/RNA-FRETools/fretraj/actions/workflows/build.yml)
+[![Documentation](https://github.com/RNA-FRETools/fretraj/actions/workflows/docs.yml/badge.svg)](https://github.com/RNA-FRETools/fretraj/actions/workflows/docs.yml)
+[![PyPI](https://img.shields.io/pypi/v/fretraj)](https://pypi.org/project/fretraj/)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/fretraj.svg)](https://anaconda.org/conda-forge/fretraj)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10898653.svg)](https://doi.org/10.5281/zenodo.10898653)
+
+*FRETraj* is a Python module for **predicting FRET efficiencies** by calculating multiple accessible-contact volumes (multi-ACV) to estimate donor and acceptor dye dynamics. The package features a user-friendly **PyMOL plugin**<sup>[1](#pymol)</sup> for for FRET-assisted, integrative structural modeling. It interfaces with the [*LabelLib*](https://github.com/Fluorescence-Tools/LabelLib) library for fast computation of ACVs. 
+Specifically, *FRETraj* is designed to:
+- plan (single-molecule) FRET experiments by optimizing **labeling positions**
+- interpret FRET-based **distance measurements** on a biomolecule
+- integrate FRET experiments with **molecular dynamics** simulations
+
+<img src="https://raw.githubusercontent.com/fdsteffen/fretraj/master/docs/images/graphical_abstract.png">
+
+## Installation and Documentation
+Follow the instructions for your platform [here](https://rna-fretools.github.io/fretraj/getting_started/installation)
+
+## References
+If you use **FRETraj** in your work please refer to the following paper:
+
+- F.D. Steffen, R.K.O. Sigel, R. Börner, *Bioinformatics* **2021**. [![](https://img.shields.io/badge/DOI-10.1093/bioinformatics/btab615-blue.svg)](https://doi.org/10.1093/bioinformatics/btab615)
+
+### Additional readings
+- F.D. Steffen, R.A. Cunha, R.K.O. Sigel, R. Börner, *Nucleic Acids Res.* **2024**, *52*, e59.
+- F.D. Steffen, R.K.O. Sigel, R. Börner, *Phys. Chem. Chem. Phys.* **2016**, *18*, 29045-29055.
+- S. Kalinin, T. Peulen, C.A.M. Seidel et al. *Nat. Methods*, **2012**, *9*, 1218-1225.
+- T. Eilert, M. Beckers, F. Drechsler, J. Michaelis, *Comput. Phys. Commun.*, **2017**, *219*, 377–389.
+- M. Dimura, T. Peulen, C.A.M. Seidel et al. *Curr. Opin. Struct. Biol.* **2016**, *40*, 163-185.
+- M. Dimura, T. Peulen, C.A.M Seidel et al. *Nat. Commun.* **2020**, *11*, 5394.
+
+---
+
+<sup><a name="pymol">1</a></sup> PyMOL was developed by WarrenDeLano and is maintained by Schrödinger, LLC.
