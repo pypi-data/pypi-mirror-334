@@ -1,0 +1,20 @@
+[project]
+name = "arkagent-mcp-service"
+version = "0.1.0"
+description = "arkagent mcp server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+ "mcp>=1.4.1",
+ "requests>=2.32.3",
+]
+[[project.authors]]
+name = "zhendongchen"
+email = "zhendongchen@emotibot.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+arkagent-mcp-service = "arkagent_mcp_service:main"
