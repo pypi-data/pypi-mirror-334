@@ -1,0 +1,27 @@
+Metadata-Version: 2.2
+Name: nsj_integracao_api_entidades
+Version: 1.0.0a15
+Summary: Biblioteca que fornece modelos e estruturas padronizadas para facilitar a integração entre sistemas via APIs RESTful.
+Home-page: https://github.com/Nasajon/nsj_integracao_api_entidades
+Author: Nasajon Sistemas
+Author-email: contact.dev@nasajon.com.br
+Project-URL: Source, https://github.com/Nasajon/nsj_integracao_api_entidades
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: inflect==6.0.5
+Requires-Dist: SQLAlchemy==1.4.32
+Requires-Dist: pg8000==1.24.1
+Requires-Dist: Flask<3.0.0,>=2.0.3
+Requires-Dist: nsj_gcf_utils==1.0.18
+Requires-Dist: nsj_rest_lib==2.13.0a7
+Requires-Dist: nsj_flask_auth==0.8.0
+Requires-Dist: authlib==1.0.0
+Requires-Dist: werkzeug==2.0.3
+
+# nsj_integracao_entidades
+
+O nsj-integracao-entidades é uma biblioteca que fornece modelos e estruturas padronizadas para facilitar a integração entre sistemas via APIs RESTful. O objetivo é oferecer uma base consistente para gerenciar dados e entidades compartilhadas entre diferentes aplicações.
