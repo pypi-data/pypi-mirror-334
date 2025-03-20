@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsi-toolkit"
+version = "1.0.2"
+requires-python = ">=3.7"
+authors = [
+    { name = "Márcio Falcão dos Santos Barroso", email = "barroso@ufsj.edu.br" },
+    { name = "Eduardo M. A. M. Mendes", email = "emmendes@ufmg.br" },
+    { name = "Jim Jones da Silveira Marciano", email = "jimjonessm@gmail.com" }
+]
+description = "The provided script 'dsi-toolkit' leverages a package designed for identifying polynomial models."
+readme = "README.md"
+license = { text = "Proprietary" }
+dependencies = ["numpy", "matplotlib"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "License :: Other/Proprietary License",
+    "Intended Audience :: Developers"
+]
+
+[project.urls]
+Homepage = "https://www.mathworks.com/matlabcentral/fileexchange/180279-dynamic-systems-identification-polynomial-models"
