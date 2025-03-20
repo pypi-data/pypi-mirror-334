@@ -1,0 +1,55 @@
+Metadata-Version: 2.2
+Name: luzigpt
+Version: 1.0.0
+Summary: LuziGPT: Önceden belirlenmiş soru-cevapları döndüren Python modülü
+Author: luzi tool
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# LuziGPT
+
+**LuziGPT**, önceden tanımlı soru-cevap verileri ile çalışan basit bir yapay zeka modülüdür. Harici API'ler kullanmadan, kendi içinde bulunan verilerden cevaplar üretir. Telegram botları, sohbet uygulamaları ve eğitsel projelerde kullanılabilir.
+
+## 🚀 Özellikler
+- 📌 **Önceden Tanımlı Cevaplar**: JSON dosyasında saklanan soru-cevap çiftleriyle çalışır.
+- ⚡ **Hızlı ve Hafif**: Harici API'lere bağımlı değildir, tamamen yerel çalışır.
+- 🛠 **Kolay Entegrasyon**: Telegram botları, Discord botları veya diğer projelerde kolayca kullanılabilir.
+
+## 🔧 Kurulum
+LuziGPT'yi yüklemek için aşağıdaki komutu çalıştırın:
+```sh
+pip install luzigpt
+```
+
+## 📌 Kullanım
+```python
+from luzigpt import LuziGPT
+
+gpt = LuziGPT()
+soru = "Merhaba"
+cevap = gpt.cevap_ver(soru)
+print(cevap)
+```
+### Örnek Çıktı:
+```
+Merhaba! Nasıl yardımcı olabilirim?
+```
+
+
+
+## 📜 Lisans
+Bu proje **MIT Lisansı** ile lisanslanmıştır. Dilediğiniz gibi kullanabilir ve geliştirebilirsiniz.
+
+---
+🎯 **Geliştirici:** [LuziTool](https://t.me/luzitool)  
+📬 **İletişim:** t.me/luzitool
+
