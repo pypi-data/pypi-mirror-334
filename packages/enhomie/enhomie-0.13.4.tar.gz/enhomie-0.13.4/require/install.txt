@@ -1,0 +1,5 @@
+encommon>=0.22.4
+enconnect>=0.17.10
+fastapi
+urllib3
+uvicorn
