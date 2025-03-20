@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/kendrick_package/__init__.py
+src/kendrick_package/example.py
+src/kendrick_package/genai_utils.py
+src/kendrick_package.egg-info/PKG-INFO
+src/kendrick_package.egg-info/SOURCES.txt
+src/kendrick_package.egg-info/dependency_links.txt
+src/kendrick_package.egg-info/requires.txt
+src/kendrick_package.egg-info/top_level.txt

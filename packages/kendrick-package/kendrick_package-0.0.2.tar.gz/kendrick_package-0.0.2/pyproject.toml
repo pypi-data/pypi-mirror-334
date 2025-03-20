@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kendrick_package"
+version = "0.0.2"
+authors = [
+  { name="Kendrick99", email="kendrickph4m@gmail.com" },
+]
+description = "A helpful package for Kendrick"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "streamlit>=1.21.0",
+    "openai>=1.21.0",
+    "numpy==1.26.4",
+    "llama-index==0.12.16",
+    "llama-index-agent-openai==0.4.1",
+    "llama-index-core==0.12.22",
+    "llama-index-embeddings-huggingface==0.4.0",
+    "llama-index-embeddings-huggingface-optimum==0.3.0",
+    "llama-index-embeddings-openai==0.3.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/m1np3m/kendrick_utils"
+Issues = "https://github.com/m1np3m/kendrick_utils/issues"
