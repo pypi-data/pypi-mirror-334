@@ -1,0 +1,2 @@
+[console_scripts]
+dcrx = dcrx.cli.root:run
