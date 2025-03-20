@@ -1,0 +1,7 @@
+name: "Install uv"
+description: "Installs uv using the astral setup-uv action"
+runs:
+  using: composite
+  steps:
+    - name: astral-sh/setup-uv
+      uses: astral-sh/setup-uv@v5.2.1

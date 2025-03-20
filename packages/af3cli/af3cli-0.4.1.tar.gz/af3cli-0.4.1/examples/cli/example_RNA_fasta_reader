@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Example
+# tRNA-mimicking RNA from TYM Virus
+# Details:
+# - Protein Data Bank (PDB) Entry: 4P5J
+# - Reference: https://www.rcsb.org/structure/4P5J
+
+# Define constants
+FILENAME="example_FASTA_reader_cli.json"
+JOB_NAME="example_FASTA_reader_cli_job"
+
+# Absolute filepath to FASTA file
+filepath_fasta="$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")/data/rcsb_pdb_4P5J.fasta"
+
+# Run the CLI command
+af3cli config --filename "${FILENAME}" --jobname "${JOB_NAME}" \
+  - rna add --fasta=True --sequence "${filepath_fasta}" \
+  - debug --show  # Exclude this line to enable .json file creation

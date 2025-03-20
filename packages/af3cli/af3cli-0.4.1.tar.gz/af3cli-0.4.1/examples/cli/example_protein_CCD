@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Example
+# Human SIRT2 Histone Deacetylase
+# Details:
+# - Protein Data Bank (PDB) Entry: 1J8F
+# - Reference: https://www.rcsb.org/structure/1J8F
+# - Simplified demonstration uses one monomer with one associated zinc ion for clarity.
+
+# Define constants
+FILENAME="example_protein_ccd_cli.json"
+JOB_NAME="example_protein_ccd_cli_job"
+
+# Protein sequence for SIRT2 monomer fetched from the FASTA file
+PROTEIN_SEQUENCE="\
+GEADMDFLRNLFSQTLSLGSQKERLLDELTLEGVARYMQSERCRRVICLVGAGISTSAGIPDFRSPSTGLYDNLEKYH\
+LPYPEAIFEISYFKKHPEPFFALAKELYPGQFKPTICHYFMRLLKDKGLLLRCYTQNIDTLERIAGLEQEDLVEAHGT\
+FYTSHCVSASCRHEYPLSWMKEKIFSEVTPKCEDCQSLVKPDIVFFGESLPARFFSCMQSDFLKVDLLLVMGTSLQVQ\
+PFASLISKAPLSTPRLLINKEKAGQSDPFLGMIMGLGGGMDFDSKKAYRDVAWLGECDQGCLALAELLGWKKELEDLV\
+RREHASIDAQS\
+"
+
+# Zinc ion CCD representation
+ZINC_ION_CCD="ZN"
+
+# Run the CLI command
+af3cli config --filename "${FILENAME}" --jobname "${JOB_NAME}" \
+  - protein add --sequence "${PROTEIN_SEQUENCE}" \
+  - ligand add --ccd "${ZINC_ION_CCD}" \
+  - debug --show  # Exclude this line to enable .json file creation

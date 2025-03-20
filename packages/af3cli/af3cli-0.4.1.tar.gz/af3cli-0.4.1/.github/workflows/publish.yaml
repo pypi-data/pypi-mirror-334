@@ -1,0 +1,17 @@
+name: "Publish PyPI Package"
+on:
+  release:
+    types: [ released ]
+jobs:
+  run:
+    name: "Build and publish release."
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup/
+      - name: Setup
+        run: uv sync --all-extras --dev
+      - name: Build
+        run: uv build
+      - name: Publish
+        run: uv publish -t ${{ secrets.PYPI_TOKEN }}

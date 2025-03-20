@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Example
+# simple dsDNA
+
+# Define filename and job name
+FILENAME="example_DNA_cli.json"
+JOB_NAME="example_DNA_cli_job"
+
+# DNA data
+DNA_SEQUENCE="GCGAATTCG"
+NUMBER_OF_STRANDS=2
+
+# Run the CLI command
+af3cli config --filename "${FILENAME}" --jobname "${JOB_NAME}" \
+  - dna add --sequence "${DNA_SEQUENCE}" --num ${NUMBER_OF_STRANDS} \
+  - debug --show  # Exclude this line to enable .json file creation

@@ -1,0 +1,18 @@
+name: "Run Unit Tests"
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup/
+      - run: uv sync --all-extras --dev
+  tests:
+    runs-on: ubuntu-latest
+    needs: [ setup ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup/
+      - run: uv run pytest -v
