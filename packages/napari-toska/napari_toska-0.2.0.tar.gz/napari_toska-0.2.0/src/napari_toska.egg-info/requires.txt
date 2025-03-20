@@ -1,0 +1,16 @@
+numpy
+magicgui
+qtpy
+scikit-image>=0.21.0
+networkx
+scipy
+napari_workflows
+napari_skimage_regionprops
+
+[testing]
+tox
+pytest
+pytest-cov
+pytest-qt
+napari
+pyqt5
