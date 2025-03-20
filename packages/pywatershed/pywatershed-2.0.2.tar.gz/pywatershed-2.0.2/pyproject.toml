@@ -1,0 +1,139 @@
+[build-system]
+requires = [
+    "setuptools>64",
+    "numpy>=2.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pywatershed"
+description = "pywatershed is a Python package for hydrologic modeling"
+authors = [
+    {name = "USGS Enterprise Capacity Team", email = "modflow@usgs.gov"},
+]
+maintainers = [
+    { name = "James L. McCreight", email = "jmccreight@usgs.gov" },
+    { name = "Joseph D. Hughes", email = "jdhughes@usgs.gov" },
+]
+keywords = ["hydrology", "PRMS"]
+license = { text = "CC0" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Hydrology",
+]
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "contextily",
+    "numpy>=2.0.0",
+    "matplotlib >=1.4.0",
+    "epiweeks",
+    "flopy",
+    "geopandas",
+    "netCDF4",
+    "networkx",
+    "numba",
+    "pandas >= 1.4.0",
+    "pint",
+    "pyyaml",
+    "tqdm",
+    "xarray >= 2023.5.0",
+    "xmltodict",
+    "xyzservices",
+]
+dynamic = ["version", "readme"]
+
+[project.optional-dependencies]
+lint = [
+    "cffconvert",
+    "click",
+    "ruff",
+    "flynt",
+    "pre-commit",
+]
+test = [
+    "pywatershed[lint]",
+    "coverage",
+    "flaky",
+    "filelock",
+    "modflow-devtools",
+    "pre-commit",
+    "pytest!=8.1.0",
+    "pytest-cov",
+    "pytest-env",
+    "pytest-order",
+    "pytest-xdist",
+]
+optional = [
+    "pydot",
+    "geos",
+    "cartopy",
+    "folium",
+    "geopandas",
+    "hvplot",
+    "shapely",
+    "ipython",
+    "jupyter",
+    "jupyterlab",
+]
+doc = [
+    "ipython",
+    "jinja2<3.1",
+    "sphinx",
+    "sphinx-book-theme>=0.3.3",
+    "sphinx-autodoc-typehints>=2.2.1",
+    "sphinx-autosummary-accessors",
+    "sphinx-copybutton"
+]
+all = [
+    "pywatershed[lint, test, optional, doc]",
+]
+
+[project.urls]
+Documentation = "https://pywatershed.readthedocs.io"
+"Bug Tracker" = "https://github.com/EC-USGS/pywatershed/issues"
+"Source Code" = "https://github.com/EC-USGS/pywatershed"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = { attr = "pywatershed.version.__version__" }
+readme = { file = ["README.md"], content-type = "text/markdown" }
+
+[tool.setuptools.packages.find]
+include = ["pywatershed", "pywatershed.*"]
+
+[tool.setuptools.package-data]
+"pywatershed.static.metadata" = ["*.yaml"]
+"pywatershed.data.drb_2yr" = ["*"]
+"pywatershed.data" = ["big_sandy_starfit_parameters.nc"]
+
+[tool.ruff]
+line-length = 79
+target-version = "py39"
+include = [
+    "pyproject.toml",
+    "pywatershed/**/*.py",
+    "autotest/**/*.py",
+    "examples/**/*.py",
+    "test_data/**/*.py",
+    "docs/**/*.py",
+]
+
+[tool.ruff.lint]
+select = ["F", "E", "I001"]
+ignore = [
+    # "F401", # unused import
+]
+
+# this is maintained for some editors
+# that dont yet support ruff
+[tool.black]
+line-length = 79
+target_version = ["py39"]
