@@ -1,0 +1,11 @@
+pyside6
+finesse
+lxml
+
+[lint]
+ruff
+pre-commit
+tox
+
+[test]
+pytest
