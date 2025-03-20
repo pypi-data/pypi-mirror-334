@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/oqtimal/__init__.py
+src/oqtimal/optimal_transport.py
+src/oqtimal.egg-info/PKG-INFO
+src/oqtimal.egg-info/SOURCES.txt
+src/oqtimal.egg-info/dependency_links.txt
+src/oqtimal.egg-info/top_level.txt
+src/oqtimal/algorithms/__init__.py
+src/oqtimal/algorithms/hungarian.py
+src/oqtimal/algorithms/sinkhorn_knopp.py
+tests/test_basics.py
+tests/test_optimal_transport.py
