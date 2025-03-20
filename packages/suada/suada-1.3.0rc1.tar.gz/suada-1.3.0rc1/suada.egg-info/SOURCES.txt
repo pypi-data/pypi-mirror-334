@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.py
+suada/__init__.py
+suada/client.py
+suada/types.py
+suada.egg-info/PKG-INFO
+suada.egg-info/SOURCES.txt
+suada.egg-info/dependency_links.txt
+suada.egg-info/requires.txt
+suada.egg-info/top_level.txt
+tests/__init__.py
+tests/test_client.py
+tests/test_validation.py
