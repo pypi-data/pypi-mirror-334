@@ -1,0 +1,2 @@
+[console_scripts]
+zen = zen_completions.cli:cli
