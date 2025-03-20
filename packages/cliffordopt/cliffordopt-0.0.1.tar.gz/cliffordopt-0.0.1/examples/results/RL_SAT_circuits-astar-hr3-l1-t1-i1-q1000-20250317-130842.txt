@@ -1,0 +1,22 @@
+file: RL_SAT_circuits
+method: astar
+submethod: 0
+mode: QC
+minDepth: 0
+wMax: 0
+hv: 1
+hr: 3
+hl: 1
+ht: 1
+hi: 1
+qMax: 1000
+astarRange: 0
+infile: QCFiles/RL_SAT_circuits.csv
+methodName: 
+outfile: /Users/markwebster/Dropbox/QuantumComputing/dev/cliffordopt/examples/results/RL_SAT_circuits-astar-hr3-l1-t1-i1-q1000-20250317-130842.txt
+#########################################
+1	rlf_list_2	7	8	4	21.435776948928833	True	QPerm:0,1,2,3,5,4,6 HS:0 HS:1 SH:3 H:4 HS:6 tYX:1,5 tZZ:3,4 tYY:5,4 tXZ:2,1 tYY:6,0 tZX:0,2 tXY:4,6 tXZ:6,5
+2	rlf_list_3	9	8	5	29.617852926254272	True	HSH:1 HS:2 SH:3 HSH:4 HSH:5 HSH:6 HSH:7 HSH:8 tXZ:5,3 tZX:3,4 tXX:8,0 tZY:3,0 tZY:0,2 tXZ:7,8 tXZ:6,8 tZX:2,1
+10	opt_satsynth_3	9	8	4	30.112015962600708	True	HS:0 HSH:1 H:2 HSH:3 HSH:4 HSH:5 HSH:6 S:7 HSH:8 tXY:4,7 tZY:2,0 tXZ:7,2 tZX:7,8 tZX:7,6 tZX:4,5 tZX:4,3 tXZ:1,0
+11	opt_satsynth_4	7	8	4	27.95204186439514	True	S:0 HSH:1 HS:2 S:3 SH:4 SH:5 tYY:2,0 tYX:3,1 tZZ:5,4 tXX:4,3 tXZ:0,1 tXZ:6,1 tYZ:4,2 tZX:4,6
+12	opt_satsynth_5	9	8	3	30.026215076446533	True	SH:0 HS:1 S:3 SH:5 SH:7 HS:8 tXX:2,4 tYZ:1,0 tXZ:2,1 tYX:3,6 tZY:7,8 tZY:5,4 tZX:4,6 tZX:8,3
