@@ -1,0 +1,5 @@
+[aiq.components]
+agentiq-test = aiq.test.register
+
+[pytest11]
+agentiq-test = aiq.test.plugin
