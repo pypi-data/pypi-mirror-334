@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: pun_nlp
+Version: 0.0.1
+Summary: A robust NLP pipeline for stemming, lemmatization, and vectorization
+Home-page: https://github.com/PunVas/pun_nlp
+Author: Puneet Vaswani
+Author-email: vaswaniusham2212@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: nltk
+Requires-Dist: spacy
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# nlp_pipeline
