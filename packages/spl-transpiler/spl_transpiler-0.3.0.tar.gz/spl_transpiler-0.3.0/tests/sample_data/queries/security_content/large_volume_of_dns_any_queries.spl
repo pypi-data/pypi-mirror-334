@@ -1,0 +1,4 @@
+| tstats `security_content_summariesonly` count from datamodel=Network_Resolution where nodename=DNS "DNS.message_type"="QUERY" "DNS.record_type"="ANY" by "DNS.dest"
+| `drop_dm_object_name("DNS")`
+| where count>200
+| `large_volume_of_dns_any_queries_filter`

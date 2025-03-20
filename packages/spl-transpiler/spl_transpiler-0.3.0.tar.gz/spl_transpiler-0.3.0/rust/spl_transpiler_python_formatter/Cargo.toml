@@ -1,0 +1,13 @@
+[package]
+name = "spl_transpiler_python_formatter"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "*"
+textwrap = "*"
+
+ruff_python_formatter = { git = "https://github.com/astral-sh/ruff.git" }
+
+[dev-dependencies]
+rstest = "*"

@@ -1,0 +1,18 @@
+[package]
+name = "spl_transpiler_spl"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+nom = "^8"
+pyo3 = { version = "*", features = [] }
+float-derive = "*"
+anyhow = "*"
+
+paste = "*"
+const-str = "*"
+
+spl_transpiler_common = { path = "../spl_transpiler_common" }
+
+[dev-dependencies]
+rstest = "*"

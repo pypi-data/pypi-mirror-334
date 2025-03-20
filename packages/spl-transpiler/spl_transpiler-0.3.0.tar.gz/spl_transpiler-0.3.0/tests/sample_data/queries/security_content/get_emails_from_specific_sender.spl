@@ -1,0 +1,2 @@
+| from datamodel Email.All_Email
+| search src_user=$src_user$

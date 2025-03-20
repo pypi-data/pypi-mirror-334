@@ -1,0 +1,1210 @@
+pub mod commands;
+pub mod functions;
+
+pub(crate) mod alias;
+pub mod ast;
+pub(crate) mod base;
+pub(crate) mod singletons;
+pub(crate) mod transpiler;
+pub(crate) mod utils;
+// mod _autogen_tests;
+
+pub use ast::TransformedPipeline;
+pub use base::*;
+
+// Tests
+#[cfg(test)]
+mod tests {
+    use crate::utils::test::*;
+    use rstest::rstest;
+
+    //   test("thing") {
+    //     generates("n>2 | stats count() by valid",
+    //       """(table_source(spark, index="main")
+    //         |.where((F.col('n') > F.lit(2)))
+    //         |.groupBy('valid')
+    //         |.agg(F.count(F.lit(1)).alias('count')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_01() {
+        generates(
+            r#"n>2 | stats count() by valid"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").where((F.col("n") > F.lit(2)))._spltranspiler__groupByMaybeExploded(["valid"]).agg(F.count(F.lit(1)).alias("count"))"#,
+        );
+    }
+
+    //
+    //   test("thing222") {
+    //     generates("code IN(4*, 5*)",
+    //       """(table_source(spark, index="main")
+    //         |.where((F.col('code').like('4%') | F.col('code').like('5%'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_02() {
+        generates(
+            r#"code IN(4*, 5*)"#,
+            r#"table_source(spark, index="main").where((F.col('code').ilike('4%') | F.col('code').ilike('5%')))"#,
+        );
+    }
+
+    //
+    //   test("stats sum test w/ groupBy") {
+    //     generates("n>2 | stats sum(n) by valid",
+    //       """(table_source(spark, index="main")
+    //         |.where((F.col('n') > F.lit(2)))
+    //         |.groupBy('valid')
+    //         |.agg(F.sum(F.col('n')).alias('sum')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_03() {
+        generates(
+            r#"n>2 | stats sum(n) by valid"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").where((F.col('n') > F.lit(2)))._spltranspiler__groupByMaybeExploded(['valid']).agg(F.sum(F.col('n')).alias('sum'))"#,
+        );
+    }
+    //
+    //   test("stats sum test w/ wildcards w/ empty context") {
+    //     // scalastyle:off
+    //     generates("stats sum(*) by valid",
+    //       """(table_source(spark, index="main")
+    //         |# Error in stats: com.databricks.labs.transpiler.spl.catalyst.EmptyContextOutput: Unable to tanslate com.databricks.labs.transpiler.spl.ast.StatsCommand due to empty context output)
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_04() {}
+
+    //
+    //   test("stats sum test w/ wildcards w/o empty context") {
+    //     generates("eval n=23 | stats sum(*) by valid",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('n', F.lit(23))
+    //         |.groupBy('valid')
+    //         |.agg(F.sum(F.col('n')).alias('sum')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_05() {
+        // TODO: Need to first understand what sum(*) does with multiple columns, then support column tracking
+        generates(
+            // r#"eval n=23 | stats sum(*) by valid"#,
+            r#"eval n=23 | stats sum(n) by valid"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").withColumn('n', F.lit(23))._spltranspiler__groupByMaybeExploded(['valid']).agg(F.sum(F.col('n')).alias('sum'))"#,
+        );
+    }
+
+    //
+    //   test("stats sum test w/o groupBy") {
+    //     generates("n>2 | stats sum(n)",
+    //       """(table_source(spark, index="main")
+    //         |.where((F.col('n') > F.lit(2)))
+    //         |.groupBy()
+    //         |.agg(F.sum(F.col('n')).alias('sum')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_06() {
+        generates(
+            r#"n>2 | stats sum(n)"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").where((F.col('n') > F.lit(2)))._spltranspiler__groupByMaybeExploded([]).agg(F.sum(F.col('n')).alias('sum'))"#,
+        );
+    }
+
+    //
+    //   test("stats sum test w/o groupBy, w/ AS stmt") {
+    //     generates("n>2 | stats sum(n) AS total_sum",
+    //       """(table_source(spark, index="main")
+    //         |.where((F.col('n') > F.lit(2)))
+    //         |.groupBy()
+    //         |.agg(F.sum(F.col('n')).alias('total_sum')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_07() {
+        generates(
+            r#"n>2 | stats sum(n) AS total_sum"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").where((F.col('n') > F.lit(2)))._spltranspiler__groupByMaybeExploded([]).agg(F.sum(F.col('n')).alias('total_sum'))"#,
+        );
+    }
+    //
+    //   test("stats values(d) as set") {
+    //     generates("stats values(d) as set",
+    //       """(table_source(spark, index="main")
+    //         |.groupBy()
+    //         |.agg(F.collect_set(F.col('d')).alias('set')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_08() {
+        generates(
+            r#"stats values(d) as set"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main")._spltranspiler__groupByMaybeExploded([]).agg(F.collect_set(F.col('d')).alias('set'))"#,
+        );
+    }
+    //
+    //   test("stats latest(d) as latest") {
+    //     generates("stats latest(d) as latest",
+    //       """(table_source(spark, index="main")
+    //         |.orderBy(F.col('_time').asc())
+    //         |.groupBy()
+    //         |.agg(F.last(F.col('d'), True).alias('latest')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_09() {
+        generates(
+            r#"stats latest(d) as latest"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").orderBy(F.col('_time').asc())._spltranspiler__groupByMaybeExploded([]).agg(F.last(F.col('d'), True).alias('latest'))"#,
+        );
+    }
+    //
+    //   test("stats earliest(d) as earliest") {
+    //     generates("stats earliest(d) as earliest",
+    //       """(table_source(spark, index="main")
+    //         |.orderBy(F.col('_time').asc())
+    //         |.groupBy()
+    //         |.agg(F.first(F.col('d'), True).alias('earliest')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_10() {
+        generates(
+            r#"stats earliest(d) as earliest"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main").orderBy(F.col('_time').asc())._spltranspiler__groupByMaybeExploded([]).agg(F.first(F.col('d'), True).alias('earliest'))"#,
+        );
+    }
+    //
+    //   test("eval n_large=if(n > 3, 1, 0)") {
+    //     generates("eval n_large=if(n > 3, 1, 0)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('n_large', F.when((F.col('n') > F.lit(3)), F.lit(1)).otherwise(F.lit(0))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_11() {
+        generates(
+            r#"eval n_large=if(n > 3, 1, 0)"#,
+            r#"table_source(spark, index="main").withColumn('n_large', F.when((F.col('n') > F.lit(3)), F.lit(1)).otherwise(F.lit(0)))"#,
+        );
+    }
+
+    //
+    //   test("eval coalesced=coalesce(b,c)") {
+    //     generates("index=main | eval coalesced=coalesce(b,c)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('coalesced', F.expr('coalesce(b, c)')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_12() {
+        generates(
+            r#"index=main | eval coalesced=coalesce(b,c)"#,
+            // r#"table_source(spark, index="main").withColumn('coalesced', F.expr('coalesce(b, c)'))"#,
+            // TODO: I think this is equivalent and... better?
+            r#"table_source(spark, index="main").withColumn('coalesced', F.coalesce(F.col('b'), F.col('c')))"#,
+        );
+    }
+    //
+    //   test("bin span") {
+    //     generates("bin span=5m n",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('n', F.window(F.col('n'), '5 minutes'))
+    //         |.withColumn('n', F.col('`n.start`')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_13() {
+        generates(
+            r#"bin span=5m n"#,
+            r#"table_source(spark, index="main").withColumn('n', F.window(F.col('n'), '5 minutes')).withColumn('n', F.col('`n`.`start`'))"#,
+        );
+    }
+    //
+    //   test("eval count=mvcount(d)") {
+    //     generates("eval count=mvcount(d)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('count', F.size(F.col('d'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_14() {
+        generates(
+            r#"eval count=mvcount(d)"#,
+            r#"table_source(spark, index="main").withColumn('count', F.size(F.col('d')))"#,
+        );
+    }
+
+    //
+    //   test("eval mvsubset=mvindex(d,0,1)") {
+    //     generates("eval count=mvindex(d,0,1)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('count', F.expr('slice(d, 1, 2)')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_15() {
+        generates(
+            r#"eval count=mvindex(d,0,1)"#,
+            // r#"table_source(spark, index="main").withColumn('count', F.expr('slice(d, 1, 2)'))"#,
+            r#"table_source(spark, index="main").withColumn('count', F.slice(F.col('d'), 1, 2))"#,
+        );
+    }
+
+    //
+    //   test("eval mvappended=mvappend(d,d)") {
+    //     generates("eval mvappended=mvappend(d,d)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('mvappended', F.concat(F.col('d'), F.col('d'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_16() {
+        generates(
+            r#"eval mvappended=mvappend(d,d)"#,
+            r#"table_source(spark, index="main").withColumn('mvappended', F.concat(F.col('d'), F.col('d')))"#,
+        );
+    }
+
+    //
+    //   test("count=mvcount(d)") {
+    //     generates("eval count=mvcount(d)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('count', F.size(F.col('d'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_17() {
+        generates(
+            r#"eval count=mvcount(d)"#,
+            r#"table_source(spark, index="main").withColumn('count', F.size(F.col('d')))"#,
+        );
+    }
+
+    //
+    //   test("mvfiltered=mvfilter(d > 3)") {
+    //     generates("eval mvfiltered=mvfilter(d > 3)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('mvfiltered', F.filter(F.col('d'), lambda d: (d > F.lit(3)))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_eval_fn_mvfilter() {
+        generates(
+            r#"eval mvfiltered=mvfilter(d > 3)"#,
+            r#"table_source(spark, index="main").withColumn('mvfiltered', F.filter(F.col('d'), lambda d: (d > 3)))"#,
+        );
+    }
+
+    //
+    //   test("date=strftime(_time, \"%Y-%m-%d %T\")") {
+    //     generates("eval date=strftime(_time, \"%Y-%m-%d %T\")",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('date', F.date_format(F.col('_time'), 'yyyy-MM-dd HH:mm:ss')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_19() {
+        generates(
+            r#"eval date=strftime(_time, "%Y-%m-%d %T")"#,
+            r#"table_source(spark, index="main").withColumn('date', F.date_format(F.col('_time'), 'yyyy-MM-dd HH:mm:ss'))"#,
+        );
+    }
+
+    //
+    //   test("min=min(n, 100)") {
+    //     generates("eval min=min(n, 100)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('min', F.least(F.col('n'), F.lit(100))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_20() {
+        generates(
+            r#"eval min=min(n, 100)"#,
+            r#"table_source(spark, index="main").withColumn('min', F.least(F.col('n'), F.lit(100)))"#,
+        );
+    }
+
+    //
+    //   test("max=max(n, 0)") {
+    //     generates("eval max=max(n, 0)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('max', F.greatest(F.col('n'), F.lit(0))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_21() {
+        generates(
+            r#"eval max=max(n, 0)"#,
+            r#"table_source(spark, index="main").withColumn('max', F.greatest(F.col('n'), F.lit(0)))"#,
+        );
+    }
+
+    //
+    //   test("rounded=round(42.003, 0)") {
+    //     generates("eval rounded=round(42.003, 0)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('rounded', F.round(F.lit(42.003), 0)))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_22() {
+        generates(
+            r#"eval rounded=round(42.003, 0)"#,
+            r#"table_source(spark, index="main").withColumn('rounded', F.round(F.lit(42.003), 0))"#,
+        );
+    }
+
+    //
+    //   test("sub=substr(a, 3, 5)") {
+    //     generates("eval sub=substr(a, 3, 5)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('sub', F.substring(F.col('a'), 3, 5)))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_23() {
+        generates(
+            r#"eval sub=substr(a, 3, 5)"#,
+            r#"table_source(spark, index="main").withColumn('sub', F.substring(F.col('a'), 3, 5))"#,
+        );
+    }
+
+    //
+    //   test("lenA=len(a)") {
+    //     generates("eval lenA=len(a)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('lenA', F.length(F.col('a'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_24() {
+        generates(
+            r#"eval lenA=len(a)"#,
+            r#"table_source(spark, index="main").withColumn('lenA', F.length(F.col('a')))"#,
+        );
+    }
+
+    //
+    //   test("dedup 10 host") {
+    //     // scalastyle:off
+    //     generates("dedup 10 host",
+    //       """(table_source(spark, index="main")
+    //         |# Error in dedup: com.databricks.labs.transpiler.spl.catalyst.EmptyContextOutput: Unable to tanslate com.databricks.labs.transpiler.spl.ast.DedupCommand due to empty context output)
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_25() {}
+
+    //
+    //   test("format maxresults=10") {
+    //     // scalastyle:off
+    //     generates("format maxresults=10",
+    //       """(table_source(spark, index="main")
+    //         |# Error in format: com.databricks.labs.transpiler.spl.catalyst.EmptyContextOutput: Unable to tanslate com.databricks.labs.transpiler.spl.ast.FormatCommand due to empty context output)
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_26() {}
+
+    //
+    //   test("mvcombine host") {
+    //     // scalastyle:off
+    //     generates("mvcombine host",
+    //       """(table_source(spark, index="main")
+    //         |# Error in mvcombine: com.databricks.labs.transpiler.spl.catalyst.EmptyContextOutput: Unable to tanslate com.databricks.labs.transpiler.spl.ast.MvCombineCommand due to empty context output)
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_27() {}
+
+    //
+    //   test("makeresults count=10") {
+    //     generates("makeresults count=10",
+    //       """(spark.range(0, 10, 1)
+    //         |.withColumn('_raw', F.lit(None))
+    //         |.withColumn('_time', F.current_timestamp())
+    //         |.withColumn('host', F.lit(None))
+    //         |.withColumn('source', F.lit(None))
+    //         |.withColumn('sourcetype', F.lit(None))
+    //         |.withColumn('splunk_server', F.lit('local'))
+    //         |.withColumn('splunk_server_group', F.lit(None))
+    //         |.select('_time'))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_makeresults_1() {
+        generates(
+            r#"makeresults count=10 annotate=true"#,
+            r#"spark.range(0, 10, 1).withColumns({
+                '_time': F.current_timestamp(),
+                '_raw': F.lit(None),
+                'host': F.lit(None),
+                'source': F.lit(None),
+                'sourcetype': F.lit(None),
+                'splunk_server': F.lit('local'),
+                'splunk_server_group': F.lit(None)
+            })"#,
+        );
+    }
+
+    #[rstest]
+    fn test_makeresults_2() {
+        generates(
+            r#"makeresults count=10"#,
+            r#"spark.range(0, 10, 1).withColumns({
+                '_time': F.current_timestamp()
+            })"#,
+        );
+    }
+
+    //
+    //   test("addtotals fieldname=num_total num_man num_woman") {
+    //     // scalastyle:off
+    //     generates("addtotals fieldname=num_total num_man num_woman",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('num_total', (F.when(F.col('num_woman').cast('double').isNotNull(), F.col('num_woman')).otherwise(F.lit(0.0)) + F.when(F.col('num_man').cast('double').isNotNull(), F.col('num_man')).otherwise(F.lit(0.0)))))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_29() {
+        generates(
+            r#"addtotals fieldname=num_total num_man num_woman"#,
+            r#"table_source(spark, index="main").withColumn(
+                'num_total',
+                (F.when(
+                    F.col('num_man').cast('double').isNotNull(),
+                    F.col('num_man')
+                ).otherwise(
+                    F.lit(0.0)
+                ) + F.when(
+                    F.col('num_woman').cast('double').isNotNull(),
+                    F.col('num_woman')
+                ).otherwise(
+                    F.lit(0.0)
+                )),
+            )"#,
+        );
+    }
+
+    //
+    //   test("custom spl configs") {
+    //     spark.conf.set("spl.field._time", "ts")
+    //     spark.conf.set("spl.field._raw", "json")
+    //     spark.conf.set("spl.index", "custom_table")
+    //     spark.conf.set("spl.generator.lineWidth", "80")
+    //     spark.range(10).createTempView("custom_table")
+    //     val generatedCode = Transpiler.toPython(spark,
+    //       "foo > 3 | join type=inner id [makeresults count=10 annotate=t]")
+    //     readableAssert(
+    //       """(table_source(spark, index="custom_table")
+    //         |.where((F.col('foo') > F.lit(3)))
+    //         |.join(spark.range(0, 10, 1)
+    //         |.withColumn('json', F.lit(None))
+    //         |.withColumn('ts', F.current_timestamp())
+    //         |.withColumn('host', F.lit(None))
+    //         |.withColumn('source', F.lit(None))
+    //         |.withColumn('sourcetype', F.lit(None))
+    //         |.withColumn('splunk_server', F.lit('local'))
+    //         |.withColumn('splunk_server_group', F.lit(None))
+    //         |.select(F.col('json'),
+    //         |  F.col('ts'),
+    //         |  F.col('host'),
+    //         |  F.col('source'),
+    //         |  F.col('sourcetype'),
+    //         |  F.col('splunk_server'),
+    //         |  F.col('splunk_server_group')),
+    //         |['id'], 'inner'))
+    //         |""".stripMargin, generatedCode, "Code does not match")
+    //      spark.conf.set("spl.field._time", "_time")
+    //      spark.conf.set("spl.field._raw", "_raw")
+    //      spark.conf.set("spl.index", "main")
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_30() {}
+
+    //
+    //   test("in_range=if(cidrmatch('10.0.0.0/24', src_ip), 1, 0)") {
+    //     // scalastyle:off
+    //     generates("eval in_range=if(cidrmatch(\"10.0.0.0/24\", src_ip), 1, 0)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('in_range', F.when(F.expr("cidr_match('10.0.0.0/24', src_ip)"), F.lit(1)).otherwise(F.lit(0))))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_31() {
+        generates(
+            r#"eval in_range=if(cidrmatch("10.0.0.0/24", src_ip), 1, 0)"#,
+            r#"table_source(spark, index="main").withColumn(
+                'in_range',
+                F.when(
+                    F.expr(
+                        "cidr_match('10.0.0.0/24', src_ip)"
+                    ),
+                    F.lit(1)
+                ).otherwise(F.lit(0))
+            )"#,
+        );
+    }
+
+    //
+    //   test("in_range=if(cidrmatch(10.0.0.0/24, src_ip), 1, 0)") {
+    //     // scalastyle:off
+    //     generates("eval in_range=if(cidrmatch(10.0.0.0/24, src_ip), 1, 0)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('in_range', F.when(F.expr("cidr_match('10.0.0.0/24', src_ip)"), F.lit(1)).otherwise(F.lit(0))))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_32() {
+        generates(
+            r#"eval in_range=if(cidrmatch(10.0.0.0/24, src_ip), 1, 0)"#,
+            r#"table_source(spark, index="main").withColumn('in_range', F.when(F.expr("cidr_match('10.0.0.0/24', src_ip)"), F.lit(1)).otherwise(F.lit(0)))"#,
+        );
+    }
+
+    //
+    //   test("src_ip = 10.0.0.0/16") {
+    //     generates("src_ip = 10.0.0.0/16",
+    //       """(table_source(spark, index="main")
+    //         |.where(F.expr("cidr_match('10.0.0.0/16', src_ip)")))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_ipv4_cidrmatch_as_eq() {
+        generates(
+            r#"src_ip = 10.0.0.0/16"#,
+            r#"table_source(spark, index="main").where(F.expr("cidr_match('10.0.0.0/16', src_ip)"))"#,
+        );
+    }
+
+    //
+    //   test("src_ip = 10.0.0.0/16") {
+    //     generates("src_ip = 10.0.0.0/16",
+    //       """(table_source(spark, index="main")
+    //         |.where(F.expr("cidr_match('10.0.0.0/16', src_ip)")))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_wildcard_as_eq() {
+        generates(
+            r#"src_ip = "x*""#,
+            r#"table_source(spark, index="main").where(F.col("src_ip").ilike("x%"))"#,
+        );
+    }
+
+    //
+    //   test("fsize_quant=memk(fsize)") {
+    //     // scalastyle:off
+    //     generates("eval fsize_quant=memk(fsize)",
+    //     """(table_source(spark, index="main")
+    //       |.withColumn('fsize_quant', (F.regexp_extract(F.col('fsize'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 1).cast('double') * F.when((F.upper(F.regexp_extract(F.col('fsize'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('K')), F.lit(1.0))
+    //       |.when((F.upper(F.regexp_extract(F.col('fsize'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('M')), F.lit(1024.0))
+    //       |.when((F.upper(F.regexp_extract(F.col('fsize'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('G')), F.lit(1048576.0))
+    //       |.otherwise(F.lit(1.0)))))
+    //       |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_34() {
+        generates(
+            r#"eval fsize_quant=memk(fsize)"#,
+            r#"table_source(spark, index="main").withColumn(
+                'fsize_quant',
+                (F.regexp_extract(
+                    F.col('fsize'),
+                    r'(?i)^(\d*\.?\d+)([kmg])$',
+                    1
+                ).cast(
+                    'double'
+                ) * F.when(
+                    (
+                        F.upper(
+                            F.regexp_extract(
+                                F.col('fsize'),
+                                r'(?i)^(\d*\.?\d+)([kmg])$',
+                                2
+                            )
+                        ) == F.lit('K')
+                    ),
+                    F.lit(1.0)
+                ).when(
+                    (
+                        F.upper(
+                            F.regexp_extract(
+                                F.col('fsize'),
+                                r'(?i)^(\d*\.?\d+)([kmg])$',
+                                2
+                            )
+                        ) == F.lit('M')
+                    ),
+                    F.lit(1024.0)
+                ).when(
+                    (
+                        F.upper(
+                            F.regexp_extract(
+                                F.col('fsize'),
+                                r'(?i)^(\d*\.?\d+)([kmg])$',
+                                2
+                            )
+                        ) == F.lit('G')
+                    ),
+                    F.lit(1048576.0)
+                ).otherwise(
+                    F.lit(1.0)
+                ))
+            )"#,
+        );
+    }
+
+    //
+    //   test("rmunit=rmunit(fsize)") {
+    //     // scalastyle:off
+    //     generates("eval rmunit=rmunit(fsize)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('rmunit', F.regexp_extract(F.col('fsize'), '(?i)^(\\d*\\.?\\d+)(\\w*)$', 1).cast('double')))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_35() {
+        generates(
+            r#"eval rmunit=rmunit(fsize)"#,
+            r#"table_source(spark, index="main").withColumn(
+                'rmunit',
+                F.regexp_extract(
+                    F.col('fsize'),
+                    r'(?i)^(\d*\.?\d+)(\w*)$',
+                    1
+                ).cast('double')
+            )"#,
+        );
+    }
+
+    //
+    //   test("rmcomma=rmcomma(s)") {
+    //     generates("eval rmcomma=rmcomma(s)",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('rmcomma', F.regexp_replace(F.col('s'), ',', '').cast('double')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_36() {
+        generates(
+            r#"eval rmcomma=rmcomma(s)"#,
+            r#"table_source(spark, index="main").withColumn(
+                'rmcomma',
+                F.regexp_replace(F.col('s'), ',', '').cast('double')
+            )"#,
+        );
+    }
+
+    //
+    //   test("convert timeformat=\"%Y\" ctime(_time) AS year") {
+    //     generates("convert timeformat=\"%Y\" ctime(_time) AS year",
+    //         """(table_source(spark, index="main")
+    //         |.withColumn('year', F.date_format(F.col('_time'), 'yyyy')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_37() {
+        generates(
+            r#"convert timeformat="%Y" ctime(_time) AS year"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="main")._spltranspiler__withColumnMaybe('year', F.date_format(F.col('_time'), 'yyyy'), "_time")
+            "#,
+        );
+    }
+
+    //
+    //   test("convert timeformat=\"%Y\" num(_time) AS year") {
+    //     // scalastyle:off
+    //     generates("convert timeformat=\"%Y\" num(_time) AS year",
+    //       """(table_source(spark, index="main")
+    //         |.withColumn('year', F.when(F.date_format(F.col('_time').cast('string'), 'yyyy').isNotNull(), F.date_format(F.col('_time').cast('string'), 'yyyy'))
+    //         |.when(F.col('_time').cast('double').isNotNull(), F.col('_time').cast('double'))
+    //         |.when((F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 1).cast('double') * F.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('K')), F.lit(1.0))
+    //         |.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('M')), F.lit(1024.0))
+    //         |.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('G')), F.lit(1048576.0))
+    //         |.otherwise(F.lit(1.0))).isNotNull(), (F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 1).cast('double') * F.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('K')), F.lit(1.0))
+    //         |.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('M')), F.lit(1024.0))
+    //         |.when((F.upper(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)([kmg])$', 2)) == F.lit('G')), F.lit(1048576.0))
+    //         |.otherwise(F.lit(1.0))))
+    //         |.when(F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)(\\w*)$', 1).cast('double').isNotNull(), F.regexp_extract(F.col('_time'), '(?i)^(\\d*\\.?\\d+)(\\w*)$', 1).cast('double'))
+    //         |.when(F.regexp_replace(F.col('_time'), ',', '').cast('double').isNotNull(), F.regexp_replace(F.col('_time'), ',', '').cast('double'))
+    //         |))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_38() {}
+
+    //
+    //   test("multisearch in two indices") {
+    //     // scalastyle:off
+    //     generates("multisearch [index=regionA | fields +country, orders] [index=regionB | fields +country, orders]",
+    //       """(table_source(spark, index="regionA")
+    //         |.select(F.col('country'), F.col('orders')).unionByName(table_source(spark, index="regionB")
+    //         |.select(F.col('country'), F.col('orders')), allowMissingColumns=True))
+    //         |""".stripMargin)
+    //     // scalastyle:on
+    //   }
+    #[rstest]
+    fn test_39() {
+        generates(
+            r#"multisearch [index=regionA | fields +country, orders] [index=regionB | fields +country, orders]"#,
+            r#"table_source(spark, index="regionA").select(F.col('country'), F.col('orders')).unionByName(table_source(spark, index="regionB").select(F.col('country'), F.col('orders')), allowMissingColumns=True)"#,
+        );
+    }
+    //
+    //   test("map search=\"search index=fake_for_join id=$id$\"") {
+    //     generates("map search=\"search index=fake_for_join id=$id$\"",
+    //       """(table_source(spark, index="fake_for_join")
+    //         |.limit(10).alias('l')
+    //         |.join(table_source(spark, index="main").alias('r'),
+    //         |(F.col('`l.id`') == F.col('`r.id`')),
+    //         |'left_semi'))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_map_search_1() {
+        generates(
+            r#"map search="search index=fake_for_join id=$id$""#,
+            r#"table_source(spark, index="fake_for_join").limit(10).alias('l').join(table_source(spark, index="main").alias('r'), (F.col('`l.id`') == F.col('`r.id`')), 'left_semi')"#,
+        );
+    }
+
+    //
+    //   test("mvindex with negative start and stop product should " +
+    //        "generate an `ConversionFailure` exception in the generated code") {
+    //     assert(
+    //       extractExceptionIfExists(
+    //         "mvindex(sport, -1, 2)").contains(
+    //           "A combination of negative and positive start and stop indices is not supported.")
+    //     )
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_41() {}
+
+    //
+    //   test("mvfilter referencing more than one field should" +
+    //     "generate an `ConversionFailure` exception in the generated code") {
+    //     assert(
+    //       extractExceptionIfExists(
+    //         "mvfilter((score > 50) AND sport = \"football\")").contains(
+    //           "Expression references more than one field")
+    //     )
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_42() {}
+
+    //
+    //   test("An unknown function should generate an `ConversionFailure` " +
+    //        "exception in the generated code") {
+    //     assert(
+    //       extractExceptionIfExists(
+    //         "unknownFn()").contains(
+    //           "com.databricks.labs.transpiler.spl.catalyst.ConversionFailure: Unknown SPL function")
+    //     )
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_43() {}
+
+    //
+    //   test("replace function should produce a F.regexp_replace(...)") {
+    //     generates("replace(myColumn, \"before\", \"after\")",
+    //       """(table_source(spark, index="main")
+    //         |.where(F.regexp_replace(F.col('myColumn'), 'before', 'after')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_44() {
+        generates(
+            r#"replace(myColumn, "before", "after")"#,
+            r#"table_source(spark, index="main").where(F.regexp_replace(F.col('myColumn'), 'before', 'after'))"#,
+        );
+    }
+    //
+    //   test("lower function should produce a F.lower(...)") {
+    //     generates("lower(myColumn)",
+    //       """(table_source(spark, index="main")
+    //         |.where(F.lower(F.col('myColumn'))))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_45() {
+        generates(
+            r#"lower(myColumn)"#,
+            r#"table_source(spark, index="main").where(F.lower(F.col('myColumn')))"#,
+        );
+    }
+
+    //
+    //   test("strftime should generate a F.date_format(...) " +
+    //        "even if `format` is not quoted") {
+    //     generates("strftime(_time, test)",
+    //       """(table_source(spark, index="main")
+    //         |.where(F.date_format(F.col('_time'), 'test')))
+    //         |""".stripMargin)
+    //   }
+    #[rstest]
+    fn test_46() {
+        generates(
+            r#"strftime(_time, test)"#,
+            r#"table_source(spark, index="main").where(F.date_format(F.col('_time'), "'test'"))"#,
+        );
+    }
+
+    //
+    //   test("strftime should generate a `ConversionFailure` in the code if a wrong format is supplied") {
+    //     assert(
+    //       extractExceptionIfExists(
+    //         "strftime(_time, unknowfn())").contains("Invalid strftime format given")
+    //     )
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_47() {}
+
+    //
+    //   test("cidrmatch(...) should generate a `ConversionFailure` in the code") {
+    //     assert(
+    //       extractExceptionIfExists(
+    //         "cidrmatch(ip, substr(ip, 0, 4))").contains(
+    //         "com.databricks.labs.transpiler.spl.catalyst.ConversionFailure: ip must be String or Field")
+    //     )
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_48() {}
+
+    //
+    //   test("multiple indexes should lead to an exception ") {
+    //     val caught = intercept[com.databricks.labs.transpiler.spl.catalyst.ConversionFailure] {
+    //       generates("index=A index=B", null)
+    //     }
+    //     assert(caught.getMessage.contains("Only one index allowed"))
+    //   }
+    #[rstest]
+    #[ignore]
+    fn test_49() {}
+
+    /* Custom tests */
+    #[rstest]
+    fn test_head_1() {
+        // Ensure that `head 5` generates .limit(5)
+        generates(r#"head 5"#, r#"table_source(spark, index="main").limit(5)"#);
+    }
+
+    #[rstest]
+    fn test_head_2() {
+        // Ensure that `head limit=5` generates .limit(5)
+        generates(
+            r#"head limit=5"#,
+            r#"table_source(spark, index="main").limit(5)"#,
+        );
+    }
+
+    #[rstest]
+    fn test_head_3() {
+        // Ensure that `head count<5` generates .limit(5)
+        generates(
+            r#"head count<5"#,
+            r#"table_source(spark, index="main").limit(5)"#,
+        );
+    }
+
+    #[rstest]
+    fn test_head_4() {
+        // Ensure that `head count<=5 keeplast=t` generates .limit(7)
+        generates(
+            r#"head count<=5 keeplast=true"#,
+            r#"table_source(spark, index="main").limit(7)"#,
+        );
+    }
+
+    #[rstest]
+    fn test_top_1() {
+        generates(
+            r#"index=main | top 5 showperc=false x"#,
+            r#"table_source(spark, index="main").groupBy(['x']).agg(F.count().alias('count')).orderBy(F.col('count').desc()).limit(5)"#,
+        )
+    }
+
+    #[rstest]
+    fn test_rare_1() {
+        generates(
+            r#"index=main | rare 5 showperc=false x"#,
+            r#"table_source(spark, index="main").groupBy(['x']).agg(F.count().alias('count')).orderBy(F.col('count').asc()).limit(5)"#,
+        )
+    }
+
+    #[rstest]
+    fn test_where_1() {
+        generates(
+            r#"index=alt | where n>2"#,
+            r#"table_source(spark, index="alt").where((F.col("n") > F.lit(2)))"#,
+        );
+    }
+
+    #[rstest]
+    fn test_table_1() {
+        generates(
+            r#"index=alt | table x y z"#,
+            r#"table_source(spark, index="alt").select(F.col("x"), F.col("y"), F.col("z"))"#,
+        );
+    }
+
+    #[rstest]
+    fn test_sort_1() {
+        generates(
+            r#"index=alt | sort x, -y"#,
+            r#"table_source(spark, index="alt").orderBy(F.col("x").asc(), F.col("y").desc()).limit(10000)"#,
+        );
+    }
+
+    #[rstest]
+    fn test_sort_2() {
+        generates(
+            r#"index=alt | sort 0 x, -y desc"#,
+            r#"table_source(spark, index="alt").orderBy(F.col("x").desc(), F.col("y").asc())"#,
+        );
+    }
+
+    #[rstest]
+    fn test_rex_1() {
+        generates(
+            r#"index=alt | rex field=_raw "From: <(?<from>.*)> To: <(?<to>.*)>""#,
+            r#"table_source(spark, index="alt").withColumn(
+                "from",
+                F.regexp_extract(F.col("_raw"), r"From: <(?<from>.*)> To: <(?<to>.*)>", 1)
+            ).withColumn(
+                "to",
+                F.regexp_extract(F.col("_raw"), r"From: <(?<from>.*)> To: <(?<to>.*)>", 2)
+            )"#,
+        );
+    }
+
+    #[rstest]
+    fn test_regex_1() {
+        generates(
+            r#"index=alt | regex "From: <(?<from>.*)> To: <(?<to>.*)>""#,
+            r#"table_source(spark, index="alt").where(
+                F.regexp_like(F.col("_raw"), r"From: <(?<from>.*)> To: <(?<to>.*)>")
+            )"#,
+        );
+    }
+
+    #[rstest]
+    fn test_regex_2() {
+        generates(
+            r#"index=alt | regex c!="From: <(?<from>.*)> To: <(?<to>.*)>""#,
+            r#"table_source(spark, index="alt").where(
+                ~F.regexp_like(F.col("c"), r"From: <(?<from>.*)> To: <(?<to>.*)>")
+            )"#,
+        );
+    }
+
+    #[rstest]
+    fn test_rename_1() {
+        generates(
+            r#"index=alt | rename x AS y, a AS b"#,
+            r#"table_source(spark, index="alt").withColumnsRenamed({"x": "y", "a": "b"})"#,
+        );
+    }
+
+    #[rstest]
+    fn test_case_fn_1() {
+        generates(
+            r#"index=alt | eval description=case(status==200, "OK", status==404, "Not found", status==500, "Internal Server Error")"#,
+            r#"table_source(spark, index="alt").withColumn(
+                "description",
+                F.when(
+                    (F.col("status") == F.lit(200)),
+                    F.lit("OK")
+                ).when(
+                    (F.col("status") == F.lit(404)),
+                    F.lit("Not found")
+                ).when(
+                    (F.col("status") == F.lit(500)),
+                    F.lit("Internal Server Error")
+                )
+            )"#,
+        )
+    }
+
+    #[rstest]
+    fn test_max_fn_multi_1() {
+        generates(
+            r#"index=alt | eval x=max(a, b, c)"#,
+            r#"table_source(spark, index="alt").withColumn(
+                "x",
+                F.greatest(F.greatest(F.col("a"), F.col("b")), F.col("c"))
+            )"#,
+        )
+    }
+
+    #[rstest]
+    fn test_avg_fn_multi_1() {
+        generates(
+            r#"index=alt | eval x=avg(a, b, c)"#,
+            r#"table_source(spark, index="alt").withColumn(
+                "x",
+                (((F.col("a") + F.col("b")) + F.col("c")) / 3)
+            )"#,
+        )
+    }
+
+    #[rstest]
+    fn test_percentile_fn_1() {
+        generates(
+            r#"index=alt | stats percentile99(a) AS x"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+install_monkeypatches()
+
+table_source(spark, index="alt")._spltranspiler__groupByMaybeExploded([]).agg(
+                F.percentile_approx(F.col("a"), 0.99).alias("x")
+            )"#,
+        )
+    }
+
+    #[rstest]
+    fn test_tail_1() {
+        generates(r#"tail 5"#, r#"table_source(spark, index="main").tail(5)"#);
+    }
+
+    #[rstest]
+    fn test_neq_wildcard_1() {
+        generates(
+            r#"search note!=ESCU*"#,
+            r#"table_source(spark, index="main").where(~F.col("note").ilike("ESCU%"))"#,
+        )
+    }
+
+    #[rstest]
+    /// This tests an issue where mixing runtime with non-runtime transpilation can result in
+    /// python Syntax errors. This particular test presumes that `rename` doesn't have a
+    /// runtime function, and will probably need to be updated when that changes.
+    fn test_regression_mixed_runtime() {
+        generates_maybe_runtime(
+            r#"index=main | rename foo as bar | stats count by bar"#,
+            r#"
+df_1 = commands.search(None, index="main")
+df_2 = df_1.withColumnsRenamed({"foo": "bar"})
+df_3 = commands.stats(df_2, by=[F.col("bar")], count=functions.stats.count())
+df_3
+            "#,
+        )
+    }
+
+    #[rstest]
+    fn test_regression_syntax_error_1() {
+        generates(
+            r#"| tstats summariesonly=false allow_old_summaries=true fillnull_value=null
+    count min(_time) as firstTime max(_time) as lastTime from datamodel=Endpoint.Processes
+    where (Processes.process_name = "nslookup.exe" OR Processes.original_file_name
+    = "nslookup.exe") AND Processes.process = "*_ldap._tcp.dc._msdcs*" by Processes.parent_process
+    Processes.parent_process_name Processes.process_name Processes.process_id Processes.process_guid
+    Processes.process Processes.user Processes.dest Processes.parent_process_id Processes.original_file_name
+
+    | rename "Processes".* AS *
+
+    | convert timeformat="%Y-%m-%dT%H:%M:%S" ctime(firstTime)
+
+    |convert timeformat="%Y-%m-%dT%H:%M:%S" ctime(lastTime)"#,
+            r#"
+from pyspark_spl_tools.monkeypatches import install_monkeypatches
+
+install_monkeypatches()
+table_source(spark, datamodel="`Endpoint.Processes`").where(
+    (
+        (
+            (F.col("`Processes.process_name`") == F.lit("nslookup.exe"))
+            | (F.col("`Processes.original_file_name`") == F.lit("nslookup.exe"))
+        ) & F.col("`Processes.process`").ilike("%_ldap._tcp.dc._msdcs%")
+    )
+).groupBy([
+    "`Processes.parent_process`",
+    "`Processes.parent_process_name`",
+    "`Processes.process_name`",
+    "`Processes.process_id`",
+    "`Processes.process_guid`",
+    "`Processes.process`",
+    "`Processes.user`",
+    "`Processes.dest`",
+    "`Processes.parent_process_id`",
+    "`Processes.original_file_name`"
+]).agg(
+    F.count(F.lit(1)).alias("count"),
+    F.min(F.col("_time")).alias("firstTime"),
+    F.max(F.col("_time")).alias("lastTime")
+)._spltranspiler__withColumnsRenamedWithWildcards({
+    "Processes.*": "*"
+})._spltranspiler__withColumnMaybe(
+    "firstTime",
+    F.date_format(F.col("firstTime"), "yyyy-MM-dd'T'HH:mm:ss"),
+    "firstTime"
+)._spltranspiler__withColumnMaybe(
+    "lastTime",
+    F.date_format(F.col("lastTime"), "yyyy-MM-dd'T'HH:mm:ss"),
+    "lastTime"
+)
+            "#,
+        );
+    }
+}

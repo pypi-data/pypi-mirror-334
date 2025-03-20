@@ -1,0 +1,11 @@
+[package]
+name = "spl_transpiler_common"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+regex-syntax = "*"
+anyhow = "*"
+
+[dev-dependencies]
+rstest = "*"

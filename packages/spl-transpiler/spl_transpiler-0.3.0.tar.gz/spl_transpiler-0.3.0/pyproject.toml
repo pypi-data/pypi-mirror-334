@@ -1,0 +1,59 @@
+[build-system]
+requires = ["maturin>=1,<2"]
+build-backend = "maturin"
+
+[tool.maturin]
+python-source = "python"
+
+[project]
+name = "spl_transpiler"
+dynamic = ["version"]
+requires-python = ">=3.10"
+description = "Convert Splunk SPL queries into PySpark code"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "pydantic>=2",
+    # Include to make this library directly executable, e.g. via uvx
+    "textual[syntax]",
+    "pyperclip",
+    "pyspark~=4.0.0.dev2",
+    "pyspark-spl-tools",
+]
+
+[project.scripts]
+spl_transpiler = "spl_transpiler.__main__:main"
+
+[project.optional-dependencies]
+cli = [
+    "textual[syntax]",
+    "pyperclip",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Ignore the bulk tests by default (they can still be run directly)
+addopts = "--ignore=tests/test_sample_files_parse.py --ignore=tests/runtime/test_attack_data.py --ignore=tests/sample_data"
+
+[tool.uv]
+dev-dependencies = [
+    "maturin",
+    "pip",
+    "pytest",
+    "pytest-dependency",
+    "tabulate",
+    "pyparsing",
+    "pyyaml",
+    "ruff-api",
+    "jupyterlab",
+    "ipywidgets",
+    "pandas[pyarrow]>=2.2.3",
+]
+
+[tool.uv.sources]
+pyspark-spl-tools = { path = "python/pyspark_spl_tools" }

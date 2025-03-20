@@ -1,0 +1,31 @@
+[package]
+name = "spl_transpiler"
+version = "0.3.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[workspace]
+default-members = [
+    ".",
+    "rust/spl_transpiler_pyspark",
+    "rust/spl_transpiler_python_formatter",
+    "rust/spl_transpiler_spl",
+    "rust/spl_transpiler_common",
+]
+
+[dependencies]
+spl_transpiler_pyspark = { path = "rust/spl_transpiler_pyspark" }
+spl_transpiler_python_formatter = { path = "rust/spl_transpiler_python_formatter" }
+spl_transpiler_spl = { path = "rust/spl_transpiler_spl" }
+
+pyo3 = { version = "*", features = ["extension-module", "abi3", "abi3-py310", "anyhow"] }
+anyhow = "*"
+
+[dev-dependencies]
+rstest = "*"
+
+[profile.release]
+lto = "thin"
+strip = true

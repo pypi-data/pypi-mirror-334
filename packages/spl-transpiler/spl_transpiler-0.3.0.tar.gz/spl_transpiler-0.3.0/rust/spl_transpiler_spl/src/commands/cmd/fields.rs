@@ -1,0 +1,62 @@
+use crate::ast::{Field, ParsedCommandOptions};
+use crate::commands::base::{SplCommand, SplCommandOptions};
+use crate::parser::{field_list1, ws};
+use crate::python::*;
+use nom::branch::alt;
+use nom::bytes::complete::tag;
+use nom::combinator::{map, opt};
+use nom::{IResult, Parser};
+use pyo3::prelude::*;
+//
+//   /*
+//    * Function is missing wildcard fields (except when discarding fields ie. fields - myField, ...)
+//    */
+//   def fields[_: P]: P[FieldsCommand] =
+//     "fields" ~ ("+" | "-").!.? ~ field.rep(min = 1, sep = ",") map {
+//       case (op, fields) =>
+//         if (op.getOrElse("+").equals("-")) {
+//           FieldsCommand(removeFields = true, fields)
+//         } else {
+//           FieldsCommand(removeFields = false, fields)
+//         }
+//     }
+
+#[derive(Debug, PartialEq, Clone, Hash)]
+#[pyclass(frozen, eq, hash)]
+pub struct FieldsCommand {
+    #[pyo3(get)]
+    pub remove_fields: bool,
+    #[pyo3(get)]
+    pub fields: Vec<Field>,
+}
+impl_pyclass!(FieldsCommand { remove_fields: bool, fields: Vec<Field> });
+
+#[derive(Debug, Default)]
+pub struct FieldsParser {}
+pub struct FieldsCommandOptions {}
+
+impl SplCommandOptions for FieldsCommandOptions {}
+
+impl TryFrom<ParsedCommandOptions> for FieldsCommandOptions {
+    type Error = anyhow::Error;
+
+    fn try_from(_value: ParsedCommandOptions) -> Result<Self, Self::Error> {
+        Ok(Self {})
+    }
+}
+
+impl SplCommand<FieldsCommand> for FieldsParser {
+    type RootCommand = crate::commands::FieldsCommandRoot;
+    type Options = FieldsCommandOptions;
+
+    fn parse_body(input: &str) -> IResult<&str, FieldsCommand> {
+        map(
+            (opt(ws(alt((tag("+"), tag("-"))))), field_list1),
+            |(remove_fields_opt, fields)| FieldsCommand {
+                remove_fields: remove_fields_opt.unwrap_or("+") == "-",
+                fields,
+            },
+        )
+        .parse(input)
+    }
+}

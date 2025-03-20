@@ -1,0 +1,19 @@
+[package]
+name = "spl_transpiler_pyspark"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+nom = "^8"
+anyhow = "*"
+log = "*"
+regex = "*"
+
+phf = { version = "*", features = ["macros"] }
+
+spl_transpiler_spl = { path = "../spl_transpiler_spl" }
+spl_transpiler_common = { path = "../spl_transpiler_common" }
+
+[dev-dependencies]
+rstest = "*"
+spl_transpiler_python_formatter = { path = "../spl_transpiler_python_formatter" }

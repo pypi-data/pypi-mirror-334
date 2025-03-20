@@ -1,0 +1,3 @@
+| from datamodel Identity_Management.All_Assets
+| stats count values(nt_host) by category
+| sort -count

@@ -1,0 +1,8 @@
+*.backup
+# Please .gz any .jsonl files before committing (despite git lfs)
+*.jsonl
+*.json*.dir
+*.parquet
+tests.outputs.yaml
+_data
+.data

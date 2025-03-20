@@ -1,0 +1,38 @@
+use crate::ast::*;
+use crate::transpiler::{PipelineTransformState, PipelineTransformer};
+use anyhow::ensure;
+use spl_transpiler_common::regex_utils::get_groups;
+use spl_transpiler_spl::commands::cmd::rex::RexCommand;
+
+impl PipelineTransformer for RexCommand {
+    fn transform_standalone(
+        &self,
+        state: PipelineTransformState,
+    ) -> anyhow::Result<PipelineTransformState> {
+        let mut df = state.df.clone().unwrap_or_default();
+
+        ensure!(
+            self.mode != Some("sed".into()),
+            "sed-mode rex commands are not yet supported."
+        );
+        ensure!(
+            self.max_match == 1,
+            "Rex not yet implemented for multiple matches"
+        );
+
+        let regex_groups = get_groups(self.regex.clone())?;
+
+        for (group_index, group_name) in regex_groups {
+            df = df.with_column(
+                group_name.unwrap_or(group_index.to_string()),
+                column_like!(regexp_extract(
+                    [col(self.field.clone())],
+                    [Expr::PyLiteral(PyLiteral(format!("r\"{}\"", self.regex)))],
+                    [py_lit(group_index as i64)]
+                )),
+            );
+        }
+
+        Ok(state.with_df(df))
+    }
+}
