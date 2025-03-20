@@ -1,0 +1,51 @@
+Metadata-Version: 2.3
+Name: gas-station-spain-api
+Version: 1.2
+Summary: Obtiene el precio actual del combustible en las distintas gasolineras de España
+License: MIT
+Author: Miguel Ángel López
+Author-email: miguel.angel.lopez.vicente@gmail.com
+Requires-Python: >3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiohttp (>=3.7.4.post0)
+Requires-Dist: async_timeout (>=3.0.1)
+Requires-Dist: pytest (>=8.3.5)
+Requires-Dist: tenacity (>=9.0.0)
+Description-Content-Type: text/markdown
+
+# Python Gas Station Spain
+
+### Descripción
+
+Esta es una biblioteca para obtener el precio actual del combustible en las distintas gasolineras españolas.
+
+### Fuente de datos
+
+Los datos son extraídos de de la API oficial del estado: [Geoportal Gasolineras](https://geoportalgasolineras.es/geoportal-instalaciones/Inicio).
+
+Desgraciadamente, el servicio no es muy estable y es posible que ocurran errores de conexión
+
+### Uso
+
+```python
+
+import gas_station_spain_api as gss
+
+# Obtener listado de provincias
+provinces = await gss.get_provinces()
+
+# Obtener listado de municipios
+municipalities = await gss.get_municipalities(provinces[0].id)
+
+# Obtener estaciones de una provincia
+p1_gas_stations = await gss.get_gas_stations(province_id=provinces[1].id)
+
+# Obtener estaciones de un municipio
+m1_gas_stations = await gss.get_gas_stations(provinces[0].id, municipalities[0].id)
+```
+
