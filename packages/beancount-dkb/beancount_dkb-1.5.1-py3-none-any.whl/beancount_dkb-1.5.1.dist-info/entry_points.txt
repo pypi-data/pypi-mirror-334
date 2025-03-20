@@ -1,0 +1,4 @@
+[console_scripts]
+beancount-dkb-credit=beancount_dkb.cli:credit
+beancount-dkb-ec=beancount_dkb.cli:ec
+
