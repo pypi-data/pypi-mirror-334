@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langtools-core"
+version = "0.1.0b1"
+authors = [
+  { name="MSAI Team", email="langtoolsdev@microsoft.com" },
+]
+description = "Core functionality for language tools"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "opentelemetry-sdk>=1.30.0",
+    "opentelemetry-api>=1.30.0",
+    "azure-monitor-opentelemetry-exporter>=1.0.0b33",
+    "azure-identity>=1.17.0",
+    "azure-core>=1.17.0",
+    "azure-keyvault-secrets>=4.7.0",
+    "pydantic>=2.7.4",
+    "orjson>=3.9.10",
+    "tiktoken>=0.5.2",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ai-microsoft/langtools"
+Issues = "https://github.com/ai-microsoft/langtools/issues"
+
+[tool.setuptools]
+packages=["langtools.core"]
