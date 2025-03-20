@@ -1,0 +1,30 @@
+{#
+    Custom Filters Available in This Template:
+    - camel_case: Converts a string to camelCase (e.g., 'phone_number' → 'phoneNumber').
+    - pascal_case: Converts a string to PascalCase (e.g., 'phone_number' → 'PhoneNumber').
+    - kebab_case: Converts a string to kebab-case (e.g., 'phoneNumber' → 'phone-number').
+    - snake_case: Converts a string to snake_case (e.g., 'PhoneNumber' → 'phone_number').
+    - get_model_file_name: Generates a model file name (e.g., 'phone_number' → 'PhoneNumberModel.ts').
+#}
+{% include 'header.jinja2' %}
+
+using {{ spec.namespace }};
+{% if spec.referenced_models | length > 0 %}using {{ spec.namespace }}.Models;{% endif %}
+
+namespace {{ spec.namespace }};
+
+public record {{ spec.name | pascal_case }}Message(
+    {%- for entity in spec.entities %}
+    [property: Newtonsoft.Json.JsonIgnore] string {{ entity.mapped_name }},
+    {%- endfor %}
+    {%- for field in spec.fields %}
+    [property: Newtonsoft.Json.JsonProperty("{{ field.original_name }}")] {{ field.type_str }} {{ field.mapped_name | pascal_case }}{{ "," if not loop.last }}
+    {%- endfor %}
+) : StellaNowMessageBase(
+    "{{ spec.name }}", [
+    {%- for entity in spec.entities %}
+        new EntityType({{ entity.original_name }}, {{ entity.mapped_name }}){{ "," if not loop.last }}
+    {%- endfor %}
+    ]);
+
+{% include 'footer.jinja2' %}

@@ -1,0 +1,41 @@
+{#
+    Custom Filters Available in This Template:
+    - camel_case: Converts a string to camelCase (e.g., 'phone_number' → 'phoneNumber').
+    - pascal_case: Converts a string to PascalCase (e.g., 'phone_number' → 'PhoneNumber').
+    - kebab_case: Converts a string to kebab-case (e.g., 'phoneNumber' → 'phone-number').
+    - snake_case: Converts a string to snake_case (e.g., 'PhoneNumber' → 'phone_number').
+    - get_model_file_name: Generates a model file name (e.g., 'phone_number' → 'PhoneNumberModel.ts').
+#}
+{% include 'header.jinja2' %}
+{% for field in spec.fields %}
+{%- if field.type_str in ['date', 'datetime'] %}
+from datetime import {{ field.type_str }}
+{%- endif %}
+{%- endfor %}
+
+from stellanow_sdk_python.messages.message_base import StellaNowMessageBase
+{%- for model in spec.referenced_models %}
+from models.{{ model | get_model_file_name }} import {{ model }}Model
+{% endfor %}
+
+class {{ spec.name | pascal_case }}Message(StellaNowMessageBase):
+    {%- for entity in spec.entities %}
+    {{ entity.mapped_name }}: str
+    {%- endfor %}
+    {%- for field in spec.fields %}
+    {{ field.mapped_name }}: {{ field.type_str }}
+    {%- endfor %}
+
+    def __init__(self, {% for entity in spec.entities %}{{ entity.mapped_name }}: str{% if not loop.last or spec.fields %}, {% endif %}{% endfor %}{% for field in spec.fields %}{{ field.mapped_name }}: {{ field.type_str }}{% if not loop.last %}, {% endif %}{% endfor %}):
+        super().__init__(
+            event_name="{{ spec.name }}",
+            entities=[{%- for entity in spec.entities %}{"type": "{{ entity.original_name }}", "id": {{ entity.mapped_name }}}{% if not loop.last %}, {% endif %}{% endfor %}],
+            {%- for entity in spec.entities %}
+            {{ entity.mapped_name }}={{ entity.mapped_name }},
+            {%- endfor %}
+            {%- for field in spec.fields %}
+            {{ field.mapped_name }}={{ field.mapped_name }}{% if not loop.last %},{% endif %}
+            {%- endfor %}
+        )
+
+{% include 'footer.jinja2' %}

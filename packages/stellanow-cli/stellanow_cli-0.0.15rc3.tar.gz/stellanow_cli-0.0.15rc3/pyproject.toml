@@ -1,0 +1,69 @@
+[project]
+name = "stellanow-cli"
+version = "0.0.15-rc3"
+description = "Command-line interface for the StellaNow SDK code generation and comparison tool."
+authors = [
+    {name = "Stella Technologies (UK) Limited"}
+]
+
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+
+dependencies = [
+    "click (>=8.1,<9.0)",
+    "prettytable (>=3.8,<4.0)",
+    "loguru (>=0.7,<1.0)",
+    "paho-mqtt (>=2.1.0,<2.2.0)",
+    "stellanow-api-internals (>=0.0.5,<0.1.0)",
+    "jinja2 (>=3.1.6,<3.2.0)",
+    "inflection (>=0.5.1,<0.6.0)"
+]
+
+[tool.poetry.group.dev.dependencies]
+autoflake = "*"
+isort = "*"
+vulture = "*"
+black = "*"
+ipython = "*"
+safety = "*"
+mypy = "*"
+autopep8 = "*"
+pytest = "*"
+pytest-mock = "*"
+twine = "*"
+freezegun = "*"
+poethepoet = "^0.33.1"
+
+[tool.poe.tasks]
+lint-autoflake = "autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place . --exclude=__init__.py"
+lint-autoflake-check = "autoflake --remove-all-unused-imports --check --recursive --remove-unused-variables --in-place . --exclude=__init__.py"
+lint-vulture = "vulture stellanow_cli --min-confidence 80"
+lint-black = "black stellanow_cli -l 120"
+lint-black-check = "black stellanow_cli -l 120 --check --diff"
+lint-isort = "isort --multi-line=3 --trailing-comma --force-grid-wrap=0 --combine-as --line-width 120 ."
+lint-isort-check = "isort --multi-line=3 --trailing-comma --force-grid-wrap=0 --combine-as --line-width 120 --check-only ."
+lint-mypy = "mypy --ignore-missing-imports stellanow_cli"
+lint-safety = "safety check"
+lint = { sequence = [
+    { cmd = "echo Running all lint tasks" },
+    { ref = "lint-autoflake" },
+    { ref = "lint-vulture" },
+    { ref = "lint-black" },
+    { ref = "lint-isort" },
+]}
+lint-check = { sequence = [
+    { cmd = "echo Running all lint checks" },
+    { ref = "lint-autoflake-check" },
+    { ref = "lint-vulture" },
+    { ref = "lint-black-check" },
+    { ref = "lint-isort-check" },
+]}
+test = "pytest"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+stellanow = "stellanow_cli.cli:cli"
