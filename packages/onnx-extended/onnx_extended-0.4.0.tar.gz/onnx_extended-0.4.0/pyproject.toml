@@ -1,0 +1,381 @@
+[project]
+authors = [{name="Xavier Dupré", email="xavier.dupre@gmail.com"}]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: C",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = ["numpy", "onnx>=1.17.0", "scipy"]
+description = "Extends the list of supported operators in onnx reference implementation and onnxruntime, or implements faster versions in C++."
+keywords = ["onnx", "onnxruntime", "CUDA", "openmp", "cmake", "cython", "pybind11"]
+license = {file = "LICENSE.txt"}
+name = "onnx-extended"
+readme = "README.rst"
+requires-python = ">=3.10"
+version = "0.4.0"
+
+[project.urls]
+Homepage = "https://sdpython.github.io/doc/onnx-extended/dev/"
+Documentation = "https://sdpython.github.io/doc/onnx-extended/dev/"
+Repository = "https://github.com/sdpython/onnx-extended/"
+Changelog = "https://github.com/sdpython/onnx-extended/blob/main/CHANGELOGS.rst"
+Issues = "https://github.com/sdpython/onnx-extended/issues"
+
+[project.optional-dependencies]
+dev = [
+    "autopep8",
+    "black",
+    "clang-format",
+    "cmakelang",
+    "coverage",
+    "cython",
+    "cython-lint",
+    "flake8",
+    "furo",
+    "isort",
+    "joblib",
+    "lightgbm",
+    "matplotlib",
+    "ml-dtypes",
+    "onnx-array-api",
+    "onnxmltools",
+    "onnxruntime",
+    "pandas",
+    "psutil",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "scikit-learn",
+    "skl2onnx>=1.14.1",
+    "sphinx",
+    "sphinx-gallery",
+    "sphinx-issues",
+    "tqdm",
+    "wheel",
+    "xgboost",
+]
+
+[build-system]
+requires = [
+    "abi3audit; sys_platform == 'linux'",
+    "auditwheel-symbols; sys_platform == 'linux'",
+    "Cython>=3.0.10",
+    "cmake",
+    "numpy>=2.0",
+    "onnx",
+    "pybind11>=2.12",
+    "scipy>=1.13.1",
+    "setuptools",
+    "wheel",
+]
+
+[tool.rstcheck]
+report_level = "INFO"
+ignore_directives = [
+    "autoclass",
+    "autofunction",
+    "gdot",
+    "ifconfig",
+    "image-sg",
+    "plot",
+    "runpython",
+]
+ignore_roles = ["epkg", "pr"]
+ignore_messages = "Duplicate implicit target name: \"setup.py\""
+
+[tool.setuptools.packages.find]
+namespaces = false
+
+[tool.setuptools.package-data]
+"*" = ["*.cc", "*.cpp", "*.cu", "*.cuh", "*.dll", "*.dylib", "*.h", "*.hpp", "*.pyd", "*.so*"]
+
+[tool.cibuildwheel]
+build = "*"
+manylinux-x86_64-image = "manylinux_2_28"  # "manylinux2014"
+test-command = "python -m pip install onnxruntime&&python -c \"import onnx_extended;onnx_extended.check_installation(val=True,ortops=True,ortcy=True)\""
+
+[tool.cibuildwheel.linux]
+archs = ["x86_64"]
+build = "cp*"
+skip = "pypy* *musllinux* cp36-* cp37-* cp38-* cp39-* cp313-* cp314-* cp315-*"
+manylinux-x86_64-image = "manylinux_2_28"
+before-build = "pip install auditwheel-symbols abi3audit;python -c 'import sysconfig;print(sysconfig.get_platform())'"
+build-verbosity = 1
+repair-wheel-command = "auditwheel-symbols --manylinux 2_28 {wheel} ; abi3audit {wheel} ; auditwheel repair -w {dest_dir} {wheel} || exit 0"
+test-command = "yum list installed&&python -m pip install onnxruntime&&python -c \"import onnx_extended;onnx_extended.check_installation(val=True,ortops=True)\"&&python -c \"import onnx_extended;onnx_extended.check_installation(val=True,ortcy=True,verbose=True)\""
+
+[tool.cibuildwheel.macos]
+archs = "arm64"  # or "universal2" for a single universal wheel
+environment = """
+    MACOSX_DEPLOYMENT_TARGET=14.0
+    LDFLAGS='-L$(brew --prefix libomp)/lib'
+    CPPFLAGS='-I$(brew --prefix libomp)/include'
+    CFLAGS='-I$(brew --prefix libomp)/include -arch x86_64 -arch arm64'
+    CXXFLAGS='-I$(brew --prefix libomp)/include -arch x86_64 -arch arm64'
+    DYLD_LIBRARY_PATH='$(brew --prefix libomp)/lib:$DYLD_LIBRARY_PATH'
+"""
+build = "cp*"
+before-build = "brew install llvm libomp"
+skip = "pypy* pp* cp36-* cp37-* cp38-* cp39-* cp313-* cp314-* cp315-*"
+# environment="LDFLAGS='-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/libomp/lib' CPPFLAGS='-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/libomp/include'"
+
+[tool.cibuildwheel.windows]
+archs = ["AMD64"]
+build = "cp*"
+skip = "pypy* cp36-* cp37-* cp38-* cp39-* cp313-* cp314-* cp315-*"
+
+[tool.cython-lint]
+max-line-length = 88
+
+[tool.mypy]
+ignore_missing_imports = true
+packages = ["onnx_extended"]
+exclude = [
+    "^_doc/auto_examples",  # skips examples in the documentation
+    "^_doc/conf.py",
+    "^_doc/examples",  # skips examples in the documentation
+    "^_unittests",  # skips unit tests
+    "^build",  # skips build
+    "^dist",  # skips dist
+]
+
+[[tool.mypy.overrides]]
+module = ["setup"]
+disable_error_code = ["attr-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended._command_lines"]
+disable_error_code = [
+    "attr-defined",
+    "operator",
+    "arg-type",
+    "assignment",
+    "var-annotated",
+    "return-value",
+    "name-defined",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended._command_lines_parser"]
+disable_error_code = ["arg-type", "name-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.args"]
+disable_error_code = ["index"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.ext_test_case"]
+disable_error_code = ["name-defined", "override"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.ortops.optim.optimize"]
+disable_error_code = ["arg-type"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.ortops.cuda"]
+disable_error_code = ["arg-type"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.plotting.benchmark"]
+disable_error_code = ["name-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.reference"]
+disable_error_code = ["name-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.reference.c_reference_backend"]
+disable_error_code = ["override", "union-attr", "misc"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.reference.c_reference_evaluator"]
+disable_error_code = ["arg-type", "attr-defined", "var-annotated", "assignment", "index"]
+
+[[tool.mypy.overrides]]
+module = [
+    "onnx_extended.reference.c_ops.*",
+    "onnx_extended.reference.c_custom_ops.*",
+    "onnx_extended.tools.graph.onnx_custom_ops",
+]
+disable_error_code = ["assignment", "operator", "call-overload", "no-redef", "attr-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.einsum.einsum_bench"]
+disable_error_code = ["arg-type"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.einsum.einsum_fct"]
+disable_error_code = [
+    "assignment",
+    "arg-type",
+    "attr-defined",
+    "call-overload",
+    "index",
+    "misc",
+    "return-value",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.einsum.einsum_impl"]
+disable_error_code = [
+    "assignment",
+    "arg-type",
+    "attr-defined",
+    "index",
+    "misc",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.einsum.einsum_impl_classes"]
+disable_error_code = [
+    "assignment",
+    "attr-defined",
+    "arg-type",
+    "call-overload",
+    "has-type",
+    "index",
+    "misc",
+    "str-format",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.einsum.einsum_impl_ext"]
+disable_error_code = ["assignment", "union-attr"]
+
+[[tool.mypy.overrides]]
+module = [
+    "onnx_extended.tools.graph.onnx_graph_struct",
+    "onnx_extended.tools.graph.onnx_graph_transformer",
+]
+disable_error_code = [
+    "attr-defined",
+    "arg-type",
+    "list-item",
+    "union-attr",
+    "var-annotated",
+    "index",
+    "assignment",
+    "operator",
+    "call-overload",
+    "return-value",
+    "no-redef",
+    "valid-type",
+    "misc",
+    "annotation-unchecked",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.js_profile"]
+disable_error_code = ["attr-defined", "name-defined"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.onnx_inline"]
+disable_error_code = [
+    "arg-type",
+    "assignment",
+    "attr-defined",
+    "index",
+    "override",
+    "return-value",
+    "union-attr",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.onnx_nodes"]
+disable_error_code = [
+    "operator",
+    "union-attr",
+    "index",
+    "arg-type",
+    "assignment",
+    "misc",
+    "return-value",
+    "attr-defined",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.ort_debug"]
+disable_error_code = ["union-attr"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.run_onnx"]
+disable_error_code = [
+    "arg-type",
+    "union-attr",
+    "assignment",
+    "valid-type",
+    "attr-defined",
+    "return-value",
+]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.tools.stats_nodes"]
+disable_error_code = ["annotation-unchecked", "dict-item"]
+
+[[tool.mypy.overrides]]
+module = ["onnx_extended.validation.bench_trees"]
+disable_error_code = ["arg-type"]
+
+[tool.ruff]
+exclude = [".eggs", ".git", "build", "dist"]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "B", # flake8-bugbear
+    "C4", # flake8-comprehensions
+    #"D", # pydocstyle
+    "E", # pycodestyle
+    "F", # Pyflakes
+    "G", # flake8-logging-format
+    #"I", # isort
+    "ISC", # flake8-implicit-str-concat
+    "LOG", # flake8-logging
+    #"N", # pep8-naming
+    #"NPY", # modern numpy
+    #"PERF", # Perflint
+    "PIE", # flake8-pie
+    "PYI", # flake8-pyi
+    "RUF", # Ruff-specific rules
+    "SIM", # flake8-simplify
+    "SLOT", # flake8-slot
+    "T10", # flake8-debugger
+    #"TID", # Disallow relative imports
+    #"TRY", # flake8-try-except-raise
+    "UP", # pyupgrade
+    "W", # pycodestyle
+    "YTT", # flake8-2020
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**" = ["B905", "C401", "C408", "C413", "RUF012", "RUF100", "RUF010", "SIM108", "SIM910", "SIM110", "SIM102", "SIM114", "SIM103", "UP015", "UP027", "UP031", "UP034", "UP032", "UP006", "UP035", "UP007", "UP038"]
+"**/plot*.py" = ["B018"]
+"_doc/examples/plot_op_gemm2_cuda.py" = ["E402"]
+"_doc/examples/plot_op_mul_cuda.py" = ["E402"]
+"_doc/examples/plot_op_scatternd_cuda.py" = ["E402"]
+"_doc/examples/plot_op_scatternd_mask_cuda.py" = ["E402"]
+"_doc/examples/plot_op_transpose_2d_cast_cuda.py" = ["E402"]
+"onnx_extended/helper/__init__.py" = ["F401"]
+"onnx_extended/plotting/data.py" = ["E501"]
+"onnx_extended/reference/__init__.py" = ["F401"]
+"onnx_extended/tools/__init__.py" = ["F401"]
+"onnx_extended/tools/einsum/__init__.py" = ["F401"]
+"onnx_extended/tools/einsum/einsum_bench.py" = ["E731"]
+"onnx_extended/tools/graph/__init__.py" = ["F401"]
+"onnx_extended/tools/js_profile.py" = ["F821"]
+"onnx_extended/tools/run_onnx_main.py" = ["E731"]
+"_unittests/ut_tools/test_onnx_tools_graph.py" = ["E731"]
