@@ -1,0 +1,3 @@
+swh.export[luigi] >= v1.2.0
+swh.graph[luigi] >= 6.4.0
+swh.provenance[luigi] >= 0.3.0
