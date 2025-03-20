@@ -1,0 +1,15 @@
+bin/are_there_primers.py,sha256=Jr7woDMaQzIQdYAaxNjnTDrjWVOoq7lipY3oImXwoUM,4104
+bin/choose_primer_cutoff.py,sha256=a0Sa5vxFMlHt_QwPLDCjHMbTvg8xmtlRQc79b4Mdbjc,5519
+bin/find_cutoffs.py,sha256=ps6EZ_R_Lo2XQu1_DmXtZUE9A5FXWBeHSkbFHCj06l4,2390
+bin/generate_bcv.py,sha256=Nhwsb4NLtJxqoLl6CxoN50ruMgRycziuttucaOfzk3c,3612
+bin/pimento_utils.py,sha256=kd2GIZVXHPkLOFXXt18w8fAvKc-beszSDdngHh-PxGo,6478
+bin/regex_ambiguous_bases.py,sha256=35gGdBR_DuHY9U-vivsoxfpiTzpkOP5V0MKaTKVZ0G4,1086
+bin/standard_primer_matching.py,sha256=U_kxS1rnNrjffARel4uBp6DcdpHr4aM8CkPlbzhDdjA,9932
+bin/thresholds.py,sha256=-cWefGOtP47PQ4i6PcgswjeAKr438pTduQD2RColI8U,1263
+cli/pimento.py,sha256=LJ50CtBZQvwVCLrcDPKH2zFlaZ-_KCoxc_O4mOSiOkY,18910
+mi_pimento-0.0.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+mi_pimento-0.0.3.dist-info/METADATA,sha256=Op5JuT3dL5U17Thj8ePX-xVMSyDpooiXN1T5pslv6Wk,6093
+mi_pimento-0.0.3.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+mi_pimento-0.0.3.dist-info/entry_points.txt,sha256=ffOWx-17J0MF7dbxagNUaIm4yYo3S_GOktvF5fyjwuw,44
+mi_pimento-0.0.3.dist-info/top_level.txt,sha256=1SSoai26d0-nOZ3GWJNuUx22bMoHChoGjRN45rF4YVs,8
+mi_pimento-0.0.3.dist-info/RECORD,,
