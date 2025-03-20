@@ -1,0 +1,42 @@
+# Bangladesh Railway CLI
+
+CLI for Bangladesh Railway's Ticketing System
+
+## Motivation
+
+* 🔥 [Bangladesh Railway E-ticketing Service](https://eticket.railway.gov.bd/) is maintained by ~Computer Network Systems Limited (CNS)~ Shohoz-Synesis-Vincen Joint Venture
+* 🚀 The new service has some Laravel based APIs to query for trains and seats
+* 👨‍💻 Users no longer need to be logged in to check seat availablity
+* 😎 Why not build a Python client to do that?
+
+> I developed a CLI for the old system built by CNS as well. [Browse here](https://github.com/mdminhazulhaque/bangladesh-railway-cli/tree/master-cns) for the old version.
+
+## Installation
+
+```bash
+pip install bangladesh-railway-cli
+```
+
+## Features
+
+- `bangladesh-railway-cli search`
+- `bangladesh-railway-cli book`
+- `bangladesh-railway-cli verify`
+- `bangladesh-railway-cli confirm`
+
+## Environmental Variables
+
+```
+ETICKET_TOKEN='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30'
+ETICKET_EMAIL='user@example.com'
+ETICKET_PHONE='01711111111'
+ETICKET_NAMES='JOHN DOE,JANE DOE'
+ETICKET_FROM='Dhaka'
+ETICKET_TO='Rajshahi'
+ETICKET_DATE='01-Jan-2025'
+ETICKET_TRAIN='DHUMKETU EXPRESS (769)'
+ETICKET_CLASS='SNIGDHA'
+ETICKET_SEATS='GA-1,GA-2'
+ETICKET_FINAL_PAYLOAD=''
+ETICKET_OTP='1234'
+```
