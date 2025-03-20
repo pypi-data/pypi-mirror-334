@@ -1,0 +1,24 @@
+regex
+html2text
+markdown
+
+[:platform_system == "Windows"]
+pywin32
+
+[:sys_platform == "darwin"]
+appscript
+
+[dev]
+pytest>=7.0
+black
+flake8
+gitingest
+
+[docs]
+furo
+sphinx
+sphinx-pyproject
+sphinx.ext.autodoc
+sphinx.ext.napoleon
+sphinx.ext.autosummary
+gitingest
