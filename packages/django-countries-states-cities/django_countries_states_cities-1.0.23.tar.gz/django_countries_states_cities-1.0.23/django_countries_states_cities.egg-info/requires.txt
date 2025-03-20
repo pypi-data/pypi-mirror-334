@@ -1,0 +1,9 @@
+Django<4.0,>=3.2.16
+django-filter<23.0,>=22.1
+django-import-export<3.0,>=2.9.0
+django-modeltranslation<0.19,>=0.18.11
+django-url-filter<0.4,>=0.3.15
+djangorestframework<3.15,>=3.14.0
+drf-yasg<1.22,>=1.21.4
+requests<3.0,>=2.32.3
+urllib3<3,>=1.26.5
