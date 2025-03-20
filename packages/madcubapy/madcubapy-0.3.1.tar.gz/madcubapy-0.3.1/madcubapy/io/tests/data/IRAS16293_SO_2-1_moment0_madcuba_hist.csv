@@ -1,0 +1,9 @@
+Index,FITS,Macro,Type,FROM_ROW,TO_ROW,Roi_Range,User,Date
+1,C,//ORIGIN=/home/david/Documents/MasterAstro/TFM/Data/Cubes/Band_3_12m-TM2/MAD_CUB_member.uid___A001_X133d_X320d.IRAS_16293-2422_sci.spw29.cube.I.pbcor.fits,I,,,,,
+2,C,"//INFO: Import CASA FITS FILE, ESTIMATED_SIGMA=0.005020903444186465",P,,,,david,2022-10-14T14:39:05.876
+3,C,"run(""Import CASA FITS FILE"",""select='/home/david/Documents/MasterAstro/TFM/Data/Band_3_12m-TM2-medium/2018.1.01496.S/science_goal.uid___A001_X133d_X3209/group.uid___A001_X133d_X320a/member.uid___A001_X133d_X320d/product//member.uid___A001_X133d_X320d.IRAS_16293-2422_sci.spw29.cube.I.pbcor.fits' changehead='Vrad$2.5$km/s'"");",P,,,,david,2022-10-14T14:39:05.876
+4,C,"run(""Open Virtual Cube"",""select='/home/david/Documents/MasterAstro/TFM/Data/Cubes/Band_3_12m-TM2/MAD_CUB_member.uid___A001_X133d_X320d.IRAS_16293-2422_sci.spw29.cube.I.pbcor.fits' "");",P,,,,david,2023-05-02T13:12:32.467
+5,C,//ORIGIN=CUBE MAD_CUB_member.uid___A001_X133d_X320d.IRAS_16293-2422_sci.spw29.cube.I.pbcor.fits,I,,,,,
+6,C,"//selectWindow(""CUBE MAD_CUB_member.uid___A001_X133d_X320d.IRAS_16293-2422_sci.spw29.cube.I.pbcor.fits"");",I,,,,,
+7,C,"run(""INTEGRATED INTENSITY PLUGIN"",""ranges=500.0$5500.0$# axisunit=m s-1 interpolate=0"");",P,,,,david,2023-05-02T13:12:34.442
+8,C,"run(""Save Cube"",""select='/home/david/Documents/MasterAstro/TFM/Data/Cubes/Band_3_12m-TM2/integrated_SO_TM2_range05_center3.fits'"");",P,,,,david,2023-05-02T13:12:47.239
