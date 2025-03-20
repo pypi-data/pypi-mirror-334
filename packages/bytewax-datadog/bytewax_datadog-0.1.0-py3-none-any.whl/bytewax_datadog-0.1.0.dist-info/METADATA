@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: bytewax-datadog
+Version: 0.1.0
+Summary: Datadog connectors for Bytewax
+Project-URL: Repository, https://github.com/imnotjames/bytewax-datadog.git
+Project-URL: Issues, https://github.com/imnotjames/bytewax-datadog/issues
+Author-email: James Ward <james@notjam.es>
+License-Expression: MIT
+Keywords: bytewax,datadog
+Requires-Python: >=3.12
+Requires-Dist: bytewax>=0.21.1
+Requires-Dist: datadog-api-client>=2.33.1
+Description-Content-Type: text/markdown
+
+[![PyPI](https://img.shields.io/pypi/v/bytewax-datadog.svg?style=flat-square)][pypi-package]
+
+# Bytewax Datadog
+
+[Datadog][datadog] conectors for [Bytewax][bytewax].
+
+This connector offers 1 source and 1 sink.
+
+* `LogSink` - writes Datadog logs.
+* `LogSource` - reads Datadog logs.
+
+## Installation
+
+This package is available via [PyPi][pypi-package] as
+`bytewax-datadog` and can be installed via your package manager of choice.
+
+## Usage
+
+### Logs Source
+
+```python
+from bytewax_datadog import LogSource
+from bytewax.connectors.stdio import StdOutSink
+
+import bytewax.operators as op
+from bytewax.dataflow import Dataflow
+
+flow = Dataflow("datadog_example")
+flow_input = op.input("input", flow, LogSource.from_environment("example query"))
+op.output("output", flow_input, StdOutSink())
+```
+
+### Logs Sink
+
+```python
+from bytewax_datadog import LogSink, CreateLogEntry
+from bytewax.testing import TestingSource
+
+import bytewax.operators as op
+from bytewax.dataflow import Dataflow
+
+flow = Dataflow("datadog_example")
+flow_input = op.input("input", flow, TestingSource([
+    CreateLogEntry(
+        hostname="localhost",
+        service="example-service",
+        message="Hello World!",
+    )
+]))
+op.output("output", flow_input, LogSink.from_environment("bytewax-datadog"))
+```
+
+## License
+
+Licensed under the [MIT License](./LICENSE)
+
+[datadog]: https://www.datadog.com
+[bytewax]: https://bytewax.io
+[pypi-package]: https://pypi.org/project/bytewax-datadog
