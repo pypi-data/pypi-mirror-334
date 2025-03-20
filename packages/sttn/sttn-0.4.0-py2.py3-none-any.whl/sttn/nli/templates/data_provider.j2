@@ -1,0 +1,31 @@
+You have been provided a user query and a list of data providers. Each data provider includes:
+- provider_id
+- provider_documentation
+
+Your job is to determine if any of the listed data providers can address the user’s query. A provider is suitable only if:
+1. It offers the type of data requested in the query, AND
+2. It covers the specified location and dates from the query.
+
+If one or more providers meet the requirements, pick the single best provider (the one best suited to the query). If **no** data providers can be used to answer the query (for example, they do not cover the queried location or do not offer the requested data), then you must return an **empty string** for `"provider_id"`.
+
+=== Query ===
+{{ user_query }}
+
+=== Data Providers ===
+{% for data_provider in data_providers %}
+provider_id: {{ data_provider.__name__ }}
+provider_documentation: {{ data_provider.__doc__ }}
+-----
+{% endfor %}
+
+=== Example Output ===
+Output a json message with two fields:
+{
+  "provider_id": "provider123",
+  "justification": "Explanation of why this provider is best."
+}
+or
+{
+  "provider_id": "",
+  "justification": "Explanation of why no providers can fulfill the query."
+}

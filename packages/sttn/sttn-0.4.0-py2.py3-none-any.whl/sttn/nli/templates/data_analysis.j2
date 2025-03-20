@@ -1,0 +1,62 @@
+Generate valid Python code based on the input dataset to answer the following user query and data provider.
+
+=== Query ===
+{{ user_query }}
+
+=== Data Provider Documentation ===
+{{ data_provider_documentation }}
+
+=== Data Description ===
+{{ data_description }}
+
+=== Data Provider Arguments ===
+The following arguments were used to retrieve the `sttn` dataset below:
+{{ data_provider_arguments }}
+
+=== Input Data ===
+The input data is stored in the `sttn_network` variable as a `SpatioTemporalNetwork` object created by the data provider described above.
+Dataset schema is described in the Data Provider Documentation section. If analysis can be done using SpatioTemporalNetwork methods, prioritize using them:
+
+SpatioTemporalNetwork methods:
+filter_nodes(self, condition: pd.Series) -> SpatioTemporalNetwork:
+    On input accepts a boolean pd.Series with the same index as the nodes GeoDataFrame. 
+    return a new SpatioTemporalNetwork !ONLY! with nodes where the input node condition is True and edges where BOTH origin and destination are within the filtered nodes.
+    Example 1: if you have a query: "What is the number of trips done within Manhattan?",
+        Running `sttn_network.filter_nodes(sttn_network.nodes['borough'] == "Manhattan")` will be the right choice, and it will ONLY return nodes that are in Manhattan and edges that have BOTH origin and destination in Manhattan, REMOVING all other nodes and edges.
+    Example 2: if you have a query: "What is the number of workers commuting from Montgomery County, MD?", 
+        In this case, you MUST NOT use the 'filter_nodes' method because you are interested in edges that have ONLY the origin in Montgomery County, MD, but the destination can be ANYWHERE, so only work with 'filter_edges' method.
+    So before applying this method, think step-by-step about whether you need to restrict both origin and destination to some specified area or only one of them.
+
+filter_edges(self, condition: pd.Series) -> SpatioTemporalNetwork:
+    On input accepts a boolean pd.Series with the same index as the nodes DataFrame. 
+    return a new SpatioTemporalNetwork !ONLY! with edges where the input edge condition is True.
+    Before applying filter_edges: 
+        1. define the origin using keywords like 'originating', 'from', 'starting', etc.,
+        2. define the destination using keywords like 'destination', 'to', 'ending', etc.,
+        3. define additional filters if required,
+    Only after those steps, you can apply the filtering via the filter_edges method.
+
+sttn.plot module supports plotting functions:
+choropleth(sttn_network: SpatioTemporalNetwork, node_layers: Optional[List[str]] = None)
+    Returns a choropleth map plot with one layer for each provided node layer. All node layers should correspond to node columns available in sttn_network.nodes.
+
+sttn.algorithms.community.detection module has community detection methods:
+combo_communities(data: SpatioTemporalNetwork, weight: Optional[str] = None, **combo_kwargs) -> Tuple[SpatioTemporalNetwork, float]
+    Runs community detection using the combo algorithm and returns tuple with two elements:
+    1. SpatioTemporalNetwork` object, where network nodes have one extra column of integer type: 'cluster', corresponding to the detected community number for a given node.
+    2. Modularity score achieved as float
+    `weight` - name of the edge attribute that should be used as a weight
+
+Analytics that is not available in SpatioTemporalNetwork can be done by working with nodes and edges directly:
+`sttn_network.nodes` returns a GeoPandas dataframe with nodes and their geometry
+`sttn_network.edges` returns a Pandas dataframe with edges
+`sttn_network.to_multigraph()` returns a networkx directed multigraph object with edge attributes
+
+Pay attention that the index column in Pandas can be accessed only using the "index" attribute.
+
+=== Task ===
+**1. Do not use placeholder values (e.g., `1`, `2`, `3`) or comments like 'replace with actual id'.**
+**2. Return a single, self-contained Python code block that can be executed in a Jupyter notebook without any additional inputs or modifications.**
+**3. If the necessary values cannot be determined from the given data or documentation, return `None`.**
+**4. The last line of the code must return the final numeric result that answers the user query.**
+**5. If the dataset or the information above is not sufficient to answer the query, return None.**
