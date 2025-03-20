@@ -1,0 +1,2 @@
+[console_scripts]
+brainmapper = brainglobe_workflows.brainmapper.main:main

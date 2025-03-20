@@ -1,0 +1,173 @@
+Metadata-Version: 2.2
+Name: brainglobe-workflows
+Version: 1.4.1
+Summary: A collection of end-to-end data analysis workflows executed using BrainGlobe tools.
+Author: Christian Niedworok, Charly Rousseau
+Author-email: Adam Tyson <code@adamltyson.com>, BrainGlobe developers <code@adamltyson.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2023, BrainGlobe developers.
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Bug Tracker, https://github.com/brainglobe/brainglobe-workflows/issues
+Project-URL: Documentation, https://brainglobe.info/documentation/brainglobe-workflows
+Project-URL: Homepage, https://brainglobe.info
+Project-URL: Source Code, https://github.com/brainglobe/brainglobe-workflows
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: brainglobe>=1.3.0
+Requires-Dist: brainglobe-utils>=0.7.0
+Requires-Dist: configobj
+Requires-Dist: fancylog>=0.4.2
+Requires-Dist: multiprocessing-logging>=0.3.4
+Requires-Dist: natsort
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: packaging
+Requires-Dist: pooch
+Requires-Dist: scikit-image
+Requires-Dist: tifffile
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: gitpython; extra == "dev"
+Requires-Dist: coverage>=5.0.3; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: setuptools_scm; extra == "dev"
+Requires-Dist: asv; extra == "dev"
+Provides-Extra: napari
+Requires-Dist: napari[pyqt5]; extra == "napari"
+Requires-Dist: brainglobe-napari-io; extra == "napari"
+Requires-Dist: cellfinder[napari]>=1.0.0; extra == "napari"
+
+[![Python Version](https://img.shields.io/pypi/pyversions/brainglobe-workflows.svg)](https://pypi.org/project/brainglobe-workflows)
+[![PyPI](https://img.shields.io/pypi/v/brainglobe-workflows.svg)](https://pypi.org/project/brainglobe-workflows)
+[![Downloads](https://pepy.tech/badge/brainglobe-workflows)](https://pepy.tech/project/brainglobe-workflows)
+[![Wheel](https://img.shields.io/pypi/wheel/brainglobe-workflows.svg)](https://pypi.org/project/brainglobe-workflows)
+[![Development Status](https://img.shields.io/pypi/status/brainglobe-workflows.svg)](https://github.com/brainglobe/brainglobe-workflows)
+[![Tests](https://img.shields.io/github/actions/workflow/status/brainglobe/brainglobe-workflows/test_and_deploy.yml?branch=main)](https://github.com/brainglobe/brainglobe-workflows/actions)
+[![codecov](https://codecov.io/gh/brainglobe/brainglobe-workflows/branch/master/graph/badge.svg?token=s3MweEFPhl)](https://codecov.io/gh/brainglobe/brainglobe-workflows)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](https://brainglobe.info/developers/index.html)
+[![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Fbrainglobe.info)](https://brainglobe.info/documentation/brainglobe-workflows/index.html)
+[![Twitter](https://img.shields.io/twitter/follow/brain_globe?style=social)](https://twitter.com/brain_globe)
+
+# BrainGlobe Workflows
+
+`brainglobe-workflows` is a package that provides users with a number of out-of-the-box data analysis workflows employed in neuroscience, implemented using BrainGlobe tools.
+
+These workflows represent the most common use-cases and are meant to be easy to reuse. They also serve as an example of how to combine several BrainGlobe tools  (possibly together with other tools) to achieve a goal, such as whole brain cell detection and atlas registration.
+
+You can view the [full documentation for each workflow](https://brainglobe.info/documentation/brainglobe-workflows/index.html) online.
+You can also find the documentation for the backend BrainGlobe tools these workflows use [on our website](https://brainglobe.info/).
+
+At present, the package offers the following workflows to users:
+
+- [brainmapper](#brainmapper-command-line-interface-cli): A command-line tool for whole-brain detection, registration, and analysis.
+
+Additionally, this repository provides functionalities to support code developers. See the [developer documentation](#developer-documentation) for further details.
+
+## User documentation
+
+### Installation
+
+At the moment, users can install all available workflows by running `pip install` in your desired environment:
+
+```bash
+pip install brainglobe-workflows
+```
+
+`brainglobe-workflows` is built using BrainGlobe tools, and it will automatically fetch the tools that it needs and install them into your environment.
+Once BrainGlobe version 1 is available, this package will fetch all BrainGlobe tools and handle their install into your environment, to prevent potential conflicts from partial installs.
+
+See the sections below for more information about the workflows and command-line tools provided.
+
+#### `brainmapper` Command Line Interface (CLI)
+
+Whole-brain cell detection, registration and analysis.
+
+If you want to just use the cell detection part of `brainmapper`, please see the standalone [cellfinder](https://github.com/brainglobe/cellfinder) package and its [`napari`](https://napari.org/) plugin.
+
+`brainmapper` is a workflow designed for the analysis of whole-brain imaging data such as [serial-section imaging](https://sainsburywellcomecentre.github.io/OpenSerialSection/) and lightsheet imaging in cleared tissue.
+The aim is to provide a single solution for:
+
+- Cell detection (initial cell candidate detection and refinement using  deep learning) (using the [cellfinder](https://github.com/brainglobe/cellfinder) backend package),
+- Atlas registration (using [brainreg](https://github.com/brainglobe/brainreg)),
+- Analysis of cell positions in a common space.
+
+Basic usage:
+
+```bash
+brainmapper -s signal_images -b background_images -o output_dir --metadata metadata
+```
+
+Full documentation can be found [here](https://brainglobe.info/documentation/brainglobe-workflows/brainmapper/index.html).
+
+NOTE: The `brainmapper` workflow previously used the name "cellfinder", but this has been discontinued following the release of the [unified `cellfinder`](https://github.com/brainglobe/cellfinder) backend package to avoid conflation of terms.
+See our [blog post](https://brainglobe.info/blog/version1/cellfinder-core-and-plugin-merge.html) from the release for more information.
+
+## Developer documentation
+
+This repository also includes code to benchmark typical workflows.
+These benchmarks are meant to be run regularly, to ensure performance is stable as the tools are developed and extended.
+
+There are three main ways in which these benchmarks can be useful to developers:
+1. Developers can run the available benchmarks locally on a small test dataset.
+1. Developers can also run these benchmarks on data they have stored locally.
+1. We also plan to run the benchmarks on an internal runner using a larger dataset, of the scale we expect users to be handling. The result of these benchmarks will be made publicly available.
+
+For further details on how to run the benchmarks, see the [benchmarks README](benchmarks/README.md).
+
+
+## Seeking help or contributing
+We are always happy to help users of our tools, and welcome any contributions. If you would like to get in contact with us for any reason, please see the [contact page of our website](https://brainglobe.info/contact.html).
+
+## Citing `brainglobe-workflows`
+
+**If you use any tools in the [brainglobe suite](https://brainglobe.info/documentation/index.html), please [let us know](mailto:code@adamltyson.com?subject=BrainGlobe), and we'd be happy to promote your paper/talk etc.**
+
+If you find `brainmapper` useful, and use it in your research, please cite the paper outlining the cell detection algorithm:
+> Tyson, A. L., Rousseau, C. V., Niedworok, C. J., Keshavarzi, S., Tsitoura, C., Cossell, L., Strom, M. and Margrie, T. W. (2021) “A deep learning algorithm for 3D cell detection in whole mouse brain image datasets’ PLOS Computational Biology, 17(5), e1009074
+[https://doi.org/10.1371/journal.pcbi.1009074](https://doi.org/10.1371/journal.pcbi.1009074)
+>
+If you use any of the image registration functions in `brainmapper`, please also cite [`brainreg`](https://github.com/brainglobe/brainreg#citing-brainreg).
