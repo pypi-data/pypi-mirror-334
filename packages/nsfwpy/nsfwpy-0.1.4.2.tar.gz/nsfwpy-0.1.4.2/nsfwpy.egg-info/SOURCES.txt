@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+nsfwpy/__init__.py
+nsfwpy/api.py
+nsfwpy/cli.py
+nsfwpy/nsfw.py
+nsfwpy/nsfw_tflite.py
+nsfwpy/server.py
+nsfwpy.egg-info/PKG-INFO
+nsfwpy.egg-info/SOURCES.txt
+nsfwpy.egg-info/dependency_links.txt
+nsfwpy.egg-info/entry_points.txt
+nsfwpy.egg-info/requires.txt
+nsfwpy.egg-info/top_level.txt
