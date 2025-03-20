@@ -1,0 +1,8 @@
+package-utils<1,>=0.8.0
+psutil<8,>=5.9.8
+
+[dev]
+hypothesis<7,>=6.100.0
+package-dev-tools<1,>=0.5.11
+package-dev-utils<2,>=0.1.6
+types-psutil<8,>=5.9.5.20240316
