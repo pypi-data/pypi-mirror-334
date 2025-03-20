@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: pdffaroshuffle
+Version: 0.1.0
+Summary: Create a PDF from 2: first with even and second with odd pages.
+Author-email: José Luis Segura Lucas <josel.segura@gmail.com>
+License-Expression: GPL-3.0-or-later
+Keywords: merge,pdf,pdfseparate,pdfunite
+Requires-Python: >=3.13
+Provides-Extra: lint
+Requires-Dist: pre-commit; extra == 'lint'
+Description-Content-Type: text/markdown
+
+# PDF Faro Shuffle
+
+Have you ever scanned a long document printed in duplex mode, but your scanner doesn't support duplex scanning?
+
+I had, several times, and I always ended up using `pdfseparate` and `pdfunite` in order to put all the pages
+together and in order in the same PDF file.
+
+After doing it a couple of times in the last month, I decided to write a Python tool that help me with this boring
+task.
