@@ -1,0 +1,14 @@
+numpy
+joblib
+
+[all]
+scipy
+
+[docs]
+pydata-sphinx-theme
+sphinx-autoapi
+sphinx-inline-tabs
+sphinx-copybutton
+matplotlib
+sphinx-gallery
+pypandoc

@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.isort]
+profile = "black"
+
+[project]
+name = "tensortrax"
+description = "Differentiable Tensors based on NumPy Arrays"
+readme = "README.md"
+authors = [
+  {name = "Andreas Dutzler"},
+  {email = "a.dutzler@gmail.com"},
+  
+]
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+keywords = [
+  "python", 
+  "constitution",
+  "ad",
+  "automatic-differentiation",
+  "scientific-computing",
+  "tensor",
+  "calculus-of-variations",
+  "hyper-dual-numbers",
+  "hyper-dual-tensors",
+  "trailing-axes",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Utilities"
+]
+dynamic = ["version"]
+dependencies = ["numpy", "joblib"]
+
+[project.optional-dependencies]
+all = ["scipy"]
+docs = [
+    "pydata-sphinx-theme",
+    "sphinx-autoapi",
+    "sphinx-inline-tabs",
+    "sphinx-copybutton",
+    "matplotlib",
+    "sphinx-gallery",
+    "pypandoc",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "tensortrax.__about__.__version__"}
+
+[project.urls]
+Homepage = "https://tensortrax.readthedocs.io/en/latest"
+Code = "https://github.com/adtzlr/tensortrax"
+Issues = "https://github.com/adtzlr/tensortrax/issues"
