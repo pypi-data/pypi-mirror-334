@@ -1,0 +1,93 @@
+Metadata-Version: 2.4
+Name: semantic-fera
+Version: 0.0.1
+Summary: FERA ontologies, type definitions, type constructors, configurations 
+Project-URL: Homepage, https://source.coderefinery.org:fera/semantic-fera
+Project-URL: Issues, https://source.coderefinery.org:fera/semantic-fera/-/issues
+Author-email: William A Coolidge <wac@mmmi.sdu.dk>
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: behave==1.2.6
+Requires-Dist: future==0.18.2
+Requires-Dist: paho-mqtt==2.1.0
+Requires-Dist: pydantic-core==2.27.2
+Requires-Dist: pydantic==2.10.4
+Requires-Dist: pymonad==2.4.0
+Requires-Dist: pyrsistent==0.20.0
+Requires-Dist: semantic-api>=0.0.18
+Requires-Dist: typing-extensions==4.12.2
+Requires-Dist: typing==3.7.4.3
+Requires-Dist: urllib3==1.26.5
+Description-Content-Type: text/markdown
+
+
+# Semantic FERA
+
+#### Versions
+
+```0.0.1``` : Intial version with only FERA ontology clusters and minimal set of corresponding type constructors.
+
+| Feature | Element | Status | Comment |
+|:--- |:--- |:--- | :--- |
+| **type cluster definitions**| | complete in intial form, evolution begins|
+|  |USD |✅ | complete |
+|  |DUL |✅ | minmal selection |  
+|  |FERA |✅ | to-be-evolved |  
+|  |FERA assembly   |  | in-process |
+|  |FERA machine tending   |  | in-process |
+| **type defs, -constructors**| | |
+|  | JointState |✅ | |
+|  | ToolCenterPointState |✅ | |
+| **state decorators**| | ❌ | in-process |
+| **semantic-api examples**| | ❌ | in-process |
+
+
+### Install
+
+```pip3 install semantic-api```
+
+```pip3 install semantic-fera```
+
+### Use Example
+
+#### Import semantic-api
+```
+    from semantic.api.semantic_api import semantic
+    from semantic.common.utils import defineSchemaId
+    from semantic.api.config import brokerIP, dbUri, batch_size, topics
+```
+
+#### Import semantic-fera
+```
+    from semantic.fera.fera_types.type_constructors import joint_state, tool_center_point_state, pathMap
+```
+
+
+#### Import semantic.fera.config
+
+Import the default API configuration parameters from the relevant config file. The following steps will change as support for multiple users is added.  
+
+```
+    from semantic.fera.config.sweng_nvidia_macine_1 import brokerIp, schemaName, schemaVersion
+```
+Currently, you need to change the default logical database ```instanceName``` and possibly the ```schemaName-schemaVersion``` and follow the ```SchemaID``` steps in the insertion and query examples.
+
+```
+    # define the name of the logical database instance that you are using
+    yourInstanceName: str = <your instance name>
+```
+See the use in the bottom of the following two examples:
+
+
+#### 1 [Insertion - Narration Example](https://source.coderefinery.org:fera/semantic-fera/-/blob/main/src/doc/example-narration.md)
+
+#### 2 [Query - Processing Example](https://source.coderefinery.org:fera/semantic-fera/-/blob/main/src/doc/example-process.md)
+
+#### 3 [Ontologies](https://source.coderefinery.org:fera/semantic-fera/-/blob/main/src/ontologies/ontologies.md)
+
+#### 4 [Clusters](https://source.coderefinery.org:fera/semantic-fera/-/blob/main/src/ontologies/clusters/clusters.md)
+
+#### 5 [USD Framing](https://source.coderefinery.org:fera/semantic-fera/-/blob/main/src/doc/usd-framing.md)
+
+
+
