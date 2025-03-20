@@ -1,0 +1,25 @@
+[project]
+name = "ad_bs_converter"
+version = "1.2.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Aayush Dip Giri", email = "giridip862101@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.10.6",
+    "setuptools>=76.0.0",
+    "twine>=6.1.0",
+]
+license = { file = "LICENSE" }  # Point to your LICENSE file
+classifiers = [
+    "License :: OSI Approved :: MIT License",  # Add license classifier
+]
+
+[project.scripts]
+ad_bs_converter = "ad_bs_converter:main"
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
