@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: orgo
+Version: 0.0.2
+Summary: Desktop infrastructure for AI agents
+Author: Orgo Team
+License: MIT
+Project-URL: Homepage, https://www.orgo.ai
+Project-URL: Documentation, https://docs.orgo.ai
+Requires-Python: >=3.7
+Requires-Dist: requests>=2.25.0
+Requires-Dist: pillow>=8.0.0
