@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hdf5view"
+description = 'hdf5view is a python based HDF5 file viewer built on PyQt5/PySide2/PyQt6/PySide6, QtPy, h5py and pyqtgraph.'
+authors = [
+    {name = "Martin Swarbrick"},
+    {name = "Thomas G. Woodcock"},
+	{name = "The hdf5view Developers"},
+]
+maintainers = [{name = "Thomas G. Woodcock"},]
+license = {file = "LICENSE"}
+
+classifiers=[
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Development Status :: 3 - Alpha',
+    'Environment :: X11 Applications :: Qt',
+    'Intended Audience :: End Users/Desktop',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: POSIX',
+    'Operating System :: Microsoft :: Windows',
+	'Operating System :: MacOS',
+    'Topic :: Software Development',
+    'Topic :: Scientific/Engineering :: Visualization',
+]
+keywords = ["research", "data", "management", "visualization", "hdf5", "viewer"]
+requires-python = ">=3.6"
+dependencies = [
+    "h5py",
+    "qtpy",
+    "psutil",
+    "pyqtgraph"
+]
+dynamic = ["version"]
+
+[project.readme]
+'file' = "README.md"
+'content-type' = "text/markdown"
+
+[project.urls]
+'Documentation' = 'https://tgwoodcock.github.io/hdf5view'
+'Source' = 'https://github.com/tgwoodcock/hdf5view/'
+'Bug Tracker' = 'https://github.com/tgwoodcock/hdf5view/issues'
+'Changelog' = 'https://github.com/tgwoodcock/hdf5view/blob/main/CHANGELOG.rst'
+
+[project.optional-dependencies]
+doc = [
+    "matplotlib",
+    "nbsphinx                     >= 0.7",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx                       >= 3.0.2",
+    "sphinx-codeautolink[ipython] < 0.14",
+    "sphinx-copybutton            >= 0.2.5",
+    "sphinx-design",
+]
+tests = [
+    "numpydoc",
+    "pytest                       >= 5.4",
+    "pytest-benchmark",
+    "pytest-rerunfailures",
+    "pytest-xdist",
+    "pytest-qt",
+]
+coverage = [
+    "coverage                     >= 5.0",
+    "pytest-cov                   >= 2.8.1",
+]
+dev = [
+    "ruff",
+    "pre-commit                   >= 1.16",
+    "hdf5view[doc,tests,coverage]",
+]
+
+[tool.ruff.lint]
+select = [
+  "B",   # flake8-bugbear
+  "D",   # pydocstyle
+  "E",   # pycodestyle
+  "F",   # Pyflakes
+  "I",   # isort
+  "SIM", # flake8-simplify
+  "UP",  # pyupgrade
+]
+ignore = [
+  # conflict with other rules
+  "D203", # one-blank-line-before-class (conflicts with D204)
+  "D212", # multi-line-summary-first-line (conflicts with D213)
+  # conflict with formatter
+  "D206", # indent-with-spaces
+  "D300", # triple-single-quotes
+  "E111", # indentation-with-invalid-multiple
+  "E114", # indentation-with-invalid-multiple-comment
+  "E117", # over-indented
+  # conflict with Python 3.6 compatibility
+  "UP022", # replace-stdout-stderr
+  # personal preference
+  "SIM108", # turnary operator instead of if else block
+  "D205", # one-blank-line-required-between-summary-line-and-description
+]
+
+[tool.ruff.lint.isort]
+known-local-folder = ["src"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[project.gui-scripts]
+hdf5view = "hdf5view.main:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "hdf5view.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"hdf5view.resources.images" = ["*.svg", "*.ico", "*.png"]
