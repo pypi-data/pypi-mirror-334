@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "botrun-hatch"
+version = "5.3.171"
+description = ""
+authors = ["sebastian-hsu <sebastian.hsu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic-settings = "^2.5.2"
+
+[tool.poetry.dev-dependencies]
+build = "^1.2.2.post1"
+twine = "^5.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
