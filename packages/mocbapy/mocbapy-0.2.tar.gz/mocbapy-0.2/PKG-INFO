@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: mocbapy
+Version: 0.2
+Summary: Multi Objective Constrait-Based Analysis in python
+Author-email: Marko Budinich <marko.budinich@gmail.com>, Anna Lambert <anna.lambert@univ-nantes.fr>
+License: MIT
+Description-Content-Type: text/markdown
+Requires-Dist: benpy
+
+# Multi Objective Constrait-Based Analysis in python (MOCBApy)
+
+This package encapsule both MO-FBA & MO-FBA [from Budinich (2017)](https://doi.org/10.1371/journal.pone.0171744). 
+
+# Install
+
+## Using pip
+
+```sh
+pip install mocbapy
+```
+
+Or directly from github for a specific branch/commit
+
+```sh
+pip install git+https://github.com/markobud/mocbapy@development     
+```
+
+## Using cloned respository
+```sh
+pip install -e .
+```
