@@ -1,0 +1,31 @@
+[project]
+name = "manim-stock-visualization"
+version = "0.0.2"
+description = "Visualization of stock prices using manimCE."
+authors = [
+    { name = "Dennis Jabs", email = "" },
+]
+dependencies = [
+    "manim>=0.19.0",
+    "yfinance>=0.2.52",
+    "numpy>=2.2.2",
+    "pandas>=2.2.3",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/nobodyPerfecZ/manim-stock-visualization"
+Issues = "https://github.com/nobodyPerfecZ/manim-stock-visualization/issues"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
