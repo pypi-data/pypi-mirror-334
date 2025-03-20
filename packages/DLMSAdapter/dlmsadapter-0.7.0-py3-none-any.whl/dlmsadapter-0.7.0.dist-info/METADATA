@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: DLMSAdapter
+Version: 0.7.0
+Summary: dlms-spodes
+Author-email: Serj Kotilevski <youserj@outlook.com>
+Project-URL: Source, https://github.com/youserj/SPODESclient_prj
+Keywords: dlms,spodes,adapter
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: DLMS-SPODES<0.85,>=0.84.0
+Requires-Dist: semver>=3.0.2
+
+# DLMSadapter
+keep data from/to DLMS client
