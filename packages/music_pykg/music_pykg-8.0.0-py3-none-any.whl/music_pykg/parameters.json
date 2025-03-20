@@ -1,0 +1,2388 @@
+{
+    "$schema": "./parameters.schema.json",
+    "namelists": {
+        "dims": {
+            "doc": "Parameters specifying the dimensionality of the problem.",
+            "parameters": {
+                "ndim": {
+                    "type": "integer",
+                    "default": "2",
+                    "doc": [
+                        "Number of non-invariant space dimensions, can be 2 or 3.",
+                        "Note that the equations are always solved for three-dimensional physical space;",
+                        "`ndim=2` means that quantities of the problem depend only on the first two coordinates,",
+                        "while \\( \\partial_3 \\equiv 0 \\)."
+                    ]
+                },
+                "nmom": {
+                    "type": "integer",
+                    "default": "2",
+                    "doc": [
+                        "Number of momenta (velocity components) to solve, can be 2 or 3.",
+                        "One must always have `2 <= ndim <= nmom <= 3`."
+                    ]
+                }
+            },
+            "assert": [
+                {
+                    "condition": "2 <= ndim .and. ndim <= nmom .and. nmom <= 3",
+                    "message": "'must have 2 <= ndim <= nmom <= 3'"
+                }
+            ]
+        },
+        "io": {
+            "doc": "Parameters relevant to input/output.",
+            "parameters": {
+                "input": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'startModel'",
+                    "doc": [
+                        "Restart file containing initial stellar configuration"
+                    ]
+                },
+                "dataoutput": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump_'",
+                    "doc": [
+                        "Prefix for restart dumps filenames.",
+                        "The dump number will be appended, as well as the file extension, to form the full dump file name."
+                    ]
+                },
+                "read_record_number": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Try to get the record number from the restart file, so that multiple runs can be numbered sequentially together.",
+                        "Otherwise the first record number will be zero. This only has an effect for the `.music` file format."
+                    ]
+                },
+                "output_method": {
+                    "type": "integer",
+                    "default": "2",
+                    "doc": [
+                        "Format of dumps. Possible values are:",
+                        "* 2: `.music` dumps (using MPI-IO)",
+                        "* 4: Formats 2 & HDF5 (experimental, for debugging)"
+                    ]
+                }
+            }
+        },
+        "grid": {
+            "doc": "Parameters specifying the parallel domain decomposition.",
+            "parameters": {
+                "nprocx": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of processors in radial (x) direction"
+                    ]
+                },
+                "nprocy": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of processors in theta (y) direction"
+                    ]
+                },
+                "nprocz": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of processors in phi (z) direction"
+                    ]
+                }
+            }
+        },
+        "performance": {
+            "doc": "Performance-related parameters",
+            "advanced": true,
+            "parameters": {
+                "cells_per_cache_block": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of slab elements to process per cache block.",
+                        "Values <= 0 will leave the value at the discretion of [[core__cache_blocking_mod]]."
+                    ]
+                }
+            }
+        },
+        "misc": {
+            "doc": "Miscellaneous parameters",
+            "parameters": {
+                "tfinal": {
+                    "type": "real(kind=real64)",
+                    "default": "1d50",
+                    "doc": [
+                        "Time at which the calculation will terminate in seconds."
+                    ]
+                },
+                "dtrec": {
+                    "type": "real(kind=real64)",
+                    "default": "1e5",
+                    "doc": [
+                        "Time between outputs in seconds."
+                    ]
+                },
+                "dump_at_exact_timepoints": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "advanced": true,
+                    "doc": [
+                        "Periodically adapt the timestep so that dumps are produced exactly at scheduled timepoints.",
+                        "This is useful for example to produce dumps directly usable for Fourier analysis."
+                    ]
+                },
+                "steps_between_diagnostics": {
+                    "type": "integer",
+                    "default": "10",
+                    "advanced": true,
+                    "doc": [
+                        "Number of timesteps between diagnostics"
+                    ]
+                },
+                "nmax": {
+                    "type": "integer",
+                    "default": "1000000000",
+                    "doc": [
+                        "Maximum number of timesteps until calculation terminates (alternative to tfinal)"
+                    ]
+                },
+                "verbosity": {
+                    "type": "integer",
+                    "default": "3",
+                    "doc": [
+                        "Verbosity of the solver, see src/cpp/Logging.h for values"
+                    ]
+                },
+                "steps_between_implicit_speedup_report": {
+                    "type": "integer",
+                    "default": "10",
+                    "advanced": true,
+                    "doc": [
+                        "Number of timesteps between estimating implicit-over-explicit speedup"
+                    ]
+                },
+                "momentum_equation_check_tol": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d-14",
+                    "advanced": true,
+                    "doc": [
+                        "Tolerance to verify equations don't introduce momentum in non-existing directions"
+                    ]
+                }
+            }
+        },
+        "spatial_scheme": {
+            "doc": "Parameters controlling the spatial reconstruction scheme.",
+            "advanced": true,
+            "parameters": {
+                "advection_scheme": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'van_leer'",
+                    "doc": [
+                        "Advection scheme to use: `van_leer` for second-order van Leer (default),",
+                        "`van_leer_nolimiter` for second-order scheme without limiter (for testing **only**),",
+                        "`weno53` for adaptive fifth order WENO-AO(5,3) of Balsara et al. 2016."
+                    ]
+                },
+                "weno_gamma_lo": {
+                    "type": "real(kind=real64)",
+                    "default": "0.85d0",
+                    "advanced": true,
+                    "doc": [
+                        "\\(\\gamma_\\text{Lo}\\) parameter for `weno53` scheme."
+                    ]
+                },
+                "weno_gamma_hi": {
+                    "type": "real(kind=real64)",
+                    "default": "0.85d0",
+                    "advanced": true,
+                    "doc": [
+                        "\\(\\gamma_\\text{Hi}\\) parameter for `weno53` scheme."
+                    ]
+                }
+            }
+        },
+        "timestep": {
+            "doc": "Parameters controlling the timestep.",
+            "parameters": {
+                "evolve_hydro": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Whether to evolve the hydro state.",
+                        "`evolve_hydro=.false.` is useful for some test problems with known static hydro solution, where the solver would struggle."
+                    ]
+                },
+                "dtmin": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Minimum allowed timestep. Ignored if `limitcfl=T`."
+                    ]
+                },
+                "dtmax": {
+                    "type": "real(kind=real64)",
+                    "default": "1d50",
+                    "doc": [
+                        "Maximum allowed timestep. Ignored if `limitcfl=T`."
+                    ]
+                },
+                "override_initial_dt_at_restart": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "advanced": true,
+                    "doc": [
+                        "Whether to recompute (override) the initial `dt` when restarting from a previous dump.",
+                        "If `.false.`, the initial `dt` will be taken from the dump we're restarting from if available,",
+                        "otherwise, the `dt` will be recomputed as if starting a new run."
+                    ]
+                },
+                "initial_courant_number": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Initial Courant number to use when starting a new simulation (either when time == 0 or dtn <= 0 in the dump file)",
+                        "It can be useful to start with a low Courant number, for example to dampen sound waves from approximate HSE.",
+                        "This number does not override the normal CFL protections."
+                    ]
+                },
+                "limitcfl": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Enable timestep control via CFL bounds. Will override bounds set by `dtmin`, `dtmax`."
+                    ]
+                },
+                "cflmin": {
+                    "type": "real(kind=real64)",
+                    "default": "0.001d0",
+                    "doc": [
+                        "Minimal allowed global Courant number.",
+                        "If the timestep attempts to drop below this value, e.g. due to convergence issues, the run will abort."
+                    ]
+                },
+                "cflmax": {
+                    "type": "real(kind=real64)",
+                    "default": "100.0d0",
+                    "doc": [
+                        "Maximal allowed global Courant number.",
+                        "The timestep will never be allowed to exceed that value."
+                    ]
+                },
+                "limitcflrad": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the radiative CFL.",
+                        "\\(\\text{CFL}_\\text{rad} = \\Delta t \\frac{2 k_T}{\\Delta x^2}\\),",
+                        "with \\(k_T\\) the [diffusion coefficient](|page|/user/physics/thermal_diffusion.html)."
+                    ]
+                },
+                "cflradmin": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed radiative CFL number."
+                    ]
+                },
+                "cflradmax": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Maximal allowed radiative CFL number."
+                    ]
+                },
+                "limitcflhydro": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the (magneto)acoustic CFL.",
+                        "\\(\\text{CFL}_\\text{hydro} = \\Delta t \\frac{c_s + |v_i|}{\\Delta x}\\),",
+                        "where \\(c_s\\) is the fastest signal velocity in the cell,",
+                        "i.e. the sound speed in pure hydro, and fast magnetosonic speed in MHD."
+                    ]
+                },
+                "cflhydromin": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed magnetosonic CFL number."
+                    ]
+                },
+                "cflhydromax": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d50",
+                    "doc": [
+                        "Maximal allowed magnetosonic CFL number."
+                    ]
+                },
+                "limitcfladv": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the advective CFL.",
+                        "\\(\\text{CFL}_\\text{adv} = \\Delta t \\frac{|v_i|}{\\Delta x}\\),",
+                        "for all flow velocity component \\(v_i\\)."
+                    ]
+                },
+                "cfladvmin": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed advective CFL number."
+                    ]
+                },
+                "cfladvmax": {
+                    "type": "real(kind=real64)",
+                    "default": "0.5d0",
+                    "doc": [
+                        "Maximal allowed advective CFL number."
+                    ]
+                },
+                "limit_visc_cfl": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the viscosity CFL.",
+                        "\\(\\text{CFL}_\\text{visc} = \\Delta t \\frac{2 \\nu}{\\Delta x^2}\\),",
+                        "with \\(\\nu\\) the [kinematic viscosity](|page|/user/physics/viscosity.html)."
+                    ]
+                },
+                "cfl_visc_min": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed CFL number for viscosity"
+                    ]
+                },
+                "cfl_visc_max": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Maximal allowed CFL number for viscosity"
+                    ]
+                },
+                "limit_scalar_diffusion_cfl": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the scalar diffusion CFL",
+                        "\\(\\text{CFL}_\\text{scalar} = \\Delta t \\frac{2 k_c}{\\Delta x^2}\\),",
+                        "with \\(k_c\\) the diffusion coefficient."
+                    ]
+                },
+                "cfl_scalar_diffusion_min": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed CFL number for scalar diffusion"
+                    ]
+                },
+                "cfl_scalar_diffusion_max": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Maximal allowed CFL number for scalar diffusion"
+                    ]
+                },
+                "limit_alfven_cfl": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Limit the Alfven velocity CFL.",
+                        "\\(\\text{CFL}_\\text{alfven} = \\Delta t \\frac{c_a + |v_i|}{\\Delta x}\\),",
+                        "with \\(c_a\\) the Alfven wave velocity."
+                    ]
+                },
+                "cfl_alfven_min": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Minimal allowed CFL number for Alfven velocity"
+                    ]
+                },
+                "cfl_alfven_max": {
+                    "type": "real(kind=real64)",
+                    "default": "0.5d0",
+                    "doc": [
+                        "Maximal allowed CFL number for Alfven velocity"
+                    ]
+                },
+                "epsdtn_v": {
+                    "type": "real(kind=real64)",
+                    "default": "0.1d0",
+                    "advanced": true,
+                    "doc": [
+                        "Allowed relative change in velocities across a time step.",
+                        "If the relative change in velocity (compared to velocity normalization, influenced by the `mach_scale` parameter)",
+                        "is larger than this value from one time-step to the next, the time step will be limited to keep relative changes in velocity below this value."
+                    ]
+                },
+                "epsdtn_ed": {
+                    "type": "real(kind=real64)",
+                    "default": "5.0d-2",
+                    "advanced": true,
+                    "doc": [
+                        "Allowed change in energy and density",
+                        "If the relative change in energy or density is larger than this value from one timestep to the next the time step will be limited to keep relative changes in density and energy below this value."
+                    ]
+                },
+                "dtngrowthper": {
+                    "type": "real(kind=real64)",
+                    "default": "2.0d-2",
+                    "advanced": true,
+                    "doc": [
+                        "If maximum relative changes are less than epsdtn, then allow the time step to grow by this fraction"
+                    ]
+                }
+            }
+        },
+        "temporalmethod": {
+            "doc": "Parameters controlling the time integration method. [See dedicated page](|page|/user/solver.html)",
+            "parameters": {
+                "solver": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'implicit'",
+                    "doc": [
+                        "Choice of time integration method.",
+                        "Available options: 'implicit', 'explicit'"
+                    ]
+                },
+                "implicit_method": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'theta'",
+                    "doc": [
+                        "Choice of implicit time integration scheme.",
+                        "Available options: 'theta', 'tr-bdf2'"
+                    ]
+                },
+                "beta": {
+                    "type": "real(kind=real64)",
+                    "default": "0.55d0",
+                    "doc": [
+                        "Parameter for the theta-method, usually named \\(\\theta\\) in the literature.",
+                        "Must have \\( \\frac{1}{2} \\leq \\theta \\leq 1 \\).",
+                        "`beta=0.5` corresponds to the implicit trapezoidal rule (Crank-Nicolson scheme).",
+                        "Make sure to review the implicit solver documentation on how to select `beta`."
+                    ]
+                }
+            }
+        },
+        "newtonkrylov": {
+            "doc": "Parameters controlling the Newtron-Krylov method used.",
+            "parameters": {
+                "precond": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'SI'",
+                    "doc": [
+                        "Select preconditioner to use for Krylov solver.",
+                        "Available options: 'none', 'SI' (physics based)"
+                    ]
+                },
+                "nonlin_residual": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d-8",
+                    "doc": [
+                        "Set the tolerance for main non-linear Newton-Raphson iterations.",
+                        "Iterations will proceed until the norm of the normalized correction falls below this tolerance."
+                    ]
+                },
+                "linear_residual": {
+                    "type": "real(kind=real64)",
+                    "default": "2.0d-3",
+                    "doc": [
+                        "Set the linear residual of the JFNK preconditioner.",
+                        "This is passed on to the trillnos iterative solver as the `forcing_term` variable and is printed out as 'Forcing term' under '** Solver info'. At the moment within HydroIterativeSolver::Solve this is set to be constant, however, there is commented out code which looks like it was used to update eta based on convergence."
+                    ]
+                },
+                "linear_max_iter": {
+                    "type": "integer",
+                    "default": "20",
+                    "advanced": true,
+                    "doc": [
+                        "Maximum iterations for JFNK Krylov solver."
+                    ]
+                },
+                "pbp_residual": {
+                    "type": "real(kind=real64)",
+                    "default": "2.0d-3",
+                    "doc": [
+                        "Linear tolerance for the pressure solver within the physics based preconditioner."
+                    ]
+                },
+                "pbp_max_iter": {
+                    "type": "integer",
+                    "default": "15",
+                    "advanced": true,
+                    "doc": [
+                        "Maximum iterations for the PBP pressure solver."
+                    ]
+                },
+                "pbp_max_levels_override": {
+                    "type": "integer",
+                    "default": "0",
+                    "advanced": true,
+                    "doc": [
+                        "Override maximum number of levels for multigrid PBP solver; set to <= 0 to use default heuristics.",
+                        "Note that the coarsest level will then be `pbp_max_levels_override-1`, since the finest level is numbered 0."
+                    ]
+                },
+                "pbp_use_coarse_solver": {
+                    "type": "integer",
+                    "default": "-1",
+                    "advanced": true,
+                    "doc": [
+                        "Whether to use a coarse solver for the multigrid PBP solver.",
+                        "< 0 uses default heuristics, = 0 force-disables the coarse solve, > 0 force-enables the coarse solve."
+                    ]
+                },
+                "nonlin_maxiter": {
+                    "type": "integer",
+                    "default": "12",
+                    "advanced": true,
+                    "doc": [
+                        "If the number of iterations for the Newton-Raphson loop exceeds this value then iterations stop, and it is retried with 2/3 the time step."
+                    ]
+                },
+                "prec_nvar": {
+                    "type": "integer",
+                    "default": "1",
+                    "advanced": true,
+                    "doc": [
+                        "Select whether to precondition the pressure equation only (`prec_nvar=1`), or both pressure and energy equations (`prec_nvar=2`).",
+                        "Note that `prec_nvar=2` is untested."
+                    ]
+                },
+                "linear_conv": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'rhs'",
+                    "advanced": true,
+                    "doc": [
+                        "Determine the residual expression used in",
+                        "convergence checks and printing for the linear solver.",
+                        "Available options: `'r0'`, `'rhs'`, `'Anorm'`, `'noscaled'`, `'sol'`.",
+                        "If \\(r\\) is the residual of the system \\(Ax=b\\) then:",
+                        "`'r0'` results in \\(||r||_2/||r^0||_2\\),",
+                        "`'rhs'` results in \\(||r||_2/||b||_2\\),",
+                        "`'Anorm'` results in \\(||r||_2/||A||_2\\),",
+                        "`'noscaled'` results in \\(||r||_2\\),",
+                        "`'sol'` results in \\(||r||_{\\infty}/(||A||_{\\infty} \\times ||x||_1 + ||b||_{\\infty})\\)."
+                    ]
+                },
+                "nonlin_miniter": {
+                    "type": "integer",
+                    "default": "1",
+                    "advanced": true,
+                    "doc": [
+                        "Set the minimum nonlinear iterations of the JFNK preconditioner."
+                    ]
+                },
+                "density_energy_correction_damping_factor": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "advanced": true,
+                    "doc": [
+                        "Damping factor for NR correction of density and energy, \\(\\in ]0, 1]\\)"
+                    ]
+                },
+                "lambda": {
+                    "type": "real(kind=real64)",
+                    "default": "1d-6",
+                    "advanced": true,
+                    "doc": [
+                        "Step size for the computation of the directional derivative in the JFNK method"
+                    ]
+                },
+                "mach_scale": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d-2",
+                    "advanced": true,
+                    "doc": [
+                        "Mach number of minimum velocity to use for residual and correction normalization.",
+                        "Default is a reasonable starting point for stellar setups."
+                    ]
+                },
+                "guess_predictor": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'copy'",
+                    "advanced": true,
+                    "doc": [
+                        "Predictor to use for initial guess in non-linear solve.",
+                        "- `copy`: use solution at current time as predictor for next step",
+                        "- `euler`: use a step of explicit Euler as predictor",
+                        "- `rk2`: use a step of explicit RK2 (Heun's method) as predictor"
+                    ]
+                }
+            }
+        },
+        "iles_diagnostics": {
+            "doc": "Parameters controlling ILES dissipation diagnostics.",
+            "advanced": true,
+            "parameters": {
+                "enabled": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Main switch for ILES dissipation diagnostics."
+                    ]
+                },
+                "report_time_interval": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Time interval at which to report time-averaged ILES diagnostics.",
+                        "Variation of the diagnostic quantities will be integrated over that period",
+                        "to compute the averaged dissipation rates."
+                    ]
+                },
+                "output_prefix": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'iles_diag_'",
+                    "doc": [
+                        "Output prefix for ILES diagnostics HDF5 file."
+                    ]
+                },
+                "scalar_index": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Scalar index to compute diagnostic for."
+                    ]
+                }
+            }
+        },
+        "damping_layers": {
+            "doc": "Parameters controlling the momentum damping layers, following Lecoanet et al. 2021, MNRAS 508.",
+            "advanced": true,
+            "parameters": {
+                "num_active_layers": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of active layers, between 0 and `MAX_NUM_DAMPING_LAYERS`."
+                    ]
+                },
+                "direction": {
+                    "type": "integer, dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "1",
+                    "default_nml": "1,",
+                    "doc": [
+                        "Direction (axis) \\(d\\) of the damping layer.",
+                        "The layer is bounded along `direction` by its `limit_*`,",
+                        "and extends to infinity in the non-`direction` axes."
+                    ]
+                },
+                "limit_1": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "-1.0d0",
+                    "default_nml": "-1.0d0,",
+                    "doc": [
+                        "\\(x_1\\) at which the fade-in taper region begins."
+                    ]
+                },
+                "limit_2": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0,",
+                    "doc": [
+                        "\\(x_1\\) at which the full damping region begins."
+                    ]
+                },
+                "limit_3": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "1.0d0",
+                    "default_nml": "1.0d0,",
+                    "doc": [
+                        "\\(x_1\\) at which the full damping region ends."
+                    ]
+                },
+                "limit_4": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "2.0d0",
+                    "default_nml": "2.0d0,",
+                    "doc": [
+                        "\\(x_1\\) at which the fade-out taper region ends."
+                    ]
+                },
+                "timescale": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_DAMPING_LAYERS)",
+                    "default": "1.0d3",
+                    "default_nml": "1.0d3,",
+                    "doc": [
+                        "Damping timescale (\\(\\tau\\) in the notations of Lecoanet et al. 2021), in units of time."
+                    ]
+                }
+            }
+        },
+        "planewave_driving_layer": {
+            "doc": "Parameters controlling the plane wave driving layer.",
+            "advanced": true,
+            "parameters": {
+                "enabled": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Toggle for the plane wave driving layer."
+                    ]
+                },
+                "x1_limits": {
+                    "type": "real(kind=real64), dimension(4)",
+                    "default": "[0.0d0, 0.25d0, 0.75d0, 1.0d0]",
+                    "default_nml": "0.0d0, 0.25d0, 0.75d0, 1.0d0",
+                    "doc": [
+                        "\\(x_1\\) at which: layer starts and driving starts fading in (#1), driving reaches 100% (#2), driving starts fading out (#3), and layer ends (#4)."
+                    ]
+                },
+                "time_limits": {
+                    "type": "real(kind=real64), dimension(4)",
+                    "default": "[-2.0d50, -1.0d50, 1.0d50, 2.0d50]",
+                    "default_nml": "-2.0d50, -1.0d50, 1.0d50, 2.0d50",
+                    "doc": [
+                        "time at which: layer driving starts fading in (#1), driving reaches 100% (#2), driving starts fading out (#3), and driving ends (#4)."
+                    ]
+                },
+                "frequency": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Frequency (i.e. 1/period) of the plane wave."
+                    ]
+                },
+                "wave_vector": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[0.0d0, 1.0d0, 0.0d0]",
+                    "default_nml": "0.0d0, 1.0d0, 0.0d0",
+                    "doc": [
+                        "Wave vector of the plane wave."
+                    ]
+                },
+                "with_horizontally_mirrored_wave": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Also drive a second wave with horizontal wavevector component mirrored, to avoid driving horizontal shear flows."
+                    ]
+                },
+                "accel_vector_potential_amplitude": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[0.0d0, 0.0d0, 1.0d0]",
+                    "default_nml": "0.0d0, 0.0d0, 1.0d0",
+                    "doc": [
+                        "Amplitude vector of plane wave vector potential, in units of acceleration."
+                    ]
+                },
+                "accel_vector_potential_phases": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[0.0d0, 0.0d0, 0.0d0]",
+                    "default_nml": "0.0d0, 0.0d0, 0.0d0",
+                    "doc": [
+                        "Phases of plane wave vector potential."
+                    ]
+                }
+            }
+        },
+        "vortex_driving": {
+            "doc": "Parameters controlling the vortex driving.",
+            "advanced": true,
+            "parameters": {
+                "enabled": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Toggle for the vortex driving."
+                    ]
+                },
+                "location": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[0.0d0, 0.0d0, 0.0d0]",
+                    "default_nml": "0.0d0, 0.0d0, 0.0d0",
+                    "doc": [
+                        "Location \\(x_1, x_2, x_3\\) of the vortex center."
+                    ]
+                },
+                "scale": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[1.0d0, 1.0d0, 1.0d0]",
+                    "default_nml": "1.0d0, 1.0d0, 1.0d0",
+                    "doc": [
+                        "Scale \\(\\sigma_1, \\sigma_2, \\sigma_3\\) of the vortex center."
+                    ]
+                },
+                "time_limits": {
+                    "type": "real(kind=real64), dimension(4)",
+                    "default": "[-2.0d50, -1.0d50, 1.0d50, 2.0d50]",
+                    "default_nml": "-2.0d50, -1.0d50, 1.0d50, 2.0d50",
+                    "doc": [
+                        "Time at which: vortex driving starts fading in (#1), driving reaches 100% (#2), driving starts fading out (#3), and driving ends (#4)."
+                    ]
+                },
+                "frequency": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Frequency (i.e. 1/period) of the vortex driving."
+                    ]
+                },
+                "accel_vector_potential_amplitude": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "[0.0d0, 0.0d0, 1.0d0]",
+                    "default_nml": "0.0d0, 0.0d0, 1.0d0",
+                    "doc": [
+                        "Amplitude of vortex vector potential, in units of acceleration."
+                    ]
+                }
+            }
+        },
+        "boundaryconditions": {
+            "doc": "Control [boundary conditions](|page|/user/physics/bcs.html).",
+            "parameters": {
+                "bc1": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for inner radial/lower x boundary."
+                    ]
+                },
+                "bc2": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for outer radial/upper x boundary."
+                    ]
+                },
+                "bc3": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for lower theta/y boundary."
+                    ]
+                },
+                "bc4": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for upper theta/y boundary."
+                    ]
+                },
+                "bc5": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for lower phi/z boundary."
+                    ]
+                },
+                "bc6": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "''",
+                    "default_nml": "'', '', '', ''",
+                    "doc": [
+                        "Boundary conditions for upper phi/z boundary."
+                    ]
+                },
+                "energy_flux_type": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'undefined'",
+                    "doc": [
+                        "Scaling for `inner_flux` and `outer_flux` with `'fluxc1'` and `'fluxlogc1'` BCs.",
+                        "This can be `'local_flux'`, `'luminosity'` or `'solar_luminosity'`.",
+                        "See [BC docs](|page|/user/physics/bcs.md)."
+                    ]
+                },
+                "inner_flux": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Applied energy flux at inner radial boundary. See `energy_flux_type`."
+                    ]
+                },
+                "outer_flux": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Applied energy flux at outer radial boundary. See `energy_flux_type`."
+                    ]
+                },
+                "dirichlet1": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_BC_VARS)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0,",
+                    "doc": [
+                        "Value to prescribe when using the `dirichlet` BC for lower radial/x boundary"
+                    ]
+                },
+                "dirichlet2": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_BC_VARS)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0,",
+                    "doc": [
+                        "Value to prescribe when using the `dirichlet` BC for upper radial/x boundary"
+                    ]
+                },
+                "neumann1": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_BC_VARS)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0,",
+                    "doc": [
+                        "Value to prescribe when using the `neumann` BC for lower radial/x boundary"
+                    ]
+                },
+                "neumann2": {
+                    "type": "real(kind=real64), dimension(MAX_NUM_BC_VARS)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0,",
+                    "doc": [
+                        "Value to prescribe when using the `neumann` BC for upper radial/x boundary"
+                    ]
+                }
+            }
+        },
+        "physics": {
+            "doc": "Control physics options.",
+            "parameters": {
+                "constants_revision": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'legacy'",
+                    "doc": [
+                        "Revision of [[phys_consts_t]] to use."
+                    ]
+                },
+                "etot_var": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Control solving for total energy (true) or specific internal energy (false)."
+                    ]
+                },
+                "etot_grav": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Control addition of gravity term when solving for total energy."
+                    ]
+                },
+                "thermal_diffusion_type": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'fixed_conductivity'",
+                    "doc": [
+                        "[See dedicated page](|page|/user/physics/thermal_diffusion.html)"
+                    ]
+                },
+                "thermal_diffusion_value": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "[See dedicated page](|page|/user/physics/thermal_diffusion.html)"
+                    ]
+                },
+                "thermal_diffusion_scalar": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "[See dedicated page](|page|/user/physics/thermal_diffusion.html)"
+                    ]
+                },
+                "scalar_diffusivities": {
+                    "type": "real(kind=real64), dimension(MAX_NSCALARS)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Diffusivities for scalars"
+                    ]
+                },
+                "omegax": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "`X`-component of the angular velocity pseudovector \\(\\vec\\omega\\) in global `XYZ` Cartesian coordinates,",
+                        "in radians per time unit."
+                    ]
+                },
+                "omegay": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "`Y`-component of the angular velocity pseudovector \\(\\vec\\omega\\) in global `XYZ` Cartesian coordinates,",
+                        "in radians per time unit."
+                    ]
+                },
+                "omegaz": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "`Z`-component of the angular velocity pseudovector \\(\\vec\\omega\\) in global `XYZ` Cartesian coordinates,",
+                        "in radians per time unit.",
+                        "In spherical coordinates, the `Z` axis is the polar axis."
+                    ]
+                },
+                "specific_internal_energy_term_profile1d_filename": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Path to profile1d file to use for specific internal energy source term; source term is inactive if empty"
+                    ]
+                },
+                "specific_internal_energy_term_profile1d_column": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Column name of profile1d file to use for specific internal energy term"
+                    ]
+                },
+                "centrifugal_force_enabled": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Switch to enable or disable the centrifugal force when |omega| > 0.",
+                        "This can be useful to preserve a non-rotating hydrostatic equilibrium exactly,",
+                        "while still keeping the effect of rotation through the Coriolis force."
+                    ]
+                },
+                "viscosity_type": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'dynamic'",
+                    "doc": [
+                        "[See dedicated page](|page|/user/physics/viscosity.html)"
+                    ]
+                },
+                "viscosity": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "[See dedicated page](|page|/user/physics/viscosity.html)"
+                    ]
+                },
+                "viscous_energy_term_enabled": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Whether viscous heating is accounted for in energy equation."
+                    ]
+                },
+                "mhd_enabled": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "MHD master switch"
+                    ]
+                },
+                "mhd_induction_only": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Enable induction equation only for MHD (e.g. for dynamo tests)"
+                    ]
+                },
+                "mhd_resistivity": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "MHD resistivity"
+                    ]
+                },
+                "particles_enabled": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Enable Lagrangian tracer particles"
+                    ]
+                }
+            }
+        },
+        "abundances": {
+            "doc": "Control stellar composition.",
+            "parameters": {
+                "helium_mass_fraction": {
+                    "type": "real(kind=real64)",
+                    "default": "0.28d0",
+                    "doc": [
+                        "Helium abundance when running with constant and uniform composition.",
+                        "Set `helium_scalar > 0` for variable He fraction."
+                    ]
+                },
+                "metals_mass_fraction": {
+                    "type": "real(kind=real64)",
+                    "default": "0.02d0",
+                    "doc": [
+                        "Metallicity, constant and uniform."
+                    ]
+                },
+                "helium_scalar": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Index of scalar to use as variable helium fraction.",
+                        "Set to `0` and use `helium_mass_fraction` for constant and uniform He fraction."
+                    ]
+                }
+            }
+        },
+        "gravity": {
+            "doc": "Settings for gravity. See the [gravity page](|page|/user/physics/gravity.html) for more details",
+            "parameters": {
+                "gravity_type": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'none'",
+                    "doc": [
+                        "Type of gravity to use. See the [gravity page](|page|/user/physics/gravity.html) for more details"
+                    ]
+                },
+                "constant_gravity_value": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Downward acceleration for `constant_uniform` gravity"
+                    ]
+                },
+                "gravity_binary_file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Binary file to read gravity profile from, for `constant_from_file` gravity"
+                    ]
+                }
+            }
+        },
+        "microphysics": {
+            "doc": "Control microphysics, notably equation of state.",
+            "parameters": {
+                "eos": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Equation of state. Choices: `ideal_gas`, `ideal_gas_mix2`, `mesa`, `lms`, `hms`, `zms`"
+                    ]
+                },
+                "opacities": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'none'",
+                    "doc": [
+                        "Opacity type."
+                    ]
+                }
+            }
+        },
+        "eos_ideal": {
+            "doc": "Ideal gas EoS",
+            "parameters": {
+                "gamma": {
+                    "type": "real(kind=real64)",
+                    "default": "1.6666666666666667d0",
+                    "doc": [
+                        "Heat capacity ratio \\(\\gamma = c_p/c_v\\)"
+                    ]
+                },
+                "mu": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Molecular mass"
+                    ]
+                }
+            }
+        },
+        "eos_ideal_mix2": {
+            "doc": "Ideal mix of two ideal gases",
+            "parameters": {
+                "gamma1": {
+                    "type": "real(kind=real64)",
+                    "default": "1.6666666666666667d0",
+                    "doc": [
+                        "Gamma of first ideal gas"
+                    ]
+                },
+                "mu1": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Molecular mass of first ideal gas"
+                    ]
+                },
+                "gamma2": {
+                    "type": "real(kind=real64)",
+                    "default": "1.6666666666666667d0",
+                    "doc": [
+                        "Gamma of second ideal gas"
+                    ]
+                },
+                "mu2": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Molecular mass of second ideal gas"
+                    ]
+                },
+                "mass_frac_1_scalar": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Scalar representing the mass fraction of the first ideal gas"
+                    ]
+                }
+            }
+        },
+        "eos_mesa": {
+            "doc": "MESA EoS parameters",
+            "parameters": {
+                "tables_path": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "MUSIC_DIR // '/mesa_data'",
+                    "default_nml": "",
+                    "advanced": true,
+                    "doc": [
+                        "Location of MESA EoS tables"
+                    ]
+                },
+                "tables_prefix": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'output_DE_'",
+                    "advanced": true,
+                    "doc": [
+                        "Prefix in the names of the MESA EoS table files"
+                    ]
+                }
+            }
+        },
+        "opacity_mesa": {
+            "doc": "MESA opacities parameters",
+            "parameters": {
+                "tables_path": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "MUSIC_DIR // '/mesa_data'",
+                    "default_nml": "",
+                    "advanced": true,
+                    "doc": [
+                        "Location of MESA opacity data"
+                    ]
+                },
+                "tables_suffix": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "''",
+                    "advanced": true,
+                    "doc": [
+                        "Suffix in the name of the MESA opacity table file"
+                    ]
+                }
+            }
+        },
+        "opacity_legacy": {
+            "doc": "Legacy opacities parameters (HMS, LMS, ZMS)",
+            "parameters": {
+                "ikap": {
+                    "type": "integer",
+                    "default": "2",
+                    "advanced": true,
+                    "doc": [
+                        "Opacity variable"
+                    ]
+                }
+            }
+        },
+        "scalars": {
+            "doc": "Parameters to control active and passive scalars.",
+            "parameters": {
+                "nscalars": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Total (active+passive) number of scalars"
+                    ]
+                },
+                "nactive_scalars": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of active scalars"
+                    ]
+                },
+                "converge_passive_scalars": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Include passive scalars in convergence criterion for Newton-Raphson iterations"
+                    ]
+                },
+                "evolve_scalars": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Control evolution of scalars.",
+                        "If `.false.` scalars can be used for EOS and opacity, but are not evolved."
+                    ]
+                },
+                "limit_mass_fractions": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "advanced": true,
+                    "doc": [
+                        "Control reconstruction of scalars for flux calculations.",
+                        "If `.false.` reconstruct partial densities. If `.true.` reconstruct mass fractions, and use independently reconstructed density values."
+                    ]
+                },
+                "clamp_scalars_min": {
+                    "type": "real(kind=real64), dimension(MAX_NSCALARS)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Minimum value to clamp each scalar to during time evolution"
+                    ]
+                },
+                "clamp_scalars_max": {
+                    "type": "real(kind=real64), dimension(MAX_NSCALARS)",
+                    "default": "1.0d50",
+                    "doc": [
+                        "Maximum value to clamp each scalar to during time evolution"
+                    ]
+                }
+            }
+        },
+        "feature_gates": {
+            "doc": "Enable protected features.",
+            "parameters": {
+                "enable_experimental_features": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_FEATURES)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Enable features under development"
+                    ]
+                },
+                "enable_unmaintained_features": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_FEATURES)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Enable features that are not actively tested and may have issues"
+                    ]
+                },
+                "enable_broken_features": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_FEATURES)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Enable features that are known to have issues"
+                    ]
+                }
+            }
+        },
+        "particles": {
+            "doc": "General particles options.",
+            "advanced": true,
+            "parameters": {
+                "dump_every": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Only write particle dumps every `dump_every` main dumps"
+                    ]
+                },
+                "euler_substeps": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of substeps to use for Euler integrator"
+                    ]
+                },
+                "experiment": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'null'",
+                    "doc": [
+                        "Which particle experiment to perform"
+                    ]
+                },
+                "initial_source_type": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'grid'",
+                    "doc": [
+                        "Region type for initial spawning of particles"
+                    ]
+                },
+                "integrator": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'heun'",
+                    "doc": [
+                        "Time integrator, `euler` or `heun`"
+                    ]
+                },
+                "interpolation": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'interpolation'",
+                    "doc": [
+                        "Field interpolation method, `linear` or `hermite`"
+                    ]
+                },
+                "npart_max_each_rank": {
+                    "type": "integer",
+                    "default": "1000000",
+                    "doc": [
+                        "Maximum number of particles in each MPI rank"
+                    ]
+                },
+                "num_pos_vectors": {
+                    "type": "integer",
+                    "default": "3",
+                    "doc": [
+                        "Number of position vectors"
+                    ]
+                },
+                "output_prefix": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'particles_'",
+                    "doc": [
+                        "Output file name prefix"
+                    ]
+                },
+                "pack_size": {
+                    "type": "integer",
+                    "default": "1024",
+                    "doc": [
+                        "Size of packed data structures"
+                    ]
+                },
+                "sort_every": {
+                    "type": "integer",
+                    "default": "1000",
+                    "doc": [
+                        "Number of time steps between full sorting of particles"
+                    ]
+                }
+            }
+        },
+        "pcl_source_grid": {
+            "doc": "Grid source region for particles.",
+            "advanced": true,
+            "parameters": {
+                "coords_min": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0, 0.0d0, 0.0d0",
+                    "doc": [
+                        "Minimum coordinate of the particle box along each axis"
+                    ]
+                },
+                "coords_max": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "-1.0d0",
+                    "default_nml": "-1.0d0, -1.0d0, -1.0d0",
+                    "doc": [
+                        "Maximum coordinate of the particle box along each axis"
+                    ]
+                },
+                "npart_along_axis": {
+                    "type": "integer, dimension(3)",
+                    "default": "10",
+                    "default_nml": "10, 10, 10",
+                    "doc": [
+                        "Number of particles in the particle box along each axis"
+                    ]
+                }
+            }
+        },
+        "pcl_exp_maxdepth": {
+            "doc": "Maxdepth particle experiment.",
+            "advanced": true,
+            "parameters": {
+                "depth_is_towards_increasing_x1": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Whether x1 is increasing in the direction of depth"
+                    ]
+                },
+                "pos_index": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Index of position vector to use in particle positions array"
+                    ]
+                }
+            }
+        },
+        "add_mag_main": {
+            "name": "main",
+            "doc": "Parameters for [[ic_add_b_field]] tool.",
+            "parameters": {
+                "dd_in": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump.music'",
+                    "doc": [
+                        "Input filename"
+                    ]
+                },
+                "dd_out": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump_with_mag.music'",
+                    "doc": [
+                        "Output filename"
+                    ]
+                },
+                "nscalars": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of scalars in input"
+                    ]
+                },
+                "b_const": {
+                    "type": "real(kind=real64), dimension(3)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0, 0.0d0, 0.0d0",
+                    "doc": [
+                        "Constant magnetic field to add"
+                    ]
+                }
+            }
+        },
+        "m1d_to_music_io": {
+            "name": "io",
+            "doc": "IO parameters for [[model1d_to_music]] tool.",
+            "parameters": {
+                "in_file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'m1d'",
+                    "doc": [
+                        "1D model input"
+                    ]
+                },
+                "in_format": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'mesa'",
+                    "doc": [
+                        "1D model format, 'mesa' or 'lyon'"
+                    ]
+                },
+                "music_file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump.music'",
+                    "doc": [
+                        "Output filename (MUSIC initial model)"
+                    ]
+                },
+                "star_age": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Star age in created MUSIC file"
+                    ]
+                },
+                "dt": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Time step in created MUSIC file"
+                    ]
+                },
+                "nr": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of faces in radial direction"
+                    ]
+                },
+                "ntheta": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of faces in theta direction"
+                    ]
+                },
+                "nphi": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Number of faces in phi direction (if `nphi <= 2`, a 2D model is created)"
+                    ]
+                },
+                "hydrostatic_gravity": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Compute gravity so that the model is at hydrostatic equilibrium"
+                    ]
+                },
+                "r_bounds": {
+                    "type": "real(kind=real64), dimension(2)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0, 0.0d0",
+                    "doc": [
+                        "Radial domain in \\((0, 1)\\) interval (\\(r/R_\\star\\) coordinate)"
+                    ]
+                },
+                "theta_bounds": {
+                    "type": "real(kind=real64), dimension(2)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0, 0.0d0",
+                    "doc": [
+                        "\\(\\theta\\) domain (degrees)"
+                    ]
+                },
+                "phi_bounds": {
+                    "type": "real(kind=real64), dimension(2)",
+                    "default": "0.0d0",
+                    "default_nml": "0.0d0, 0.0d0",
+                    "doc": [
+                        "\\(\\phi\\) domain (degrees)"
+                    ]
+                }
+            }
+        },
+        "velocity_noise": {
+            "name": "velocity_noise",
+            "doc": "Velocity noise parameters for the [[model1d_to_music]] tool.",
+            "parameters": {
+                "random_seed": {
+                    "type": "integer",
+                    "default": "456",
+                    "doc": [
+                        "Integer seed for the velocity noise"
+                    ]
+                },
+                "amplitude": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Amplitude for the velocity noise, in velocity units. `0.0` disables the noise (default)."
+                    ]
+                },
+                "spatial_scale": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d10",
+                    "doc": [
+                        "Spatial scale for the velocity noise eddies, in length units"
+                    ]
+                },
+                "x1_limits": {
+                    "type": "real(kind=real64), dimension(4)",
+                    "default": "[-2.0d50, -1.0d50, 1.0d50, 2.0d50]",
+                    "default_nml": "-2.0d50, -1.0d50, 1.0d50, 2.0d50",
+                    "doc": [
+                        "\\(x_1\\) at which: noise starts fading in (#1), noise reaches 100% (#2), noise starts fading out (#3), and noise reaches 0% (#4)."
+                    ]
+                },
+                "boundary_taper_min": {
+                    "type": "real(kind=real64)",
+                    "default": "0.05d0",
+                    "doc": [
+                        "Beginning of velocity taper region, in fraction of domain"
+                    ]
+                },
+                "boundary_taper_max": {
+                    "type": "real(kind=real64)",
+                    "default": "0.25d0",
+                    "doc": [
+                        "End of velocity taper region, in fraction of domain"
+                    ]
+                }
+            }
+        },
+        "mtoh5_main": {
+            "name": "main",
+            "doc": "Parameters for [[fmt2_to_h5]] tool.",
+            "parameters": {
+                "dd_in": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump.music'",
+                    "doc": [
+                        "Input filename"
+                    ]
+                },
+                "dd_out": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump'",
+                    "doc": [
+                        "Output basename, no extension nor record number"
+                    ]
+                },
+                "read_record_number": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Whether to retain record number of the input file"
+                    ]
+                },
+                "nscalars": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of scalars in input"
+                    ]
+                },
+                "with_mhd": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Whether input file has MHD"
+                    ]
+                }
+            }
+        },
+        "grow_dim_main": {
+            "name": "main",
+            "doc": "Parameters for [[grow_dim]] tool.",
+            "parameters": {
+                "dd_in": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump2D.music'",
+                    "doc": [
+                        "Input filename"
+                    ]
+                },
+                "dd_out": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'dump3D.music'",
+                    "doc": [
+                        "Output filename"
+                    ]
+                },
+                "nmom_in": {
+                    "type": "integer",
+                    "default": "2",
+                    "doc": [
+                        "Number of momentum directions in input (2D or 2.5D)"
+                    ]
+                },
+                "nscalars": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Number of scalars in input"
+                    ]
+                },
+                "with_mhd": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Whether input file has MHD"
+                    ]
+                },
+                "ax3_nfaces": {
+                    "type": "integer",
+                    "default": "10",
+                    "doc": [
+                        "Number of grid faces in 3rd direction"
+                    ]
+                },
+                "ax3_min": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Minimum limit of 3rd direction"
+                    ]
+                },
+                "ax3_max": {
+                    "type": "real(kind=real64)",
+                    "default": "1.0d0",
+                    "doc": [
+                        "Maximum limit of 3rd direction"
+                    ]
+                },
+                "fill_vel_3": {
+                    "type": "real(kind=real64)",
+                    "default": "0.0d0",
+                    "doc": [
+                        "Value to fill non-existing vel_3 with"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(MAX_NUM_BC_VARS)",
+                    "default": "'copy'",
+                    "doc": [
+                        "How to extend model, choose from `'copy'`, `'1d_mean'`, `'zero'`"
+                    ]
+                }
+            }
+        },
+        "lscale_main": {
+            "name": "main",
+            "doc": "Parameters for [[lscale]] tool.",
+            "parameters": {
+                "music_nml": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'params.nml'",
+                    "doc": [
+                        "MUSIC configuration file"
+                    ]
+                },
+                "music_file_stem": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'fort13.cont1'",
+                    "doc": [
+                        "Name prefix of music files"
+                    ]
+                },
+                "struc_stem": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'struc.cont1'",
+                    "doc": [
+                        "Name prefix of produced struc files"
+                    ]
+                },
+                "flux_stem": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'fluxdir/fluxkc.cont1'",
+                    "doc": [
+                        "Name prefix of produced flux files"
+                    ]
+                },
+                "zero_stem": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'zerodir/zero.cont1'",
+                    "doc": [
+                        "Name prefix of produced 0-crossing files"
+                    ]
+                },
+                "output_flux_and_zero": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Output fluxes and 0-crossing information.",
+                        "`flux_stem` and `zero_stem` control output file names.",
+                        "This option is often used with `reference_state.mode = 'time_average'`"
+                    ]
+                },
+                "dump_start": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "First dump number to process"
+                    ]
+                },
+                "dump_end": {
+                    "type": "integer",
+                    "default": "99999999",
+                    "doc": [
+                        "Last dump number to process"
+                    ]
+                },
+                "read_renv_rcore_from_profile1d": {
+                    "type": "logical",
+                    "default": ".true.",
+                    "doc": [
+                        "Read parameters `renv` and `rcore` from attributes in a `profile1d` file",
+                        "(named `profile1d.dat`, or `profile1d_scalars.dat` if variable He abundance is enabled).",
+                        "If set to `.false.`, `renv` and `rcore` are set to 0."
+                    ]
+                },
+                "scalar_to_process": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Which scalar to process.",
+                        "If set at `0`, process the first of those that is set/exists:",
+                        "- `abundances%helium_scalar` in `music_nml`",
+                        "- `scalar_1`",
+                        "- `abundances%helium_mass_fraction` as a constant scalar"
+                    ]
+                }
+            }
+        },
+        "lscale_initial_state": {
+            "name": "initial_state",
+            "doc": "Define initial state for [[lscale]], e.g. to compute `fluxcr1`",
+            "parameters": {
+                "state_source": {
+                    "type": "character(len=LABEL_LEN)",
+                    "default": "'music_file'",
+                    "doc": [
+                        "What to build the initial state from, can be:",
+                        "- `'music_file'` to use an arbitrary MUSIC dump specified in `file_name`",
+                        "- `'dump_start'` to use the `main.dump_start` MUSIC dump",
+                        "- `'profile1d_file'` to read it from a profile1d file specified in `file_name`"
+                    ]
+                },
+                "file_name": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'ic.music'",
+                    "doc": [
+                        "File to use, see `state_source`"
+                    ]
+                }
+            }
+        },
+        "lscale_reference_state": {
+            "name": "reference_state",
+            "doc": "Define reference state for [[lscale]], e.g. to compute `fluxcr2`, `fluxcr3`",
+            "parameters": {
+                "output_avtij": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Enable writing time average of T in each cell, useful for `'time_average'` mode"
+                    ]
+                },
+                "time_avg_prof_file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "File with time-averaged profiles"
+                    ]
+                },
+                "temp_avg_file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "File with time-averaged temperature field"
+                    ]
+                }
+            }
+        },
+        "post_io": {
+            "doc": "Parameters relevant to input/output for post",
+            "parameters": {
+                "music_namelist": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Main MUSIC namelist file -- used to get physics info, etc."
+                    ]
+                },
+                "infile": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'new'",
+                    "doc": [
+                        "Restart file prefix name"
+                    ]
+                },
+                "infile_fmt": {
+                    "type": "integer",
+                    "default": "2",
+                    "doc": [
+                        "Input MUSIC file format. Possible values are:",
+                        "* 2: `.music` dumps (using MPI-IO)"
+                    ]
+                },
+                "outfile_fmt": {
+                    "type": "integer",
+                    "default": "3",
+                    "doc": [
+                        "Output file format. Possible values are:",
+                        "* 3: `.h5` dumps in hdf5 format ",
+                        "(code aligned with `io%output_method` values in main MUSIC namelist)"
+                    ]
+                },
+                "h5file": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "''",
+                    "doc": [
+                        "Output hdf5 master file"
+                    ]
+                },
+                "output_subdir": {
+                    "type": "character(len=MAX_PATH_LEN)",
+                    "default": "'./checkpoints'",
+                    "doc": [
+                        "Directory for individual checkpoint files"
+                    ]
+                },
+                "nrec": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "for old format files, how many dumps are stored in each file; only support 1"
+                    ]
+                },
+                "ddinit": {
+                    "type": "integer",
+                    "default": "-1",
+                    "doc": [
+                        "Starting record/dump/checkpoint number to process."
+                    ]
+                },
+                "ddend": {
+                    "type": "integer",
+                    "default": "-1",
+                    "doc": [
+                        "Final record/dump/checkpoint number to process."
+                    ]
+                },
+                "ddstride": {
+                    "type": "integer",
+                    "default": "1",
+                    "doc": [
+                        "Stepsize between records/dumps/checkpoints to process."
+                    ]
+                },
+                "overwrite": {
+                    "type": "logical",
+                    "default": ".false.",
+                    "doc": [
+                        "Flag to overwrite existing statistics"
+                    ]
+                }
+            }
+        },
+        "post_grid": {
+            "doc": "Parameters of the grid for post",
+            "parameters": {
+                "full_dims": {
+                    "type": "integer, dimension(3)",
+                    "default": "-1",
+                    "default_nml": "-1, -1, -1",
+                    "doc": [
+                        "Full grid dimesions (number of edges in input dump)"
+                    ]
+                },
+                "node_loc": {
+                    "type": "integer",
+                    "default": "0",
+                    "doc": [
+                        "Output location w.r.t cell values.",
+                        "Range is (0, 7), see [[core__slab_mod]] for enumerated constants"
+                    ]
+                }
+            }
+        },
+        "post_diagnostic_field": {
+            "doc": "Diagnostic fields -- to dump or take moments",
+            "parameters": {
+                "fields": {
+                    "type": "character(len=LABEL_LEN), dimension(200)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Names of diagnostic fields to be evaluated"
+                    ]
+                },
+                "weights": {
+                    "type": "character(len=LABEL_LEN), dimension(200)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Fields to be used as weights when calculating moments, etc."
+                    ]
+                },
+                "Q_dump_fields": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written in full"
+                    ]
+                },
+                "Q_glob_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as global moments"
+                    ]
+                },
+                "Q_ax1_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 1d moment profiles along ax1"
+                    ]
+                },
+                "Q_ax2_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 1d moment profiles along ax2"
+                    ]
+                },
+                "Q_ax3_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 1d moment profiles along ax3"
+                    ]
+                },
+                "Q_ax12_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 2d moment profiles along ax1, ax2"
+                    ]
+                },
+                "Q_ax13_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 2d moment profiles along ax1, ax3"
+                    ]
+                },
+                "Q_ax23_mom": {
+                    "type": "logical, dimension(200)",
+                    "default": ".false.",
+                    "default_nml": ".false.,",
+                    "doc": [
+                        "Boolean mask for field to be written as 2d moment profiles along ax2, ax3"
+                    ]
+                }
+            }
+        },
+        "post_glob_mom": {
+            "doc": "Parameter for global moments",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax1_mom": {
+            "doc": "Parameter for 1d moment profiles along ax1",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax2_mom": {
+            "doc": "Parameter for 1d moment profiles along ax2",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax3_mom": {
+            "doc": "Parameter for 1d moment profiles along ax3",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax12_mom": {
+            "doc": "Parameter for 2d moment profiles along ax1, ax2",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax13_mom": {
+            "doc": "Parameter for 2d moment profiles along ax1, ax3",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_ax23_mom": {
+            "doc": "Parameter for 2d moment profiles along ax2, ax3",
+            "parameters": {
+                "degrees": {
+                    "type": "integer, dimension(10)",
+                    "default": "[-1, 0, 1, 2, 3, 4, -2, -2, -2, -2]",
+                    "default_nml": "-1, 0, 1, 2, 3, 4",
+                    "doc": [
+                        "Moment degrees, valid values are (-1): min, (0): max and >1"
+                    ]
+                },
+                "mode": {
+                    "type": "character(len=LABEL_LEN), dimension(10)",
+                    "default": "'default'",
+                    "doc": [
+                        "Moment types, valid values are 'default', 'raw', 'centred'"
+                    ]
+                }
+            }
+        },
+        "post_contours": {
+            "doc": "Parameter for contour fields",
+            "parameters": {
+                "contours_1d": {
+                    "type": "character(len=LABEL_LEN), dimension(200)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "1d Contour fields"
+                    ]
+                },
+                "contours_masked": {
+                    "type": "character(len=LABEL_LEN), dimension(200)",
+                    "default": "''",
+                    "default_nml": "'',",
+                    "doc": [
+                        "Masked Contour fields"
+                    ]
+                }
+            }
+        }
+    },
+    "files": {
+        "main": {
+            "doc": "[[music]] namelist",
+            "namelists": [
+                "dims",
+                "io",
+                "grid",
+                "performance",
+                "misc",
+                "feature_gates",
+                "spatial_scheme",
+                "timestep",
+                "temporalmethod",
+                "newtonkrylov",
+                "boundaryconditions",
+                "physics",
+                "gravity",
+                "abundances",
+                "microphysics",
+                "eos_ideal",
+                "eos_ideal_mix2",
+                "eos_mesa",
+                "opacity_mesa",
+                "opacity_legacy",
+                "particles",
+                "pcl_source_grid",
+                "pcl_exp_maxdepth",
+                "scalars",
+                "iles_diagnostics",
+                "damping_layers",
+                "planewave_driving_layer"
+            ]
+        },
+        "particles": {
+            "doc": "Particles namelists",
+            "namelists": [
+                "particles",
+                "pcl_source_grid",
+                "pcl_exp_maxdepth"
+            ]
+        },
+        "add_mag": {
+            "doc": "[[ic_add_b_field]] namelists",
+            "namelists": [
+                "add_mag_main"
+            ]
+        },
+        "m1d_to_music": {
+            "doc": "[[model1d_to_music]] namelists",
+            "namelists": [
+                "dims",
+                "m1d_to_music_io",
+                "velocity_noise",
+                "abundances",
+                "eos_mesa"
+            ]
+        },
+        "mtoh5": {
+            "doc": "[[fmt2_to_h5]] namelists",
+            "namelists": [
+                "mtoh5_main",
+                "dims",
+                "feature_gates"
+            ]
+        },
+        "grow_dim": {
+            "doc": "[[grow_dim]] namelists",
+            "namelists": [
+                "grow_dim_main"
+            ]
+        },
+        "lscale": {
+            "doc": "[[lscale]] namelists",
+            "namelists": [
+                "lscale_main",
+                "lscale_initial_state",
+                "lscale_reference_state"
+            ]
+        },
+        "post": {
+            "doc": "[[post]] namelists",
+            "namelists": [
+                "post_io",
+                "post_grid",
+                "post_diagnostic_field",
+                "post_glob_mom",
+                "post_ax1_mom",
+                "post_ax2_mom",
+                "post_ax3_mom",
+                "post_ax12_mom",
+                "post_ax23_mom",
+                "post_ax13_mom",
+                "post_contours"
+            ]
+        }
+    }
+}
