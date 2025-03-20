@@ -1,0 +1,405 @@
+syntax = "proto3";
+
+package neoantigen;
+
+
+/**
+This is a generic class to hold annotations from Neofox
+*/
+message Annotation {
+	/**
+	The name of the annotation
+	*/
+	string name = 1;
+	/**
+	The value of the annotation
+	*/
+	string value = 2;
+}
+
+/**
+This is a class to track the version of an annotation resource
+*/
+message Resource {
+	/**
+	The name of the resource
+	*/
+	string name = 1;
+	/**
+	The version of the resource
+	*/
+	string version = 2;
+	/**
+	The URL of the resource if applicable
+	 */
+	string url = 3;
+	/**
+	The MD5 hash of the resource if applicable. This may be used when version is not available
+	 */
+	string hash = 4;
+	/**
+	The timestamp when the download happened
+	 */
+	string download_timestamp = 5;
+}
+
+/**
+A set of annotations for a neoantigen candidate
+*/
+message Annotations {
+	/**
+	List of annotations
+	*/
+	repeated Annotation annotations = 1;
+	/**
+	The annotator
+	*/
+	string annotator = 2;
+	/**
+	The version of the annotator
+	*/
+	string annotatorVersion = 3;
+	/**
+	A timestamp determined when the annotation was created
+	*/
+	string timestamp = 4;
+	/**
+	List of resources
+	*/
+	repeated Resource resources = 5;
+}
+
+/**
+The metadata required for analysis for a given patient + its patient identifier
+*/
+message Patient {
+	/**
+	Patient identifier
+	*/
+	string identifier = 1;
+	/**
+	Tumor entity in TCGA study abbrevation style as described here: https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/tcga-study-abbreviations
+	*/
+	string tumorType = 2;
+	/**
+	MHC I classic molecules
+	*/
+	repeated Mhc1 mhc1 = 3;
+	/**
+	MHC II classic molecules
+	*/
+	repeated Mhc2 mhc2 = 4;
+}
+
+/**
+The zygosity of a given gene
+ */
+enum Zygosity {
+	/**
+	Two equal copies of the gene
+	 */
+  HOMOZYGOUS = 0;
+  /**
+  Two different copies of the gene
+   */
+  HETEROZYGOUS = 1;
+  /**
+  Only one copy of the gene
+   */
+  HEMIZYGOUS = 2;
+  /**
+  No copy of the gene
+   */
+  LOSS = 3;
+}
+
+/**
+Valid names for MHC I classic genes
+Mus musculus gene names are preceded by the prefix H2 to avoid naming collisions.
+ */
+enum Mhc1Name {
+	// Homo sapiens
+	A = 0;
+	B = 1;
+	C = 2;
+	// Mus musculus
+	H2K = 3;
+	H2D = 4;
+	H2L = 5;
+}
+
+/**
+Valid names for MHC II classic genes.
+DRA is not included in this list as it does not have much variability in the population and for our purpose is
+considered constant.
+For Mus musculus we do not represent alpha and beta chains as they are homozygotes at all their MHC loci.
+Hence, they can be treated as a single gene, like DR is for HLA.
+See http://www.imgt.org/IMGTrepertoireMH/Polymorphism/haplotypes/mouse/MHC/Mu_haplotypes.html
+Mus musculus gene names are preceded by the prefix H2 to avoid naming collisions.
+ */
+enum Mhc2GeneName {
+	// Homo sapiens
+	DRB1 = 0;
+	DPA1 = 1;
+	DPB1 = 2;
+	DQA1 = 3;
+	DQB1 = 4;
+	// Mus musculus
+	H2A = 5;
+	H2E = 6;
+}
+
+/**
+Valid names for MHC II classic molecules
+ */
+enum Mhc2Name {
+	DR = 0;
+	DP = 1;
+	DQ = 2;
+	H2A_molecule = 3;
+	H2E_molecule = 4;
+}
+
+/**
+Models MHC I alleles related to the same MHC I gene, i.e. 2 alleles/2 isoforms per gene
+ */
+message Mhc1 {
+	/**
+	MHC I gene name
+	 */
+	Mhc1Name name = 1;
+	/**
+	Zygosity of the gene
+	 */
+	Zygosity zygosity = 2;
+	/**
+	The alleles of the gene (0, 1 or 2)
+	 */
+	repeated MhcAllele alleles = 3;
+}
+
+/**
+Models MHC II alleles related to the same MHC II protein, i.e. 4 isoforms related to 2 genes with 2 alleles each
+ */
+message Mhc2 {
+	/**
+	MHC II molecule name
+	 */
+	Mhc2Name name = 1;
+	/**
+	List of MHC II genes
+	 */
+	repeated Mhc2Gene genes = 2;
+	/**
+	Different combinations of MHC II alleles building different isoforms
+	 */
+	repeated Mhc2Isoform isoforms = 3;
+}
+
+/**
+MHC II isoform
+ */
+message Mhc2Isoform {
+	/**
+	Name to refer to the MHC II isoform
+	 */
+	string name = 1;
+	/**
+	The alpha chain of the isoform
+	 */
+	MhcAllele alphaChain = 2;
+	/**
+	The beta chain of the isoform
+	 */
+	MhcAllele betaChain = 3;
+}
+
+/**
+MHC II gene
+ */
+message Mhc2Gene {
+	/**
+	MHC II gene name
+	 */
+	Mhc2GeneName name = 1;
+	/**
+	Zygosity of the gene
+	 */
+	Zygosity zygosity = 2;
+	/**
+	The alleles of the gene (0, 1 or 2)
+	 */
+	repeated MhcAllele alleles = 3;
+}
+
+/**
+MHC allele representation. It does not include non synonymous changes to the sequence, changes in the non coding region
+or changes in expression. See http://hla.alleles.org/nomenclature/naming.html for details
+ */
+message MhcAllele {
+	/**
+	HLA full name as provided by the user (e.g.: HLA-DRB1*13:01:02:03N). This will be parsed into name, gene and group.
+	Any digit format is allowed for this field (ie: 4, 6 or 8 digits), 2 digits names are not specific enough for our
+	purpose and thus invalid
+	 */
+	string fullName = 1;
+	/**
+	A specific HLA protein (e.g. HLA-DRB1*13:01). Alleles whose numbers differ in group and protein must differ in one
+	or more nucleotide substitutions that change the amino acid sequence of the encoded protein.
+	This name is normalized to avoid different representations of the same allele. For instance both HLA-DRB113:01 and
+	HLA-DRB1*13:01:02:03N will be transformed into their normalised version HLA-DRB1*13:01. This name is also truncated
+	to 4 digits. 2 digits names are not specific enough for our purpose and thus invalid
+	 */
+	string name = 2;
+	/**
+	The gene from either MHC I or II (e.g. DRB1, A) (this information is redundant with the Mhc1Gene.name and
+	Mhc2Gene.name but it is convenient to have this at this level too, code will check for data coherence)
+	 */
+	string gene = 3;
+	/**
+	A group of alleles defined by a common serotype ie: Serological antigen carried by an allotype (e.g. 13 from HLA-DRB1*13)
+	 */
+	string group = 4;
+	/**
+	A specific protein (e.g.: 02 from HLA-DRB1*13:02)
+	 */
+	string protein = 5;
+}
+
+message PredictedEpitope {
+	/**
+	Not sure that we need this... this is in the old PredictedEpitope model
+	 */
+	int32 position = 1;
+	/**
+	The mutated peptide
+	*/
+	string mutatedPeptide = 2;
+	/**
+	Closest wild type peptide
+	*/
+	string wildTypePeptide = 3;
+	/**
+	MHC I allele
+	 */
+	MhcAllele alleleMhcI = 4;
+	/**
+	MHC II isoform
+	 */
+	Mhc2Isoform isoformMhcII = 5;
+	/**
+	MHC core part of the peptide ligand that primarily interacts with the 
+	MHC binding groove, predicted by NetMHCpan/NetMHCIIpan
+	*/
+	string core = 6;
+	/**
+	MHC binding affinity for the mutated peptide. This value is estimated with NetMHCpan in case of MHC-I peptides
+	and NetMHCIIpan in cas of MHC-II peptides
+	 */
+	float affinityMutated = 7;
+	/**
+	MHC binding rank for the mutated peptide. This value is estimated with NetMHCpan in case of MHC-I peptides
+	and NetMHCIIpan in cas of MHC-II peptides
+	 */
+	float rankMutated = 8;
+	/**
+	MHC binding affinity for the wild type peptide. This value is estimated with NetMHCpan in case of MHC-I peptides
+	and NetMHCIIpan in cas of MHC-II peptides
+	 */
+	float affinityWildType = 9;
+	/**
+	MHC binding rank for the wild type peptide. This value is estimated with NetMHCpan in case of MHC-I peptides
+	and NetMHCIIpan in cas of MHC-II peptides
+	 */
+	float rankWildType = 10;
+	/**
+	The NeoFox neoantigen annotations
+	 */
+	Annotations neofoxAnnotations = 11;
+	/**
+	Patient identifier
+	*/
+	string patientIdentifier = 12;
+	/**
+	The HGNC gene symbol or gene identifier
+	*/
+	string gene = 13;
+	/**
+	Expression value of the transcript from RNA data. Range [0, +inf].
+	*/
+	float rnaExpression = 14;
+	/**
+	Expression value of the transcript from TCGA data. Range [0, +inf].
+	*/
+	float imputedGeneExpression = 15;
+	/**
+	Variant allele frequency from the DNA. Range [0.0, 1.0]
+	*/
+	float dnaVariantAlleleFrequency = 16;
+	/**
+	Variant allele frequency from the RNA. Range [0.0, 1.0]
+	*/
+	float rnaVariantAlleleFrequency = 17;
+  /**
+  External annotations for neoepitope mode.
+  */
+  repeated Annotation externalAnnotations = 18;
+}
+
+/**
+A neoantigen minimal definition
+*/
+message Neoantigen {
+	/**
+	Patient identifier
+	*/
+	string patientIdentifier = 1;
+	/**
+	The HGNC gene symbol or gene identifier
+	*/
+	string gene = 2;
+	/**
+	The amino acid position within the neoantigen candidate sequence. 1-based, starting in the N-terminus
+	*/
+	repeated int32 position = 3;
+	/**
+	Amino acid sequence of the WT corresponding to the neoantigen candidate sequence (IUPAC 1 letter codes)
+	*/
+	string wildTypeXmer = 4;
+	/**
+	Amino acid sequence of the neoantigen candidate (IUPAC 1 letter codes)
+	*/
+	string mutatedXmer = 5;
+	/**
+	Expression value of the transcript from RNA data. Range [0, +inf].
+	*/
+	float rnaExpression = 6;
+	/**
+	Expression value of the transcript from TCGA data. Range [0, +inf].
+	*/
+	float imputedGeneExpression = 7;
+	/**
+	Variant allele frequency from the DNA. Range [0.0, 1.0]
+	*/
+	float dnaVariantAlleleFrequency = 8;
+	/**
+	Variant allele frequency from the RNA. Range [0.0, 1.0]
+	*/
+	float rnaVariantAlleleFrequency = 9;
+	/**
+	The NeoFox neoantigen annotations
+	 */
+	Annotations neofoxAnnotations = 10;
+	/**
+	List of external annotations
+	*/
+	repeated Annotation externalAnnotations = 11;
+	/**
+	List of predicted neoepitopes for MHC-I with feature annotation (optional)
+	 */
+	repeated PredictedEpitope neoepitopesMhcI = 12;
+	/**
+	List of predicted neoepitopes for MHC-II with feature annotation (optional)
+	 */
+	repeated PredictedEpitope neoepitopesMhcII = 13;
+}
