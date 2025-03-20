@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+keepdelta/__init__.py
+keepdelta/check.py
+keepdelta/config.py
+keepdelta/main.py
+keepdelta.egg-info/PKG-INFO
+keepdelta.egg-info/SOURCES.txt
+keepdelta.egg-info/dependency_links.txt
+keepdelta.egg-info/top_level.txt
+tests/test_type_invalid.py
+tests/tests.py
