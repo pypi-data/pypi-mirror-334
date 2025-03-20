@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: llm_unified_interface
+Version: 0.1
+Summary: 适配国内主流大语言模型的统一访问接口
+Author: 丁雨虹
+Requires-Dist: requests
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
