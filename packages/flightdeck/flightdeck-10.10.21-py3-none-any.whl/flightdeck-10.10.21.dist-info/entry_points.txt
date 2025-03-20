@@ -1,0 +1,2 @@
+[console_scripts]
+flightdeck = flightdeck.main:main_loop
