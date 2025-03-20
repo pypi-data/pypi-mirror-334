@@ -1,0 +1,12 @@
+duckdb
+pytz
+requests
+doorway[extras]~=0.6.0
+pillow
+
+[convert]
+h5py
+numpy
+pillow
+tqdm
+torch
