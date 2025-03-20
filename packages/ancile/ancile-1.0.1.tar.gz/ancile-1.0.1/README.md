@@ -1,0 +1,156 @@
+# Ancile
+
+> Your shield against risky releases
+
+Ancile is a release risk assessment tool that analyzes differences between Git tags and evaluates changes based on configurable risk categories.
+
+## 🛡️ Overview
+
+Ancile helps development teams identify potential risks in releases by:
+- Comparing Git tags to analyze changes between versions
+- Mapping changed files to predefined risk categories
+- Generating risk assessment reports for releases
+
+## ✨ Features
+
+- Git tag differential analysis
+- Configurable risk categories and folder mappings
+- Risk assessment scoring
+- Detailed reporting
+- Easy integration with CI/CD pipelines
+
+## 🚀 Getting Started
+
+### Docker Usage
+
+```bash
+# Print usage
+docker run ancile --help
+
+# Assess risk between two tags
+docker run -v $(pwd):/var/opt/ancile ancile --risk-config /var/opt/ancile/risk_mappings.yaml --stable 1.0.0 --change 1.1.0 --repo-path /var/opt/ancile
+
+# Use with local repository
+docker run -v /path/to/your/repo:/var/opt/ancile ancile --risk-config /var/opt/ancile/risk_mappings.yaml --stable 1.0.0 --change 1.1.0 --repo-path /var/opt/ancile
+```
+
+### Prerequisites
+
+- Python 3.12 or higher
+- Git
+
+### Installation
+
+```bash
+pip install ancile
+```
+
+### CLI Usage
+
+The primary way to use Ancile is through its command-line interface:
+
+```bash
+# Ask for help
+ancile --help
+
+# Basic usage
+ancile --risk-config risks.yaml --stable 1.0.0 --change 1.0.1
+
+# With optional repository path
+ancile --risk-config risks.yaml --stable 1.0.0 --change 1.0.1 --repo-path /path/to/repo
+
+# To generate a default risk mapping configuration
+ancile --generate-config --risk-config risk_mappings.yaml
+```
+
+#### CLI Options:
+
+See also the usage with `ancile --help`.
+
+- `--generate-config`: a flag to generate a risk mappings template
+- `--risk-config`: Path to risk mapping configuration file (default: risk_mappings.yaml)
+- `--stable`: The stable tag currently in production
+- `--change`: The new tag to assess for release
+- `--repo-path`: Path to the git repository (default: current directory)
+- `--debug`: very verbose output
+- `--verbose`: prints out more information
+- `--version`: prints the current version of Ancile
+
+The primary way to use Ancile is through its command-line interface:
+
+```bash
+# Basic usage
+ancile --risk_mappings=risks.yaml --stable=1.0.0 --change=1.0.1
+
+# With optional repository path
+ancile --risk_mappings=risks.yaml --stable=1.0.0 --change=1.0.1 --repo-path=/path/to/repo
+```
+
+### Development
+
+1. Clone the repository
+2. Create a virtual environment: `python -m venv venv`
+3. Activate the virtual environment:
+    - Windows: `venv\Scripts\activate`
+    - Unix/MacOS: `source venv/bin/activate`
+4. Install development dependencies: `pip install -r requirements.txt`
+5. Install the package in editable mode: `pip install -e .`
+
+### Testing
+
+Run tests with pytest:
+
+```bash
+pytest tests/
+```
+
+## ⚙️ Configuration
+
+Create an `ancile.yaml` in your project root:
+
+```yaml
+mappings:
+  - folder: /docs
+    risk: LOW
+  - folder: /tests
+    risk: LOW
+  - folder: /src/core
+    risk: HIGH
+  - folder: /src/api
+    risk: HIGH
+```
+
+## Exit Codes
+
+The tool returns different exit codes depending on the risk assessment:
+
+- `0`: LOW risk
+- `1`: MEDIUM risk
+- `2`: HIGH risk
+
+This allows for easy integration with CI/CD pipelines to automate deployment decisions.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the GNU General Public License v3.0 only - see the [LICENSE](LICENSE) file for details.
+
+Copyright (C) 2025 Leading Works SàRL
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+## 🔍 Etymology
+
+The name "Ancile" comes from Greek mythology, referring to the shield of Zeus and Athena. Just as the divine ancile protected the gods, this tool helps protect your releases by identifying potential risks.
+
+## ✨ Acknowledgments
+
+- Inspired by the need for better release risk assessment
+
+---
+Made with ❤️ by Leading Works SàRL
