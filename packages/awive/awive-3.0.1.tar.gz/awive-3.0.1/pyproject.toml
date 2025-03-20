@@ -1,0 +1,46 @@
+[project]
+name = "awive"
+version = "3.0.1"
+description = "Adaptive Water Image Velocimetry"
+authors = [
+    { name = "Joseph P.", email = "joseph.pena.q@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.26,<1.27",
+    "opencv-python>=4.6,<4.7",
+    "pydantic>=2.7.4",
+]
+
+[dependency-groups]
+dev = [
+    "dvc-gdrive>=3.0.1",
+    "ipython>=8.18.1",
+    "matplotlib>=3.9.4",
+    "opencv-stubs>=0.0.11",
+    "pyfzf>=0.3.1",
+    "pyqt5>=5.15.11",
+    "requests>=2.31.0",
+    "tk>=0.1.0",
+    "typer>=0.15.2",
+    "types-pyyaml>=6.0.12.20241230",
+    "types-requests>=2.31.0.20240125",
+]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.5.34",
+    "mkdocstrings-python>=1.11.1",
+]
+plots = [
+    "matplotlib>=3.9.2",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.ruff]
+line-length = 79
