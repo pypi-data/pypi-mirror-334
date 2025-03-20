@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: PyLinks
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: requests<3,>=2.31.0
+Requires-Dist: ExceptionMan<0.2,>=0.1
+Requires-Dist: MDit<0.2,>=0.1
