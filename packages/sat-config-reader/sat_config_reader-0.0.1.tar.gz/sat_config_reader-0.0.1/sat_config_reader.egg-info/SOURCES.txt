@@ -1,0 +1,12 @@
+README.md
+setup.py
+sat_config_reader.egg-info/PKG-INFO
+sat_config_reader.egg-info/SOURCES.txt
+sat_config_reader.egg-info/dependency_links.txt
+sat_config_reader.egg-info/requires.txt
+sat_config_reader.egg-info/top_level.txt
+src/__init__.py
+src/read_config.py
+tests/__init__.py
+tests/test_config_reader.py
+tests/test_config_reader_map_to_dataclass.py
