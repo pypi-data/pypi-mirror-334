@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: basicApiModel
+Version: 1.0.2
+Summary: A simple API template to speed up development
+Author: Clayton Melo
+Author-email: claytonsnt@hotmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-python
+Dynamic: summary
