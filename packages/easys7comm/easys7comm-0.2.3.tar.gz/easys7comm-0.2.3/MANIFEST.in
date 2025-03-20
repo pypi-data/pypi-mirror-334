@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include src/easys7comm *
+recursive-include docs *
+recursive-include examples *
