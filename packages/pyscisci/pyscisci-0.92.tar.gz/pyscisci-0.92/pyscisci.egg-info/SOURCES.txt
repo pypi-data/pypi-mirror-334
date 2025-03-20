@@ -1,0 +1,165 @@
+.gitignore
+.readthedocs.yml
+.travis.yml
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE
+Pipfile
+README.md
+setup.py
+docs/Makefile
+docs/about.rst
+docs/conf.py
+docs/databases.rst
+docs/examples.rst
+docs/index.rst
+docs/installation.rst
+docs/make.bat
+docs/methods.rst
+docs/network.rst
+docs/references.bib
+docs/requirements.txt
+docs/utils.rst
+docs/html/.buildinfo
+docs/html/about.html
+docs/html/databases.html
+docs/html/examples.html
+docs/html/genindex.html
+docs/html/index.html
+docs/html/installation.html
+docs/html/methods.html
+docs/html/network.html
+docs/html/objects.inv
+docs/html/py-modindex.html
+docs/html/search.html
+docs/html/searchindex.js
+docs/html/utils.html
+docs/html/.doctrees/about.doctree
+docs/html/.doctrees/databases.doctree
+docs/html/.doctrees/environment.pickle
+docs/html/.doctrees/examples.doctree
+docs/html/.doctrees/index.doctree
+docs/html/.doctrees/installation.doctree
+docs/html/.doctrees/methods.doctree
+docs/html/.doctrees/network.doctree
+docs/html/.doctrees/utils.doctree
+docs/html/_sources/about.rst.txt
+docs/html/_sources/databases.rst.txt
+docs/html/_sources/examples.rst.txt
+docs/html/_sources/index.rst.txt
+docs/html/_sources/installation.rst.txt
+docs/html/_sources/methods.rst.txt
+docs/html/_sources/network.rst.txt
+docs/html/_sources/utils.rst.txt
+docs/html/_static/_sphinx_javascript_frameworks_compat.js
+docs/html/_static/alabaster.css
+docs/html/_static/basic.css
+docs/html/_static/custom.css
+docs/html/_static/doctools.js
+docs/html/_static/documentation_options.js
+docs/html/_static/file.png
+docs/html/_static/jquery-3.6.0.js
+docs/html/_static/jquery.js
+docs/html/_static/language_data.js
+docs/html/_static/minus.png
+docs/html/_static/plus.png
+docs/html/_static/pygments.css
+docs/html/_static/searchtools.js
+docs/html/_static/sphinx_highlight.js
+docs/html/_static/underscore-1.13.1.js
+docs/html/_static/underscore.js
+examples/Getting_Started/DatabaseGrowth.pdf
+examples/Getting_Started/Getting Started with APS.ipynb
+examples/Getting_Started/Getting Started with DBLP.ipynb
+examples/Getting_Started/Getting Started with MAG.ipynb
+examples/Getting_Started/Getting Started with OpenAlex.ipynb
+examples/Getting_Started/Getting Started with PubMed.ipynb
+examples/Getting_Started/Getting Started with WOS.ipynb
+examples/Getting_Started/Getting Started with a Custom DB.ipynb
+examples/Getting_Started/Getting Started with a Dask Example.ipynb
+examples/Getting_Started/The Growth of Science.ipynb
+examples/Getting_Started/Working from a publication list.ipynb
+examples/GlobalCitationNetwork/GlobalCitationNetwork_analysis.ipynb
+examples/GlobalCitationNetwork/GlobalCitationNetwork_dataprep.ipynb
+examples/GlobalCitationNetwork/data/Chengetal_idealist.csv.gz
+examples/Method_Examples/Comparing pandas, spark and dask-- number of citations.ipynb
+examples/Method_Examples/Example Career Analysis.ipynb
+examples/Method_Examples/Example Career Topic Switching.ipynb
+examples/Method_Examples/Example Novelty.ipynb
+examples/Method_Examples/Example Publication Citations.ipynb
+examples/Method_Examples/Example Reference Strength.ipynb
+examples/Method_Examples/Example of Credit Allocation.ipynb
+examples/Method_Examples/Example of Interdisciplinarity.ipynb
+examples/NLP_Examples/CoWordMention.html
+examples/NLP_Examples/Example of Coword Mention Network.ipynb
+examples/NLP_Examples/Example_Node2vec (umap,sem_axis).ipynb
+examples/Network_Examples/DeSollaPriceCarrerCitations.pdf
+examples/Network_Examples/DiversityCocitiation.pdf
+examples/Network_Examples/Example of Cocitation Network.ipynb
+examples/Network_Examples/Example of Diffusion of Scientific Credit.ipynb
+examples/Network_Examples/NetworkNormalizedCitationAPS.ipynb
+examples/Network_Examples/StirlingCocitiation.pdf
+examples/Network_Examples/Three Databases and Career Topic Switching.ipynb
+examples/ScienceOfScienceTextbook/Chapter 0 Preparing PySciSci.ipynb
+examples/ScienceOfScienceTextbook/Chapter 01 Productivity of a Scientist.ipynb
+examples/ScienceOfScienceTextbook/Chapter 02 The h-index.ipynb
+examples/ScienceOfScienceTextbook/Chapter 05 Random Impact Rule.ipynb
+examples/ScienceOfScienceTextbook/Chapter 06 The Q-Factor.ipynb
+examples/ScienceOfScienceTextbook/Chapter 08 The Increasing Dominance of Teams in Science.ipynb
+examples/ScienceOfScienceTextbook/Chapter 10 Coauthorship Networks.ipynb
+examples/ScienceOfScienceTextbook/Chapter 14 Credit Allocation.ipynb
+examples/example_data/DeSollaPriceCareer.csv
+examples/example_data/fenn_paa.csv
+examples/example_data/fenn_pub2ref.csv
+examples/example_data/focus_publications_example.csv
+examples/example_interactive_html/sem_axis.html
+examples/example_interactive_html/umap_fig.html
+pyscisci/__init__.py
+pyscisci/all.py
+pyscisci/database.py
+pyscisci/embedding.py
+pyscisci/filter.py
+pyscisci/network.py
+pyscisci/nlp.py
+pyscisci/sparsenetworkutils.py
+pyscisci/utils.py
+pyscisci/visualization.py
+pyscisci.egg-info/PKG-INFO
+pyscisci.egg-info/SOURCES.txt
+pyscisci.egg-info/dependency_links.txt
+pyscisci.egg-info/not-zip-safe
+pyscisci.egg-info/requires.txt
+pyscisci.egg-info/top_level.txt
+pyscisci/datasource/APS.py
+pyscisci/datasource/CustomDB.py
+pyscisci/datasource/DBLP.py
+pyscisci/datasource/MAG.py
+pyscisci/datasource/OpenAlex.py
+pyscisci/datasource/PubMed.py
+pyscisci/datasource/WOS.py
+pyscisci/datasource/__init__.py
+pyscisci/datasource/readwrite.py
+pyscisci/methods/__init__.py
+pyscisci/methods/author.py
+pyscisci/methods/careertopics.py
+pyscisci/methods/cindex.py
+pyscisci/methods/creditshare.py
+pyscisci/methods/diffusionscientificcredit.py
+pyscisci/methods/disruption.py
+pyscisci/methods/diversity.py
+pyscisci/methods/hindex.py
+pyscisci/methods/hotstreak.py
+pyscisci/methods/journal.py
+pyscisci/methods/longtermimpact.py
+pyscisci/methods/netnormcite.py
+pyscisci/methods/novelty.py
+pyscisci/methods/pivotscore.py
+pyscisci/methods/productivitytrajectory.py
+pyscisci/methods/publication.py
+pyscisci/methods/qfactor.py
+pyscisci/methods/raostirling.py
+pyscisci/methods/referencestrength.py
+pyscisci/methods/sleepingbeauty.py
+pyscisci/methods/topicsimilarity.py
+pyscisci/tests/__init__.py
+pyscisci/tests/test_utils.py
