@@ -1,0 +1,19 @@
+[project]
+name = "vvpet"
+version = "0.1.0"
+description = "Your little friend"
+authors = [
+    {name = "Vojtech Velebny",email = "velebnyvo@gymla.cz"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "vvpet", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
