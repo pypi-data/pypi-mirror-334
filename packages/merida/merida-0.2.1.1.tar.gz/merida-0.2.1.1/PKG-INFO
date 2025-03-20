@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: merida
+Version: 0.2.1.1
+Summary: MERIDA: MOA9yr Exploration and Research Interface for Dataset Analysis Resources
+Home-page: https://github.com/stelais/merida
+Author: Stela IS
+Author-email: stela.ishitanisilva@nasa.gov
+License: MIT
+License-File: LICENSE
+Requires-Dist: pyarrow==14.0.1
+Requires-Dist: bokeh==3.4.1
+Requires-Dist: numpy==1.26.2
+Requires-Dist: pandas==2.1.4
+Requires-Dist: tqdm==4.66.3
+Requires-Dist: requests==2.32.0
+Requires-Dist: lxml==4.9.3
+Requires-Dist: html5lib==1.1
