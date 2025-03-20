@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: image_processing_drigonato
+Version: 0.0.1
+Summary: Processamento de imagens usando Skimage
+Home-page: https://github.com/dorigonato/image-processing-package.git
+Author: Dorival
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# package_name
+
+Description.
+The package package_name is used to:
+Image Processing - Histogram matching - Structural similarity - Resize image
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package_name
+
+```bash
+pip install package_name
+```
+
+## Author
+
+Dorival
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
