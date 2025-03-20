@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: bitquery-pb2-kafka-package
+Version: 0.1.1
+Summary: This package contains the pb2 files necessary to interact with Bitquery Kafka Protobuf messages
+Home-page: https://github.com/bitquery/streaming-protobuf-python
+Author: Bitquery
+Author-email: divyasshree@bitquery.io
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Solana Package
+
+A Python library containing pb2 files to simplify parsing Solana blockchain data  on Kafka.
+
+## Installation
+
+Install easily via pip:
+
+```bash
+pip install bitquery-pb2-kafka-package
+```
+
+## Usage
+
+Importing and using protobuf messages:
+You can import and use the protobuf-generated Python classes as follows:
+
+
+```
+from solana import block_message_pb2
+
+# Create a new BlockMessage instance
+block_message = block_message_pb2.BlockMessage()
+
+# Assign fields (replace with actual fields)
+block_message.field_name = "value"
+
+# Serialize the message to bytes
+serialized_message = block_message.SerializeToString()
+
+# Deserialize bytes back into a message
+received_message = block_message_pb2.BlockMessage()
+received_message.ParseFromString(serialized_message)
+
+print(received_message)
+
+```
+
+## Available Protobuf Messages
+
+-   `block_message_pb2.BlockMessage`
+-   `dex_block_message_pb2.DexBlockMessage`
+-   `ohlc_message_pb2.OhlcMessage`
+-   `parsed_idl_block_message_pb2.ParsedIdlBlockMessage`
+-   `token_block_message_pb2.TokenBlockMessage`
