@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+agentcraft_mcp/__init__.py
+agentcraft_mcp/agent_manager.py
+agentcraft_mcp/config.py
+agentcraft_mcp/data_processor.py
+agentcraft_mcp/http_client.py
+agentcraft_mcp/server.py
+agentcraft_mcp/tools.py
+agentcraft_mcp.egg-info/PKG-INFO
+agentcraft_mcp.egg-info/SOURCES.txt
+agentcraft_mcp.egg-info/dependency_links.txt
+agentcraft_mcp.egg-info/requires.txt
+agentcraft_mcp.egg-info/top_level.txt

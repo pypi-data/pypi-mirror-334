@@ -1,0 +1,7 @@
+uvicorn>=0.34.0
+python-dotenv
+mcp
+spacy
+spacy-transformers
+pyyaml
+aiohttp
