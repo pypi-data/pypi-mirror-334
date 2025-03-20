@@ -1,0 +1,67 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "taitale"
+version = "1.0.1"
+description = "taitale a tool to utilize and craft pipelines with ASKAPsoft and other radio astronomy tools"
+authors = ["M.Nimalan <nimalan.m@protonmail.com>"]
+license = "GNU GPLv3"
+readme = "README.md"
+keywords = ["astronomy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+astropy = "^7.0.0"
+ipython = "^8.32.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0.0"
+pytest-mock = "^3.12.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.0"
+black = "^24.1.1"
+ruff = "^0.2.1"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.2.6"
+sphinx-rtd-theme = "^2.0.0"
+sphinx-automodapi = "^0.16.0"
+sphinx-gallery = "^0.15.0"
+nbsphinx = "^0.9.3"
+
+[tool.pytest]
+minversion = "4.6"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 119
+target-version = "py311"
+fix = true
+exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+]
