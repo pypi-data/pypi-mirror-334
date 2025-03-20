@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include anki_packager/dicts *.mdx
+recursive-include anki_packager/config *
+global-exclude *.py[cod] __pycache__ *.so
+exclude anki_packager.log
+exclude *.pyc
+exclude __pycache__
+exclude *.apkg
