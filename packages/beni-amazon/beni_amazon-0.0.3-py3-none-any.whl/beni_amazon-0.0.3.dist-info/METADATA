@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: beni-amazon
+Version: 0.0.3
+Summary: Commands for Beni
+Author-email: Beni Mang <benimang@126.com>
+Maintainer-email: Beni Mang <benimang@126.com>
+Keywords: benimang,beni,beni-amazon
+Requires-Python: >=3.10
+Requires-Dist: benimang==0.7.13
+Requires-Dist: typer
