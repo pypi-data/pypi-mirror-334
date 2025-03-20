@@ -1,0 +1,88 @@
+Metadata-Version: 2.4
+Name: csviewer-tui
+Version: 0.2.1
+Summary: CSViewer-TUI (cvit)
+Project-URL: Homepage, https://github.com/sou-san/csviewer-tui
+Project-URL: Repository, https://github.com/sou-san/csviewer-tui
+Project-URL: Issues, https://github.com/sou-san/csviewer-tui/issues
+Project-URL: Documentation, https://github.com/sou-san/csviewer-tui/blob/main/README.md
+Author-email: sou-san <sou887867@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2024-2025 Yusei Soma
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: cli,csv,csviewer-tui,cvit,parquet,terminal,tool,tui,viewer
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: click<9.0.0,>=8.1.7
+Requires-Dist: textual-fastdatatable==0.12.0
+Requires-Dist: textual<3.0.0,>=2.1.2
+Description-Content-Type: text/markdown
+
+![Python version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)
+![PyPi version](https://img.shields.io/badge/pypi%20package-v0.2.1-green.svg)
+![OS support](https://img.shields.io/badge/OS-Linux%20%7C%20Windows-red.svg)
+
+# CSViewer-TUI (cvit)
+
+![screenshot](https://github.com/user-attachments/assets/0920d4fc-cf43-48d1-aa65-f0cf49423ca9)
+
+It is a CSV and Parquet file viewer built using Textual and textual-fastdatatable.
+It can also be used in the Linux console.
+
+## Usage
+
+If you don't have uv installed, please install it.
+
+### Linux
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### Windows
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+---
+
+```bash
+uv tool install csviewer-tui
+```
+
+```bash
+cvit example.csv
+```

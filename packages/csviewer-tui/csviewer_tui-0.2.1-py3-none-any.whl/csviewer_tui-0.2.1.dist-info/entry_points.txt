@@ -1,0 +1,2 @@
+[console_scripts]
+cvit = csviewer_tui.__main__:main
