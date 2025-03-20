@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: ghr
+Version: 0.0.1
+Summary: A tool to run repositories from GitHub.
+Author-email: PabloMyLove <pablomylove@proton.me>
+Requires-Dist: requests
+Requires-Dist: colorama
