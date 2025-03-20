@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: ollama-switch
+Version: 1.0.0
+Summary: A package to manage Ollama service and models.
+Author: John Codes
+Author-email: efexzium@gmail.com
+Requires-Dist: ollama
+
