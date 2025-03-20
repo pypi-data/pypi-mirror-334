@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: movies-etl
+Version: 0.1.1
+Summary: Default template for PDM package
+Author-Email: vhzkclq0705 <vhzkclq0705@naver.com>
+License: MIT
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.32.3
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: pyarrow>=19.0.1
+Description-Content-Type: text/markdown
+
+# movies-etl
+영화진흥위원회 오픈 API로 받은 데이터를 Airflow와 함께 ETL 작업
