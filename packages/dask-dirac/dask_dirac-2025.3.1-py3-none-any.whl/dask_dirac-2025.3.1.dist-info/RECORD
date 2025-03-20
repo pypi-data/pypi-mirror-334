@@ -1,0 +1,14 @@
+dask_dirac/__init__.py,sha256=rF1TVnA2kJWTKEuuN9z1p0aOZMpWc9rgUujppzKHDWY,314
+dask_dirac/_dask.py,sha256=xpC-P0xLZQGp8cATvB5pgbSxVyCi0wnIEJkcc1GKmWY,14072
+dask_dirac/_dirac.py,sha256=Ih8aG9qtNlMwe5xbltOLp9LkJaZRnw9NGGTHsp3F0D0,6541
+dask_dirac/_version.py,sha256=LRxT-aKVFx-tOfzY6ICYZHD6uSujzQhmitHlLAjmf6M,24645
+dask_dirac/cli.py,sha256=SK5GQEzN_iUAOo-HRGG-l7uHY64lOry9jRDVi2k8Gjg,6151
+dask_dirac/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dask_dirac/templates/__init__.py,sha256=s1YZgkSrdf0id9qL11OnuSd4RyvZUEOZIJ2w3N8R5Kw,546
+dask_dirac/templates/jdl.j2,sha256=zbL-BUzbyhelgRW9KvrwfkKRKHIfawkRa-r1tUtqxWU,458
+dask_dirac/templates/submit_command.j2,sha256=KCtzHErkx2HaSdpUvcTCThSV1G_hVWVT3TJlduH8aPk,123
+dask_dirac-2025.3.1.dist-info/entry_points.txt,sha256=ZNNDLn-45hvK7YJRqkfYoPwsgG2ShvPycrQD9wRv5A4,50
+dask_dirac-2025.3.1.dist-info/licenses/LICENSE,sha256=xy8H4D2wBDP7wR0Tw_RUYv2iBdQ9WBawsOkll1KOLE4,1522
+dask_dirac-2025.3.1.dist-info/WHEEL,sha256=_2ozNFCLWc93bK4WKHCO-eDUENDlo-dgc9cU3qokYO4,82
+dask_dirac-2025.3.1.dist-info/METADATA,sha256=kDEWyxr1PbmEv1XFiAU6oe2RGci6gpr4410msEOkcHk,4693
+dask_dirac-2025.3.1.dist-info/RECORD,,
