@@ -1,0 +1,20 @@
+//  python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. --mypy_out=. core_kit/grpc_tools/proto/test_service.proto
+
+syntax = "proto3";
+
+package test_proto;
+
+
+message TestRequest {
+  int32 x = 1;
+}
+
+message TestResponse {
+  string result = 1;
+}
+
+
+service TestService {
+  rpc Test (TestRequest) returns (TestResponse);
+  rpc TestStream (TestRequest) returns (stream TestResponse);
+}
