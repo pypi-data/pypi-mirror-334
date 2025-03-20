@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: bsb_family_pack2
+Version: 1.0.0
+Summary: A secure family connection and monitoring tool via Telegram.
+Author: Shawpon Sp
+Author-email: shawponsp6@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary
