@@ -1,0 +1,13 @@
+{
+    "name": "output_power_test",
+    "module": "calibration",
+    "purpose": "Test configuration for all supported calibration output power values",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Configurations", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["OUTPUT_POWER_2_4_NEG_12", "OUTPUT_POWER_2_4_NEG_8", "OUTPUT_POWER_2_4_NEG_4", "OUTPUT_POWER_2_4_POS_0", "OUTPUT_POWER_2_4_POS_2", "OUTPUT_POWER_2_4_POS_3"]
+}

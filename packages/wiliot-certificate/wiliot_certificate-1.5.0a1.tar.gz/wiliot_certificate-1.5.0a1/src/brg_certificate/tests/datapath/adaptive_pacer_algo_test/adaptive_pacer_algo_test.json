@@ -1,0 +1,13 @@
+{
+    "name": "adaptive_pacer_algo_test",
+    "module": "datapath",
+    "purpose": "Test the adaptive pacer algorithm",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Turn on adaptive pacer and configure bridge to encourage adaptive pacer algorithm activation", "Wait for tx repetition algorithm to work and then activate pacing algorithm", "Check effective pacer incrementation is stable", "Test actual tags pacing interval", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All configurations completed successfully and adaptive pacing works as expected",
+    "mandatory": 0,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": []
+}

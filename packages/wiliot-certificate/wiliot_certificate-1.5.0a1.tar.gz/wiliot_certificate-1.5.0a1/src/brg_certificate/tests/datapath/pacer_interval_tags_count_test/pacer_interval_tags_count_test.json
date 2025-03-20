@@ -1,0 +1,13 @@
+{
+    "name": "pacer_interval_test",
+    "module": "datapath",
+    "purpose": "Test pixels handling in the bridge for different pacer interval values",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Pacer interval configuration", "Scan for pixel packets in the bridge", "Compare maximal amount of received pixels to the amount received with different pacer interval value", "Repeat for all given pacer interval values", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully and no significant gaps between received amounts of pixels were found",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": [1, 10, 15, 30]
+}

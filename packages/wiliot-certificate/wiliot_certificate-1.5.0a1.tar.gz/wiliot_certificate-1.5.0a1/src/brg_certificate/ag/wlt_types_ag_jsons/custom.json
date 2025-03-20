@@ -1,0 +1,515 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "stateThreshold",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 31
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "wakeUpDuration",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 3
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sleepDuration",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "stateThreshold",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 31
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "wakeUpDuration",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 3
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sleepDuration",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "stateThreshold",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 31
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "wakeUpDuration",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 3
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sleepDuration",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "version",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "stateThreshold",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 31
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "wakeUpDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 3
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sleepDuration",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "version",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "stateThreshold",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 31
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "wakeUpDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 3
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sleepDuration",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

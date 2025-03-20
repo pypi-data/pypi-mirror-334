@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wiliot_certificate"
+version = "1.5.0a1"
+authors = [
+  { name="Wiliot", email="support@wiliot.com" }
+]
+description = "A library for certifying Wiliot-compliant boards"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+license = { file = "LICENSE" }
+
+dependencies = [
+    "jinja2>=3.1.5",
+    "appdirs>=1.4.4",
+    "plotly>=6.0.0",
+    "numpy>=2.2.2",
+    "pandas>=2.2.3",
+    "colorama>=0.4.6",
+    "tabulate>=0.9.0",
+    "wiliot-core>=5.9.1",
+    "paho-mqtt>=2.1.0",
+    "bitstruct>=8.20.0",
+    "protobuf>=5.29.3",
+    "wiliot-api>=4.10.8",
+    "jsonschema>=4.23.0",
+    "statsmodels>=0.14.4",
+    "pyserial>=3.5",
+    "reportlab>=4.3.1",
+    "google-api-python-client>=2.162.0",
+]
+
+[project.urls]
+Wiliot = "https://www.wiliot.com"
+Certified = "https://www.wiliot.com/product/ambient-iot-network#partner-device-certification"
+
+[project.scripts]
+wlt-cert-gw = "gw_certificate.gw_certificate_cli:main"
+wlt-cert-brg = "brg_certificate.brg_certificate_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["*.ut*"]
+
+[tool.setuptools.package-data]
+common = ["wlt_logo.png"]
+gw_certificate = ["**/*.csv", "**/*.html", "**/*.json", "**/*.zip", "interface/nrfutil*"]
+brg_certificate = ["**/*.json", "**/*.md", "*_list.txt", "**/wlt_cmd_if.html", "**/wlt_types.html"]
+
+[tool.setuptools.exclude-package-data]
+brg_certificate = ["**/mqtt_log_*.json", "*cert_mqtt_log.json", "*_log.txt", "*ut/*"]

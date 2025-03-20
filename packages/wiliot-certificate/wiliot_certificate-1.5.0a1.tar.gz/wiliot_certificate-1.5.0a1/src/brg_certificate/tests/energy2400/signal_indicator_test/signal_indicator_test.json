@@ -1,0 +1,13 @@
+{
+    "name": "signal_indicator_functionality_test",
+    "module": "energy2400",
+    "purpose": "TODO",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "TODO",
+    "procedure": ["Test prolog", "TODO", "Test epilog"],
+    "expectedOutcome": "TODO",
+    "mandatory": 0,
+    "multiBridgeTest": 1,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["rssi_threshold", "brg0_rx_brg1_tx", "brg0_none_brg1_rx", "brg0_rxtx_brg1_rxtx", "brg0_tx_brg1_none"]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "pattern_test",
+    "module": "energy2400",
+    "purpose": "Test configuration for all supported Energy 2400MHz pattern values",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Configurations", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["ENERGY_PATTERN_2_4_NO_ENERGIZING", "ENERGY_PATTERN_2_4_CHANNEL_37", "ENERGY_PATTERN_2_4_CHANNEL_38", "ENERGY_PATTERN_2_4_CHANNEL_39", "ENERGY_PATTERN_2_4_FREQ_2450", "ENERGY_PATTERN_2_4_FREQ_2454"]
+}

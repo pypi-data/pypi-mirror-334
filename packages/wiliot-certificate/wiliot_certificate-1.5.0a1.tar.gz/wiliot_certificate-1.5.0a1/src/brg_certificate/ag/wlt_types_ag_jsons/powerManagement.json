@@ -1,0 +1,1234 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "staticLedsOn",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "staticKeepAlivePeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticKeepAliveScan",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticOnDuration",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "staticSleepDuration",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicLedsOn",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamicKeepAlivePeriod",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 5
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicKeepAliveScan",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicOnDuration",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 30
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "dynamicSleepDuration",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 60
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sensor0",
+          "byteOffset": 14,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        },
+        {
+          "name": "sensor1",
+          "byteOffset": 18,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        },
+        {
+          "name": "rssiThreshold",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": -1
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "sub1gRssiThreshold",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": -1
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sensor0",
+          "byteOffset": 14,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        },
+        {
+          "name": "sensor1",
+          "byteOffset": 18,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sensor0",
+          "byteOffset": 14,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        },
+        {
+          "name": "sensor1",
+          "byteOffset": 18,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string",
+          "map": {
+            "00000000":"No_Sensor",
+            "16E1FF01":"MinewS1",
+            "FF050500":"USB dongle ADC",
+            "FF000500":"Signal Indicator",
+            "0279FE01":"Zebra Printer",
+            "FFAE0400":"ERM Smart MS"
+          }
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "adType0",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb0",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb0",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "adType1",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb1",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb1",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor0Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor1Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "adType0",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb0",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb0",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "adType1",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb1",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb1",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor0Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor1Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "adType0",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb0",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb0",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "adType1",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidMsb1",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "uuidLsb1",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor0Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "sensor1Scramble",
+          "byteOffset": 20,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}

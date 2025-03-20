@@ -1,0 +1,672 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "rssiThreshold",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": -1
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "pktFilter",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "string",
+          "map": {
+            "00":"Random first Arriving packet",
+            "10":"Disable forwarding",
+            "11":"Temperature packet",
+            "12":"Advanced packet",
+            "13":"Temperature and Advanced packets",
+            "14":"Debug packet",
+            "15":"Temperature and Debug packets",
+            "17":"Temperature Advanced and Debug packets"
+          }
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "pattern",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Standard beaconing",
+            "01":"No Beacons on Channel 37",
+            "02":"EU pattern"
+          }
+        },
+        {
+          "name": "rxChannel",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Channel 37 - primary advertisement channel",
+            "01":"Channel 38 - primary advertisement channel",
+            "02":"Channel 39 - primary advertisement channel",
+            "03":"Channel 10 - 2Mbps - E2/E3 Pixels",
+            "04":"Channel 10 - 2Mbps - E4 Pixels"
+          }
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "adaptivePacer",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "unifiedEchoPkt",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "pktFilter",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "string",
+          "map": {
+            "00":"Random first Arriving packet",
+            "10":"Disable forwarding",
+            "11":"Temperature packet",
+            "12":"Advanced packet",
+            "13":"Temperature and Advanced packets",
+            "14":"Debug packet",
+            "15":"Temperature and Debug packets",
+            "17":"Temperature Advanced and Debug packets"
+          }
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "pattern",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Standard beaconing",
+            "01":"No Beacons on Channel 37",
+            "02":"EU pattern"
+          }
+        },
+        {
+          "name": "rxChannel",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Channel 37 - primary advertisement channel",
+            "01":"Channel 38 - primary advertisement channel",
+            "02":"Channel 39 - primary advertisement channel",
+            "03":"Channel 4  - 1Mbps - secondary advertisement channel",
+            "04":"Channel 10 - 1Mbps - secondary advertisement channel",
+            "05":"Channel 4  - 2Mbps - secondary advertisement channel",
+            "06":"Channel 10 - 2Mbps - secondary advertisement channel"
+          }
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "globalPacingGroup",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "adaptivePacer",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "unifiedEchoPkt",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "pktFilter",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "string",
+          "map": {
+            "00":"Random first Arriving packet",
+            "10":"Disable forwarding",
+            "11":"Temperature packet",
+            "12":"Advanced packet",
+            "13":"Temperature and Advanced packets",
+            "14":"Debug packet",
+            "15":"Temperature and Debug packets",
+            "17":"Temperature Advanced and Debug packets"
+          }
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        },
+        {
+          "name": "commOutputPower",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "commPattern",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Standard beaconing",
+            "01":"No Beacons on Channel 37",
+            "02":"EU pattern"
+          }
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "globalPacingGroup",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "adaptivePacer",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "unifiedEchoPkt",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "pktFilter",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "string",
+          "map": {
+            "00":"Random first Arriving packet",
+            "10":"Disable forwarding",
+            "11":"Temperature packet",
+            "12":"Advanced packet",
+            "13":"Temperature and Advanced packets",
+            "14":"Debug packet",
+            "15":"Temperature and Debug packets",
+            "17":"Temperature Advanced and Debug packets"
+          }
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        },
+        {
+          "name": "commOutputPower",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "commPattern",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "string",
+          "map": {
+            "00":"Standard beaconing",
+            "01":"No Beacons on Channel 37",
+            "02":"EU pattern"
+          }
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "globalPacingGroup",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "pktTypesMask",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "uint"
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "globalPacingGroup",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "pacerInterval",
+          "byteOffset": 15,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "unsued2",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 5,
+          "outType": "uint"
+        },
+        {
+          "name": "txRepetition",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 3,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}

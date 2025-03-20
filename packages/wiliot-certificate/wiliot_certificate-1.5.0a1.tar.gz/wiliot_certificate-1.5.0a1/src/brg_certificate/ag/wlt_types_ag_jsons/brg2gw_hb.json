@@ -1,0 +1,785 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "txQueueWatermark",
+          "byteOffset": 27,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "effectivePacerIncrement",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 7,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "txQueueWatermark",
+          "byteOffset": 27,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "effectivePacerIncrement",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 7,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "txQueueWatermark",
+          "byteOffset": 27,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "effectivePacerIncrement",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 7,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "txQueueWatermark",
+          "byteOffset": 27,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "effectivePacerIncrement",
+          "byteOffset": 28,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "txQueueWatermark",
+          "byteOffset": 27,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "6",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "5",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nonWltRxPktsCtr",
+          "byteOffset": 14,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "badCrcPktsCtr",
+          "byteOffset": 17,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltRxPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "wltTxPktsCtr",
+          "byteOffset": 23,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 25,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "1",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "gwMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 14,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sentPktsCtr",
+          "byteOffset": 20,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "nonWltPktsCtr",
+          "byteOffset": 22,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "tagsCtr",
+          "byteOffset": 24,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "stat_test",
+    "module": "edge_mgmt",
+    "purpose": "Test static packets (heartbeat and interface) sent from the bridge",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Scan for heartbeat and interface packets", "Test epilog"],
+    "expectedOutcome": "Both heartbeat and interface packets received from the bridge within 65 seconds",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": []
+}

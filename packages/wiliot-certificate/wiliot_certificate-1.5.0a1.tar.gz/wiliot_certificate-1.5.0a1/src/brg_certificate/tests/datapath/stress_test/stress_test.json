@@ -1,0 +1,30 @@
+{
+    "name": "stress test",
+    "module": "DataPath",
+    "purpose": [
+        "verify the functionality of the bridge under stress conditions",
+        "verify that the algorithms 'adaptive repetition' and 'adaptive pacer' are working correctly",
+        "verify an edge case where the repetition stable and we got a lot of packets in short time"
+    ],
+    "documentation": [
+        "https://community.wiliot.com/customers/s/article/Wiliot-Network-Data-Path-Module-Relaying-data",
+        "add more links here - about adaptive repetition, adaptive pacer"
+    ],
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": [
+        "Test prolog",
+        "define simulation with 200 packets with 0 delay(0.02 sec) ",
+        "rep 3 - config pacer interval 15, then check repetition value = 3, tx_queue = 0-20, pacer increment = 0, brg latency = 0, num of tags = all tags  ",
+        "rep 2 - config pacer interval 9, then check repetition value = 2, tx_queue = 20-40, pacer increment = 0, brg latency = 0-200, num of tags = all tags",
+        "rep 1  - config pacer interval 6, then check repetition value = 1, tx_queue = 40-60, pacer increment = 0, brg latency = 200-300, num of tags = all tags",
+        "rep 1 adaptive pacer - config pacer interval 1  , then check repetition value = 1, tx_queue > 60, pacer increment = 3 , brg latency > 300 , num of tags = all tags",
+        "pixels burst - config pacer interval 15, then add more 200 packets with 0 delay(0.02 sec), then check repetition value = 1 and not 2", 
+        "Test epilog"
+    ],
+    "expectedOutcome": "all metrics values will be as expected then the bridge is working correctly and the algorithms are working correctly",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["rep3", "rep2", "rep1", "rep1_adaptive_pacer", "pixels_burst"]
+
+}

@@ -1,0 +1,77 @@
+{
+  "versions": [
+    {
+      "version": "1",
+      "packetFields": [
+        {
+          "name": "groupId",
+          "byteOffset": 2,
+          "byteLength": 3,
+          "bitOffset": 0,
+          "bitLength": 24,
+          "outType": "uint"
+        },
+        {
+          "name": "version",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "antennaType",
+          "byteOffset": 8,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":"2_4 Antenna",
+            "1":"Sub1g Antenna"
+          }
+        },
+        {
+          "name": "txAntenna",
+          "byteOffset": 9,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "rxAntenna",
+          "byteOffset": 10,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 11,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}

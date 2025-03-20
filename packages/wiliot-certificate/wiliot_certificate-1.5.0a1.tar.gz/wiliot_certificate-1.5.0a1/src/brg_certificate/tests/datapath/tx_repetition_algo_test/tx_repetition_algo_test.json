@@ -1,0 +1,13 @@
+{
+    "name": "tx_repetition_algo_test",
+    "module": "datapath",
+    "purpose": "Test the tx repetition adjustment algorithm",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Configure bridge tx repetition to 0 to activate tx repetition adjustment algorithm, and packets de-dupliction to 0 to enable analysis", "Scan for packets and examine tx repetitions auto adjustment over time", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All configurations completed successfully and tx repetition algorithm works as expected",
+    "mandatory": 0,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": []
+}

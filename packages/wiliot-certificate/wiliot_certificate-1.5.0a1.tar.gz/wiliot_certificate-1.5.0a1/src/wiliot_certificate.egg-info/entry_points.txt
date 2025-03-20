@@ -1,0 +1,3 @@
+[console_scripts]
+wlt-cert-brg = brg_certificate.brg_certificate_cli:main
+wlt-cert-gw = gw_certificate.gw_certificate_cli:main

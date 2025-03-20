@@ -1,0 +1,13 @@
+{
+    "name": "tx_repetition_test",
+    "module": "datapath",
+    "purpose": "Test tx repetition feature configuration and functionality in the bridge for different tx repetition values",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge & data simulator configured to defaults",
+    "procedure": ["Test prolog", "Tx repetition configuration", "Generate pixels packets & scan for packets in the bridge", "Compare repetitions mean per packet to the configured value", "Repeat for all given tx repetition values", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully and actual repetitions found matching to the configured values",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": [1, 2, 3, 4, 5, 6]
+}

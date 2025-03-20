@@ -1,0 +1,13 @@
+{
+    "name": "signal_indicator_functionality_test",
+    "module": "energy_sub1g",
+    "purpose": "TODO",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "TODO",
+    "procedure": ["Test prolog", "TODO", "Test epilog"],
+    "expectedOutcome": "TODO",
+    "mandatory": 0,
+    "multiBridgeTest": 1,
+    "gwOnlyTest": 0,
+    "allSupportedValues": []
+}
