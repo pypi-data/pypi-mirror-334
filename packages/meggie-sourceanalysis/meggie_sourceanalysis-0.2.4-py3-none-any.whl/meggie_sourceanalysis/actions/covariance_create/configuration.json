@@ -1,0 +1,6 @@
+{
+    "id": "covariance_create",
+    "name": "Create ad hoc cov",
+    "entry": "CreateCovariance",
+    "description": "Create an ad hoc (diagonal) covariance object."
+}
