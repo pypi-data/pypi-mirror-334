@@ -1,0 +1,1 @@
+from main import log_debg, log_info, log_warn, log_err
