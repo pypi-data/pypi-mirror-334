@@ -1,0 +1,114 @@
+[tool.poetry]
+name = "streamlit-rich-message-history"
+version = "0.1.6"
+description = "A package for creating rich, multi-component chat messages in Streamlit."
+authors = ["Ethan Christensen <ethanlchristensen@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/ethanlchristensen/streamlit-rich-message-history"
+keywords = ["streamlit", "chat", "messages", "rich", "ui"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.11",
+]
+packages = [{include = "streamlit_rich_message_history"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+streamlit = "^1.43.2"
+pandas = "^2.2.3"
+matplotlib = "^3.10.1"
+plotly = "^6.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+black = "^24.3.0"
+isort = "^5.12.0"
+mypy = "^1.0.0"
+flake8 = "^6.0.0"
+flake8-pyproject = "^1.2.3"
+pandas-stubs = "^2.2.3.250308"
+plotly-stubs = "^0.0.4"
+sphinx = "^8.2.3"
+sphinx-rtd-theme = "^3.0.2"
+sphinx-autodoc-typehints = "^3.1.0"
+myst-parser = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".venv",
+    "venv",
+    "env",
+    ".env",
+    ".tox",
+    ".pytest_cache",
+    ".mypy_cache",
+    "release.py"
+]
+ignore = ["E501", "W503", "W504", "W291"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | venv
+    | env
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | release\.py
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = [
+    "release.py",
+    ".git",
+    ".eggs",
+    ".hg",
+    ".mypy_cache",
+    ".tox",
+    ".venv",
+    "venv",
+    "env",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "__pycache__",
+]
+
+[[tool.mypy.overrides]]
+module = "plotly.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "plotly.graph_objects.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "release"
+ignore_errors = true
