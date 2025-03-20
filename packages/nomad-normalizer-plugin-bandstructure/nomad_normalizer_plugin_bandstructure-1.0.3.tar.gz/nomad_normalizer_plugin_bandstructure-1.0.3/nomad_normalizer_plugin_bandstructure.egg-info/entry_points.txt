@@ -1,0 +1,2 @@
+[nomad.plugin]
+bandstructurenormalizer = bandstructurenormalizer:bandstructure_normalizer_entry_point
