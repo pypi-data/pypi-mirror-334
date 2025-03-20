@@ -1,0 +1,235 @@
+Metadata-Version: 2.1
+Name: encryptionx
+Version: 2.0.0
+Summary: A comprehensive encryption library for Python.
+Home-page: https://github.com/mr-r0ot/encryptionx
+Author: Mohammad Taha Gorji
+Author-email: Mohammad Taha Gorji <MohammadTahaGorjiProfile@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 Mohammad Taha Gorji
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/mr-r0ot/encryptionx
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pycryptodome
+
+```markdown
+# EncryptionX
+
+EncryptionX is a comprehensive encryption library for Python that provides a wide range of encryption and decryption functionalities. It covers various cryptographic techniques including base encoding, hashing, symmetric encryption, asymmetric encryption, and protocol-based encryption. The library is designed with a modular architecture and can handle inputs as text, file, or folder.
+
+---
+
+## Features
+
+- **Base Encoding:**  
+  - Base64, Base32, Base16 encoding and decoding.
+
+- **Hashing:**  
+  - MD5 and SHA256 hashing (one-way functions).
+
+- **Symmetric Encryption:**  
+  - **AES:** Advanced Encryption Standard with support for CBC and ECB modes.
+  - **DES:** Data Encryption Standard (CBC and ECB modes).
+  - **Triple DES:** Triple Data Encryption Standard (CBC and ECB modes).
+  - **RC4:** Stream cipher implementation.
+
+- **Asymmetric Encryption:**  
+  - **RSA:** Public-key encryption with key generation, encryption, and decryption.
+
+- **Protocol-based Encryption:**  
+  - **PGP (Pretty Good Privacy):** Demonstrative implementation that combines symmetric (AES) and asymmetric (RSA) encryption for secure data exchange.
+
+- **Utility Functions:**  
+  - Functions for reading inputs (from text, file, or folder) and writing outputs.
+  
+- **Encode/Decode Classes:**  
+  - High-level classes (`Encode` and `Decode`) that provide a unified interface for all encryption and decryption methods.
+
+---
+
+## Installation
+
+### Prerequisites
+- Python 3.6 or higher.
+- [PyCryptodome](https://pycryptodome.readthedocs.io/) library.
+
+### Using pip
+Install the package (if published) via pip:
+```bash
+pip install encryptionx
+```
+
+Alternatively, if you have the source code, navigate to the project directory and run:
+```bash
+pip install .
+```
+
+---
+
+## Usage
+
+Below are examples demonstrating how to use the various sections of EncryptionX.
+
+### Base Encoding
+
+```python
+from encryptionx import Encode, Decode
+
+# Create instances
+encoder = Encode()
+decoder = Decode()
+
+# Example text
+text = "This is a sample text for base encoding."
+
+# Base64 Encoding/Decoding
+encoded_b64 = encoder.base64(text, mode='text')
+decoded_b64 = decoder.base64(encoded_b64, mode='text')
+print("Base64 Encoded:", encoded_b64)
+print("Base64 Decoded:", decoded_b64.decode('utf-8'))
+
+# Similarly, you can use base32 and base16
+encoded_b32 = encoder.base32(text, mode='text')
+decoded_b32 = decoder.base32(encoded_b32, mode='text')
+print("Base32 Encoded:", encoded_b32)
+print("Base32 Decoded:", decoded_b32.decode('utf-8'))
+
+encoded_b16 = encoder.base16(text, mode='text')
+decoded_b16 = decoder.base16(encoded_b16, mode='text')
+print("Base16 Encoded:", encoded_b16)
+print("Base16 Decoded:", decoded_b16.decode('utf-8'))
+```
+
+### Hashing
+
+Hashing functions provide one-way encryption (cannot be decrypted).
+
+```python
+# MD5 and SHA256 Hashing
+hashed_md5 = encoder.md5("This is a text to hash", mode='text')
+hashed_sha256 = encoder.sha256("This is a text to hash", mode='text')
+print("MD5 Hash:", hashed_md5.decode('utf-8'))
+print("SHA256 Hash:", hashed_sha256.decode('utf-8'))
+```
+
+### Symmetric Encryption
+
+#### AES Example
+```python
+# Define a symmetric key (must be 16, 24, or 32 bytes)
+symmetric_key = b'0123456789abcdef'
+encoder = Encode(key=symmetric_key)
+decoder = Decode(key=symmetric_key)
+
+# AES encryption and decryption using CBC mode
+aes_encrypted = encoder.aes("This is a secret message for AES encryption", mode='text', cipher_mode='CBC')
+aes_decrypted = decoder.aes(aes_encrypted, mode='text', cipher_mode='CBC')
+print("AES Encrypted:", aes_encrypted)
+print("AES Decrypted:", aes_decrypted.decode('utf-8'))
+```
+
+#### DES Example
+```python
+# DES key must be exactly 8 bytes long
+des_key = b'12345678'
+encoder = Encode(key=des_key)
+decoder = Decode(key=des_key)
+
+des_encrypted = encoder.des("This is a secret message for DES encryption", mode='text', cipher_mode='CBC')
+des_decrypted = decoder.des(des_encrypted, mode='text', cipher_mode='CBC')
+print("DES Encrypted:", des_encrypted)
+print("DES Decrypted:", des_decrypted.decode('utf-8'))
+```
+
+#### Triple DES Example
+```python
+# Triple DES key must be 16 or 24 bytes long
+triple_des_key = b'0123456789abcdef01234567'
+encoder = Encode(key=triple_des_key)
+decoder = Decode(key=triple_des_key)
+
+triple_des_encrypted = encoder.triple_des("This is a secret message for Triple DES encryption", mode='text', cipher_mode='CBC')
+triple_des_decrypted = decoder.triple_des(triple_des_encrypted, mode='text', cipher_mode='CBC')
+print("Triple DES Encrypted:", triple_des_encrypted)
+print("Triple DES Decrypted:", triple_des_decrypted.decode('utf-8'))
+```
+
+#### RC4 Example
+```python
+# RC4 can use any key length (commonly 16 bytes are used)
+rc4_key = b'0123456789abcdef'
+encoder = Encode(key=rc4_key)
+decoder = Decode(key=rc4_key)
+
+rc4_encrypted = encoder.rc4("This is a secret message for RC4 encryption", mode='text')
+rc4_decrypted = decoder.rc4(rc4_encrypted, mode='text')
+print("RC4 Encrypted:", rc4_encrypted)
+print("RC4 Decrypted:", rc4_decrypted.decode('utf-8'))
+```
+
+### Asymmetric Encryption (RSA)
+
+```python
+from encryptionx import generate_rsa_keys
+
+# Generate RSA keys
+rsa_public, rsa_private = generate_rsa_keys()
+
+# Create encoder and decoder with RSA keys
+encoder = Encode(public_key=rsa_public)
+decoder = Decode(private_key=rsa_private)
+
+rsa_encrypted = encoder.rsa("This is a secret message for RSA encryption", mode='text')
+rsa_decrypted = decoder.rsa(rsa_encrypted, mode='text')
+print("RSA Encrypted:", rsa_encrypted)
+print("RSA Decrypted:", rsa_decrypted.decode('utf-8'))
+```
+
+### Protocol-based Encryption (PGP)
+
+```python
+# PGP encryption combines symmetric and asymmetric encryption.
+# It generates a random AES key for symmetric encryption and encrypts the AES key using RSA.
+pgp_encrypted = encoder.pgp("This is a secret message for PGP encryption", mode='text')
+pgp_decrypted = decoder.pgp(pgp_encrypted, mode='text')
+print("PGP Encrypted:", pgp_encrypted)
+print("PGP Decrypted:", pgp_decrypted.decode('utf-8'))
+```
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+**Mohammad Taha Gorji**
+
+
+---
+
+## Acknowledgements
+
+EncryptionX makes use of the [PyCryptodome](https://pycryptodome.readthedocs.io/) library for cryptographic functions. Special thanks to the contributors and the open-source community.
+```
