@@ -1,0 +1,15 @@
+bsb_family_bot/__init__.py,sha256=LF1XbrUcWUej2KqehDlUytZspyxr0j-wAbOK-hBgS_A,132
+bsb_family_bot/main.py,sha256=zcyIN0mF0ebdjc9_QZT0SIjNFne8O74xf9OR7UXanIY,263353
+bsb_family_bot/telegram_handler.py,sha256=XHyEV-tafkph2yP_PxFimLxXXY3q5CfK3ZWx2g03LqA,251340
+bsb_family_bot/monitors/__init__.py,sha256=BFvof_dKo79jLo8LcGqXTbvtX8TVny0dPYYzJSiShD0,27
+bsb_family_bot/monitors/app_install_monitor.py,sha256=ltdz6oS5yxkYTlxwHIkC1clOpSHikjJ-PByCofwAZNE,256044
+bsb_family_bot/monitors/contacts_monitor.py,sha256=h9piHnxfbiVl3becledR3ZlxB4ewYbAO2UY4Oo2Y0rA,255906
+bsb_family_bot/monitors/photo_monitor.py,sha256=1dp1g_6iJJemcCS2sAwev0oPMOA4l2r6GFKC5j4cr6s,254560
+bsb_family_bot/monitors/sms_monitor.py,sha256=AxVKhHhmhpPoTJ2NMPyhPzAR9Py1yE9zZofDZDMkZLU,254791
+bsb_family_bot/monitors/textfile_monitor.py,sha256=9otELhL_MPNGcS7LrD3lAyf2iLz7ExHjtMnW0ctga4Y,254472
+bsb_family_bot-0.1.0.dist-info/LICENSE,sha256=X4qzNS4rChqZJPRFPUoUBOKYzyn_4g-0h-GZ9fraieQ,1073
+bsb_family_bot-0.1.0.dist-info/METADATA,sha256=svkR_zXPImxHFa04_hZBxM55CIW18alQC7nWFGfXm9Y,318
+bsb_family_bot-0.1.0.dist-info/WHEEL,sha256=jB7zZ3N9hIM9adW7qlTAyycLYW9npaWKLRzaoVcLKcM,91
+bsb_family_bot-0.1.0.dist-info/entry_points.txt,sha256=t8X_WhVVfJ0tqOjwSt8zDcFKdM404tHIvsNjJiUsKtI,49
+bsb_family_bot-0.1.0.dist-info/top_level.txt,sha256=i4-SYLjvG1C3WmdGDxvEQ4Ts19LskBljwJtOJmwtCgA,15
+bsb_family_bot-0.1.0.dist-info/RECORD,,
