@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+
+[dev]
+pytest
+pytest-mock
+flake8
+black
+isort
+yfinance
+pyarrow
