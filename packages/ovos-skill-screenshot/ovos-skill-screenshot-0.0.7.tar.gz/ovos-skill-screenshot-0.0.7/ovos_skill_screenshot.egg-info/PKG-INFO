@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ovos-skill-screenshot
+Version: 0.0.7
+Summary: OVOS screenshot skill plugin
+Home-page: https://github.com/OpenVoiceOS/ovos-skill-screenshot
+Author: jarbasAi
+License: Apache-2.0
+Keywords: ovos skill plugin
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Screenshot Skill
+
+Take screenshots by voice
+
+![screen-124907-181124](https://github.com/user-attachments/assets/dde3b4ec-33f2-4f2c-a17f-2b8550c4cc81)
+
+> **Supported platforms**: ovos-shell, Windows, macOS, Linux, and OpenBSD
+
+## Examples
+* "take a screenshot" 
+* "capture the screen",
