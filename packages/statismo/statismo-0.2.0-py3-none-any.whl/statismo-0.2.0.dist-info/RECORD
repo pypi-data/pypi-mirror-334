@@ -1,0 +1,15 @@
+statismo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+statismo/admin.py,sha256=GkN3qXr1tcAqMLOlAtD0Er2r-efuz0IBiWs2tgEWqHI,292
+statismo/apps.py,sha256=K1cnI4Yubc2jbH0mSCxrM4gC_sANO3TRNeXiOP5KnAI,177
+statismo/metrics.py,sha256=mr2SOQheNrwNFlMQBxIDe7Ao2k33izLQpqB9DhROY3g,1387
+statismo/models.py,sha256=6gbezZ5_COa-Ic4Hjqrt7FNo9kEe6xT5dMEZjWTJYLo,971
+statismo/tasks.py,sha256=-PaxqD5VWvhzeInCmk_k85dFtZOVQjpYccrrPS3EWTU,2099
+statismo/collectors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+statismo/collectors/base.py,sha256=jphilf7CuTW2vAV03YzNojZl0IRPK4wGjYmjbIYuDrI,923
+statismo/collectors/db.py,sha256=i-R7QqQ4WjEp2VgncCTR4xMJo1mhy_l0ahfy63GaHpU,1133
+statismo/collectors/redis.py,sha256=IeOLUsBwVB7EnHYUhgqpFXlMSHPbJBrM-oA_N877aVU,1631
+statismo/migrations/0001_initial.py,sha256=ZlDzI7ZCgW3AS5W3KqPdmNaRC4iewnaAwfQe7p_3k9c,1752
+statismo/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+statismo-0.2.0.dist-info/METADATA,sha256=9cRK7CTxBuvV9OvO2i_WuICi_oGlV_zD-I6a9f7ieCU,2169
+statismo-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+statismo-0.2.0.dist-info/RECORD,,
