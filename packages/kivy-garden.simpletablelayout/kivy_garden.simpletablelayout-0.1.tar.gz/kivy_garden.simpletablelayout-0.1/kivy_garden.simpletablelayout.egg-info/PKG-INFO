@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: kivy-garden.simpletablelayout
+Version: 0.1
+Summary: Simple Table Layout – HTML table-like layout that supports rowspan and colspan, built into Kivy Garden.
+Home-page: https://github.com/Tungsteno74/garden.simpletablelayout
+Author: Kivy
+Author-email: kivy@kivy.org
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/Tungsteno74/garden.simpletablelayout/issues
+Project-URL: Source, https://github.com/Tungsteno74/garden.simpletablelayout
+Keywords: Kivy kivy-garden
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: ci
+License-File: LICENSE
+License-File: AUTHORS.txt
+
+![screenshot](screenshot.png)
+
+Simple Table Layout
+===================
+
+Simple Table like Layout that understands rowspan and colspan properties of children (like HTML tables).
+
+Usage (kv):
+
+Example 1:
+
+    SimpleTableLayout:
+        rows: 2
+        cols: 2
+
+        Button:
+            text: "C1"
+            colspan: 2
+        Button:
+            text: "C2"
+        Button:
+            text: "C3"
+
+creates:
+    
+    ###########
+    
+    #    C1   #
+    
+    ###########
+    
+    # C2 # C3 #
+    
+    ###########
+
+Example 2:
+    
+    SimpleTableLayout:
+        rows: 2
+        cols: 2
+
+        Button:
+            text: "C1"
+            rowspan: 2
+        Button:
+            text: "C2"
+        Button:
+            text: "C3"
+
+creates:
+    
+    ###########
+    
+    #    # C2 #
+    
+    # C1 ######
+    
+    #    # C3 #
+    
+    ###########
+
+Lastly, SimpleTableLayout.cell(row, col) returns widget at that position in the grid.
+
+License
+=======
+MIT license.
+
+Credits
+=======
+Author: Jeyson Molina <jeyson.mco@gmail.com>
+
+
