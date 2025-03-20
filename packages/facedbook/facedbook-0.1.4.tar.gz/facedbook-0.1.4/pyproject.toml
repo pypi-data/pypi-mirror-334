@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "facedbook"
+description = "A package that incorporates kaomojis for the user."
+version = "0.1.4"
+authors = [
+  { name="Team Everything" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["python", "package", "build", "tutorial"]
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/software-students-spring2025/3-python-package-everything"
+"Repository" = "https://github.com/software-students-spring2025/3-python-package-everything"
+"Bug Tracker" = "https://github.com/software-students-spring2025/3-python-package-everything/issues"
+
+[project.scripts]
+facedbook = "facedbook.__main__:main"
