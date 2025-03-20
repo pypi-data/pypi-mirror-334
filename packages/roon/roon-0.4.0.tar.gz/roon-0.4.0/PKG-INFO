@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: roon
+Version: 0.4.0
+Summary: A modern node based python editor and REPL for physics, education, and data analysis
+Author: James Daniel Brandenburg
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pywebview
+
+# ROON
+
+A node bsed editor for python using svelte 
