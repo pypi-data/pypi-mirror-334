@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "pyarmor==9.1.1", "pyarmor.cli.core==7.6.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py2safe"
+version = "2025.3.17.0"
+authors = [
+    { name = "YanChengxin", email = "yan.cheng.xin@foxmail.com" },
+]
+description = "为你的python项目一键加密"
+readme = "README.md"
+requires-python = ">=3.12.3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://gitee.com/yanchengxin2018/py2safe"
+Issues = "https://gitee.com/yanchengxin2018/py2safe/issues"
+
+[project.scripts]
+py2safe = "py2safe.main:main"
