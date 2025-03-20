@@ -1,0 +1,35 @@
+[project]
+name = "unvibe"
+version = "0.1.5"
+description = "Generate code from unit-tests"
+authors = [
+    {name = "Claudio Santini",email = "hireclaudio@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+dependencies = [
+    "google-genai (>=1.2.0,<2.0.0)",
+    "openai (>=1.64.0,<2.0.0)",
+    "anthropic (>=0.46.0,<0.47.0)",
+    "ollama (>=0.4.7,<0.5.0)",
+    "bigtree (>=0.25.1,<0.26.0)",
+    "pydot (>=3.0.4,<4.0.0)",
+    "yaspin (>=3.1.0,<4.0.0)",
+    "rsa (==4.7)",
+]
+
+[tool.poetry]
+name = "unvibe"
+version = "0.1.5"
+description = "Generate code from unit-tests"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+unvibe = "unvibe.__main__:parse_args_and_run_main"
+#unvibe-server = "unvibe.server:__main__"
+
+
+
