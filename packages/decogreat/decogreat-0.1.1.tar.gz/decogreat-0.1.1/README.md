@@ -1,0 +1,70 @@
+# Decogreat
+
+This project aims to simplify how decorators are made.
+I apologize in advance for all the type: ignore but it is quite a challenge to properly type hint in metaprogramming...
+
+## Getting started
+1 -  Install Decogreat
+```bash
+pip intall decogreat
+```
+2 - Create a decorator function with the behavior you want for your decorator.
+```python
+from decogreat import to_decorator
+from collections.abc import Callable
+
+def my_decorator_function(
+    decorated_function: Callable,
+    function_args: list,
+    function_kwargs: dict,
+    decorator_args: list,
+    decorator_kwargs: dict
+):
+"""
+Code your decorator here
+Parameters
+----------
+function_args : list
+    The arguments of the decorated function.
+function_kwargs : dict
+    The keyword arguments of the decorated function.
+decorator_args : list
+    The arguments of the decorator.
+decorator_kwargs : dict
+    The keyword arguments of the decorator.
+"""
+print("Function args:", function_args)
+print("Function kwargs:", function_kwargs)
+print("Decorator args:", decorator_args)
+print("Decorator kwargs:", decorator_kwargs)
+# Don't forget to call the decorated function
+return decorated_function(*function_args, **function_kwargs)
+```
+3 - Call decorify with your decorator function to create your decorator
+```python
+my_decorator = to_decorator(my_decorator_function)
+```
+4 - Use your decorator
+```python
+@my_decorator("decorator arg", keyword_arg="a kw arg")
+def decorated_function(arg1: str, arg2: int) -> float:
+    """
+    A function decorated
+    """
+        print("Decorated function called")
+        return 0.6
+
+```
+5 - Whenever the function is called, the decorator function is called.
+```python
+result = decorated_function("some string", arg2=42)
+print(f"Result: {result}")
+```
+```bash
+Function args: ('some string',)
+Function kwargs: {'arg2': 42}
+Decorator args: ('decorator_arg',)
+Decorator kwargs: {'keyword_arg':'a kw arg'}
+Decorated function called
+Result: 0.6
+```
