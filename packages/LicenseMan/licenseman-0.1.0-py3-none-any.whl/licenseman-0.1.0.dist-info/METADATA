@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: LicenseMan
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: LoggerMan<0.2,>=0.1
+Requires-Dist: PyLinks<0.2,>=0.1
+Requires-Dist: PkgData<0.2,>=0.1
+Requires-Dist: PySerials<0.2,>=0.1
+Requires-Dist: MDit<0.2,>=0.1
+Requires-Dist: ExceptionMan<0.2,>=0.1
+Requires-Dist: platformdirs<5,>=4.3
