@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: smart_inputs
+Version: 0.0.2
+Summary: More dynamic ways to ask for the inputs from the user.
+Author-email: Farbod Mahdian <farbod.coding+pip@gmail.com>
+Project-URL: Homepage, https://github.com/farbod-mahdian/smart_inputs
+Project-URL: Issues, https://github.com/farbod-mahdian/smart_inputs/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# SmartInputs
+
+The more dynamic ways of asking for the user's inputs and handle the entered values in the real time.
+
+# Installation
+
+`pip install smart-inputs`
+
+# GitHub link
+
+`https://github.com/farbod-mahdian/smart_inputs`
+
+# Usage
+
+```
+from smart_inputs.smart_input import smart_input
+
+fav_color = smart_input('What is your favorite color:', default='Red')
+print(fav_color)
+```
