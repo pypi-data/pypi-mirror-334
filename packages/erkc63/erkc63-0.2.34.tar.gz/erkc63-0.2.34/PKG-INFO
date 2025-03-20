@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: erkc63
+Version: 0.2.34
+Project-URL: homepage, https://github.com/dudanov/python-erkc63
+Project-URL: documentation, https://github.com/dudanov/python-erkc63
+Project-URL: repository, https://github.com/dudanov/python-erkc63.git
+Project-URL: issues, https://github.com/dudanov/python-erkc63/issues
+Author-email: Sergey Dudanov <sergey.dudanov@gmail.com>
+Maintainer-email: Sergey Dudanov <sergey.dudanov@gmail.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: async,client,erkc63
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: Russian
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: <3.14,>=3.12
+Requires-Dist: aiohttp>=3.10
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: orjson>=3.10
+Provides-Extra: qrcode
+Requires-Dist: pymupdf>=1.25; extra == 'qrcode'
+Description-Content-Type: text/markdown
+
+# erkc63
+
+Клиент [личного кабинета ЕРКЦ](https://lk.erkc63.ru/).
+
+Писался как отдельная [PyPI](https://pypi.org/project/erkc63/) библиотека для интеграции данных в [Home Assistant](https://www.home-assistant.io/).
