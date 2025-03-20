@@ -1,0 +1,12 @@
+mlx>=0.22.0
+numpy
+protobuf
+torch>=2.0.0
+sentencepiece
+transformers>=4.39.3
+huggingface_hub
+pyyaml
+jinja2
+fastapi
+uvicorn
+pydantic
