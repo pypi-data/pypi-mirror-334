@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+openai_streamer/__init__.py
+openai_streamer/example.py
+openai_streamer/streamer.py
+openai_streamer.egg-info/PKG-INFO
+openai_streamer.egg-info/SOURCES.txt
+openai_streamer.egg-info/dependency_links.txt
+openai_streamer.egg-info/requires.txt
+openai_streamer.egg-info/top_level.txt
