@@ -1,0 +1,50 @@
+[project]
+name = "pydantic-socketio"
+version = "0.1.1"
+description = "Pydantic-enhanced SocketIO with FastAPI integration support."
+readme = "README.md"
+authors = [
+    { name = "Atomie CHEN", email = "atomic_cwh@163.com" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["pydantic", "socketio", "fastapi"]
+dependencies = [
+    "pydantic>=2.10.6",
+    "python-socketio>=5.12.1",
+]
+
+[project.urls]
+homepage = "https://github.com/atomiechen/Pydantic-SocketIO"
+issues = "https://github.com/atomiechen/Pydantic-SocketIO/issues"
+changelog = "https://github.com/atomiechen/Pydantic-SocketIO/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+fastapi = [
+    "fastapi[standard]>=0.115.11",
+]
+client = [
+    "python-socketio[client]>=5.12.1",
+]
+asyncio-client = [
+    "python-socketio[asyncio-client]>=5.12.1",
+]
+docs = [
+    "python-socketio[docs]>=5.12.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "eventlet>=0.39.1",
+    "fastapi[standard]>=0.115.11",
+    "python-socketio[client]>=5.12.1",
+    "ruff>=0.11.0",
+]
