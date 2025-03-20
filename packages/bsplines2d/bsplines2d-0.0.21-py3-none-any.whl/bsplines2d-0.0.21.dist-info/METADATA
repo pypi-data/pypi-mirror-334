@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: bsplines2d
+Version: 0.0.21
+Summary: Generic handler for multiple bsplines basis
+Home-page: https://github.com/ToFuProject/bsplines2d
+Author: Didier VEZINET
+Author-email: Didier VEZINET <didier.vezinet@gmail.com>
+Maintainer-email: Didier VEZINET <didier.vezinet@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 ToFuProject
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Keywords: data,analysis,interactive,2d meshing,Collection
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: astropy
+Requires-Dist: contourpy
+Requires-Dist: datastock>=0.0.49
+Provides-Extra: dev
+Requires-Dist: check-manifest; extra == "dev"
+Requires-Dist: coverage; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: sphinx; extra == "dev"
+Requires-Dist: sphinx-gallery; extra == "dev"
+Requires-Dist: sphinx-bootstrap-theme; extra == "dev"
+Provides-Extra: formatting
+Requires-Dist: ruff; extra == "formatting"
+Provides-Extra: linting
+Requires-Dist: ruff; extra == "linting"
+
+# bsplines2d
+Toolbox for creating and using multi-dimension bsplines, with multiple meshes
