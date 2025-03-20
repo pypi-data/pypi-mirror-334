@@ -1,0 +1,37 @@
+Metadata-Version: 2.3
+Name: f-excel-tools
+Version: 4.3.14
+Summary: AWS tools including ECS bash execution
+Author: Filipe Ferreira
+Author-email: ola@filipeandre.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: boto3 (>=1.37.13,<2.0.0)
+Requires-Dist: inquirer (>=3.4.0,<4.0.0)
+Project-URL: Homepage, https://github.com/filipeandre/f-tools
+Description-Content-Type: text/markdown
+
+# f-tools
+
+This package provides a set of AWS-related tools, including the `f-ecs-bash` command for running ECS bash scripts.
+
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install f-tools
+```
+
+## Usage
+
+To execute the `f-ecs-bash` command:
+
+```bash
+f-ecs-bash
+```
+
+This command will execute a bash iterative session to an ecs container
+
