@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+google_docstring_parser/__init__.py
+google_docstring_parser/google_docstring_parser.py
+google_docstring_parser.egg-info/PKG-INFO
+google_docstring_parser.egg-info/SOURCES.txt
+google_docstring_parser.egg-info/dependency_links.txt
+google_docstring_parser.egg-info/requires.txt
+google_docstring_parser.egg-info/top_level.txt
+tools/__init__.py
+tools/check_docstrings.py
