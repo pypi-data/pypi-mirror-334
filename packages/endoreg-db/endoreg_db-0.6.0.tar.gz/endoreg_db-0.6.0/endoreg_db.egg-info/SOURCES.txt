@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+endoreg_db/__init__.py
+endoreg_db/admin.py
+endoreg_db/apps.py
+endoreg_db/tests.py
+endoreg_db/urls.py
+endoreg_db/views.py
+endoreg_db.egg-info/PKG-INFO
+endoreg_db.egg-info/SOURCES.txt
+endoreg_db.egg-info/dependency_links.txt
+endoreg_db.egg-info/requires.txt
+endoreg_db.egg-info/top_level.txt
+tests/test_settings.py
