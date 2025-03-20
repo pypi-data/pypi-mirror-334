@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+fastshield/__init__.py
+fastshield/fshield.py
+fastshield/request.py
+fastshield.egg-info/PKG-INFO
+fastshield.egg-info/SOURCES.txt
+fastshield.egg-info/dependency_links.txt
+fastshield.egg-info/requires.txt
+fastshield.egg-info/top_level.txt
+fastshield/classifire/__init__.py
+fastshield/classifire/classifire.py
+fastshield/models/predictor.joblib
+fastshield/models/pt_predictor.joblib
