@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: docketanalyzer-chat
+Version: 0.1.1
+Summary: Docket Analyzer Chat
+Author: Nathan Dahlberg
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: docketanalyzer-core>=0.1.6
+Requires-Dist: litellm>=1.63.6
+Provides-Extra: dev
+Requires-Dist: docketanalyzer-core[dev]>=0.1.6; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Docket Analyzer Chat
+
+## Install
+
+```
+pip install 'docketanalyzer[chat]'
+```
+
+Configure keys for any llm providers you want to use:
+
+```
+da configure anthropic
+da configure openai
+da configure cohere
+da configure groq
+da configure together
+```
