@@ -1,0 +1,17 @@
+[project]
+name = "decorapy"
+version = "0.1.0"
+description = "DecoraPy - A Collection of Powerful Python Decorators"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "twine>=6.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]  # Use Hatch for building
+build-backend = "hatchling.build"
+
+[project.urls]
+homepage = "https://github.com/Mathews-Tom/decorapy"
+repository = "https://github.com/Mathews-Tom/decorapy"
