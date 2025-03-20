@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: langchain_guardrails
+Version: 0.0.1
+Summary: Langchain implementation for Guardrails: Nemo
+Author-email: Kamal <skamalj@github.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: langchain-core
+Requires-Dist: nemoguardrails
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pytest>=7.0; extra == 'dev'
