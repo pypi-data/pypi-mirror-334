@@ -1,0 +1,16 @@
+[project]
+name = "tribal"
+version = "0.1.2"
+description = "Tribal"
+authors = [
+    {name = "kaliv0",email = "kaloyan.ivanov88@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
