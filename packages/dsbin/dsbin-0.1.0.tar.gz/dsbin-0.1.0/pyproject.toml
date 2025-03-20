@@ -1,0 +1,121 @@
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "dsbin"
+version = "0.1.0"
+description = "Personal Python script library"
+authors = [{ name = "Danny Stewart", email = "danny@stewart.cc" }]
+readme = "README.md"
+urls = { repository = "https://github.com/dannystewart/dsbin" }
+requires-python = ">=3.12"
+dependencies = [
+    "dsbase (>=0.1.1.post1)",
+    "halo>=0.0.31",
+    "inquirer>=3.4.0",
+    "json5>=0.10.0",
+    "mutagen>=1.47.0",
+    "mysql-connector-python (>=9.2.0)",
+    "natsort>=8.4.0",
+    "numpy (>=2.2.4)",
+    "packaging (>=24.2)",
+    "paramiko (>=3.5.1)",
+    "pexpect>=4.9.0",
+    "pillow>=11.1.0",
+    "pycountry>=24.6.1",
+    "pyperclip>=1.9.0",
+    "python-dotenv>=1.0.1",
+    "pyyaml (>=6.0.2)",
+    "requests>=2.32.3",
+    "rich>=13.9.4",
+    "scipy (>=1.15.2)",
+    "scp>=0.15.0",
+    "telethon (>=1.39.0)",
+    "tomlkit>=0.13.2",
+    "tqdm>=4.67.1",
+    "types-paramiko>=3.5.0.20240928",
+    "types-pillow>=10.2.0.20240822",
+    "types-requests (>=2.32.0.20250306)",
+]
+
+[tool.poetry]
+packages = [{ include = "dsbin", from = "src" }]
+
+[tool.poetry.dependencies]
+dsbase = { allow-prereleases = true }
+
+[tool.poetry.group.dev.dependencies]
+dsbase = { path = "../dsbase", develop = true }
+mypy = ">=1.15.0"
+ruff = ">=0.11.0"
+
+[project.scripts]
+# Scripts to list all my scripts
+lsbin = "dsbin.lsbin:main"
+
+# Dedicated utilities
+dsupdater = "dsbin.dsupdater.updater:main"
+dsupdater-install = "dsbin.dsupdater.install:main"
+iplookup = "dsbin.iplookup.iplookup:main"
+workcalc = "dsbin.workcalc.main:main"
+
+# File management scripts
+bigfiles = "dsbin.files.bigfiles:main"
+dupefinder = "dsbin.files.dupefinder:main"
+fml = "dsbin.files.fml:main"
+foldermerge = "dsbin.files.foldermerge:main"
+rsyncer = "dsbin.files.rsyncer:main"
+
+# Media scripts
+ffgif = "dsbin.media.ffgif:main"
+fftrim = "dsbin.media.fftrim:main"
+ytdl = "dsbin.media.ytdl:main"
+
+# Music scripts
+aif2wav = "dsbin.music.awa:aif2wav"
+alacrity = "dsbin.music.alacrity:main"
+metacopy = "dsbin.music.metacopy:main"
+mp3ify = "dsbin.music.mp3ify:main"
+mshare = "dsbin.music.mshare:main"
+pybounce = "dsbin.music.pybounce:main"
+rmp3 = "dsbin.music.rmp3:main"
+wav2aif = "dsbin.music.awa:wav2aif"
+
+# Logic-specific scripts
+bipclean = "dsbin.logic.bipclean:main"
+bouncefiler = "dsbin.logic.bouncefiler:main"
+bounceprune = "dsbin.logic.bounceprune:main"
+bounces = "dsbin.logic.bounces:main"
+oldprojects = "dsbin.logic.oldprojects:main"
+
+# Mac-specific scripts
+dmg-encrypt = "dsbin.mac.dmg_encrypt:main"
+dmgify = "dsbin.mac.dmgify:main"
+mvdmg = "dsbin.mac.mvdmg:main"
+netreset = "dsbin.mac.netreset:main"
+pkginst = "dsbin.mac.pkginst:main"
+setmag = "dsbin.mac.setmag:main"
+spacepurger = "dsbin.mac.spacepurger:main"
+timestamps = "dsbin.mac.timestamps:main"
+
+# Development-related scripts
+code-configs = "dsbin.dev.code_configs:main"
+dsbump = "dsbin.dev.dsbump:main"
+dsversion = "dsbin.dev.dsbump:main"
+pipmigrator = "dsbin.dev.pipmigrator:main"
+poetry-migrate = "dsbin.dev.poetry_migrate:main"
+pyenversioner = "dsbin.dev.pyenversioner:main"
+scriptdep = "dsbin.dev.scriptdep:main"
+tagreplace = "dsbin.dev.tag_replace:main"
+uvmigrate = "dsbin.dev.uvmigrate:main"
+
+# System tools
+changehostname = "dsbin.tools.changehostname:main"
+envsync = "dsbin.tools.envsync:main"
+ssh-tunnel = "dsbin.tools.ssh_tunnel:main"
+watchtower = "dsbin.tools.watchtower:main"
+
+# Text processing scripts
+pycompare = "dsbin.text.pycompare:main"
+w11renamer = "dsbin.text.w11renamer:main"
