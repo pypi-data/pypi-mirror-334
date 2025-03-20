@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_task_update_usr,access.task_update,agresta_project_budget.model_project_task_update,agresta_project_budget.group_agresta_project_user,1,1,0,0
+access_task_update_mng,access.task_update,agresta_project_budget.model_project_task_update,agresta_project_budget.group_agresta_project_manager,1,1,1,1

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="agresta_project_update_form" model="ir.ui.view">
+        <field name="name">Agresta Project updates</field>
+        <field name="model">project.update</field>
+        <field name="inherit_id" ref="project.project_update_view_form" />
+        <field name="arch" type="xml">
+            <data>
+                <field name="progress" position="replace">
+                    <field name="progress" string="Progress percent" class="oe_inline" editable="0"/> %%
+                    <field name="project_execution_weight" invisible="1"/>
+                    <field name="total_budget"
+                                attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}" editable="0"/> €
+                    <field name="total_hours"
+                                attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}" editable="0"/> 
+                    <field name="material_expenses"
+                                attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}" editable="0"/>
+                    <field name="total_incomes"
+                                attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}" editable="0"/> 
+                    <field name="execution_value"/>
+                </field>
+                <field name="progress" position="attributes">
+                    <attribute name="options">{'editable': False}</attribute>
+                </field>
+                <xpath expr="/form/sheet/div" position="before">
+                    <div class="oe_button_box" name="button_box">
+                    <button name="button_recalculate"
+                            string="Recalculate"
+                            type="object"
+                            class="btn-primary"
+                            groups="agresta_project_budget.group_agresta_project_manager" 
+                            attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}" data-hotkey="r" />
+                    </div>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@name='description']" position="after">
+                    <page string="Task updates"
+                        name="task_updates"
+                        id="task_updates_tab"
+                        groups="agresta_project_budget.group_agresta_project_user" 
+                        attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}">
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="project_task_update_ids" mode="tree">
+                                <tree editable="top" string="Task Updates" default_order="date" col="6">
+                                    <field name="is_editable" invisible='1'/>
+                                    <field name="task_id" colspan="4" readonly="1"/>
+                                    <field name="date" colspan="4" readonly="1" />
+                                    <field name="execution_pcnt" colspan="2" attrs="{'readonly': [('is_editable', '!=', True)]}" />
+                                    <field name="current_execution" colspan="2"/>
+                                    <field name="budget_amount" colspan="2"/>
+                                </tree>
+                            </field>
+                            <span colspan="2" class="text-muted" >
+                                <i class="fa fa-lightbulb-o"/> You only can change percent value to task updates of last month. To create a new task update, please, enter to the task and create there. 
+                            </span>
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>
