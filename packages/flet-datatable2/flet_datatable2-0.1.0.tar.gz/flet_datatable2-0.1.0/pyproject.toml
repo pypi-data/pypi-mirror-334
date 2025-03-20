@@ -1,0 +1,42 @@
+[project]
+name = "flet-datatable2"
+version = "0.1.0"
+description = "DataTable2 control for Flet"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Flet contributors", email = "you@example.com" }
+]
+dependencies = [
+    "flet>=0.27.3",
+]
+
+[project.urls]
+Homepage = "https://mydomain.dev"
+Documentation = "https://github.com/MyGithubAccount/flet-datatable2"
+Repository = "https://github.com/MyGithubAccount/flet-datatable2"
+Issues = "https://github.com/MyGithubAccount/flet-datatable2/issues"
+
+[tool.setuptools.package-data]
+"flutter.flet_datatable2" = ["**/*"]
+
+[tool.uv]
+dev-dependencies = [
+    "flet[all]==0.27.3",
+    "mkdocs", 
+    "mkdocs-material",
+    "mkdocstrings[python]"
+]
+
+[tool.poetry.group.dev.dependencies]
+flet = {extras = ["all"], version = "0.27.3"}
+mkdocs = "^1.0"
+mkdocstrings = { extras = ["python"], version = "^0.10" }
+mkdocs-material = "^8.0"
+
+[tool.setuptools]
+license-files = []
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
