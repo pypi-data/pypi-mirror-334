@@ -1,0 +1,436 @@
+{
+    "themes": {
+        "default": {
+            "name": "Default Terminal",
+            "description": "Standard theme based on htop colors",
+            "colors": {
+                "normal": {
+                    "fg": "GREEN",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "BLACK",
+                    "bg": "GREEN",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "YELLOW",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "RED",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "info": {
+                    "fg": "CYAN",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "MAGENTA",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "BLUE",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "footer": {
+                    "fg": "WHITE",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "█",
+                "empty": "░",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "monokai_pro": {
+            "name": "Monokai Pro",
+            "description": "Modern dark theme with vibrant, carefully balanced colors",
+            "colors": {
+                "normal": {
+                    "fg": "#A9DC76",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#FFFFFF",
+                    "bg": "#FF6188",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#FFD866",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#FF6188",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#78DCE8",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#AB9DF2",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#FC9867",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#939293",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "▰",
+                "empty": "▱",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "nord": {
+            "name": "Nord",
+            "description": "Arctic-inspired color palette optimized for eye comfort",
+            "colors": {
+                "normal": {
+                    "fg": "#88C0D0",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#ECEFF4",
+                    "bg": "#5E81AC",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#EBCB8B",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#BF616A",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#81A1C1",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#B48EAD",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#5E81AC",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#4C566A",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "━",
+                "empty": "─",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "solarized_dark": {
+            "name": "Solarized Dark",
+            "description": "Scientifically designed for optimal readability",
+            "colors": {
+                "normal": {
+                    "fg": "#859900",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#FDF6E3",
+                    "bg": "#268BD2",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#B58900",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#DC322F",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#2AA198",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#6C71C4",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#268BD2",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#586E75",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "■",
+                "empty": "□",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "material_ocean": {
+            "name": "Material Deep Ocean",
+            "description": "Modern theme based on Material Design principles",
+            "colors": {
+                "normal": {
+                    "fg": "#89DDFF",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#FFFFFF",
+                    "bg": "#84FFFF",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#FFCB6B",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#F07178",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#82AAFF",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#C792EA",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#80CBC4",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#464B5D",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "●",
+                "empty": "○",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "stealth_steel": {
+            "name": "Stealth Steel",
+            "description": "Sleek gray-based palette with subtle color accents",
+            "colors": {
+                "normal": {
+                    "fg": "#B0BEC5",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#000000",
+                    "bg": "#9E9E9E",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#FFA726",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#E53935",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#29B6F6",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#AB47BC",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#616161",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#BDBDBD",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "▀",
+                "empty": "░",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "forest_sanctuary": {
+            "name": "Forest Sanctuary",
+            "description": "Nature-inspired palette with rich greens and earthen tones",
+            "colors": {
+                "normal": {
+                    "fg": "#558B2F",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#000000",
+                    "bg": "#CCFF90",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#FFEB3B",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#F44336",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#00ACC1",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#9C27B0",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#1B5E20",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#33691E",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "▮",
+                "empty": "▯",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        },
+        "cyberpunk_neon": {
+            "name": "Cyberpunk Neon",
+            "description": "Futuristic neon color scheme with vibrant accents",
+            "colors": {
+                "normal": {
+                    "fg": "#00FF9F",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "selected": {
+                    "fg": "#000000",
+                    "bg": "#FF00F0",
+                    "attrs": ["BOLD"]
+                },
+                "warning": {
+                    "fg": "#FFFD37",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "critical": {
+                    "fg": "#FF004C",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "info": {
+                    "fg": "#06EAFE",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "ai_process": {
+                    "fg": "#FA00FD",
+                    "bg": -1,
+                    "attrs": []
+                },
+                "header": {
+                    "fg": "#AA00FF",
+                    "bg": -1,
+                    "attrs": ["BOLD"]
+                },
+                "footer": {
+                    "fg": "#FF9FFD",
+                    "bg": -1,
+                    "attrs": []
+                }
+            },
+            "progress_bar": {
+                "filled": "█",
+                "empty": "░",
+                "thresholds": {
+                    "critical": 80,
+                    "warning": 60
+                }
+            }
+        }
+    }
+}
