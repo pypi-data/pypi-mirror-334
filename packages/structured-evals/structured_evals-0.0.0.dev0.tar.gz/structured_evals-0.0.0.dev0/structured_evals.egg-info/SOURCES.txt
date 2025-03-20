@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+pydantic_evals/__init__.py
+pydantic_evals/version.py
+pydantic_evals/common/typing.py
+pydantic_evals/metrics/__init__.py
+pydantic_evals/metrics/base.py
+pydantic_evals/metrics/evaluator.py
+structured_evals.egg-info/PKG-INFO
+structured_evals.egg-info/SOURCES.txt
+structured_evals.egg-info/dependency_links.txt
+structured_evals.egg-info/requires.txt
+structured_evals.egg-info/top_level.txt
+tests/test_evaluator.py
