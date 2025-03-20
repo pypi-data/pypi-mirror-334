@@ -1,0 +1,6 @@
+[console_scripts]
+auto-i18n = auto_i18n.cli:cli
+i18n = auto_i18n.cli:cli
+
+[gui_scripts]
+

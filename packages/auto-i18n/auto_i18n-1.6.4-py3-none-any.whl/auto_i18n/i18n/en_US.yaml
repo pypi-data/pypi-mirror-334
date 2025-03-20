@@ -1,0 +1,137 @@
+cli:
+  description: '🌍 auto-i18n: A CLI tool for managing i18n in your projects.'
+  help: This tool helps you extract translatable strings from your code, manage translations,
+    and integrate with GPT for automated translation.
+cli_py:
+  force_cover_config: If the configuration file already exists, force overwrite
+  specifyinputfile: Specify the input file and output the translation result to another
+    file after reading the text
+  specifyinputfilepath: Specify the input file path
+  specifyoutputfilepath: Specify the output file path
+  specifytargetlang: Specify the target language for translation
+config:
+  description: ⚙️ Manage configuration settings.
+  edit:
+    description: 📝 Edit configuration file directly.
+    help: This command opens the configuration file in your system's default editor. You must specify either --global or --project.
+    options:
+      global: Edit the global configuration file.
+      project: Edit the project-specific configuration file.
+    error:
+      specify: ❌ Please specify either --global or --project
+      not_found: ❌ Config file not found - {file}
+      failed: ❌ Failed to open config file - {error}
+    success: ✅ Opened config file for editing - {file}
+  getter:
+    description: 🔍 Get a specific configuration value.
+    error:
+      not_found: ❌ Key '{key}' not found in configuration
+      specify: ❌ Please specify either --global or --project
+    help: This command retrieves the value of a specific configuration key. You must
+      specify either --global or --project.
+    options:
+      global: Get the value from the global configuration.
+      project: Get the value from the project-specific configuration.
+  help: This group of commands allows you to view and modify both global and project-specific
+    configurations.
+  list:
+    description: 📋 List configuration settings.
+    error: ❌ Please specify either --global or --project
+    help: This command displays either the global or project-specific configuration.
+      You must specify either --global or --project.
+    options:
+      global: List the global configuration.
+      project: List the project-specific configuration.
+  setter:
+    description: ✏️ Set a configuration value.
+    error:
+      specify: ❌ Please specify either --global or --project
+    help: This command sets the value of a specific configuration key. You must specify
+      either --global or --project.
+    options:
+      global: Set the value in the global configuration.
+      project: Set the value in the project-specific configuration.
+    success: '✅ Configuration updated: {key} = {value}'
+errors:
+  connection_failed: '❌ Connection failed. Error sending request to GPT: {error}'
+  invalid_response: '❌ ERROR: API returned an invalid GPT response. Please check your
+    API key and endpoint.'
+export:
+  description: 📤 Export i18n files to other formats.
+  help: This command exports the main i18n file to other formats, currently supporting
+    TypeScript interface (.d.ts).
+  invalid_key: ⚠️ Key '{key}' is not a valid identifier, it will be wrapped in quotes.
+  no_data: ❌ No i18n data found in main file, export aborted.
+  options:
+    format: The format to export to (currently only 'd.ts' is supported).
+  start: 🔍 Starting export process...
+  success: ✅ Exported i18n interface to {file}
+  unsupported_format: '❌ Unsupported export format: {format}'
+extract:
+  description: 🔍 Extract i18n text from code files.
+  failed: ❌ Extract i18n failed for {file}, the GPT response is not a valid JSON.
+  help: 'This command scans the specified directory (default: current directory) for
+    code files and extracts translatable strings based on the configured pattern.'
+  options:
+    dir: 'The directory to scan for code files (default: current directory).'
+  start: 🔍 Starting extraction process...
+  success: '✅ Updated main i18n file: {file}'
+extractpy:
+  avoidconflict: In order to avoid conflict, rename {0} to {1}
+  duplicatekey: ⚠️ {key} is duplicated under {code_fname}!
+  extractionfail: 'Extraction failed, GPT did not return a correct JSON text. The
+    following is GPT''s answer: {result}'
+  notfoundi18nvar: The i18n variable was not found in {code_file}
+  noupdatei18nfile: No need to update the i18n file
+  updatei18nfile: '⬆️ Update the i18n file: {main_file_path}'
+gpt_py:
+  sendingrequesttogpt: Sending request to GPT
+init:
+  already_exists: ℹ️ Project configuration file already exists.
+  description: 🚀 Initialize the project configuration.
+  help: This command creates a new project configuration file (auto-i18n.project.yaml)
+    in the current directory. If the file already exists, it will not be overwritten.
+  success: ✅ Project configuration file created successfully.
+project_config_doc: |
+  * `i18n_dir`: The directory for storing translation files
+  * `main_file`: The translation file for the main language
+  * `code_files`: The types of code files to scan
+  * `i18n_pattern`: The pattern to mark text that needs to be translated in the code
+  * `dict`: A dictionary of specific terms for translation; you can place specific translations for your project here
+  * `strategy`: The translation strategy
+    * `"diff"` means only translating new content
+    * `"full"` means translating all content
+  * `i18n_var_prefix`: The prefix used for replacement variables in the code
+  * `export_dir`: The export directory. If set, it will be used as the output directory for the export command.
+  * `i18n_var_mid`: The strategy for generating the middle part of the i18n key. Options are:
+    * `"filename"`: Uses the full filename, e.g. `testts`
+    * `"filename_noext"`: Uses the filename without its extension
+    * `"pathname"`: Uses the relative path of the file, replacing '/' with '_'
+testgpt:
+  description: 🧪 Test the connection to GPT.
+  failed: ❌ GPT request failed.
+  help: This command sends a test message to the configured GPT endpoint to verify
+    that the connection and authentication are working correctly.
+  start: '🔍 Testing GPT, sending: Hello, how are you?'
+  success: '✅ GPT response: {response}'
+translate:
+  description: 🔄 Translate i18n files.
+  failed: ❌ Translation failed for {file}, result is not a valid JSON.
+  help: This command translates the main i18n file to other language files. It can
+    either translate the full file or only the differences (based on the strategy).
+  no_data: ❌ No i18n data found in main file, translation aborted.
+  no_prompt: ❌ No prompt found in global config, translation aborted.
+  options:
+    diff: Only translate the differences (default if not specified).
+    full: Translate the entire file.
+  start: 🔍 Starting translation process...
+  success: ✅ Translated and updated {file}
+translate_py:
+  translationcompleted: ✅ Translation completed!
+  writefile: 'Write to file: '
+translatepy:
+  getgpttranslationresult: 'Get GPT translation result:'
+  notranslationcontent: There is no content to be translated. If you think it is necessary
+    to update, you can use the --full strategy
+  starttranslationfile: Start translating {file}
+  usediffstrategy: Use the diff strategy to extract the parts that need to be translated
