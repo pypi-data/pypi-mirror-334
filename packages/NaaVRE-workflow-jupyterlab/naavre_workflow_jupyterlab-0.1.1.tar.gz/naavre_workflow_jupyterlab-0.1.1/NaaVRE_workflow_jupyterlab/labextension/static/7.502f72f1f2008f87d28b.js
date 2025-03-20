@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_naavre_workflow_jupyterlab=self.webpackChunk_naavre_workflow_jupyterlab||[]).push([[7,388],{8007:(e,a,o)=>{o.r(a),o.d(a,{ICollaborativeDrive:()=>l,IGlobalAwareness:()=>n});var r=o(7262);const l=new r.Token("@jupyter/collaboration-extension:ICollaborativeDrive"),n=new r.Token("@jupyter/collaboration:IGlobalAwareness")}}]);
