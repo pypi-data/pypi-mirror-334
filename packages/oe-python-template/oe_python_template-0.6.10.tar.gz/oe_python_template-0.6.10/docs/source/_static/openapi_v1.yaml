@@ -1,0 +1,155 @@
+Traceback (most recent call last):
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/bin/oe-python-template", line 4, in <module>
+    from oe_python_template.cli import cli
+  File "/Users/helmut/Code/oe-python-template/src/oe_python_template/cli.py", line 13, in <module>
+    from oe_python_template.api import api_v1, api_v2
+  File "/Users/helmut/Code/oe-python-template/src/oe_python_template/api.py", line 16, in <module>
+    from fastapi import Depends, FastAPI, Response, status
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/__init__.py", line 7, in <module>
+    from .applications import FastAPI as FastAPI
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/applications.py", line 16, in <module>
+    from fastapi import routing
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/routing.py", line 24, in <module>
+    from fastapi import params
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/params.py", line 5, in <module>
+    from fastapi.openapi.models import Example
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/fastapi/openapi/models.py", line 253, in <module>
+    class ParameterBase(BaseModelWithConfig):
+    ...<11 lines>...
+        content: Optional[Dict[str, MediaType]] = None
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_model_construction.py", line 224, in __new__
+    complete_model_class(
+    ~~~~~~~~~~~~~~~~~~~~^
+        cls,
+        ^^^^
+    ...<4 lines>...
+        create_model_module=_create_model_module,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_model_construction.py", line 602, in complete_model_class
+    schema = cls.__get_pydantic_core_schema__(cls, handler)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/main.py", line 702, in __get_pydantic_core_schema__
+    return handler(source)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_schema_generation_shared.py", line 84, in __call__
+    schema = self._handler(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 610, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 879, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 691, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1071, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1263, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 2056, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_schema_generation_shared.py", line 84, in __call__
+    schema = self._handler(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 2037, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 884, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 986, in match_type
+    return self._match_generic_type(obj, origin)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1014, in _match_generic_type
+    return self._union_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1325, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 610, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 884, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 986, in match_type
+    return self._match_generic_type(obj, origin)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1024, in _match_generic_type
+    return self._dict_schema(*self._get_first_two_args_or_any(obj))
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 370, in _dict_schema
+    return core_schema.dict_schema(self.generate_schema(keys_type), self.generate_schema(values_type))
+                                                                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 605, in generate_schema
+    from_property = self._generate_schema_from_property(obj, obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 759, in _generate_schema_from_property
+    schema = get_schema(
+        source, CallbackGetCoreSchemaHandler(self._generate_schema_inner, self, ref_mode=ref_mode)
+    )
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/main.py", line 702, in __get_pydantic_core_schema__
+    return handler(source)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_schema_generation_shared.py", line 84, in __call__
+    schema = self._handler(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 879, in _generate_schema_inner
+    return self._model_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 691, in _model_schema
+    {k: self._generate_md_field_schema(k, v, decorators) for k, v in fields.items()},
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1071, in _generate_md_field_schema
+    common_field = self._common_field_schema(name, field_info, decorators)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1263, in _common_field_schema
+    schema = self._apply_annotations(
+        source_type,
+        annotations + validators_from_decorators,
+    )
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 2056, in _apply_annotations
+    schema = get_inner_schema(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_schema_generation_shared.py", line 84, in __call__
+    schema = self._handler(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 2037, in inner_handler
+    schema = self._generate_schema_inner(obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 884, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 986, in match_type
+    return self._match_generic_type(obj, origin)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1014, in _match_generic_type
+    return self._union_schema(obj)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1325, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 610, in generate_schema
+    schema = self._generate_schema_inner(obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 884, in _generate_schema_inner
+    return self.match_type(obj)
+           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 986, in match_type
+    return self._match_generic_type(obj, origin)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 1024, in _match_generic_type
+    return self._dict_schema(*self._get_first_two_args_or_any(obj))
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 370, in _dict_schema
+    return core_schema.dict_schema(self.generate_schema(keys_type), self.generate_schema(values_type))
+                                                                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 605, in generate_schema
+    from_property = self._generate_schema_from_property(obj, obj)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 759, in _generate_schema_from_property
+    schema = get_schema(
+        source, CallbackGetCoreSchemaHandler(self._generate_schema_inner, self, ref_mode=ref_mode)
+    )
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/main.py", line 702, in __get_pydantic_core_schema__
+    return handler(source)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_schema_generation_shared.py", line 84, in __call__
+    schema = self._handler(source_type)
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/pydantic/_internal/_generate_schema.py", line 878, in _generate_schema_inner
+    with self.model_type_stack.push(obj):
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 112, in __init__
+    doc = getattr(func, "__doc__", None)
+KeyboardInterrupt
