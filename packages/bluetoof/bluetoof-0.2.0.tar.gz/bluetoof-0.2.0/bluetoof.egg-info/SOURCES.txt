@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+bluetoof/__init__.py
+bluetoof/core.py
+bluetoof.egg-info/PKG-INFO
+bluetoof.egg-info/SOURCES.txt
+bluetoof.egg-info/dependency_links.txt
+bluetoof.egg-info/top_level.txt
+tests/test_bluetoof.py
