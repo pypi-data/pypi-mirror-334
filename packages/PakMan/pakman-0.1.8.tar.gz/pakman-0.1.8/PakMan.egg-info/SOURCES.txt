@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+PakMan.egg-info/PKG-INFO
+PakMan.egg-info/SOURCES.txt
+PakMan.egg-info/dependency_links.txt
+PakMan.egg-info/top_level.txt
+pakman/__init__.py
+pakman/installer.py
