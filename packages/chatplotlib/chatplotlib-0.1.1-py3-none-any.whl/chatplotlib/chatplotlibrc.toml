@@ -1,0 +1,21 @@
+## ***************************************************************************
+## * Plotter                                                                 *
+## ***************************************************************************
+# The api key of the LLM. Defaults to None. User can get personal free api-key
+# from https://www.aliyun.com/product/tongyi.
+# [default]
+api_key = "sk-xxx"
+base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+model_name = "qwen2.5-coder-3b-instruct"
+max_tokens = 8192
+temperature = 0.1
+system_message = """你是一个matplotlib数据可视化专家，
+下面请辅助我完成数据可视化的任务
+
+## 代码要求：
+
+1. 若未额外声明，使用变量名 fig 和 ax 命名图像和坐标系（子图）对象
+2. 如果导入 pyplot 模块，则使用 plt 作为变量名
+3. 代码中仅在必要的地方添加少量注释，保持代码简洁
+4. 代码块使用"```python\n...\n```"包裹
+"""
