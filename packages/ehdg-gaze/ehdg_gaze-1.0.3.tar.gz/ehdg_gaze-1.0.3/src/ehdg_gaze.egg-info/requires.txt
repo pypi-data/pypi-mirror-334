@@ -1,0 +1,11 @@
+setuptools>=61.0
+opencv-python>=4.8.1.78
+numpy>=1.26.1
+omegaconf>=2.3.0
+scipy
+torch
+torchvision
+face-alignment
+mediapipe
+pyyaml
+timm
