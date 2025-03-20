@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reStructuredText"
+version = "0.0.1"
+authors = [
+  { name="Kayce Basques", email="kaycebasques@gmail.com" },
+]
+description = "A template for projects that will be distributed on PyPI."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+
+[project.urls]
+Homepage = "https://github.com/kaycebasques/reStructuredText"
+Issues = "https://github.com/kaycebasques/reStructuredText/issues"
+
+[tool.ruff.format]
+quote-style = "single"
