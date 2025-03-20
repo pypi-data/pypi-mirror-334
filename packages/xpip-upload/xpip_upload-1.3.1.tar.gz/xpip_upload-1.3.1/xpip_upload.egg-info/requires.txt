@@ -1,0 +1,5 @@
+wheel
+packaging>=24.2
+twine>=6.1.0
+keyring
+keyrings.alt
