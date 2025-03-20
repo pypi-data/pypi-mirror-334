@@ -1,0 +1,61 @@
+Metadata-Version: 2.2
+Name: brainsbuildcode
+Version: 1.0.0
+Summary: A machine learning pipeline for preprocessing, model selection, and evaluation.
+Home-page: https://github.com/achelousace/brainsbuildcode
+Author: Mohammad.R.AbuAyyash
+Author-email: brainbuildai@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: IPython
+Requires-Dist: scikit-learn
+Requires-Dist: xgboost
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# brainsbuildcode - Automated Machine Learning Pipeline
+
+brainsbuildcode is an automated machine learning pipeline that performs data preprocessing, feature engineering, model selection, hyperparameter tuning, and evaluation.
+
+## Installation
+
+pip install brainsbuildcode
+
+
+# Usage
+from brainsbuildcode import Brain
+from sklearn.datasets import load_breast_cancer
+import pandas as pd
+
+data = load_breast_cancer(as_frame=True)
+df = data.frame
+
+# Train and build the model
+
+best_model = Brain(df, target='target', model_name='RFC', grid_search=None)
+
+best_model.build()
+
+# alternative way to build the model
+
+best_model = Brain(df, target='target', model_name='RFC', grid_search='cv').build()
+
+
+# Install directly from GitHub:
+
+pip install git+https://github.com/achelousace/brainsbuildcode.git
