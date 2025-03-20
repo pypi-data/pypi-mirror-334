@@ -1,0 +1,16 @@
+[project]
+name = "pyshipstation"
+version = "0.0.2"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/go-swag/py-shipstation"
+Issues = "https://github.com/go-swag/py-shipstation/issues"
+
+[build-system]
+requires = ["setuptools>=76.0"]
+build-backend = "setuptools.build_meta"
