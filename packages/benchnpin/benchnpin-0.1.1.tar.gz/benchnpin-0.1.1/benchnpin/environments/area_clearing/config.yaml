@@ -1,0 +1,169 @@
+###############################################
+# config for loading area-clearing simulation #
+###############################################
+### GLOBAL PARAMS
+output_dir: "logs/" # 'output/trial0'
+plot:
+  show: false       # true will show planner plots
+env: 'clear_env' # 'clear_env_small', 'clear_env', walled_env', 'walled_env_with_columns'
+num_obstacles: 10
+render: 
+  log_obs: False # log occupancy observations
+  show: True # show the environment
+obstacle_size: 0.5
+min_obs_dist: 1.5       # minimum obstacle distance during random initialization
+
+# parameters for low-dim environment
+low_dim_state: false
+fixed_trial_idx: 1
+random_start: true
+
+### PLANNER PARAMS
+#max_replan: 1        # max number of replans
+concentration: 0.1    # options are 0.2, 0.3, 0.4, 0.5
+planner: 'predictive'    # options are 'skeleton', 'straight', or 'lattice'
+threshold_dist: 0.5   # fraction of path length for deciding whether to update planned path
+threshold_cost: 0.95  # fraction of path cost for deciding whether to update planned path
+occ:
+  grid_size: 0.2       # occupancy map grid size
+  m_to_pix_scale: 50   # number of pixels per meter when generating the raw occupancy map
+  map_height: 32       # occupancy map height (in meter)
+  map_width: 32        # occupancy map width (in meter)
+prim:
+  scale: 5 # Note, there is a limit on how small prim scale can be in relation to costmap scale
+  num_headings: 8  # number of headings in the discretized heading space
+  step_size: 0.1   # step size for sampling points on the path
+  turning_radius: 2.0  # turning radius of the ship in lattice units
+agent:
+  
+  # Options: 'position', 'heading', 'velocity'
+  action_type: 'heading' # Use for PPO and SAC
+  # 'action_type': 'position', # Used by default for SAM
+  # action_type: 'velocity', # Use for GTSP
+
+  mass: 1  # mass of the NRC ship in kg
+  padding: 0.25  # adds padding to ship footprint
+  length: 1.38  # length of the NRC ship in meters
+  width: 2.4
+  movement_step_size: 1.5 # If action type is heading, this is the distance to move in that heading
+  footprint_vertices: [ # Used for the observation classes
+              [0.69, -1.2],
+              [-0.69, -0.89],
+
+              [-0.69, 0.89],
+              [0.69, 1.2],
+  ]
+  vertices: [[0.6, -0.8],
+              [-0.7, -0.8],
+
+              [-0.7, 0.8],
+              [0.6, 0.8],
+          ]
+  front_bumper_vertices: [
+              [0.7, -1.2],
+              [0.45, -0.9],
+              [0.45, 0.9],
+              [0.7, 1.2],     
+              ]
+  wheel_vertices: [
+    # left front
+    [
+        [0.2, 0.8],
+        [0.2, 0.9],
+        [0.55, 0.9], 
+        [0.55, 0.8]
+    ],
+
+    # right front
+    [
+        [0.2, -0.9],
+        [0.2, -0.8],
+        [0.55, -0.8], 
+        [0.55, -0.9]
+    ],
+
+    # left rear
+    [
+        [-0.2, 0.8],
+        [-0.2, 0.9],
+        [-0.55, 0.9], 
+        [-0.55, 0.8]
+    ],
+
+    # right rear
+    [
+        [-0.2, -0.8],
+        [-0.2, -0.9],
+        [-0.55, -0.9], 
+        [-0.55, -0.8]
+    ],
+  ]
+
+### SIMULATION PARAMS
+sim:
+  # t_max: 1000  # max number of iterations - Use for GTSP
+  t_max: 200
+  steps: 100    # number of simulation steps per iteration (originally 10)
+  gravity: !!python/tuple
+    - 0
+    - 0
+  iterations: 10  # controls accuracy of pymunk solver i.e. simulation accuracy, default is 10
+  damping: 0      # damping to body velocities
+  obstacle_density: 0.001
+anim:
+  save: true               # if true save to disk animation plots
+  plot_steps: 30            # steps between plot updates
+  plan_steps: 10            # steps between obstacle and planner updates
+  inf_stream: false         # if true then infinite obstacle stream mode is enabled
+  move_yaxis_threshold: 10  # distance traveled before y-axis moves
+#  new_obs_dist: 50          # distance traveled before new obstacles are added
+seed: 1
+#ice_current: [0, -1]       # option to add ice current to simulation
+
+render_scale: 30      # scale renderer window to fit screen size
+
+### SHIP MODEL AND CONTROLLER PARAMS
+controller:
+  dt: 0.2  # the ship dynamics model was discretized with this dt (originally 0.02)
+  # States: [r, u, v] : yaw rate (deg/s), surge velocity (m/s), sway velocity (m/s)
+  A:
+    - [ 0.9909, 0., 0. ]
+    - [ 0., 0.9980, 0. ]
+    - [ 0., 0., 0.9953 ]
+  # Input matrix: differential fore/aft (rps), side tunnel (rps), main prop (rps) (Assume pure motions)
+  B: [ 0.04515, 4.321e-5, 1.730e-4 ]
+  # Input limits
+  # To calculate yaw rate given min turn radius r and surge velocity v
+  # 360 / ((2 pi r) / v)
+  input_lims: [8.6, 0.5, 0.05]
+  # look ahead distance
+  Lfc: 0.5
+  
+  # target speed
+  target_speed: 0.2  # m/s
+
+  PID_gains:  # gains for 3 PIDs
+    - [ 5, 0, 5 ]
+    - [ 10, 0, 20 ]
+    - [ 10, 0, 20 ]
+
+train:
+  batch_size: 32
+  checkpoint_freq: 6000 # 20000 for SAC, PPO
+  exploration_timesteps: 6000
+  final_exploration: 0.01
+  gamma: 0.99
+  grad_norm_clipping: 10
+  job_id_to_resume: null
+  learning_rate: 0.01
+  learning_starts: 1000
+  n_epochs: 10
+  n_steps: 256
+  replay_buffer_size: 10000
+  resume_training: false
+  target_update_freq: 1000
+  total_timesteps: 60000 # 5e5 for SAC, PPO
+  use_correct_direction_reward: false
+  use_double_dqn: true
+  verbose: 2
+  weight_decay: 0.0001
