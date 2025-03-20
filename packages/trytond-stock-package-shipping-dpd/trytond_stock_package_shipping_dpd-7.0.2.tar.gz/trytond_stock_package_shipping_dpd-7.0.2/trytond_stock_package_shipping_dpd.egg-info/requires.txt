@@ -1,0 +1,15 @@
+zeep>=0.12
+pypdf>=3
+lxml
+trytond_party<7.1,>=7.0
+trytond_product<7.1,>=7.0
+trytond_stock<7.1,>=7.0
+trytond_stock_shipment_measurements<7.1,>=7.0
+trytond_stock_package<7.1,>=7.0
+trytond_stock_package_shipping<7.1,>=7.0
+trytond<7.1,>=7.0
+
+[test]
+proteus<7.1,>=7.0
+trytond_sale<7.1,>=7.0
+trytond_sale_shipment_cost<7.1,>=7.0
