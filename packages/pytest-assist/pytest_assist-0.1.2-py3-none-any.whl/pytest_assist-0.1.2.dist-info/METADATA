@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: pytest-assist
+Version: 0.1.2
+Summary: load testing library
+Home-page: https://jcyrss.github.io/pytest-assist
+Download-URL: https://pypi.python.org/pypi/pytest-assist
+Author: byhy
+Author-email: jcyrss@gmail.com
+License: MIT
+Keywords: pytest automation testautomation
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytest
+Requires-Dist: websockets (>=11.0.3)
+
+## Introduction
+
+`pytest-assist` is an enhancement of pytest. 
+
+It provides a GUI in web browser, including the following functionalities:
+
+- selecting which cases to run by tags, keywords, target files/classes/functions
+- realtime monitoring test ongoing results even from remote 
+- generate pretty reports with report functions
+
+
+## Installation
+
+```py
+pip install pytest-assist
+```
+
+## User Guide
+
+Please refer to https://jcyrss.github.io/pytest-assist
+
+
+## Screenshots
+
+![t2](https://github.com/jcyrss/baiyueheiyu/assets/10496014/ca7fc08d-0f06-4194-8477-9ae46c6918ae)
