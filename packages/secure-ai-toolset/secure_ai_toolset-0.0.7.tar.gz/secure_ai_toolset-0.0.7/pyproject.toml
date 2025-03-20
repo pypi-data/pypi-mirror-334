@@ -1,0 +1,33 @@
+[project]
+name = "secure-ai-toolset"
+version = "0.0.7"
+description = ""
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache Software License (Apache-2.0)"
+homepage = "https://github.com/cyberark/secure-ai-toolset"
+repository = "https://github.com/cyberark/secure-ai-toolset"
+[[project.authors]]
+name = "CyberArk"
+email = "cyberark@cyberark.com"
+
+[build-system]
+requires = [ "poetry-core",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+[[tool.poetry.packages]]
+include = "secure_ai_toolset"
+
+[tool.poetry.dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+yapf = "^0.43.0"
+isort = "^6.0.1"
+autoflake = "^2.3.1"
+toml = "^0.10.2"
+twine = "^6.1.0"
+
+[tool.poetry.group.aws.dependencies]
+boto3 = "*"
