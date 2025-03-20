@@ -1,0 +1,87 @@
+site_name: Ep-Stats
+repo_name: avast/ep-stats
+repo_url: https://github.com/avast/ep-stats
+edit_uri: edit/master/docs/
+site_url: https://github.com/avast/ep-stats
+site_description: Evaluation package for experimentation platform.
+site_author: Team Doodlebug
+use_directory_urls: false
+
+nav:
+  - Home:
+    - Introduction: 'index.md'
+    - Principles: 'principles.md'
+    - Resources: 'resources.md'
+    - Architecture: 'architecture.md'
+  - User Guide:
+    - Quick Start: 'user_guide/quick_start.md'
+    - Experimentation Protocol: 'user_guide/protocol.md'
+    - Using Ep-Stats in Jupyter: 'user_guide/ep_in_python.ipynb'
+    - Ad-hoc A/B test evaluation using Ep-Stats: 'user_guide/ab_test_simple_evaluation.ipynb'
+    - Aggregation: 'user_guide/aggregation.md'
+    - Configuring API: 'user_guide/configuring_api.md'
+    - Test Data: 'user_guide/test_data.md'
+  - Statistics:
+      - Basics: 'stats/basics.md'
+      - Sample Size: 'stats/sample_size.md'
+      - Sequential Evaluation: 'stats/sequential.md'
+      - CTR Metric Redefined: 'stats/ctr.md'
+      - Multiple Comparison Correction: 'stats/multiple.md'
+      - Compound Metrics: 'stats/compound_metrics.md'
+  - API:
+    - Metric: 'api/metric.md'
+    - Experiment: 'api/experiment.md'
+    - Evaluation: 'api/evaluation.md'
+    - Statistics: 'api/statistics.md'
+    - Check: 'api/check.md'
+    - Dao: 'api/dao.md'
+    - DaoFactory: 'api/dao_factory.md'
+    - TestData: 'api/test_data.md'
+  - Presentations:
+    - Architecture: 'presentations/architecture/architecture.md'
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+  - search
+  - autorefs
+  - mkdocs-jupyter:
+      include_source: True
+      execute: False
+
+copyright: Copyright &copy; 2021 Maintained by <a href="https://github.com/avast">Avast</a>.
+
+theme:
+  name: material
+  custom_dir: theme/
+  favicon: experiment_b.png
+  logo: experiment_w.png
+  features:
+    - tabs
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
