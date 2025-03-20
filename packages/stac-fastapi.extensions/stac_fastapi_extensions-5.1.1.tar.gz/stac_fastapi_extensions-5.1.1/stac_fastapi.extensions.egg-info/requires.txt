@@ -1,0 +1,14 @@
+stac-fastapi.types~=5.0
+stac-fastapi.api~=5.0
+
+[dev]
+pytest
+pytest-cov
+pytest-asyncio
+pre-commit
+requests
+
+[docs]
+mkdocs
+mkdocs-material
+pdocs
