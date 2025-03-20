@@ -1,0 +1,9 @@
+# Config without environment
+Firecrest:
+  ApiUrl: https://firecrest.cscs.ch
+  TokenUrl: https://auth.cscs.ch/auth/realms/firecrest-clients/protocol/openid-connect/token
+  Machine: daint
+Resources:
+    Queue: normal
+    Nodes: 2
+    NodeConstraints: gpu

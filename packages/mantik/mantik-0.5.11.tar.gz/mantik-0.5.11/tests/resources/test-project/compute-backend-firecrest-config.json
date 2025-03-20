@@ -1,0 +1,18 @@
+{
+  "Firecrest": {
+    "ApiUrl": "https://firecrest.cscs.ch",
+    "TokenUrl": "https://auth.cscs.ch/auth/realms/firecrest-clients/protocol/openid-connect/token",
+    "Machine": "daint"
+  },
+  "Resources": {
+    "Queue": "devel",
+    "Nodes": 2,
+    "NodeConstraints": "gpu"
+  },
+  "Environment":{
+    "Apptainer": {
+      "Path": "mantik-test.sif",
+      "Type": "lOcAl"
+    }
+  }
+}

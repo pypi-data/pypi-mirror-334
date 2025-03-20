@@ -1,0 +1,8 @@
+# Config without environment
+SSH:
+  Hostname: 192.158.1.38
+  Port: 8000
+Resources:
+    Queue: normal
+    Nodes: 2
+    NodeConstraints: gpu

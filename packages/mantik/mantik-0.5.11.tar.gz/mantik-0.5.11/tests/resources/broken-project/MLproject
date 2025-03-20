@@ -1,0 +1,7 @@
+entry_points:
+  main:
+    parameters:
+      print: {type: "string", default: "test"}
+    # The typo in the command template string is intentional
+    # to test the command and parameter validation
+    command: python main.py {prnt}

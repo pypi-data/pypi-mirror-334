@@ -1,0 +1,17 @@
+{
+  "SSH": {
+    "Hostname": "192.158.1.38",
+    "Port": "8000"
+  },
+  "Resources": {
+    "Queue": "devel",
+    "Nodes": 2,
+    "NodeConstraints": "gpu"
+  },
+  "Environment":{
+    "Apptainer": {
+      "Path": "mantik-test.sif",
+      "Type": "lOcAl"
+    }
+  }
+}

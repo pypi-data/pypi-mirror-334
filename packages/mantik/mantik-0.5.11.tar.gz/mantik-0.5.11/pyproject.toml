@@ -1,0 +1,104 @@
+[tool.poetry]
+name = "mantik"
+version = "0.5.11"
+description = "mantik for mlflow"
+authors = [
+    "Fabian Emmerich <fabian.emmerich@4-cast.de>",
+    "Thomas Seidler <thomas.seidler@ambrosys.de>",
+]
+maintainers = [
+    "Elia Boscaini <elia.boscaini@ambrosys.de>",
+    "Kristian Ehlert <kristian.ehlert@4-cast.de>",
+    "Jakub Jagielski <jakub.jagielski@ambrosys.de>",
+]
+packages = [{ include = "mantik"}]
+include = [
+    { path = "tests", format = "sdist" }
+]
+readme = "README.md"
+license = "MIT"
+homepage = "https://mantik.ai/"
+repository = "https://gitlab.com/mantik-ai/mantik"
+documentation = "https://mantik-ai.gitlab.io/mantik"
+keywords = ["mlflow", "machine learning", "hpc", "unicore"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+]
+
+[tool.poetry.scripts]
+mantik = 'mantik.cli.main:cli'
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.27.1"
+click = "^8.1.3"
+PyYAML = "^6.0"
+python-jose = "^3.3.0"
+# Optionally supported MLflow version can be installed
+mlflow-skinny = {version = "2.2.2", optional = true}
+# Optional dependencies for the file services
+# Optional dependencies for UNICORE and unicore file service
+pyunicore = {extras = ["crypto", "fuse"], version = "^0.15.0", optional = true}
+# Optional dependencies for s3 file service
+fs-s3fs = {version = "^1.1.1", optional = true}
+# Optional dependencies for docker
+docker = {version = "^6.1.3", optional = true}
+psutil = "^5.9.6"
+gputil = "^1.4.0"
+py-cpuinfo = "^9.0.0"
+pyfirecrest = "^2.2.0"
+dvc-s3 = "^3.2.0"
+fs = "^2.4.16"
+gitpython = "^3.1.43"
+ruamel-yaml = "^0.18.6"
+paramiko = "^3.4.1"
+ipython = "8.18.1"
+
+[tool.poetry.extras]
+mlflow = ["mlflow-skinny"]
+unicore = ["pyunicore"]
+s3 = ["fs-s3fs"]
+docker = ["docker"]
+all = ["mlflow-skinny", "pyunicore", "fs-s3fs"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
+pytest-xdist = "^3.3.1"
+pre-commit = "^2.17.0"
+fastapi = {extras = ["testclient"], version = "^0.103.1"}
+freezegun = "^1.2.1"
+pytest-custom-exit-code = "^0.3.0"
+requests-mock = "^1.11.0"
+pytest-mock = "^3.11.1"
+boto3 = "^1.23.6"
+moto = "^4.1.14"
+mantik-compute-backend = {path = "./mantik-compute-backend", develop = true}
+tokens = {path = "./tokens", develop = true}
+httpx = "^0.25.0"
+
+
+[tool.poetry.group.firecrest.dependencies]
+pyfirecrest = "^2.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "--cov=mantik,mantik_compute_backend,tokens --cov-report term-missing"
+
+[tool.black]
+line-length = 80
+
+[tool.flake8]
+max-line-length = 80
+per-file-ignores = [
+    "__init__.py:F401,E501",
+]
+
+[mypy]
+ignore_missing_imports = true

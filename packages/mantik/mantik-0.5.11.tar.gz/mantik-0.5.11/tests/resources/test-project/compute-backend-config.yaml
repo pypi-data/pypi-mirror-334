@@ -1,0 +1,18 @@
+UnicoreApiUrl: https://zam2125.zam.kfa-juelich.de:9112/JUWELS/rest/core
+Resources:
+    Queue: devel
+    Nodes: 2
+Environment:
+    PreRunCommandOnComputeNode:
+        - echo precommand
+        - echo on compute node
+        - 1
+    PostRunCommandOnComputeNode:
+        - echo postcommand
+        - echo on compute node
+    PreRunCommandOnLoginNode:
+        - echo precommand
+        - echo on login node
+    PostRunCommandOnLoginNode: >-
+        echo postcommand
+        echo on login node
