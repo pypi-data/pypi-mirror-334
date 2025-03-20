@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: b24api
+Version: 0.1.2
+Summary: Bitrix24 API
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fast-depends>=2.4.12
+Requires-Dist: httpx[http2]>=0.28.1
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: pydantic-settings>=2.8.1
+Requires-Dist: retry>=0.9.2
+
+# API client for Bitrix24
+
+Low-level API client with multiple strategies for lists gathering. 
