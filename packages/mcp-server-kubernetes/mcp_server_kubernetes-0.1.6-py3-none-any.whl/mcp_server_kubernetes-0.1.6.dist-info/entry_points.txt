@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-kubernetes = mcp_server_kubernetes.mcp_kubernetes:main
