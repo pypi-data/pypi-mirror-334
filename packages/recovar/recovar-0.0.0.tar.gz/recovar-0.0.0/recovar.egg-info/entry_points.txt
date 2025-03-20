@@ -1,0 +1,2 @@
+[console_scripts]
+recovar = recovar.command_line:main_commands
