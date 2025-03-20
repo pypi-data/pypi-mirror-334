@@ -1,0 +1,249 @@
+Metadata-Version: 2.2
+Name: fake-py-django-storage
+Version: 0.1.2
+Summary: Django storage for fake.py
+Author-email: Artur Barseghyan <artur.barseghyan@gmail.com>
+Maintainer-email: Artur Barseghyan <artur.barseghyan@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/barseghyanartur/fake-py-django-storage/
+Project-URL: Issues, https://github.com/barseghyanartur/fake-py-django-storage/issues
+Project-URL: Documentation, https://fake-py-django-storage.readthedocs.io/
+Project-URL: Repository, https://github.com/barseghyanartur/fake-py-django-storage/
+Project-URL: Changelog, https://fake-py-django-storage.readthedocs.io/en/latest/changelog.html
+Keywords: fake data,test data
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: fake.py>=0.9.5
+Requires-Dist: django
+Provides-Extra: all
+Requires-Dist: fake-py-django-storage[azure,dev,docs,gcs,s3,test]; extra == "all"
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: detect-secrets; extra == "dev"
+Requires-Dist: doc8; extra == "dev"
+Requires-Dist: ipython; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pip-tools; extra == "dev"
+Requires-Dist: pydoclint; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: uv; extra == "dev"
+Provides-Extra: test
+Requires-Dist: django; extra == "test"
+Requires-Dist: parametrize; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: pytest-django; extra == "test"
+Requires-Dist: pytest-rst; extra == "test"
+Requires-Dist: moto; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx<6.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.3.0; extra == "docs"
+Requires-Dist: sphinx-no-pragma; extra == "docs"
+Provides-Extra: gcs
+Requires-Dist: django-storages[google]; extra == "gcs"
+Provides-Extra: s3
+Requires-Dist: django-storages[s3]; extra == "s3"
+Provides-Extra: azure
+Requires-Dist: django-storages[azure]; extra == "azure"
+
+======================
+fake-py-django-storage
+======================
+.. External references
+
+.. _fake.py: https://fakepy.readthedocs.io
+.. _faker-file: https://faker-file.readthedocs.io
+.. _Django: https://www.djangoproject.com
+.. _django-storages: https://django-storages.readthedocs.io
+
+.. Internal references
+
+.. _fake-py-django-storage: https://github.com/barseghyanartur/fake-py-django-storage
+.. _Read the Docs: http://fake-py-django-storage.readthedocs.io
+.. _Contributor guidelines: https://fake-py-django-storage.readthedocs.io/en/latest/contributor_guidelines.html
+
+`Django`_ storage for `fake.py`_.
+
+.. image:: https://img.shields.io/pypi/v/fake-py-django-storage.svg
+   :target: https://pypi.python.org/pypi/fake-py-django-storage
+   :alt: PyPI Version
+
+.. image:: https://img.shields.io/pypi/pyversions/fake-py-django-storage.svg
+    :target: https://pypi.python.org/pypi/fake-py-django-storage/
+    :alt: Supported Python versions
+
+.. image:: https://github.com/barseghyanartur/fake-py-django-storage/actions/workflows/test.yml/badge.svg?branch=main
+   :target: https://github.com/barseghyanartur/fake-py-django-storage/actions
+   :alt: Build Status
+
+.. image:: https://readthedocs.org/projects/fake-py-django-storage/badge/?version=latest
+    :target: http://fake-py-django-storage.readthedocs.io
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://github.com/barseghyanartur/fake-py-django-storage/#License
+   :alt: MIT
+
+.. image:: https://coveralls.io/repos/github/barseghyanartur/fake-py-django-storage/badge.svg?branch=main&service=github
+    :target: https://coveralls.io/github/barseghyanartur/fake-py-django-storage?branch=main
+    :alt: Coverage
+
+`fake-py-django-storage`_ is a `Django`_ storage integration for `fake.py`_ - a
+standalone, portable library designed for generating various
+random data types for testing.
+
+Features
+========
+- Almost seamless integration with `Django`_ (and `django-storages`_).
+
+Prerequisites
+=============
+Python 3.9+
+
+Installation
+============
+
+.. code-block:: sh
+
+    pip install fake-py-django-storage
+
+Documentation
+=============
+- Documentation is available on `Read the Docs`_.
+- For guidelines on contributing check the `Contributor guidelines`_.
+
+Usage
+=====
+`FileSystemStorage` of `Django`
+-------------------------------
+.. code-block:: python
+
+    from fake import FAKER
+    from fakepy.django_storage.filesystem import DjangoFileSystemStorage
+
+    STORAGE = DjangoFileSystemStorage(
+        root_path="tmp",  # Optional
+        rel_path="sub-tmp",  # Optional
+    )
+
+    pdf_file = FAKER.pdf_file(storage=STORAGE)
+
+    STORAGE.exists(pdf_file)
+
+AWS S3 (using `django-storages`)
+--------------------------------
+.. code-block:: python
+
+    from fake import FAKER
+    from fakepy.django_storage.aws_s3 import DjangoAWSS3Storage
+
+    STORAGE = DjangoAWSS3Storage(
+        root_path="tmp",  # Optional
+        rel_path="sub-tmp",  # Optional
+    )
+
+    pdf_file = FAKER.pdf_file(storage=STORAGE)
+
+    STORAGE.exists(pdf_file)
+
+Google Cloud Storage (using `django-storages`)
+----------------------------------------------
+.. code-block:: python
+
+    from fake import FAKER
+    from fakepy.django_storage.google_cloud_storage import (
+        DjangoGoogleCloudStorage,
+    )
+
+    STORAGE = DjangoGoogleCloudStorage(
+        root_path="tmp",  # Optional
+        rel_path="sub-tmp",  # Optional
+    )
+
+    pdf_file = FAKER.pdf_file(storage=STORAGE)
+
+    STORAGE.exists(pdf_file)
+
+Azure Cloud Storage (using `django-storages`)
+---------------------------------------------
+.. code-block:: python
+
+    from fake import FAKER
+    from fakepy.django_storage.azure_cloud_storage import (
+        DjangoAzureCloudStorage,
+    )
+
+    STORAGE = DjangoAzureCloudStorage(
+        root_path="tmp",  # Optional
+        rel_path="sub-tmp",  # Optional
+    )
+
+    pdf_file = FAKER.pdf_file(storage=STORAGE)
+
+    STORAGE.exists(pdf_file)
+
+Tests
+=====
+
+.. code-block:: sh
+
+    pytest
+
+Writing documentation
+=====================
+
+Keep the following hierarchy.
+
+.. code-block:: text
+
+    =====
+    title
+    =====
+
+    header
+    ======
+
+    sub-header
+    ----------
+
+    sub-sub-header
+    ~~~~~~~~~~~~~~
+
+    sub-sub-sub-header
+    ^^^^^^^^^^^^^^^^^^
+
+    sub-sub-sub-sub-header
+    ++++++++++++++++++++++
+
+    sub-sub-sub-sub-sub-header
+    **************************
+
+License
+=======
+
+MIT
+
+Support
+=======
+For security issues contact me at the e-mail given in the `Author`_ section.
+
+For overall issues, go to `GitHub <https://github.com/barseghyanartur/fake-py-django-storage/issues>`_.
+
+Author
+======
+
+Artur Barseghyan <artur.barseghyan@gmail.com>
