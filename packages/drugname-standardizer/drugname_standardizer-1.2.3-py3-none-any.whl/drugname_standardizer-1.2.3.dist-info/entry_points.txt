@@ -1,0 +1,2 @@
+[console_scripts]
+drugname_standardizer = drugname_standardizer.standardizer:main
