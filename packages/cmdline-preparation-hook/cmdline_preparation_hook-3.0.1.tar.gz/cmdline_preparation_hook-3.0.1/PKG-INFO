@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: cmdline-preparation-hook
+Version: 3.0.1
+Summary: Pytest hook for custom argument handling and Allure reporting. This plugin allows you to add arguments before running a test.
+Author-email: Yevhen Halitsyn <halitsyny@science.regn.net>
+License: MIT
+Description-Content-Type: text/markdown
+
+# cmdline-preparation-hook
+
+Pytest hook for custom argument handling and Allure reporting. This plugin allows you to add arguments before running a test.
