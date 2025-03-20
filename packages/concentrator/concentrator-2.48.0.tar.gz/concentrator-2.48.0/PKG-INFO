@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: concentrator
+Version: 2.48.0
+Summary: Concentrator
+Author-email: "АО \"БАРС Груп\"" <education_dev@bars-open.ru>
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: Natural Language :: Russian
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Framework :: Django :: 3.2
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pylatex==1.4.1
+Requires-Dist: python-magic<0.5,>=0.4.15
+
+# Концентратор и Липецкие спецификации
+
+## Установка
+
+- pip install concentrator==VERSION
+- Добавить в plugins.conf "concentrator" или/и "lipetsk_specifics"
