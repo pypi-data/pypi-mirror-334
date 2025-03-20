@@ -1,0 +1,8 @@
+numpy
+scipy
+sympy<=1.12
+matplotlib
+h5py
+hpc_suite>=1.8.0
+jax>=0.4.25
+jaxlib>=0.4.25
