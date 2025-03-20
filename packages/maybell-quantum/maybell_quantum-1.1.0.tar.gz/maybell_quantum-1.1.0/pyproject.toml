@@ -1,0 +1,41 @@
+[build-system]
+requires = ['setuptools >= 64.0']
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maybell_quantum"
+version = "1.1.0"
+authors = [{ name = "Alex Olivas", email = "alex@maybellquantum.com" }]
+maintainers = [
+    { name = "Josh Moler", email = "josh@maybellquantum.com" },
+    { name = "Conor Parlo Simon", email = "conor@maybellquantum.com" },
+    { name = "Ben Waters", email = "benwaters@maybellquantum.com" },
+]
+description = "API for pulling data from Maybell Quantum dilution refrigerators."
+requires-python = ">= 3.10"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "influxdb-client",
+    "pymongo",
+    "matplotlib",
+    "pandas"
+]
+
+[project.urls]
+Homepage = "https://github.com/MaybellQuantum/maybell_quantum"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+log_format = "%(asctime)s %(levelname)s [%(pathname)s : %(lineno)d] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
