@@ -1,0 +1,37 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+sttn = { editable = true, path = "." }
+pandas = ">=2.0.0"
+numpy = "*"
+networkx = "*"
+geopandas = "*"
+requests = "*"
+pyarrow = "*"
+scikit-mobility = "*"
+haversine = "*"
+jinja2 = "*"
+urllib3 = "*"
+keplergl = "==0.3.2"
+notebook = "==6.5.6"
+openai = "*"
+langchain = "*"
+langchain-openai = "*"
+langchain-deepseek = "*"
+igraph = "==0.11.8"
+python-igraph = "==0.11.8"
+fiona = "*"
+backoff = "*"
+pycombo = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+notebook = "==6.5.6"
+urllib3 = "==1.26.18"
+
+[requires]
+python_version = "3.11"
