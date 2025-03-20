@@ -1,0 +1,64 @@
+[project]
+name = "keymap-drawer"
+version = "0.21.0"
+description = "A module and CLI tool to help parse and draw keyboard layouts."
+authors = [{name = "Cem Aksoylar", email = "caksoylar@gmail.com"}]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "pydantic ~= 2.0",
+    "pcpp ~= 1.30",
+    "pyyaml ~= 6.0",
+    "platformdirs ~= 4.0",
+    "pydantic-settings ~= 2.2",
+    "tree-sitter ~= 0.24",
+    "tree-sitter-devicetree ~= 0.14",
+    "pyparsing ~= 3.2"
+]
+
+[project.optional-dependencies]
+dev = ["mypy", "pylint", "black", "pylint-pydantic", "types-pyyaml", "deptry (>=0.22.0)", "hjson"]
+lsp = ["python-lsp-server"]
+
+[project.scripts]
+keymap = 'keymap_drawer.__main__:main'
+
+[project.urls]
+homepage = "https://github.com/caksoylar/keymap-drawer"
+repository = "https://github.com/caksoylar/keymap-drawer"
+issues = "https://github.com/caksoylar/keymap-drawer/issues"
+releasenotes = "https://github.com/caksoylar/keymap-drawer/releases"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+include = [{path = "resources", format = ["sdist", "wheel"]}]
+
+[tool.pylint.master]
+extension-pkg-whitelist = "pydantic"
+load-plugins = "pylint_pydantic"
+
+[tool.pylint.basic]
+good-names = "x,y,w,h,r,f,k,v,p,m,c"
+max-line-length = 120
+
+[tool.pylint."messages control"]
+disable = ["too-few-public-methods", "line-too-long", "too-many-arguments", "too-many-positional-arguments"]
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+src_paths = ["keymap_drawer"]
+profile = "black"
+line_length = 120
+
+[tool.deptry]
+pep621_dev_dependency_groups = ["dev", "lsp"]
