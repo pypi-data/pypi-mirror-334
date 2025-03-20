@@ -1,0 +1,14 @@
+[project]
+name = "pydantic-conf"
+version = "1.0.1"
+description = "Pydantic based application configuration"
+authors = [
+    {name = "Yury Sokov (Yurzs)", email = "me@yurzs.dev"}
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["Development Status :: 4 - Beta"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

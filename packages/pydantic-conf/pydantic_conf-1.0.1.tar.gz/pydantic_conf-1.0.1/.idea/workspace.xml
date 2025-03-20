@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51f4f3da-3739-4482-9c2e-3de5b2ebac5e" name="Changes" comment="config: update project metadata and switch to uv">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/pydantic-app-config.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_app_config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_conf/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_app_config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_conf/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_app_config/py.typed" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_conf/py.typed" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_app_config/registry.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_conf/registry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_app_config/secret.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_conf/secret.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Yurzs&quot;
+  }
+}</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="d05ea50d36d7935b02d7f88d5c02da3243a3f6bf" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Yurzs/pydantic-app-config.git&quot;,
+    &quot;accountId&quot;: &quot;1266e894-460d-420e-b87d-91bc92541d6b&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/events.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/builtins.pyi" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/dotenv/main.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pydantic/functional_validators.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pydantic/main.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pydantic_core/_pydantic_core.pyi" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pydantic_core/core_schema.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2kVPr0BZp2hQDa5SE1odn0wZp2S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51f4f3da-3739-4482-9c2e-3de5b2ebac5e" name="Changes" comment="" />
+      <created>1723365971389</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723365971389</updated>
+      <workItem from="1723365972332" duration="1580000" />
+      <workItem from="1723368496979" duration="226000" />
+      <workItem from="1723369118728" duration="688000" />
+      <workItem from="1723577931116" duration="2166000" />
+      <workItem from="1724079633681" duration="2687000" />
+      <workItem from="1727691595810" duration="4506000" />
+      <workItem from="1728158570590" duration="7636000" />
+      <workItem from="1728524728322" duration="312000" />
+      <workItem from="1730526942312" duration="5394000" />
+      <workItem from="1730610112387" duration="999000" />
+      <workItem from="1731762959328" duration="1286000" />
+      <workItem from="1736141553378" duration="1600000" />
+      <workItem from="1737103144385" duration="349000" />
+      <workItem from="1737103915960" duration="1024000" />
+      <workItem from="1740983848506" duration="3000" />
+      <workItem from="1741962910649" duration="1315000" />
+      <workItem from="1742284343943" duration="2959000" />
+    </task>
+    <task id="LOCAL-00001" summary="init: create project">
+      <option name="closed" value="true" />
+      <created>1723367518715</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1723367518715</updated>
+    </task>
+    <task id="LOCAL-00002" summary="env: add dotenv">
+      <option name="closed" value="true" />
+      <created>1723369188767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723369188767</updated>
+    </task>
+    <task id="LOCAL-00003" summary="startup: allow async startup">
+      <option name="closed" value="true" />
+      <created>1724080810462</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724080810462</updated>
+    </task>
+    <task id="LOCAL-00004" summary="startup: use or create new loop">
+      <option name="closed" value="true" />
+      <created>1724082516086</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724082516086</updated>
+    </task>
+    <task id="LOCAL-00005" summary="startup: use different run commands">
+      <option name="closed" value="true" />
+      <created>1724083626141</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724083626141</updated>
+    </task>
+    <task id="LOCAL-00006" summary="config: simplify, add container secret support">
+      <option name="closed" value="true" />
+      <created>1730610282495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730610282495</updated>
+    </task>
+    <task id="LOCAL-00007" summary="registry: add registry mixin">
+      <option name="closed" value="true" />
+      <created>1731763308969</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731763308969</updated>
+    </task>
+    <task id="LOCAL-00008" summary="registry: add model getter">
+      <option name="closed" value="true" />
+      <created>1731763371498</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731763371498</updated>
+    </task>
+    <task id="LOCAL-00009" summary="config: add registry mixin">
+      <option name="closed" value="true" />
+      <created>1731763512037</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731763512037</updated>
+    </task>
+    <task id="LOCAL-00010" summary="registry: make get model classmethod">
+      <option name="closed" value="true" />
+      <created>1731763776526</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731763776526</updated>
+    </task>
+    <task id="LOCAL-00011" summary="startup: set event loop">
+      <option name="closed" value="true" />
+      <created>1736141653361</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736141653361</updated>
+    </task>
+    <task id="LOCAL-00012" summary="load: make load async">
+      <option name="closed" value="true" />
+      <created>1737103437202</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1737103437202</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixup! load: make load async">
+      <option name="closed" value="true" />
+      <created>1737103462930</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737103462930</updated>
+    </task>
+    <task id="LOCAL-00014" summary="config: remove startup, reformat code">
+      <option name="closed" value="true" />
+      <created>1737104315552</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1737104315552</updated>
+    </task>
+    <task id="LOCAL-00015" summary="config: update project metadata and switch to uv">
+      <option name="closed" value="true" />
+      <created>1741963212861</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1741963212861</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init: create project" />
+    <MESSAGE value="env: add dotenv" />
+    <MESSAGE value="startup: allow async startup" />
+    <MESSAGE value="startup: use or create new loop" />
+    <MESSAGE value="startup: use different run commands" />
+    <MESSAGE value="config: simplify, add container secret support" />
+    <MESSAGE value="registry: add registry mixin" />
+    <MESSAGE value="registry: add model getter" />
+    <MESSAGE value="config: add registry mixin" />
+    <MESSAGE value="registry: make get model classmethod" />
+    <MESSAGE value="startup: set event loop" />
+    <MESSAGE value="load: make load async" />
+    <MESSAGE value="fixup! load: make load async" />
+    <MESSAGE value="config: remove startup, reformat code" />
+    <MESSAGE value="config: update project metadata and switch to uv" />
+    <option name="LAST_COMMIT_MESSAGE" value="config: update project metadata and switch to uv" />
+  </component>
+</project>

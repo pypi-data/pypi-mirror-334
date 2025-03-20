@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: pydantic-conf
+Version: 1.0.1
+Summary: Pydantic based application configuration
+Author-email: "Yury Sokov (Yurzs)" <me@yurzs.dev>
+License: Copyright 2024 Yury Sokov and other contributors
+        
+        The MIT License (MIT)
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
+
+# pydantic-conf
+
+## Overview
+
+`pydantic-conf` is a Python library for managing application configuration using Pydantic. It supports 
+loading configuration from environment variables and allows for custom startup actions.
+
+## Installation
+
+To install the package, use:
+
+```sh
+pip install pydantic-conf
+```
+
+## Usage
+
+### Defining Configuration
+
+Create a configuration class by inheriting from `EnvAppConfig`:
+
+```python
+from pydantic_conf.config import EnvAppConfig
+
+
+class MyConfig(EnvAppConfig):
+    app_name: str
+    debug: bool = False
+```
+
+### Loading Configuration
+
+Load the configuration using the `load` method:
+
+```python
+config = MyConfig.load()
+print(config.app_name)
+print(config.debug)
+```
+
+### Adding Startup Actions
+
+Add startup actions by appending to the `STARTUP` list:
+
+```python
+def startup_action(config):
+    print(f"Starting up with {config.app_name}")
+
+MyConfig.STARTUP.append(startup_action)
+config = MyConfig.load()
+```
+
+## License
+
+This project is licensed under the MIT License.
