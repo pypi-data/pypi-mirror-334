@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-tree-explorer"
+version = "0.1.1"
+description = "MCP tool that provides directory tree visualization for Cursor"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.8"
+authors = [
+        {name = "Carter LaSalle", email = "carterlasalle@gmail.com"}
+]
+keywords = ["mcp", "tree", "directory", "visualization", "cursor"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "mcp[cli]",  # For FastMCP functionality with CLI support
+]
+
+[project.urls]
+"Homepage" = "https://github.com/carterlasalle/directory_structure_mcp"
+"Bug Tracker" = "https://github.com/carterlasalle/directory_structure_mcp/issues"
+"Source" = "https://github.com/carterlasalle/directory_structure_mcp"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "isort>=5.10.0",
+    "mypy>=1.0.0",
+]
+
+# Define entry points to ensure it works with proper naming
+[project.scripts]
+mcp-tree-explorer = "mcp_tree_explorer.main:main"
+
+[tool.setuptools]
+packages = ["mcp_tree_explorer"]
+package-dir = {"" = "src"}
+license-files = []
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
