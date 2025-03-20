@@ -1,0 +1,169 @@
+[dependency-groups]
+dev = [
+    "crackerjack>=0.14.3",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+fix = true
+show-fixes = true
+output-format = "full"
+unsafe-fixes = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+ignore = [
+    "F821",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+]
+extend-select = [
+    "I",
+    "C901",
+    "D",
+]
+
+[tool.ruff.lint.isort]
+no-lines-before = [
+    "first-party",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.creosote]
+paths = [
+    "starlette_async_jinja",
+]
+deps-file = "pyproject.toml"
+exclude-deps = [
+    "pytest-asyncio",
+    "autotyping",
+    "uv",
+    "pdm-bump",
+    "pdm",
+    "pytest",
+    "pytest-mock",
+    "tomli-w",
+    "pyyaml",
+    "pyfiglet",
+    "pytest-cov",
+    "google-crc32c",
+    "pre-commit",
+]
+
+[tool.refurb]
+enable_all = true
+
+[tool.bandit]
+target = [
+    "starlette_async_jinja",
+]
+skips = [
+    "B404",
+    "B301",
+    "B704",
+    "B602",
+    "B403",
+    "B311",
+    "B607",
+    "B101",
+    "B603",
+]
+
+[tool.pyright]
+verboseOutput = true
+include = [
+    "starlette_async_jinja",
+]
+exclude = [
+    "scratch",
+]
+extraPaths = [
+    ".venv/lib/python3.13/site-packages/",
+]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+reportOptionalMemberAccess = false
+reportOptionalCall = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+reportUnknownArgumentType = false
+reportInvalidTypeForm = false
+reportUnknownLambdaType = false
+reportUnknownParameterType = "warning"
+reportPrivateUsage = false
+pythonVersion = "3.13"
+pythonPlatform = "Darwin"
+
+[tool.codespell]
+skip = "*/data/*"
+quiet-level = 3
+ignore-words-list = "crate,uptodate"
+
+[tool.vulture]
+min_confidence = 86
+paths = [
+    "starlette_async_jinja",
+]
+ignore_names = [
+    "cls",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=starlette_async_jinja"
+asyncio_default_fixture_loop_scope = "function"
+
+[project]
+name = "starlette-async-jinja"
+version = "1.9.5"
+description = ""
+dependencies = [
+    "starlette>=0.46.1",
+    "jinja2>=3.1.6",
+    "jinja2-async-environment>=0.11.2",
+    "msgspec>=0.19.0",
+    "aiopath>=0.7.7",
+]
+requires-python = ">=3.13"
+readme = "README.md"
+authors = [
+    { name = "lesleslie", email = "les@wedgwoodwebworks.com" },
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Operating System :: OS Independent",
+    "Framework :: FastAPI",
+    "Framework :: AsyncIO",
+    "Typing :: Typed",
+    "License :: OSI Approved :: BSD License",
+    "Development Status :: 4 - Beta",
+]
+
+[project.license]
+text = "BSD-3-Clause"
+
+[project.urls]
+Homepage = "https://github.com/lesleslie/starlette-async-jinja"
+Documentation = "https://github.com/lesleslie/starlette-async-jinja"
+Repository = "https://github.com/lesleslie/starlette-async-jinja"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
