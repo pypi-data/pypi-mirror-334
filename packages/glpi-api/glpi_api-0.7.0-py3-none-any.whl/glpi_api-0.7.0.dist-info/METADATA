@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: glpi-api
+Version: 0.7.0
+Summary: Wrap calls to GLPI REST API.
+Home-page: https://github.com/unistra/python-glpi-api
+Author: François Ménabé
+Author-email: francois.menabe@gmail.fr
+License: GPLv3+
+Keywords: rest,api,glpi
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+********
+glpi-api
+********
+
+https://di.pages.unistra.fr/glpi/python-glpi-api/
+
+`Changelog <https://github.com/unistra/python-glpi-api/blob/master/CHANGELOG.rst>`__
