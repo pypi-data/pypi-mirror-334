@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: tinyDisplay
+Version: 0.1.3
+Summary: A widget library and window manager for small displays
+Home-page: https://github.com/dhrone/tinyDisplay
+License: MIT
+Keywords: tinyDisplay,luma.oled,luma.lcd,display,hd44780,ssd1306,winstar
+Author: dhrone
+Author-email: dhrone@dhrone.xyz
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pillow (>=10.3.0,<11.0.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: requests (>=2.25.1,<3.0.0)
+Requires-Dist: simple-pid (>=0.2.4,<0.3.0)
+Project-URL: Repository, https://github.com/dhrone/tinydDisplay
+Description-Content-Type: text/x-rst
+
+tinyDisplay
+-----------
+**A widget library and window manager for small displays**
+
+Python 3 library to simply the development of applications intended to drive
+small displays such as the HD44780, WEH001602A, SSD1306.  Any display that you
+can update with a PIL.Image input is supported.
+
+It supports a collection of widgets including:
+
+* text and staticText
+* progressBar
+* image
+* line and rectangle
+* slide, scroll and popUp
+
+And a set of collection classes to organize the widgets into useful screens:
+
+* canvas -- For designing a collection of widgets to display together
+* sequence -- For rotating through a set of canvases
+* windows -- For displaying a set of canvases simultaneously on a display
+
