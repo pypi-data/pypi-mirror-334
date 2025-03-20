@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: vpex
+Version: 0.7.1
+Summary: Vtal pytorch extension.
+Author: Verisilicon
+License: Copyright (c) 2024 by Vivante Corp.
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: torch ==2.5.1
+Requires-Dist: beartype >=0.14
+Requires-Dist: numpy >=1.24
+Requires-Dist: pybind11 >=2.10
+
