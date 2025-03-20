@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59cd3027-5e44-4321-b1d1-b40f4360b929" name="Changes" comment="Fixed use of pair vs opinion set" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Fixed the dist updating" />
+        <option name="rewordedMessage" value="Updated readme and dependencies" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="345ef0ced2bd1035044e5c0e3f92128f90d0a45b" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2t6gHTgFJ7Ni0FxcUcDoCQlsDZQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.get-index-url.sh.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/add-image-from-file&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/theoldfather/Projects/chronulus/chronulus-mcp/src/chronulus_mcp/_assets/html&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp/_assets/html" />
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp/agent" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp/agent" />
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp/assets/react" />
+      <recent name="$PROJECT_DIR$/src/chronulus_mcp/assets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="get-index-url.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/get-index-url.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Shell Script.get-index-url.sh" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
+        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59cd3027-5e44-4321-b1d1-b40f4360b929" name="Changes" comment="" />
+      <created>1739677041201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739677041201</updated>
+      <workItem from="1739677064109" duration="571000" />
+      <workItem from="1739677856943" duration="113000" />
+      <workItem from="1739678004910" duration="1173000" />
+      <workItem from="1739712085524" duration="27000" />
+      <workItem from="1739712186925" duration="60000" />
+      <workItem from="1739712279556" duration="679000" />
+      <workItem from="1739712962736" duration="2178000" />
+      <workItem from="1739715656760" duration="13871000" />
+      <workItem from="1739737807143" duration="74821000" />
+      <workItem from="1740069866907" duration="7350000" />
+      <workItem from="1740083238979" duration="27889000" />
+      <workItem from="1740409190468" duration="903000" />
+      <workItem from="1740412658560" duration="17725000" />
+      <workItem from="1740585725166" duration="16687000" />
+      <workItem from="1740832288262" duration="5274000" />
+      <workItem from="1741285526575" duration="21576000" />
+      <workItem from="1741358960335" duration="46000" />
+      <workItem from="1741359010860" duration="55000" />
+      <workItem from="1741359068705" duration="31513000" />
+      <workItem from="1742063374579" duration="32502000" />
+      <workItem from="1742212609757" duration="8664000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding chronulus agent tools">
+      <option name="closed" value="true" />
+      <created>1739718833055</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718833055</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added nf agent">
+      <option name="closed" value="true" />
+      <created>1739749070567</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739749070567</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Agent working">
+      <option name="closed" value="true" />
+      <created>1739900707687</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739900707687</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added rescaling function">
+      <option name="closed" value="true" />
+      <created>1740004852141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740004852141</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added server and cli descriptions">
+      <option name="closed" value="true" />
+      <created>1740314700631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740314700632</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implemented rescaling using new RescaledForecast">
+      <option name="closed" value="true" />
+      <created>1740314735336</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740314735336</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added requests docutils and pandas to requirements">
+      <option name="closed" value="true" />
+      <created>1740314799446</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740314799446</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added scorecard.jsx template as a resource">
+      <option name="closed" value="true" />
+      <created>1740418806326</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740418806326</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Deleted example weather server">
+      <option name="closed" value="true" />
+      <created>1740418822077</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740418822077</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created separate server.py enterpoint">
+      <option name="closed" value="true" />
+      <created>1740418840867</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740418840867</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated requirements to use the latest mcp release 1.3.0">
+      <option name="closed" value="true" />
+      <created>1740419759660</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740419759660</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added reusable estimator and updated to latest public version of chronulus">
+      <option name="closed" value="true" />
+      <created>1740585926865</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1740585926865</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated pyproject">
+      <option name="closed" value="true" />
+      <created>1740585953712</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1740585953712</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added readme">
+      <option name="closed" value="true" />
+      <created>1740586217002</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1740586217002</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added uv.lock">
+      <option name="closed" value="true" />
+      <created>1740586834907</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1740586834907</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added MIT license">
+      <option name="closed" value="true" />
+      <created>1740587329913</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1740587329913</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added dockerfile and tested in claude">
+      <option name="closed" value="true" />
+      <created>1740594654214</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1740594654214</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Updated readme with install instructions">
+      <option name="closed" value="true" />
+      <created>1740598349420</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1740598349420</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update typography on readme">
+      <option name="closed" value="true" />
+      <created>1740598550188</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1740598550188</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added react assets to pyproject.toml">
+      <option name="closed" value="true" />
+      <created>1740599002951</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1740599002951</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Updated script to match module name">
+      <option name="closed" value="true" />
+      <created>1740600902170</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1740600902170</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Updated readme with better config instructions">
+      <option name="closed" value="true" />
+      <created>1740601618782</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1740601618782</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added ImageFromFile as an input type">
+      <option name="closed" value="true" />
+      <created>1741315722268</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1741315722268</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Pin to mcp 1.3.0">
+      <option name="closed" value="true" />
+      <created>1741359185877</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1741359185877</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added save_forecast">
+      <option name="closed" value="true" />
+      <created>1741367326450</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1741367326450</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Updated description">
+      <option name="closed" value="true" />
+      <created>1741367530366</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1741367530366</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Updated to add file uploads">
+      <option name="closed" value="true" />
+      <created>1742063417498</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1742063417498</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Refactored types">
+      <option name="closed" value="true" />
+      <created>1742064838267</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1742064838267</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Reorganized types">
+      <option name="closed" value="true" />
+      <created>1742065085762</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1742065085762</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Reorganized types">
+      <option name="closed" value="true" />
+      <created>1742065088933</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1742065088933</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added beta plot jsx">
+      <option name="closed" value="true" />
+      <created>1742084042355</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1742084042355</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added prediction tool to server">
+      <option name="closed" value="true" />
+      <created>1742139477009</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1742139477010</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Fixed num_experts type hint">
+      <option name="closed" value="true" />
+      <created>1742142082820</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1742142082820</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Updated predictor agent and added tool for saving html version">
+      <option name="closed" value="true" />
+      <created>1742159442405</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1742159442405</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Fixed the dist updating">
+      <option name="closed" value="true" />
+      <created>1742161590170</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1742161590170</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed the dist updating">
+      <option name="closed" value="true" />
+      <created>1742161607146</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1742161607146</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added confidence intervals">
+      <option name="closed" value="true" />
+      <created>1742162865216</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1742162865216</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Updated requirements and version">
+      <option name="closed" value="true" />
+      <created>1742215942011</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1742215942011</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added preferences to readme">
+      <option name="closed" value="true" />
+      <created>1742216343871</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1742216343871</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Added info on fetch and filesystem">
+      <option name="closed" value="true" />
+      <created>1742217118050</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1742217118050</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Fixed use of pair vs opinion set">
+      <option name="closed" value="true" />
+      <created>1742218797764</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1742218797764</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feat/add-image-from-file" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added dockerfile and tested in claude" />
+    <MESSAGE value="Updated readme with install instructions" />
+    <MESSAGE value="Update typography on readme" />
+    <MESSAGE value="Added react assets to pyproject.toml" />
+    <MESSAGE value="Updated script to match module name" />
+    <MESSAGE value="Updated readme with better config instructions" />
+    <MESSAGE value="Initial squashed update" />
+    <MESSAGE value="Added ImageFromFile as an input type" />
+    <MESSAGE value="Pin to mcp 1.3.0" />
+    <MESSAGE value="Added save_forecast" />
+    <MESSAGE value="Updated description" />
+    <MESSAGE value="Updated to add file uploads" />
+    <MESSAGE value="Refactored types" />
+    <MESSAGE value="Reorganized types" />
+    <MESSAGE value="Added beta plot jsx" />
+    <MESSAGE value="Added prediction tool to server" />
+    <MESSAGE value="Fixed num_experts type hint" />
+    <MESSAGE value="Updated predictor agent and added tool for saving html version" />
+    <MESSAGE value="Fixed the dist updating" />
+    <MESSAGE value="Added confidence intervals" />
+    <MESSAGE value="Updated requirements and version" />
+    <MESSAGE value="Added preferences to readme" />
+    <MESSAGE value="Added info on fetch and filesystem" />
+    <MESSAGE value="Updated readme and dependencies" />
+    <MESSAGE value="Fixed use of pair vs opinion set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed use of pair vs opinion set" />
+  </component>
+</project>
