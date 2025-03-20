@@ -1,0 +1,11 @@
+README.rst
+setup.py
+NERX.egg-info/PKG-INFO
+NERX.egg-info/SOURCES.txt
+NERX.egg-info/dependency_links.txt
+NERX.egg-info/not-zip-safe
+NERX.egg-info/requires.txt
+NERX.egg-info/top_level.txt
+nerx/__init__.py
+nerx/collator.py
+nerx/crf.py
