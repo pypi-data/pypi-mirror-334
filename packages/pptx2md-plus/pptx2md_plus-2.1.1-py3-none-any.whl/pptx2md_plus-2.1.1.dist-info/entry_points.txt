@@ -1,0 +1,4 @@
+[console_scripts]
+pptx2md=pptx2mdplus.__main__:main
+pptx2md-plus=pptx2mdplus.__main__:main
+
