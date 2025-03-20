@@ -1,0 +1,3 @@
+[console_scripts]
+rcomp=remote_compression.cli:main
+
