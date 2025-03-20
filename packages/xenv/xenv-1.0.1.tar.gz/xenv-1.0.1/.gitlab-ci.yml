@@ -1,0 +1,55 @@
+stages:
+  - test
+  - integration
+  - package
+  - deploy
+
+.test:
+  stage: test
+  image: registry.cern.ch/docker.io/library/${CI_JOB_NAME}
+  script:
+    - python --version
+    - python -m venv .venv
+    - . .venv/bin/activate
+    - pip install -e .
+    - pip install nose coverage
+    - nosetests -v --detailed-errors --with-doctest --with-coverage --cover-erase --cover-html --cover-package=xenv
+    - mkdir -p cover_report && mv -f cover cover_report/$CI_JOB_NAME
+    - xenv --help
+  artifacts:
+    paths:
+      - cover_report
+    when: always
+    expire_in: 1 week
+
+python:3.7:
+  extends: .test
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
+
+python:3.9:
+  extends: .test
+
+package:
+  stage: package
+  image: registry.cern.ch/docker.io/library/python:3.7
+  script:
+    - apt update && apt install -y git python3-build python3-venv twine
+    - pyproject-build
+    - twine check dist/*
+  dependencies: []
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week
+
+deploy:
+  stage: deploy
+  image: registry.cern.ch/docker.io/library/python:3.7
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - apt update && apt install -y twine
+    - twine check dist/*
+    - twine upload dist/*
+  dependencies:
+    - package
