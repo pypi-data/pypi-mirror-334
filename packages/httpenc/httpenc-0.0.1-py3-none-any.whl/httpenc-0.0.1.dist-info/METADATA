@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: httpenc
+Version: 0.0.1
+Summary: HTTPENC helps you encrypt your HTTP requests and responses.
+Author: Aript Mishra
+Author-email: abshdangat@gmail.com
+Keywords: python,hacking,cybersecurity,hacking tools,security testing,hacker
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: colorama
+
+
+HTTPENC helps you encrypt your HTTP communication
