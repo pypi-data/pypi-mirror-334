@@ -1,0 +1,3 @@
+[console_scripts]
+refl1d = refl1d.main:cli
+refl1d-webview = refl1d.webview.server.webserver:main
