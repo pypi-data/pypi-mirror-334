@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+hi/__init__.py
+hi/cli.py
+hi/data/pwned.txt
+hi/data/secrets.zip
+hi_fish.egg-info/PKG-INFO
+hi_fish.egg-info/SOURCES.txt
+hi_fish.egg-info/dependency_links.txt
+hi_fish.egg-info/entry_points.txt
+hi_fish.egg-info/top_level.txt
