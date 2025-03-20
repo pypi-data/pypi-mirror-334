@@ -1,0 +1,49 @@
+tart
+tart_tools
+h5py
+progress
+requests
+scipy
+
+[:python_version < "3.10"]
+dask-ms<=0.2.10
+dask<=2023.5.0
+python-casacore<=3.4.0
+numpy<=1.21.5
+pandas<=2.0.3
+scipy<=1.10.1
+astropy<=5.3.4
+
+[:python_version >= "3.10" and python_version < "3.12"]
+python-casacore<=3.6.1
+numpy<2.0
+pandas<=2.2.3
+scipy<=1.15.1
+astropy<=7.0.0
+
+[:python_version >= "3.10" and python_version < "3.13"]
+dask_ms<=0.2.21
+dask<=2024.10.0
+
+[:python_version >= "3.12"]
+python-casacore
+dask_ms<=0.2.21
+dask<=2024.10.0
+numpy
+scipy
+pandas
+astropy
+
+[predict]
+
+[predict:python_version < "3.10"]
+codex-africanus<=0.3.4
+numba<=0.55.1
+
+[predict:python_version >= "3.10" and python_version < "3.11"]
+codex-africanus<=0.3.4
+numba<=0.56.0
+
+[predict:python_version >= "3.11" and python_version < "3.12"]
+codex-africanus<=0.3.7
+numba<=0.60.0
