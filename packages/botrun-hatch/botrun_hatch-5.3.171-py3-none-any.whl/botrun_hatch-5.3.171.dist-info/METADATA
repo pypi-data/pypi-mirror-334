@@ -1,0 +1,16 @@
+Metadata-Version: 2.3
+Name: botrun-hatch
+Version: 5.3.171
+Summary: 
+Author: sebastian-hsu
+Author-email: sebastian.hsu@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: pydantic-settings (>=2.5.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+# 波孵
+
