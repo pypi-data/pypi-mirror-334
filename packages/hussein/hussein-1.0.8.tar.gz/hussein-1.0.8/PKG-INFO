@@ -1,0 +1,34 @@
+Metadata-Version: 2.2
+Name: hussein
+Version: 1.0.8
+Summary: Universal Cybersecurity CLI Tool
+Home-page: https://github.com/HusseinTahaDEV/hussein
+Author: Hussein Taha
+Author-email: contact@hussein.top
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pycryptodome
+Requires-Dist: python-whois
+Requires-Dist: argparse
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+    HUSSEIN is a lightweight yet powerful command-line cybersecurity tool designed for both 
+    red team (offensive) and blue team (defensive) professionals. This tool provides essential 
+    functionalities such as network scanning, IP tracking, encryption, WHOIS lookup, 
+    subdomain enumeration, and system hardening.
+    
