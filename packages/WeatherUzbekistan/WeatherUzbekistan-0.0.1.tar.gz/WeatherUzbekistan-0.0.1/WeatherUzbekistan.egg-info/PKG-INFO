@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: WeatherUzbekistan
+Version: 0.0.1
+Summary: Bu o'zbekiston ob havosi haqida malumot beradigan kutubxona
+Author: Sino Farmonv
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+
+# Obhavo
+
+# Ishlatish
+
+```python
+obhavo = UzbekistanWeather("toshkent")
+print(obhavo.today())
+```
