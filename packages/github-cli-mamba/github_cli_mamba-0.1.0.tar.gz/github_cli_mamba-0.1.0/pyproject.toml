@@ -1,0 +1,25 @@
+[project]
+name = "github-cli-mamba"
+version = "0.1.0"
+description = "A GitHub CLI tool built with Python and Typer"
+readme = "README.md"
+authors = [
+    { name = "lishaojie", email = "shaojieli.nlp@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "jmespath>=1.0.1",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "typer[all]>=0.15.2",
+]
+
+[project.scripts]
+github-cli-mamba = "github_cli_mamba.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/github_cli_mamba"]
