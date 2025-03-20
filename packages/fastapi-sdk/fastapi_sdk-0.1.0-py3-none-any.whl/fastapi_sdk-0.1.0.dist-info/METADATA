@@ -1,0 +1,36 @@
+Metadata-Version: 2.2
+Name: fastapi-sdk
+Version: 0.1.0
+Summary: Utilities for FastAPI projects.
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi[standard]>=0.115.11
+Requires-Dist: odmantic>=1.0.2
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: pydantic-settings>=2.8.1
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: pytest-asyncio>=0.25.3
+Requires-Dist: shortuuid>=1.0.13
+
+# FastAPI SDK
+
+## Run tests
+
+```bash
+uv sync
+pytest
+```
+
+## Update requirements
+
+You can add new requirements by using UV:
+
+```bash
+uv add module_name
+```
+
+Then update the requirements.txt:
+
+```bash
+uv pip compile pyproject.toml -o requirements.txt
+```
