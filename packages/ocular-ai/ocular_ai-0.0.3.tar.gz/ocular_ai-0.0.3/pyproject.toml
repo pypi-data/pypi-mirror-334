@@ -1,0 +1,60 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "ocular-ai"
+version = "0.0.3"
+description = "Official Python SDK for the Ocular AI Foundry Platform"
+authors = ["Vivek Lahole <vivek@useocular.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/OcularEngineering/ocular-python-sdk"
+repository = "https://github.com/OcularEngineering/ocular-python-sdk"
+documentation = "https://docs.useocular.com"
+keywords = ["ocular", "ai", "machine learning", "sdk", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries",
+]
+
+packages = [{ include = "ocular" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+requests = "^2.25.0"
+urllib3 = "^1.26.0"
+typing-extensions = "^4.1.0"
+python-dotenv = "^0.15.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+mypy = "^1.5.0"
+ruff = "^0.1.0"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/OcularEngineering/ocular-python-sdk/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
