@@ -1,0 +1,171 @@
+[build-system]
+requires = ["hatchling>=1.18.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "planets"
+# Dynamic version obtained from planets/__init__.py
+dynamic = ["version"]
+description = "Library to provide planetary constants"
+readme = "README.md"
+authors = [
+    {name = "K.-Michael Aye", email = "kmichael.aye@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["planets", "astronomy", "planetary-science", "constants"]
+requires-python = ">=3.7"
+dependencies = [
+    "astropy",
+    "pooch",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "sphinx",
+    "recommonmark",
+    "sphinx-markdown-tables",
+]
+
+[project.urls]
+Homepage = "https://github.com/michaelaye/planets"
+Documentation = "https://planets.readthedocs.io"
+"Bug Tracker" = "https://github.com/michaelaye/planets/issues"
+Changelog = "https://github.com/michaelaye/planets/blob/main/CHANGELOG.md"
+
+[project.scripts]
+planets = "planets.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = [
+    ".*",
+    "*.egg*",
+    "build",
+    "dist",
+    "conda.recipe",
+]
+addopts = [
+    "--junitxml=junit.xml",
+    "--ignore=setup.py",
+    "--ignore=run_test.py",
+    "--cov-report=term-missing",
+    "--tb=native",
+    "--strict",
+    "--durations=20",
+]
+pythonpath = ["."]
+markers = [
+    "serial: execute test serially (to avoid race conditions)",
+]
+
+[tool.coverage.report]
+omit = [
+    "setup.py",
+    "planets/__main__.py",
+    "tests/*",
+]
+
+[tool.ruff]
+# Basic linting configuration
+line-length = 100
+target-version = "py37"
+# Include both linting (E, F, W) and formatting (I) rules
+select = ["E", "F", "W", "I"]
+
+# Linting specific configurations
+[tool.ruff.lint]
+# Files/directories to exclude from linting
+exclude = [
+    "build",
+    "docs",
+    "tests",
+    "conda.recipe",
+    ".git",
+    "benchmarks",
+    ".asv",
+    "__pycache__",
+]
+
+# Configuration for formatting mode
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+# Indent with 4 spaces
+indent-style = "space"
+# Line length matches the main configuration
+line-ending = "auto"
+# Configure import sorting
+[tool.ruff.isort]
+known-first-party = ["planets"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.hatch]
+version.path = "planets/__init__.py"
+# Tell Hatch to use conda for environments
+env.type = "conda"
+# Use the existing conda environments instead of creating new ones
+env.requires = ["conda-lock"]
+env.virtual = false
+
+# Define default environment settings that apply to all environments
+env.name = "py312"
+env.python = "3.12"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "planets",
+    "tests",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["planets"]
+
+# Define environment-specific dependencies
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.hatch.envs.dev]
+dependencies = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "sphinx",
+    "recommonmark",
+    "sphinx-markdown-tables",
+]
+
+[tool.hatch.envs.test]
+dependencies = [
+    "pytest",
+    "pytest-cov",
+]
+
+# Configure publishing (credentials stored via 'hatch config' command)
+[tool.hatch.publish]
+
+# Use the standard PyPI repository
+[tool.hatch.publish.index]
+pypi = "https://upload.pypi.org/legacy/" 
