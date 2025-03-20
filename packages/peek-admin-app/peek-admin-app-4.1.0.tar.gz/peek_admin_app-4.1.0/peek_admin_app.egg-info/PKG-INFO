@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: peek-admin-app
+Version: 4.1.0
+Summary: Peek Admin App - the Angular Web build environment for Peek Admin
+Author-email: Synerty <contact@synerty.com>
+Project-URL: Homepage, https://github.com/Synerty/peek-admin-app
+Keywords: Peek,Python,Platform,synerty
+License-File: LICENSE
+Requires-Dist: peek-plugin-base==4.1.0
