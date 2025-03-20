@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: ghr
+Version: 1.0.3
+Summary: A small tool to run repositories straight from GitHub.
+Author-email: PabloMyLove <pablomylove@proton.me>
+License: MIT
+Project-URL: Homepage, https://github.com/PabloMyDarling/GitHub-Runner
+Project-URL: Issues, https://github.com/PabloMyDarling/GitHub-Runner/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: colorama
+
+# GitHub-Runner
+This is a tool to run [Python3](https://www.python.org) and HTML-CSS-JS projects directly from GitHub.
+
+## How it works
+This is a CLI (Command Line Interface) tool, which means it should be run from your preferred terminal, whether it be kitty, Alacritty, Windows Terminal, etc.  
+
+To actually run this tool, you need to use the following command:  
+```
+python -m ghr {language} {repository-owner}/{repository-name}/{repository-branch} {script-to-run}
+```
+Of course, you need to replace the curly brackets according to what's written in them. For example, you can try to run [my reaction speed test](https://github.com/PabloMyDarling/Reaction-Speed-Test) like this:
+```
+python -m ghr python3 PabloMyDarling/Reaction-Speed-Test/main main.py
+```
+
+***Before using this tool, I recommend checking out the [documentation](https://github.com/PabloMyDarling/GitHub-Runner/wiki)!***
