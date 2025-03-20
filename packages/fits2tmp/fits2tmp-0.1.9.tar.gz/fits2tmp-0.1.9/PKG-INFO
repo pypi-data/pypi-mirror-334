@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: fits2tmp
+Version: 0.1.9
+Summary: A way of loading FITS files into temporary filesystems to make them available in memory.
+Home-page: https://gitlab.developers.cam.ac.uk/phy/ra/vla22-phd/fits2tmp
+License: BSD-3-Clause
+Author: Verity Allan
+Author-email: vla22@cam.ac.uk
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: astropy (>=6.1.4,<7.0.0)
+Requires-Dist: dask[distributed] (>=2025.1.0,<2026.0.0)
+Requires-Dist: h5py (>=3.12.1,<4.0.0)
+Requires-Dist: numpy (>=2.1.2,<3.0.0)
+Requires-Dist: pytest (>=8.3.3,<9.0.0)
+Requires-Dist: zarr (>=2.18.3,<3.0.0)
+Project-URL: Repository, https://gitlab.developers.cam.ac.uk/phy/ra/vla22-phd/fits2tmp
+Description-Content-Type: text/markdown
+
+# Sample GitLab Project
+
+This sample project shows how a project in GitLab looks for demonstration purposes. It contains issues, merge requests and Markdown files in many branches,
+named and filled with lorem ipsum.
+
+You can look around to get an idea how to structure your project and, when done, you can safely delete this project.
+
+[Learn more about creating GitLab projects.](https://docs.gitlab.com/ee/gitlab-basics/create-project.html)
+

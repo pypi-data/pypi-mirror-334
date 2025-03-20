@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "fits2tmp"
+version = "0.1.9"
+description = "A way of loading FITS files into temporary filesystems to make them available in memory."
+license = "BSD-3-Clause"
+authors = ["Verity Allan <vla22@cam.ac.uk>"]
+readme = "README.md"
+repository = "https://gitlab.developers.cam.ac.uk/phy/ra/vla22-phd/fits2tmp"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+dask = {extras = ["distributed"], version = "^2025.1.0"}
+astropy = "^6.1.4"
+h5py = "^3.12.1"
+numpy = "^2.1.2"
+pytest = "^8.3.3"
+zarr = "^2.18.3"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src/fits2tmp/"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
