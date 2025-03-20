@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "subgatekit"
+description = "Python client for Subgate Microservice"
+authors = ["barmatey"]
+readme = "README.md"
+version = "0.2.0"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+httpx = "^0.28.1"
+
+[tool.poetry.dev-dependencies]
+fastapi = "^0.115.8"
+pydantic = "^2.10.6"
+pytest-asyncio = "^0.25.1"
+pytest = "^8.3.4"
+uvicorn = "^0.34.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+include = [
+    { path = "subgatekit", include = "**/*" }
+]

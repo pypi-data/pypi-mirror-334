@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: subgatekit
+Version: 0.2.0
+Summary: Python client for Subgate Microservice
+License: MIT
+Author: barmatey
+Requires-Python: >=3.12,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: httpx (>=0.28.1,<0.29.0)
+Description-Content-Type: text/markdown
+
+# Subgate Client
+
+Subgate Client is the official client library for interacting with Subgate, an open-source microservice for subscription management.
+
+## Features
+
+- Simple and user-friendly API for seamless communication with the Subgate microservice.
+- Easy integration into Python applications.
+- Full support for asynchronous operations.
+
+## Installation
+
+Install the library via [PyPI](https://pypi.org/project/subgate_client/):
+
+```bash
+pip install subgatekit
+```
+
