@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: meg_room
+Version: 0.0.3
+Summary: Un package de configuration pour MEG
+Author-email: Hippolyte Dreyfus <hippolytedryfus@orange.fr>
+Project-URL: Homepage, https://github.com/hippolyte456/meg_room
+Project-URL: Repository, https://github.com/hippolyte456/meg_room
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pyyaml
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+meg_room/__init__.py
+meg_room/_audio_system.py
+meg_room/_eyetracker.py
+meg_room/_photodiode.py
+meg_room/_response_buttons.py
+meg_room/_stim_pc.py
+meg_room/room.py
+meg_room/utils.py
+meg_room.egg-info/PKG-INFO
+meg_room.egg-info/SOURCES.txt
+meg_room.egg-info/dependency_links.txt
+meg_room.egg-info/requires.txt
+meg_room.egg-info/top_level.txt
