@@ -1,0 +1,40 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "melodia-py"
+version = "0.1.5"
+description = "Differential Geometry of Proteins Backbones"
+readme = "README.md"
+authors = [{ name = "Rinaldo Wander Montalvão, PhD", email = "rwmontalvao@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["protein", "differential geometry"]
+dependencies = [
+    	"biopython >= 1.83",
+	"pandas >= 2.2.2",
+	"typing-extensions >= 4.12",
+	"seaborn >= 0.13.2",
+	"jupyterlab >= 4.2.2",
+	"tqdm >= 4.66.4",
+	"dill >= 0.3.8",
+	"nglview >= 3.1.2",
+	"pyarrow >= 16.1.0",
+	"scikit-learn >= 1.5.0",
+	"sty >= 1.0.0",
+	"more-itertools >= 10.3.0",
+]
+requires-python = ">=3.12"
+
+[project.urls]
+Homepage = "https://github.com/rwmontalvao/Melodia_py"
+
+[project.scripts]
+melodia_py = "melodia_py.__main__:main"
