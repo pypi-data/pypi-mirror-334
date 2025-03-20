@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+libfinder/__init__.py
+libfinder/main.py
+libfinder.egg-info/PKG-INFO
+libfinder.egg-info/SOURCES.txt
+libfinder.egg-info/dependency_links.txt
+libfinder.egg-info/requires.txt
+libfinder.egg-info/top_level.txt
+test/test_libfinder.py
