@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["build", "dist", "KinBot.egg-info", "graphics"]
+
+[tool.setuptools.package-data]
+"kinbot.tpl" = ["*.tpl"]
+
+[project]
+name = "kinbot"
+version = "2.2.4"
+description = "Automated reaction kinetics for gas-phase species"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+# keywords = []
+authors = [
+    {name="Judit Zádor", email="jzador@sandia.gov"},
+    {name="Ruben Van de Vijver", email="ruben.vandevijver@ugent.be"},
+    {name="Carles Martí", email="cmartia@sandia.gov"},
+    {name="Clément Soulié", email="csoulie@sandia.gov"},
+    {name="Amanda Dewyer", email="adewyer@sandia.gov"},
+]
+maintainers = [
+    {name="Judit Zádor", email="jzador@sandia.gov"},
+    {name="Clément Soulié", email="csoulie@sandia.gov"},
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Chemistry"
+]
+dependencies = [
+        "numpy>=1.17.0",
+        "ase(>=3.19,<3.22)",
+        "networkx",
+        "rmsd>=1.5.1",
+        "sella"
+]
+
+[project.optional-dependencies]
+plot = [
+    "matplotlib",
+    "pyvis",
+    "rdkit"
+]
+
+[project.urls]
+homepage = "https://github.com/zadorlab/KinBot"
+documentation = "https://github.com/zadorlab/KinBot/wiki"
+
+[project.scripts]
+kinbot = "kinbot.kb:main"
+pes = "kinbot.pes:main"
