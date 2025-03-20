@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iker-package-calc"
+version = "0.0.2"
+authors = [
+    { name="Torponcito", email="ikermaria.estudios@gmail.com" },
+]
+description = "Ejemplo de como crear un paquete"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Torponcito/Package"
+"Bug Tracker" = "https://github.com/Torponcito/Package/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["iker_package_calc"]
+
