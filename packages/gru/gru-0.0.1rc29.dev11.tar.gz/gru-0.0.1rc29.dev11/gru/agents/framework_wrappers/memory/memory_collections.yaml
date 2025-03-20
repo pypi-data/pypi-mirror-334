@@ -1,0 +1,115 @@
+collections:
+  canso_table_metadata:
+    description: "Vector collection for table metadata"
+    replace_existing: false
+    fields:
+      - name: "id"
+        dtype: "VARCHAR"
+        is_primary: true
+        max_length: 100
+      - name: "embedding"
+        dtype: "FLOAT_VECTOR"
+        dim: 384  
+      - name: "text"
+        dtype: "VARCHAR"
+        max_length: 65535
+      - name: "metadata"
+        dtype: "VARCHAR"
+        max_length: 4096
+      - name: "table_name"
+        dtype: "VARCHAR"
+        max_length: 100
+      - name: "schema"
+        dtype: "VARCHAR"
+        max_length: 16384
+      - name: "created_at"
+        dtype: "VARCHAR"
+        max_length: 30
+    create_indexes:
+      - field_name: "embedding"
+        index_params:
+          index_type: "IVF_FLAT"
+          params:
+            nlist: 1024
+            metric_type: "L2"
+      - field_name: "table_name"
+        index_params:
+          index_type: "Trie"
+          params: {}
+
+
+  canso_table_documentation:
+    description: "Vector collection for table documentation"
+    replace_existing: false
+    fields:
+      - name: "id"
+        dtype: "VARCHAR"
+        is_primary: true
+        max_length: 100
+      - name: "embedding"
+        dtype: "FLOAT_VECTOR"
+        dim: 384  
+      - name: "text"
+        dtype: "VARCHAR"
+        max_length: 65535
+      - name: "metadata"
+        dtype: "VARCHAR"
+        max_length: 8192
+      - name: "table_name"
+        dtype: "VARCHAR"
+        max_length: 100
+      - name: "doc_type"
+        dtype: "VARCHAR"
+        max_length: 50
+      - name: "created_at"
+        dtype: "VARCHAR"
+        max_length: 30
+    create_indexes:
+      - field_name: "embedding"
+        index_params:
+          index_type: "IVF_FLAT"
+          params:
+            nlist: 1024
+            metric_type: "L2"
+      - field_name: "table_name"
+        index_params:
+          index_type: "Trie"
+          params: {}
+
+  canso_domain_knowledge:
+    description: "Vector collection for domain knowledge"
+    replace_existing: false
+    fields:
+      - name: "id"
+        dtype: "VARCHAR"
+        is_primary: true
+        max_length: 100
+      - name: "embedding"
+        dtype: "FLOAT_VECTOR"
+        dim: 384  
+      - name: "text"
+        dtype: "VARCHAR"
+        max_length: 65535
+      - name: "metadata"
+        dtype: "VARCHAR"
+        max_length: 8192
+      - name: "domain"
+        dtype: "VARCHAR"
+        max_length: 100
+      - name: "tags"
+        dtype: "VARCHAR"
+        max_length: 1000
+      - name: "created_at"
+        dtype: "VARCHAR"
+        max_length: 30
+    create_indexes:
+      - field_name: "embedding"
+        index_params:
+          index_type: "IVF_FLAT"
+          params:
+            nlist: 1024
+            metric_type: "L2"
+      - field_name: "domain"
+        index_params:
+          index_type: "Trie"
+          params: {}
