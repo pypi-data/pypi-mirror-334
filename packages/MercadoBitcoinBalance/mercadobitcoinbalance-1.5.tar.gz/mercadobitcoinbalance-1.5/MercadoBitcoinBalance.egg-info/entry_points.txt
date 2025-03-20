@@ -1,0 +1,2 @@
+[console_scripts]
+balancemb = MercadoBitcoinBalance.__main__:main
