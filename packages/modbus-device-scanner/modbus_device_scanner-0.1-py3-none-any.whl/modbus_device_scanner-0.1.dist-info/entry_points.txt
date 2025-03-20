@@ -1,0 +1,2 @@
+[console_scripts]
+modbus_device_scanner = modbus_device_scanner.modbus_device_scanner:main
