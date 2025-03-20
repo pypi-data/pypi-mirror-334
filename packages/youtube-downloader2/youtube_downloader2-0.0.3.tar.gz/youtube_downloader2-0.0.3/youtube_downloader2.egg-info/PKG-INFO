@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: youtube-downloader2
+Version: 0.0.3
+Summary: A package to download youtube videos and audio from youtube
+Home-page: https://github.com/sinofarmonovzfkrvjl/youtube-downloader
+Author: Sino Farmonov
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# youtube-downloader
+
+This is a package that allows you to download videos and audios from youtube
+
+**USAGE**
+```python
+from youtube_downloader import YouTubeDownloader
+downloader = YouTubeDownloader()
+downloader.download('youtube_video_url')
+```
