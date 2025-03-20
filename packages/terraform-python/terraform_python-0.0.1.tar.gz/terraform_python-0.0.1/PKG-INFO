@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: terraform-python
+Version: 0.0.1
+Summary: A Terraform python wrapper
+Project-URL: Repository, https://github.com/nerdtronik/terraform-py
+Author-email: nerdtronik <nerdtronikpay@gmail.com>
+License-File: LICENSE
+Keywords: ci-cd,ci/cd,cicd,terraform,terraform-py,terraform-python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Topic :: Terminals
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# terraform-py
