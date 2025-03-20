@@ -1,0 +1,36 @@
+[project]
+name = "eventure"
+version = "0.4.1"
+description = "A Python library providing a robust, type-safe event system for game development and simulation."
+authors = [
+    { name = "Enrico Stara", email = "enrico.stara@gmail.com" }
+]
+requires-python = ">=3.12"
+readme = "README.md"
+license = { file = "LICENSE" }
+
+packages = [
+    { include = "eventure", from = "src" }
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4.0",
+    "ruff>=0.9.6",
+    "rust-just>=1.39.0",
+    "pydoc-markdown>=3.0.0"
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 95
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "N", "W", "C90"]
