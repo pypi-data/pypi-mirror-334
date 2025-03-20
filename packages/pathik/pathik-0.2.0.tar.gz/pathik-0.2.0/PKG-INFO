@@ -1,0 +1,196 @@
+Metadata-Version: 2.2
+Name: pathik
+Version: 0.2.0
+Summary: A web crawler implemented in Go with Python bindings
+Home-page: https://github.com/justrach/pathik
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Pathik
+
+A high-performance web crawler implemented in Go with Python and JavaScript bindings.
+
+## Features
+
+- Fast crawling with Go's concurrency model
+- Clean content extraction
+- Markdown conversion
+- Parallel URL processing
+- Cloudflare R2 integration
+- Memory-efficient (uses ~10x less memory than browser automation tools)
+
+## Python Installation
+
+```bash
+pip install pathik
+```
+
+## JavaScript Installation
+
+```bash
+npm install pathik
+```
+
+## Python Usage
+
+```python
+import pathik
+import os
+
+# Create an output directory with an absolute path
+output_dir = os.path.abspath("output_data")
+os.makedirs(output_dir, exist_ok=True)
+
+# Crawl a single URL
+result = pathik.crawl('https://example.com', output_dir=output_dir)
+print(f"HTML file: {result['https://example.com']['html']}")
+print(f"Markdown file: {result['https://example.com']['markdown']}")
+
+# Crawl multiple URLs in parallel (default behavior)
+urls = [
+    "https://example.com",
+    "https://news.ycombinator.com",
+    "https://github.com",
+    "https://wikipedia.org"
+]
+results = pathik.crawl(urls, output_dir=output_dir)
+
+# Crawl URLs sequentially (parallel disabled)
+results = pathik.crawl(urls, output_dir=output_dir, parallel=False)
+
+# Crawl and upload to R2
+r2_results = pathik.crawl_to_r2(urls, uuid_str='my-unique-id', parallel=True)
+```
+
+## JavaScript Usage
+
+```javascript
+const pathik = require('pathik');
+const path = require('path');
+const fs = require('fs');
+
+// Create output directory
+const outputDir = path.resolve('./output_data');
+fs.mkdirSync(outputDir, { recursive: true });
+
+// Crawl a single URL
+pathik.crawl('https://example.com', { outputDir })
+  .then(results => {
+    console.log(`HTML file: ${results['https://example.com'].html}`);
+  });
+
+// Crawl multiple URLs in parallel (default behavior)
+const urls = [
+  'https://example.com',
+  'https://news.ycombinator.com',
+  'https://github.com'
+];
+
+pathik.crawl(urls, { outputDir })
+  .then(results => {
+    console.log(`Crawled ${Object.keys(results).length} URLs`);
+  });
+
+// Crawl URLs sequentially
+pathik.crawl(urls, { outputDir, parallel: false })
+  .then(results => {
+    console.log(`Crawled ${Object.keys(results).length} URLs sequentially`);
+  });
+
+// Upload to R2
+pathik.crawlToR2(urls, { uuid: 'my-unique-id' })
+  .then(results => {
+    console.log('R2 Upload complete');
+  });
+```
+
+## Python API
+
+### pathik.crawl(urls, output_dir=None, parallel=True)
+
+Crawl URLs and save the content locally.
+
+**Parameters:**
+- `urls`: A single URL string or a list of URLs to crawl
+- `output_dir`: Directory to save crawled files (uses a temporary directory if None)
+- `parallel`: Whether to use parallel crawling (default: True)
+
+**Returns:**
+- A dictionary mapping URLs to file paths: `{url: {"html": html_path, "markdown": markdown_path}}`
+
+### pathik.crawl_to_r2(urls, uuid_str=None, parallel=True)
+
+Crawl URLs and upload the content to Cloudflare R2.
+
+**Parameters:**
+- `urls`: A single URL string or a list of URLs to crawl
+- `uuid_str`: UUID to prefix filenames for uploads (generates one if None)
+- `parallel`: Whether to use parallel crawling (default: True)
+
+**Returns:**
+- A dictionary with R2 upload information
+
+## JavaScript API
+
+### pathik.crawl(urls, options)
+
+Crawl URLs and save content locally.
+
+**Parameters:**
+- `urls`: String or array of URLs to crawl
+- `options`: Object with crawl options
+  - `outputDir`: Directory to save output (uses temp dir if null)
+  - `parallel`: Enable/disable parallel crawling (default: true)
+
+**Returns:**
+- Promise resolving to an object mapping URLs to file paths
+
+### pathik.crawlToR2(urls, options)
+
+Crawl URLs and upload content to R2.
+
+**Parameters:**
+- `urls`: String or array of URLs to crawl
+- `options`: Object with R2 options
+  - `uuid`: UUID to prefix filenames (generates random UUID if null)
+  - `parallel`: Enable/disable parallel crawling (default: true)
+
+**Returns:**
+- Promise resolving to an object mapping URLs to R2 keys
+
+## Requirements
+
+- Go 1.18+ (for building the binary)
+- Python 3.6+ or Node.js 14+
+
+## Building from Source
+
+For Python:
+```bash
+python build_binary.py
+pip install -e .
+```
+
+For JavaScript:
+```bash
+npm run build-binary
+npm install
+```
+
+## License
+
+Apache 2.0 
