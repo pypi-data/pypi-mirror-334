@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: oqtimal
+Version: 0.0.2a0
+Summary: An Optimal Transport Library for Deep Learning.
+Author-email: Lars Kühmichel <larskuedev@gmail.com>
+Project-URL: Homepage, https://github.com/LarsKue/oqtimal
+Project-URL: Issues, https://github.com/LarsKue/oqtimal/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jax>=0.5
+Provides-Extra: test
+Requires-Dist: pytest>=8.3; extra == "test"
+
+# oqtimal
+A minimal library for fast optimal transport on the GPU using JAX.
