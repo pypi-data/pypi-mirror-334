@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "forevervm-sdk"
+version = "0.1.32"
+dependencies = [
+    "httpx>=0.28.1",
+    "httpx-ws>=0.7.1",
+]
+description = "Developer SDK for foreverVM"
+readme = "README.md"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.3",
+    "ruff>=0.9.6",
+]

@@ -1,0 +1,7 @@
+*.egg-info
+.ropeproject
+.ruff_cache
+__pycache__
+build
+dist
+venv
