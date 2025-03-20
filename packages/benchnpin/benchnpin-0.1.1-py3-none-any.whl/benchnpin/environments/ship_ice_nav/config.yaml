@@ -1,0 +1,78 @@
+################ CONSTANT VALUES ##################
+##################################################
+
+dt: 0.8  # time increment per environment step
+target_speed: 0.3  # m/s
+
+# parameters for low-dim observations
+low_dim_state: false
+fixed_trial_idx: 4 
+random_start: false
+start_x_range: 7
+
+ship:
+  mass: 1  # mass of the NRC ship in kg
+  padding: 0.25  # adds padding to ship footprint
+  vertices: [[1., -0.],
+
+            [0.9, 0.10],
+            [0.5, 0.25],
+            [0.25, 0.25],
+            [0, 0.25],
+            [-0.25, 0.25],
+            [-0.5, 0.25],
+            [-0.75, 0.25],
+            [-1., 0.25],
+
+            [-1., -0.25],
+            [-0.75, -0.25],
+            [-0.5, -0.25],
+            [-0.25, -0.25],
+            [0, -0.25],
+            [0.25, -0.25],
+            [0.5, -0.25],
+            [0.9, -0.10]]
+  head: [1., 0.]
+  tail: [-1., 0.]
+
+sim:
+  steps: 400    # number of simulation steps per iteration (originally 10)
+  gravity: !!python/tuple
+    - 0
+    - 0
+  iterations: 10  # controls accuracy of pymunk solver i.e. simulation accuracy, default is 10
+  damping: 0      # damping to body velocities
+  obstacle_density: 0.001
+
+log_obs: false      # whether to log observations for debugging purpose
+render_snapshot: false
+
+occ:
+  m_to_pix_scale: 25   # number of pixels per meter when generating the raw occupancy map
+  map_height: 40       # occupancy map height (in meter)
+  map_width: 12        # occupancy map width (in meter)
+
+
+############### TUNABLE PARAMETERS ###############
+##################################################
+
+output_dir: "logs/"
+egocentric_obs: true  # true for RL baselines, false for predictive planner
+concentration: 0.1    # options are 0.1, 0.2, 0.3, 0.4, 0.5
+goal_y: 9
+render_scale: 40      # scale renderer window to fit screen size
+
+train:
+  train_mode: false
+  job_type: ppo # options are ppo, sac
+  job_name: 'shipice_ppo'
+  total_timesteps: 15e5
+  checkpoint_freq: 10000
+
+evaluate:
+  eval_mode: true
+  num_eps: 1
+  policy_types: []  # list of policy types to evaluate
+  action_types: []  # list of action types to evaluate
+  models: []        # list of model names to evaluate
+  
