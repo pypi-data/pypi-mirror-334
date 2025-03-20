@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: I2C-GUI2
+Version: 0.1.14
+Summary: A new and improved I2C library with a GUI
+Project-URL: Homepage, https://github.com/cbeiraod/I2C-GUI2
+Project-URL: Documentation, https://i2c-gui2.readthedocs.io/
+Project-URL: Bug Tracker, https://github.com/cbeiraod/I2C-GUI2/issues
+Author-email: Cristóvão Beirão da Cruz e Silva <cbeiraod@cern.ch>
+License-File: AUTHORS.rst
+License-File: LICENSE
+Keywords: Awesome,ETROC,GUI,I2C,Library
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: zlib/libpng License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.7
+Requires-Dist: pillow>=10.3.0
+Requires-Dist: usb-iss>=2.0.1
+Description-Content-Type: text/markdown
+
+# I2C-GUI++
+A new and improved I2C communication library with a GUI
+
+This is currently a placeholder for the I2C-GUI++ project.
+
+You can install the I2C-GUI++ libraries and GUI with: `python -m pip install I2C-GUI2`
+
+After installation, you can run the individual chip GUIs with dedicated commands such as: `etroc2_gui`
