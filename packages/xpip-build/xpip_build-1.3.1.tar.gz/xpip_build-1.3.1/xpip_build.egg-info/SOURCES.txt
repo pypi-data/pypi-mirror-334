@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup-build.py
+setup.cfg
+xpip_build/__init__.py
+xpip_build/attribute.py
+xpip_build.egg-info/PKG-INFO
+xpip_build.egg-info/SOURCES.txt
+xpip_build.egg-info/dependency_links.txt
+xpip_build.egg-info/entry_points.txt
+xpip_build.egg-info/requires.txt
+xpip_build.egg-info/top_level.txt
+xpip_build.egg-info/zip-safe
+xpip_build/cmds/__init__.py
+xpip_build/cmds/setuptools.py
+xpip_build/cmds/version.py
