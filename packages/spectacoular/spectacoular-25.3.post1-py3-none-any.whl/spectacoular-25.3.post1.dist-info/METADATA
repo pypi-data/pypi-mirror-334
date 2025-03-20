@@ -1,0 +1,105 @@
+Metadata-Version: 2.4
+Name: spectacoular
+Version: 25.3.post1
+Summary: Library for SpectAcoular interactive applications with Acoular
+Project-URL: homepage, https://acoular.github.io/spectacoular/
+Project-URL: documentation, https://acoular.github.io/spectacoular/
+Project-URL: repository, https://github.com/acoular/spectacoular
+Author-email: Acoular Development Team <info@acoular.org>
+Maintainer-email: Adam Kujawski <adam.kujawski@tu-berlin.de>, Art Pelling <a.pelling@tu-berlin.de>, Ennes Sarradj <ennes.sarradj@tu-berlin.de>, Gert Herold <gert.herold@tu-berlin.de>, Mikolaj Czuchaj <mikolaj.czuchaj@tu-berlin.de>, Simon Jekosch <s.jekosch@tu-berlin.de>
+License: BSD 3-Clause License
+        
+        Copyright (c) Acoular Development Team
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: AUTHORS.rst
+License-File: LICENSE
+Keywords: GUI,acoustics,beamforming,microphone array
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: <3.14,>=3.10
+Requires-Dist: acoular>=25.01
+Requires-Dist: bokeh>=3.0
+Provides-Extra: full
+Requires-Dist: opencv-python; extra == 'full'
+Requires-Dist: sounddevice; extra == 'full'
+Provides-Extra: tapy
+Requires-Dist: opencv-python; extra == 'tapy'
+Requires-Dist: sounddevice; extra == 'tapy'
+Requires-Dist: tapy; extra == 'tapy'
+Description-Content-Type: text/markdown
+
+
+![Poster](https://github.com/acoular/spectacoular/blob/master/docs/_static/poster.png)
+
+## Package Documentation
+
+The documentation for the SpectAcoular package is available at [https://acoular.github.io/spectacoular/](https://acoular.github.io/spectacoular/).
+
+## Quick Start
+
+To install **SpectAcoular**, one can use the Anaconda Python distribution or the Python package manager `pip`. The following instructions describe how to install SpectAcoular using the Anaconda Python distribution.
+In the command line, type:
+
+```console
+$ conda install -c acoular spectacoular
+```
+
+This will install SpectAcoular in your Anaconda Python environment and make the SpectAcoular library available from Python. In addition, this will install all dependencies (those other packages mentioned above) if they are not already present on your system.
+
+Alternatively, one can use `pip` to install SpectAcoular. In the command line, type:
+
+```console
+$ pip install spectacoular
+```
+
+Note that for some pre-built applications, additional optional packages are required:
+
+- `python-sounddevice` (for sound output)
+- `opencv` (for image display)
+
+When using pip, one can install the optional packages by specifying the `full` option:
+
+```console
+$ pip install spectacoular[full]
+```
+
+If you use conda, optional packages are not included and need to be installed separately. To verify your installation, you can run one of the pre-built interactive applications (e.g. MicGeomExample app). To do so, type the following command in a dedicated console (e.g. shell):
+
+```console
+$ micgeom_app
+```
+
+A new window should appear in the browser running the application.
+
+    
