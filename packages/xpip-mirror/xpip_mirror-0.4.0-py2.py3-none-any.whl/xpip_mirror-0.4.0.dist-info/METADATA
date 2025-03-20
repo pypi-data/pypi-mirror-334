@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: xpip-mirror
+Version: 0.4.0
+Summary: pip mirror management
+Home-page: https://github.com/bondbox/xpip/
+Author: Mingzhe Zou
+Author-email: zoumingzhe@outlook.com
+License: GPLv2
+Project-URL: Source Code, https://github.com/bondbox/xpip/
+Project-URL: Bug Tracker, https://github.com/bondbox/xpip/issues
+Project-URL: Documentation, https://github.com/bondbox/xpip/
+Keywords: pip,pypi,mirror
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: xkits >=2.1.1
+Requires-Dist: tabulate
+Requires-Dist: wcwidth
+Requires-Dist: ping3
+Requires-Dist: toml
+Requires-Dist: pip
+
+# xpip-mirror
+
+If you live within the Great Wall Firewall, the access to the official source of [PyPI](https://pypi.org/) is extremely unstable.
+
+The `xpip-mirror` mirror management can probe the delay of mirrors in the list and select the current optimal path.
+
+## list all available mirrors
+
+```text
+root@zou:~# xpip-mirror list
+name      URL                                       HOST                                       PING(ms)
+--------  ----------------------------------------  -----------------------------------------  ----------
+ustc      https://pypi.mirrors.ustc.edu.cn/simple   pypi.mirrors.ustc.edu.cn (218.104.71.170)  8.3
+baidu     https://mirror.baidu.com/pypi/simple      mirror.baidu.com (58.243.203.35)           15.7
+aliyun    https://mirrors.aliyun.com/pypi/simple    mirrors.aliyun.com (119.167.250.248)       17.7
+tsinghua  https://pypi.tuna.tsinghua.edu.cn/simple  pypi.tuna.tsinghua.edu.cn (101.6.15.130)   23.7
+douban    https://pypi.douban.com/simple            pypi.douban.com (49.233.242.15)            32.0
+pypi      https://pypi.org/simple                   pypi.org (151.101.128.223)                 timeout
+
+Suggest using the installation command:
+pip install -i https://pypi.mirrors.ustc.edu.cn/simple <package-name>
+```
+
+## config mirror
+
+### show config
+
+```text
+root@zou:~# xpip-mirror now
+https://mirrors.aliyun.com/pypi/simple
+```
+
+### choice the best
+
+```text
+root@zou:~# xpip-mirror choice
+Writing to /root/.config/pip/pip.conf
+choice ustc: https://pypi.mirrors.ustc.edu.cn/simple
+```
+
+### choice by name
+
+```text
+root@zou:~# xpip-mirror choice tsinghua
+Writing to /root/.config/pip/pip.conf
+choice tsinghua: https://pypi.tuna.tsinghua.edu.cn/simple
+```
