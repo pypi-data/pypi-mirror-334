@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+easyinference/__init__.py
+easyinference/config.py
+easyinference/inference.py
+easyinference/cloudsql/__init__.py
+easyinference/cloudsql/schema.py
+easyinference/cloudsql/table_utils.py
+easyvertexinference.egg-info/PKG-INFO
+easyvertexinference.egg-info/SOURCES.txt
+easyvertexinference.egg-info/dependency_links.txt
+easyvertexinference.egg-info/requires.txt
+easyvertexinference.egg-info/top_level.txt
