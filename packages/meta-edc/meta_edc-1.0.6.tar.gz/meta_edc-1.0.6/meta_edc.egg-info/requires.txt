@@ -1,0 +1,5 @@
+edc==1.0.9
+edc-microscopy
+beautifulsoup4
+celery[redis]
+django-pylabels
