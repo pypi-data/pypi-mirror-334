@@ -1,0 +1,17 @@
+[package]
+name = "discrete-dists"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "discrete_dists"
+path = 'rust/lib.rs'
+crate-type = ["cdylib"]
+
+[dependencies]
+bincode = { version = "~2.0", features = ["serde"] }
+ndarray = { version = "~0.16", features = ["serde"] }
+numpy = "~0.24"
+pyo3 = "~0.24"
+serde = { version = "~1.0", features = ["derive"] }

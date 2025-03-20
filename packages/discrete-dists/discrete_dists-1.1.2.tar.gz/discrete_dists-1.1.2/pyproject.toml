@@ -1,0 +1,71 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "discrete-dists"
+requires-python = ">=3.10"
+version = "1.1.2"
+authors = [
+    {name = "Andy Patterson", email = "andnpatterson@gmail.com"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+
+dependencies = [
+    "numpy>=1.23,<3.0"
+]
+
+
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[project.urls]
+Homepage = "https://github.com/andnp/discrete-dists"
+Documentation = "https://github.com/andnp/discrete-dists/blob/main/README.md"
+Repository = "https://github.com/andnp/discrete-dists"
+Issues = "https://github.com/andnp/discrete-dists/issues"
+Changelog = "https://github.com/andnp/discrete-dists/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "maturin",
+    "pip",
+    "pytest-benchmark~=5.0",
+    "ruff",
+    "pyright",
+    "commitizen",
+    "pre-commit",
+]
+
+[tool]
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.1.2"
+tag_format = "$version"
+version_files = ["pyproject.toml"]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "discrete_dists.rust"
+
+[tool.ruff.lint]
+select = ['F', 'E', 'W']
+ignore = ['E501', 'E701']
+
+[tool.pyright]
+include = ["discrete_dists", "tests"]
+stubPath = "./typings"
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "standard"
+useLibraryCodeForTypes = true
+
+[dependency-groups]
+dev = [
+    "pip>=25.0.1",
+]
