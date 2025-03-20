@@ -1,0 +1,38 @@
+[project]
+name = "material-plausible-plugin"
+version = "0.3.0"
+description = "Plausible Analytics implementation for Material for MkDocs"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "ISC"
+authors = [
+  { name = "Alexander Pushkov", email = "alexander@notpushk.in" },
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: MkDocs",
+  "Programming Language :: JavaScript",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+  "Topic :: Text Processing :: Markup :: HTML",
+]
+dependencies = [
+  "mkdocs",
+  "mkdocs-material",
+]
+
+[project.urls]
+Documentation = "https://material-plausible-plugin.ale.sh/"
+Issues = "https://codeberg.org/notpushkin/material-plausible-plugin/issues"
+Source = "https://codeberg.org/notpushkin/material-plausible-plugin"
+
+[tool.poetry]
+packages = [{ include = "material_plausible" }]
+
+[project.entry-points."mkdocs.plugins"]
+"material-plausible" = "material_plausible.plugin:MaterialPlausiblePlugin"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
