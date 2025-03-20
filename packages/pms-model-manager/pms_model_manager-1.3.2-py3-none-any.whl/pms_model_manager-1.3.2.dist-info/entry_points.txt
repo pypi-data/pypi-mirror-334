@@ -1,0 +1,3 @@
+[console_scripts]
+pmm=pms_model_manager._cli:main
+
