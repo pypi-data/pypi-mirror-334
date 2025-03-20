@@ -1,0 +1,26 @@
+# https://peps.python.org/pep-0621/#example
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata
+
+[project]
+name = 'beni-amazon'
+version = '0.0.3'
+description = 'Commands for Beni'
+requires-python = '>=3.10'
+keywords = ['benimang', 'beni', 'beni-amazon']
+authors = [{ name = 'Beni Mang', email = 'benimang@126.com' }]
+maintainers = [{ name = 'Beni Mang', email = 'benimang@126.com' }]
+
+
+dependencies = [
+  'benimang==0.7.13',
+  'typer',
+  # 'build',
+  # 'pytest',
+  # 'pytest-asyncio',
+  # 'pytest-order',
+  # 'setuptools',
+  # 'twine',
+]
+
+[project.scripts]
+bzon = 'bzon.main:run'

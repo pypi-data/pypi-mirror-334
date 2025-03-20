@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+pyproject.toml
+beni_amazon.egg-info/PKG-INFO
+beni_amazon.egg-info/SOURCES.txt
+beni_amazon.egg-info/dependency_links.txt
+beni_amazon.egg-info/entry_points.txt
+beni_amazon.egg-info/requires.txt
+beni_amazon.egg-info/top_level.txt
+bzon/__init__.py
+bzon/main.py
+bzon/common/__init__.py
+bzon/common/func.py
+bzon/common/password.py
+bzon/tasks/__init__.py
+bzon/tasks/hello.py
+bzon/tasks/open.py
