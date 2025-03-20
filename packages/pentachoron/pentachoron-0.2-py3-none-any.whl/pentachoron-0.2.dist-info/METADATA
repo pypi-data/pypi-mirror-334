@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: pentachoron
+Version: 0.2
+Summary: pentachoron is a new light-weight library for Quantum computing. It has custom algorithms and gates!
+Author: Idrees Ahmad
+Author-email: thethinker22xd@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
