@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://eo.edu.ru" name="PushDataServiceSoap" targetNamespace="http://eo.edu.ru">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://eo.edu.ru" elementFormDefault="qualified" targetNamespace="http://eo.edu.ru" version="1.0">
+
+  <xs:element name="Authentication" type="tns:Authentication"/>
+
+  <xs:element name="PushData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schema" type="xs:string"/>
+        <xs:element minOccurs="0" name="data" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PushDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PushDataResult" type="tns:ResponsePushData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PushZipData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schema" type="xs:string"/>
+        <xs:element minOccurs="0" name="data" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PushZipDataAsync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="schema" type="xs:string"/>
+        <xs:element minOccurs="0" name="data" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PushZipDataAsyncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PushZipDataAsyncResult" type="tns:ResponsePushData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PushZipDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PushZipDataResult" type="tns:ResponsePushData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Login" type="xs:string"/>
+      <xs:element minOccurs="0" name="Password" type="xs:string"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+  </xs:complexType>
+
+  <xs:complexType name="ResponsePushData">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="PushZipDataAsync">
+    <wsdl:part element="ns1:PushZipDataAsync" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="ns1:Authentication" name="Authentication">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PushDataResponse">
+    <wsdl:part element="ns1:PushDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PushZipDataAsyncResponse">
+    <wsdl:part element="ns1:PushZipDataAsyncResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PushZipData">
+    <wsdl:part element="ns1:PushZipData" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="ns1:Authentication" name="Authentication">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PushZipDataResponse">
+    <wsdl:part element="ns1:PushZipDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PushData">
+    <wsdl:part element="ns1:PushData" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="ns1:Authentication" name="Authentication">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PushDataServiceSoap">
+    <wsdl:operation name="PushZipDataAsync">
+      <wsdl:input message="ns1:PushZipDataAsync" name="PushZipDataAsync">
+    </wsdl:input>
+      <wsdl:output message="ns1:PushZipDataAsyncResponse" name="PushZipDataAsyncResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushZipData">
+      <wsdl:input message="ns1:PushZipData" name="PushZipData">
+    </wsdl:input>
+      <wsdl:output message="ns1:PushZipDataResponse" name="PushZipDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushData">
+      <wsdl:input message="ns1:PushData" name="PushData">
+    </wsdl:input>
+      <wsdl:output message="ns1:PushDataResponse" name="PushDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

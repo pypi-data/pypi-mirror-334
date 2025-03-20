@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.serviceBus.eov2.informika.ru/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://eo.edu.ru" name="PushDataServiceSoapImplService" targetNamespace="http://ws.serviceBus.eov2.informika.ru/">
+  <wsdl:import location="http://{{ host }}:{{ port }}/service?wsdl=PushDataServiceSoap.wsdl" namespace="http://eo.edu.ru">
+    </wsdl:import>
+  <wsdl:binding name="PushDataServiceSoapImplServiceSoapBinding" type="ns1:PushDataServiceSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="PushZipDataAsync">
+      <soap:operation soapAction="http://eo.edu.ru/PushZipData" style="document"/>
+      <wsdl:input name="PushZipDataAsync">
+        <soap:header message="ns1:PushZipDataAsync" part="Authentication" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PushZipDataAsyncResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushZipData">
+      <soap:operation soapAction="http://eo.edu.ru/PushZipData" style="document"/>
+      <wsdl:input name="PushZipData">
+        <soap:header message="ns1:PushZipData" part="Authentication" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PushZipDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushData">
+      <soap:operation soapAction="http://eo.edu.ru/PushData" style="document"/>
+      <wsdl:input name="PushData">
+        <soap:header message="ns1:PushData" part="Authentication" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="PushDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PushDataServiceSoapImplService">
+    <wsdl:port binding="tns:PushDataServiceSoapImplServiceSoapBinding" name="PushDataServiceSoapImplPort">
+      <soap:address location="http://{{ host }}:{{ port }}/service/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

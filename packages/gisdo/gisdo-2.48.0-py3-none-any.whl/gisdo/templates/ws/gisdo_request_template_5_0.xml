@@ -1,0 +1,226 @@
+{% spaceless %}
+{% autoescape off %}
+
+{% load gisdo_filters %}
+
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='http://eo.edu.ru/v4/stylesheet.xsl'?>
+<push_data_request xmlns="http://eo.edu.ru/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://eo.edu.ru/v4 http://eo.edu.ru/v4/schema.xsd">
+	<schema_version>4.0</schema_version>
+    <system name="{{ doc.header.system_name|escape }}"
+            vendor="ЗАО БАРС Груп"
+            version="{{ doc.header.version|escape }}"
+            email="{{ doc.header.email|escape }}"
+            install_type="{{ doc.header.install_type }}"
+            own_server="{{ doc.header.own_server }}"
+    />
+    <reports>
+        <parent_pay reg="{{ doc.municipality_unit.reg_oktmo }}">
+            <crit_pay crit_npa="{{ doc.parent_pay.crit_npa|escape }}"/>
+            {% if doc.parent_pay.founders %}
+            <founders>
+                {% for founder in doc.parent_pay.founders %}
+                <founder
+                {% for tag, value in founder.items %}{{ tag }}="{{ value|escape }}"
+                {% endfor %}
+                />
+                {% endfor %}
+            </founders>
+            {% endif %}
+
+            {% if doc.parent_pay.max_pay %}
+            <max_pay
+            {% for tag, value in doc.parent_pay.max_pay.items %}{{ tag }}="{{ value|escape }}"
+            {% endfor %}
+            />
+            {% endif %}
+            {% if doc.parent_pay.mid_pay %}
+            <mid_pay
+            {% for tag, value in doc.parent_pay.mid_pay.items %}{{ tag }}="{{ value|escape }}"
+            {% endfor %}
+            />
+            {% endif %}
+
+        </parent_pay>
+        <municipality oktmo="{{ doc.municipality_unit.oktmo }}"
+                      epgu_link="{{ doc.municipality_unit.epgu_link|escape|cutspace }}"
+                      rpgu_link="{{ doc.municipality_unit.rpgu_link|escape|cutspace }}"
+                      name_mouo="{{ doc.municipality_unit.name_mouo|escape }}"
+                      site_mouo="{{ doc.municipality_unit.site_mouo|escape|cutspace }}"
+                      address_mouo="{{ doc.municipality_unit.address_mouo|escape }}"
+                      email_mouo="{{ doc.municipality_unit.email_mouo|escape|cutspace }}"
+                      phones_mouo="{{ doc.municipality_unit.phones_mouo|escape|cutspace }}"
+                      time_mouo="{{ doc.municipality_unit.time_mouo|escape|cutspace }}"
+                      regulation="{{ doc.municipality_unit.regulation|escape|cutspace }}"
+                      fix_area="{{ doc.municipality_unit.fix_area|escape|cutspace }}"
+                      max_doo="{{ doc.municipality_unit.max_doo|escape|cutspace }}"
+                      num_advisory_centr="{{ doc.municipality_unit.num_advisory_centr }}"
+                      num_early_assistance="{{ doc.municipality_unit.num_early_assistance }}">
+					<common>
+						<no_doo_act age_0_3="{{ doc.municipality_unit.no_doo_act_0_3 }}" age_3_7="{{ doc.municipality_unit.no_doo_act_3_7 }}"/>
+                    	<no_doo_def age_0_3="{{ doc.municipality_unit.no_doo_def_0_3 }}" age_3_7="{{ doc.municipality_unit.no_doo_def_3_7 }}"/>
+                    	<medic age_0_3="{{ doc.municipality_unit.medic_0_3 }}" age_3_7="{{ doc.municipality_unit.medic_3_7 }}" />
+                    	<family age_0_3="{{ doc.municipality_unit.family_0_3 }}" age_3_7="{{ doc.municipality_unit.family_3_7 }}"/>
+					</common>
+					<organizations>
+                        {% for unit in doc.units %}
+                        <organization code="{{ unit.organization.code|escape }}"
+                                      name="{{ unit.organization.name|escape }}"
+                                      type="{{ unit.organization.type|escape }}"
+                                      status="{{ unit.organization.status }}"
+                                      {% if unit.organization.commet_status is not None %}
+                                        commet_status="{{ unit.organization.commet_status|escape }}"
+                                      {% endif %}
+                                      structure="{{ unit.organization.structure }}"
+                                      director="{{ unit.organization.director|escape }}"
+                                      worktime="{{ unit.organization.worktime|escape }}"
+                                      meal_serving_type="{{ unit.organization.meal_serving_type|escape }}"
+                                      license="{{ unit.organization.license }}"
+                                      type_area="{{ unit.organization.type_area }}"
+                                      fias_org_guid="{{ unit.organization.fias_org_guid }}"
+                                      org_address="{{ unit.organization.org_address|escape }}"
+                                      website="{{ unit.organization.website|escape|cutspace }}"
+                                      email="{{ unit.organization.email|escape|cutspace }}"
+                                      phone="{{ unit.organization.phone|escape|cutspace}}"
+                                      additional_education="{{ unit.organization.additional_education|escape }}"
+                                      feature="{{ unit.organization.features|escape }}"
+                                      num_filial="{{ unit.organization.num_filial }}"
+                                      num_building="{{ unit.organization.num_building }}"
+                                      num_group="{{ unit.organization.num_group }}"
+                                      partner_doo="{{ unit.organization.partner_doo }}"
+                                      lekoteka="{{ unit.organization.lekoteka }}"
+                                      centre_game ="{{ unit.organization.centre_game }}"
+                                      passport ="{{ unit.organization.passport|escape }}">
+                            <advisory_centr fact="{{ unit.organization.fact }}"
+                            {% for name, value in unit.organization.data_advisory_centr.items %}{{ name }}="{{value}}"
+                            {% endfor %}>
+                            </advisory_centr>
+                            <early_assistant
+                                {% for name, value in unit.organization.early_assistant_data.items %}
+                                    {{ name }}="{{ value }}"
+                                {% endfor %}
+                            >
+                            </early_assistant>
+                            <specialists
+                            num_s_psychologist="{{ unit.specialists.num_s_psychologist }}"
+                            num_f_psychologist="{{ unit.specialists.num_f_psychologist }}"
+                            num_s_logopedist="{{ unit.specialists.num_s_logopedist }}"
+                            num_f_logopedist="{{ unit.specialists.num_f_logopedist }}"
+                            num_s_defectologist="{{ unit.specialists.num_s_defectologist }}"
+                            num_f_defectologist="{{ unit.specialists.num_f_defectologist }}"
+                            num_s_oligophren="{{ unit.specialists.num_s_oligophren }}"
+                            num_f_oligophren="{{ unit.specialists.num_f_oligophren }}"
+                            num_s_surdo="{{ unit.specialists.num_s_surdo }}"
+                            num_f_surdo="{{ unit.specialists.num_f_surdo }}"
+                            num_s_tiflo="{{ unit.specialists.num_s_tiflo }}"
+                            num_f_tiflo="{{ unit.specialists.num_f_tiflo }}"
+                            num_s_lfk="{{ unit.specialists.num_s_lfk }}"
+                            num_f_lfk="{{ unit.specialists.num_f_lfk }}"
+                            num_s_afk="{{ unit.specialists.num_s_afk }}"
+                            num_f_afk="{{ unit.specialists.num_f_afk }}"
+                            num_s_social="{{ unit.specialists.num_s_social }}"
+                            num_f_social="{{ unit.specialists.num_f_social }}"
+                            num_s_med="{{ unit.specialists.num_s_med }}"
+                            num_f_med="{{ unit.specialists.num_f_med }}"
+                            num_s_pediatr="{{ unit.specialists.num_s_pediatr }}"
+                            num_f_pediatr="{{ unit.specialists.num_f_pediatr }}"
+                            num_s_neurolog="{{ unit.specialists.num_s_neurolog }}"
+                            num_f_neurolog="{{ unit.specialists.num_f_neurolog }}"
+                            num_s_ophthalmologist="{{ unit.specialists.num_s_ophthalmologist }}"
+                            num_f_ophthalmologist="{{ unit.specialists.num_f_ophthalmologist }}"
+                            num_s_audiologist="{{ unit.specialists.num_s_audiologist }}"
+                            num_f_audiologist="{{ unit.specialists.num_f_audiologist }}">
+                            </specialists>
+                            <buildings>
+                                {% for building in unit.buildings %}
+                                <building status_building="{{ building.status_building }}"
+                                          fias_house_guid="{{ building.fias_house_guid }}"
+                                          id="{{ building.id|escape }}"
+                                          name="{{ building.name|escape }}"
+                                          plain_address="{{ building.plain_address|escape }}"
+                                          depreciation="{{ building.depreciation }}"
+                                          building_type_area="{{ building.building_type_area }}"
+                                          type_building="{{ building.type_building }}"
+                                          filial="{{ building.filial }}"
+                                          cabinet_psychologist="{{ building.cabinet_psychologist }}"
+                                          cabinet_defectologist="{{ building.cabinet_defectologist }}"
+                                          cabinet_logopedist="{{ building.cabinet_logopedist }}"
+                                          cabinet_med="{{ building.cabinet_med }}"
+                                          sport_gym="{{ building.sport_gym }}"
+                                          meeting_room="{{ building.meeting_room }}"
+                                          pool="{{ building.pool }}"
+                                          oda_territory="{{ building.oda_territory }}"
+                                          oda_entrance="{{ building.oda_entrance }}"
+                                          oda_way="{{ building.oda_way }}"
+                                          oda_room="{{ building.oda_room }}"
+                                          oda_washroom="{{ building.oda_washroom }}"
+                                          oda_communication="{{ building.oda_communication }}"
+                                          oda_path="{{ building.oda_path }}"
+                                          oda_equipment="{{ building.oda_equipment }}"
+                                          vision_territory="{{ building.vision_territory }}"
+                                          vision_entrance="{{ building.vision_entrance }}"
+                                          vision_way="{{ building.vision_way }}"
+                                          vision_room="{{ building.vision_room }}"
+                                          vision_washroom="{{ building.vision_washroom }}"
+                                          vision_communication="{{ building.vision_communication }}"
+                                          vision_path="{{ building.vision_path }}"
+                                          vision_equipment="{{ building.vision_equipment }}"
+                                          ear_territory="{{ building.ear_territory }}"
+                                          ear_entrance="{{ building.ear_entrance }}"
+                                          ear_way="{{ building.ear_way }}"
+                                          ear_room="{{ building.ear_room }}"
+                                          ear_washroom="{{ building.ear_washroom }}"
+                                          ear_communication="{{ building.ear_communication }}"
+                                          ear_path="{{ building.ear_path }}"
+                                          ear_equipment="{{ building.ear_equipment }}">
+                                    {% for group in building.groups %}
+                                        <group id="{{ group.id }}"
+                                               age_from="{{ group.ageFrom }}"
+                                               age_to="{{ group.ageTo }}"
+                                               {% if group.name %} name="{{ group.name|escape }}" {% endif %}
+                                               orientation="{{ group.orientation }}"
+                                               {% if group.ovzType %} ovz_type="{{ group.ovzType }}"  {% endif %}
+                                               {% if group.wellness %} wellness="{{ group.wellness }}"  {% endif %}
+                                               worktime_group="{{ group.work_time_group }}"
+                                               activity="{{ group.activity }}"
+                                               size="{{ group.size }}"
+                                               capacity="{{ group.capacity }}" capacity_gkp="{{ group.capacity_gkp }}"
+                                               enrolled="{{ group.enrolled }}" enrolled_gkp="{{ group.enrolled_gkp }}"
+                                               invalid="{{ group.invalid }}"
+                                               free_space="{{ group.free_space }}"
+                                               ovz_deti="{{ group.ovz_deti }}"
+                                               {% if group.ovz_type_new %}ovz_type_new="{{ group.ovz_type_new }}" {% endif %}
+                                               {% if group.ovz_type_dop >= 0 %}ovz_type_dop ="{{ group.ovz_type_dop }}" {% endif %}
+                                               subgroup="{{ group.subgroup }}"
+                                               add_cont="{{ group.add_cont }}" add_cont_gkp="{{ group.add_cont_gkp }}"
+                                               add_cont_ovz="{{ group.add_cont_ovz }}"
+                                               transfer_space="{{ group.transfer_space }}"
+                                               partner_group="{{ group.partner_group }}"
+                                               partner="{{ group.partner }}"
+                                               reduction_school="{{ group.reduction_school }}"
+                                               reduction_other="{{ group.reduction_other }}"
+                                               educator="{{ group.educator }}"
+                                               days="{{ group.days }}"
+                                               program="{{ group.program }}"
+                                               program_ovz="{{ group.program_ovz }}"
+                                    />
+                                    {% endfor %}
+                                </building>
+                                {% endfor %}
+                            </buildings>
+                            {% for index in unit.indices %}
+                                <{{ index.name }}
+                                    {% for age_category in index.age_categories %}
+                                        {{ age_category.name }}="{{ age_category.value }}"
+                                    {% endfor %}
+                                />
+                            {% endfor %}
+                        </organization>
+                        {% endfor %}
+		            </organizations>
+		        </municipality>
+    </reports>
+</push_data_request>
+{% endautoescape %}
+{% endspaceless %}

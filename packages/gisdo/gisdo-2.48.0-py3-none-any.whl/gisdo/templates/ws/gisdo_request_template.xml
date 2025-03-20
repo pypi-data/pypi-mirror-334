@@ -1,0 +1,87 @@
+{% spaceless %}
+{% autoescape off %}
+
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='http://eo.edu.ru/v4/stylesheet.xsl'?>
+<push_data_request xmlns="http://eo.edu.ru/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://eo.edu.ru/v4 http://eo.edu.ru/v4/schema.xsd">
+	<schema_version>4.0</schema_version>
+    <system name="{{ system_name|escape }}" vendor="ЗАО БАРС Груп" version="{{ version|escape }}" email="{{ email|escape }}" install_type="{{ install_type }}"/>
+    <reports>
+        {% for report in reports %}
+                <municipality oktmo="{{ report.OKTMO }}" epgu_link="{{ report.epguLink|escape }}" rpgu_link="{{ report.rpguLink|escape }}"
+                    name_mouo="{{ report.name_mouo|escape }}" site_mouo="{{ report.site_mouo|escape }}" address_mouo="{{ report.address_mouo|escape }}"
+                    email_mouo="{{ report.email_mouo|escape }}" phones_mouo="{{ report.phones_mouo|escape }}" regulation="{{ report.regulation|escape }}"
+                    fix_area="{{ report.fix_area|escape }}">
+					<common>
+						<no_doo_act age_0_3="{{ report.no_doo_act_0_3 }}" age_3_7="{{ report.no_doo_act_3_7 }}"/>
+                    	<no_doo_def age_0_3="{{ report.no_doo_def_0_3 }}" age_3_7="{{ report.no_doo_def_3_7 }}"/>
+                    	<medic age_0_3="{{ report.medic_0_3 }}" age_3_7="{{ report.medic_3_7 }}" />
+                    	<family age_0_3="{{ report.family_0_3 }}" age_3_7="{{ report.family_3_7 }}"/>
+					</common>
+					<organizations>
+                <organization code="{{ report.unit.code|escape }}"
+                              name="{{ report.unit.name|escape }}"
+                              {% if report.unit.type %} type="{{ report.unit.type|escape }}" {% endif %}
+                              status="{{ report.unit.status }}"
+                              {% if report.unit.structure_type %} structure="{{ report.unit.structure_type }}" {% endif %}
+                              {% if report.unit.director %} director="{{ report.unit.director|escape }}" {% endif %}
+                              worktime="{{ report.unit.reception_time|escape }}"
+                              meal_serving_type="Общее питание"
+                              license="{{ report.unit.license }}"
+                              type_area="{{ report.unit.type_area }}"
+                              {% if report.contact.fiasHouseGuid %} fias_org_guid="{{ report.contact.fiasHouseGuid }}" {% endif %}
+                              {% if report.contact.plainAddress %} org_address="{{ report.contact.plainAddress|escape }}" {% endif %}
+                              website="{{ report.contact.website|escape }}"
+                              email="{{ report.contact.email|escape }}"
+                              phone="{{ report.contact.phone|escape }}"
+                              additional_education="{{ report.additionalEducations|escape }}"
+                              feature="{{ report.features|escape }}"
+                              num_filial="{{ report.unit.num_filial }}"
+                              num_building="{{ report.unit.num_building }}"
+                              num_group="{{ report.unit.num_group }}"
+                              partner_doo="{{ report.unit.partner_doo }}">
+                    <buildings>
+                        <building {% if report.contact.fiasHouseGuid %} fias_house_guid="{{ report.contact.fiasHouseGuid }}" {% endif %}
+                                  id="{{ report.unit.code|escape }}" name="Основное здание"
+                                  {% if report.contact.plainAddress %} plain_address="{{ report.contact.plainAddress|escape }}" {% endif %}
+                                  depreciation="{{ report.unit.deprecation }}"
+                                  building_type_area="{{ report.unit.building_type_area }}"
+                                  type_building="{{ report.unit.type_building }}"
+                                  filial="{{ report.unit.filial }}">
+                            {% for group in report.groups %}
+                                <group id="{{ group.id }}" age_from="{{ group.ageFrom }}"
+                                    age_to="{{ group.ageTo }}"
+                                    {% if group.name %} name="{{ group.name|escape }}" {% endif %}
+                                    orientation="{{ group.orientation }}"
+                                    {% if group.ovzType %} ovz_type="{{ group.ovzType }}"  {% endif %}
+                                    {% if group.wellness %} wellness="{{ group.wellness }}"  {% endif %}
+                                    worktime_group="{{ group.work_time_group }}"
+                                    activity="{{ group.activity }}"
+                                    capacity="{{ group.capacity }}"
+                                    enrolled="{{ group.enrolled }}"
+                                    free_space="{{ group.free_space }}"
+                                    ovz_deti="{{ group.ovz_deti }}"
+                                    subgroup="{{ group.subgroup }}"
+                                    add_cont="{{ group.add_cont }}"
+                                    transfer_space="{{ group.transfer_space }}"
+                                    partner_group="{{ group.partner_group }}"
+                                    partner="{{ group.partner }}"/>
+                            {% endfor %}
+                        </building>
+                    </buildings>
+                    {% for index in report.indices %}
+                        <{{ index.name }}
+                            {% for age_category in index.age_categories %}
+                                {{ age_category.name }}="{{ age_category.value }}"
+                            {% endfor %}
+                        />
+                    {% endfor %}
+                </organization>
+		    </organizations>
+		</municipality>
+        {% endfor %}
+    </reports>
+</push_data_request>
+{% endautoescape %}
+{% endspaceless %}
