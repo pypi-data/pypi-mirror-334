@@ -1,0 +1,59 @@
+Metadata-Version: 2.2
+Name: roboverse-py
+Version: 0.1.17
+Requires-Python: <3.11,>=3.8
+License-File: LICENSE
+Requires-Dist: dm-control==1.0.27
+Requires-Dist: einops==0.4.1
+Requires-Dist: flask==3.1.0
+Requires-Dist: gym==0.23.1
+Requires-Dist: gymnasium==0.29.0
+Requires-Dist: h5py==3.12.1
+Requires-Dist: hydra-core==1.2.0
+Requires-Dist: imageio==2.36.1
+Requires-Dist: huggingface-hub==0.29.1
+Requires-Dist: ipdb==0.13.13
+Requires-Dist: jax-jumpy==1.0.0
+Requires-Dist: jedi==0.19.2
+Requires-Dist: jinja2==3.1.5
+Requires-Dist: kiwisolver==1.4.5
+Requires-Dist: loguru==0.7.3
+Requires-Dist: lxml==5.3.1
+Requires-Dist: markdown==3.6
+Requires-Dist: networkx==3.2.1
+Requires-Dist: numba==0.60.0
+Requires-Dist: numpy==1.26.4
+Requires-Dist: numpy-quaternion
+Requires-Dist: opencv-python==4.10.0.82
+Requires-Dist: pandas==2.2.2
+Requires-Dist: scikit-image
+Requires-Dist: scipy
+Requires-Dist: zarr==2.18
+Requires-Dist: trimesh==4.5.3
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: termcolor==2.4.0
+Requires-Dist: tensorboard==2.11.0
+Requires-Dist: tensorboardx==2.6.2.2
+Requires-Dist: matplotlib
+Requires-Dist: beautifulsoup4
+Requires-Dist: rich==13.9.4
+Requires-Dist: torch>=2.0.0
+Requires-Dist: torchvision
+Requires-Dist: datasets>=2.8.0
+Requires-Dist: Mako
+Requires-Dist: colorlog
+Requires-Dist: colorama>=0.4
+Requires-Dist: tyro
+Requires-Dist: rootutils
+Provides-Extra: sapien
+Requires-Dist: sapien==2.2.2; extra == "sapien"
+Provides-Extra: sapien3
+Requires-Dist: sapien3==3.0.0b1; extra == "sapien3"
+Provides-Extra: pybullet
+Requires-Dist: pybullet==3.2.6; extra == "pybullet"
+Provides-Extra: mujoco
+Requires-Dist: mujoco==3.3.0; extra == "mujoco"
+Provides-Extra: omniverse
+Requires-Dist: omniverse-kit==106.5.0; extra == "omniverse"
+Provides-Extra: teleop
+Requires-Dist: pygame==2.1.0; extra == "teleop"
