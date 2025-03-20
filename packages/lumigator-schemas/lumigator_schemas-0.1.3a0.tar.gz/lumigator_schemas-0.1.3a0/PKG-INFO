@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: lumigator-schemas
+Version: 0.1.3a0
+Summary: Schemas used for REST API communication
+Requires-Python: >=3.11
+Requires-Dist: pydantic>=2.10.0
+Description-Content-Type: text/markdown
+
+# REST API schemas
+
+The lumigator REST API uses `json` objects to communicate with the lumigator server. Their schemas are defined as `pydantic` models within this package. It is a requirement both for the `backend`and the `lumigator_sdk` packages.
