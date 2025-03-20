@@ -1,0 +1,5 @@
+[run]
+omit =
+    */templates/*.jinja2
+    */migrations/*
+    */management/commands/*

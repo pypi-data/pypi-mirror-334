@@ -1,0 +1,8 @@
+*.pyc
+dist/
+db.sqlite3
+db.sqlite3
+.coverage
+# mkdocs
+site/
+.pypi
