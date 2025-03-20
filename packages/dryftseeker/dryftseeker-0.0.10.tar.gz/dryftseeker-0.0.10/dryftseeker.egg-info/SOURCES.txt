@@ -1,0 +1,26 @@
+AUTHORS.rst
+LICENSE.rst
+MANIFEST.in
+README.rst
+setup.py
+docs/IO License Terms.pdf
+docs/Seeker_Reference_Manual.pdf
+docs/Seeker_User_s_Manual.pdf
+docs/authors.rst
+docs/index.rst
+docs/installation.rst
+docs/readme.rst
+docs/usage.rst
+dryftseeker/__init__.py
+dryftseeker/dryftseeker.cpython-310-linux.so
+dryftseeker/dryftseeker.cpython-311-linux.so
+dryftseeker/dryftseeker.cpython-38-linux.so
+dryftseeker/dryftseeker.cpython-39-linux.so
+dryftseeker/dryftseeker.py
+dryftseeker.egg-info/PKG-INFO
+dryftseeker.egg-info/SOURCES.txt
+dryftseeker.egg-info/dependency_links.txt
+dryftseeker.egg-info/not-zip-safe
+dryftseeker.egg-info/top_level.txt
+dryftseeker/bin/coll-linux
+dryftseeker/scripts/seekeragg.sh
