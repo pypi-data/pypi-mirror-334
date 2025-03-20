@@ -1,0 +1,36 @@
+Metadata-Version: 2.3
+Name: gotoh
+Version: 0.1.7
+Summary: Sequence Alignment with different penalties for opening gaps and extending them.
+License: Apache-2.0
+Keywords: multiple sequence alignment
+Author: Robert Turnbull
+Author-email: robert.turnbull@unimelb.edu.au
+Requires-Python: >=3.9,<3.13
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: numpy (>=1.23.3)
+Project-URL: Homepage, https://github.com/rbturnbull/gotoh
+Project-URL: Repository, https://github.com/rbturnbull/gotoh
+Description-Content-Type: text/markdown
+
+# gotoh
+
+![pipline](https://github.com/rbturnbull/gotoh/actions/workflows/pipeline.yml/badge.svg)
+
+Performs a global sequence alignment (Needleman-Wunsch) with affine gap penalties (Gotoh). It returns a tuple with the number of characters that match, mismatch, open gaps and extend gaps. The scores/penalties are given as arguments and the defaults correspond to the basic Levenshtein distance.
+
+It can also produce a multiple sequence alignment.
+
+Based on Brent Pedersen’s nwalign which was originally posted at https://bitbucket.org/brentp/biostuff/ but now has disappeared.
+
+For more information, see chapter 7 of Robert Turnbull's thesis 'The Textual History of Codex Sinaiticus Arabicus and its Family'.
+
+Documentation and code clean up to come.
