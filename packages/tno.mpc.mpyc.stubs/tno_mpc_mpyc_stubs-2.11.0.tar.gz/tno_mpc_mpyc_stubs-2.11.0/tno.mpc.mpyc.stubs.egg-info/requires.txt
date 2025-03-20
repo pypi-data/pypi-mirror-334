@@ -1,0 +1,9 @@
+mpyc~=0.10.0
+
+[:python_version < "3.11"]
+typing_extensions
+
+[tests]
+numpy<3.0,>=1.0
+pytest>=8.1
+pytest-asyncio
