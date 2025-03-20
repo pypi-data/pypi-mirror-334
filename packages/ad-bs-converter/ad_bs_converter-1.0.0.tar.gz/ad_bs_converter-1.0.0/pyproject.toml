@@ -1,0 +1,26 @@
+[project]
+name = "ad_bs_converter"
+version = "1.0.0"
+description = "A Python package that converts between the Nepali (Bikram Sambat) and Gregorian (AD) calendars. This tool is useful for applications that require date conversion between these two calendar systems commonly used in Nepal."
+readme = "README.md"
+authors = [
+    { name = "Aayush Dip Giri", email = "giridip862101@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.10.6",
+    "setuptools>=76.0.0",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/invincibleaayu/ad_bs_converter"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
