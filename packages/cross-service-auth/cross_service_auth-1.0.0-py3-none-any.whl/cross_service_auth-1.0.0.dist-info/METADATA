@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: cross-service-auth
+Version: 1.0.0
+Summary: Package for authentication between microservices
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: djangorestframework
+Requires-Dist: djangorestframework-simplejwt
+
