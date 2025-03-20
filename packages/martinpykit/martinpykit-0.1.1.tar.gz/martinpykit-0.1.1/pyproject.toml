@@ -1,0 +1,28 @@
+[project]
+name = "martinpykit"
+version = "0.1.1"
+description = "A powerful Python utilities package"
+authors = [{ name = "fbbyqsyea", email = "fbbyqsyea@163.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "black"
+]
+
+[project.urls]
+Homepage = "https://github.com/fbbyqsyea/martinpykit"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"

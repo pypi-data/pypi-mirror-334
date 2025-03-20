@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/martinpykit.egg-info/PKG-INFO
+src/martinpykit.egg-info/SOURCES.txt
+src/martinpykit.egg-info/dependency_links.txt
+src/martinpykit.egg-info/requires.txt
+src/martinpykit.egg-info/top_level.txt
+src/martinpykit/utils/__init__.py
+src/martinpykit/utils/http.py
+tests/test_http.py
