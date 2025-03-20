@@ -1,0 +1,11 @@
+without_dysarthria:
+  male:
+    total: 556
+    age_stats:
+      mean: 57
+      std: 0.0
+      min: 57
+      max: 57
+  female:
+    total: 151
+    age_stats: null

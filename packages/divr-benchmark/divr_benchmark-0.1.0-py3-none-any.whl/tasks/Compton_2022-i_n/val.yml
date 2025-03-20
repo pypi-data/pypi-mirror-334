@@ -1,0 +1,491 @@
+svd_1910_1610_0:
+  speaker_id: '1910'
+  age: 44
+  gender: female
+  label: reinkes_edema
+  audio_keys:
+  - svd/pathological/female/1910/1610/1610-i_n.wav
+  - svd/pathological/female/1910/1658/1658-i_n.wav
+svd_2439_2305_0:
+  speaker_id: '2439'
+  age: 66
+  gender: male
+  label: reinkes_edema
+  audio_keys:
+  - svd/pathological/male/2439/2305/2305-i_n.wav
+svd_142_495_0:
+  speaker_id: '142'
+  age: 54
+  gender: female
+  label: reinkes_edema
+  audio_keys:
+  - svd/pathological/female/142/495/495-i_n.wav
+svd_26_18_0:
+  speaker_id: '26'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/26/18/18-i_n.wav
+svd_882_1121_0:
+  speaker_id: '882'
+  age: 25
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/882/1121/1121-i_n.wav
+svd_1121_1924_0:
+  speaker_id: '1121'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1121/1924/1924-i_n.wav
+svd_23_1359_0:
+  speaker_id: '23'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/23/1359/1359-i_n.wav
+svd_963_1353_0:
+  speaker_id: '963'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/963/1353/1353-i_n.wav
+svd_892_1130_0:
+  speaker_id: '892'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/892/1130/1130-i_n.wav
+svd_912_1148_0:
+  speaker_id: '912'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/912/1148/1148-i_n.wav
+svd_643_738_0:
+  speaker_id: '643'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/643/738/738-i_n.wav
+svd_869_1098_0:
+  speaker_id: '869'
+  age: 24
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/869/1098/1098-i_n.wav
+svd_883_1122_0:
+  speaker_id: '883'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/883/1122/1122-i_n.wav
+svd_49_49_0:
+  speaker_id: '49'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/49/49/49-i_n.wav
+svd_900_1139_0:
+  speaker_id: '900'
+  age: 25
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/900/1139/1139-i_n.wav
+svd_8_27_0:
+  speaker_id: '8'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/8/27/27-i_n.wav
+svd_54_54_0:
+  speaker_id: '54'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/54/54/54-i_n.wav
+svd_870_1099_0:
+  speaker_id: '870'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/870/1099/1099-i_n.wav
+svd_915_1151_0:
+  speaker_id: '915'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/915/1151/1151-i_n.wav
+svd_992_1510_0:
+  speaker_id: '992'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/992/1510/1510-i_n.wav
+svd_1206_2284_0:
+  speaker_id: '1206'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1206/2284/2284-i_n.wav
+svd_1085_1852_0:
+  speaker_id: '1085'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1085/1852/1852-i_n.wav
+svd_944_1216_0:
+  speaker_id: '944'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/944/1216/1216-i_n.wav
+svd_25_24_0:
+  speaker_id: '25'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/25/24/24-i_n.wav
+svd_1040_1699_0:
+  speaker_id: '1040'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1040/1699/1699-i_n.wav
+svd_628_703_0:
+  speaker_id: '628'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/628/703/703-i_n.wav
+svd_949_1343_0:
+  speaker_id: '949'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/949/1343/1343-i_n.wav
+svd_1112_1915_0:
+  speaker_id: '1112'
+  age: 29
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1112/1915/1915-i_n.wav
+svd_990_1508_0:
+  speaker_id: '990'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/990/1508/1508-i_n.wav
+svd_997_1515_0:
+  speaker_id: '997'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/997/1515/1515-i_n.wav
+svd_1185_2250_0:
+  speaker_id: '1185'
+  age: 29
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1185/2250/2250-i_n.wav
+svd_1021_1540_0:
+  speaker_id: '1021'
+  age: 25
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1021/1540/1540-i_n.wav
+svd_55_55_0:
+  speaker_id: '55'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/55/55/55-i_n.wav
+svd_1083_1850_0:
+  speaker_id: '1083'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1083/1850/1850-i_n.wav
+svd_1060_1729_0:
+  speaker_id: '1060'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1060/1729/1729-i_n.wav
+svd_1088_1855_0:
+  speaker_id: '1088'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1088/1855/1855-i_n.wav
+svd_836_1059_0:
+  speaker_id: '836'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/836/1059/1059-i_n.wav
+svd_1111_1886_0:
+  speaker_id: '1111'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1111/1886/1886-i_n.wav
+svd_1199_2264_0:
+  speaker_id: '1199'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1199/2264/2264-i_n.wav
+svd_611_683_0:
+  speaker_id: '611'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/611/683/683-i_n.wav
+svd_921_1172_0:
+  speaker_id: '921'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/921/1172/1172-i_n.wav
+svd_891_1129_0:
+  speaker_id: '891'
+  age: 23
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/891/1129/1129-i_n.wav
+svd_776_972_0:
+  speaker_id: '776'
+  age: 27
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/776/972/972-i_n.wav
+svd_955_1357_0:
+  speaker_id: '955'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/955/1357/1357-i_n.wav
+svd_1053_1724_0:
+  speaker_id: '1053'
+  age: 22
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/1053/1724/1724-i_n.wav
+svd_1202_2280_0:
+  speaker_id: '1202'
+  age: 22
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1202/2280/2280-i_n.wav
+svd_1066_1735_0:
+  speaker_id: '1066'
+  age: 20
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/1066/1735/1735-i_n.wav
+svd_1015_1534_0:
+  speaker_id: '1015'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1015/1534/1534-i_n.wav
+svd_792_998_0:
+  speaker_id: '792'
+  age: 29
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/792/998/998-i_n.wav
+svd_1190_2255_0:
+  speaker_id: '1190'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1190/2255/2255-i_n.wav
+svd_648_744_0:
+  speaker_id: '648'
+  age: 22
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/648/744/744-i_n.wav
+svd_864_1095_0:
+  speaker_id: '864'
+  age: 21
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/864/1095/1095-i_n.wav
+svd_59_59_0:
+  speaker_id: '59'
+  age: 21
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/59/59/59-i_n.wav
+svd_899_1137_0:
+  speaker_id: '899'
+  age: 25
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/899/1137/1137-i_n.wav
+svd_898_1138_0:
+  speaker_id: '898'
+  age: 20
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/898/1138/1138-i_n.wav
+svd_996_1513_0:
+  speaker_id: '996'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/996/1513/1513-i_n.wav
+svd_1047_1706_0:
+  speaker_id: '1047'
+  age: 24
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/1047/1706/1706-i_n.wav
+svd_1017_1536_0:
+  speaker_id: '1017'
+  age: 25
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1017/1536/1536-i_n.wav
+svd_1120_1923_0:
+  speaker_id: '1120'
+  age: 27
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/1120/1923/1923-i_n.wav
+svd_1068_1737_0:
+  speaker_id: '1068'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/1068/1737/1737-i_n.wav
+svd_795_995_0:
+  speaker_id: '795'
+  age: 28
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/795/995/995-i_n.wav
+svd_140_145_0:
+  speaker_id: '140'
+  age: 28
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/140/145/145-i_n.wav
+svd_813_1012_0:
+  speaker_id: '813'
+  age: 22
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/813/1012/1012-i_n.wav
+svd_974_1368_0:
+  speaker_id: '974'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/974/1368/1368-i_n.wav
+svd_923_1173_0:
+  speaker_id: '923'
+  age: 22
+  gender: male
+  label: normal
+  audio_keys:
+  - svd/healthy/male/923/1173/1173-i_n.wav
+svd_991_1509_0:
+  speaker_id: '991'
+  age: 20
+  gender: female
+  label: normal
+  audio_keys:
+  - svd/healthy/female/991/1509/1509-i_n.wav
+svd_2354_2157_0:
+  speaker_id: '2354'
+  age: 58
+  gender: male
+  label: polyp
+  audio_keys:
+  - svd/pathological/male/2354/2157/2157-i_n.wav
+svd_1741_1389_0:
+  speaker_id: '1741'
+  age: 57
+  gender: male
+  label: polyp
+  audio_keys:
+  - svd/pathological/male/1741/1389/1389-i_n.wav
+svd_2358_2161_0:
+  speaker_id: '2358'
+  age: 42
+  gender: female
+  label: reinkes_edema
+  audio_keys:
+  - svd/pathological/female/2358/2161/2161-i_n.wav
+svd_1639_1253_0:
+  speaker_id: '1639'
+  age: 43
+  gender: female
+  label: reinkes_edema
+  audio_keys:
+  - svd/pathological/female/1639/1253/1253-i_n.wav
