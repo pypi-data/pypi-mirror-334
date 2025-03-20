@@ -1,0 +1,86 @@
+Metadata-Version: 2.4
+Name: mkdocs-to-pdf
+Version: 0.10.0
+Summary: Generate a single PDF file from an `mkdocs` repository
+Project-URL: Repository, https://github.com/domWalters/mkdocs-to-pdf
+Maintainer: Dom Walters
+License-File: LICENSE
+Keywords: material,mkdocs,pdf,weasyprint
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.9
+Requires-Dist: beautifulsoup4==4.9.3
+Requires-Dist: libsass==0.23.0
+Requires-Dist: mkdocs==1.6.1
+Requires-Dist: pydyf==0.10.0
+Requires-Dist: weasyprint==62.3
+Provides-Extra: all
+Requires-Dist: markdown-callouts==0.4.0; extra == 'all'
+Requires-Dist: mdx-gh-links==0.4; extra == 'all'
+Requires-Dist: mkdocs-autorefs==1.4.0; extra == 'all'
+Requires-Dist: mkdocs-click==0.5.0; extra == 'all'
+Requires-Dist: mkdocs-literate-nav==0.6.1; extra == 'all'
+Requires-Dist: mkdocs-material==9.6.7; extra == 'all'
+Requires-Dist: mkdocs-minify-plugin==0.8.0; extra == 'all'
+Requires-Dist: mkdocs-redirects==1.2.2; extra == 'all'
+Requires-Dist: mkdocstrings-python==1.16.5; extra == 'all'
+Provides-Extra: docs
+Requires-Dist: mkdocs-material==9.6.7; extra == 'docs'
+Requires-Dist: mkdocs-minify-plugin==0.8.0; extra == 'docs'
+Provides-Extra: samples
+Requires-Dist: markdown-callouts==0.4.0; extra == 'samples'
+Requires-Dist: mdx-gh-links==0.4; extra == 'samples'
+Requires-Dist: mkdocs-autorefs==1.4.0; extra == 'samples'
+Requires-Dist: mkdocs-click==0.5.0; extra == 'samples'
+Requires-Dist: mkdocs-literate-nav==0.6.1; extra == 'samples'
+Requires-Dist: mkdocs-material==9.6.7; extra == 'samples'
+Requires-Dist: mkdocs-minify-plugin==0.8.0; extra == 'samples'
+Requires-Dist: mkdocs-redirects==1.2.2; extra == 'samples'
+Requires-Dist: mkdocstrings-python==1.16.5; extra == 'samples'
+Description-Content-Type: text/markdown
+
+# MkDocs to PDF
+
+[![PyPi version](https://img.shields.io/pypi/v/mkdocs-to-pdf.svg)](https://pypi.org/project/mkdocs-to-pdf)
+[![PyPi downloads](https://img.shields.io/pypi/dm/mkdocs-to-pdf.svg)](https://pypi.org/project/mkdocs-to-pdf)
+
+---
+
+`mkdocs-to-pdf` is an [`mkdocs`][mkdocs] plugin to generate a PDF from an `MkDocs` repository.
+
+This repository is a fork of [`mkdocs-with-pdf`][mkdocs-with-pdf], which itself
+was inspired by [`mkdocs-pdf-export-plugin`][mkdocs-pdf-export-plugin].
+
+[mkdocs]: https://www.mkdocs.org/
+[mkdocs-with-pdf]: https://github.com/orzih/mkdocs-with-pdf
+[mkdocs-pdf-export-plugin]: https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
+
+## Features
+
+- Supports [`mkdocs-material`][mkdocs-material].
+- Supports [`pymdown-extensions`][pymdown-extensions].
+- Automatically generated cover page and table of contents.
+- Automatically numbered headings from h1 to h6.
+
+[mkdocs-material]: https://squidfunk.github.io/mkdocs-material/
+[pymdown-extensions]: https://facelessuser.github.io/pymdown-extensions/
+
+## Examples
+
+See common markdown examples on [the website][readthedocs] and accompanying PDF.
+
+[readthedocs]: https://mkdocs-to-pdf.readthedocs.io/en/latest/
+
+## Samples
+
+See the [`samples` directory](https://github.com/domWalters/mkdocs-to-pdf/tree/develop/samples)
+for easily generated example PDF files showcasing the documentation for other
+popular projects that use MkDocs for their documentation.
