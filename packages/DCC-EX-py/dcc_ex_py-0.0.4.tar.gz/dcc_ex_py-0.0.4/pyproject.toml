@@ -1,0 +1,59 @@
+[project]
+name = "DCC-EX_py"
+version = "0.0.4"
+dynamic = [
+    "dependencies",
+]
+description = "TODO"
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = [
+    "DCC-EX_py",
+]
+license = {text = "MIT License"}
+authors = [
+  {name = "Kaiden Richardson", email = "kaidencr@gmail.com"},
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+all = [
+    "DCC-EX_py[extra]",
+]
+
+extra = [
+]
+
+
+[tool]
+[tool.setuptools.packages.find]
+include = ["dcc_ex_py*"]
+exclude = ["docs*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+
+[tool.flake8]
+exclude = [
+    "docs",
+]
+max-line-length = 200
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_loop = "function"  # Explicitly set loop scope
+
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
