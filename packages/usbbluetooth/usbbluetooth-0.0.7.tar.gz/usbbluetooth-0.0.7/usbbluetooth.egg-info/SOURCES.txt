@@ -1,0 +1,17 @@
+.gitignore
+MANIFEST.in
+README.md
+meson.build
+pyproject.toml
+usbbluetooth/__init__.py
+usbbluetooth/_c_library.py
+usbbluetooth/core.py
+usbbluetooth/log.py
+usbbluetooth.egg-info/PKG-INFO
+usbbluetooth.egg-info/SOURCES.txt
+usbbluetooth.egg-info/dependency_links.txt
+usbbluetooth.egg-info/top_level.txt
+usbbluetooth/lib/__init__.py
+usbbluetooth/lib/libusbbluetooth.dll
+usbbluetooth/lib/libusbbluetooth.dylib
+usbbluetooth/lib/libusbbluetooth.so
