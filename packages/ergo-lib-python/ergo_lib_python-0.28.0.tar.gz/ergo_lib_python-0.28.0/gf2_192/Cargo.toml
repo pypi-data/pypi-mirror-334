@@ -1,0 +1,20 @@
+[package]
+name = "gf2_192"
+version = "0.28.0"
+license = "CC0-1.0"
+authors = ["Timothy Ling (@kettlebell)"]
+description = "Arithmetic operations and polynomial interpolation over Galois fields GF(2^192)"
+repository.workspace = true
+edition.workspace = true
+
+[dependencies]
+derive_more = { workspace = true }
+thiserror = { workspace = true }
+proptest-derive = { workspace = true, optional = true }
+proptest = { workspace = true, optional = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+
+[features]
+arbitrary = ["proptest", "proptest-derive"]

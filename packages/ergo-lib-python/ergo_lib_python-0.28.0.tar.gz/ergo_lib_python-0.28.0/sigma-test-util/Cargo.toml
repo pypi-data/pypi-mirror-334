@@ -1,0 +1,15 @@
+[package]
+name = "sigma-test-util"
+version = "0.3.0"
+license = "CC0-1.0"
+authors = ["Denys Zadorozhnyi <denys@zadorozhnyi.com>"]
+repository.workspace = true
+edition.workspace = true
+description = "Test utilities for Ergo"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+proptest = { workspace = true }
+[dev-dependencies]

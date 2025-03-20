@@ -1,0 +1,14 @@
+[package]
+name = "sigma-util"
+version = "0.18.0"
+license = "CC0-1.0"
+authors = ["Denys Zadorozhnyi <denys@zadorozhnyi.com>"]
+repository.workspace = true
+edition.workspace = true
+description = "Ergo primitives"
+
+[dependencies]
+blake2 = { workspace = true }
+sha2 = { workspace = true }
+
+[dev-dependencies]

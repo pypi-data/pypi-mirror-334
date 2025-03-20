@@ -1,0 +1,88 @@
+[package]
+name = "ergo-lib"
+version = "0.28.0"
+license = "CC0-1.0"
+authors = ["Denys Zadorozhnyi <denys@zadorozhnyi.com>"]
+repository.workspace = true
+edition.workspace = true
+description = "ErgoTree interpreter and wallet-like features for Ergo"
+exclude = ["proptest-regressions/*"]
+readme = "README.md"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+sigma-ser = { workspace = true }
+sigma-util = { workspace = true }
+ergo-chain-types = { workspace = true }
+ergotree-ir = { workspace = true }
+ergotree-interpreter = { workspace = true }
+ergo-nipopow = { workspace = true, optional = true }
+ergoscript-compiler = { workspace = true, optional = true }
+ergo-merkle-tree = { workspace = true, optional = true }
+ergo-rest = { workspace = true, optional = true }
+indexmap = { workspace = true }
+base16 = { workspace = true }
+serde = { workspace = true, optional = true }
+serde_json = { workspace = true, optional = true }
+thiserror = { workspace = true }
+derive_more = { workspace = true }
+bounded-vec = { workspace = true }
+proptest-derive = { workspace = true, optional = true }
+k256 = { workspace = true }
+sha2 = { workspace = true }
+hmac = { version = "0.12" }
+pbkdf2 = "0.11"
+rand = { workspace = true, optional = true }
+bitvec = { workspace = true, optional = true }
+unicode-normalization = { version = "0.1.19", default-features = false }
+lazy_static = { workspace = true }
+proptest = { workspace = true, optional = true }
+serde_with = { workspace = true, optional = true }
+hashbrown = { workspace = true }
+
+
+[features]
+default = ["std", "json", "nipopow", "merkle"]
+std = ["rand", "ergotree-ir/std", "ergotree-interpreter/std"]
+json = [
+    "serde",
+    "serde_json",
+    "serde_with",
+    "bounded-vec/serde",
+    "ergotree-ir/json",
+    "ergotree-interpreter/json",
+    "ergo-merkle-tree?/json",
+]
+compiler = ["ergoscript-compiler"]
+arbitrary = [
+    "std",
+    "proptest",
+    "proptest-derive",
+    "ergotree-ir/arbitrary",
+    "ergo-chain-types/arbitrary",
+    "ergotree-interpreter/arbitrary",
+]
+merkle = ["ergo-merkle-tree"]
+nipopow = ["ergo-nipopow"]
+mnemonic_gen = ["bitvec", "rand"]
+rest = ["ergo-rest"]
+
+[dev-dependencies]
+wasm-bindgen-test = { workspace = true }
+ergotree-ir = { workspace = true, features = ["arbitrary"] }
+ergotree-interpreter = { workspace = true, features = ["arbitrary"] }
+ergo-merkle-tree = { workspace = true, features = ["arbitrary"] }
+sigma-test-util = { workspace = true }
+pretty_assertions = { workspace = true }
+bs58 = { workspace = true }
+expect-test = { workspace = true }
+
+
+# docs.rs-specific configuration
+[package.metadata.docs.rs]
+# document all features
+all-features = true
+# enable docsrs flag, which lets us enable doc_auto_cfg to mark feature-gated functionality in documentation
+rustdoc-args = ["--cfg", "docsrs"]
