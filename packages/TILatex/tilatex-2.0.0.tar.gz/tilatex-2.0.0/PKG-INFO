@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: TILatex
+Version: 2.0.0
+Summary: Tex generation for tables and images
+Author-email: bdmpea <eakravtsova_1@edu.hse.ru>
+Project-URL: Homepage, https://github.com/bdmpea/python_2025/
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Provides-Extra: dev

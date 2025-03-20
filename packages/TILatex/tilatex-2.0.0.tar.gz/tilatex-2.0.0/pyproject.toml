@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["TILatex"]
+package-dir = { "TILatex" = "TILatex" }
+
+[project.urls]
+Homepage = "https://github.com/bdmpea/python_2025/"
+
+[project]
+name = "TILatex"
+version = "2.0.0"
+authors = [
+  { name="bdmpea", email="eakravtsova_1@edu.hse.ru" },
+]
+description = "Tex generation for tables and images"
+requires-python = ">=3.6"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+
