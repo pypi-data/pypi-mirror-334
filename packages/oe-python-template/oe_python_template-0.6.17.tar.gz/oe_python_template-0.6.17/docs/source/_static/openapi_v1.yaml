@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/bin/oe-python-template", line 4, in <module>
+    from oe_python_template.cli import cli
+  File "/Users/helmut/Code/oe-python-template/src/oe_python_template/cli.py", line 7, in <module>
+    import typer
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/typer/__init__.py", line 29, in <module>
+    from .main import Typer as Typer
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/typer/main.py", line 21, in <module>
+    from .core import (
+    ...<6 lines>...
+    )
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/typer/core.py", line 36, in <module>
+    from . import rich_utils
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/typer/rich_utils.py", line 14, in <module>
+    from rich.columns import Columns
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/rich/columns.py", line 7, in <module>
+    from .console import Console, ConsoleOptions, RenderableType, RenderResult
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/rich/console.py", line 59, in <module>
+    from .pretty import Pretty, is_expandable
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/rich/pretty.py", line 33, in <module>
+    import attr as _attr_module
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/attr/__init__.py", line 10, in <module>
+    from . import converters, exceptions, filters, setters, validators
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/attr/converters.py", line 10, in <module>
+    from ._make import NOTHING, Converter, Factory, pipe
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/attr/_make.py", line 21, in <module>
+    from . import _compat, _config, setters
+  File "/Users/helmut/Code/oe-python-template/.nox/docs-3-13/lib/python3.13/site-packages/attr/setters.py", line 8, in <module>
+    from .exceptions import FrozenAttributeError
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1118, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1218, in get_data
+KeyboardInterrupt
