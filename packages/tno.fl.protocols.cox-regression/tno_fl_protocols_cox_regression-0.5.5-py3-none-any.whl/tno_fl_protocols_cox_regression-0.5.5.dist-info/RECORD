@@ -1,0 +1,17 @@
+tno/fl/protocols/cox_regression/__init__.py,sha256=ze8XNicVJdjNImhGN_EDFmoq938S0Q8xE70RIJMZLKw,343
+tno/fl/protocols/cox_regression/client.py,sha256=qQ1sK6UMSTaihKhUAbFOn_yh82AtnRHGX8wsAdsXi-4,7137
+tno/fl/protocols/cox_regression/msg_ids.py,sha256=nkBYTpirkBl4nwW6xGwblerlkPuk-k90_mZbCs0socs,173
+tno/fl/protocols/cox_regression/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tno/fl/protocols/cox_regression/schoenfeld_residuals.py,sha256=LO3hk5QLXVU3Qvw7YkxGstC1j4E0Vsp3ZHMvPdfnLwA,6565
+tno/fl/protocols/cox_regression/server.py,sha256=En7NHCXzVv9kvGePqOt12FSHbWfDxKBSFIw0TuPa6ok,3228
+tno/fl/protocols/cox_regression/survival_stacking.py,sha256=4MfXMxwPb8OViibn-tM3hCpEKI8TsijBcIa2jZ4TQxA,10636
+tno/fl/protocols/cox_regression/tests/script_schoenfeld_residuals.py,sha256=OuvZ95mlx7DwLg9LkxTkWzPZrpanV9Q6kKxnP5qNceE,4007
+tno/fl/protocols/cox_regression/tests/test_protocol.py,sha256=k7Hq40hCmXARdSKJFSuLjNUuF4CNeEu_6b5xVornEPg,2325
+tno/fl/protocols/cox_regression/tests/test_schoenfeld_residuals.py,sha256=loHonGi_ZroIDw0sj1gq8f5EDaGssLtiYtvQkf651wg,550
+tno/fl/protocols/cox_regression/tests/test_stacking.py,sha256=rMKRkrlU6Ri4AcIsbrvulPjtSdOIAWQJfbFC5UhhS3c,10184
+tno/fl/protocols/cox_regression/tests/test_statistics.py,sha256=MGNe7pas1_U3zs8hoCZymFgsn64Yw_7stl5zMvtBwGg,3166
+tno_fl_protocols_cox_regression-0.5.5.dist-info/LICENSE,sha256=lJVJbM2vEn7lOak4GzPNab6ff_WRzAzsBm9lD4f2qHw,10991
+tno_fl_protocols_cox_regression-0.5.5.dist-info/METADATA,sha256=M4nwSNOJK6olrcpIknoYPnspjo4aUaGFJH_TA-Ad_n0,14756
+tno_fl_protocols_cox_regression-0.5.5.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+tno_fl_protocols_cox_regression-0.5.5.dist-info/top_level.txt,sha256=7cHKx5j6ibiq14EYKPAhHk_NqB8u-nPUjh5R4TDqpHo,4
+tno_fl_protocols_cox_regression-0.5.5.dist-info/RECORD,,
