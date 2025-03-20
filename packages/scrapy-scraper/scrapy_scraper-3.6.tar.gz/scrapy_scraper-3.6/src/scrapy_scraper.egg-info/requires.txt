@@ -1,0 +1,9 @@
+beautifulsoup4>=4.12.3
+bot-safe-agents>=1.0
+colorama>=0.4.6
+jsbeautifier>=1.14.11
+playwright>=1.49.0
+scrapy>=2.12.0
+scrapy-playwright>=0.0.42
+termcolor>=2.4.0
+tldextract>=3.6.0

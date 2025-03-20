@@ -1,0 +1,2 @@
+[console_scripts]
+scrapy-scraper = scrapy_scraper.main:main
