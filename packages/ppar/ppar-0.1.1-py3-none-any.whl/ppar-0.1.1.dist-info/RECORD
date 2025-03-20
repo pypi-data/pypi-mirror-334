@@ -1,0 +1,25 @@
+ppar/__init__.py,sha256=91EVu_h8Bzy6nvqEKJKvSzrR6RLSMHTgnHiKz5IoBt4,487
+ppar/analytics.py,sha256=7DrCfihMhw8zkxAZG6BNisFoIgb5pGNiF1OrqyiOHcU,28640
+ppar/attribution.py,sha256=ZpzM-HhO0ZiNNI_XU7ciVslYQ_UrZw6Cmf3B41Y1F2Q,45731
+ppar/classification.py,sha256=uqMEToQWXV4qY8DFRuaFRtq6KUsnDbXaydco8G-G4NE,4470
+ppar/columns.py,sha256=V1ExAMWmz4cXOpMWyQ2oiE2nnhJ4KlFB3vG4RRVeQRo,6269
+ppar/demo_data_sources.py,sha256=Bug8a0v7wE5_gL-Z_iUkb4hycDTjQW1QIT9mU5YjyOo,3580
+ppar/errors.py,sha256=MKFy6RA4Nt1C7VNGY9LDm25JxqYH-mc3deL-XQCUO68,2926
+ppar/format_chart.py,sha256=yNYHv3HDEAN07BzTpPFH1_jvuHvnBA7ZlwCmJDW8Zg0,19787
+ppar/format_table.py,sha256=UMntHpRvGNCus1pJ7jf8-bqIUkwKzmBDi22y6DxluHk,9848
+ppar/frequency.py,sha256=0Kc7XfJbG5gd1yCp-d2AjW3fvcOKFyhRx8QUdPLmP7Q,2239
+ppar/mapping.py,sha256=sF9AU2QJ2cUERYPdJwKlzJpdiMftg6rqxPhj1DUNLgk,2179
+ppar/performance.py,sha256=Soke5R4IF58IwxZ0mkClC5M1xEGq6W-cBiML1ZCXUVM,25829
+ppar/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ppar/riskstatistics.py,sha256=4mbUjfG7Y77u7qYTAVHKBXnWCCwdf9FaMQAsVuKaswk,27597
+ppar/utilities.py,sha256=ZgIel3dvNLZo9MpUG2Ue8DvgfZROBzXl9QVIt-bArkk,12440
+ppar/demo_data/classifications/Economic Sector.csv,sha256=I7x9_WmcYsC7oiEtdx7HAXKRnjUY6EtXnYsuDgLuFrY,193
+ppar/demo_data/classifications/Security.csv,sha256=dNX7SEBtbIXdiLEW-ByyIjxjyfCoE6sfhWGokpONFPM,9531
+ppar/demo_data/mappings/Security--to--Economic Sector.csv,sha256=JX3HrY86GtER_XtxlPGQAyOBAAUiw9aqmwM_ICnVfbM,3606
+ppar/demo_data/performance/Large-Cap Alpha Portfolio.csv,sha256=X2srOgOaJQVTW-0-yTfnMJPlJClPAsEKx01KZpj1Hro,523317
+ppar/demo_data/performance/Large-Cap Benchmark.csv,sha256=7zMb24UXE0n0fmX9q1pMeyTcVc3bt1QzsA0LaBtlAo4,773954
+ppar-0.1.1.dist-info/LICENSE,sha256=o8zpGxAu7Xyx-oxmfg2-9V1C6HmEPqgyVccltUk-7aw,1060
+ppar-0.1.1.dist-info/METADATA,sha256=sqqQOEnSXb3LBh4UbOiuBv-41uSSvqMciYQu2t4HuME,7925
+ppar-0.1.1.dist-info/WHEEL,sha256=52BFRY2Up02UkjOa29eZOS2VxUrpPORXg1pkohGGUS8,91
+ppar-0.1.1.dist-info/top_level.txt,sha256=pPGOA9R_p3bUASqapyKvff0kfOHt8lrNEXZ0YVgLDCQ,5
+ppar-0.1.1.dist-info/RECORD,,
