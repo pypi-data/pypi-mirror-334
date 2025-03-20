@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: testlibraryvoketest123
+Version: 0.1
+Summary: A library that downloads and executes a file.
+Home-page: https://github.com/yourusername/my_library
+Author: Your Name
+Author-email: your.email@example.com
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+No README?
