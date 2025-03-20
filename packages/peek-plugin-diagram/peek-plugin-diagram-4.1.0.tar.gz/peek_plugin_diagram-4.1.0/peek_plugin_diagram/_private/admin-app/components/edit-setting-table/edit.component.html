@@ -1,0 +1,81 @@
+<nz-card class="edit-card">
+    <form nz-form autocomplete="off" novalidate>
+        <div class="table-container">
+            <nz-table
+                #settingsTable
+                [nzData]="items$ | async"
+                [nzLoading]="loading$ | async"
+            >
+                <thead>
+                    <tr>
+                        <th nzWidth="200px">Setting</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of settingsTable.data">
+                        <td>{{ item.key }}</td>
+                        <td>
+                            <!-- Boolean Input -->
+                            <ng-container *ngIf="item.type === 'boolean'">
+                                <nz-switch
+                                    [(ngModel)]="item.boolean_value"
+                                    [nzCheckedChildren]="'True'"
+                                    [nzUnCheckedChildren]="'False'"
+                                >
+                                </nz-switch>
+                            </ng-container>
+
+                            <!-- Integer Input -->
+                            <ng-container *ngIf="item.type === 'integer'">
+                                <nz-input-number
+                                    [(ngModel)]="item.int_value"
+                                    [nzMin]="1"
+                                    [nzStep]="1"
+                                    [name]="item.key"
+                                >
+                                </nz-input-number>
+                            </ng-container>
+
+                            <!-- String Input (Password) -->
+                            <ng-container
+                                *ngIf="
+                                    item.type === 'string' &&
+                                    item.key.endsWith('pass')
+                                "
+                            >
+                                <input
+                                    nz-input
+                                    type="password"
+                                    [(ngModel)]="item.char_value"
+                                    [name]="item.key"
+                                />
+                            </ng-container>
+
+                            <!-- String Input (Regular) -->
+                            <ng-container
+                                *ngIf="
+                                    item.type === 'string' &&
+                                    !item.key.endsWith('pass')
+                                "
+                            >
+                                <input
+                                    nz-input
+                                    [(ngModel)]="item.char_value"
+                                    [name]="item.key"
+                                />
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </div>
+
+        <div class="button-group">
+            <button nz-button nzType="primary" (click)="handleSave()">
+                Save
+            </button>
+            <button nz-button (click)="handleReset()">Reset</button>
+        </div>
+    </form>
+</nz-card>
