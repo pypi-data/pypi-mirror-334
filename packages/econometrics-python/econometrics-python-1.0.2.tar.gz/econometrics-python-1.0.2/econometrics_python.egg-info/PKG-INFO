@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: econometrics-python
+Version: 1.0.2
+Summary: Package for econometric.
+Home-page: https://github.com/Trantamming/econometrics
+Author: Trần Minh Tâm
+Author-email: tam.ming.zhan@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Econometrics 
+
+## Author : Tran Minh Tam
+
+## Installation
+
+You can install the package via pip: 
+```
+pip install econometrics_python
+```
+
+## Linear Regression
+
+A simple econometrics package for linear regression and plotting.
+
+
+### Run with the package Linear Regression
+```python
+python LinearRegression/run_regression.py linear_regression.csv
+
+hoặc python -m LinearRegression.run_regression linear_regression.csv      
+```
+
+### To get the values of the model's parameters
+``` python 
+import statsmodels.api as sm
+import pandas as pd
+
+# Giả sử bạn có một DataFrame data với cột 'X' và 'Y'
+data = pd.read_csv("linear_regression.csv", sep=';')  # Đọc dữ liệu từ CSV
+X = data['X']
+y = data['Y']
+
+# Thêm một cột intercept (hệ số tự do) vào X
+X = sm.add_constant(X)
+
+# Huấn luyện mô hình OLS
+model = sm.OLS(y, X).fit()
+
+# Trích xuất các giá trị từ kết quả mô hình
+print(model.summary())  # Hiển thị tóm tắt kết quả
+
+# Truy xuất các giá trị cụ thể
+slope = model.params[1]  # Hệ số góc (slope)
+intercept = model.params[0]  # Hệ số chặn (intercept)
+r_squared = model.rsquared  # R-squared
+p_values = model.pvalues  # P-values của các hệ số
+
+# Hiển thị các giá trị trích xuất
+print(f"Slope: {slope}")
+print(f"Intercept: {intercept}")
+print(f"R-squared: {r_squared}")
+print(f"P-values: {p_values}")
+
+```
+
+## Multiple Linear Regression
+### Run with the package Multiple Linear Regression
+```python
+
+python MultipleRegression/run_regression.py <data_file.csv> <target_column_name>
+
+Example:
+python MultipleRegression/run_regression.py du_lieu_2_bien_doc_lap.csv Giá
+```
+
+## Time Series Regression
+
+### Run TSR with LSTM model
+```python
+Chạy câu lệnh : python TimeSeriesRegression\run_lstm.py time_series_data.csv (Bạn thay tên time_series_data.csv bằng tên file data của bạn nhé!)
+``` 
+
+
+

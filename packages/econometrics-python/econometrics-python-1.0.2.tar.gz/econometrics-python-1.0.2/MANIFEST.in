@@ -1,0 +1,28 @@
+# Bao gồm tất cả các tệp Python trong các thư mục và tests
+include LinearRegression/*.py
+include tests_LR/*.py
+include MultipleRegression/*.py
+include tests_MR/*.py
+include TimeSeriesRegression/*.py
+include tests_TSR/*.py
+
+# Bao gồm tệp dữ liệu trong thư mục gốc
+include linear_regression.csv
+include du_lieu_3_bien_doc_lap.csv
+include time_series_regression.csv
+
+# Bao gồm tệp README.md
+include README.md
+
+# Bao gồm tệp LICENSE
+include LICENSE
+
+# Bao gồm tệp yêu cầu phụ thuộc
+include requirements.txt
+
+# Bao gồm tệp cấu hình setup.py
+include setup.py
+
+# Nếu bạn có thêm các tệp tài liệu, bao gồm chúng như sau:
+# include docs/*
+
