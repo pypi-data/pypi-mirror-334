@@ -1,0 +1,198 @@
+Metadata-Version: 2.3
+Name: manim-recorder
+Version: 0.6.0
+Summary: Manim plugin for recorder
+License: MIT
+Keywords: voiceover,manim,recording,math animations
+Author: AvN Learn
+Author-email: avnlearn@gmail.com
+Requires-Python: >=3.9,<=3.13.2
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Multimedia :: Sound/Audio :: Capture/Recording
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Provides-Extra: all
+Provides-Extra: blank
+Provides-Extra: gtts
+Provides-Extra: gui-recorder
+Requires-Dist: PyAudio (>=0.2.14,<0.3.0) ; extra == "gui-recorder" or extra == "all"
+Requires-Dist: gTTS (>=2.2.4,<3.0.0) ; extra == "gtts" or extra == "all"
+Requires-Dist: manim
+Requires-Dist: mutagen (>=1.47.0,<2.0.0)
+Requires-Dist: pydub (>=0.25.1,<0.26.0)
+Requires-Dist: pyqtgraph (>=0.13.7,<0.14.0) ; extra == "gui-recorder"
+Requires-Dist: pyside6 (>=6.7.2,<7.0.0) ; extra == "gui-recorder"
+Requires-Dist: sox (>=1.5.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Manim Recorder
+
+## Installation
+
+### Blank Audio
+```bash
+pip install "manim-recorder[blank]"
+```
+### Audio Recording
+```bash
+pip install "manim-recorder[gui_recorder]"
+```
+
+### GTTs
+```bash
+pip install "manim-recorder[gTTS]"
+```
+
+### All
+```bash
+pip install manim-recorder
+```
+
+## GUI (Using PySide6)
+
+![GUI Recorder 1](https://github.com/avnlearn/manim-recorder/blob/main/assets/GUI%20recording_001-0.2.5.png?raw=true)
+
+![GUI Recorder 1](https://github.com/avnlearn/manim-recorder/blob/main/assets/GUI%20recording_002-0.2.5.png?raw=true)
+
+![GUI Recorder 1](https://github.com/avnlearn/manim-recorder/blob/main/assets/GUI%20recording_003-0.2.5.png?raw=true)
+
+```python
+from manim import *
+# from manim_recorder import VoiceoverScene
+from manim_recorder.voiceover_scene import SoundScene
+# from manim_recorder.services.recorder import RecorderService
+from manim_recorder.recorder.gui import RecorderService
+
+
+class VoiceRecorder(SoundScene):
+    def construct(self):
+        self.set_audio_service(
+            RecorderService()
+        )
+
+        circle = Circle()
+        square = Square().shift(2 * RIGHT)
+
+        with self.voiceover(text="This circle is drawn as I speak.") as tracker:
+            self.play(Create(circle), run_time=tracker.duration)
+
+        with self.voiceover(text="Let's shift it to the left 2 units.") as tracker:
+            self.play(circle.animate.shift(2 * LEFT),
+                      run_time=tracker.duration)
+
+        with self.voiceover(text="Thank you for watching.") as tracker:
+            self.play(Uncreate(circle))
+
+        self.wait()
+
+```
+
+## CLI (Pynput)
+
+```python
+from manim import *
+# from manim_recorder import VoiceoverScene
+from manim_recorder.voiceover_scene import SoundScene
+# from manim_recorder.services.recorder import RecorderService
+from manim_recorder.recorder.pynput import RecorderService
+from pathlib import Path
+
+
+class VoiceRecorder(SoundScene):
+    def construct(self):
+        self.set_audio_service(
+            RecorderService(
+                device_index=0,
+                # cache_dir=Path(
+                #     config.media_dir + "/voiceovers/" + self.__class__.__name__.lower()
+                # ),
+            )
+        )
+
+        circle = Circle()
+        square = Square().shift(2 * RIGHT)
+        with self.voiceover(text="This circle is drawn as I speak.") as tracker:
+            self.play(Create(circle), run_time=tracker.duration)
+
+        with self.voiceover(text="Let's shift it to the left 2 units.") as tracker:
+            self.play(circle.animate.shift(2 * LEFT),
+                      run_time=tracker.duration)
+
+        with self.voiceover(text="Thank you for watching.") as tracker:
+            self.play(Uncreate(circle))
+
+        self.wait()
+```
+
+## Termux Cli
+
+```python
+from manim import *
+from manim_recorder.voiceover_scene import SoundScene
+from manim_recorder.recorder.termux import RecorderService
+from pathlib import Path
+
+
+class Recordering(SoundScene):
+    def construct(self):
+        self.set_speech_service(
+            RecorderService(
+            )
+        )
+
+        circle = Circle()
+        square = Square().shift(2 * RIGHT)
+        with self.voiceover(text="This circle is drawn as I speak.") as tracker:
+            self.play(Create(circle), run_time=tracker.duration)
+
+        # with self.voiceover("This circle is drawn as I speak.") as tracker:
+        #     self.safe_wait(tracker.duration)
+
+        with self.voiceover(text="Let's shift it to the left 2 units.") as tracker:
+            self.play(circle.animate.shift(2 * LEFT),
+                      run_time=tracker.duration)
+
+        with self.voiceover(text="Thank you for watching."):
+            self.play(Uncreate(circle))
+
+        self.wait()
+```
+
+## Blank Voice
+
+```python
+import pprint, json
+from manim import *
+import pathlib
+from manim_recorder.voiceover_scene import SoundScene
+from manim_recorder.service.blank import BlankService
+
+
+class Example_Without_Wait(SoundScene):
+    def construct(self):
+        self.set_audio_service(BlankService())
+        config.disable_caching = True
+        circle = Circle()
+        square = Square().shift(2 * RIGHT)
+        self.play_voiceover(circle, subcaption="Create Circle")
+        self.wait_voiceover("move to circle")
+        self.play(circle.animate.shift(2 * RIGHT))
+        self.play_voiceover(
+            circle.animate.shift(2 * LEFT),
+            subcaption="two unit",
+        )
+        self.play_voiceover(Uncreate(circle), subcaption="Thank you!")
+```
+

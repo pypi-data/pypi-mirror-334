@@ -1,0 +1,24 @@
+[
+  {
+    "sfx_name": "typewriter.mp3",
+    "start_time": 133,
+    "run_time": [[867], [1802], [2867], [3867]]
+  },
+  {
+    "info": "Digital Typing Low",
+    "sfx_name": "ui-data-loading-sound-effect.mp3",
+    "start_time": 216,
+    "run_time": [[1000], [2500]]
+  },
+  {
+    "info": "Digital Typing High",
+    "sfx_name": "ui-data-loading-sound-effect.mp3",
+    "start_time": 7284,
+    "run_time": [[8400, 9400]]
+  },
+  {
+    "sfx_name": "sound-5.mp3",
+    "start_time": 26,
+    "end_time": 948
+  }
+]

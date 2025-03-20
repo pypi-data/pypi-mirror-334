@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "manim-recorder"
+version = "0.6.0"
+description = "Manim plugin for recorder"
+authors = ["AvN Learn <avnlearn@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["voiceover", "manim", "recording", "math animations"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Multimedia :: Sound/Audio :: Capture/Recording",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<=3.13.2"
+manim = "*"
+pydub = "^0.25.1"
+sox = "^1.5.0"
+mutagen = "^1.47.0"
+PyAudio = "^0.2.14"
+pyside6 = "^6.7.2"
+pyqtgraph = "^0.13.7"
+gTTS = "^2.2.4"
+
+
+[tool.poetry.extras]
+blank = []
+gtts = ["gTTS"]
+gui_recorder = ["PyAudio", "pyside6", "pyqtgraph"]
+all = ["PyAudio", "gTTS"]
+
+[tool.poetry.plugins."manim.plugins"]
+"manim_recorder" = "manim_recorder"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
