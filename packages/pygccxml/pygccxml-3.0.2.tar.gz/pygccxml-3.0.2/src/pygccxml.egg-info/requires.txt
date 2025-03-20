@@ -1,0 +1,16 @@
+
+[:python_version < "3.10"]
+importlib-metadata>=4.6
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[examples]
+notebook
+
+[test]
+coverage
+coveralls
+pycodestyle
+pytest
