@@ -1,0 +1,96 @@
+[
+  {
+    "type": "simulated_io",
+    "id": "controller"
+  },
+  {
+    "type": "simulated_controller",
+    "id": "controller",
+    "robots": [
+      {
+        "type": "simulated_robot",
+        "id": "0@controller",
+        "initial_pose": {
+          "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "orientation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+        },
+        "tools": {
+          "Flange": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "orientation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          "tool100": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 2
+            },
+            "orientation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      {
+        "type": "simulated_robot",
+        "id": "1@controller",
+        "initial_pose": {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        "tools": {
+          "Flange": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "orientation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          "TOOL 0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 2
+            },
+            "orientation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      }
+    ]
+  }
+]
