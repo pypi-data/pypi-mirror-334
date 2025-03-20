@@ -1,0 +1,137 @@
+{
+  "predictions": [
+    {
+      "sample_id": 0,
+      "instruction": "What are the different classifications of the drug Imatinib?",
+      "input": "",
+      "prediction": "1. Imatinib is classified as a tyrosine kinase inhibitor. 2. It is used to treat certain types of cancer, most commonly chronic myeloid leukemia (CML) and gastrointestinal stromal tumors (GISTs). 3. Imatinib works by blocking the activity of specific enzymes called tyrosine kinases, which are involved in the growth and division of cancer cells. 4. Imatinib is also used to treat other types of cancer, such as acute myeloid leukemia (AML) and some cases of non-small cell lung cancer (NSCLC). 5. Imatinib is a targeted therapy, meaning it specifically targets the cancer cells, rather than the body as a whole. 6. Imatinib is a second-generation tyrosine kinase inhibitor, meaning it is more effective than the first-generation tyrosine kinase inhibitors. 7. Imatinib is a monotherapy, meaning it is used alone, rather than in",
+      "reference": "Imatinib (Gleevec/Glivec) can be classified as: 1) a tyrosine kinase inhibitor (TKI), 2) a targeted therapy, 3) an antineoplastic agent, 4) a BCR-ABL inhibitor, 5) a c-KIT inhibitor, and 6) a PDGFR inhibitor. It's also categorized by its therapeutic use for chronic myeloid leukemia (CML), gastrointestinal stromal tumors (GIST), and other rare cancers.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 9.178436756134033,
+      "tokens_per_second": 21.790202984875194,
+      "metrics": {
+        "rouge1": 0.3854166666666667,
+        "rouge2": 0.1263157894736842,
+        "rougeL": 0.21875,
+        "bleu": 0.0954454083443242
+      }
+    },
+    {
+      "sample_id": 1,
+      "instruction": "Describe the mechanism of action for metformin.",
+      "input": "",
+      "prediction": "Metformin is a medication used to treat type 2 diabetes. It works by decreasing glucose production in the liver and increasing insulin sensitivity. Here's a step-by-step explanation of its mechanism of action:\n\n1. **Inhibition of AMPK**: Metformin binds to and inhibits the activity of AMP-activated protein kinase (AMPK), a key enzyme involved in cellular energy homeostasis. AMPK is activated in response to low energy levels, and it plays a crucial role in regulating glucose uptake, fatty acid oxidation, and mitochondrial biogenesis.\n\n2. **Increased glucose uptake**: By inhibiting AMPK, metformin increases the uptake of glucose by cells, particularly in skeletal muscle and adipose tissue. This is achieved through the activation of various signaling pathways that promote glucose uptake, such as the PI3K/AKT pathway.\n\n3. **Enhanced insulin sensitivity**: Metformin also increases insulin sensitivity by reducing the expression of genes involved in glucose metabolism, such as glucose transporter",
+      "reference": "Metformin decreases hepatic glucose production through inhibition of the mitochondrial respiratory chain (complex I) and activation of AMPK (AMP-activated protein kinase). This leads to reduced gluconeogenesis and glycogenolysis. It also increases peripheral glucose uptake in skeletal muscle, reduces intestinal glucose absorption, and improves insulin sensitivity by increasing insulin receptor tyrosine kinase activity and insulin receptor expression.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 5.859004020690918,
+      "tokens_per_second": 34.13549458128127,
+      "metrics": {
+        "rouge1": 0.3864734299516908,
+        "rouge2": 0.13658536585365855,
+        "rougeL": 0.2705314009661836,
+        "bleu": 0.021238187476857507
+      }
+    },
+    {
+      "sample_id": 2,
+      "instruction": "What are the pharmacokinetic properties of atorvastatin?",
+      "input": "",
+      "prediction": "1. Atorvastatin is a statin medication that belongs to the class of HMG-CoA reductase inhibitors. It is a lipophilic compound that is highly soluble in lipids. 2. The pharmacokinetic properties of atorvastatin include: a. Absorption: Atorvastatin is highly soluble in lipids, which allows it to be easily absorbed from the gastrointestinal tract. b. Distribution: Atorvastatin is highly lipophilic, which allows it to be distributed throughout the body. c. Metabolism: Atorvastatin is metabolized by the liver enzyme CYP3A4. d. Elimination: Atorvastatin is primarily eliminated from the body through the bile and urine. e. Half-life: Atorvastatin has a long half-life, which is approximately 19 hours. f. Protein binding: Atorvastatin has low protein binding, which means it is",
+      "reference": "Atorvastatin has oral bioavailability of approximately 14%, high protein binding (>98%), extensive first-pass metabolism in the liver via CYP3A4, and is primarily eliminated through biliary excretion. Its mean plasma elimination half-life is approximately 14 hours, but the inhibitory effect on HMG-CoA reductase lasts 20-30 hours due to active metabolites. It is best absorbed under fasting conditions and has dose-proportional pharmacokinetics.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 5.858248233795166,
+      "tokens_per_second": 34.13989848471024,
+      "metrics": {
+        "rouge1": 0.34972677595628415,
+        "rouge2": 0.11049723756906078,
+        "rougeL": 0.18579234972677597,
+        "bleu": 0.021425209751347412
+      }
+    },
+    {
+      "sample_id": 3,
+      "instruction": "Describe the chemical structure of sildenafil.",
+      "input": "",
+      "prediction": "Sildenafil is a phosphodiesterase type 5 (PDE5) inhibitor, which is a class of drugs used to treat erectile dysfunction (ED). The chemical structure of sildenafil is as follows:\n\nSildenafil is a white crystalline solid with a molecular formula of C21H24N2O3P. Its chemical structure consists of a central pyridine ring, which is fused to a benzene ring. The pyridine ring is substituted with a 4-methoxyphenyl group, which is attached to the nitrogen atom. The benzene ring is attached to the nitrogen atom through a methylene group.\n\nThe molecular structure of sildenafil can be represented as follows:\n\nH3C-N=C1-C2-C3-C4-C5-C6-C7-C8-C9-C10-C11-C12\n\nIn this structure, the pyridine ring is the central ring, and the benzene ring is attached to the nitrogen atom. The 4-methoxyphen",
+      "reference": "Sildenafil (C22H30N6O4S) is a pyrazolopyrimidinone derivative. Its chemical structure consists of a pyrazolopyrimidinone core with a methylpiperazine ring, a sulfonamide group, and an ethoxy group. The IUPAC name is 5-{2-ethoxy-5-[(4-methylpiperazin-1-yl)sulfonyl]phenyl}-1-methyl-3-propyl-1,6-dihydro-7H-pyrazolo[4,3-d]pyrimidin-7-one.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 5.776232957839966,
+      "tokens_per_second": 34.624642298843575,
+      "metrics": {
+        "rouge1": 0.2245989304812834,
+        "rouge2": 0.08648648648648649,
+        "rougeL": 0.1925133689839572,
+        "bleu": 0.07176514303588837
+      }
+    },
+    {
+      "sample_id": 4,
+      "instruction": "What clinical trials have been conducted for the drug pembrolizumab?",
+      "input": "",
+      "prediction": "1.  **Pembrolizumab (Keytruda)**: Pembrolizumab is a monoclonal antibody that targets the PD-1 protein, which is involved in the regulation of the immune system. It is used to treat various types of cancer, including melanoma, lung cancer, and head and neck cancer. Clinical trials have been conducted to evaluate the efficacy and safety of pembrolizumab in these cancers. For example, the KEYTRUDA clinical trial program includes several Phase III trials, including KEYTRUDA-KEYT-101, which was approved in 2017 for the treatment of melanoma. The KEYTRUDA-KEYT-101 trial was conducted in 2017-2018 and demonstrated that pembrolizumab was effective in treating patients with advanced melanoma. 2.  **Pembrolizumab (Keytruda) and CAR-T cell therapy**: Pembrolizumab has also been investigated in combination",
+      "reference": "Key clinical trials for pembrolizumab include KEYNOTE-001 (first-in-human study), KEYNOTE-006 (melanoma), KEYNOTE-024 and KEYNOTE-042 (first-line NSCLC), KEYNOTE-189 (non-squamous NSCLC), KEYNOTE-407 (squamous NSCLC), KEYNOTE-048 (head and neck cancer), KEYNOTE-057 (bladder cancer), KEYNOTE-181 (esophageal cancer), KEYNOTE-426 (renal cell carcinoma), and KEYNOTE-522 (triple-negative breast cancer). These trials established its efficacy across multiple cancer types, leading to numerous FDA approvals.",
+      "tokens_generated": 200,
+      "generation_time_seconds": 5.7334678173065186,
+      "tokens_per_second": 34.88290269918293,
+      "metrics": {
+        "rouge1": 0.23834196891191706,
+        "rouge2": 0.0418848167539267,
+        "rougeL": 0.12435233160621764,
+        "bleu": 0.03010404963279434
+      }
+    }
+  ],
+  "metrics": {
+    "rouge1": [
+      0.3854166666666667,
+      0.3864734299516908,
+      0.34972677595628415,
+      0.2245989304812834,
+      0.23834196891191706
+    ],
+    "rouge2": [
+      0.1263157894736842,
+      0.13658536585365855,
+      0.11049723756906078,
+      0.08648648648648649,
+      0.0418848167539267
+    ],
+    "rougeL": [
+      0.21875,
+      0.2705314009661836,
+      0.18579234972677597,
+      0.1925133689839572,
+      0.12435233160621764
+    ],
+    "bleu": [
+      0.0954454083443242,
+      0.021238187476857507,
+      0.021425209751347412,
+      0.07176514303588837,
+      0.03010404963279434
+    ],
+    "generation_time": [
+      9.178436756134033,
+      5.859004020690918,
+      5.858248233795166,
+      5.776232957839966,
+      5.7334678173065186
+    ]
+  },
+  "summary": {
+    "rouge1": 0.31691155439356844,
+    "rouge2": 0.10035393922736333,
+    "rougeL": 0.1983878902566269,
+    "bleu": 0.04799559964824236,
+    "avg_tokens_per_second": 31.91462820977864,
+    "avg_generation_time": 6.48107795715332,
+    "total_samples": 5
+  },
+  "config": {
+    "model_path": "./fine_tuned_model",
+    "evaluation_file": "evaluation_dataset.jsonl",
+    "device": "mps",
+    "max_new_tokens": 200,
+    "num_samples": 5
+  }
+}
