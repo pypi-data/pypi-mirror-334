@@ -1,0 +1,9 @@
+*pycache*
+*egg-info*
+.vscode/
+.eggs/
+build/
+dist/
+*ipynb_checkpoints*
+examples/data/*
+.DS_Store
