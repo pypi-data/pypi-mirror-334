@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "janito"
+version = "0.11.0" 
+description = "Janito CLI tool"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "João Pinto", email = "lamego.pinto@gmail.com"}
+]
+urls = {Homepage = "https://github.com/joaompinto/janito"}
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "claudine>=0.1.0",
+]
+
+[project.scripts]
+janito = "janito.__main__:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["janito"]
+
+[tool.hatch.build.targets.sdist]
+include = ["janito", "README.md"]
+
+[tool.hatch.build.force-include]
+"janito/data" = "janito/data"
