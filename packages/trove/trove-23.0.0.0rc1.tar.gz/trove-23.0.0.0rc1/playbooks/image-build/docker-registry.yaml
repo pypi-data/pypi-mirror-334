@@ -1,0 +1,62 @@
+- hosts: all
+  vars:
+    ansible_python_interpreter: "/tmp/trove-virtualenv/bin/python"
+  tasks:
+    - name: install requests for community.docker collection
+      command:
+        cmd: /tmp/trove-virtualenv/bin/python -m pip install -v requests
+
+    - name: Install docker
+      become: true
+      package:
+        name: docker.io
+        state: present
+
+    - name: Start docker
+      become: true
+      systemd:
+        name: docker.io
+        daemon_reload: true
+
+    - name: Login to quay.io
+      become: true
+      docker_login:
+        registry: quay.io
+        username: "{{ trove_quay_io_creds.username | trim }}"
+        password: "{{ trove_quay_io_creds.password | trim }}"
+
+    # sync images to quay.io to avoid docker pull rate limit.
+    - name: retag and push images
+      become: true
+      community.docker.docker_image:
+        name: "{{ item.source }}"
+        repository: "quay.io/openstack.trove/{{ item.dest }}"
+        tag: "{{ item.tag }}"
+        push: true
+        force_tag: true
+        source: pull
+      loop:
+        - { source: "ubuntu", dest: "ubuntu", tag: "20.04" }
+        - { source: "registry", dest: "registry", tag: "2" }
+        - { source: "mysql", dest: "mysql", tag: "5.7" }
+        - { source: "mysql", dest: "mysql", tag: "8.0" }
+        - { source: "mariadb", dest: "mariadb", tag: "10.4" }
+        - { source: "postgres", dest: "postgres", tag: "12" }
+
+    - name: build and push trove backup images
+      become: true
+      community.docker.docker_image:
+        build:
+          path: "{{ ansible_user_dir }}/src/opendev.org/openstack/trove/backup"
+          args:
+            DATASTORE: "{{ item.datastore }}"
+            DATASTORE_VERSION: "{{ item.version }}"
+        name: "quay.io/openstack.trove/{{ item.backup_image }}"
+        tag: "{{ item.version }}"
+        push: true
+        source: build
+      loop:
+        - { datastore: "mysql", backup_image: "db-backup-mysql", version: "5.7" }
+        - { datastore: "mysql",  backup_image: "db-backup-mysql",version: "8.0" }
+        - { datastore: "mariadb",  backup_image: "db-backup-mariadb", version: "10.4" }
+        - { datastore: "postgresql",  backup_image: "db-backup-postgresql", version: "12" }
