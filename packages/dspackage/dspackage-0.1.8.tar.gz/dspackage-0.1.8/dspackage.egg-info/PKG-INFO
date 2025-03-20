@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: dspackage
+Version: 0.1.8
+Summary: DSpackage: A Data Science Toolkit
+Author-email: Anar <anarstanislavlavrenov@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: torchtext
+Provides-Extra: langchain-gpt
+Requires-Dist: langchain-openai; extra == "langchain-gpt"
+Provides-Extra: langchain-deepseek
+Requires-Dist: langchain-deepseek; extra == "langchain-deepseek"
+Provides-Extra: langchain-llama
+Requires-Dist: langchain-nvidia-ai-endpoints; extra == "langchain-llama"
+
+# DSPack
+
+DSPack is a deep learning toolkit that includes transformer models, tokenizers, and masking utilities.
+
+## Installation
+
+```bash
+pip install dspack
