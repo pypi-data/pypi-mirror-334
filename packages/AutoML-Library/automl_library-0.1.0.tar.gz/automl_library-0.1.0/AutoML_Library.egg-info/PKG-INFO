@@ -1,0 +1,42 @@
+Metadata-Version: 2.2
+Name: AutoML_Library
+Version: 0.1.0
+Summary: An advanced AutoML library with dataset visualization and ML algorithms.
+Home-page: https://github.com/MASKED-GOD/AutoML_Library
+Author: Arnav Upadhyay
+Author-email: upadhyayarnav2004@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: xgboost
+Requires-Dist: lightgbm
+Requires-Dist: catboost
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# AutoML_Library
+A powerful AutoML library that simplifies machine learning with:
+
+âœ… 23+ ML Algorithms  
+âœ… Advanced Features (Error Analysis, Feature Selection, Hyperparameter Tuning)  
+âœ… Easy Dataset Handling & Visualization  
+âœ… Comprehensive Error Handling for Seamless Debugging  
+
+## Installation
+```bash
+pip install AutoML_Library
