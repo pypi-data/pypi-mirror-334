@@ -1,0 +1,135 @@
+Metadata-Version: 2.3
+Name: gnukek-cli
+Version: 1.1.1
+Summary: Key Encryption Key CLI
+License: GPL-3.0-only
+Author: SweetBubaleXXX
+Author-email: 70811772+SweetBubaleXXX@users.noreply.github.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: s3
+Requires-Dist: boto3 (>=1.36.25,<2.0.0) ; extra == "s3"
+Requires-Dist: click (>=8.1.8,<9.0.0)
+Requires-Dist: dependency-injector (>=4.45.0,<5.0.0)
+Requires-Dist: gnukek (>=2.0.0,<3.0.0)
+Requires-Dist: pydantic (>=2.10.6,<3.0.0)
+Description-Content-Type: text/markdown
+
+# KEK-cli
+
+![Python](https://img.shields.io/badge/Python->=3.10-orange)
+![License](https://img.shields.io/pypi/l/gnukek)
+
+## Installation
+
+To install KEK-cli:
+
+```sh
+pip install gnukek-cli
+```
+
+To install with **S3** storage support:
+
+```sh
+pip install gnukek-cli[s3]
+```
+
+## Usage
+
+```sh
+kek --help
+```
+
+### Encrypt a file
+
+```sh
+kek encrypt <input_file> <output_file>
+```
+
+### Decrypt a file
+
+```sh
+kek decrypt <input_file> <output_file>
+```
+
+### Generate a new key pair
+
+```sh
+kek generate
+```
+
+### Import keys
+
+```sh
+kek import <key_files>...
+```
+
+### Export a key
+
+```sh
+kek export <key_id> <file>
+```
+
+### List saved keys
+
+```sh
+kek list
+```
+
+### Delete a key
+
+```sh
+kek delete <key_ids>...
+```
+
+### Sign a file
+
+```sh
+kek sign <input_file> <output_file>
+```
+
+### Verify a signature
+
+```sh
+kek verify <signature_file> <original_file>
+```
+
+### Open encrypted file in editor
+
+```sh
+kek edit <file>
+```
+
+### Upload a file to S3
+
+```sh
+kek s3-upload <input_file> <file_location>
+```
+
+### Download a file from S3
+
+```sh
+kek s3-download <file_location> <output_file>
+```
+
+> `file_location` - the S3 object location in the format `bucket_name/object_name`
+
+### Shell completions
+
+Run to install bash completions:
+
+```sh
+eval "$(_KEK_COMPLETE=bash_source kek)"
+```
+
+This line can be added to `~/.bashrc`.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
+
