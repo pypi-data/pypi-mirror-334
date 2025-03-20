@@ -1,0 +1,12 @@
+pycryptodomex>=3.9.7
+scipy>=1.5.4
+scikit-learn<1.0.0,>=0.24.0
+numpy<2,>=1.16
+tensorflow~=2.5.0
+
+[easy]
+opencv-python-headless~=4.1.2
+
+[tests]
+pytest
+mock
