@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tmplot"
+dynamic = ["version"]
+description = "Visualization of Topic Modeling Results"
+readme = "README.md"
+requires-python = ">=3.8"
+license.file = "LICENSE"
+authors = [
+  { name = "Maksim Terpilovskii", email = "maximtrp@gmail.com" },
+]
+keywords = [
+    "data science",
+    "data analytics"
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing :: General",
+]
+urls.homepage = "https://github.com/maximtrp/tmplot"
+urls.documentation = "https://tmplot.readthedocs.io/"
+
+dependencies = [
+    "numpy",
+    "seaborn",
+    "pandas",
+    "scikit-learn",
+    "scipy",
+    "altair",
+    "ipywidgets",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "coverage"]
+models = ["tomotopy>=0.8.0", "gensim", "bitermplus"]
+
+[tool.setuptools.dynamic]
+version = {attr = "tmplot.__version__"}
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"

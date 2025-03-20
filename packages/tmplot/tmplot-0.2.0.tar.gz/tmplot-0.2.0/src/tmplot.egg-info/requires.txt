@@ -1,0 +1,17 @@
+numpy
+seaborn
+pandas
+scikit-learn
+scipy
+altair
+ipywidgets
+tqdm
+
+[models]
+tomotopy>=0.8.0
+gensim
+bitermplus
+
+[test]
+pytest
+coverage
