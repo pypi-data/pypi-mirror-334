@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- KPI EMPLOYEE -->
+<record id="kpi_employee_internal_user_rule" model="ir.rule">
+    <field name="name">KPI Employee - Responsible to own data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      '|',
+      ('user_id','=',user.id),
+      ('employee_id', '=', user.employee_id.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_direct_subordinate_rule" model="ir.rule">
+    <field name="name">KPI Employee - Responsible to direct subordinate data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_direct_subordinate_group'))]" />
+    <field
+            name="domain_force"
+        >[('employee_id.parent_id','=',user.employee_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_all_subordinate_rule" model="ir.rule">
+    <field name="name">KPI Employee - Responsible to all subordinate data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_employee_direct_all_subordinate_group'))]"
+        />
+    <field name="domain_force">[('employee_id','child_of',user.employee_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_company_rule" model="ir.rule">
+    <field name="name">KPI Employee - Responsible to company data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Employee - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_company_child_group'))]" />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_all_rule" model="ir.rule">
+    <field name="name">KPI Employee - Responsible to all data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<!-- KPI EMPLOYEE APPRAISAL-->
+<record id="kpi_employee_appraisal_internal_user_rule" model="ir.rule">
+    <field name="name">KPI Employee Appraisal - Responsible to own data</field>
+    <field name="model_id" ref="model_kpi_employee_appraisal" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      '|',
+      ('user_id','=',user.id),
+      ('employee_id', '=', user.employee_id.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_appraisal_direct_subordinate_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Employee Appraisal - Responsible to direct subordinate data</field>
+    <field name="model_id" ref="model_kpi_employee_appraisal" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_employee_appraisal_direct_subordinate_group'))]"
+        />
+    <field
+            name="domain_force"
+        >[('employee_id.parent_id','=',user.employee_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_appraisal_all_subordinate_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Employee Appraisal - Responsible to all subordinate data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_employee_appraisal_direct_all_subordinate_group'))]"
+        />
+    <field name="domain_force">[('employee_id','child_of',user.employee_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_appraisal_company_rule" model="ir.rule">
+    <field name="name">KPI Employee Appraisal - Responsible to company data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_appraisal_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_appraisal_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Employee Appraisal - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_employee_appraisal_company_child_group'))]"
+        />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_employee_appraisal_all_rule" model="ir.rule">
+    <field name="name">KPI Employee Appraisal - Responsible to all data</field>
+    <field name="model_id" ref="model_kpi_employee" />
+    <field name="groups" eval="[(4, ref('kpi_employee_appraisal_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<!-- KPI DEPARTMENT -->
+<record id="kpi_department_internal_user_rule" model="ir.rule">
+    <field name="name">KPI Department - Responsible to own data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      '|',
+      ('user_id','=',user.id),
+      ('department_id', '=', user.employee_id.department_id.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_direct_subordinate_rule" model="ir.rule">
+    <field name="name">KPI Department - Responsible to direct subordinate data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('kpi_department_direct_subordinate_group'))]" />
+    <field
+            name="domain_force"
+        >[('department_id.parent_id','=',user.employee_id.department_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_all_subordinate_rule" model="ir.rule">
+    <field name="name">KPI Department - Responsible to all subordinate data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_department_direct_all_subordinate_group'))]"
+        />
+    <field
+            name="domain_force"
+        >[('department_id','child_of',user.employee_id.department_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_company_rule" model="ir.rule">
+    <field name="name">KPI Department - Responsible to company data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('kpi_department_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Department - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('kpi_department_company_child_group'))]" />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_all_rule" model="ir.rule">
+    <field name="name">KPI Department - Responsible to all data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('kpi_department_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<!-- KPI DEPARTMENT Appraisal -->
+<record id="kpi_department_appraisal_internal_user_rule" model="ir.rule">
+    <field name="name">KPI Department Appraisal - Responsible to own data</field>
+    <field name="model_id" ref="model_kpi_department" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      '|',
+      ('user_id','=',user.id),
+      ('department_id', '=', user.employee_id.department_id.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_appraisal_direct_subordinate_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Department Appraisal - Responsible to direct subordinate data</field>
+    <field name="model_id" ref="model_kpi_department_appraisal" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_department_appraisal_direct_subordinate_group'))]"
+        />
+    <field
+            name="domain_force"
+        >[('department_id.parent_id','=',user.employee_id.department_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_appraisal_all_subordinate_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Department Appraisal - Responsible to all subordinate data</field>
+    <field name="model_id" ref="model_kpi_department_appraisal" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_department_appraisal_direct_all_subordinate_group'))]"
+        />
+    <field
+            name="domain_force"
+        >[('department_id','child_of',user.employee_id.department_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_appraisal_company_rule" model="ir.rule">
+    <field name="name">KPI Department Appraisal - Responsible to company data</field>
+    <field name="model_id" ref="model_kpi_department_appraisal" />
+    <field name="groups" eval="[(4, ref('kpi_department_appraisal_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_appraisal_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >KPI Department Appraisal - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="model_kpi_department_appraisal" />
+    <field
+            name="groups"
+            eval="[(4, ref('kpi_department_appraisal_company_child_group'))]"
+        />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="kpi_department_appraisal_all_rule" model="ir.rule">
+    <field name="name">KPI Department Appraisal - Responsible to all data</field>
+    <field name="model_id" ref="model_kpi_department_appraisal" />
+    <field name="groups" eval="[(4, ref('kpi_department_appraisal_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+</odoo>

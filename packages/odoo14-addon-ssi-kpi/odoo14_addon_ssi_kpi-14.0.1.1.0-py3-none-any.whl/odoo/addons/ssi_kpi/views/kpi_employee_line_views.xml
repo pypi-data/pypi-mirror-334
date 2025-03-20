@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="kpi_employee_line_view_tree" model="ir.ui.view">
+        <field name="name">kpi.employee_line - Tree</field>
+        <field name="model">kpi.employee_line</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="kpi_item_id" />
+                <field name="weight" />
+                <field name="target" />
+                <field name="realization_method" />
+                <field name="realization" />
+                <field name="score_method" />
+                <field name="score" />
+                <field name="final_score" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="kpi_employee_line_view_form" model="ir.ui.view">
+        <field name="name">kpi.employee_line - Form</field>
+        <field name="model">kpi.employee_line</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form>
+                <header />
+                <sheet>
+                    <div name="div_smart_buttons" class="oe_right oe_button_box" />
+                    <group name="header" colspan="4" col="2">
+                        <group name="header_left" string="General" colspan="1" col="2">
+                            <field
+                                name="kpi_item_id"
+                                options="{'no_create': True, 'no_create_edit': True}"
+                            />
+                            <field name="weight" />
+                            <field
+                                name="target"
+                                attrs="{'invisible': [('score_method', '=', 'range')]}"
+                            />
+                        </group>
+                        <group
+                            name="header_center"
+                            string="Realization"
+                            colspan="1"
+                            col="2"
+                        >
+                            <field name="realization_method" />
+                            <field name="use_realization_limit" string="Use Limit" />
+                            <label
+                                for="use_realization_limit"
+                                string="Limit"
+                                attrs="{'invisible': [('use_realization_limit', '&lt;&gt;', True)]}"
+                            />
+                            <div
+                                class="d-flex"
+                                attrs="{'invisible': [('use_realization_limit', '&lt;&gt;', True)]}"
+                            >
+                                <field
+                                    name="min_realization_limit"
+                                    placeholder="Min. Value"
+                                />
+                                <span class="o_form_label mx-3">
+                                or
+                                </span>
+                                <field
+                                    name="max_realization_limit"
+                                    placeholder="Max. Value"
+                                />
+                            </div>
+                        </group>
+                        <group name="header_right" string="Scoring" colspan="1" col="2">
+                            <field name="score_method" />
+                            <field name="use_score_limit" string="Use Limit" />
+                            <label
+                                for="use_score_limit"
+                                string="Limit"
+                                attrs="{'invisible': [('use_score_limit', '&lt;&gt;', True)]}"
+                            />
+                            <div
+                                class="d-flex"
+                                attrs="{'invisible': [('use_score_limit', '&lt;&gt;', True)]}"
+                            >
+                                <field
+                                    name="min_score_limit"
+                                    placeholder="Min. Value"
+                                />
+                                <span class="o_form_label mx-3">
+                                or
+                                </span>
+                                <field
+                                    name="max_score_limit"
+                                    placeholder="Max. Value"
+                                />
+                            </div>
+                        </group>
+                        <field
+                            name="score_range_ids"
+                            attrs="{'invisible': [('score_method', '&lt;&gt;', 'range')]}"
+                        >
+                            <tree string="Score Ranges" editable="top">
+                                <field name="min_value" />
+                                <field name="max_value" />
+                                <field name="score" />
+                            </tree>
+                        </field>
+                    </group>
+                    <notebook>
+                        <page
+                            name="python"
+                            string="Python"
+                            attrs="{'invisible': [('realization_method', '&lt;&gt;', 'python')]}"
+                        >
+                            <field
+                                name="python_code"
+                                widget="ace"
+                                options="{'mode': 'python'}"
+                            />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

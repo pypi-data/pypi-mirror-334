@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<data noupdate="1">
+<!-- EMPLOYEE -->
+<record id="sequence_kpi_employee" model="ir.sequence">
+    <field name="name">KPI Employee</field>
+    <field name="code">kpi.employee</field>
+    <field name="prefix">KPI-EMP/%(range_year)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+<record id="sequence_kpi_employee_appraisal" model="ir.sequence">
+    <field name="name">KPI Employee Appraisal</field>
+    <field name="code">kpi.employee_appraisal</field>
+    <field name="prefix">APR-EMP/%(range_year)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+<!-- DEPARTMENT -->
+<record id="sequence_kpi_department" model="ir.sequence">
+    <field name="name">KPI Department</field>
+    <field name="code">kpi.department</field>
+    <field name="prefix">KPI-DEPT/%(range_year)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+<record id="sequence_kpi_department_appraisal" model="ir.sequence">
+    <field name="name">KPI Department Appraisal</field>
+    <field name="code">kpi.department_appraisal</field>
+    <field name="prefix">APR-DEPT/%(range_year)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="padding" eval="6" />
+    <field name="use_date_range" eval="1" />
+    <field eval="False" name="company_id" />
+</record>
+</data>
+</odoo>

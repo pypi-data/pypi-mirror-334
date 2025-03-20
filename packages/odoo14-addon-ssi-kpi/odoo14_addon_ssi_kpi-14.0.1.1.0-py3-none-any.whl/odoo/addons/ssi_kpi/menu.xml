@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 OpenSynergy Indonesia
+     Copyright 2024 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <menuitem
+        id="kpi_root_menu"
+        name="KPI"
+        parent="ssi_hr.menu_root_human_resource"
+        sequence="10"
+    />
+    <menuitem
+        id="kpi_appraisal_menu"
+        name="Appraisals"
+        parent="kpi_root_menu"
+        sequence="100"
+    />
+    <menuitem
+        id="kpi_configuration_menu"
+        name="KPI"
+        parent="ssi_hr.menu_human_resource_configuration"
+        sequence="2"
+    />
+</odoo>

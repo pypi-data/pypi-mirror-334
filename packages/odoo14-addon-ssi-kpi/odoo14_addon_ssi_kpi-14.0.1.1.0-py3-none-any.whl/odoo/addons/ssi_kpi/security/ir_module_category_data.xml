@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 OpenSynergy Indonesia
+     Copyright 2024 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- WORKFLOW -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_module_category" model="ir.module.category">
+    <field name="name">KPI Employee</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_module_category" />
+</record>
+
+<record id="kpi_employee_appraisal_module_category" model="ir.module.category">
+    <field name="name">KPI Employee Appraisal</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_module_category" />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_module_category" model="ir.module.category">
+    <field name="name">KPI Department</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_module_category" />
+</record>
+
+<record id="kpi_department_appraisal_module_category" model="ir.module.category">
+    <field name="name">KPI Department Appraisal</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_module_category" />
+</record>
+
+<!-- DATA OWNERSHIP -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_data_ownership_module_category" model="ir.module.category">
+    <field name="name">KPI Employee</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_data_module_category" />
+</record>
+<record
+        id="kpi_employee_appraisal_data_ownership_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">KPI Employee Appraisal</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_data_module_category" />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_data_ownership_module_category" model="ir.module.category">
+    <field name="name">KPI Department</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_data_module_category" />
+</record>
+<record
+        id="kpi_department_appraisal_data_ownership_module_category"
+        model="ir.module.category"
+    >
+    <field name="name">KPI Department Appraisal</field>
+    <field name="parent_id" ref="ssi_hr.human_resource_data_module_category" />
+</record>
+</odoo>

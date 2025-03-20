@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 OpenSynergy Indonesia
+     Copyright 2024 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!-- Configurator -->
+<record id="kpi_item_configurator_group" model="res.groups">
+    <field name="name">KPI Item Configurator</field>
+    <field
+            name="category_id"
+            ref="ssi_hr.human_resource_configurator_module_category"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<record id="kpi_template_configurator_group" model="res.groups">
+    <field name="name">KPI Template Configurator</field>
+    <field
+            name="category_id"
+            ref="ssi_hr.human_resource_configurator_module_category"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<record id="kpi_score_categ_configurator_group" model="res.groups">
+    <field name="name">KPI Score Category Configurator</field>
+    <field
+            name="category_id"
+            ref="ssi_hr.human_resource_configurator_module_category"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<record id="kpi_score_categ_range_value_configurator_group" model="res.groups">
+    <field name="name">KPI Score Category Range Value Configurator</field>
+    <field
+            name="category_id"
+            ref="ssi_hr.human_resource_configurator_module_category"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- KPI Workflow -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="kpi_employee_module_category" />
+</record>
+
+<record id="kpi_employee_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="kpi_employee_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_employee_viewer_group'))]" />
+</record>
+
+<record id="kpi_employee_validator_group" model="res.groups">
+    <field name="name">Validator</field>
+    <field name="category_id" ref="kpi_employee_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_employee_user_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="kpi_department_module_category" />
+</record>
+
+<record id="kpi_department_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="kpi_department_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_department_viewer_group'))]" />
+</record>
+
+<record id="kpi_department_validator_group" model="res.groups">
+    <field name="name">Validator</field>
+    <field name="category_id" ref="kpi_department_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_department_user_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- KPI Appraisal Workflow -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_appraisal_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="kpi_employee_appraisal_module_category" />
+</record>
+
+<record id="kpi_employee_appraisal_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="kpi_employee_appraisal_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_appraisal_viewer_group'))]"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_appraisal_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="kpi_department_appraisal_module_category" />
+</record>
+
+<record id="kpi_department_appraisal_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="kpi_department_appraisal_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_appraisal_viewer_group'))]"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- KPI Data Ownership -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_direct_subordinate_group" model="res.groups">
+    <field name="name">Direct Subordinate</field>
+    <field name="category_id" ref="kpi_employee_data_ownership_module_category" />
+</record>
+<record id="kpi_employee_direct_all_subordinate_group" model="res.groups">
+    <field name="name">All Subordinate</field>
+    <field name="category_id" ref="kpi_employee_data_ownership_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_direct_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_employee_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field name="category_id" ref="kpi_employee_data_ownership_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_direct_all_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_employee_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field name="category_id" ref="kpi_employee_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_employee_company_group'))]" />
+</record>
+
+<record id="kpi_employee_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field name="category_id" ref="kpi_employee_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_employee_company_child_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_direct_subordinate_group" model="res.groups">
+    <field name="name">Direct Subordinate</field>
+    <field name="category_id" ref="kpi_department_data_ownership_module_category" />
+</record>
+<record id="kpi_department_direct_all_subordinate_group" model="res.groups">
+    <field name="name">All Subordinate</field>
+    <field name="category_id" ref="kpi_department_data_ownership_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_direct_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_department_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field name="category_id" ref="kpi_department_data_ownership_module_category" />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_direct_all_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_department_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field name="category_id" ref="kpi_department_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_department_company_group'))]" />
+</record>
+
+<record id="kpi_department_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field name="category_id" ref="kpi_department_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('kpi_department_company_child_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- KPI Appraisal Data Ownership -->
+<!-- EMPLOYEE -->
+<record id="kpi_employee_appraisal_direct_subordinate_group" model="res.groups">
+    <field name="name">Direct Subordinate</field>
+    <field
+            name="category_id"
+            ref="kpi_employee_appraisal_data_ownership_module_category"
+        />
+</record>
+<record id="kpi_employee_appraisal_direct_all_subordinate_group" model="res.groups">
+    <field name="name">All Subordinate</field>
+    <field
+            name="category_id"
+            ref="kpi_employee_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_appraisal_direct_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_employee_appraisal_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field
+            name="category_id"
+            ref="kpi_employee_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_appraisal_direct_all_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_employee_appraisal_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field
+            name="category_id"
+            ref="kpi_employee_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_appraisal_company_group'))]"
+        />
+</record>
+
+<record id="kpi_employee_appraisal_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field
+            name="category_id"
+            ref="kpi_employee_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_employee_appraisal_company_child_group'))]"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+<!-- DEPARTMENT -->
+<record id="kpi_department_appraisal_direct_subordinate_group" model="res.groups">
+    <field name="name">Direct Subordinate</field>
+    <field
+            name="category_id"
+            ref="kpi_department_appraisal_data_ownership_module_category"
+        />
+</record>
+<record id="kpi_department_appraisal_direct_all_subordinate_group" model="res.groups">
+    <field name="name">All Subordinate</field>
+    <field
+            name="category_id"
+            ref="kpi_department_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_appraisal_direct_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_department_appraisal_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field
+            name="category_id"
+            ref="kpi_department_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_appraisal_direct_all_subordinate_group'))]"
+        />
+</record>
+<record id="kpi_department_appraisal_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field
+            name="category_id"
+            ref="kpi_department_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_appraisal_company_group'))]"
+        />
+</record>
+
+<record id="kpi_department_appraisal_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field
+            name="category_id"
+            ref="kpi_department_appraisal_data_ownership_module_category"
+        />
+    <field
+            name="implied_ids"
+            eval="[(4, ref('kpi_department_appraisal_company_child_group'))]"
+        />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+</odoo>

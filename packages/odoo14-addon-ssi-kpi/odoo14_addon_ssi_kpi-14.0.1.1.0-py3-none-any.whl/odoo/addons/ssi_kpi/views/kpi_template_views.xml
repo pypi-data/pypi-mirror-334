@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 OpenSynergy Indonesia
+     Copyright 2024 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="kpi_template_view_search" model="ir.ui.view">
+    <field name="name">kpi.template - search</field>
+    <field name="model">kpi_template</field>
+    <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="kpi_template_view_tree" model="ir.ui.view">
+    <field name="name">kpi.template - tree</field>
+    <field name="model">kpi_template</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="kpi_template_view_form" model="ir.ui.view">
+    <field name="name">kpi.template - form</field>
+    <field name="model">kpi_template</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='group_1']" position="replace">
+                <group name="header" colspan="4" col="2">
+                    <group name="header_left" colspan="1" col="2">
+                        <field name="name" />
+                        <field name="code" />
+                        <field name="active" widget="boolean_toggle" />
+                    </group>
+                    <group name="header_right" colspan="1" col="2">
+                        <field name="type" />
+                        <field name="kpi_score_categ_id" />
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="kpi" string="Kpi(s)">
+                    <field name="line_ids" />
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amount_weight" />
+                    </group>
+                </page>
+                <page name="appraisal" string="Appraisal(s)">
+                    <group name="group_appraisal_1" colspan="4" col="2">
+                        <field name="appraisal_selection_method" colspan="4" />
+                        <field
+                                name="user_ids"
+                                colspan="4"
+                                attrs="{
+                                    'invisible': [('appraisal_selection_method', '!=', 'use_user'), ('appraisal_selection_method', '!=', 'use_both')],
+                                    'required': ['|', ('appraisal_selection_method', '=', 'use_user'), ('appraisal_selection_method', '=', 'use_both')]}"
+                                widget="many2many_tags_avatar"
+                            />
+                        <field
+                                name="group_ids"
+                                colspan="4"
+                                attrs="{
+                                    'invisible': [('appraisal_selection_method', '!=', 'use_group'), ('appraisal_selection_method', '!=', 'use_both')],
+                                    'required': ['|', ('appraisal_selection_method', '=', 'use_group'), ('appraisal_selection_method', '=', 'use_both')]}"
+                                widget="many2many_tags"
+                            />
+                        <field
+                                name="python_code"
+                                colspan="4"
+                                widget="ace"
+                                attrs="{'invisible': [('appraisal_selection_method', '&lt;&gt;', 'use_python')]}"
+                            />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="kpi_template_action" model="ir.actions.act_window">
+    <field name="name">Templates</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">kpi_template</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="kpi_template_menu"
+        name="Templates"
+        parent="kpi_configuration_menu"
+        action="kpi_template_action"
+        groups="kpi_template_configurator_group"
+        sequence="2"
+    />
+</odoo>

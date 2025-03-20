@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="kpi_score_categ_view_search" model="ir.ui.view">
+    <field name="name">kpi_score_categ - search</field>
+    <field name="model">kpi_score_categ</field>
+    <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="kpi_score_categ_view_tree" model="ir.ui.view">
+    <field name="name">kpi_score_categ - tree</field>
+    <field name="model">kpi_score_categ</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="kpi_score_categ_view_form" model="ir.ui.view">
+    <field name="name">kpi_score_categ - form</field>
+    <field name="model">kpi_score_categ</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='group_1']" position="replace">
+                <group name="header" colspan="4" col="2">
+                    <group name="header_left" colspan="1" col="2">
+                        <field name="name" />
+                        <field name="code" />
+                        <field name="active" widget="boolean_toggle" />
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="range" string="Range(s)">
+                    <group>
+                        <field name="min_range_value_id" invisible="1" />
+                        <field name="max_range_value_id" invisible="1" />
+                    </group>
+                    <field name="range_ids">
+                        <tree string="Score Ranges" editable="top">
+                            <field name="min_value" string="Min. (%)" />
+                            <field name="max_value" string="Max. (%)" />
+                            <field name="categ_range_value_id" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="kpi_score_categ_action" model="ir.actions.act_window">
+    <field name="name">Score Category</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">kpi_score_categ</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="kpi_score_categ_menu"
+        name="Score Categories"
+        parent="kpi_configuration_menu"
+        action="kpi_score_categ_action"
+        groups="kpi_score_categ_configurator_group"
+        sequence="3"
+    />
+</odoo>

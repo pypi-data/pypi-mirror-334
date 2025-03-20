@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="kpi_department_apprasial_line_view_tree" model="ir.ui.view">
+        <field name="name">kpi.department_appraisal_line - Tree</field>
+        <field name="model">kpi.department_appraisal_line</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="kpi_item_id" />
+                <field name="weight" />
+                <field name="target" />
+                <field name="score_method" />
+                <field name="realization" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-success="state == 'done'"
+                    decoration-info="state == 'draft'"
+                    optional="hide"
+                />
+            </tree>
+        </field>
+    </record>
+</odoo>
