@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: grid-weights
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: sparse
+Requires-Dist: geoarrow-rust-core>=0.4.0b3
+Requires-Python: >=3.10
