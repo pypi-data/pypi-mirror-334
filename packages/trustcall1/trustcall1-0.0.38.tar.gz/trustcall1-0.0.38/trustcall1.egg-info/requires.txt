@@ -1,0 +1,4 @@
+langgraph>=0.2.25
+dydantic<1.0.0,>=0.0.8
+jsonpatch<2.0,>=1.33
+langgraph-prebuilt>=0.1.2
