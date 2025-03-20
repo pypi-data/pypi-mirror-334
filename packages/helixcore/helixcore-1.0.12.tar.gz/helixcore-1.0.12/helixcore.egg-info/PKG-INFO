@@ -1,0 +1,38 @@
+Metadata-Version: 2.2
+Name: helixcore
+Version: 1.0.12
+Summary: helixcore
+Home-page: https://github.com/icanbwell/helix-core
+Author: Imran
+Author-email: imran.qureshi@icanbwell.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fhir.resources<8,>=7.1.0
+Requires-Dist: dataclasses-json>=0.6.7
+Requires-Dist: boto3>=1.34.140
+Requires-Dist: helix.fhir.client.sdk>=3.0.27
+Requires-Dist: furl>=2.1.3
+Requires-Dist: sqlparse>=0.5.3
+Requires-Dist: pymysql>=1.1.1
+Requires-Dist: aiomysql>=0.2.0
+Requires-Dist: aiohttp>=3.11.13
+Requires-Dist: structlog>=23.1.0
+Requires-Dist: opentelemetry-api>=1.30.0
+Requires-Dist: opentelemetry-sdk>=1.30.0
+Requires-Dist: opentelemetry-exporter-otlp>=1.30.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# helixcore
