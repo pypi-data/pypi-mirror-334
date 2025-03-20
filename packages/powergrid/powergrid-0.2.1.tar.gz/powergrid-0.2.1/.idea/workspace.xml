@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c21ecbd8-8b3c-47ca-a12b-d2c6b781f0a2" name="Changes" comment="add v0.2.1 release notes">
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cameraink&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cameraink/powergrid.git&quot;,
+    &quot;accountId&quot;: &quot;7247a042-c710-4e3a-87ee-12f6a95e4759&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2tduJKLARSoK11RnWq1enQZjghx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in test_tso.py.executor": "Run",
+    "Python tests.Python tests in test_tso_finder.py.executor": "Run",
+    "Python.example_finder.executor": "Run",
+    "Python.finder.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Jupyter",
+      "Python"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/powergrid" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c21ecbd8-8b3c-47ca-a12b-d2c6b781f0a2" name="Changes" comment="" />
+      <created>1740694200066</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740694200066</updated>
+      <workItem from="1740694201103" duration="1470000" />
+      <workItem from="1740749811414" duration="5922000" />
+      <workItem from="1740793176947" duration="17812000" />
+      <workItem from="1741110856914" duration="5882000" />
+      <workItem from="1741515841343" duration="1930000" />
+      <workItem from="1741526166974" duration="8000" />
+      <workItem from="1741787946140" duration="1308000" />
+      <workItem from="1741795054643" duration="1208000" />
+      <workItem from="1742143758886" duration="4802000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1740878078844</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740878078844</updated>
+    </task>
+    <task id="LOCAL-00002" summary="improve api description">
+      <option name="closed" value="true" />
+      <created>1740878725542</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740878725542</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add 'unknown' region code example">
+      <option name="closed" value="true" />
+      <created>1740878779468</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740878779468</updated>
+    </task>
+    <task id="LOCAL-00004" summary="improve docstrings">
+      <option name="closed" value="true" />
+      <created>1740879086239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740879086239</updated>
+    </task>
+    <task id="LOCAL-00005" summary="code formatting">
+      <option name="closed" value="true" />
+      <created>1740955875331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740955875331</updated>
+    </task>
+    <task id="LOCAL-00006" summary="create module for constants">
+      <option name="closed" value="true" />
+      <created>1740958017126</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958017126</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated tso object __init__">
+      <option name="closed" value="true" />
+      <created>1740958046545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958046545</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Replace hardcoded datasource path by constants.py import">
+      <option name="closed" value="true" />
+      <created>1740958373806</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958373806</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add negative examples">
+      <option name="closed" value="true" />
+      <created>1740958388027</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958388027</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update version to v0.2.0">
+      <option name="closed" value="true" />
+      <created>1740958442746</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958442746</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add v0.2.0 changes">
+      <option name="closed" value="true" />
+      <created>1740958773939</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958773939</updated>
+    </task>
+    <task id="LOCAL-00012" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1740958802523</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1740958802523</updated>
+    </task>
+    <task id="LOCAL-00013" summary="minor change">
+      <option name="closed" value="true" />
+      <created>1741024924130</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741024924130</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add TSO and region mappings for Corsica and Germany">
+      <option name="closed" value="true" />
+      <created>1742148241909</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742148241909</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add v0.2.1 release notes">
+      <option name="closed" value="true" />
+      <created>1742160488629</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742160488629</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="improve api description" />
+    <MESSAGE value="add 'unknown' region code example" />
+    <MESSAGE value="improve docstrings" />
+    <MESSAGE value="code formatting" />
+    <MESSAGE value="create module for constants" />
+    <MESSAGE value="Updated tso object __init__" />
+    <MESSAGE value="Replace hardcoded datasource path by constants.py import" />
+    <MESSAGE value="Add negative examples" />
+    <MESSAGE value="Update version to v0.2.0" />
+    <MESSAGE value="add v0.2.0 changes" />
+    <MESSAGE value="minor change" />
+    <MESSAGE value="Add TSO and region mappings for Corsica and Germany" />
+    <MESSAGE value="add v0.2.1 release notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="add v0.2.1 release notes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/powergrid$finder.coverage" NAME="finder Coverage Results" MODIFIED="1740792601941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
+    <SUITE FILE_PATH="coverage/powergrid$.coverage" NAME=" Coverage Results" MODIFIED="1742148200751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/powergrid$example_finder.coverage" NAME="example_finder Coverage Results" MODIFIED="1740958304117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/examples" />
+  </component>
+</project>
