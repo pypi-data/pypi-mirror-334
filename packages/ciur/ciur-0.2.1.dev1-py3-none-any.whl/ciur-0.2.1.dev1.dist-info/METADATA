@@ -1,0 +1,155 @@
+Metadata-Version: 2.2
+Name: ciur
+Version: 0.2.1.dev1
+Author-email: Andrei Danciuc <python.ciur@gmail.com>
+Project-URL: Repository, https://github.com/a-da/python-ciur.git
+Requires-Python: ==3.13.2
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: cssselect==1.2.0
+Requires-Dist: html5lib==1.1
+Requires-Dist: lxml==5.3.1
+Requires-Dist: pyparsing==3.2.1
+Requires-Dist: python-dateutil==2.9.0.post0
+Requires-Dist: requests[security]==2.32.3
+Provides-Extra: dev
+Requires-Dist: bpython==0.25; extra == "dev"
+Requires-Dist: coverage==7.6.12; extra == "dev"
+Requires-Dist: lxml-stubs==0.5.1; extra == "dev"
+Requires-Dist: pyenchant==3.2.2; extra == "dev"
+Requires-Dist: pylint==3.3.4; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pytest-runner==6.0.1; extra == "dev"
+Requires-Dist: pytest-sugar==1.0.0; extra == "dev"
+Requires-Dist: pytest==8.3.4; extra == "dev"
+Requires-Dist: setuptools-lint==0.6.0; extra == "dev"
+Requires-Dist: sh==2.2.1; extra == "dev"
+Requires-Dist: sphinx==8.2.0; extra == "dev"
+Requires-Dist: twine==6.1.0; extra == "dev"
+Requires-Dist: types-html5lib==1.1.11.20241018; extra == "dev"
+Provides-Extra: pdf
+Requires-Dist: pdfminer==20191125; extra == "pdf"
+
+====
+Ciur
+====
+
+.. image:: ./docs/images/wooden-sieve-old-ancient-isolated-white-background.jpg
+   :target: https://bitbucket.org/ada/python-ciur
+   :alt: Ciur
+
+.. contents::
+
+..
+
+    *Ciur is a scrapper layer in code development*
+
+    *Ciur is a lib because it has less black magic than a framework*
+
+It exports all scrapper related code into separate layer.
+
+If you are annoyed by
+`Spaghetti code <https://en.wikipedia.org/wiki/Spaghetti_code>`_,
+sql inside php and inline css inside html
+THEN you also are annoyed by xpath/css code inside crawler.
+
+Ciur gives the taste of `Lasagna code <http://c2.com/cgi/wiki?LasagnaCode>`_
+generally by enforcing encapsulation for scrapping layer.
+
+For more information visit the
+`documentation <http://python-ciur.readthedocs.io/>`_.
+
+
+Nutshell
+========
+
+Ciur uses own DSL, here is a small example of a ``example.org.ciur`` query:
+
+.. code-block:: yaml
+
+    root `/html/body` +1
+        name `.//h1/text()` +1
+        paragraph `.//p/text()` +1
+
+This command
+
+.. code-block :: bash
+
+    $ ciur -p http://example.org -r https://bitbucket.org/ada/python-ciur/raw/HEAD/docs/docker/example.org.ciur
+
+Will produce a json
+
+.. code-block :: json
+
+    {
+        "root": {
+            "name": "Example Domain",
+            "paragraph": "This domain is established to be used for illustrative
+                           examples in documents. You may use this
+                           domain in examples without prior coordination or
+                          asking for permission."
+        }
+    }
+
+
+Installation
+============
+
+Ensure that you have
+`lxml OS dependencies <https://lxml.de/installation.html#requirements>`_
+and
+`cryptography OS dependencies <https://cryptography.io/en/latest/installation.html#debian-ubuntu>`_
+available.
+
+.. code-block::
+
+    pip install ciur
+
+
+Install via docker
+
+.. code-block:: bash
+
+    $ docker run -it python:3.13.2 bash
+    root@e4d327153f2f:/# pip install ciur
+    root@e4d327153f2f:/# ciur --help
+
+    root@e4d327153f2f:/# ciur --help
+    usage: ciur [-h] -p PARSE -r RULE [-w] [-v]
+
+    *Ciur is a scrapper layer based on DSL for extracting data*
+
+    *Ciur is a lib because it has less black magic than a framework*
+
+    If you are annoyed by `Spaghetti code` than we can taste `Lasagna code`
+    with help of Ciur
+
+    https://bitbucket.org/ada/python-ciur
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -p PARSE, --parse PARSE
+                            url or local file path required document for html, xml, pdf. (f.e. http://example.org or /tmp/example.org.html)
+      -r RULE, --rule RULE  url or local file path file with parsing dsl rule (f.e. /tmp/example.org.ciur or http:/host/example.org.ciur)
+      -w, --ignore_warn     suppress python warning warnings and ciur warnings hints
+      -v, --version         show program's version number and exit
+
+
+Ciur use MIT License
+====================
+
+This means that code may be included in proprietary code without any additional restrictions.
+
+Please see `LICENSE <./LICENSE>`_.
+
+
+Contribution
+============
+
+The code of **Cuir** was concept in 2012,
+and is going to continue developing.
+
+All contributions are welcome and should be done via Bitbucket (Pull Request, Issues).
+
+A second alternative as exception (maybe if bitbucket is not available)
+can be done via email ciur[mail symbol]asta-s.eu.
