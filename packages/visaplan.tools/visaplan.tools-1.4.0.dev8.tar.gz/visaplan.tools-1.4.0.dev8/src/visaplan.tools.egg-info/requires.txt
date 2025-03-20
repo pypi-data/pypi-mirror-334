@@ -1,0 +1,18 @@
+setuptools>=36.2
+six
+
+[:python_version < "3.6"]
+importlib_metadata<3
+
+[:python_version >= "3.6"]
+importlib_metadata
+
+[lock]
+
+[lock:python_version < "3.6"]
+packaging<21
+zc.lockfile<3
+
+[lock:python_version >= "3.6"]
+packaging
+zc.lockfile
