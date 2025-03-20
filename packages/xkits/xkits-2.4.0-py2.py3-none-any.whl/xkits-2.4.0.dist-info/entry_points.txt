@@ -1,0 +1,3 @@
+[console_scripts]
+xargcomplete = xkits.complete:main
+xargproject = xkits.project:main
