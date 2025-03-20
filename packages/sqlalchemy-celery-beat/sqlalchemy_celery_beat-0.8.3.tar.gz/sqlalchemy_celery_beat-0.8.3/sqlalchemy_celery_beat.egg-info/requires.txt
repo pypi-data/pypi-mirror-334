@@ -1,0 +1,4 @@
+celery>=5.0
+sqlalchemy>=1.4
+tzdata
+ephem
