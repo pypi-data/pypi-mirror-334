@@ -1,0 +1,54 @@
+Metadata-Version: 2.3
+Name: clicamap2cal
+Version: 0.1.2
+Summary: Convert your clicamap HTML calendar to an ical ready to import
+License: CECILL-B
+Author: Rémi Ferrand
+Author-email: riton.github@gmail.com
+Maintainer: Rémi Ferrand
+Maintainer-email: riton.github@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: License :: CeCILL-B Free Software License Agreement (CECILL-B)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: ics (>=0.7.2,<0.8.0)
+Requires-Dist: loguru (>=0.7.3,<0.8.0)
+Requires-Dist: lxml (>=5.3.1,<6.0.0)
+Requires-Dist: pydantic-settings (>=2.7.1,<3.0.0)
+Requires-Dist: pytz (>=2025.1,<2026.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Project-URL: Documentation, https://gitlab.com/riton/clicamap-calendar
+Project-URL: Homepage, https://gitlab.com/riton/clicamap-calendar
+Project-URL: Repository, https://gitlab.com/riton/clicamap-calendar
+Description-Content-Type: text/markdown
+
+# Générateur de fichier calendrier ICS à partir de ClicAMAP
+
+![doc/logo.png](doc/logo.png)
+
+## Description
+
+Je ne suis jamais parvenu à exporter proprement mes livraisons AMAP dans un calendrier standardisé `.ics` importable dans n'importe quel logiciel de calendrier.
+
+Ce logiciel est là pour combler ce manque.
+
+## Installation
+
+```
+$ pip install clicamap2cal
+
+```
+## Utilisation
+
+Soient:
+* `VOTRE_ADRESSE_EMAIL` l'adresse email que vous utilisez pour vous connecter au site https://www.clicamap.org
+* `VOTRE_MOTDEPASSE_CLICAMAP` le mot de passe que vous utilisez pour vous connecter au site https://www.clicamap.org
+
+```
+$ export CLICAMAP2CAL_PASSWORD="VOTRE_MOTDEPASSE_CLICAMAP"
+$ clicamap2cal --username "VOTRE_ADRESSE_EMAIL" > amap.ics
+```
+
+Cela génèrera le fichier local `amap.ics` qui pourra alors être importé directement dans vos calendriers.
+
