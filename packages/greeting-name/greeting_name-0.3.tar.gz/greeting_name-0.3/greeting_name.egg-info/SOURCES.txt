@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+greeting_name/__init__.py
+greeting_name/example.py
+greeting_name.egg-info/PKG-INFO
+greeting_name.egg-info/SOURCES.txt
+greeting_name.egg-info/dependency_links.txt
+greeting_name.egg-info/top_level.txt
+tests/test_1.py
