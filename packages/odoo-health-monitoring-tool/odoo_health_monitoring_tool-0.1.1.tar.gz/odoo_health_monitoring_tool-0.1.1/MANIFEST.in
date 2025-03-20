@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-include health_report/login_app/templates *
+recursive-include health_report/system_report/templates *
+recursive-include health_report/static *
