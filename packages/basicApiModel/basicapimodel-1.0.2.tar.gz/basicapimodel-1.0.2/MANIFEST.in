@@ -1,0 +1,2 @@
+include basicApiModel/template/*
+recursive-include basicApiModel/template *
