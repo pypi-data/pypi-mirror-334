@@ -1,0 +1,16 @@
+ondewo/__init__.py,sha256=bpT73UG7mZL_JjEqMwbYx6q69jA8J5Jcoul1LcDokhA,81
+ondewo/csi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ondewo/csi/conversation_pb2.py,sha256=MAP_4euOEiispRUaKIZw0SEI0RGWQV_j6m6WJIRROMc,10044
+ondewo/csi/conversation_pb2.pyi,sha256=tnR_D7GB_sZgQ5cwUze2whAHA24leBaBTtYDjLUPqXk,54232
+ondewo/csi/conversation_pb2_grpc.py,sha256=1px-wCtaYa-SmoFYjSn3b-Fwb02aNDCUUEYxT9DuRz0,21382
+ondewo/csi/client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ondewo/csi/client/client.py,sha256=-gg0MA2fFJwjh8ucjVpWKH5YJjn6hN98bACRgaSSunk,1816
+ondewo/csi/client/client_config.py,sha256=b6ZWNdWosrd6Fqadj8mDiboSbS0O1wLnBDi09_p2xhU,840
+ondewo/csi/client/services_container.py,sha256=aml9vDmZYnfmYijbZUhBRHKy4cH5xPmzzNecw0tR6I8,847
+ondewo/csi/client/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ondewo/csi/client/services/conversations.py,sha256=hoeIqlw5196GwEnMHlPhaU6cK1KYrvUuqrYWnHuDWKk,3120
+ondewo_csi_client-5.2.0.dist-info/LICENSE,sha256=b64U8Nlwl-DmaozBK6sSUjWnhkGg9syz9EueNgfDLtg,10257
+ondewo_csi_client-5.2.0.dist-info/METADATA,sha256=nB21JMIEPeciE5Hako-7_uKtKOuiZ8MU1q5pBURmRHQ,7632
+ondewo_csi_client-5.2.0.dist-info/WHEEL,sha256=Kh9pAotZVRFj97E15yTA4iADqXdQfIVTHcNaZTjxeGM,110
+ondewo_csi_client-5.2.0.dist-info/top_level.txt,sha256=k6xvj-4simLbghb9G4LX5lD3UvNgTBdB-WT8oPDlqqE,7
+ondewo_csi_client-5.2.0.dist-info/RECORD,,
