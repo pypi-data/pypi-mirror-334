@@ -1,0 +1,79 @@
+[build-system]
+requires = ["numpy", "pandas", "scandir", "setuptools", "versioneer[toml]==0.29"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyfileindex"
+description = "pyfileindex - pythonic file system index"
+authors = [
+    { name = "Jan Janssen", email = "janssen@mpie.de" },
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["pyiron"]
+requires-python = ">=3.9, <3.14"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: BSD License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "numpy>=1.23.5,<=2.2.4",
+    "pandas>=1.5.3,<=2.2.3",
+    "scandir==1.10.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/pyiron/pyfileindex"
+Documentation = "https://github.com/pyiron/pyfileindex"
+Repository = "https://github.com/pyiron/pyfileindex"
+
+[tool.ruff]
+exclude = [".ci_support", "notebooks", "tests", "setup.py", "_version.py"]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # flake8-comprehensions
+    "C4",
+    # eradicate
+    "ERA",
+    # pylint
+    "PL",
+]
+ignore = [
+    # ignore line-length violations
+    "E501",
+]
+
+[tool.setuptools.packages.find]
+include = ["pyfileindex*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pyfileindex.__version__"}
+
+[tool.versioneer]
+VCS = "git"
+style = "pep440-pre"
+versionfile_source = "pyfileindex/_version.py"
+parentdir_prefix = "pyfileindex"
+tag_prefix = "pyfileindex-"
