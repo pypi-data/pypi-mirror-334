@@ -1,0 +1,7 @@
+requests>=2.31.0
+boto3>=1.26.60
+datefinder>=0.7.1
+email-validator>=1.2.1
+pypdf>=3.0.0
+usaddress>=0.5.10
+pyotp>=2.9.0
