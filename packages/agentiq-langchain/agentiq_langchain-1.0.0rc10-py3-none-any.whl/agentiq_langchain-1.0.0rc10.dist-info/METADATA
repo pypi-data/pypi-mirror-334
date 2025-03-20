@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: agentiq-langchain
+Version: 1.0.0rc10
+Summary: Subpackage for Langchain/Langgraph integration in AgentIQ
+Keywords: ai,rag,agents
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: langchain-core~=0.3.7
+Requires-Dist: langchain-nvidia-ai-endpoints~=0.3.5
+Requires-Dist: langchain-milvus~=0.1.5
+Requires-Dist: langchain-openai~=0.2.8
+Requires-Dist: langgraph~=0.2.50
+Requires-Dist: langchain-milvus~=0.1.8
