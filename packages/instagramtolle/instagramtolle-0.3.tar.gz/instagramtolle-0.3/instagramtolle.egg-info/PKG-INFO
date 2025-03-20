@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: instagramtolle
+Version: 0.3
+Summary: lib in Python for instagram
+Author: HUSSAIN
+Author-email: reco9678785@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE.txt
+Requires-Dist: user_agent
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
