@@ -1,0 +1,20 @@
+currentDir = pwd;
+cd ..
+load('vx.mat');
+load('vy.mat');
+load('grid.mat');
+cd(currentDir);
+x0=383.7138462569922;
+y0=-781.3806799977463;
+head=0.43662715981353634;
+v0=3.505;
+acc=0.0;
+gear=2;
+steer=0.0;
+slope=-0.2;
+load('a_brake.mat');
+load('a_thr.mat');
+load('brake.mat');
+load('thr.mat');
+modelName='VehicleModel_SJTU';
+run('control_simulink.m');
