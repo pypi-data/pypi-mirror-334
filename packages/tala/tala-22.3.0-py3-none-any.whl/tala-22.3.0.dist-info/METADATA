@@ -1,0 +1,49 @@
+Metadata-Version: 2.2
+Name: tala
+Version: 22.3.0
+Summary: Design dialogue domain descriptions (DDDs) for TDM
+Home-page: http://www.talkamatic.se
+Author: Talkamatic
+Author-email: dev@talkamatic.se
+Keywords: tala tdm ddd ddds dialogue conversation AI
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2<4,>=3.0.1
+Requires-Dist: dill>=0.3.6
+Requires-Dist: iso8601>=0.1.14
+Requires-Dist: lxml>=4.6.3
+Requires-Dist: prompt-toolkit>=3.0.19
+Requires-Dist: requests>=2.26.0
+Requires-Dist: structlog>=21.1.0
+Requires-Dist: setuptools>=68.2.2
+Requires-Dist: setuptools-scm>=8.0.4
+Requires-Dist: paho-mqtt==2.1.0
+Requires-Dist: azure-data-tables>=12.5.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+This is a command line SDK for managing TDM-based dialogue domain descriptions (DDDs). For further information, see [talkamatic.se](http://talkamatic.se).
+
+# Install dependencies
+
+### Ubuntu
+
+```bash
+apt install libxml2-dev libxslt-dev
+```
+
+# Installation
+
+Install the latest version of Tala with pip:
+
+```bash
+pip3 install tala
+```
