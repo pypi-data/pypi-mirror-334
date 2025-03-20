@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lt_cvd"
+version = "0.1.0"
+description = "A Python package for running lt cvd predictions"
+authors = [{ name = "David Pellow", email = "david.pellow@utoronto.ca" }]
+license = { text = "MIT" }
+readme = "README.md"
+dependencies = [
+    "scikit-survival>=0.24.0",
+    "shap>=0.47.0",
+    "matplotlib>=3.10.1",
+]
+
+[project.scripts]
+lt_cvd = "lt_cvd.run_model:main"
+
+[tool.setuptools]
+packages = ["lt_cvd"]

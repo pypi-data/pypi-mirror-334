@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: lt_cvd
+Version: 0.1.0
+Summary: A Python package for running lt cvd predictions
+Author-email: David Pellow <david.pellow@utoronto.ca>
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-survival>=0.24.0
+Requires-Dist: shap>=0.47.0
+Requires-Dist: matplotlib>=3.10.1
+
+# lt_cvd
