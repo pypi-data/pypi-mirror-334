@@ -1,0 +1,17 @@
+[console_scripts]
+pisa-add_flux_to_events_file = pisa.scripts.add_flux_to_events_file:main
+pisa-compare = pisa.scripts.compare:main
+pisa-convert_config_format = pisa.scripts.convert_config_format:main
+pisa-create_barr_sys_tables_mceq = pisa.scripts.create_barr_sys_tables_mceq:main
+pisa-detectors = pisa.core.detectors:main
+pisa-distribution_maker = pisa.core.distribution_maker:main
+pisa-fit_hypersurfaces = pisa.scripts.fit_hypersurfaces:main
+pisa-make_events_file = pisa.scripts.make_events_file:main
+pisa-make_nufit_theta23_spline_priors = pisa.scripts.make_nufit_theta23_spline_priors:main
+pisa-pipeline = pisa.core.pipeline:main
+pisa-run_unit_tests = pisa_tests.run_unit_tests:run_unit_tests
+pisa-test_covariance = pisa_tests.test_covariance:main
+pisa-test_example_pipelines = pisa_tests.test_example_pipelines:main
+pisa-test_flux_weights = pisa.scripts.test_flux_weights:main
+pisa-test_kde_stage = pisa_tests.test_kde_stage:main
+
