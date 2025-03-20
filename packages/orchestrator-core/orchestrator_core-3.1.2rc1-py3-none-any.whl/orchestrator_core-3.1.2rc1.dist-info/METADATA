@@ -1,0 +1,321 @@
+Metadata-Version: 2.4
+Name: orchestrator-core
+Version: 3.1.2rc1
+Summary: This is the orchestrator workflow engine.
+Author-email: SURF <automation-beheer@surf.nl>
+Requires-Python: >=3.11,<3.14
+Description-Content-Type: text/markdown
+License-Expression: Apache-2.0
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP
+License-File: LICENSE
+Requires-Dist: alembic==1.15.1
+Requires-Dist: anyio>=3.7.0
+Requires-Dist: click==8.*
+Requires-Dist: deprecated
+Requires-Dist: deepmerge==2.0
+Requires-Dist: fastapi~=0.115.2
+Requires-Dist: fastapi-etag==0.4.0
+Requires-Dist: more-itertools~=10.6.0
+Requires-Dist: itsdangerous
+Requires-Dist: Jinja2==3.1.6
+Requires-Dist: orjson==3.10.15
+Requires-Dist: psycopg[binary]==3.2.6
+Requires-Dist: pydantic[email]~=2.10.6
+Requires-Dist: pydantic-settings~=2.8.0
+Requires-Dist: python-dateutil==2.8.2
+Requires-Dist: python-rapidjson>=1.18,<1.21
+Requires-Dist: pytz==2025.1
+Requires-Dist: redis==5.1.1
+Requires-Dist: schedule==1.1.0
+Requires-Dist: sentry-sdk[fastapi]~=2.22.0
+Requires-Dist: SQLAlchemy==2.0.39
+Requires-Dist: SQLAlchemy-Utils==0.41.2
+Requires-Dist: structlog
+Requires-Dist: typer==0.15.2
+Requires-Dist: uvicorn[standard]~=0.34.0
+Requires-Dist: nwa-stdlib~=1.9.0
+Requires-Dist: oauth2-lib~=2.4.0
+Requires-Dist: tabulate==0.9.0
+Requires-Dist: strawberry-graphql>=0.246.2
+Requires-Dist: pydantic-forms~=1.4.0
+Requires-Dist: celery~=5.4.0 ; extra == "celery"
+Requires-Dist: toml ; extra == "dev"
+Requires-Dist: bumpversion ; extra == "dev"
+Requires-Dist: mypy_extensions ; extra == "dev"
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: pydocstyle ; extra == "dev"
+Requires-Dist: python-dotenv ; extra == "dev"
+Requires-Dist: watchdog ; extra == "dev"
+Requires-Dist: mkdocs ; extra == "doc"
+Requires-Dist: mkdocs-material[imaging] ; extra == "doc"
+Requires-Dist: mkdocs-render-swagger-plugin ; extra == "doc"
+Requires-Dist: mkdocs-include-markdown-plugin ; extra == "doc"
+Requires-Dist: mkdocstrings[python] ; extra == "doc"
+Requires-Dist: mkdocs-open-in-new-tab ; extra == "doc"
+Requires-Dist: mkdocs-macros-plugin ; extra == "doc"
+Requires-Dist: mkdocs-embed-external-markdown ; extra == "doc"
+Requires-Dist: apache-license-check ; extra == "test"
+Requires-Dist: black ; extra == "test"
+Requires-Dist: blinker ; extra == "test"
+Requires-Dist: deepdiff ; extra == "test"
+Requires-Dist: dirty-equals ; extra == "test"
+Requires-Dist: jsonref ; extra == "test"
+Requires-Dist: mypy==1.9 ; extra == "test"
+Requires-Dist: pyinstrument ; extra == "test"
+Requires-Dist: pytest==8.3.5 ; extra == "test"
+Requires-Dist: pytest-asyncio==0.21.2 ; extra == "test"
+Requires-Dist: pytest-codspeed ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Requires-Dist: pytest-httpx ; extra == "test"
+Requires-Dist: pytest-xdist ; extra == "test"
+Requires-Dist: requests-mock ; extra == "test"
+Requires-Dist: ruff ; extra == "test"
+Requires-Dist: sqlalchemy[mypy] ; extra == "test"
+Requires-Dist: urllib3-mock ; extra == "test"
+Requires-Dist: types-Deprecated ; extra == "test"
+Requires-Dist: types-Jinja2 ; extra == "test"
+Requires-Dist: types-aiofiles ; extra == "test"
+Requires-Dist: types-certifi ; extra == "test"
+Requires-Dist: types-click ; extra == "test"
+Requires-Dist: types-itsdangerous ; extra == "test"
+Requires-Dist: types-orjson ; extra == "test"
+Requires-Dist: types-python-dateutil ; extra == "test"
+Requires-Dist: types-pytz ; extra == "test"
+Requires-Dist: types-redis ; extra == "test"
+Requires-Dist: types-requests ; extra == "test"
+Requires-Dist: types-setuptools ; extra == "test"
+Requires-Dist: types-tabulate ; extra == "test"
+Requires-Dist: types-toml ; extra == "test"
+Requires-Dist: types-ujson ; extra == "test"
+Requires-Dist: types-PyYAML ; extra == "test"
+Project-URL: documentation, https://workfloworchestrator.org/orchestrator-core/
+Project-URL: releasenotes, https://github.com/workfloworchestrator/orchestrator-core/releases
+Project-URL: source, https://github.com/workfloworchestrator/orchestrator-core
+Provides-Extra: celery
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: test
+
+# Orchestrator-Core
+[![Downloads](https://pepy.tech/badge/orchestrator-core/month)](https://pepy.tech/project/orchestrator-core)
+[![codecov](https://codecov.io/gh/workfloworchestrator/orchestrator-core/branch/main/graph/badge.svg?token=5ANQFI2DHS)](https://codecov.io/gh/workfloworchestrator/orchestrator-core)
+[![pypi_version](https://img.shields.io/pypi/v/orchestrator-core?color=%2334D058&label=pypi%20package)](https://pypi.org/project/orchestrator-core)
+[![Supported python versions](https://img.shields.io/pypi/pyversions/orchestrator-core.svg?color=%2334D058)](https://pypi.org/project/orchestrator-core)
+![Discord](https://img.shields.io/discord/1295834294270558280?style=flat&logo=discord&label=discord&link=https%3A%2F%2Fdiscord.gg%2FKNgF6gE8)
+
+<p style="text-align: center"><em>Production ready Orchestration Framework to manage product lifecycle and workflows. Easy to use, Built on top of FastAPI</em></p>
+
+
+## Documentation
+Can be found [here](https://workfloworchestrator.org/orchestrator-core/)
+
+## Usage
+This project can be installed as follows:
+
+#### Step 1:
+Install the core.
+```shell
+pip install orchestrator-core
+```
+
+#### Step 2:
+Create a postgres database:
+```shell
+createuser -sP nwa
+createdb orchestrator-core -O nwa
+```
+
+#### Step 3 (optional):
+When using multiple workers, you will need a redis server for live updates with websockets.
+
+By default it will use memory which works with only one worker.
+```shell
+export WEBSOCKET_BROADCASTER_URL="memory://"
+```
+
+For the redis connection you need to set the env variable with the connection url.
+```shell
+export WEBSOCKET_BROADCASTER_URL="redis://localhost:6379"
+```
+
+
+Websockets can also be turned off with:
+```shell
+export ENABLE_WEBSOCKETS=False
+```
+
+If you want to use pickle for CACHE serialization you will need to set the `CACHE_HMAC_SECRET`:
+```shell
+export CACHE_HMAC_SECRET="SOMESECRET"
+```
+**NOTE**: The key can be any length. However, the recommended size is 1024 bits.
+
+#### Step 4:
+Create a `main.py` file.
+
+```python
+from orchestrator import OrchestratorCore
+from orchestrator.cli.main import app as core_cli
+from orchestrator.settings import AppSettings
+
+app = OrchestratorCore(base_settings=AppSettings())
+
+if __name__ == "__main__":
+    core_cli()
+```
+
+#### Step 5 (Optional):
+OrchestratorCore comes with a graphql interface that can to be registered after you create your OrchestratorApp.
+If you add it after registering your `SUBSCRIPTION_MODEL_REGISTRY` it will automatically create graphql types for them.
+More info can be found in `docs/architecture/application/graphql.md`
+
+example:
+```python
+from orchestrator import OrchestratorCore
+from orchestrator.settings import AppSettings
+
+app = OrchestratorCore(base_settings=AppSettings())
+# register SUBSCRIPTION_MODEL_REGISTRY
+app.register_graphql()
+```
+
+#### Step 6:
+Initialize the migration environment.
+```shell
+PYTHONPATH=. python main.py db init
+PYTHONPATH=. python main.py db upgrade heads
+```
+
+### Step 7:
+Profit :)
+
+Authentication and authorization are default enabled, to disable set `OAUTH2_ACTIVE` and `OAUTH2_AUTHORIZATION_ACTIVE` to `False`.
+
+```shell
+uvicorn --reload --host 127.0.0.1 --port 8080 main:app
+```
+
+Visit [http://127.0.0.1:8080/api/redoc](http://127.0.0.1:8080/api/redoc) to view the api documentation.
+
+
+## Setting up a development environment
+
+To add features to the repository follow the following procedure to setup a working development environment.
+
+### Installation (Development standalone)
+Install the project and its dependencies to develop on the code.
+
+#### Step 1 - install flit:
+
+```shell
+python3 -m venv venv
+source venv/bin/activate
+pip install flit
+```
+
+#### Step 2 - install the development code:
+
+!!! danger
+    Make sure to use the flit binary that is installed in your environment. You can check the correct
+    path by running
+    ```shell
+    which flit
+    ```
+
+To be sure that the packages will be installed against the correct venv you can also prepend the python interpreter
+that you want to use:
+
+```shell
+flit install --deps develop --symlink --python venv/bin/python
+```
+
+
+### Running tests
+Run the unit-test suite to verify a correct setup.
+
+#### Step 1 - Create a database
+
+```shell
+createuser -sP nwa
+createdb orchestrator-core-test -O nwa
+```
+
+#### Step 2 - Run tests
+```shell
+pytest test/unit_tests
+```
+or with xdist:
+
+```shell
+pytest -n auto test/unit_tests
+```
+
+If you do not encounter any failures in the test, you should be able to develop features in the orchestrator-core.
+
+### Installation (Development symlinked into orchestrator SURF)
+
+If you are working on a project that already uses the `orchestrator-core` and you want to test your new core features
+against it, you can use some `flit` magic to symlink the dev version of the core to your project. It will
+automatically replace the pypi dep with a symlink to the development version
+of the core and update/downgrade all required packages in your own orchestrator project.
+
+#### Step 1 - install flit:
+
+```shell
+python - m venv venv
+source venv/bin/activate
+pip install flit
+```
+
+### Step 2 - symlink the core to your own project
+
+```shell
+flit install --deps develop --symlink --python /path/to/a/orchestrator-project/venv/bin/python
+```
+
+So if you have the core and your own orchestrator project repo in the same folder and the main project folder is
+`orchestrator` and you want to use relative links, this will be last step:
+
+```shell
+flit install --deps develop --symlink --python ../orchestrator/venv/bin/python
+```
+
+# Increasing the version number for a (pre) release.
+
+When your PR is accepted you will get a version number.
+
+You can do the necessary change with a clean, e.g. every change committed, branch:
+
+```shell
+bumpversion patch --new-version 0.4.1-rc3
+```
+
+### Changing the Core database schema
+When you would like to change the core database schema, execute the following steps.
+
+- Create the new model `orchestrator/database/models.py`
+- `cd orchestrator/migrations`
+- `alembic revision --autogenerate -m "Name of the migratioin"`
+
