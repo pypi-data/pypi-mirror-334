@@ -1,0 +1,51 @@
+Metadata-Version: 2.2
+Name: pydbfi
+Version: 0.1.0
+Summary: DB증권 API Python SDK
+Home-page: https://github.com/leorivk/pydbfi
+Author: ivk
+Author-email: leorivk@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# PYDBFI - DB증권 API Python SDK
+
+https://openapi.db-fi.com
+
+## 설치
+
+```bash
+pip install pydbfi
+```
+
+## 사용 방법
+
+### 기본 초기화
+
+```python
+from pydbfi import DomesticAPI, OverseasAPI
+
+# 국내 시장 API 초기화
+domestic_api = DomesticAPI(app_key="your_app_key", app_secret_key="your_app_secret_key")
+
+# 해외 시장 API 초기화
+overseas_api = OverseasAPI(app_key="your_app_key", app_secret_key="your_app_secret_key")
+```
+
+## 라이센스
+
+[MIT License](LICENSE)
