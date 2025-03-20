@@ -1,0 +1,85 @@
+Metadata-Version: 2.2
+Name: classic-sql-storage
+Version: 0.0.2
+Summary: Provides primitives for contextual transactions processing with SQLALchemy and base for repository class
+Home-page: https://github.com/variasov/classic_sql_storage
+Author: Sergei Variasov
+Author-email: variasov@gmail.com
+Project-URL: Bug Tracker, https://github.com/variasov/classic_sql_storage/issues
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sqlalchemy~=1.4.23
+Requires-Dist: classic-components>=1.2.0
+Provides-Extra: dev
+Requires-Dist: pytest~=6.2.5; extra == "dev"
+Requires-Dist: pytest-cov~=2.12.1; extra == "dev"
+Requires-Dist: twine~=3.4.2; extra == "dev"
+Requires-Dist: build~=0.7.0; extra == "dev"
+
+# Classic SQL Storage
+
+This package provides contextual transactions processing for SQLAlchemy and 
+base for pattern "Repository".
+
+Part of project "Classic".
+
+Usage:
+
+```python
+from classic.sql_storage import TransactionContext
+from sqlalchemy import create_engine, text
+
+
+engine = create_engine('sqlite:///')
+
+transaction = TransactionContext(bind=engine)
+
+
+# As context manager:
+with transaction:
+    transaction.current_session.execute(
+        text('SELECT 1')
+    )
+
+
+# As decorator:
+@transaction
+def some_work():
+    transaction.current_session.execute(
+        text('SELECT 1')
+    )
+
+
+# Propagation:
+@transaction
+def complex_function():
+    """Doing complex work with db.
+    Session will be commited only after finish of complex_function call.
+    TransactionContext will count all calls, and will commit or rollback session
+    only in last call.
+    """
+    some_work()
+    some_work()
+    some_work()
+    
+    with transaction:
+        transaction.current_session.execute(
+            text('SELECT 1')
+        )
+
+
+# Automatic rollback
+@transaction
+def function_with_error():
+    """Changes, made by some_work, will be cancelled after raising error"""
+    some_work()
+    raise ValueError()
+
+
+```
+
