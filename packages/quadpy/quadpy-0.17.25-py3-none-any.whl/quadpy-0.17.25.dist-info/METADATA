@@ -1,0 +1,42 @@
+Metadata-Version: 2.2
+Name: quadpy
+Version: 0.17.25
+Summary: Numerical integration, quadrature for various domains
+Author-email: Nico =?utf-8?q?Schl=C3=B6mer?= <nico.schloemer@gmail.com>
+Project-URL: homepage, https://github.com/sigma-py/quadpy
+Project-URL: issues, https://github.com/sigma-py/quadpy/issues
+Project-URL:
+ changelog, https://github.com/sigma-py/quadpy/blob/main/CHANGELOG.md
+Keywords:
+ mathematics,physics,engineering,quadrature,cubature,integration,numerical
+ integration
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: stonefish-license-manager>=0.5.18
+Requires-Dist: x22>=0.1.7
+Requires-Dist: fjson
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: matplotlib
+Requires-Dist: ndim>=0.1.23
+Requires-Dist: orthopy<0.11,>=0.9.10
+Requires-Dist: stonefish-license-manager>=0.4.33
+Requires-Dist: scipy
+Requires-Dist: sympy
+Provides-Extra: all
+Requires-Dist: vtk; python_version < "3.12" and extra == "all"
+Provides-Extra: plot
+Requires-Dist: vtk; python_version < "3.12" and extra == "plot"
+
