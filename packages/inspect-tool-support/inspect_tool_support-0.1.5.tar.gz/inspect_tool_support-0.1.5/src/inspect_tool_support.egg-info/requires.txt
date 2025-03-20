@@ -1,0 +1,11 @@
+aiohttp
+httpx
+jsonrpcserver
+pydantic
+returns
+tenacity
+playwright
+
+[dist]
+twine
+build
