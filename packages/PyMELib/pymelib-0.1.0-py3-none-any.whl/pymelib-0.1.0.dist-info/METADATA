@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: PyMELib
+Version: 0.1.0
+Summary: First version of the PyMELib (Python Minimal Enumeration Library) library
+Author: Dan S. Mizrahi and Batya Kenig
+Requires-Dist: networkx
+Requires-Dist: typing
+Requires-Dist: frozendict
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
