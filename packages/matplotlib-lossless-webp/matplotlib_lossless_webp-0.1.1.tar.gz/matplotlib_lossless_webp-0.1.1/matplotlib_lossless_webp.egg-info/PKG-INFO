@@ -1,0 +1,50 @@
+Metadata-Version: 2.2
+Name: matplotlib-lossless-webp
+Version: 0.1.1
+Summary: Tiny Python package that forces lossless compression in matplotlib when saving WebP images
+Home-page: https://github.com/ragibson/matplotlib-lossless-webp
+Author: Ryan Gibson
+Author-email: ryan.alex.gibson@gmail.com
+License: MIT
+Keywords: matplotlib lossless webp
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# matplotlib-lossless-webp
+
+A tiny Python package that forces lossless compression in matplotlib when saving WebP images.
+
+Otherwise, matplotlib's `.webp` exports are somewhat low quality unless you add specific PIL parameters.
+
+## Installation
+
+This project is on [PyPI](https://pypi.org/project/matplotlib-lossless-webp/) and can be installed with
+
+    pip install matplotlib-lossless-webp
+
+## Usage
+
+Importing the package will force all future `savefig()` calls to be lossless when the filename ends with `.webp`.
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib_lossless_webp
+
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.savefig('test.webp')  # automatically saves as lossless / high quality
+```
