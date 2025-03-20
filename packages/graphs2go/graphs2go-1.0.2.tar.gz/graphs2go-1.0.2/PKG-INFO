@@ -1,0 +1,54 @@
+Metadata-Version: 2.3
+Name: graphs2go
+Version: 1.0.2
+Summary: Graphs2go shared Python library
+License: Apache-2.0
+Author: Minor Gordon
+Author-email: minorg@server.fake
+Requires-Python: >=3.12,<3.13
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: brotli (>=1.1.0,<2.0.0)
+Requires-Dist: dagster (>=1.10,<2.0)
+Requires-Dist: markus (>=4.2.0,<5.0.0)
+Requires-Dist: pathvalidate (>=3.2.0,<4.0.0)
+Requires-Dist: psycopg-pool (>=3.1.18,<4.0.0)
+Requires-Dist: psycopg[binary] (>=3.2.6,<4.0.0)
+Requires-Dist: pyoxigraph (==0.4.9)
+Requires-Dist: rdflib (>=7.0.0,<8.0.0)
+Requires-Dist: returns (>=0.23.0,<0.24.0)
+Requires-Dist: stringcase (>=1.2.0,<2.0.0)
+Requires-Dist: tqdm (>=4.66.2,<5.0.0)
+Requires-Dist: types-pytz (>=2024.1.0.20240203,<2025.0.0.0)
+Requires-Dist: types-tqdm (>=4.66.0.20240106,<5.0.0.0)
+Description-Content-Type: text/markdown
+
+# Graphs2go shared Python library
+
+## Getting started
+
+    pip install graphs2go
+
+## Development
+
+### Prerequisites
+
+* [Python 3.12](https://www.python.org/)
+* [Python Poetry](https://python-poetry.org/)
+
+### One-time setup
+
+    script/bootstrap
+
+### Testing
+
+    script/test
+
+## Structure of this project
+
+* `.github/workflows`: GitHub Actions CI/CD workflows
+* `graphs2go`: Python code
+* `script`: scripts following the [Scripts To Rule Them All](https://github.com/github/scripts-to-rule-them-all) normalized script pattern
+* `tests`: unit tests
+

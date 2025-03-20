@@ -1,0 +1,39 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.dagster]
+
+[tool.poetry]
+name = "graphs2go"
+version = "1.0.2"
+description = "Graphs2go shared Python library"
+license = "Apache-2.0"
+authors = ["Minor Gordon <minorg@server.fake>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+dagster = "^1.10"
+markus = "^4.2.0"
+pathvalidate = "^3.2.0"
+psycopg = {extras = ["binary"], version = "^3.2.6"}
+psycopg-pool = "^3.1.18"
+python = ">=3.12,<3.13"
+rdflib = "^7.0.0"
+tqdm = "^4.66.2"
+types-tqdm = "^4.66.0.20240106"
+types-pytz = "^2024.1.0.20240203"
+pyoxigraph = "0.4.9"
+stringcase = "^1.2.0"
+returns = "^0.23.0"
+brotli = "^1.1.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+mypy = "^1.15.0"
+pytest = "^8.3.5"
+ruff = "^0.11.0"
+isort = "^6.0.1"
+
+[tool.ruff]
+src = ["graphs2go"]
