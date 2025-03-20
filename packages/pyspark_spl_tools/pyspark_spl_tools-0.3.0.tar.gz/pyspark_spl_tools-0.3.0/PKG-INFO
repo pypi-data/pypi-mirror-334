@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: pyspark_spl_tools
+Version: 0.3.0
+Summary: Set of Pyspark helper functions that provide SPL-like functionality for easier migration from Splunk
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+License-File: LICENSE
+Requires-Dist: pydantic>=2
+Requires-Dist: pyspark~=4.0.0.dev2
+Requires-Dist: ipython
+Requires-Dist: rich
+Requires-Dist: pydantic-settings
+
+
