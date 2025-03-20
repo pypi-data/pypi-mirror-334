@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: finmath
+Version: 0.1.2
+Summary: A financial math library
+Requires-Python: >=3.9
+Requires-Dist: pybind11==2.10.0
+
