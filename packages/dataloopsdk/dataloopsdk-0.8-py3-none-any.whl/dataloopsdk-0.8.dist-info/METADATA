@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dataloopsdk
+Version: 0.8
+Summary: Python Package Boilerplate
+Home-page: UNKNOWN
+Author: ivan
+Author-email: ivan.liu@anker-in.com
+License: MIT License
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: hachoir (==3.3.0)
+Requires-Dist: httpx (==0.27.1)
+Requires-Dist: pydantic (==2.9.2)
+Requires-Dist: requests (==2.31.0)
+
+UNKNOWN
+
+
