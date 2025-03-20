@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: JSONSchema-AutoDoc
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: MDit<0.2,>=0.1
+Requires-Dist: PySerials<0.2,>=0.1
+Requires-Dist: PyLinks<0.2,>=0.1
+Requires-Dist: JSONSchemata<0.2,>=0.1
+Requires-Dist: sphinx
