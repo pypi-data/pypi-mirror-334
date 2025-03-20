@@ -1,0 +1,5 @@
+Metadata-Version: 2.2
+Name: VersionMan
+Version: 0.1.0
+Requires-Python: >=3.10
+Requires-Dist: packaging<24,>=23.2
