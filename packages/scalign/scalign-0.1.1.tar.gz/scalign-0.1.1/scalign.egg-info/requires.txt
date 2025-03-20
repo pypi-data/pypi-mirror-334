@@ -1,0 +1,11 @@
+scalign-umap<0.2.0,>=0.1.0
+scvi-tools>=1.3.0
+scanpy
+pandas
+numpy
+matplotlib
+seaborn
+
+[parametric]
+tensorflow>=2.1
+keras>=3.0
