@@ -1,0 +1,21 @@
+[project]
+name = "kofe-mcp-server"
+version = "0.1.2"
+description = "kofe tools"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+ "mcp>=1.4.1",
+ "omegaconf>=2.3.0",
+ "requests>=2.32.3",
+]
+[[project.authors]]
+name = "zhendongchen"
+email = "zhendongchen@emotibot.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+kofe-mcp-server = "kofe_mcp_server:main"
