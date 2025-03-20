@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+mood_suggester/__init__.py
+mood_suggester/suggestions.py
+mood_suggester.egg-info/PKG-INFO
+mood_suggester.egg-info/SOURCES.txt
+mood_suggester.egg-info/dependency_links.txt
+mood_suggester.egg-info/top_level.txt
+tests/test_suggestions.py
