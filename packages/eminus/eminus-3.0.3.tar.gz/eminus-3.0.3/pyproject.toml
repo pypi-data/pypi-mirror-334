@@ -1,0 +1,190 @@
+# SPDX-FileCopyrightText: 2023 The eminus developers
+# SPDX-License-Identifier: Apache-2.0
+### Build backend ###
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "eminus.version.__version__"}
+
+[tool.setuptools.package-data]
+"eminus.psp" = ["**/*-q*"]
+
+### Metadata ###
+[project]
+name = "eminus"
+dynamic = ["version"]
+dependencies = [
+    "numpy>=1.17.3",
+    "scipy>=1.6",
+]
+requires-python = ">=3.8"
+authors = [{name = "Wanja Timm Schulze", email = "wangenau@protonmail.com"}]
+description = "Pythonic electronic structure theory."
+readme = "README.md"
+keywords = ["density-functional-theory", "electronic-structure", "education", "python"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+dispersion = [
+    "dftd3>=0.6",  # Interface for DFT-D3 dispersion corrections
+]
+hdf5 = [
+    "h5py>=2.9",  # HDF5 file reading and writing
+]
+libxc = [
+    "pyscf>=2.1",  # Libxc interface using PySCF
+]
+jax = [
+    "jax>=0.4.8",  # Faster FFT operators
+]
+torch = [
+    "torch>=1.8",  # Faster FFT operators
+]
+viewer = [
+    "nglview>=2.6.5",  # Molecule viewer
+    "plotly>=4.5",  # Various visualizations
+]
+fods = ["eminus[libxc]"]  # PyCOM FOD guessing method uses PySCF
+symmetry = ["eminus[libxc]"]  # k-point symmetrization uses PySCF
+all = [
+    "eminus[dispersion]",
+    "eminus[hdf5]",
+    "eminus[libxc]",
+    "eminus[torch]",
+    "eminus[viewer]",
+]
+dev = [
+    "coverage>=5",  # Generate coverage reports
+    "furo>=2022.02.14.1",  # Documentation theme
+    "matplotlib>=3.1.2",  # Plotting library for examples
+    "mypy>=1.7",  # Static type checker
+    "notebook>=6",  # Run and convert notebooks to HTML
+    "pytest>=6",  # Test utilities
+    "ruff>=0.7",  # Linter and formatter
+    "sphinx>=4",  # Documentation builder
+    "sphinx-design>=0.2",  # More directives for Sphinx
+    "sphinxcontrib-bibtex>=2",  # Use bib files for citations in Sphinx
+]
+
+[project.urls]
+source = "https://gitlab.com/wangenau/eminus"
+changelog = "https://wangenau.gitlab.io/eminus/changelog.html"
+documentation = "https://wangenau.gitlab.io/eminus"
+issues = "https://gitlab.com/wangenau/eminus/-/issues"
+
+### Coverage ###
+[tool.coverage.report]
+exclude_lines = ['if __name__ == "__main__":']
+
+[tool.coverage.run]
+include = ["eminus/*"]
+omit = ["eminus/extras/*"]
+
+### Mypy ###
+[tool.mypy]
+python_version = "3.13"
+exclude = ["public"]
+strict = true
+disable_error_code = [
+    # Many setter methods change the variable type, this is not considered by Mypy
+    # Reference: https://github.com/python/mypy/issues/3004
+    # TODO: Remove once Mypy 1.16 is released
+    "assignment",  # Incompatible types in assignment  [assignment]
+    # Do not complain about imported modules that are untyped
+    "import-untyped",  # Module is missing library stubs or py.typed marker  [import-untyped]
+]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disable_error_code = [
+    # The tests folder has functions with missing type annotations
+    "no-untyped-def",  # Function is missing a type annotation  [no-untyped-def]
+]
+
+### Pytest ###
+[tool.pytest.ini_options]
+addopts = "-rsxX"
+markers = ["slow: test runs longer than five seconds."]
+norecursedirs = "public/*"
+
+### Ruff ###
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "E741", "E743",  # Ambiguous variable or function names
+    "N802", "N803", "N806",  # Function, argument, or variable names in function should be lowercase
+    "ANN",  # flake8-annotations
+    "FBT001", "FBT002",  # Boolean (default) positional argument in function definition
+    "SLF001",  # Private member accessed
+    "SIM108",  # Use ternary operator instead of if-else-block
+    "TID252",  # Prefer absolute imports over relative imports from parent modules
+    "PTH123",  # open() should be replaced by Path.open()
+    "ERA001",  # Found commented-out code
+    "PLR0912", "PLR0913", "PLR2004",  # Too many branches, arguments to functions, or magic values
+    # The following rules are disabled due to possible conflicts with the formatter
+    "COM812",  # Trailing comma missing
+]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/*" = [
+    "INP001",  # File is part of an implicit namespace package
+]
+"examples/*" = [
+    "D100", "D103",  # Missing docstring in public module or function
+    "E501",  # Line too long
+    "INP001",  # File is part of an implicit namespace package
+    "T201",  # print found
+    "PTH207",  # Replace glob with Path.glob or Path.rglob
+]
+"tests/*" = [
+    "S101",  # Use of assert detected
+    "INP001",  # File is part of an implicit namespace package
+    "T201",  # print found
+    "PTH107",  # os.remove() should be replaced by Path.unlink()
+]
+
+[tool.ruff.lint.flake8-builtins]
+ignorelist = ["copyright"]
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
+
+[tool.ruff.lint.isort]
+order-by-type = false
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
