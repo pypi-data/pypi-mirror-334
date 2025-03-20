@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools","windows-curses"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart_inputs"
+version = '0.0.3'
+authors = [
+  { name="Farbod Mahdian", email="farbod.coding+pip@gmail.com" },
+]
+description = "More dynamic ways to ask for the inputs from the user."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/farbod-mahdian/smart_inputs"
+Issues = "https://github.com/farbod-mahdian/smart_inputs/issues"
