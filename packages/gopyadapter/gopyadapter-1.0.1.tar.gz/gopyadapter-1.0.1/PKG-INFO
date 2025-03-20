@@ -1,0 +1,30 @@
+Metadata-Version: 2.3
+Name: gopyadapter
+Version: 1.0.1
+Summary: Allows easy management of a python process and calling of python from go
+License: MIT
+Author: Joss Peters
+Author-email: jptrs93@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: msgpack (>=1.1.0,<2.0.0)
+Requires-Dist: numpy (>=1.20,<2.0)
+Project-URL: Repository, https://github.com/jptrs93/gopy/gopyadapter
+Description-Content-Type: text/markdown
+
+# gopyadapter
+
+# Publishing
+
+* Install [poetry](https://python-poetry.org/)
+* Tell poetry what version of python you want to use `poetry env use python3.13`
+* Create the venv and install dependencies `poetry install`
+* Run `poetry env activate` to activate the environment
+* Set your pypy token `poetry config pypi-token.pypi <token>`
+* Publish `poetry publish --build`
