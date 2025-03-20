@@ -1,0 +1,3 @@
+[console_scripts]
+tiddlywiki_parser = tiddlywiki_parser:main
+tiddlywiki_parser_test = tiddlywiki_parser:test
