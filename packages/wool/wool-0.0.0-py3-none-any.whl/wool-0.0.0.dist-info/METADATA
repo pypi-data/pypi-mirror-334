@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: wool
+Version: 0.0.0
+Author: Conrad Bzura
+Author-email: conradbzura@gmail.com
+License-File: LICENSE
+Requires-Dist: pydantic~=2.0
+Requires-Dist: click
+Requires-Dist: debugpy
+Requires-Dist: psutil
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
