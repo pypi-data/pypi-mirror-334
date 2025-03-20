@@ -1,0 +1,13 @@
+.editorconfig
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+.github/workflows/python-package.yml
+.github/workflows/python-publish.yml
+pyAUDP/__init__.py
+pyAUDP/pyAUDP.py
+pyAUDP.egg-info/PKG-INFO
+pyAUDP.egg-info/SOURCES.txt
+pyAUDP.egg-info/dependency_links.txt
+pyAUDP.egg-info/top_level.txt
