@@ -1,0 +1,101 @@
+Metadata-Version: 2.2
+Name: geojson-composer
+Version: 0.1.4
+Summary: A CLI tool to render GeoJSON data using Jinja2 templates.
+Author: Krvss
+Author-email: Stas Kravets <stas.kravets@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: Jinja2>=3.0
+Dynamic: author
+Dynamic: requires-python
+
+##########################
+GeoJSON Composer
+##########################
+
+*********
+Overview
+*********
+
+This project is a `GeoJSON <https://en.wikipedia.org/wiki/GeoJSON>`_ template renderer that processes GeoJSON files and applies `Jinja2 <https://github.com/pallets/jinja>`_ templates to generate customized output. It supports:
+
+* Processing single or multiple GeoJSON files
+
+* Grouping features dynamically
+
+* Custom Jinja2 filters for feature property updates
+
+* Command-line interface (CLI) support
+
+Installation
+************
+
+Prerequisites
+=============
+
+1. Python 3.x
+
+2. pip package manager
+
+Install Dependencies
+====================
+
+To install production dependencies::
+
+ make install
+
+To install development dependencies (for testing and linting)::
+
+ make install-dev
+
+Usage
+*********
+
+Running the Script::
+
+ python main.py <input_path> <template_path> --output <output_file>
+
+Arguments:
+
+*input_path*: Path to a GeoJSON file or a directory containing multiple GeoJSON files:
+
+*template_path*: Path to the Jinja2 template file.
+
+*--output <output_file>* (optional): Path to save the rendered output. If omitted, output is printed to stdout.
+
+Example Command:::
+
+ python main.py geojson_data/ templates/output.jinja --output result.geojson
+
+Filters
+***********
+
+*dict_update*: Updates a dictionary with new key-value pairs, returns the updated dictionary.
+
+*dict_update_if*: Updates a dictionary with new key-value pairs if a condition (specified key contains the value) is met, returns the updated dictionary.
+
+*compile_description*: Compiles a description string wrapping Name property into a URL property and also adding Img tags for Images property
+
+Development
+***********
+
+Running Tests::
+
+ make test
+
+Running Tests with Coverage::
+
+ make test-coverage
+
+Linting Code::
+
+ make lint
+
+License
+*******
+
+This project is licensed under the MIT License. Contact the author https://github.com/krvss for more information.
+
