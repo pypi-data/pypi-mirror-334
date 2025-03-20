@@ -1,0 +1,3 @@
+[console_scripts]
+rgmining-synthetic-dataset=synthetic.eval.cli:main
+
