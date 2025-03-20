@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: heart_slicer
+Version: 0.1.4
+Summary: A package to process images of heart slices for analyses.
+Author: True Galaxus
+Author-email: ron.reclame@gmail.com
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: pyyaml
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary
