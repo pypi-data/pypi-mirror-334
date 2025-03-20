@@ -1,0 +1,229 @@
+from textwrap import dedent
+from setuptools import find_packages, setup
+from pathlib import Path
+
+install_requires = [
+    'aiofiles',
+    'nest_asyncio',
+    'httpx[socks]==0.28.1',
+    'pyyaml',
+    'tqdm',
+    'orjson',
+    'm3u8',
+    'websockets',
+    'uvloop; platform_system != "Windows"',
+]
+
+about = {}
+exec((Path().cwd() / 'twitter' / '__version__.py').read_text(), about)
+
+setup(
+    name=about['__title__'],
+    version=about['__version__'],
+    author=about['__author__'],
+    description=about['__description__'],
+    license=about['__license__'],
+    long_description=dedent('''
+
+    ## 多账号代理管理系统
+
+    Twitter API Client 现在支持高级的多账号和代理管理功能，通过分组机制实现账号和代理的解耦，提供更灵活的配置选项和更强大的管理能力。
+
+    ### 配置文件示例
+
+    #### accounts.yaml
+    ```yaml
+    groups:
+      group_a:
+        accounts:
+          - auth_token: "xxx"
+            ct0: "yyy"
+            username: "user1"
+            weight: 2
+          - auth_token: "aaa" 
+            ct0: "bbb"
+            username: "user2"
+            health: 3
+      group_b:
+        accounts:
+          - auth_token: "ccc"
+            ct0: "ddd"
+            username: "user3"
+    ```
+
+    #### proxies.yaml
+    ```yaml
+    groups:
+      group_a:
+        proxies:
+          - url: "socks5://user:pass@proxy1:1080"
+            protocol: "socks5"
+            max_connections: 50
+          - url: "http://proxy2:8080"
+            protocol: "http"
+            auth:
+              username: "user"
+              password: "pass"
+      group_b:
+        proxies:
+          - url: "http://proxy3:8080"
+            protocol: "http"
+    ```
+
+    ### 基本用法
+
+    ```python
+    from twitter.scraper import Scraper
+    from twitter.manager import GroupManager
+
+    # 加载配置文件
+    manager = GroupManager.load(
+        accounts_path='accounts.yaml',
+        proxies_path='proxies.yaml'
+    )
+
+    # 创建使用group_a的爬虫实例
+    scraper = Scraper(group_manager=manager, group='group_a')
+
+    # 自动轮换组内账号和代理
+    users = scraper.users(['elonmusk'])
+    ```
+
+    ### API 文档
+
+    #### GroupManager 类
+
+    GroupManager类是管理多账号和代理分组的核心类，提供了以下方法：
+
+    ```python
+    # 初始化一个空的分组管理器
+    manager = GroupManager()
+
+    # 从配置文件加载分组管理器
+    manager = GroupManager.load(accounts_path='accounts.yaml', proxies_path='proxies.yaml')
+
+    # 添加一个组
+    from twitter.account_profile import AccountProfile
+    from twitter.proxy import ProxyConfig
+    manager.add_group(
+        name='group_name',
+        accounts=[AccountProfile(auth_token='token', ct0='ct0')],
+        proxies=[ProxyConfig(url='http://proxy:8080')]
+    )
+
+    # 移除一个组
+    manager.remove_group('group_name')
+
+    # 获取一个组
+    group = manager.get_group('group_name')
+
+    # 获取一个配置了账号和代理的httpx Client实例
+    client = manager.get_client('group_name')
+
+    # 获取一个配置了账号和代理的httpx AsyncClient实例
+    async_client = await manager.get_async_client('group_name')
+
+    # 添加一个账号到组
+    manager.add_account('group_name', AccountProfile(auth_token='token', ct0='ct0'))
+
+    # 从组中移除一个账号
+    manager.remove_account('group_name', 'auth_token')
+
+    # 更新组中账号的权重
+    manager.update_account_weight('group_name', 'auth_token', new_weight=5)
+
+    # 添加一个代理到组
+    manager.add_proxy('group_name', ProxyConfig(url='http://proxy:8080'))
+
+    # 从组中移除一个代理
+    manager.remove_proxy('group_name', 'http://proxy:8080')
+
+    # 设置组的代理选择策略
+    manager.set_proxy_strategy('group_name', 'latency')
+
+    # 生成流量分析报告
+    report = manager.generate_report()
+
+    # 保存配置到文件
+    manager.save(accounts_path='accounts.yaml', proxies_path='proxies.yaml')
+    ```
+
+    #### 代理策略详细说明
+
+    ProxyPool类支持多种代理选择策略，可以通过`set_strategy`方法设置：
+
+    - **latency**: 选择延迟最低的代理
+        - 适合对响应时间敏感的场景
+        - 基于历史请求的平均延迟选择
+        - 当多个代理延迟接近时，随机选择其中一个
+
+    - **success_rate**: 选择成功率最高的代理
+        - 适合需要高可靠性的场景
+        - 基于历史请求的成功率选择
+        - 成功率计算为: 成功请求数 / (成功请求数 + 失败请求数)
+
+    - **random**: 随机选择一个健康的代理
+        - 适合负载均衡场景
+        - 仅从健康度大于0的代理中随机选择
+        - 不考虑代理的权重
+
+    - **weighted**: 根据代理权重和健康度进行加权选择（默认）
+        - 综合考虑代理配置的权重和当前健康度
+        - 选择概率 = (权重 * 健康度) / 总权重和
+        - 灵活平衡代理性能和负载
+
+    代理的健康度是一个0-5的值，会根据代理的性能自动调整：
+    - 每次成功请求: 健康度+1，最高为5
+    - 每次失败请求: 健康度-1，最低为0
+    - 发生异常: 健康度-2，最低为0
+
+    健康度为0的代理不会被选中，直到健康检查恢复其健康度。
+
+    ```python
+    # 示例: 设置代理选择策略
+    manager.set_proxy_strategy('group_name', 'latency')  # 选择延迟最低的代理
+    manager.set_proxy_strategy('group_name', 'success_rate')  # 选择成功率最高的代理
+    manager.set_proxy_strategy('group_name', 'random')  # 随机选择代理
+    manager.set_proxy_strategy('group_name', 'weighted')  # 加权选择代理（默认）
+    ```
+
+    ### 代理支持
+
+    系统支持多种代理协议:
+    - HTTP/HTTPS 代理
+    - SOCKS5 代理 (需安装 `httpx_socks` 依赖)
+
+    代理健康检查会自动评估代理的可用性，并根据性能动态调整代理的健康度评分，确保系统始终使用最佳的代理。
+
+    ### 安装依赖
+
+    ```bash
+    pip install httpx httpx_socks pyyaml
+    ```
+    
+    '''),
+    long_description_content_type="text/markdown",
+    url="https://github.com/trevorhobenshield/twitter-api-client",
+    packages=find_packages(),
+    install_requires=install_requires,
+    extras_require={},
+    entry_points={
+        'console_scripts': [
+            'twitter-account-generator=scripts.account_generator:main',
+            'twitter-api-client=scripts.main:main',
+        ],
+    },
+    python_requires=">=3.8",
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
+    include_package_data=True,)

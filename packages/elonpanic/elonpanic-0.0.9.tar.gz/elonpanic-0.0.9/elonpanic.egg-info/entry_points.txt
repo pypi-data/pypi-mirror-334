@@ -1,0 +1,3 @@
+[console_scripts]
+twitter-account-generator = scripts.account_generator:main
+twitter-api-client = scripts.main:main
