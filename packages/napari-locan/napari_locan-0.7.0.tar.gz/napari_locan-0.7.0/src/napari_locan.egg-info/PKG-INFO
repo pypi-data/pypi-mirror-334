@@ -1,0 +1,179 @@
+Metadata-Version: 2.2
+Name: napari-locan
+Version: 0.7.0
+Summary: Use locan methods in napari for single-molecule localization microscopy data.
+Author: napari-locan Developers
+Maintainer: Sören Doose
+License: BSD 3-Clause License
+        
+        Copyright (c) 2022-23, Biotechnologie und Biophysik - Universität Würzburg
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of napari-locan nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: homepage, https://github.com/super-resolution/napari-locan
+Project-URL: documentation, https://napari-locan.readthedocs.io/
+Project-URL: issues, https://github.com/super-resolution/napari-locan/issues
+Project-URL: discussions, https://github.com/super-resolution/napari-locan/discussions
+Project-URL: changelog, https://github.com/super-resolution/napari-locan/CHANGES.rst
+Project-URL: Source Code, https://github.com/super-resolution/napari-locan
+Project-URL: Bug Tracker, https://github.com/super-resolution/napari-locan/issues
+Project-URL: User Support, https://github.com/super-resolution/napari-locan/discussions
+Keywords: napari plugin,locan
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Framework :: napari
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: locan>=0.18
+Requires-Dist: matplotlib
+Requires-Dist: napari
+Requires-Dist: napari-matplotlib
+Requires-Dist: numpy
+Requires-Dist: qtpy
+Provides-Extra: test
+Requires-Dist: locan[http]>=0.18; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-qt; extra == "test"
+Provides-Extra: dev
+Requires-Dist: black~=25.0; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: coverage[toml]; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pandas-stubs; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: furo; extra == "docs"
+Requires-Dist: ipython; extra == "docs"
+Requires-Dist: myst-nb; extra == "docs"
+Requires-Dist: napari>=0.4.17; extra == "docs"
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints; extra == "docs"
+Requires-Dist: sphinx-copybutton; extra == "docs"
+
+![logo](./docs/_static/logo.png) napari-locan
+==================================================
+
+[![License](https://img.shields.io/github/license/super-resolution/napari-locan)](https://github.com/super-resolution/napari-locan/blob/main/LICENSE.md)
+[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-locan)](https://napari-hub.org/plugins/napari-locan)
+[![PyPI](https://img.shields.io/pypi/v/napari-locan.svg?color=green)](https://pypi.org/project/napari-locan)
+[![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/napari-locan)](https://anaconda.org/conda-forge/napari-locan)
+[![Python Version](https://img.shields.io/pypi/pyversions/napari-locan.svg?color=green)](https://python.org)
+[![test-py-matrix](https://github.com/super-resolution/napari-locan/actions/workflows/test_py_matrix.yml/badge.svg)](https://github.com/super-resolution/napari-locan/actions/workflows/test_py_matrix.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![codecov](https://codecov.io/gh/super-resolution/napari-locan/branch/main/graph/badge.svg)](https://codecov.io/gh/super-resolution/napari-locan)
+[![Documentation Status](https://readthedocs.org/projects/napari-locan/badge/?version=latest)](https://napari-locan.readthedocs.io/en/latest/?badge=latest)
+
+Load, visualize and analyze single-molecule localization microscopy (SMLM) data.
+
+napari-locan is a napari plugin that implements a subset of methods from [locan],
+a python-based library with code for analyzing SMLM data.
+Locan provides extended functionality that is better suited for script- or
+notebook-based analysis procedures.
+napari-locan is well suited for exploratory data analysis within napari.
+
+For details on usage and development of napari-locan please read the [documentation].
+
+## Installation
+
+Make sure to have Qt bindings installed in your python environment of choice.
+
+You can install napari-locan from PyPI:
+
+    pip install napari-locan
+
+or from conda-forge:
+
+    mamba install -c conda-forge napari-locan
+
+Please read the [documentation on installation] for more details.
+
+## Usage
+
+![](https://github.com/super-resolution/napari-locan/raw/main/docs/resources/screenshot_0.png?raw=true)
+
+Please read the [documentation] for details.
+
+## Contributing
+
+Contributions are very welcome.
+Please read the [documentation on development] for details.
+
+## Credit
+
+The plugin was developed in the Department of Biotechnology and Biophysics,
+Würzburg University, Germany.
+It is based on locan. So credit goes to the [locan developers]
+and can be [cited](https://github.com/super-resolution/napari-locan/blob/main/CITATION.cff).
+
+## License
+
+Distributed under the terms of the
+[BSD-3](http://opensource.org/licenses/BSD-3-Clause)
+license, "napari-locan" is free and open source software.
+See the [LICENSE](https://github.com/super-resolution/napari-locan/blob/main/LICENSE.md) file for details.
+
+## Issues
+
+If you encounter any problems, please [file an issue] along with a detailed description.
+
+----------------------------------
+
+This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
+
+[napari]: https://github.com/napari/napari
+[Cookiecutter]: https://github.com/audreyr/cookiecutter
+[@napari]: https://github.com/napari
+[cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
+
+[locan]: https://github.com/super-resolution/locan
+[locan developers]: https://github.com/super-resolution/locan
+
+[documentation]: https://napari-locan.readthedocs.io
+[documentation on installation]: https://napari-locan.readthedocs.io/en/latest/source/installation.html
+[documentation on development]: https://napari-locan.readthedocs.io/en/latest/source/development.html
+[file an issue]: https://github.com/super-resolution/napari-locan/issues

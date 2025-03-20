@@ -1,0 +1,276 @@
+[build-system]
+requires = [
+    "setuptools>=64",
+    "setuptools_scm>=8"
+    ]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+version_file = "src/napari_locan/_version.py"
+version_scheme = "release-branch-semver"
+
+[project]
+name = "napari-locan"
+description = "Use locan methods in napari for single-molecule localization microscopy data."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE.md"}
+authors = [
+  {name = "napari-locan Developers"},
+]
+maintainers = [
+  {name = "Sören Doose"}
+]
+keywords = ["napari plugin", "locan"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Framework :: napari",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dynamic = ["version"]
+dependencies = [
+    "locan>=0.18",
+    "matplotlib",
+    "napari",
+    "napari-matplotlib",
+    "numpy",
+    "qtpy",
+]
+
+[project.optional-dependencies]
+test =[
+    "locan[http]>=0.18",
+    "pytest",
+    "pytest-qt",
+]
+dev = [
+    "black~=25.0",
+    "build",
+    "coverage[toml]",
+    "mypy",
+    "pandas-stubs",
+    "pre-commit",
+    "ruff",
+    "twine",
+]
+docs = [
+    "furo",
+    "ipython",
+    "myst-nb",
+    "napari>=0.4.17",
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-copybutton",
+]
+
+[project.urls]
+homepage = "https://github.com/super-resolution/napari-locan"
+documentation = "https://napari-locan.readthedocs.io/"
+issues = "https://github.com/super-resolution/napari-locan/issues"
+discussions = "https://github.com/super-resolution/napari-locan/discussions"
+changelog = "https://github.com/super-resolution/napari-locan/CHANGES.rst"
+"Source Code" = "https://github.com/super-resolution/napari-locan"
+"Bug Tracker" = "https://github.com/super-resolution/napari-locan/issues"
+"User Support" = "https://github.com/super-resolution/napari-locan/discussions"
+
+[project.entry-points."napari.manifest"]
+napari-locan = "napari_locan:napari.yaml"
+
+[dependency-groups]
+# test dependencies required to run the extended tests suite
+test = [
+    "locan[http]>=0.18",
+    "pytest",
+    "coverage",
+]
+test-qt = [
+    {include-group = "test"},
+    "pytest-qt",
+]
+lint = [
+    "black~=25.0",
+    "ruff",
+]
+typing = [
+    "mypy",
+    "pandas-stubs",
+]
+dev = [
+    "pre-commit",
+    {include-group = "test-qt"},
+    {include-group = "lint"},
+    {include-group = "typing"},
+]
+docs = [
+    "furo",
+    "ipython",
+    "myst-nb",
+    "napari>=0.4.17",
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-copybutton",
+]
+
+[tool.black]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = [
+    "src/napari_locan/tests",
+    "tests"
+]
+filterwarnings = [
+]
+addopts = "--import-mode=importlib --strict-markers -m 'not napari'"
+markers = [
+    "napari: marks tests that run napari (skipped by default)",
+]
+
+[tool.coverage.run]
+source = ["napari_locan"]
+omit = [
+    "tests/*",
+    "src/napari_locan/tests/*",
+    "src/napari_locan/scripts/*",
+    "src/napari_locan/napari.yaml",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.ruff]
+line-length = 88
+# automatically exclude files that are ignored by .gitignore
+exclude = [
+    ".*",
+    "dist",
+    "docs",
+    "docker",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "Q",  # flake8-quotes
+    "YTT",  # flake8-2020
+    "S",  # flake8-bandit
+    "UP", # pyupgrade
+    "BLE", # flake8-blind-exception
+    "A", # flake8-builtins
+    "C4", # flake8-comprehensions
+    "ISC", # flake8-implicit-str-concat
+    "G", # flake8-logging-format
+    "PIE", # flake8-pie
+    "SIM", # flake8-simplify
+]
+fixable = ["I"]
+# Rules - https://github.com/charliermarsh/ruff#reference:
+# E402 module-import-not-at-top-of-file
+# E501 line-too-long
+# F403 import-star-used
+# F405 undefined-local-with-import-star-usage
+# I001 unsorted-imports
+# Q000 bad-quotes-inline-string
+# S101 assert
+# S307 suspicious-eval-usage
+# S605 start-process-with-a-shell
+# S607 start-process-with-partial-path
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403", "F405", "I001"]
+"_version.py" = ["Q000"]
+"test_*.py" = ["S101", "S605", "S607"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.flake8-import-conventions]
+[tool.ruff.lint.flake8-import-conventions.aliases]
+locan = "lc"
+matplotlib = "mpl"
+"matplotlib.pyplot" = "plt"
+numpy = "np"
+pandas = "pd"
+scipy = "sp"
+
+[tool.napari.manifest]
+display_name = "napari-locan"
+
+[tool.mypy]
+plugins = ['numpy.typing.mypy_plugin']
+files = [
+    "$MYPY_CONFIG_FILE_DIR/src",
+    "$MYPY_CONFIG_FILE_DIR/tests/"
+]
+strict = true
+# allow type checking through qtpy with pyside6 installed:
+always_false=['PYQT6', 'PYSIDE2', 'PYQT5']
+always_true=['PYSIDE6']
+
+# warn-unused-ignores is not quite reproducible
+warn_unused_ignores = false
+
+[[tool.mypy.overrides]]
+module = [
+    'napari_matplotlib.*',
+    'napari.*',
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    'napari_locan.scripts.*',
+]
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = [
+    'napari_locan.tests.*'
+]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = false
+disable_error_code = ["attr-defined"]
+
+[[tool.mypy.overrides]]
+module = [
+    'tests.*'
+]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = false
+disable_error_code = ["attr-defined"]
