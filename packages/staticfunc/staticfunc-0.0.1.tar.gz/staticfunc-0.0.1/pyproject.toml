@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "staticfunc"
+version = "0.0.1"
+authors = [
+  { name="Wyatt K", email="wyattk1093@gmail.com" },
+]
+description = "A function decorator to run type checking and/or casting on a function's arguments."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+license = {text = "MIT"}
+license-file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/wk1093/staticfunc"
+Issues = "https://github.com/wk1093/staticfunc/issues"
