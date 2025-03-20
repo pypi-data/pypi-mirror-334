@@ -1,0 +1,15 @@
+Welcome to ParityOS's documentation!
+====================================
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   installation
+   quickstart
+   custom_device_models
+   asynchronous_submission
+   parity_decoder
+   tutorial
+   benchmarking
+   api_reference/index
