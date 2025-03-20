@@ -1,0 +1,79 @@
+Package **samppy** implements Hamiltonian Markov-chain sampling and
+some additional analysis methods for multivariate probability distributions.
+
+The probability distribution is represented only by
+an array of independent and identically distributed (i.i.d.) samples
+drawn from the distribution.
+
+The package includes four modules:
+
+* Module **hamiltonian_sampler** implements Hamiltonian Markov-Chain sampling.
+    A *HamiltonianSampler* instance can generate
+    random samples of a multivariate probability distribution,
+    defined only by an non-normalized *log-likelihood* function,
+    and the *gradient* of that function.
+
+    The generated batch of sample vectors is stored in a 2D numpy array,
+    either as rows or as columns.
+
+    Class `HamiltonianSampler` defines a standard isotropic sampler.
+    Class `HamiltonianBoundedSampler` is a subclass also allowing
+    one- or two-sided interval limits for all vector elements.
+
+* Module **credibility** includes functions to estimate *jointly credible differences*
+    and/or *correlations* between pairs of elements
+    in a random vector with a multivariate probability distribution,
+    represented only by samples. 
+    
+* A separate module **credibility_pd** has the same functionality, 
+    but operates on input data in Pandas DataFrame or Series format.
+
+* Module **sample_entropy** includes a function to estimate the *differential entropy*
+    of a multivariate probability distribution, represented only by samples.
+    The entropy is estimated by the Kozachenko-Leonenko nearest-neighbor approximation
+    (Singh and Poczos, 2016).
+
+## Usage
+
+This package was developed mainly for use by other projects.
+It is distributed separately because it may be useful for other purposes.
+
+The Hamiltonian sampler code was inspired by the LAHMC project by
+Jasha Sohlstein. The present implementation includes
+some safety features to facilitate its use.
+The present sampler does *not* include sampling within a general subspace manifold,
+but it allows bounded ranges for vector elements.
+
+## Requirements
+
+The package requires recent versions of Numpy and Scipy. 
+These are automatically installed.
+Pandas is not installed automatically, 
+because the module requiring Pandas input 
+will only be called from other program(s) that already use Pandas.
+
+## References
+
+R M Neal (2011): MCMC using Hamiltonian dynamics. Ch. 5 in
+Brooks et al. (eds) *Handbook of Markov Chain Monte Carlo*.
+Chapman and Hall / CRC Press.
+
+A. Leijon, G. E. Henter, and M. Dahlquist (2016):
+Bayesian analysis of phoneme confusion matrices.
+*IEEE Transactions on Audio, Speech, and Language Processing* 24(3):469–482.
+(Describes an application of credible-difference calculation.)
+
+A. Leijon, P. von Gablenz, I. Holube, J. Taghia, and K. Smeds (2023).
+Bayesian analysis of ecological momentary assessment (EMA) data
+collected in adults before and after hearing rehabilitation. 
+*Frontiers in Digital Health*, 5(1100705).
+[download](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1100705/full)
+
+F Perez-Cruz (2008): Estimation of Information Theoretic Measures
+for Continuous Random Variables.
+*Advances in Neural Information Processing Systems 21 (NIPS 2008)*.
+
+S Singh and B Poczos (2016): Analysis of k-nearest neighbor distances
+with application to entropy estimation.
+*arXiv:1603.08578 [math.ST]*.
+
