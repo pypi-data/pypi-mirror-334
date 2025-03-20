@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: chai_lab
+Version: 0.6.1
+Summary: Chai Discovery tools for AI + protein research.
+Author: Chai Discovery
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: antipickle==0.2.0
+Requires-Dist: beartype>=0.18
+Requires-Dist: biopython>=1.83
+Requires-Dist: einops~=0.8
+Requires-Dist: gemmi~=0.6.3
+Requires-Dist: jaxtyping>=0.2.25
+Requires-Dist: matplotlib
+Requires-Dist: modelcif>=1.0
+Requires-Dist: numba>=0.59
+Requires-Dist: numpy~=1.21
+Requires-Dist: pandas[aws,gcp,parquet]~=2.1
+Requires-Dist: pandera
+Requires-Dist: rdkit~=2024.9.5
+Requires-Dist: tmtools>=0.0.3
+Requires-Dist: torch<2.7,>=2.3.1
+Requires-Dist: tqdm~=4.66
+Requires-Dist: typer-slim~=0.12
+Requires-Dist: typing-extensions
