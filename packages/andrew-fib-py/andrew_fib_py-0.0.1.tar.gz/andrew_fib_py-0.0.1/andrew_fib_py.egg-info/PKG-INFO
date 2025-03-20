@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: andrew_fib_py
+Version: 0.0.1
+Summary: Calculate fibonacci numbers
+Home-page: https://github.com/breezr/fib-py
+Author: Andrew Pan
+Author-email: ycpan711@gmail.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# fib-py
+This is a basic pip module on calculating Fibonacci numbers
