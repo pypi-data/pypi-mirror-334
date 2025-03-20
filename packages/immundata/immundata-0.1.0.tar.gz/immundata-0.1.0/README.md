@@ -1,0 +1,216 @@
+# immundata-py
+
+An efficient data framework for single-cell and bulk immune repertoire datasets of practically any scale.
+
+Think AnnData, SingleCellExperiment or Seurat object, but for AIRR with the full support for out-of-memory datasets and easier access to additional receptor data such as gene expression from single-cell transcriptomics files, spatial data coordinates, or antigen specificity data, provided by user.
+The goal of `immundata` is to standardize I/O and basic data manipulation, following the AIRR Community Data Standard for immune repertoire representation.
+It's primary users are bioinformatics developers and data engineers who don't want to write from scratch an abstraction layer over the data.
+Biologists and medical scientists could benefit as well, considering they learn the code syntaxis. However, the overall philosophy is to make sure that
+immune repertoire data analysis tools such as `immunarch` cover more than 80% of use cases without explicitly using `immundata` by the end user.
+
+## Installation
+
+```bash
+poetry install
+```
+
+## Usage
+
+See `notebooks/immundata-experiments.ipynb`.
+
+## Challenges and use cases
+
+### Plans
+
+Benchmark before each release?
+
+1) bulk, single chain
+2) single-cell, single chain
+3) Release `0.1.0`
+4) bulk, paired chain
+5) single-cell, paired chain
+6) Release `0.2.0`
+7) add new receptor metadata
+8) write some metadata back to the single cell using barcodes
+9) Release `0.3.0`
+10) Decide the priority later: multiple metadata sources, like single-cell + spatial
+11) Decide the priority later: merge multiple immundatas, so support for multiple data sources
+12) Decide the priority later: optimizations
+
+### I/O
+
+#### Processing input files
+
+Some input file may require processing. Like adding a sample_id column or something like that.
+
+Overall, saving to parquet could increase any computations in contrast to reading from csv.
+
+data management 1 - dump raw data to parquet for better future analysis. Just this huge parquet file with all the receptors, or several parquet files.
+
+data management 2 - repertoire files with built receptors
+
+What is the cost and frequency of building a repertoire with new receptor signature vs. building with a new sample signature?
+- receptor signature - pricy, long, rare
+- sample signature - ??? do we really need to often re-create samples? But it should be much less costly
+
+Receptor building:
+- build unique receptors
+- filter out / save non-coding
+- figure out how to process multiple chain sequence data
+- normalize V/D/J genes, remove/move to a separate column list of segments, leave only the important ones using some strategy (like take first)
+
+#### Validate pre-input data / connect to external database as a source of truth instead of parquet
+
+1) raw data -> build receptors -> dump to parquet
+2) raw data -> dump to parquet[raw] -> build receptors -> dump to parquet[receptor model]
+3) database[raw] with some table    -> build receptors -> dump to parquet[receptor model]
+4) database[receptor model]
+
+The problem is that the source[receptor model] must follow the `receptor model` and the ImmunData format with multiple tables + allow scanning.
+
+
+### Data operations
+
+#### Metadata storing
+
+If we have a unique receptor pair, how do we store different metadata values coming from different samples?
+mvalue == metadata value, like gene expression or immunogenicity
+uid == unique receptor id
+barcode == unique cell id
+
+Simple version: 
+table1: barcode - receptor - sample id - mvalue
+
+Complex version:
+table1: uid - receptor - one hot encoding for multiple samples
+table2: barcode -> mvalues for this receptor from some sample
+table3: barcode -> uid
+in this case, immundata is a manager that accurately pre-filters data and concats together
+necessary columns.
+
+This is virtually a task of database normalization.
+https://www.freecodecamp.org/news/database-normalization-1nf-2nf-3nf-table-examples/
+
+- The First Normal Form – 1NF
+    - For a table to be in the first normal form, it must meet the following criteria:
+        - a single cell must not hold more than one value (atomicity)
+        - there must be a primary key for identification
+        - no duplicated rows or columns
+        - each column must have only one value for each row in the table
+
+- The Second Normal Form – 2NF
+    - The 1NF only eliminates repeating groups, not redundancy. That’s why there is 2NF.
+    - A table is said to be in 2NF if it meets the following criteria:
+        - it’s already in 1NF
+        - has no partial dependency. That is, all non-key attributes are fully dependent on a primary key.
+
+- The Third Normal Form – 3NF
+    - When a table is in 2NF, it eliminates repeating groups and redundancy, but it does not eliminate transitive partial dependency.
+    - This means a non-prime attribute (an attribute that is not part of the candidate’s key) is dependent on another non-prime attribute. 
+    - This is what the third normal form (3NF) eliminates.
+    - So, for a table to be in 3NF, it must:
+        - be in 2NF
+        - have no transitive partial dependency.
+
+#### Metadata operations
+
+select samples (==all receptors from a sample) with this specific property
+looks like a little bit more complex filter. Like filter_sample() that runs on samples only. But the typical filter can
+do that as well, if receptors contain repertoire-level metadata.
+Moving from sample-level to receptor-level metadata makes our lives much easier. We should just probably 
+store the metadata columns. Theoretically, they are store automatically if we create a sample signatures.
+Maybe signature + additional information?
+
+#### Computations on sample metadata
+
+Select all samples that we encounter in specific repertoire group more than 3 times.
+
+#### How to process paired data
+
+One big table with missing columns? Several tables? Tabular schema written to `ImmunData.schema.receptor`?
+
+#### Caching
+
+Run the analysis and cache the results data assigning stuff to ImmunData:
+immun_data_new = immun_data_old.filter(blah blah)
+
+Or should we do it? Hmm.
+immun_data_new.cache()? immun_data_new.execute()?
+
+
+### Modalities
+
+#### Writing back after analysis
+
+filter clonotypes -> do some analysis like hyperexpansion -> write back the metadata that some clones are expanded
+not sure how to do that because we don't save the UIDs. Or ARE we??? unique_receptors (or just receptors in case of public repertoire)
+can return all the UIDs. And we can have a function that writes this column back
+
+New problem then: we write the data (lazy). Do we force the caching? Do we wait? What if the user removes this variable? [!!!]
+
+#### How to create a fast / convenient AIRR <-> SC layers data loading and writing
+
+DECISION: Becuase we can extract barcodes from the original data quite easily, we could forget it and just go with barcodes extraction via AnnData whatever pushed on user. Same with writing some info back.
+
+View into the data
+Get the list of genes / 
+Or process the receptors, get barcodes, extract data with merging strategy (mean, median, fun), and then do stuff
+
+```
+bc_vec = scdata.select(IL2 >= 2)
+imdata.filter(bc_vec).filter(...)
+# OR
+bc_vec = imdata.scdata.select(IL2 >= 2)
+imdata.filter(bc_vec).filter(...)
+
+imdata.filter(sequence == "CDR3blahlbha").extract("IL2", "IL12", combine="mean")
+
+imdata.extract("IL2", "IL12", combine="mean").filter(IL2 >= 5)
+
+imdata.filter(sc.IL2 >= 5, combine="mean")
+
+`sc` - data source slot
+main data source slot, other data source slot
+
+imdata.data_slot["123"].some_operation(blah blah filter by) => barcodes => .build_receptors(strategy = "mean").filter().analyze()
+```
+
+
+### Advanced analysis
+
+#### Convenient sequence distance calculations
+
+- Use case 1 - give a string and find similar ones with a cutoff for max length
+    - https://docs.rs/rapidfuzz/latest/rapidfuzz/
+    - https://github.com/ion-elgreco/polars-distance/tree/main/polars_distance
+
+- Use case 2 - compute pairwise distances and build a graph
+
+
+## Other thoughts and notes
+
+Operation that change the clonotype table structure (select columns), group them (group_by) and doesn't change (filter, mutate)
+
+Do we need to support the clonotypes? Probably, it's all about barcodes
+
+What about supporting the state for ProcessedImmunData, i.e., saving the info about clonotype models and clonotype ids?
+
+Clonotype model = heavy computations and quite foundational for the analysis; this is what you think a data point is.
+
+Repertoire model = no computations; this a view on your data, a grouping that you want to be light an easy to work with
+
+Optional format / full format – less columns / full format
+
+We need to rewrite sample_id with the filename if the file's sample ID is bad
+
+Benchmarking
+- many small repertoires (single-cell use case)
+- several small repertoires (WTF use case)
+- several big repertoires (typical RepSeq use case)
+- many big repertoires (we are heading there)
+
+Pre-ordering: https://duckdb.org/docs/guides/performance/indexing
+
+To readers:
+- strategy for dealing with samples
+- callback for processing file name

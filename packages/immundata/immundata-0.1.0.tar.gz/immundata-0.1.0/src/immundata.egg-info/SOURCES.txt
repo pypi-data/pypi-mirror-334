@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/immundata/__init__.py
+src/immundata/core.py
+src/immundata/data.py
+src/immundata/grouped.py
+src/immundata/models.py
+src/immundata/py.typed
+src/immundata/reader.py
+src/immundata/source.py
+src/immundata.egg-info/PKG-INFO
+src/immundata.egg-info/SOURCES.txt
+src/immundata.egg-info/dependency_links.txt
+src/immundata.egg-info/requires.txt
+src/immundata.egg-info/top_level.txt
