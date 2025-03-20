@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test_gen_framework"
+version = "1.0.4"
+description = "Test Generation Framework"
+license = { text = "MIT" }
+dependencies = [
+    "requests",
+    "pytest",
+    "PyYAML",
+    "gitpython",
+    "pygithub",
+    "pytest-json",
+    "pytest-json-report",
+    "coverage"
+]
+readme = "README.md"
+
+# Use package_dir to bundle everything into `test_gen_framework` directory
+[tool.setuptools.packages.find]
+where = ["."]
+
+
+# Entry points for CLI commands
+[project.scripts]
+test-gen = "test_gen_framework.__init__:main"
+test-gen-cli = "test_gen_framework.cli.cli:main"
+test-gen-init = "test_gen_framework.post_install:init_config"

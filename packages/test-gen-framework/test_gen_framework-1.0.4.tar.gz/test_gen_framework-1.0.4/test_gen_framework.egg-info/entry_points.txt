@@ -1,0 +1,4 @@
+[console_scripts]
+test-gen = test_gen_framework.__init__:main
+test-gen-cli = test_gen_framework.cli.cli:main
+test-gen-init = test_gen_framework.post_install:init_config
