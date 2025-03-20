@@ -1,0 +1,71 @@
+Metadata-Version: 2.2
+Name: ganymed
+Version: 0.1.8
+Summary: Sensry Ganymed Sy1xx Package
+Author-email: Sven Ginka <s.ginka@sensry.de>
+License: Apache License
+        Version 2.0, January 2004
+        
+        Copyright (c) 2025 sensry.io
+        
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        
+        http://www.apache.org/licenses/LICENSE-2.0
+        
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+        
+        
+Project-URL: Homepage, https://github.com/sensry-de/ganymed-pypi
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyserial
+
+# Sensry Ganymed Sy1xx Bootloader CLI
+
+The Sensry Ganymed SY1xx Bootloader CLI is a command-line tool designed for interfacing with the bootloader of Sensry Ganymed SY1xx series devices. It enables users to flash firmware, update bootloader configurations, and manage device firmware over supported communication interfaces (such as UART, USB, or SPI). The tool is useful for developers working with Sensry Ganymed SY1xx microcontrollers, allowing efficient firmware deployment and maintenance. 
+
+## Installation
+
+```bash
+pip install sry-gnm-sy1xx-bl
+```
+
+## Usage
+
+```python
+import os
+from sry_gnm_sy1xx_bl import SryGnmSy1xxBL
+
+# define the file to be uploaded
+coreguard_bin = os.path.join("bin", "coreguard-bl.bin")
+application_bin = os.path.join("bin", "zephyr_demo_app.bin")
+
+# create the loader
+flash = SryGnmSy1xxBL()
+
+# connect to serial
+flash.connect("/dev/ttyUSB0")
+
+# convert binary to application ganymed image
+application_gnm = flash.convert_zephyr_bin(application_bin)
+
+# set the controller into bootloader mode
+flash.enter_loading_mode()
+
+# clear the internal flash
+flash.clear_mram()
+
+# write the new binaries
+flash.write_mram(coreguard_bin, application_gnm)
+
+print("done")
+```
+
+
+
