@@ -1,0 +1,133 @@
+{
+  "EveConstellation": [
+    {
+      "eve_region_id": 10000033,
+      "id": 20000412,
+      "name": "Isoma",
+      "position_x": -1.8799109490249757e+17,
+      "position_y": 7.002504236095968e+16,
+      "position_z": 1.0819157091943803e+17
+    },
+    {
+      "eve_region_id": 11000022,
+      "id": 21000219,
+      "name": "D-C00219",
+      "position_x": 8.032813437456467e+18,
+      "position_y": 9502033641370260.0,
+      "position_z": -9.186026427295073e+18
+    }
+  ],
+  "EveRegion": [
+    {
+      "description": "Acting as both an ideological fort as well as a physical impediment to invasion, the Citadel is among the most well fortified regions in the cluster. Despite their penchant for squabbling and competing with each other, nearly every Caldari corporation keeps a presence here, all working together to diligently defend their home. After having been ejected from one homeland, the Caldari are not about to suffer such a fate again. The Citadel stands as proud testament to that resolve.",
+      "id": 10000033,
+      "name": "The Citadel"
+    },
+    {
+      "description": "",
+      "id": 11000022,
+      "name": "D-R00022"
+    }
+  ],
+  "EveSolarSystem": [
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002806,
+      "name": "Hasmijaala",
+      "position_x": -1.8559362951321002e+17,
+      "position_y": 6.499109859270042e+16,
+      "position_z": 1.0177928182638667e+17,
+      "security_status": 0.33582890033721924
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002807,
+      "name": "Nagamanen",
+      "position_x": -1.8866432564849712e+17,
+      "position_y": 6.716049010904951e+16,
+      "position_z": 1.044017484628307e+17,
+      "security_status": 0.30472588539123535
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002808,
+      "name": "Oto",
+      "position_x": -1.8229351803381008e+17,
+      "position_y": 7.326544153671725e+16,
+      "position_z": 1.0776028787547083e+17,
+      "security_status": 0.39809027314186096
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002809,
+      "name": "Sujarento",
+      "position_x": -1.893221732657676e+17,
+      "position_y": 7.055728095102456e+16,
+      "position_z": 1.1015147053298981e+17,
+      "security_status": 0.3111356794834137
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002810,
+      "name": "Eranakko",
+      "position_x": -1.868528684449207e+17,
+      "position_y": 6.259763813581917e+16,
+      "position_z": 1.0814599904434691e+17,
+      "security_status": 0.32403257489204407
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002811,
+      "name": "Onatoh",
+      "position_x": -1.9088096754640547e+17,
+      "position_y": 7.022624958448769e+16,
+      "position_z": 1.115962192557753e+17,
+      "security_status": 0.2964249849319458
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002812,
+      "name": "Tannolen",
+      "position_x": -1.8987817294756698e+17,
+      "position_y": 6.5906220372572136e+16,
+      "position_z": 1.1460386001248939e+17,
+      "security_status": 0.3036259412765503
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 20000412,
+      "eve_star_id": null,
+      "id": 30002813,
+      "name": "Tama",
+      "position_x": -1.9368867177118506e+17,
+      "position_y": 7.74524465861002e+16,
+      "position_z": 1.1268218280222926e+17,
+      "security_status": 0.2825556993484497
+    },
+    {
+      "enabled_sections": 0,
+      "eve_constellation_id": 21000219,
+      "eve_star_id": null,
+      "id": 31001805,
+      "name": "J125316",
+      "position_x": 8.041517535930086e+18,
+      "position_y": -3.0089120389835916e+16,
+      "position_z": -9.188597549674955e+18,
+      "security_status": -0.9900000095367432
+    }
+  ]
+}
