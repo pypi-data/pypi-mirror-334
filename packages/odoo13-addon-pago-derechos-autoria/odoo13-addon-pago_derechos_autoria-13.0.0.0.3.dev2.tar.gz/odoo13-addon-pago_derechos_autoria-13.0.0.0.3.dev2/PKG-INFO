@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: odoo13-addon-pago_derechos_autoria
+Version: 13.0.0.0.3.dev2
+Requires-Python: >=3.5
+Requires-Dist: odoo>=13.0a,<13.1dev
+Summary: =?utf-8?q?M=C3=B3dulo_para_los_pagos_de_derechos_de_autor=C3=ADa_para_editoriales=2E?=
+Home-page: https://framagit.org/devcontrol
+License: OPL-1
+Author: Colectivo DEVCONTROL
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 13.0
+
+Módulo para los pagos de derechos de autoría para editoriales.
