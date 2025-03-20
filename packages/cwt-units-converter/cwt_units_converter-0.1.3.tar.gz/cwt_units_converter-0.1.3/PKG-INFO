@@ -1,0 +1,103 @@
+Metadata-Version: 2.2
+Name: cwt-units-converter
+Version: 0.1.3
+Summary: Water units
+Home-page: https://github.com/fscontrol/water_treatment_control
+Author: Dmitrii Babaev
+Author-email: babaevdmitri@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Units Converter
+
+Библиотека для конвертации различных единиц измерения, включая специализированные классы для работы с TDS (Total Dissolved Solids) в воде.
+
+## Особенности
+
+- Поддержка различных единиц измерения:
+  - Температура (°C, °F, K)
+  - Длина (м, см, мм, км, дюймы, футы, ярды, мили)
+  - Масса (кг, г, мг, фунты, унции)
+  - Объем (м³, л, мл, галлоны, кубические футы)
+  - Плотность (кг/м³, г/см³, г/мл, г/л, кг/л, фунт/фут³, фунт/галлон)
+  - TDS (мкСм/см ↔ мг/л)
+
+### Класс TDSUnit
+
+Специализированный класс для работы с общим содержанием растворенных твердых веществ (TDS) в воде. 
+Реализует конвертацию между электропроводностью (мкСм/см) и концентрацией (мг/л) на основе рекомендаций DuPont.
+
+#### Особенности реализации
+
+- Динамический расчет коэффициента пересчета в зависимости от диапазона электропроводности:
+  - Чистая вода (<100 мкСм/см): коэффициент 0.5
+  - Солоноватая вода (100-5000 мкСм/см): коэффициент 0.5-0.7
+  - Морская вода (>5000 мкСм/см): коэффициент 0.7-0.75
+
+- Поддержка арифметических операций:
+  - Сложение и вычитание значений TDS
+  - Умножение и деление на числа
+  - Автоматическое сохранение единиц измерения при операциях
+
+## Использование
+
+```python
+# Создание объекта TDS
+tds = TDSUnit()
+
+# Установка значения в мкСм/см
+tds.usm = 1000  # солоноватая вода
+
+# Получение значения в мг/л
+print(tds.ppm)  # ≈ 537 мг/л
+
+# Установка значения в мг/л
+tds.ppm = 7110
+print(tds.usm)  # ≈ 10000 мкСм/см
+
+# Арифметические операции
+tds1 = TDSUnit()
+tds1.usm = 1000
+
+tds2 = TDSUnit()
+tds2.usm = 500
+
+sum_tds = tds1 + tds2  # 1500 мкСм/см
+half_tds = tds1 / 2    # 500 мкСм/см
+```
+
+## Тестирование
+
+Проект включает полный набор unit-тестов для всех классов. Для запуска тестов используйте:
+
+```bash
+python -m unittest discover tests
+```
+
+## Зависимости
+
+- Python 3.6+
+- Стандартная библиотека Python (дополнительные зависимости не требуются)
+
+## Лицензия
+
+MIT License 
