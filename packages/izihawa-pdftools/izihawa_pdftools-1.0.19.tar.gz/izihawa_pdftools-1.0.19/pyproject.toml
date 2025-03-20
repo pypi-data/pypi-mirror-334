@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "izihawa_pdftools"
+version = "1.0.19"
+description = ""
+authors = ["Pasha Podolsky <ppodolsky@me.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pypdf = "~5.1.0"
+ebooklib = "^0.18"
+beautifulsoup4 = "^4.12.2"
+izihawa-utils = "^1.2.2"
+cryptography = "^41.0.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+izihawa-textparser = 'izihawa_textparser.cli:run'
