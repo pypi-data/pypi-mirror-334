@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "irisml-tasks-azure-aiservices"
+version = "0.0.2"
+dependencies = [
+  "irisml",
+  "Pillow",
+  "requests",
+  "tenacity",
+  "torchvision"
+]
+requires-python = ">=3.10"
+readme = "README.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["irisml.*"]
+
+[tool.ruff]
+line-length = 200
+exclude = [".eggs", ".git", ".venv", ".vscode", "*_pb2.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "UP", "TID252"]
+preview = true
