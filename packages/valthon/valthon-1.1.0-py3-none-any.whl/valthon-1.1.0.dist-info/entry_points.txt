@@ -1,0 +1,3 @@
+[console_scripts]
+py2vln = valthon.translator:main
+valthon = valthon.cli:main
