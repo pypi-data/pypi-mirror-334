@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marearts-crystal"
+version = "0.0.316016"
+authors = [
+    {name = "MareArts", email = "hello@marearts.com"}
+]
+description = "marearts crystal for encryption and decryption"
+readme = "README.md"
+requires-python = ">=3.9, <3.12"
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10", 
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "cffi==1.16.0",
+    "cryptography==43.0.0",
+    "pycparser==2.22"
+]
+
+[tool.setuptools]
+packages = ["marearts_crystal"]
