@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+DataScouter.egg-info/PKG-INFO
+DataScouter.egg-info/SOURCES.txt
+DataScouter.egg-info/dependency_links.txt
+DataScouter.egg-info/requires.txt
+DataScouter.egg-info/top_level.txt
+dataset_search/__init__.py
+dataset_search/search.py
