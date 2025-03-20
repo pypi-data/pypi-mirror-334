@@ -1,0 +1,37 @@
+[project]
+name = "imy"
+version = "0.7.0post1"
+description = "Random utilities I can't go without"
+authors = [{ name = "Jakob Pinterits", email = "jakob.pinterits@gmail.com" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">= 3.10"
+dependencies = []
+
+[project.urls]
+repository = "https://gitlab.com/mad-moo/i-miss-you"
+
+[project.optional-dependencies]
+deprecations = ["introspection>=1.9.2,<2.0.0"]
+docstrings = ["introspection>=1.9.2,<2.0.0", "uniserde>=0.4.0,<0.5.0"]
+inject = ["introspection>=1.9.2,<2.0.0"]
+mongodb-logs = ["pymongo>=4.8.0,<5.0.0", "uniserde>=0.4.0,<0.5.0"]
+
+[build-system]
+# There's currently a bug: https://github.com/astral-sh/rye/issues/1446
+# requires = ["hatchling"]
+requires = ["hatchling==1.26.3"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["imy"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=3.7.1, <4.0.0",
+    "pytest>=8.2.2, <9.0.0",
+    "pytest-asyncio>=0.25.0, <0.26.0",
+]

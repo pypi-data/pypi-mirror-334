@@ -1,0 +1,13 @@
+# Python Cache Files
+__pycache__
+*.py[cod]
+
+# uv
+/.venv
+/.python-version
+/uv.lock
+/dist
+
+
+# Editor Files
+.vscode
