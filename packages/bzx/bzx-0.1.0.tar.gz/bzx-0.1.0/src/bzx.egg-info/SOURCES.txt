@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/bzx/__init__.py
+src/bzx/__main__.py
+src/bzx/bzx.py
+src/bzx.egg-info/PKG-INFO
+src/bzx.egg-info/SOURCES.txt
+src/bzx.egg-info/dependency_links.txt
+src/bzx.egg-info/requires.txt
+src/bzx.egg-info/top_level.txt
+tests/test_bzx.py
