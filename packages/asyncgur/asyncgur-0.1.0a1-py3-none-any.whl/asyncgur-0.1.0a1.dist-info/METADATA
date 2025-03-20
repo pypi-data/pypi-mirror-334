@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: asyncgur
+Version: 0.1.0a1
+Summary: An asynchronous Python wrapper for the Imgur API
+Project-URL: Homepage, https://github.com/Dyleeeeeeee/asyncgur
+Project-URL: Issues, https://github.com/Dyleeeeeeee/asyncgur/issues
+Project-URL: Documentation, https://asyncgur.readthedocs.io
+Project-URL: Repository, https://github.com/Dyleeeeeeee/asyncgur.git
+Author-email: Dylee <calistaff33@proton.me>
+License-Expression: LGPL-3.0
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: dacite>=1.6.0
+Description-Content-Type: text/markdown
+
+[![](https://img.shields.io/pypi/v/asyncgur.svg)](https://pypi.org/project/asyncgur/) [![](https://img.shields.io/pypi/dm/asyncgur.svg?style=plastic)](https://pypi.org/project/asyncgur/) [![](https://img.shields.io/github/license/Dyleee/asyncgur.svg?style=plastic)](https://pypi.org/project/asyncgur/) [![](https://img.shields.io/github/stars/Dyleee/asyncgur.svg?style=plastic)](https://pypi.org/project/asyncgur/)
+
+# asyncgur
+
+> An Asynchronous Imgur Wrapper for Python
+
+
+*Example Usage:* 
+```python
+from asyncgur import Imgur
+client_id = 'YOUR_IMGUR_CLIENT_ID'
+imgur_app = Imgur(client_id)
+
+async def main():
+    image, response = await imgur_app.upload_image(image='some_image_url_or_bytes')
+    assert response.success == True and response.status == 200
+    print(image)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+```
+
+> See misc/examples for more usecases.
