@@ -1,0 +1,12 @@
+[console_scripts]
+
+[fsspec.specs]
+ec = ecmwfspec.ECFileSystem
+ectmp = ecmwfspec.ECTmpFileSystem
+
+[gui_scripts]
+
+[universal_pathlib.implementations]
+ec = ecmwfspec.core:ECFSPath
+ectmp = ecmwfspec.core:ECFSPath
+
