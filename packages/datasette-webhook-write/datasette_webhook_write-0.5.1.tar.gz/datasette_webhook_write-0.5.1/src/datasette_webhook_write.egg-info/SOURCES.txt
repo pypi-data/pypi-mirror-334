@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/datasette_webhook_write/__init__.py
+src/datasette_webhook_write.egg-info/PKG-INFO
+src/datasette_webhook_write.egg-info/SOURCES.txt
+src/datasette_webhook_write.egg-info/dependency_links.txt
+src/datasette_webhook_write.egg-info/entry_points.txt
+src/datasette_webhook_write.egg-info/not-zip-safe
+src/datasette_webhook_write.egg-info/requires.txt
+src/datasette_webhook_write.egg-info/top_level.txt
+tests/test_webhook_write.py

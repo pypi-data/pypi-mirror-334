@@ -1,0 +1,7 @@
+datasette
+sqlite-utils
+
+[test]
+httpx
+pytest
+pytest-asyncio
