@@ -1,0 +1,48 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      CLICKHOUSE_HOST:
+        type: string
+        default: localhost
+        description: ClickHouse server address
+      CLICKHOUSE_USER:
+        type: string
+        default: root
+        description: ClickHouse username
+      CLICKHOUSE_PASSWORD:
+        type: string
+        default: ""
+        description: ClickHouse password
+      CLICKHOUSE_DATABASE:
+        type: string
+        default: ""
+        description: Initial database (optional)
+      CLICKHOUSE_READONLY:
+        type: boolean
+        default: false
+        description: Read-only mode, set true to enable
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'clickhouse-mcp-server',
+      args: [],
+      env: {
+        CLICKHOUSE_HOST: config.CLICKHOUSE_HOST,
+        CLICKHOUSE_USER: config.CLICKHOUSE_USER,
+        CLICKHOUSE_PASSWORD: config.CLICKHOUSE_PASSWORD,
+        CLICKHOUSE_DATABASE: config.CLICKHOUSE_DATABASE,
+        CLICKHOUSE_READONLY: config.CLICKHOUSE_READONLY.toString()
+      }
+    })
+  exampleConfig:
+    CLICKHOUSE_HOST: localhost
+    CLICKHOUSE_USER: root
+    CLICKHOUSE_PASSWORD: password
+    CLICKHOUSE_DATABASE: ""
+    CLICKHOUSE_READONLY: false

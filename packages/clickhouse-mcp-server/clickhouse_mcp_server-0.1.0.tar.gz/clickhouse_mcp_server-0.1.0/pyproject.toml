@@ -1,0 +1,31 @@
+[project]
+name = "clickhouse-mcp-server"
+version = "0.1.0"
+description = "A MCP server implementation for ClickHouse database integration"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [ 
+    "mcp>=1.4.1",
+    "clickhouse-driver>=0.2.9",
+    "python-dotenv>=1.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/burakdirin/clickhouse-mcp-server"
+Repository = "https://github.com/burakdirin/clickhouse-mcp-server"
+"Bug Tracker" = "https://github.com/burakdirin/clickhouse-mcp-server/issues"
+
+[[project.authors]]
+name = "Burak Dirin"
+email = "burakdirin@gmail.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+clickhouse-mcp-server = "clickhouse_mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/clickhouse_mcp_server"]
