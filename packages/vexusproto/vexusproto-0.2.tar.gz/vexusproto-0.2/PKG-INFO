@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: vexusproto
+Version: 0.2
+Summary: End-to-end encryption chat protocol
+Home-page: https://github.com/certikpolik1/vexusproto
+Author: Athos Jordan
+Author-email: your.email@example.com
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# VexusProto
+
+VexusProto is an end-to-end encryption chat protocol implemented in Python.
+It uses modern cryptographic algorithms to ensure secure communication.
