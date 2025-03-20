@@ -1,0 +1,16 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include requirements.txt
+include pytest.ini
+
+recursive-include resumebuilder/resources/fonts *
+recursive-include resumebuilder/resources/images *
+recursive-include resumebuilder/templates *
+
+recursive-exclude tests *
+recursive-exclude docs *
+recursive-exclude tools *
+recursive-exclude __pycache__ *.pyc *.pyo *.pyd
+recursive-exclude * *.py[cod]
+recursive-exclude * *$py.class 
