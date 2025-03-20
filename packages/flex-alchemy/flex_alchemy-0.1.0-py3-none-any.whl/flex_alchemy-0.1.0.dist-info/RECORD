@@ -1,0 +1,16 @@
+flex_alchemy/__init__.py,sha256=9ChyOr_HIoej9RndjgVqRQlxMzIxLTfHLmrI7Hw3DnQ,67
+flex_alchemy/activerecord.py,sha256=VQeiQQz4nWY1NAXXkt_ctZ9LKZW2OsnsLoMU8CMfjiA,3761
+flex_alchemy/builders/__init__.py,sha256=G5F-7rbfROebNvLtow48KvZXPGV5pFtbqlORlxo7SFg,47
+flex_alchemy/builders/base.py,sha256=MN0AvMMwWTujxgs0kKOl7XuzoGr4KXNX36yMi74OsqY,1276
+flex_alchemy/builders/delete.py,sha256=wVTkKASCZ0qah6_Lltbun_4HVcistXou7mlnV6G6Lto,805
+flex_alchemy/builders/insert.py,sha256=77tWnUnljOwoxHFzJGxcMWB1pF74vQTo2aplkWtRbEk,1650
+flex_alchemy/builders/select.py,sha256=RoiA6L15QuBrfwNseu1FBgZVM-4yXW019N5XpKK-X0A,3087
+flex_alchemy/builders/update.py,sha256=JdJrDH69-5nqIqiIyt4MQW9p3ZS1tAantILffsI-y0Q,1821
+flex_alchemy/exceptions.py,sha256=5cZgNktvp670-zIHeq-BOyl8bJXcLFKfjNP2gc3FrLg,130
+flex_alchemy/scopes/__init__.py,sha256=SSdSousN_w0h7yUBTBwk_pdMbqcpsaotUNWWBJunnDw,157
+flex_alchemy/scopes/softdelete.py,sha256=yWSPb49FIg5QtUEwFsxfhSDsY76YLzg36x5YuZrJC9Y,794
+flex_alchemy/session.py,sha256=ijDpzzee-JM7MZ09hqxQ_aOmUwYbcDkM4Scxb3xPFfM,850
+flex_alchemy-0.1.0.dist-info/LICENSE,sha256=gdv1M4WeVcUZX1qo8KnREIBW8-9KvnIQnieC8GfuV-4,1087
+flex_alchemy-0.1.0.dist-info/METADATA,sha256=1YPIABQcSz6N5AtLm1DPgt18-T3GsKqH46cR7BwNlBI,5064
+flex_alchemy-0.1.0.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+flex_alchemy-0.1.0.dist-info/RECORD,,
