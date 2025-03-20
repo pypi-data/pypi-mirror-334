@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+cosbr/__init__.py
+cosbr/gcp.cpp
+cosbr/gcp_bindings.cpp
+cosbr.egg-info/PKG-INFO
+cosbr.egg-info/SOURCES.txt
+cosbr.egg-info/dependency_links.txt
+cosbr.egg-info/not-zip-safe
+cosbr.egg-info/requires.txt
+cosbr.egg-info/top_level.txt
