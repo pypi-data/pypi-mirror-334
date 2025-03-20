@@ -1,0 +1,4 @@
+[console_scripts]
+asfyaml-validate=asfyaml.cli:validate
+asfyml-run=asfyaml.cli:cli
+
