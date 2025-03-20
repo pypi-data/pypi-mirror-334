@@ -1,0 +1,4 @@
+[console_scripts]
+json2mpcorb=mpcorbfile.cli:cli_json2mpcorb
+mpcorb2json=mpcorbfile.cli:cli_mpcorb2json
+
