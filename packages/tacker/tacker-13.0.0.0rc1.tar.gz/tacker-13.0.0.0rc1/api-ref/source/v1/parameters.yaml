@@ -1,0 +1,191 @@
+# variables in header
+
+# variables in path
+vim_id_path:
+  description: |
+    The UUID of the VIM.
+  in: path
+  required: true
+  type: string
+
+# variables in query
+
+# variables in body
+description:
+  description: |
+    Human-readable description for the resource.
+  in: body
+  required: true
+  type: string
+description_opt:
+  description: |
+    Human-readable description for the resource.
+  in: body
+  required: false
+  type: string
+name:
+  description: |
+    Human-readable name for the resource.
+  in: body
+  required: true
+  type: string
+name_opt:
+  description: |
+    Human-readable name for the resource.
+  in: body
+  required: false
+  type: string
+tenant_id:
+  description: |
+    The UUID of the tenant. A tenant is also known as a project.
+  in: body
+  required: true
+  type: string
+tenant_id_opt:
+  description: |
+    The UUID of the tenant. A tenant is also known as a project.
+  in: body
+  required: false
+  type: string
+version_href:
+  description: |
+    Link to the API.
+  in: body
+  required: true
+  type: string
+version_id:
+  description: |
+    Version of the API.
+  in: body
+  required: true
+  type: string
+version_links:
+  description: |
+    List of version links. Each link contains ``href`` and ``rel``.
+  in: body
+  required: true
+  type: array
+version_rel:
+  description: |
+    Relationship of link with the version.
+  in: body
+  required: true
+  type: string
+version_status:
+  description: |
+    Status of the API, which can be ``CURRENT``, ``STABLE`` or ``DEPRECATED``.
+  in: body
+  required: true
+  type: string
+versions:
+  description: |
+    A list of ``version`` objects.
+  in: body
+  required: true
+  type: array
+vim:
+  description: |
+    A ``vim`` object.
+  in: body
+  required: true
+  type: object
+vim_auth_cred:
+  description: |
+    An authentication credential object for the remote OpenStack site.
+    Credential can contain ``user_id`` (and/or ``username``) and ``password``.
+    It also contains ``user_domain_name`` when using identity v3.
+  in: body
+  required: true
+  type: object
+vim_auth_cred_output:
+  description: |
+    An authentication credential object for the remote OpenStack site.
+    Credential contains ``user_id`` (and/or ``username``), ``password``,
+    ``project_id``, ``project_name``, and ``auth_url``.
+    It also contains ``user_domain_name`` and ``project_domain_name``
+    when using identity v3.
+  in: body
+  required: true
+  type: object
+vim_auth_url:
+  description: |
+    The authentication URL for the Keystone service of the remote OpenStack site.
+  in: body
+  required: true
+  type: string
+vim_created_at:
+  description: |
+    The date and time when the VIM was registered.
+    The format is ``YYYY-MM-DD hh:mm:ss.ssssss``.
+    For example, ``2016-09-23 09:59:27.392759``.
+  in: body
+  required: true
+  type: string
+vim_id:
+  description: |
+    The UUID of the VIM.
+  in: body
+  required: true
+  type: string
+vim_is_default:
+  description: |
+    Indicate whether the VIM is used as default.
+  in: body
+  required: true
+  type: boolean
+vim_is_default_opt:
+  description: |
+    Indicate whether the VIM is used as default.
+  in: body
+  required: false
+  type: boolean
+vim_placement_attr:
+  description: |
+    VIM placement information object that includes ``regions``, which is
+    a list of Region IDs. ``regions`` are automatically derived from VIM.
+  in: body
+  required: true
+  type: object
+vim_project:
+  description: |
+    A VIM's project information object for the remote OpenStack site.
+    Project information can contain ``id`` or ``name``.
+    It also contains ``project_domain_name`` when using identity v3.
+  in: body
+  required: true
+  type: object
+vim_project_opt:
+  description: |
+    A VIM's project information object for the remote OpenStack site.
+    Project information can contain ``id`` or ``name``.
+    It also contains ``project_domain_name`` when using identity v3.
+  in: body
+  required: false
+  type: object
+vim_status:
+  description: |
+    Status of the VIM.
+  in: body
+  required: true
+  type: string
+vim_type:
+  description: |
+    The type of VIM. Currently there is only one built-in VIM driver,
+    which is for "openstack" type.
+  in: body
+  required: true
+  type: string
+vim_updated_at:
+  description: |
+    The date and time when the VIM was updated.
+    The format is ``YYYY-MM-DD hh:mm:ss.ssssss``.
+    For example, ``2016-09-23 09:59:27.392759``.
+  in: body
+  required: true
+  type: string
+vims:
+  description: |
+    A list of ``vim`` objects.
+  in: body
+  required: true
+  type: array

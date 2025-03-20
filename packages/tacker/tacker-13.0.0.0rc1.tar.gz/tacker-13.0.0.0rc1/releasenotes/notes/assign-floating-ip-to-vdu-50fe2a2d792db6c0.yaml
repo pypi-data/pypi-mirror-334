@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Support to assign floating IP to VDU using TOSCA template.
+    We have to use the node type tosca.nodes.network.FloatingIP.

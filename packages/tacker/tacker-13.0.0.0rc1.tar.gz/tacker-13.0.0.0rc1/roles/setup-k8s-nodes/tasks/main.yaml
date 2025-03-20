@@ -1,0 +1,35 @@
+- block:
+  - name: load kernel module
+    modprobe:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - overlay
+      - br_netfilter
+    become: yes
+  - name: configure network(iptables/ip_forward) kernel parameter
+    sysctl:
+      name: "{{ item }}"
+      value: '1'
+      sysctl_set: yes
+      state: present
+      reload: yes
+    with_items:
+      - net.bridge.bridge-nf-call-ip6tables
+      - net.bridge.bridge-nf-call-iptables
+      - net.ipv4.ip_forward
+    become: yes
+  - name: configure containers unqualified-search-registries
+    lineinfile:
+      dest: /etc/containers/registries.conf
+      line: "unqualified-search-registries = {{ registries }}"
+      create: yes
+    vars:
+      registries:
+        - "docker.io"
+        - "k8s.gcr.io"
+        - "quay.io"
+    become: yes
+  when:
+    - inventory_hostname == 'controller-k8s'
+    - k8s_api_url is defined

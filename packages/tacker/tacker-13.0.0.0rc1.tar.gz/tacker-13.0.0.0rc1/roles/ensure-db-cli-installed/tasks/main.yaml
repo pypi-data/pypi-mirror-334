@@ -1,0 +1,8 @@
+- block:
+  - name: install mysql client if needed
+    include_tasks: mysql.yaml
+    when: devstack_localrc['DATABASE_TYPE'] == 'mysql'
+  - name: install postgresql client if needed
+    include_tasks: postgresql.yaml
+    when: devstack_localrc['DATABASE_TYPE'] == 'postgresql'
+  when: devstack_localrc['DATABASE_TYPE'] is defined

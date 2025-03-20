@@ -1,0 +1,25 @@
+TOSCA-Meta-File-Version: 1.0
+Created-by: dummy_user
+CSAR-Version: 1.1
+Entry-Definitions: Definitions/sample_cnf_top.vnfd.yaml
+
+Name: Files/kubernetes/deployment.yaml
+Content-Type: test-data
+Algorithm: SHA-256
+Hash: 30071afb22afcb0e54e03df3d22f0852994b4120ca85ac72e9c207c97a4755a8
+
+Name: Files/new_kubernetes/error_deployment.yaml
+Content-Type: test-data
+Algorithm: SHA-256
+Hash: 1fad945911465b5c12fe20bc8350f17b417e5212544d442f2d56df15b8802d8d
+
+Name: Files/new_kubernetes/new_deployment.yaml
+Content-Type: test-data
+Algorithm: SHA-256
+Hash: 30071afb22afcb0e54e03df3d22f0852994b4120ca85ac72e9c207c97a4755a8
+
+Name: Files/kubernetes/namespace.yaml
+Content-Type: test-data
+Algorithm: SHA-256
+Hash: c2af464e4b1646da9d2e6ccfdc44cf744753459a001c3469135d04dbb56bb293
+

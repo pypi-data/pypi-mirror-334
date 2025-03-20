@@ -1,0 +1,19 @@
+TOSCA-Meta-File-Version: 1.0
+Created-by: dummy_user
+CSAR-Version: 1.1
+Entry-Definitions: Definitions/helloworld3_top.vnfd.yaml
+
+Name: Files/kubernetes/deployment_scale.yaml
+Content-Type: application/yaml
+Algorithm: SHA-256
+Hash: fb3c7d1b0d227f2fdf210da1700f6fc3c365b2332f3c64459afe67c5f836c2c2
+
+Name: Files/kubernetes/statefulset_scale.yaml
+Content-Type: application/yaml
+Algorithm: SHA-256
+Hash: ebfdb834bd124a3843cf67184ab28fdb664c6f0226b30f6a2ef3451f80468af7
+
+Name: Files/kubernetes/replicaset_scale.yaml
+Content-Type: application/yaml
+Algorithm: SHA-256
+Hash: b23fd1737efc787ba12f035844646139830f4f867e4393d0cd695944ae465baa

@@ -1,0 +1,12 @@
+---
+- name: ubuntu-noble controller node
+  hosts: ubuntu-noble.controller
+  remote_user: stack
+  roles:
+      - ubuntu-noble/controller
+
+- name: ubuntu-noble compute nodes
+  hosts: ubuntu-noble.compute
+  remote_user: stack
+  roles:
+      - ubuntu-noble/compute

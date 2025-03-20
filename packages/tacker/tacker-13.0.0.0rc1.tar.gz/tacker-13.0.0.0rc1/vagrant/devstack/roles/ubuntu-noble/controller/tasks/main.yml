@@ -1,0 +1,26 @@
+---
+# Without removing this package, failed to install while running scripts.
+- include_tasks: remove_useless_pkgs.yml
+
+- include_tasks: basic_pkgs.yml
+- include_tasks: set_path_env.yml
+- include_tasks: git_config.yml
+
+- include_tasks: python3_specific_vers.yml
+
+- include_tasks: vim_latest.yml
+  when: use_vim_latest == true
+
+- include_tasks: vim_extra_plugins.yml
+  when: use_vim_extra_plugins == true
+
+- include_tasks: neovim.yml
+  when: use_neovim == true
+
+- include_tasks: devstack.yml
+
+- include_tasks: setup_tacker.yml
+  when: use_tacker == true
+
+- include_tasks: extra_tools.yml
+  when: use_extra_tools == true
