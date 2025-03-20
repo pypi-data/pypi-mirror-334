@@ -1,0 +1,35 @@
+[project]
+name = "reno-structured-output"
+dynamic = ["version"]
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jan Scholz", email = "jan.scholz@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "reno>=4.0.0",
+]
+[project.scripts]
+reno-structured-output = "reno_structured_output:cli.main"
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "pytest-mypy>=0.10.3",
+    "types-pyyaml>=6.0.12.20241230",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.ruff]
+fix=true
+
+[tool.ruff.lint]
+select = ["I"]
