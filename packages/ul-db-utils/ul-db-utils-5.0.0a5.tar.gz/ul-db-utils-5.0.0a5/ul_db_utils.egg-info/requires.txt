@@ -1,0 +1,15 @@
+flask==3.1.0
+py-dateutil==2.2
+psycopg2-binary==2.9.9
+psycogreen==1.0.2
+flask-sqlalchemy==3.1.1
+flask-migrate==4.1.0
+sqlalchemy[mypy]==2.0.29
+sqlalchemy-utils==0.41.2
+sqlalchemy-serializer==1.4.21
+alembic==1.14.1
+flask-mongoengine-3==1.1.0
+redis==5.2.1
+types-psycopg2==2.9.21.20250121
+types-sqlalchemy-utils==1.1.0
+ul-py-tool>=1.15.42
