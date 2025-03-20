@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: batchwise
+Version: 0.1.0
+Summary: Lightweight batch processing engine and feature store.
+Project-URL: Documentation, https://github.com/manuelkonrad/batchwise#readme
+Project-URL: Issues, https://github.com/manuelkonrad/batchwise/issues
+Project-URL: Source, https://github.com/manuelkonrad/batchwise
+Author-email: Manuel Konrad <oss@mkonrad.dev>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.10
+Requires-Dist: fsspec>=2022
+Requires-Dist: numpy<3,>=1
+Requires-Dist: pandas<3,>=1
+Requires-Dist: pillow>=11.0
+Requires-Dist: pyarrow>=11.0
+Requires-Dist: pydantic-settings~=2.3
+Requires-Dist: pydantic~=2.3
+Requires-Dist: pyyaml~=6.0
+Provides-Extra: dev
+Requires-Dist: bandit[sarif,toml]~=1.7.10; extra == 'dev'
+Requires-Dist: mypy~=1.13.0; extra == 'dev'
+Requires-Dist: pre-commit~=4.0.1; extra == 'dev'
+Requires-Dist: ruff~=0.7.4; extra == 'dev'
+Provides-Extra: full
+Requires-Dist: bandit[sarif,toml]~=1.7.10; extra == 'full'
+Requires-Dist: mypy~=1.13.0; extra == 'full'
+Requires-Dist: pre-commit~=4.0.1; extra == 'full'
+Requires-Dist: pytest-cov~=6.0.0; extra == 'full'
+Requires-Dist: pytest-html~=4.1.1; extra == 'full'
+Requires-Dist: pytest~=8.3.3; extra == 'full'
+Requires-Dist: ruff~=0.7.4; extra == 'full'
+Provides-Extra: test
+Requires-Dist: pytest-cov~=6.0.0; extra == 'test'
+Requires-Dist: pytest-html~=4.1.1; extra == 'test'
+Requires-Dist: pytest~=8.3.3; extra == 'test'
+Description-Content-Type: text/markdown
+
+# batchwise
+
+[![CI - Tests](https://github.com/manuelkonrad/batchwise/actions/workflows/tests.yml/badge.svg)](https://github.com/manuelkonrad/batchwise/actions/workflows/tests.yml)
+[![CI - Bandit](https://github.com/manuelkonrad/batchwise/actions/workflows/bandit.yml/badge.svg)](https://github.com/manuelkonrad/batchwise/actions/workflows/bandit.yml)
+[![CI - Build](https://github.com/manuelkonrad/batchwise/actions/workflows/build.yml/badge.svg)](https://github.com/manuelkonrad/batchwise/actions/workflows/build.yml)
+
+[![License - MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://spdx.org/licenses/MIT.html)
+[![PyPI - Version](https://img.shields.io/pypi/v/batchwise.svg)](https://pypi.org/project/batchwise)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/batchwise.svg)](https://pypi.org/project/batchwise)
+[![Python Project Management - Hatch](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![Linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Types - Mypy](https://img.shields.io/badge/types-Mypy-blue.svg)](https://github.com/python/mypy)
+[![Security - Bandit](https://img.shields.io/badge/security-Bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+
+
+Lightweight batch processing engine and feature store.
+
+## Table of Contents
+
+- [Getting Started](#getting_started)
+- [License](#license)
+
+## Getting Started
+
+```console
+pip install batchwise
+```
+
+## License
+
+`batchwise` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
