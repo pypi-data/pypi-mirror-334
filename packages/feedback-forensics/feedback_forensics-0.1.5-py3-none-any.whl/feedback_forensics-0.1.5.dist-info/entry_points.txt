@@ -1,0 +1,3 @@
+[console_scripts]
+feedback-forensics = feedback_forensics.app.main:run
+ff-hfspace-rebuild = feedback_forensics.tools.hf_spaces:main
