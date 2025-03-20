@@ -1,0 +1,49 @@
+Metadata-Version: 2.2
+Name: file-keeper
+Version: 0.0.2
+Summary: Abstraction level for object storages.
+Author-email: DataShades <datashades@linkdigital.com.au>, Sergey Motornyuk <sergey.motornyuk@linkdigital.com.au>
+Maintainer-email: DataShades <datashades@linkdigital.com.au>
+License: AGPL
+Project-URL: Homepage, https://github.com/DataShades/file-keeper
+Keywords: file-management,cloud,filesystem,DAL
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: typing_extensions
+Requires-Dist: pluggy
+Requires-Dist: pytz
+Requires-Dist: python-magic
+Provides-Extra: test
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: pytest-faker; extra == "test"
+Requires-Dist: responses; extra == "test"
+Provides-Extra: docs
+Requires-Dist: mkdocs; extra == "docs"
+Requires-Dist: mkdocs-material; extra == "docs"
+Requires-Dist: pymdown-extensions; extra == "docs"
+Requires-Dist: mkdocstrings[python]; extra == "docs"
+Provides-Extra: dev
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pytest-faker; extra == "dev"
+Requires-Dist: responses; extra == "dev"
+Requires-Dist: mkdocs; extra == "dev"
+Requires-Dist: mkdocs-material; extra == "dev"
+Requires-Dist: pymdown-extensions; extra == "dev"
+Requires-Dist: mkdocstrings[python]; extra == "dev"
+Provides-Extra: redis
+Requires-Dist: redis; extra == "redis"
+Provides-Extra: s3
+Requires-Dist: boto3; extra == "s3"
+Requires-Dist: boto3-stubs[essential]; extra == "s3"
+Provides-Extra: gcs
+Requires-Dist: google-cloud-storage; extra == "gcs"
+Provides-Extra: opendal
+Requires-Dist: opendal; extra == "opendal"
+Provides-Extra: libcloud
+Requires-Dist: apache-libcloud; extra == "libcloud"
+Requires-Dist: cryptography; extra == "libcloud"
+
+# file-keeper
+
+Abstraction level for object storages.
