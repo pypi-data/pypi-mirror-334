@@ -1,0 +1,42 @@
+Metadata-Version: 2.2
+Name: agrihealth
+Version: 0.0.1
+Summary: agrihealth is a Python package that allows fa
+Author-email: M Fisher <climatealerta@gmail.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/terra-geo/agrihealth
+Keywords: agrihealth
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Provides-Extra: all
+Requires-Dist: agrihealth[extra]; extra == "all"
+Provides-Extra: extra
+Requires-Dist: pandas; extra == "extra"
+
+# agrihealth
+
+
+[![image](https://img.shields.io/pypi/v/agrihealth.svg)](https://pypi.python.org/pypi/agrihealth)
+[![image](https://img.shields.io/conda/vn/conda-forge/agrihealth.svg)](https://anaconda.org/conda-forge/agrihealth)
+
+
+**agrihealth is a Python package that allows fa**
+
+
+-   Free software: MIT License
+-   Documentation: https://terra-geo.github.io/agrihealth
+    
+
+## Features
+
+-   TODO
