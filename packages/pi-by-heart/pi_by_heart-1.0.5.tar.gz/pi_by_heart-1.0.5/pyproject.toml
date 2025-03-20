@@ -1,0 +1,25 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pi-by-heart"
+version = "1.0.5"
+description = "A simple pi memorization game"  
+readme = "pypireadme.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Meni Sadigurschi", email = "menisadi@gmail.com" }]
+keywords = ["game", "python", "pi", "mpmath", "pyfiglet"]  
+
+dependencies = [
+	"mpmath >= 1.0",
+	"pyfiglet >= 1.0",
+]
+
+[project.scripts]
+pi-by-heart = "pi:main"
+
+[project.urls]
+Homepage = "https://github.com/menisadi/pi-game"
