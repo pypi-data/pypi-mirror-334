@@ -1,0 +1,48 @@
+[project]
+name = "sched2"
+version = "0.8.3"
+description = "Event scheduler 2"
+readme = "README.md"
+requires-python = "<4.0,>=3.8"
+license = { file = "LICENSE" }
+authors = [
+    {name = "Pedro Rodrigues", email = "me@pdbr.org"},
+]
+
+[project.urls]
+homepage = "https://medecau.github.io/sched2/"
+
+[dependency-groups]
+dev = ["pdoc", "pytest", "pytest-mock"]
+
+[tool.ruff.lint]
+extend-select =[
+    "I",  # imports
+    "ERA001",  # dead code
+    "T100",  # debugger
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.tox]
+requires = ["tox>=4.19"]
+env_list = ["3.13", "3.8", "doctest", "lint"]
+
+[tool.tox.env_run_base]
+description = "Run test under {base_python}"
+dependency_groups = ["dev"]
+commands = [["pytest"]]
+
+[tool.tox.env.doctest]
+description = "Run doctests"
+commands = [["pytest"]]
+
+[tool.tox.env.lint]
+description = "Run linters"
+deps = ["ruff"]
+commands = [
+    ["ruff", "check", "."],
+    ["ruff", "format", "--check", "."],
+]
