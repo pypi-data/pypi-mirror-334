@@ -1,0 +1,17 @@
+README.md
+setup.py
+droneops/__init__.py
+droneops/droneops.py
+droneops/mission_planner.py
+droneops/q_ground_control.py
+droneops.egg-info/PKG-INFO
+droneops.egg-info/SOURCES.txt
+droneops.egg-info/dependency_links.txt
+droneops.egg-info/entry_points.txt
+droneops.egg-info/not-zip-safe
+droneops.egg-info/requires.txt
+droneops.egg-info/top_level.txt
+tests/__init__.py
+tests/test_droneops.py
+tests/test_mission_planner.py
+tests/test_q_ground_control.py

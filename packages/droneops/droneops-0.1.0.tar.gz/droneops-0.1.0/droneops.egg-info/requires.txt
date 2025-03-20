@@ -1,0 +1,15 @@
+numpy>=1.19.0
+dronekit>=2.9.2
+pymavlink>=2.4.0
+shapely>=1.7.0
+
+[dev]
+pytest>=6.0.0
+pytest-cov>=2.0.0
+black>=21.0.0
+flake8>=3.9.0
+sphinx>=4.0.0
+sphinx-rtd-theme>=0.5.0
+
+[kml]
+fastkml>=0.11
