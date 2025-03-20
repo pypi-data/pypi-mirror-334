@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: det-cli
+Version: 0.1.4
+Summary: A package to register a custom protocol for Det ssh config.
+Home-page: https://github.com/yourusername/myapp-ssh-config
+Author: shukangzhang
+Author-email: skzhang@nuaa.edu.cn
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+python setup.py sdist bdist_wheel
+twine upload dist/*
+
+
