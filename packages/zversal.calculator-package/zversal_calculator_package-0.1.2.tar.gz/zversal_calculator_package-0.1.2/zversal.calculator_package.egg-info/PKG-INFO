@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: zversal.calculator_package
+Version: 0.1.2
+Summary: A simple calculator package
+Author-email: Nikhil Dehal <nikkhil.zversal@gmail.com>
+License: MIT
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: pymupdf
+
+A simple Python package for mathematical operations.
