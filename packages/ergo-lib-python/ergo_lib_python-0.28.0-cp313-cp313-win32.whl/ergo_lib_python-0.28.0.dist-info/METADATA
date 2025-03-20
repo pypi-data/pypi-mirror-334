@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: ergo-lib-python
+Version: 0.28.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: Python bindings to sigma-rust
+Author: Kamal Ahmad <kamalahmad22@pm.me>
+Author-email: Kamal Ahmad <kamalahmad22@pm.me>
+License: CC0-1.0
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Documentation, https://ergo-lib-python.readthedocs.io
+
+[![PyPI version](https://badge.fury.io/py/ergo-lib-python.svg)](https://badge.fury.io/py/ergo-lib-python)
+[![Documentation](https://readthedocs.org/projects/ergo-lib-python/badge/?version=latest&style=flat)](https://ergo-lib-python.readthedocs.io)
+
+Python bindings for [sigma-rust](https://github.com/ergoplatform/sigma-rust)
+
+# Building
+Build a new virtual environment:
+
+    $ python -m venv .venv
+    $ source .venv/bin/activate
+    $ pip install maturin
+To build the library for development use `maturin develop`:
+
+    $ maturin develop
+    $ python
+    >>> import ergo_lib_python
+
+# Running tests
+Both python unit tests and doc tests are defined
+## Run unit tests
+     $ python -m unittest tests/*.py
+## Run doctests
+Running doctests requires installing Sphinx, which is included in `docs/requirements.txt`:
+ 
+    $ pip install -r docs/requirements.txt
+    $ cd docs
+    $ make doctest
+
