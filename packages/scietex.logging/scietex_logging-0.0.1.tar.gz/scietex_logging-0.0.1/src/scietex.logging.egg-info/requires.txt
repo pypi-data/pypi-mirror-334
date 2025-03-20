@@ -1,0 +1,14 @@
+
+[all]
+redis>=4.2.0
+
+[lint]
+pylint
+
+[redis]
+redis>=4.2.0
+
+[test]
+flake8
+pytest
+pytest-asyncio
