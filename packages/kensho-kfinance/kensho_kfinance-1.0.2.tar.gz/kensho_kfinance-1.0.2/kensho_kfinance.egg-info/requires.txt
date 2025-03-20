@@ -1,0 +1,17 @@
+python-dateutil<2.9,>=2.8.2
+requests<3,>=2.22.0
+urllib3>=1.21.1
+pyjwt>=2.8.0
+numpy>=1.22.4
+pandas>=2.0.0
+types-requests<3,>=2.22.0
+pillow>=10
+langchain-core>=0.3.15
+strenum>=0.4.15
+
+[dev]
+coverage<8,>=7.6.10
+mypy<2,>=1.15.0
+pytest<7,>=6.1.2
+pytest-cov<7,>=6.0.0
+ruff<1,>=0.9.4
