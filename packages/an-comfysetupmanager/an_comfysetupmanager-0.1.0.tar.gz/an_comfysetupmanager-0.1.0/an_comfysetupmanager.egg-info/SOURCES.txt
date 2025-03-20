@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+an_comfysetupmanager/__init__.py
+an_comfysetupmanager/comfysetupmanager.py
+an_comfysetupmanager.egg-info/PKG-INFO
+an_comfysetupmanager.egg-info/SOURCES.txt
+an_comfysetupmanager.egg-info/dependency_links.txt
+an_comfysetupmanager.egg-info/requires.txt
+an_comfysetupmanager.egg-info/top_level.txt
