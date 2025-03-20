@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "obed"
+version = "0.2.8"
+dependencies = [
+  "cmd2",
+  "jmespath",
+  "ansible-vault",
+  "PyYAML",
+  "importlib_resources"
+]
+authors = [
+  { name="terasik" },
+]
+description = "interactiv object edit"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/terasik/inter"
+Issues = "https://github.com/terasik/inter"
+
+[project.scripts]
+obed = "obed.obed:run"
+
+[tool.setuptools.package-data]
+"obed.examples" = ["*"]
+
