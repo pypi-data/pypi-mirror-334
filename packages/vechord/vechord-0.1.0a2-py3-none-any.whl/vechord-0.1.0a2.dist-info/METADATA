@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: vechord
+Version: 0.1.0a2
+Summary: VectorChord Python SDK
+Requires-Python: >=3.10
+Requires-Dist: defspec>=0.3.0
+Requires-Dist: falcon>=4.0.2
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: msgspec>=0.19.0
+Requires-Dist: numpy>=2.0.2
+Requires-Dist: pgvector>=0.3.6
+Requires-Dist: pillow>=11.1.0
+Requires-Dist: psycopg[binary]>=3.2.3
+Requires-Dist: pypdfium2>=4.30.1
+Requires-Dist: pytrec-eval-terrier>=0.5.6
+Requires-Dist: rich>=13.9.4
+Provides-Extra: gemini
+Requires-Dist: google-generativeai>=0.8.4; extra == "gemini"
+Provides-Extra: openai
+Requires-Dist: openai>=1.60.2; extra == "openai"
+Provides-Extra: spacy
+Requires-Dist: en-core-web-sm; extra == "spacy"
+Requires-Dist: spacy>=3.8.4; extra == "spacy"
+Provides-Extra: wordllama
+Requires-Dist: wordllama>=0.3.8.post20; extra == "wordllama"
+Description-Content-Type: text/markdown
+
+Python RAG framework built on top of PostgreSQL and [VectorChord](https://github.com/tensorchord/VectorChord/).
+
+## Installation
+
+```sh
+pip install vechord
+```
+
+## Examples
+
+- [beir.py](examples/beir.py): the most flexible way to use the library (loading, indexing, querying and evaluation)
+- [web.py](examples/web.py): build a web application with from the defined tables and pipeline
+- [essay.py](examples/essay.py): extract the content from Paul Graham's essays and evaluate the search results from LLM generated queries
+- [contextual.py](examples/contextual.py): contextual retrieval example
+
+## Development
+
+```bash
+docker run --rm -d --name vechord -e POSTGRES_PASSWORD=postgres -p 5432:5432 tensorchord/vchord-postgres:pg17-v0.2.1
+envd up
+# inside the envd env, sync all the dependencies
+make sync
+# format the code
+make format
+```
