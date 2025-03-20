@@ -1,0 +1,5 @@
+[console_scripts]
+pytest-sanitizer = pytest_sanitizer.cli:main
+
+[pytest11]
+sanitizer = pytest_sanitizer.plugin
