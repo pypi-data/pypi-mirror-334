@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: comic_matcher
+Version: 0.2.1
+Summary: Entity resolution for comic book title matching
+Author: Josh Wren
+Author-email: joshisplutar@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: recordlinkage>=0.15
+Requires-Dist: jellyfish>=0.8.0
+Requires-Dist: scikit-learn>=0.24.0
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: tqdm>=4.50.0
+Requires-Dist: rapidfuzz>=1.0.0
+Requires-Dist: python-Levenshtein>=0.12.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.10.0; extra == "dev"
+Requires-Dist: ruff>=0.1.6; extra == "dev"
+Requires-Dist: wheel>=0.35.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
