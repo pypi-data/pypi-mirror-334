@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: pyvikunja
+Version: 0.17
+Summary: A Python wrapper for Vikunja API
+Author: Joseph Shufflebotham
+License: AGPL
+License-File: LICENSE
+Requires-Dist: httpx==0.28.1
