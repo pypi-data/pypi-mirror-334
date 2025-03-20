@@ -1,0 +1,54 @@
+[project]
+name = "uv-upgrade"
+version = "0.1.1.5"
+description = "Upgrade dependencies in an UV Project"
+readme = "README.md"
+authors = [
+    { name = "Kalle M. Aagaard", email = "km@conscia.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "rich>=13.9.4",
+    "typer>=0.15.2 ; python_full_version >= '3.6'",
+]
+
+[project.scripts]
+uv-upgrade = "uv_upgrade:main"
+
+[dependency-groups]
+test = [
+    "coverage>=7.7.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+]
+tools = [
+    "bump-my-version>=1.0.2",
+    "pyright>=1.1.396",
+    "ruff>=0.11.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pyright]
+include = ["src", "tests", "examples"]
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=conscia.tasklog --cov-report=term-missing --cov-report=xml"
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:pytest_nunit"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.report]
+exclude_also = [
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
