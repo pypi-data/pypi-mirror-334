@@ -1,0 +1,65 @@
+[project]
+name = "dotflow_mongodb"
+version = "0.1.2"
+authors = [
+  { name="Fernando Celmer", email="email@fernandocelmer.com" },
+]
+license = {file = "LICENSE"}
+description = "Dotflow Storage MongoDB"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+	"dotflow",
+  "pymongo"
+]
+classifiers = [
+  'Development Status :: 4 - Beta',
+  "Operating System :: OS Independent",
+  'Intended Audience :: Developers',
+  'Natural Language :: English',
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/dotflow-io/dotflow-mongodb"
+Issues = "https://github.com/dotflow-io/dotflow-mongodb/issues"
+Repository = "https://github.com/dotflow-io/dotflow-mongodb"
+Documentation = "https://github.com/dotflow-io/dotflow-mongodb/blob/master/README.md"
+
+[tool.poetry]
+name = "dotflow_mongodb"
+version = "0.1.2"
+description = "Dotflow Storage MongoDB"
+authors = ["Fernando Celmer <email@fernandocelmer.com>"]
+readme = "README.md"
+license = "MIT"
+package-mode = true
+homepage = "https://github.com/dotflow-io/dotflow-mongodb"
+documentation = "https://dotflow-io.github.io/dotflow/"
+repository = "https://github.com/dotflow-io/dotflow-mongodb"
+classifiers = [
+  'Development Status :: 4 - Beta',
+  "Operating System :: OS Independent",
+  'Intended Audience :: Developers',
+  'Natural Language :: English',
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9.0"
+dotflow = "0.10.0.dev1"
+pymongo = "^4.11.2"
+
+[tool.poetry.group.dev.dependencies]
+build = "^1.2.2.post1"
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
