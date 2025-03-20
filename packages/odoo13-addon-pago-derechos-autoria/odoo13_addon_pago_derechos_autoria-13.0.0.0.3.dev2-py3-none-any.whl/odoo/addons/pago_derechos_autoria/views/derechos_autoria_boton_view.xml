@@ -1,0 +1,27 @@
+<odoo>
+    <record id="ddaa_wizard_view_form" model="ir.ui.view">
+      <field name="name">ddaa.wizard.form</field>
+      <field name="model">ddaa.wizard.descontrol</field>
+      <field name="arch" type="xml">
+        <form string="Pendientes de liquidar">
+          <footer>
+            <button name="generar_derechos_autoria" string="Generar compras derechos autoría" type="object" class="btn-primary"/>
+          </footer>
+       </form>
+      </field>
+    </record>
+    <record id="action_ddaa_wizard" model="ir.actions.act_window">
+        <field name="name">Generar DDAA</field>
+        <field name="res_model">ddaa.wizard.descontrol</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ddaa_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        id="main_menu_ddaa"
+        name="Derechos de autoría"
+        sequence="1"
+        action="action_ddaa_wizard"
+        groups="base.group_user"
+    />
+</odoo>
