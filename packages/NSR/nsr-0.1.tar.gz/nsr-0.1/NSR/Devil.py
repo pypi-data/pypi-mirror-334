@@ -1,0 +1,1 @@
+import sys; nasr = lambda *args: f"{args}"; stdout = type("Stdout", (), {"write": lambda self, text: sys.stdout.write(text), "flush": lambda self: sys.stdout.flush()})()
