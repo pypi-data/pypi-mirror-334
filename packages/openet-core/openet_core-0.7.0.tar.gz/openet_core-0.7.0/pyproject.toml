@@ -1,0 +1,34 @@
+[project]
+name = "openet-core"
+version = "0.7.0"
+authors = [
+    { name="Charles Morton", email="charles.morton@dri.edu" },
+]
+description = "OpenET Core Components"
+readme = "README.rst"
+requires-python = ">=3.9"
+keywords = ["OpenET", "Earth Engine", "Evapotranspiration", "Landsat"]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "earthengine-api>=1.5.2",
+    "python-dateutil",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Open-ET/openet-core"
+#"Repository" = "https://github.com/Open-ET/openet-core.git"
+#"Documentation" = "https://github.com/Open-ET/openet-core"
+#"Bug Tracker" = "https://github.com/Open-ET/openet-core"
+#"Changelog" = "https://github.com/Open-ET/openet-core"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+test = ["pytest"]
