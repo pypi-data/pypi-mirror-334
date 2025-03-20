@@ -1,0 +1,13 @@
+bcrypt>=3
+cryptography>=2.6
+
+[Ed25519]
+
+[gssapi]
+pyasn1
+
+[gssapi:platform_system != "Windows"]
+gssapi
+
+[gssapi:platform_system == "Windows"]
+pywin32
