@@ -1,0 +1,131 @@
+Metadata-Version: 2.2
+Name: labcas.workflow
+Version: 0.1.0
+Summary: Get Planetary Data from the Planetary Data System (PDS)
+Home-page: https://github.com/NASA-PDS/peppi
+Download-URL: https://github.com/NASA-PDS/peppi/releases/
+Author: Labcas
+Author-email: labcas@jpl.nasa.gov
+License: apache-2.0
+Keywords: pds,planetary data,api
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy~=1.26.4
+Requires-Dist: scikit-image~=0.24.0
+Requires-Dist: pandas~=2.2.3
+Requires-Dist: matplotlib~=3.9.4
+Requires-Dist: boto3~=1.36.10
+Requires-Dist: dask~=2024.8.0
+Requires-Dist: distributed~=2024.8.0
+Provides-Extra: ml-worker
+Requires-Dist: tensorflow~=2.9.1; extra == "ml-worker"
+Provides-Extra: dev
+Requires-Dist: black~=23.7.0; extra == "dev"
+Requires-Dist: flake8~=6.1.0; extra == "dev"
+Requires-Dist: flake8-bugbear~=23.7.10; extra == "dev"
+Requires-Dist: flake8-docstrings~=1.7.0; extra == "dev"
+Requires-Dist: pep8-naming<0.15.0,>=0.13.3; extra == "dev"
+Requires-Dist: mypy~=1.5.1; extra == "dev"
+Requires-Dist: pydocstyle~=6.3.0; extra == "dev"
+Requires-Dist: coverage~=7.3.0; extra == "dev"
+Requires-Dist: pytest~=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov~=4.1.0; extra == "dev"
+Requires-Dist: pytest-watch~=4.2.0; extra == "dev"
+Requires-Dist: pytest-xdist~=3.3.1; extra == "dev"
+Requires-Dist: pre-commit~=3.3.3; extra == "dev"
+Requires-Dist: sphinx~=7.2.6; extra == "dev"
+Requires-Dist: sphinx-rtd-theme~=2.0.0; extra == "dev"
+Requires-Dist: tox~=4.11.0; extra == "dev"
+Requires-Dist: types-setuptools<74.1.1,>=68.1.0; extra == "dev"
+Requires-Dist: Jinja2<3.1; extra == "dev"
+Dynamic: download-url
+
+# LabCas Workflow
+
+Run workflows for Labcas
+
+
+## Install
+
+### locally
+
+Preferably use a virtual environment with python 3.9
+
+
+    pip install -e '.[dev]'
+
+### With Dask on docker
+
+Create certificates:
+
+    cd docker/certs
+    ./generate-certs.sh
+
+Build the docker image:
+
+    docker build -f docker/Dockerfile . -t labcas/workflow
+
+Start the scheduler:
+
+    docker network create dask
+    docker run --network dask -p 8787:8787 -p 8786:8786 labcas/workflow scheduler
+
+Start one worker
+
+    docker run  --network dask -p 8786:8786 labcas/workflow worker 
+
+
+Start the client, same as in following section
+
+
+### With dask on ECS
+
+Deploy the image created in the previous section on ECR
+
+Have a s3 bucket `labcas-infra` for the terraform state.
+
+Other pre-requisites are:
+ - a VPC
+ - subnets
+ - a security group allowing incoming request whre the client runs, at JPL, on EC2 or Airflow, to port 8786 and port 8787
+ - a task role allowing to write on CloudWatch
+ - a task execution role which pull image from ECR and standard ECS task Excecution role policy "AmazonECSTaskExecutionRolePolicy"
+ 
+
+Deploy the ECS cluster with the following terraform command:
+
+    cd terraform
+    terraform init
+    terraform apply \
+        -var consortium="edrn" \
+        -var venue="dev" \
+        -var aws_fg_image=<uri of the docker image deployed on ECR>
+        -var aws_fg_subnets=<private subnets of the AWS account> \
+        -var aws_fg_vpc=<vpc of the AWS account> \
+        -var aws_fg_security_groups  <security group> \
+        -var ecs_task_role <arn of a task role>
+        -var ecs_task_execution_role <arn of task execution role>
+
+
+
+
+## Run
+
+Set you local AWS credentials to access the data
+
+
+    ./aws-login.darwin.amd64
+
+
+Start the dask cluster
+
+
+Run the processing
+
+
+    python ./src/labcas/workflow/manager/main.py
+
