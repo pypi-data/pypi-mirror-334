@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghr"
+authors = [{name = "PabloMyLove", email = "pablomylove@proton.me"}]
+version = "0.0.1"
+dependencies = [ "requests", "colorama" ]
+description = "A tool to run repositories from GitHub."
+
