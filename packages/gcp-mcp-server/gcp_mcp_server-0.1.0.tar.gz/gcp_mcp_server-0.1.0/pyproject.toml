@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gcp-mcp-server"
+version = "0.1.0"
+authors = [
+    { name="Lee" },
+]
+description = "An MCP server providing tools for GCP Cloud Functions logs"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "anyio>=4.5",
+    "click>=8.1.0",
+    "mcp>=0.1.0",
+    "google-cloud-logging>=3.9.0",
+    "google-cloud-functions>=1.15.0",
+    "uvicorn>=0.27.0",
+    "starlette>=0.36.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/lee/gcp-mcp-server"
+"Bug Tracker" = "https://github.com/lee/gcp-mcp-server/issues"
+
+[project.scripts]
+gcp-mcp-server = "gcp_mcp_server.server:main" 
