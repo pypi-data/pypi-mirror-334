@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: image_upscaling_api
+Version: 2025.0.0
+Summary: image-upscaling.net api client
+Keywords: upscale,image upscale
+Author: Marvin Eckhardt
+Maintainer: Marvin Eckhardt
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Homepage, https://image-upscaling.net
+Requires-Python: >=3.8
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+upscaling api Client of https://image-upscaling.net/

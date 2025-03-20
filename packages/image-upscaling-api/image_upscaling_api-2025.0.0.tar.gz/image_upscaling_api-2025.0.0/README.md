@@ -1,0 +1,1 @@
+upscaling api Client of https://image-upscaling.net/
