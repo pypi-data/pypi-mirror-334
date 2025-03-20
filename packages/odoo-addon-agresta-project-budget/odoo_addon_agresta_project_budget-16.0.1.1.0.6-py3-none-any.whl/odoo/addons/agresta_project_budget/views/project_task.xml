@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="agresta_project_task" model="ir.ui.view">
+        <field name="name">Agresta Project Task updates</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <data>
+                <field name="company_id" position="after">
+                    <field name="project_execution_weight" invisible="1"/>
+                </field>
+                <xpath expr="//notebook/page[@name='description_page']" position="after">
+                    <page string="Task updates" name="task_updates" id="task_updates_tab" groups="agresta_project_budget.group_agresta_project_user" attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}">
+                        <group>
+                        <field name="task_update_ids" mode="tree">
+                            <tree editable="top" string="Task Updates" default_order="date" col="6">
+                                <field name="date" colspan="4"/>
+                                <field name="budget_amount" colspan="2"/>
+                                <field name="execution_pcnt" colspan="2"/>
+                                <field name="description" colspan="2"/>
+                            </tree>                     
+                        </field>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook" position="before">
+                    <group name="last_update">
+                        <field name="currency_id" invisible="1"/>
+                        <label for="budget_amount" string="Budget amount" attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}"/>
+                        <div groups="!agresta_project_budget.group_agresta_project_manager" attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}">
+                            <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" colspan="1"/>
+                            <span attrs="{'invisible' : ['|', '|', ('allow_subtasks', '=', False), ('id', '=', False), ('subtask_count', '=', 0)]}">
+                                (incl. <field name="subtasks_budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}" nolabel="1" class="oe_inline"/> on <span class="fw-bold text-dark"> Sub-tasks</span>)
+                            </span>
+                        </div> 
+                        <div groups="agresta_project_budget.group_agresta_project_manager" attrs="{'invisible': [('project_execution_weight', '!=', 'budget')]}">
+                            <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}" colspan="1"/>
+                            <span attrs="{'invisible' : ['|', '|', ('allow_subtasks', '=', False), ('id', '=', False), ('subtask_count', '=', 0)]}">
+                                (incl. <field name="subtasks_budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}" nolabel="1" class="oe_inline"/> on <span class="fw-bold text-dark"> Sub-tasks</span>)
+                            </span>
+                        </div> 
+                        
+                        <field name="execution_pcnt" widget="progressbar" colspan="2"/>
+                    </group>
+                </xpath>
+
+            </data>
+        </field>
+    </record>
+    <record id="view_task_tree2" model="ir.ui.view">
+        <field name="name">Project Task tree2 view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="before">
+                <field name="budget_amount"/>
+                <field name="execution_value"/>
+                <field name="execution_pcnt"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+
+                            
+               
