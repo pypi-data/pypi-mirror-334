@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: rotate-pcd
+Version: 0.1.0
+Summary: Point cloud rotation package
+Home-page: https://github.com/tcbtcb9999/rotate_pcd
+Author: tcbtcb9999
+Author-email: 3035719537@qq.com
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: open3d
+
