@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: luziip
+Version: 0.1
+Summary: A simple IP info fetcher
+Home-page: https://luzitool.ct.ws/luziip.php
+Author: luzi inc
+Author-email: help@luzitool.ct.ws
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+luziip modÃ¼lÃ¼, Luzi Inc. tarafÄ±ndan geliÅŸtirilmiÅŸ bir IP sorgulama aracÄ±dÄ±r. Bu modÃ¼l, kullanÄ±cÄ±larÄ±n IP adreslerini sorgulamak, konum bilgilerini elde etmek ve Ã§eÅŸitli aÄŸ bilgilerini analiz etmek iÃ§in kullanÄ±lÄ±r. Luzi Inc., bu modÃ¼l ile internet Ã¼zerindeki IP adreslerinin izlenebilirliÄŸini artÄ±rarak, aÄŸ yÃ¶netimi ve gÃ¼venlik alanlarÄ±nda kolaylÄ±k saÄŸlamayÄ± amaÃ§lamaktadÄ±r. Bu araÃ§, kullanÄ±cÄ±larÄ±n IP tabanlÄ± analizler yapmasÄ±na ve aÄŸ yapÄ±landÄ±rmalarÄ±nÄ± optimize etmelerine olanak tanÄ±r.
