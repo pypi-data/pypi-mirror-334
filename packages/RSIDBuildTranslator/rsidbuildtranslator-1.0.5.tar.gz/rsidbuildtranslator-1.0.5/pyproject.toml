@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "RSIDBuildTranslator"
+version = "1.0.5"
+authors = [
+  { name="Siddhi Jain"},
+]
+description = "A tool that allows you to add chromosome and position for GRCh37 and GRCh38 based on rsIDs, or add rsIDs based on chromosome and position from either build."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2.2",
+    "gdown==5.2.0"
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+repository = "https://github.com/siddhijain25/RSIDBuildTranslator"
+
+[project.scripts]
+RSIDBuildTranslator = "RSIDBuildTranslator.main:main"
+
+[tool.setuptools.package-data]
+RSIDBuildTranslator = ["data/*"]
+
+[tool.ruff]
+line-length = 100
+exclude = ["venv/"]
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "SIM",
+    "N",
+    "UP",
+    "W",
+]
+ignore=["E501","N999","N806"]
+
+[tool.ruff.lint.per-file-ignores]
+"cli.py" = ["E501"]
