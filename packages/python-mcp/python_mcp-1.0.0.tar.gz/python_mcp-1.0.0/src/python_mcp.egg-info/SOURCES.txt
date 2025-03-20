@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/python_mcp/__init__.py
+src/python_mcp/api_client.py
+src/python_mcp/mcp_server.py
+src/python_mcp.egg-info/PKG-INFO
+src/python_mcp.egg-info/SOURCES.txt
+src/python_mcp.egg-info/dependency_links.txt
+src/python_mcp.egg-info/entry_points.txt
+src/python_mcp.egg-info/requires.txt
+src/python_mcp.egg-info/top_level.txt
