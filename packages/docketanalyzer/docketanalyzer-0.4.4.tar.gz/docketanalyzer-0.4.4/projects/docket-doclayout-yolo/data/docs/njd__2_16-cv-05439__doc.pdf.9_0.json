@@ -1,0 +1,5816 @@
+{
+  "filename": "doc.pdf.9_0.pdf",
+  "pages": [
+    {
+      "i": 0,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            197,
+            200,
+            598,
+            240
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.46661546495224,
+                602.9998779296875,
+                240.8999337090386
+              ],
+              "content": "NOT FOR PUBLICATION "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            545,
+            273,
+            1151,
+            355
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                567.999988132053,
+                273.13338385687933,
+                1140.3333875868054,
+                317.5667021009657
+              ],
+              "content": "UNITED STATES DISTRICT COURT "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                551.3333638509114,
+                311.46668328179254,
+                1157.0000542534722,
+                355.9000227186415
+              ],
+              "content": "FOR THE DISTRICT OF NEW JERSEY "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            209,
+            517,
+            477,
+            557
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                209.99999576144748,
+                515.1000552707249,
+                483.00001356336804,
+                558.9000701904297
+              ],
+              "content": "ANDREW WEIST, "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            934,
+            519,
+            1452,
+            556
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                939.000023735894,
+                515.1000552707249,
+                1460.333251953125,
+                558.9000701904297
+              ],
+              "content": "Civil Action No. 2:16-cv-05439-SDW "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            606,
+            595,
+            730,
+            634
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                610.0000169542101,
+                591.7666541205512,
+                736.0000610351562,
+                635.5666690402561
+              ],
+              "content": "Plaintiff, "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            959,
+            672,
+            1112,
+            711
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                863.3332994249132,
+                668.4667375352648,
+                1117.6666259765625,
+                712.9000345865885
+              ],
+              "content": "            OPINION "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            307,
+            680,
+            336,
+            707
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                310.00005933973523,
+                668.4332529703776,
+                343.33339267306854,
+                712.2332255045573
+              ],
+              "content": "v. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            204,
+            746,
+            830,
+            864
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                210.00005933973523,
+                745.0998942057291,
+                833.0000983344183,
+                788.899909125434
+              ],
+              "content": "COMMISSIONER OF SOCIAL SECURITY, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                610.0001017252604,
+                821.7666625976562,
+                765.3333875868055,
+                865.5665927463108
+              ],
+              "content": "Defendant. "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            959,
+            814,
+            1147,
+            855
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                963.3332994249132,
+                811.7667304144965,
+                1152.3333231608071,
+                855.566660563151
+              ],
+              "content": "July 10, 2017 "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            199,
+            1045,
+            604,
+            1087
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1043.133036295573,
+                610.0000169542101,
+                1087.5663757324219
+              ],
+              "content": "WIGENTON, District Judge. "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            193,
+            1120,
+            1511,
+            1782
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1120.4330444335938,
+                1508.3333333333333,
+                1164.2330593532986
+              ],
+              "content": "This matter comes before the Court on Plaintiff Andrew Weist\u2019s (\u201cPlaintiff\u201d) appeal of the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1197.0998128255208,
+                1508.332316080729,
+                1240.8997429741753
+              ],
+              "content": "final administrative decision of the Commissioner of Social Security (\u201cCommissioner\u201d), with "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1273.7664116753472,
+                1508.3331637912327,
+                1317.566426595052
+              ],
+              "content": "respect to Administrative Law Judge Donna A. Krappa\u2019s (\u201cALJ Krappa\u201d, \u201cthe ALJ\u201d) denial of "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1350.4331800672742,
+                1508.333502875434,
+                1394.2331102159287
+              ],
+              "content": "Plaintiff\u2019s claim for Disability Insurance Benefits (\u201cDIB\u201d) under the Social Security Act (\u201cthe "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1427.0999484592014,
+                1508.3328247070312,
+                1470.8999633789062
+              ],
+              "content": "Act\u201d).  This appeal is decided without oral argument pursuant to Federal Rule of Civil Procedure "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1503.7665473090278,
+                1508.3333333333333,
+                1547.5665622287327
+              ],
+              "content": "78.  This Court has subject matter jurisdiction pursuant to 42 U.S.C. \u00a7 405(g).  Venue is proper "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99995761447482,
+                1580.433146158854,
+                1508.3329942491318,
+                1624.233161078559
+              ],
+              "content": "under 28 U.S.C. \u00a7 1391(b).  For the reasons set forth below, this Court finds that ALJ Krappa\u2019s "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99995761447482,
+                1657.0999145507812,
+                1508.3329942491318,
+                1700.899929470486
+              ],
+              "content": "factual findings are supported by substantial credible evidence and that her legal determinations "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00008477105035,
+                1733.133273654514,
+                1137.000020345052,
+                1777.566697862413
+              ],
+              "content": "are correct.  Therefore, the Commissioner\u2019s decision is AFFIRMED. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            244,
+            199,
+            1001,
+            242
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.0,
+                196.46661546495224,
+                280.5999967787001,
+                243.19994184705945
+              ],
+              "content": "I. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                350.0,
+                196.46661546495224,
+                1005.6670294867621,
+                240.8999337090386
+              ],
+              "content": "PROCEDURAL AND FACTUAL HISTORY "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            297,
+            275,
+            628,
+            317
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                273.13338385687933,
+                633.3333333333333,
+                319.8667102389865
+              ],
+              "content": "A. Procedural History "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            193,
+            351,
+            1508,
+            1166
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                348.17699856228296,
+                1508.3331637912327,
+                393.56668260362414
+              ],
+              "content": "On July 9, 2012,1 Plaintiff filed a Title II application for DIB, alleging disability beginning "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                426.43326653374567,
+                1516.6666666666665,
+                470.2332814534505
+              ],
+              "content": "January 25, 2012, based on depression, headaches, neck pain, and dizziness.  (Tr. 170, 186.)  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                503.099865383572,
+                1508.3331637912327,
+                546.8998803032769
+              ],
+              "content": "Plaintiff\u2019s application was denied initially on December 28, 2012, and upon reconsideration on "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                579.7664642333984,
+                1508.3329942491318,
+                623.5664791531033
+              ],
+              "content": "August 1, 2013.  (Tr. 1, 120.)  Plaintiff\u2019s subsequent request for a hearing before an administrative "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                656.4330630832249,
+                1508.3333333333333,
+                700.2330780029297
+              ],
+              "content": "law judge was granted and ALJ Krappa held a hearing on January 8, 2015.  (Tr. 27, 126.)  On "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                733.0997043185764,
+                1508.3329942491318,
+                776.8996344672308
+              ],
+              "content": "March 13, 2015, ALJ Krappa issued a decision finding Plaintiff to be not disabled under sections "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                809.7663031684027,
+                1508.333502875434,
+                853.5663180881077
+              ],
+              "content": "216(i) and 223(d) of the Act, thereby denying his DIB claim.  (Tr. 9-22.)  On July 5, 2016, the "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                886.4330715603298,
+                1508.3329942491318,
+                930.2330017089844
+              ],
+              "content": "Appeals Council denied Plaintiff\u2019s request for review of ALJ Krappa\u2019s decision, making the ALJ\u2019s "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99995761447482,
+                963.0996704101562,
+                1508.3326551649304,
+                1006.8996853298611
+              ],
+              "content": "decision the final decision of the Commissioner.  (Tr. 1-3.)  On September 7, 2016, Plaintiff filed "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.9998304578993,
+                1039.7664388020833,
+                1508.3326551649304,
+                1083.5663689507378
+              ],
+              "content": "an appeal with this Court, requesting that the Commissioner\u2019s decision be reversed and that "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.9998304578993,
+                1115.8997429741753,
+                1145.9997389051648,
+                1160.2330525716145
+              ],
+              "content": "Plaintiff be awarded Title II benefits under the Act.  (See Compl. 2-3). "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            296,
+            1196,
+            575,
+            1236
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99974568684894,
+                1193.1330362955728,
+                581.3331180148655,
+                1239.8663838704426
+              ],
+              "content": "B. Factual History "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            396,
+            1273,
+            947,
+            1315
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                399.99974568684894,
+                1269.7997199164497,
+                951.9997490776909,
+                1316.5330674913193
+              ],
+              "content": "1. Personal and Employment History "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            194,
+            1347,
+            1508,
+            1853
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99974568684894,
+                1344.8436313205295,
+                1508.3331637912327,
+                1390.2332729763455
+              ],
+              "content": "Plaintiff was born January 14, 1970.  (Tr. 170.)  He has an 11th grade education and worked "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1423.100111219618,
+                1508.3326551649304,
+                1466.9001261393228
+              ],
+              "content": "as a cemetery carpenter, cemetery maintenance worker, and an automobile body repair helper from "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                1499.7667100694443,
+                1508.3328247070312,
+                1543.5667249891492
+              ],
+              "content": "1995 to 2012.  (Tr. 187.)  He was 42 years old when he allegedly became disabled on January 25, "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                1576.4333089192708,
+                1508.3329942491318,
+                1620.2333238389756
+              ],
+              "content": "2012, due to injuries sustained in an automobile accident.  (Tr. 32, 170.)  In a function report that "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                1653.1000773111978,
+                1508.3328247070312,
+                1696.9000922309028
+              ],
+              "content": "he submitted with his application for benefits, he reported that his daily activities are limited to "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                1729.766845703125,
+                1508.3326551649304,
+                1773.5668606228298
+              ],
+              "content": "pain management.  These include taking pain pills with each meal, icing his neck and shoulder, "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                1806.4334445529514,
+                1508.3328247070312,
+                1850.2334594726562
+              ],
+              "content": "and showering.  (Tr. 197.)  In the report, Plaintiff claimed to be unable to walk for more than "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            196,
+            1928,
+            1507,
+            2003
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1921.5103149414062,
+                1507.697550455729,
+                1966.9001261393228
+              ],
+              "content": "1 This Court notes that there is a discrepancy in the record as to the date on which Plaintiff initially applied "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.01322428385416,
+                1959.1000027126736,
+                1297.3333570692273,
+                2002.9000176323784
+              ],
+              "content": "for DIB. For purposes of this Opinion, this Court treats July 9, 2012 as the relevant date.  "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            839,
+            2028,
+            861,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "2 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            198,
+            1504,
+            317
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3333333333333,
+                240.23329416910806
+              ],
+              "content": "twenty feet without rest and that he was unable to take care of himself due to pain, dizziness, and "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1491.3333468967014,
+                316.89989301893445
+              ],
+              "content": "headaches.  (Tr. 197-202.)  Plaintiff also testified that, due to fear, he no longer drives.  (Tr. 31.) "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            396,
+            352,
+            682,
+            394
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                400.0,
+                349.7999827067057,
+                689.000023735894,
+                396.53328789605035
+              ],
+              "content": "2. Medical History "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            446,
+            430,
+            796,
+            469
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                450.0,
+                425.8999294704861,
+                800.0,
+                470.83324856228296
+              ],
+              "content": "a. Automobile Accidents "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            194,
+            506,
+            1507,
+            929
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                502.4665408664279,
+                1508.333502875434,
+                546.8998803032769
+              ],
+              "content": "Plaintiff testified that on January 25, 2012, he was involved in a work related accident "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00004238552518,
+                579.7664642333984,
+                1508.332316080729,
+                623.5664791531033
+              ],
+              "content": "when his truck was sideswiped.  (Tr. 18, 32, 37.)  He testified that, about a year later, he was "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00004238552518,
+                656.4330630832249,
+                1508.3333333333333,
+                700.2330780029297
+              ],
+              "content": "involved in another automobile accident in which his head hit a window after he was rear-ended. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                731.5103318956163,
+                1516.6666666666665,
+                776.8999735514323
+              ],
+              "content": "He testified that he was involved in a third accident in 2013,2 in which he was again rear-ended.  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                809.7666422526041,
+                1508.3331637912327,
+                853.566657172309
+              ],
+              "content": "(Tr. 39.)  According to Plaintiff, he subsequently \u201cdid some treatment and then that was it.\u201d  (Tr. "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                886.4334106445312,
+                260.99982791476776,
+                930.2333407931857
+              ],
+              "content": "39.) "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            447,
+            967,
+            823,
+            1007
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                449.9998304578993,
+                962.5667148166232,
+                834.9998474121094,
+                1007.50003390842
+              ],
+              "content": "b. Emergency Room Visits  "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            194,
+            1041,
+            1507,
+            1313
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99987284342444,
+                1039.7667778862847,
+                1508.3333333333333,
+                1083.5667080349392
+              ],
+              "content": "Plaintiff visited the emergency room of Robert Wood Johnson University Hospital on June "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1116.433376736111,
+                1508.3333333333333,
+                1160.233391655816
+              ],
+              "content": "20, April 11, and May 4 of 2012; as well as; on January 2, August 12, and September 12 of 2014 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1193.100145128038,
+                1508.333502875434,
+                1236.9000752766926
+              ],
+              "content": "due to neck pain and headaches.  He was treated with pain medications and discharged on each "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1269.7667439778645,
+                717.6667107476128,
+                1313.5667588975693
+              ],
+              "content": "occasion.  (Tr. 18, 285-313, 411-24.)   "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            445,
+            1348,
+            863,
+            1389
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                450.00004238552515,
+                1345.9001329210068,
+                867.6667107476128,
+                1390.8334520128037
+              ],
+              "content": "c. Physical Health Treatment "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            192,
+            1422,
+            1508,
+            1851
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1423.100111219618,
+                1508.333502875434,
+                1466.9001261393228
+              ],
+              "content": "Dr. David Adin, D.O. (\u201cDr. Adin\u201d), treated Plaintiff from February 1, 2012, to June 21, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1499.7668796115452,
+                1508.3362155490452,
+                1543.56689453125
+              ],
+              "content": "2012.  (Tr. 314-23.) On February 1, Plaintiff presented complaining of neck pain, shoulder pain, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1576.4336480034722,
+                1508.3333333333333,
+                1620.233662923177
+              ],
+              "content": "and headaches.  (Tr. 315.)  He denied ever having pain in his shoulder or neck in the past.  (Tr. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.9998304578993,
+                1653.1002468532986,
+                1508.3329942491318,
+                1696.9002617730034
+              ],
+              "content": "315.)  Upon examination, Dr. Adin observed limited mobility and a decreased range of motion in "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                1729.766845703125,
+                1516.6663275824653,
+                1773.5668606228298
+              ],
+              "content": "the neck, as well as a limited range of motion in the left shoulder with positive giveaway weakness.  "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99966091579861,
+                1806.433614095052,
+                1508.3329942491318,
+                1850.2336290147568
+              ],
+              "content": "(Tr. 316.)  There was no evidence of sensory deficits in the upper limbs.  Dr. Adin diagnosed "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            193,
+            1927,
+            1508,
+            2003
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1921.5103149414062,
+                1507.6989067925347,
+                1966.0814073350693
+              ],
+              "content": "2 ALJ Krappa\u2019s opinion refers to the final accident as occurring in 2014, however, Plaintiff testified that it "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99872843424478,
+                1961.7879231770833,
+                569.2526499430338,
+                2002.084011501736
+              ],
+              "content": "occurred in 2013 (Tr. 18, 39.) "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            839,
+            2028,
+            861,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "3 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            196,
+            1509,
+            856
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3329942491318,
+                240.23329416910806
+              ],
+              "content": "Plaintiff with cervical derangement, left shoulder impingement syndrome, cervicogenic "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3333333333333,
+                316.89989301893445
+              ],
+              "content": "headaches, and a possible underlying traumatic brain injury.  (Tr. 315-16.)  On March 29, 2012, at "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                349.76649814181854,
+                1508.3331637912327,
+                393.56651306152344
+              ],
+              "content": "the direction of Dr. Adin, Plaintiff underwent MRIs of his left shoulder and cervical spine. The "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1508.3329942491318,
+                470.2331119113498
+              ],
+              "content": "MRI of the left shoulder revealed infraspinatus and supraspinatus peritendinitis, moderate "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                503.0996958414713,
+                1508.3331637912327,
+                546.8997107611762
+              ],
+              "content": "hypertrophic degenerative joint disease of the acromioclavicular joint, and deficiency and "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                579.7662946912977,
+                1508.3331637912327,
+                623.5663096110026
+              ],
+              "content": "irregularity of the anterior superior labrum.  (Tr. 275.)  The MRI of the cervical spine revealed a "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00008477105035,
+                656.4328935411241,
+                1516.6666666666665,
+                700.232908460829
+              ],
+              "content": "broad-based disc bulge at the C4-C5 level and central disc herniation at the C5-C6 level.  (Tr. 274.)  "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00016954210068,
+                733.0995347764757,
+                1508.3194308810764,
+                776.8994649251301
+              ],
+              "content": "His treatment consisted of oral analgesics, physical therapy, a hard cervical collar, a Lidoderm "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00016954210068,
+                809.766133626302,
+                1064.3334282769097,
+                853.566148546007
+              ],
+              "content": "patch, and a series of cervical epidural injections.  (Tr. 314-23.)  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            890,
+            1508,
+            1700
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                886.4329020182291,
+                1508.3329942491318,
+                930.2328321668837
+              ],
+              "content": "Dr. Allen S. Glushakow, M.D. (\u201cDr. Glushakow\u201d), conducted a consultative examination "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                963.0995008680555,
+                1508.3358764648438,
+                1006.8995157877604
+              ],
+              "content": "of Plaintiff on November 26, 2012.  (Tr. 331.)  He recorded that Plaintiff presented with complaints "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00016954210068,
+                1039.7662692599827,
+                1508.3329942491318,
+                1083.5661994086372
+              ],
+              "content": "of his arms falling asleep, neck pain, and headaches.  (Tr. 332.)  An examination revealed mild "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00016954210068,
+                1116.432868109809,
+                1508.3363850911458,
+                1160.232883029514
+              ],
+              "content": "restriction of range of motion in the neck but full range of motion in the bilateral upper and lower "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00016954210068,
+                1193.099636501736,
+                1508.3333333333333,
+                1236.8995666503906
+              ],
+              "content": "extremities.  (Tr. 332.)  The examination also showed a negative Phalen and Tinel\u2019s test, no atrophy "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00016954210068,
+                1269.7662353515625,
+                1508.3302815755208,
+                1313.5662502712673
+              ],
+              "content": "or soft tissue swelling, and no evidence of neurological deficits.  Plaintiff was also able to take his "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00016954210068,
+                1346.4330037434895,
+                1508.3329942491318,
+                1390.232933892144
+              ],
+              "content": "shoes off in a sitting position without difficulty.  (Tr. 332.)  Dr. Glushakow diagnosed Plaintiff "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00016954210068,
+                1423.0997721354165,
+                1508.3326551649304,
+                1466.8997870551216
+              ],
+              "content": "with \u201c[i]nfraspinatus and supraspinatus peritendinitis of the left shoulder with moderate "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00016954210068,
+                1499.766370985243,
+                1508.333502875434,
+                1543.5663859049478
+              ],
+              "content": "hypertrophy and degenerative joint disease of the right AC joint[,] C5-C6 central disc herniation "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.00016954210068,
+                1576.4329698350693,
+                1508.334011501736,
+                1620.2329847547742
+              ],
+              "content": "with no clinical evidence of cervical radiculitis based on positive MRI findings[, and a] subjective "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.00016954210068,
+                1652.466328938802,
+                651.0001712375217,
+                1696.8997531467014
+              ],
+              "content": "history of headaches.\u201d  (Tr. 332.) "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            195,
+            1731,
+            1507,
+            1930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0001695421007,
+                1729.7665066189236,
+                1508.333502875434,
+                1773.5665215386284
+              ],
+              "content": "Plaintiff first visited Dr. Edward G. Novik, M.D. (\u201cDr. Novik\u201d), on April 18, 2013, for "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1806.43310546875,
+                1516.6666666666665,
+                1850.2331203884548
+              ],
+              "content": "treatment related to Plaintiff\u2019s automobile accident alleged to have occurred on April 12, 2013.  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1883.0997043185764,
+                1508.3333333333333,
+                1926.8997192382812
+              ],
+              "content": "(Tr. 398.)   Plaintiff told Dr. Novik that his pain was 9/10, constant, and limited his everyday "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            839,
+            2028,
+            861,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "4 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            197,
+            1508,
+            395
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3336724175347,
+                240.23329416910806
+              ],
+              "content": "activities.  (Tr. 398.)  Dr. Novik examined Plaintiff and determined that he had an antalgic gait, a "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3329942491318,
+                316.89989301893445
+              ],
+              "content": "limited range of motion in the neck, diminished deep tendon reflex, decreased motor strength in "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                349.76649814181854,
+                1389.000023735894,
+                393.56651306152344
+              ],
+              "content": "the upper left extremity, and a decreased range of motion in the lumbar spine.  (Tr. 18.)   "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            427,
+            1508,
+            1085
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                426.43309699164496,
+                1508.3333333333333,
+                470.2331119113498
+              ],
+              "content": "Subsequent progress notes from Dr. Novik indicated that Plaintiff\u2019s conditions improved "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                503.0996958414713,
+                1508.3331637912327,
+                546.8997107611762
+              ],
+              "content": "with conservative therapy that consisted of oral analgesics, a series of epidural injections, a "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                579.7662946912977,
+                1508.3336724175347,
+                623.5663096110026
+              ],
+              "content": "bilateral facet joint injection, and a home exercise program.  (Tr. 18, 371-403.)  Notably, on an "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                656.4328935411241,
+                1508.3329942491318,
+                700.232908460829
+              ],
+              "content": "October 3, 2013 visit, Plaintiff reported a 60% improvement in his pain after his second epidural "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                733.0995347764757,
+                1508.3333333333333,
+                776.8994649251301
+              ],
+              "content": "steroid injection.  (Tr. 28, 385.)  During Plaintiff\u2019s last visit with Dr. Novik on January 30, 2014, "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                809.766133626302,
+                1508.3228217230903,
+                853.566148546007
+              ],
+              "content": "an examination showed a decreased range of motion in all planes of the cervical spine accompanied "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                886.4329020182291,
+                1508.3329942491318,
+                930.2328321668837
+              ],
+              "content": "by muscle spasm, tenderness, pain, and a normal motor and sensory examination of the upper "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                963.0995008680555,
+                1508.332316080729,
+                1006.8995157877604
+              ],
+              "content": "extremities.  However, there was no evidence of any abnormalities in Plaintiff\u2019s gait, lumbar spine, "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1039.7662692599827,
+                814.6666632758246,
+                1083.5661994086372
+              ],
+              "content": "or bilateral lower extremities.  (Tr. 18, 373.)   "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            448,
+            1118,
+            844,
+            1159
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                450.0,
+                1115.8995734320747,
+                847.3333570692274,
+                1160.8328925238716
+              ],
+              "content": "d. Mental Health Treatment "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            188,
+            1196,
+            1509,
+            1930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1193.099636501736,
+                1508.3333333333333,
+                1236.8995666503906
+              ],
+              "content": "Plaintiff was treated by Dr. Alexander Ivanov, M.D. (\u201cDr. Ivanov\u201d) from September 13, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1269.7662353515625,
+                1500.099860297309,
+                1313.5662502712673
+              ],
+              "content": "2012 through December 13, 2012.  (Tr. 336-43)  Dr. Ivanov diagnosed Plaintiff with post-"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1346.4330037434895,
+                1508.3333333333333,
+                1390.232933892144
+              ],
+              "content": "traumatic stress disorder, major depressive disorder, and an environmental driving phobia.  (Tr. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1423.0997721354165,
+                1516.666497124566,
+                1466.8997870551216
+              ],
+              "content": "18, 338.)  Dr. Ivanov also opined that Plaintiff was \u201c100% psychiatrically disabled.\u201d  (Tr. 342.)  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1499.766370985243,
+                1361.6667005750867,
+                1543.5663859049478
+              ],
+              "content": "Dr. Ivanov treated Plaintiff through medication and psychotherapy.  (Tr. 18, 336-62.)   "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                300.00008477105035,
+                1576.4329698350693,
+                1499.7662014431423,
+                1620.2329847547742
+              ],
+              "content": "Dr. Steven Barnett, Ph.D (\u201cDr. Barnett\u201d), treated Plaintiff in September of 2012.  (Tr. 324-"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0001271565755,
+                1653.0997382269966,
+                1508.3299424913193,
+                1696.8997531467014
+              ],
+              "content": "30.)  On October 11, 2012, Dr. Barnett completed a psychiatric report in which he diagnosed "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0001271565755,
+                1729.7665066189236,
+                1516.6668362087673,
+                1773.5665215386284
+              ],
+              "content": "Plaintiff with a major depressive disorder, DSM-IV 296.23, severe without psychotic features.  "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00016954210068,
+                1806.43310546875,
+                1508.3301120334202,
+                1850.2331203884548
+              ],
+              "content": "(Tr. 324.)   He noted that Plaintiff\u2019s mood was depressed and agitated, his speech was tangential, "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.00008477105035,
+                1883.0997043185764,
+                1508.3329942491318,
+                1926.8997192382812
+              ],
+              "content": "and his concentration and memory were below average.  Plaintiff reported suicidal ideation but "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            839,
+            2027,
+            861,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "5 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            197,
+            1506,
+            394
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3297729492188,
+                240.23329416910806
+              ],
+              "content": "denied intent due to his children.  Dr. Barnett also noted that Plaintiff was able to articulate feelings "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                273.0998992919922,
+                1508.3333333333333,
+                316.89989301893445
+              ],
+              "content": "and provide history, had no limitations in social interaction, had average judgment and intellect, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                703.6666446261936,
+                393.56651306152344
+              ],
+              "content": "and was fully oriented.  (Tr. 325-28.) "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            246,
+            429,
+            664,
+            472
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.0,
+                426.4667510986328,
+                293.5999976264106,
+                473.2000562879774
+              ],
+              "content": "II. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                350.0,
+                426.4667510986328,
+                668.6666700575087,
+                470.90009053548175
+              ],
+              "content": "LEGAL STANDARD "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            297,
+            506,
+            635,
+            546
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                503.13334994845917,
+                639.6666632758246,
+                549.8666551378038
+              ],
+              "content": "A. Standard of Review "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            195,
+            581,
+            1507,
+            855
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                579.7666337754991,
+                1508.340115017361,
+                623.566648695204
+              ],
+              "content": "In Social Security appeals, this Court has plenary review of the legal issues decided by the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                655.8998955620659,
+                1508.3328247070312,
+                700.2332475450304
+              ],
+              "content": "Commissioner.  Knepp v. Apfel, 204 F.3d 78, 83 (3d Cir. 2000).  Yet, this Court\u2019s review of the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                733.099873860677,
+                1508.3353678385415,
+                776.8998040093315
+              ],
+              "content": "ALJ\u2019s factual findings is limited to determining whether there is substantial evidence to support "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                809.1331481933594,
+                1190.6666225857205,
+                853.5664876302083
+              ],
+              "content": "those conclusions.  Hartranft v. Apfel, 181 F.3d 358, 360 (3d Cir. 1999).   "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            192,
+            883,
+            1509,
+            1936
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                886.4332411024305,
+                1508.3263821072048,
+                930.2331712510851
+              ],
+              "content": "Substantial evidence \u201cdoes not mean a large or considerable amount of evidence, but rather "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                963.099839952257,
+                1516.6666666666665,
+                1006.8998548719618
+              ],
+              "content": "such relevant evidence as a reasonable mind might accept as adequate to support a conclusion.\u201d  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1039.2332288953992,
+                1508.3333333333333,
+                1083.5665384928384
+              ],
+              "content": "Pierce v. Underwood, 487 U.S. 552, 565 (1988) (internal citation and quotations omitted).  Thus, "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                1116.4332071940103,
+                1508.340115017361,
+                1160.2332221137153
+              ],
+              "content": "substantial evidence is \u201cless than a preponderance of the evidence, but \u2018more than a mere "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1192.5665961371528,
+                1508.3367241753472,
+                1236.899905734592
+              ],
+              "content": "scintilla.\u2019\u201d  Bailey v. Comm\u2019r of Soc. Sec., 354 F. App\u2019x. 613, 616 (3d Cir. 2009) (quoting "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                1269.2332797580295,
+                1508.3326551649304,
+                1313.5665893554688
+              ],
+              "content": "Richardson v. Perales, 402 U.S. 389, 401 (1971)).  Importantly, \u201c[t]his standard is not met if the "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1345.8999633789062,
+                1508.3333333333333,
+                1390.2332729763455
+              ],
+              "content": "Commissioner \u2018ignores, or fails to resolve, a conflict created by countervailing evidence.\u2019\u201d  Bailey, "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1422.5667317708333,
+                1508.333502875434,
+                1466.9001261393228
+              ],
+              "content": "354 F. App\u2019x. at 616 (quoting Kent v. Schweiker, 710 F.2d 110, 114 (3d Cir. 1983)).  However, if "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1499.7667100694443,
+                1508.3331637912327,
+                1543.5667249891492
+              ],
+              "content": "the factual record is adequately developed, \u201cthe possibility of drawing two inconsistent "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.0,
+                1576.4333089192708,
+                1508.3333333333333,
+                1620.2333238389756
+              ],
+              "content": "conclusions from the evidence does not prevent an administrative agency\u2019s finding from being "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.0,
+                1652.566697862413,
+                1508.3333333333333,
+                1696.9000922309028
+              ],
+              "content": "supported by substantial evidence.\u201d  Daniels v. Astrue, No. 4:08-cv-1676, 2009 WL 1011587, at "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                200.0,
+                1729.2334662543403,
+                1508.3268907335068,
+                1773.5668606228298
+              ],
+              "content": "*2 (M.D. Pa. Apr. 15, 2009) (quoting Consolo v. Fed. Mar. Comm\u2019n, 383 U.S. 607, 620 (1966) "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                200.0,
+                1806.4334445529514,
+                1508.329603407118,
+                1850.2334594726562
+              ],
+              "content": "(internal quotation marks omitted)).  \u201cThe ALJ\u2019s decision may not be set aside merely because [a "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                200.0,
+                1882.566663953993,
+                1508.3333333333333,
+                1926.9000583224827
+              ],
+              "content": "reviewing court] would have reached a different decision.\u201d  Cruz v. Comm\u2019r of Soc. Sec., 244 F. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            838,
+            2028,
+            861,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "6 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 6,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            197,
+            1509,
+            549
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                195.89996337890625,
+                1508.3333333333333,
+                240.23329416910806
+              ],
+              "content": "App\u2019x. 475, 479 (3d Cir. 2007) (citing Hartranft, 181 F.3d at 360).  This Court is required to give "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                272.5665622287326,
+                1508.3333333333333,
+                316.89989301893445
+              ],
+              "content": "substantial weight and deference to the ALJ\u2019s findings. See Scott v. Astrue, 297 F. App\u2019x. 126, 128 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                349.76649814181854,
+                1508.3328247070312,
+                393.56651306152344
+              ],
+              "content": "(3d Cir. 2008).  Nonetheless, \u201cwhere there is conflicting evidence, the ALJ must explain which "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                425.8997599283854,
+                1508.333502875434,
+                470.2331119113498
+              ],
+              "content": "evidence he accepts and which he rejects, and the reasons for that determination.\u201d Cruz, 244 F. "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                502.5663587782118,
+                1306.6668192545571,
+                546.8997107611762
+              ],
+              "content": "App\u2019x. at 479 (citing Hargenrader v. Califano, 575 F.2d 434, 437 (3d Cir. 1978)). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            195,
+            579,
+            1508,
+            1162
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                579.7662946912977,
+                1508.326212565104,
+                623.5663096110026
+              ],
+              "content": "In considering an appeal from a denial of benefits, remand is appropriate \u201cwhere relevant, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                656.4328935411241,
+                1508.3362155490452,
+                700.232908460829
+              ],
+              "content": "probative and available evidence was not explicitly weighed in arriving at a decision on the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                732.5661553276909,
+                1508.333502875434,
+                776.8994649251301
+              ],
+              "content": "plaintiff\u2019s claim for disability benefits.\u201d  Dobrowolsky v. Califano, 606 F.2d 403, 407 (3d Cir. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                809.2328389485676,
+                1508.3336724175347,
+                853.566148546007
+              ],
+              "content": "1979) (quoting Saldana v. Weinberger, 421 F. Supp. 1127, 1131 (E.D. Pa. 1976) (internal "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                886.4329020182291,
+                1508.3329942491318,
+                930.2328321668837
+              ],
+              "content": "quotation marks omitted).  Indeed, a decision to \u201caward benefits should be made only when the "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                963.0995008680555,
+                1508.3333333333333,
+                1006.8995157877604
+              ],
+              "content": "administrative record of the case has been fully developed and when substantial evidence on the "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1039.232889811198,
+                1508.3228217230903,
+                1083.5661994086372
+              ],
+              "content": "record as a whole indicates that the claimant is disabled and entitled to benefits.\u201d  Podedworny v. "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1115.8995734320747,
+                1075.6666395399304,
+                1160.232883029514
+              ],
+              "content": "Harris, 745 F.2d 210, 221\u201322 (3d Cir. 1984) (citations omitted).  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            296,
+            1194,
+            768,
+            1238
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1193.1328667534722,
+                772.0000372992621,
+                1239.866214328342
+              ],
+              "content": "B. The Five-Step Disability Test "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            194,
+            1271,
+            1508,
+            1932
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00004238552515,
+                1269.7662353515625,
+                1508.3333333333333,
+                1313.566165500217
+              ],
+              "content": "A claimant\u2019s eligibility for social security benefits is governed by 42 U.S.C. \u00a7 1382.   An "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1346.432834201389,
+                1508.3328247070312,
+                1390.2328491210938
+              ],
+              "content": "individual will be considered disabled under the Act if the claimant is unable \u201cto engage in any "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1423.099602593316,
+                1508.3336724175347,
+                1466.8996175130208
+              ],
+              "content": "substantial gainful activity by reason of any medically determinable physical or mental "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1499.766370985243,
+                1508.3329942491318,
+                1543.5663859049478
+              ],
+              "content": "impairment\u201d lasting continuously for at least twelve months. 42 U.S.C. \u00a7 423(d)(1)(A).  The "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1576.4329698350693,
+                1508.3329942491318,
+                1620.2329847547742
+              ],
+              "content": "impairment must be severe enough to render the individual \u201cnot only unable to do his previous "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1653.0995686848958,
+                1508.3333333333333,
+                1696.8995836046006
+              ],
+              "content": "work but [unable], considering his age, education, and work experience, [to] engage in any kind "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1729.7663370768228,
+                1508.3326551649304,
+                1773.5663519965278
+              ],
+              "content": "of substantial gainful work which exists in the national economy.\u201d  42 U.S.C. \u00a7 423(d)(2)(A).  A "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1806.43310546875,
+                1508.3326551649304,
+                1850.2331203884548
+              ],
+              "content": "claimant must show that the \u201cmedical signs and findings\u201d related to his or her ailment have been "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1883.0997043185764,
+                1508.3329942491318,
+                1926.8997192382812
+              ],
+              "content": "\u201cestablished by medically acceptable clinical or laboratory diagnostic techniques, which show the "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            840,
+            2027,
+            860,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "7 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            197,
+            1507,
+            395
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3321465386284,
+                240.23329416910806
+              ],
+              "content": "existence of a medical impairment that results from anatomical, physiological, or psychological "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3333333333333,
+                316.89989301893445
+              ],
+              "content": "abnormalities which could reasonably be expected to produce the pain or other symptoms alleged "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                653.6666446261936,
+                393.56651306152344
+              ],
+              "content": ". . . . \u201d  42 U.S.C. \u00a7 423(d)(5)(A). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            427,
+            1509,
+            702
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                426.43309699164496,
+                1508.3333333333333,
+                470.2331119113498
+              ],
+              "content": "To make a disability determination, the ALJ follows a five-step sequential analysis.  20 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                502.5663587782118,
+                1508.3302815755208,
+                546.8997107611762
+              ],
+              "content": "C.F.R. \u00a7\u00a7 404.1520(a), 416.920(a); see also Cruz, 244 F. App\u2019x at 480.  If the ALJ determines at "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                579.7662946912977,
+                1508.3333333333333,
+                623.5663096110026
+              ],
+              "content": "any step that the claimant is or is not disabled, the ALJ does not proceed to the next step.   20 "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                656.4328935411241,
+                756.666734483507,
+                700.232908460829
+              ],
+              "content": "C.F.R. \u00a7\u00a7 404.1520(a)(4), 416.920(a)(4). "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            194,
+            736,
+            1507,
+            1240
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                733.0995347764757,
+                1508.3331637912327,
+                776.8994649251301
+              ],
+              "content": "Step one requires the ALJ to determine whether the claimant is engaging in substantial "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                809.766133626302,
+                1508.333502875434,
+                853.566148546007
+              ],
+              "content": "gainful activity (\u201cSGA\u201d).  20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(i), 416.920(a)(4)(i).  SGA is defined as "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                886.4329020182291,
+                1508.3326551649304,
+                930.2328321668837
+              ],
+              "content": "work that \u201c[i]nvolves doing significant and productive physical or mental duties . . . for pay or "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                963.0995008680555,
+                1508.3329942491318,
+                1006.8995157877604
+              ],
+              "content": "profit.\u201d  20 C.F.R. \u00a7\u00a7 404.1510, 416.910.  If the claimant engages in SGA, the claimant is not "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1039.7662692599827,
+                1508.3333333333333,
+                1083.5661994086372
+              ],
+              "content": "disabled for purposes of receiving social security benefits regardless of the severity of the "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00016954210068,
+                1115.8995734320747,
+                1508.3336724175347,
+                1160.232883029514
+              ],
+              "content": "claimant\u2019s impairments.  See 20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(i), 416.920(a)(4)(i).  If the individual is "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00016954210068,
+                1193.099636501736,
+                912.0001051161024,
+                1236.8995666503906
+              ],
+              "content": "not engaging in SGA, the ALJ proceeds to step two.  "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            193,
+            1271,
+            1508,
+            1932
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0001695421007,
+                1269.7662353515625,
+                1508.3292643229165,
+                1313.5662502712673
+              ],
+              "content": "Under step two, the ALJ determines whether the claimant suffers from a severe impairment "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00016954210068,
+                1346.4330037434895,
+                1508.329603407118,
+                1390.232933892144
+              ],
+              "content": "or combination of impairments that meets the duration requirement found in Sections 404.1509 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00016954210068,
+                1423.0997721354165,
+                1508.3362155490452,
+                1466.8997870551216
+              ],
+              "content": "and 416.909. 20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(ii), 416.920(a)(4)(ii).  An impairment or a combination "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                1499.766370985243,
+                1508.3331637912327,
+                1543.5663859049478
+              ],
+              "content": "of impairments is not severe when medical and other evidence establishes only a slight abnormality "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1576.4329698350693,
+                1508.3331637912327,
+                1620.2329847547742
+              ],
+              "content": "or combination of abnormalities that would have a minimal effect on an individual\u2019s ability to "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                1653.0997382269966,
+                1508.3333333333333,
+                1696.8997531467014
+              ],
+              "content": "work.   20 C.F.R. \u00a7\u00a7 404.1521, 416.921; Social Security Rule (\u201cSSR\u201d) 85-28, 96-3p, 96-4p.  An "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1729.7665066189236,
+                1508.3350287543403,
+                1773.5665215386284
+              ],
+              "content": "impairment or a combination of impairments is severe when it significantly limits the claimant\u2019s "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1806.43310546875,
+                1508.3329942491318,
+                1850.2331203884548
+              ],
+              "content": "\u201cphysical or mental ability to do basic work activities.\u201d  20 C.F.R. \u00a7\u00a7 404.1520(c), 416.920(c).  If "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1883.0997043185764,
+                1508.3329942491318,
+                1926.8997192382812
+              ],
+              "content": "the ALJ does not find severe impairment or combination of impairments, the claimant is not "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            838,
+            2028,
+            860,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "8 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 8,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            197,
+            1506,
+            318
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3297729492188,
+                240.23329416910806
+              ],
+              "content": "disabled.  20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(ii), 416.920(a)(4)(ii).  If the ALJ finds a severe impairment "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                273.0998992919922,
+                1117.3332214355469,
+                316.89989301893445
+              ],
+              "content": "or combination of impairments, the ALJ then proceeds to step three. "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            351,
+            1508,
+            856
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99991522894965,
+                349.76649814181854,
+                1508.3353678385415,
+                393.56651306152344
+              ],
+              "content": "Under step three, the ALJ determines whether the claimant\u2019s impairment or combination "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                426.43309699164496,
+                1508.3319769965278,
+                470.2331119113498
+              ],
+              "content": "of impairments is equal to, or exceeds, one of those included in the Listing of Impairments in 20 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                503.0996958414713,
+                1508.332316080729,
+                546.8997107611762
+              ],
+              "content": "C.F.R. \u00a7\u00a7 404.1520(a)(4)(iii), 416.920(a)(4)(iii).  If an impairment or combination of impairments "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99995761447482,
+                579.7662946912977,
+                1508.3319769965278,
+                623.5663096110026
+              ],
+              "content": "meets the statutory criteria of a listed impairment as well as the duration requirement, the claimant "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99995761447482,
+                656.4328935411241,
+                1508.3331637912327,
+                700.232908460829
+              ],
+              "content": "is disabled and entitled to benefits.  20 C.F.R. \u00a7\u00a7 404.1520(d), 416.920(d).  If, however, the "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                733.0995347764757,
+                1508.3324856228298,
+                776.8994649251301
+              ],
+              "content": "claimant\u2019s impairment or combination of impairments does not meet the severity of the listed "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00008477105035,
+                809.766133626302,
+                1271.9996134440103,
+                853.566148546007
+              ],
+              "content": "impairment, or if the duration is insufficient, the ALJ proceeds to the next step.  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            193,
+            891,
+            1508,
+            1703
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                886.4329020182291,
+                1508.3333333333333,
+                930.2328321668837
+              ],
+              "content": "Before undergoing the analysis in step four, the ALJ must determine the claimant\u2019s residual "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                963.0995008680555,
+                1508.333502875434,
+                1006.8995157877604
+              ],
+              "content": "functional capacity (\u201cRFC\u201d).  20 C.F.R. \u00a7\u00a7 404.1520(a), 404.1520(e), 416.920(a), 416.920(e).  An "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1039.7662692599827,
+                1508.3324856228298,
+                1083.5661994086372
+              ],
+              "content": "individual\u2019s RFC is the individual\u2019s ability to do physical and mental work activities on a sustained "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1116.432868109809,
+                1508.3329942491318,
+                1160.232883029514
+              ],
+              "content": "basis despite limitations from his or her impairments.  20 C.F.R. \u00a7\u00a7 404.1545, 416.945.  The ALJ "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1193.099636501736,
+                1508.3362155490452,
+                1236.8995666503906
+              ],
+              "content": "considers all impairments in this analysis, not just those deemed to be severe.  20 C.F.R. \u00a7\u00a7 "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1269.7662353515625,
+                1508.332316080729,
+                1313.5662502712673
+              ],
+              "content": "404.1545(a)(2), 416.945(a)(2); SSR 96-8p.  After determining a claimant\u2019s RFC, step four then "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99995761447482,
+                1346.4330037434895,
+                1508.3328247070312,
+                1390.232933892144
+              ],
+              "content": "requires the ALJ to determine whether the claimant has the RFC to perform the requirements of "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99995761447482,
+                1423.0997721354165,
+                1508.3324856228298,
+                1466.8997870551216
+              ],
+              "content": "his or her past relevant work. 20 C.F.R. \u00a7\u00a7 404.1520(e)-(f), 416.920(e)-(f).  If the claimant is able "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99991522894965,
+                1499.766370985243,
+                1508.3331637912327,
+                1543.5663859049478
+              ],
+              "content": "to perform his or her past relevant work, he or she will not be found disabled under the Act.  20 "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.99991522894965,
+                1576.4329698350693,
+                1508.3358764648438,
+                1620.2329847547742
+              ],
+              "content": "C.F.R. \u00a7\u00a7 404.1520(a)(4)(iv), 404.1520(f), 416.920(a)(4)(iv), 416.920(f).  If the claimant is unable "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.99991522894965,
+                1653.0997382269966,
+                1429.666476779514,
+                1696.8997531467014
+              ],
+              "content": "to resume his or her past work, the disability evaluation proceeds to the fifth and final step.  "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            195,
+            1731,
+            1507,
+            1930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99991522894965,
+                1729.7665066189236,
+                1508.3324856228298,
+                1773.5665215386284
+              ],
+              "content": "At step five, the ALJ must determine whether the claimant is able to do any other work, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                1806.43310546875,
+                1508.3362155490452,
+                1850.2331203884548
+              ],
+              "content": "considering his or her RFC, age, education, and work experience.  20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(v), "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                1883.0997043185764,
+                1508.3333333333333,
+                1926.8997192382812
+              ],
+              "content": "416.920(a)(4)(v).  Unlike in the first four steps of the analysis where the claimant bears the burden "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            838,
+            2028,
+            861,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2020.7667032877603,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "9 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            193,
+            1509,
+            780
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3328247070312,
+                240.23329416910806
+              ],
+              "content": "of persuasion, the burden shifts to the ALJ at step five to determine whether the claimant is capable "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3324856228298,
+                316.89989301893445
+              ],
+              "content": "of performing an alternative SGA present in the national economy.  20 C.F.R. \u00a7\u00a7 404.1520(g)(1) "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.233161078559,
+                1508.3329942491318,
+                393.56651306152344
+              ],
+              "content": "(citing 404.1560(c)), 416.920(g)(1) (citing 416.960(c)); Kangas v. Bowen, 823 F.2d 775, 777 (3d "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                426.43309699164496,
+                1508.3319769965278,
+                470.2331119113498
+              ],
+              "content": "Cir. 1987).  At this point in the analysis, the Social Security Administration (\u201cSSA\u201d) is "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                503.0996958414713,
+                1508.3326551649304,
+                546.8997107611762
+              ],
+              "content": "\u201cresponsible for providing evidence that demonstrates that other work exists in significant numbers "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                579.7662946912977,
+                1508.3333333333333,
+                623.5663096110026
+              ],
+              "content": "in the national economy that [the claimant] can do, given [the claimant\u2019s RFC] and vocational "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                656.4328935411241,
+                1508.3360460069443,
+                700.232908460829
+              ],
+              "content": "factors.\u201d  20 C.F.R. \u00a7\u00a7 404.1560(c)(2), 416.960(c)(2).  If the claimant is unable to do any other "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.9998304578993,
+                733.0995347764757,
+                1254.666476779514,
+                776.8994649251301
+              ],
+              "content": "SGA, he or she is disabled.  20 C.F.R. \u00a7\u00a7 404.1520(a)(4)(v), 416.920(a)(4)(v). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            245,
+            811,
+            559,
+            855
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.0,
+                809.7999572753906,
+                306.5999984741211,
+                856.5333048502604
+              ],
+              "content": "III. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                350.0,
+                809.7999572753906,
+                562.000020345052,
+                854.2332967122395
+              ],
+              "content": "DISCUSSION "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            297,
+            889,
+            634,
+            931
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                886.4666408962673,
+                638.000022040473,
+                933.1999884711371
+              ],
+              "content": "A. The ALJ\u2019s Decision "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            194,
+            963,
+            1508,
+            1623
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                963.1000094943576,
+                1508.3324856228298,
+                1006.8999396430121
+              ],
+              "content": "Under step one, the ALJ determined that Plaintiff has not engaged in substantial gainful "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1039.2333136664497,
+                1508.3331637912327,
+                1083.566623263889
+              ],
+              "content": "activity since January 25, 2012, the alleged disability onset date.  (Tr. 14); see 20 C.F.R. \u00a7 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9998304578993,
+                1115.8999972873264,
+                1508.3336724175347,
+                1160.2333068847656
+              ],
+              "content": "404.1571 et seq.  Under step two, the ALJ considered the entire medical record in determining that "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1193.0999755859375,
+                1508.3328247070312,
+                1236.8999905056423
+              ],
+              "content": "Plaintiff has the following severe impairments: disorder of the back (cervical and lumbar); "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1269.2333645290798,
+                1508.3331637912327,
+                1313.566674126519
+              ],
+              "content": "headaches; internal derangement of the right shoulder; and depression.  (Tr. 14); see 20 C.F.R. \u00a7 "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                1346.433342827691,
+                1508.3331637912327,
+                1390.2333577473958
+              ],
+              "content": "404.120(c).  These findings are supported by substantial evidence in the record.  Furthermore, once "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                1423.100111219618,
+                1508.3324856228298,
+                1466.9001261393228
+              ],
+              "content": "the ALJ determined which of Plaintiff\u2019s impairments qualified as severe, she considered, under "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.9998304578993,
+                1499.7667100694443,
+                1508.3329942491318,
+                1543.5667249891492
+              ],
+              "content": "step three, whether Plaintiff\u2019s severe impairments equal or exceed those in the Listing of "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.9998304578993,
+                1575.9000990125867,
+                959.9996778700087,
+                1620.2334933810764
+              ],
+              "content": "Impairments in the Act.  See C.F.R. \u00a7 416.920(a)(4)(iii). "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            195,
+            1655,
+            1508,
+            1932
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9998304578993,
+                1653.1002468532986,
+                1508.331807454427,
+                1696.9002617730034
+              ],
+              "content": "Under step three, ALJ Krappa determined that Plaintiff does not have an impairment or "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.9998304578993,
+                1729.766845703125,
+                1508.3319769965278,
+                1773.5668606228298
+              ],
+              "content": "combination of impairments that meets or medically equals the severity of one of the listed "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9998304578993,
+                1805.9000651041665,
+                1508.3329942491318,
+                1850.2334594726562
+              ],
+              "content": "impairments in 20 C.F.R. Part 404, Subpart P, Appendix 1.  (Tr. 14); see 20 C.F.R. \u00a7\u00a7 404.1520(d), "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.9998304578993,
+                1883.1002129448784,
+                1508.3321465386284,
+                1926.9002278645833
+              ],
+              "content": "404.1525 and 404.1526.  Specifically, it was found that the requirements of listing 1.04 have not "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            834,
+            2028,
+            869,
+            2058
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "10 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            188,
+            1507,
+            1245
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3294338650173,
+                240.23329416910806
+              ],
+              "content": "been met because the evidence fails to demonstrate the existence of a herniated nucleus pulposus, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3324856228298,
+                316.89989301893445
+              ],
+              "content": "spinal arachnoiditis, spinal stenosis, osteoarthritis, degenerative disc disease, facet arthritis, or "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                1516.6666666666665,
+                393.56651306152344
+              ],
+              "content": "vertebral fracture, along with the requirements of subsection A, B, or C of the listing.  (Tr. 15.)  "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1500.099860297309,
+                470.2331119113498
+              ],
+              "content": "The subsection A requirement is evidence of nerve root compression characterized by neuro-"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                503.0996958414713,
+                1508.3321465386284,
+                546.8997107611762
+              ],
+              "content": "anatomic distribution of pain, limitation of motion of the spine, motor loss (atrophy with associated "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                579.7662946912977,
+                1508.3331637912327,
+                623.5663096110026
+              ],
+              "content": "muscle weakness or muscle weakness) accompanied by sensory or reflex loss and, if there is "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                656.4328935411241,
+                1508.333502875434,
+                700.232908460829
+              ],
+              "content": "involvement of the lower back, a positive straight-leg raising test (sitting and supine).  The "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                733.0995347764757,
+                1508.3329942491318,
+                776.8994649251301
+              ],
+              "content": "subsection B requirement is spinal arachnoiditis, confirmed by an operative note or pathology "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                809.766133626302,
+                1508.3333333333333,
+                853.566148546007
+              ],
+              "content": "report of tissue biopsy, or by appropriate medically acceptable imaging, manifested by severe "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.0,
+                886.4329020182291,
+                1508.3394368489583,
+                930.2328321668837
+              ],
+              "content": "burning or painful dysesthesia, resulting in the need for changes in position or posture more than "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.0,
+                963.0995008680555,
+                1508.3326551649304,
+                1006.8995157877604
+              ],
+              "content": "once every 2 hours.  The subsection C requirement is lumbar spinal stenosis resulting in "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                200.0,
+                1039.7662692599827,
+                1508.3326551649304,
+                1083.5661994086372
+              ],
+              "content": "pseudoclaudication, established by findings on appropriate medically acceptable imaging, "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                200.0,
+                1116.432868109809,
+                1508.326212565104,
+                1160.232883029514
+              ],
+              "content": "manifested by chronic nonradicular pain and weakness, and resulting in inability to ambulate "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                200.0,
+                1193.099636501736,
+                1275.0,
+                1236.8997361924912
+              ],
+              "content": "effectively, as defined in 1.00B2b.  20 C.F.R. Part 404, Subpart P, Appendix 1.  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            1271,
+            1509,
+            1931
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1269.766404893663,
+                1508.3321465386284,
+                1313.566419813368
+              ],
+              "content": "ALJ Krappa also found that Plaintiff\u2019s right shoulder impairment does not meet the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00004238552518,
+                1346.4331732855903,
+                1508.3329942491318,
+                1390.2331034342446
+              ],
+              "content": "requirements of listing 1.02 because there is no evidence of a gross anatomical deformity and "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00004238552518,
+                1423.0997721354165,
+                1508.3360460069443,
+                1466.8997870551216
+              ],
+              "content": "chronic joint pain and stiffness with signs of limitation of motion or other abnormal motion of the "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00004238552518,
+                1499.7665405273438,
+                1508.3333333333333,
+                1543.5665554470486
+              ],
+              "content": "affected joint(s), and findings on appropriate medically acceptable imaging of joint space "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1576.4333089192708,
+                1508.3333333333333,
+                1620.2333238389756
+              ],
+              "content": "narrowing, bony destruction, or ankylosis of the affected joint, along with subsections A or B of "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1653.0999077690972,
+                1500.1000298394097,
+                1696.899922688802
+              ],
+              "content": "the listing.  (Tr. 15.)  The subsection A requirement is involvement of one major peripheral weight-"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00016954210068,
+                1729.7665066189236,
+                1508.333502875434,
+                1773.5665215386284
+              ],
+              "content": "bearing joint, resulting in inability to ambulate effectively, as defined in 1.00B2b. The subsection "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00016954210068,
+                1806.4332750108506,
+                1508.329603407118,
+                1850.2332899305554
+              ],
+              "content": "B requirement is involvement of one major peripheral joint in each upper extremity, resulting in "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00016954210068,
+                1883.099873860677,
+                1508.3331637912327,
+                1926.8998887803818
+              ],
+              "content": "inability to perform fine and gross movements effectively, as defined in 1.00B2c.  20 C.F.R. Part "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            834,
+            2028,
+            865,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "11 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 11,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            198,
+            199,
+            579,
+            240
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                595.3333112928602,
+                240.23329416910806
+              ],
+              "content": "404, Subpart P, Appendix 1.  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            193,
+            268,
+            1509,
+            1560
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                273.0998992919922,
+                1508.3299424913193,
+                316.89989301893445
+              ],
+              "content": "Finally, ALJ Krappa found that the requirements of listing 12.04 were not met because "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                349.76649814181854,
+                1508.3329942491318,
+                393.56651306152344
+              ],
+              "content": "neither the subsection B nor the subsection C requirements were met. In order to satisfy the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                426.43309699164496,
+                1508.3328247070312,
+                470.2331119113498
+              ],
+              "content": "requirements of listing 12.04, either the requirements of both subsections A and B must be "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                503.0996958414713,
+                1508.3329942491318,
+                546.8997107611762
+              ],
+              "content": "satisfied, or the requirements of subsection C must be satisfied.  20 C.F.R. Part 404, Subpart P, "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                579.7662946912977,
+                1508.332316080729,
+                623.5663096110026
+              ],
+              "content": "Appendix 1.  To satisfy the subsection B criteria, Plaintiff\u2019s mental impairments must result in at "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99974568684894,
+                656.4328935411241,
+                1508.335198296441,
+                700.232908460829
+              ],
+              "content": "least two of the following: marked restriction of activities of daily living; marked difficulties in "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99974568684894,
+                733.0995347764757,
+                1508.3328247070312,
+                776.8994649251301
+              ],
+              "content": "maintaining social functioning; marked difficulties in maintaining concentration, persistence, or "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99974568684894,
+                809.766133626302,
+                1508.3324856228298,
+                853.566148546007
+              ],
+              "content": "pace; or repeated episodes of decompensation, each of extended duration.  The ALJ found that "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99974568684894,
+                886.4329020182291,
+                1508.3353678385415,
+                930.2328321668837
+              ],
+              "content": "Plaintiff\u2019s mental impairments do not cause at least two \u201cmarked\u201d limitations or one \u201cmarked\u201d "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.99974568684894,
+                963.0995008680555,
+                1508.3329942491318,
+                1006.8995157877604
+              ],
+              "content": "limitation and \u201crepeated\u201d episodes of decompensation, each of an extended duration.  (Tr. 15.)  To "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.99966091579861,
+                1039.7662692599827,
+                1508.3326551649304,
+                1083.5661994086372
+              ],
+              "content": "satisfy the subsection C criteria, Plaintiff\u2019s depression must result in (1) \u201crepeated episodes of "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                199.99966091579861,
+                1116.432868109809,
+                1508.3328247070312,
+                1160.232883029514
+              ],
+              "content": "decompensation, each of an extended duration\u201d; (2) \u201c[a] residual disease process that has resulted "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                199.99966091579861,
+                1193.099636501736,
+                1508.331807454427,
+                1236.8995666503906
+              ],
+              "content": "in such marginal adjustment that even a minimal increase in mental demands or change in the "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                199.999639723036,
+                1269.7662353515625,
+                1508.3329942491318,
+                1313.5662502712673
+              ],
+              "content": "environment would be predicted to cause the individual to decompensate; or (3) [c]urrent history "
+            },
+            {
+              "i": 14,
+              "bbox": [
+                199.99966091579861,
+                1346.4330037434895,
+                1508.3328247070312,
+                1390.232933892144
+              ],
+              "content": "of 1 or more years' inability to function outside a highly supportive living arrangement, with an "
+            },
+            {
+              "i": 15,
+              "bbox": [
+                199.99966091579861,
+                1423.0997721354165,
+                1508.3329942491318,
+                1466.8997870551216
+              ],
+              "content": "indication of continued need for such an arrangement.\u201d   20 C.F.R. \u00a7 404, subpt. P, app. 1., \u00a7 "
+            },
+            {
+              "i": 16,
+              "bbox": [
+                199.99966091579861,
+                1499.766370985243,
+                1442.9996066623264,
+                1543.5663859049478
+              ],
+              "content": "12.04(C).  The ALJ found that the evidence failed to establish any of these criteria.  (Tr. 16.) "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            194,
+            1577,
+            1507,
+            1930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99957614474823,
+                1576.4329698350693,
+                1508.331807454427,
+                1620.2329847547742
+              ],
+              "content": "Before proceeding to step four, the ALJ determined that Plaintiff\u2019s residual functional "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99957614474826,
+                1653.0997382269966,
+                1508.3329942491318,
+                1696.8997531467014
+              ],
+              "content": "capacity allows him to perform the exertional demands of light work as defined in 20 C.F.R. \u00a7 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99966091579861,
+                1729.7665066189236,
+                1508.3326551649304,
+                1773.5665215386284
+              ],
+              "content": "404.1567(b).  Specifically, the ALJ found that Plaintiff is able to \u201clift/carry 20 lbs. occasionally "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99966091579861,
+                1806.43310546875,
+                1508.329603407118,
+                1850.2331203884548
+              ],
+              "content": "and 10 lbs. frequently; stand/walk for 6 hours in an eight hour work day; sit for 6 hours in an eight "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99966091579861,
+                1883.0997043185764,
+                1508.3329942491318,
+                1926.8997192382812
+              ],
+              "content": "hour work day (if given the opportunity at the 45 min. \u2013 1 hr. mark to stand and stretch for 3-5 "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            834,
+            2028,
+            868,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "12 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 12,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            198,
+            1509,
+            1012
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3365546332466,
+                240.23329416910806
+              ],
+              "content": "minutes); and perform unlimited pushing and pulling within the weight restriction given.\u201d  (Tr. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3302815755208,
+                316.89989301893445
+              ],
+              "content": "16.)  She also determined that Plaintiff is able to perform jobs that require frequent use of ladders, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                349.76649814181854,
+                1508.3333333333333,
+                393.56651306152344
+              ],
+              "content": "ropes, or scaffolds; that require frequent use of ramps or stairs; and that require unlimited "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00025431315103,
+                426.43309699164496,
+                1508.3336724175347,
+                470.2331119113498
+              ],
+              "content": "balancing, stooping, kneeling, and crouching, but only frequent crawling.  (Tr. 16.)  Finally, she "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00016954210068,
+                503.0996958414713,
+                1508.333502875434,
+                546.8997107611762
+              ],
+              "content": "found that Plaintiff can perform jobs that are simple and repetitive, and that require only occasional "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00016954210068,
+                579.7662946912977,
+                1508.333502875434,
+                623.5663096110026
+              ],
+              "content": "contact with supervisors, but no contact with the general public.  (Tr. 16.)  In making these "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00016954210068,
+                656.4328935411241,
+                1508.3324856228298,
+                700.232908460829
+              ],
+              "content": "findings, the ALJ considered all of Plaintiff\u2019s symptoms and the extent to which these symptoms "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00016954210068,
+                733.0995347764757,
+                1508.3228217230903,
+                776.8994649251301
+              ],
+              "content": "can reasonably be accepted as consistent with the objective medical evidence and other evidence "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00016954210068,
+                809.766133626302,
+                1508.3338419596353,
+                853.566148546007
+              ],
+              "content": "based on the requirements of 20 C.F.R. \u00a7 404.1529 and SSRs 96-4p and 96-7p.  She also "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.00016954210068,
+                886.4329020182291,
+                1508.333502875434,
+                930.2328321668837
+              ],
+              "content": "considered opinion evidence in accordance with the requirements of 20 C.F.R. \u00a7 404.1527 and "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.00008477105035,
+                963.0995008680555,
+                843.666754828559,
+                1006.8995157877604
+              ],
+              "content": "SSRs 96-2p, 96-5p, 96-6p, and 06-3p.  (Tr. 16.) "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            1041,
+            1509,
+            1469
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                1039.7662692599827,
+                1508.3321465386284,
+                1083.5661994086372
+              ],
+              "content": "Under step four, ALJ Krappa determined that Plaintiff is unable to perform any past "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00004238552518,
+                1116.432868109809,
+                1508.333502875434,
+                1160.232883029514
+              ],
+              "content": "relevant work under 20 C.F.R. \u00a7 404.1520(f).  In reaching this conclusion, the ALJ considered the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1193.099636501736,
+                1508.3299424913193,
+                1236.8995666503906
+              ],
+              "content": "testimony of the vocational expert, Jackie Wilson, M.S., which referenced the residual functional "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                1269.7662353515625,
+                1508.3331637912327,
+                1313.5662502712673
+              ],
+              "content": "capacity.  Because the ALJ determined that Plaintiff cannot perform his past relevant work, her "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                1346.4330037434895,
+                1508.3331637912327,
+                1390.232933892144
+              ],
+              "content": "analysis proceeded to step five to determine whether work exists in the national economy that "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                1422.5663926866318,
+                922.3331875271267,
+                1466.8997870551216
+              ],
+              "content": "Plaintiff could perform.  See 20 C.F.R. \u00a7 404.1520(g) "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            195,
+            1502,
+            1509,
+            1930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9998304578993,
+                1499.766370985243,
+                1508.3326551649304,
+                1543.5663859049478
+              ],
+              "content": "At step five, ALJ Krappa found that Plaintiff can perform work that exists in significant "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99974568684894,
+                1576.4329698350693,
+                1508.3321465386284,
+                1620.2329847547742
+              ],
+              "content": "numbers in the national economy.  In coming to this conclusion, the ALJ considered Plaintiff\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99974568684894,
+                1653.0997382269966,
+                1500.4330105251736,
+                1696.8997531467014
+              ],
+              "content": "residual functional capacity, age, education, and work experience in conjunction with the Medical-"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99974568684894,
+                1729.7665066189236,
+                1508.3333333333333,
+                1773.5665215386284
+              ],
+              "content": "Vocational Guidelines, 20 C.F.R. Part 404, Subpart P, Appendix 2.  (Tr. 21.)  The vocational expert "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99974568684894,
+                1806.43310546875,
+                1508.3329942491318,
+                1850.2331203884548
+              ],
+              "content": "took into consideration the ALJ\u2019s hypothetical that included Plaintiff\u2019s impediments that hinder "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99966091579861,
+                1883.0997043185764,
+                1508.3294338650173,
+                1926.8997192382812
+              ],
+              "content": "his ability to perform the full range of light work.  In doing so, the vocational expert determined "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            834,
+            2027,
+            868,
+            2058
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "13 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            197,
+            1508,
+            549
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3329942491318,
+                240.23329416910806
+              ],
+              "content": "that a person with Plaintiff\u2019s impediments would nonetheless be able to perform the job "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3333333333333,
+                316.89989301893445
+              ],
+              "content": "requirements of unskilled jobs in the light exertional range such as inspector/hand packager, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                1508.333502875434,
+                393.56651306152344
+              ],
+              "content": "photocopying machine operator, and sealing and canceling machine operator.  (Tr. 55.)  Because "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1508.3326551649304,
+                470.2331119113498
+              ],
+              "content": "a significant number of these jobs exist in the national economy and Plaintiff has the capability to "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                503.0996958414713,
+                1341.3333468967014,
+                546.8997107611762
+              ],
+              "content": "make a successful adjustment, ALJ Krappa found him to be \u201cnot disabled.\u201d  (Tr. 22.) "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            342,
+            582,
+            1505,
+            702
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                350.0,
+                579.7997792561848,
+                1508.3333333333333,
+                626.5330844455295
+              ],
+              "content": "B. The ALJ\u2019s Factual Findings are Supported by Substantial Credible Evidence "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                350.0,
+                656.4663781060112,
+                918.333265516493,
+                700.8997175428602
+              ],
+              "content": "and Her Legal Conclusions are Correct "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            194,
+            736,
+            1507,
+            1238
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9999576144748,
+                733.0997043185764,
+                1508.3390977647568,
+                776.8996344672308
+              ],
+              "content": "Plaintiff contends that substantial evidence in the administrative record establishes that he "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                809.7663031684027,
+                1508.3326551649304,
+                853.5663180881077
+              ],
+              "content": "is entitled to DIB and requests that this Court reverse and order the payment of benefits or, in the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                886.4330715603298,
+                1508.335706922743,
+                930.2330017089844
+              ],
+              "content": "alternative, reverse and remand this matter for further proceedings.  (Pl.\u2019s Br. at 9.)  Plaintiff seeks "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                963.0996704101562,
+                1508.3321465386284,
+                1006.8996853298611
+              ],
+              "content": "reversal based on two arguments.  First, Plaintiff argues that the ALJ\u2019s step three listings evaluation "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1039.7664388020833,
+                1508.3336724175347,
+                1083.5663689507378
+              ],
+              "content": "is \u201cbeyond judicial review.\u201d  (Pl.\u2019s Br. at 15.)  Second, Plaintiff contends that the RFC is not based "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1116.4330376519097,
+                1508.3321465386284,
+                1160.2330525716145
+              ],
+              "content": "on substantial evidence and the resulting hypothetical presented to the vocational expert is "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1192.4663967556423,
+                1253.6663479275173,
+                1236.8997361924912
+              ],
+              "content": "inaccurate.  (See Pl.\u2019s Br. at 24.)  This Court considers both arguments in turn. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            396,
+            1271,
+            1504,
+            1393
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                400.0,
+                1269.7997199164497,
+                1508.3336724175347,
+                1316.5330674913193
+              ],
+              "content": "1. The ALJ Properly Analyzed Each Step Three Listing and Properly "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                450.0,
+                1346.4664035373264,
+                1041.6666666666667,
+                1390.8997429741753
+              ],
+              "content": "Considered the Combination of Ailments "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            196,
+            1425,
+            1507,
+            1929
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1422.5663926866318,
+                1508.3324856228298,
+                1466.8997870551216
+              ],
+              "content": "As discussed supra, the ALJ properly considered Plaintiff\u2019s impairments under listings "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                1499.766370985243,
+                1516.665988498264,
+                1543.5663859049478
+              ],
+              "content": "1.02, 1.04, and 12.04, and she correctly found that he did not meet all of the required criteria.  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00008477105035,
+                1576.4331393771702,
+                1508.3331637912327,
+                1620.233154296875
+              ],
+              "content": "According to Plaintiff, ALJ Krappa did not sufficiently articulate her reasons for finding that "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1653.0999077690972,
+                1508.331807454427,
+                1696.899922688802
+              ],
+              "content": "Plaintiff lacked an impairment or combination of impairments that met or medically equaled a "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9999788072374,
+                1729.7665066189236,
+                1508.3329942491318,
+                1773.5665215386284
+              ],
+              "content": "listed impairment.  (Pl.\u2019s Br. at 10-12, 15-23).  However, to be found presumptively disabled, a "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                1805.899726019965,
+                1508.3331637912327,
+                1850.2331203884548
+              ],
+              "content": "claimant must show that all of the criteria for a listing have been met.  See 20 C.F.R. \u00a7 "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                1883.099873860677,
+                1508.3324856228298,
+                1926.8998887803818
+              ],
+              "content": "404.1525(c)(3).  Here, the ALJ properly considered Plaintiff\u2019s impairments under Listings 1.02, "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            834,
+            2028,
+            868,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "14 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            197,
+            197,
+            1309,
+            241
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1322.6666768391926,
+                240.23329416910806
+              ],
+              "content": "1.04, and 12.04 and correctly found that he did not meet all of the required criteria.  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            269,
+            1509,
+            1476
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                273.0998992919922,
+                1508.3326551649304,
+                316.89989301893445
+              ],
+              "content": "In analyzing the evidence before her, ALJ Krappa found that Plaintiff\u2019s medically "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                1508.3331637912327,
+                393.56651306152344
+              ],
+              "content": "determinable impairments could reasonably be expected to cause his alleged symptoms, but that "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1508.328586154514,
+                470.2331119113498
+              ],
+              "content": "his statements concerning the intensity, persistence, and limiting effects of these symptoms are not "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                503.0996958414713,
+                1508.3321465386284,
+                546.8997107611762
+              ],
+              "content": "entirely credible.  (Tr. 19.)  Plaintiff alleged disability partially due to injuries that he sustained in "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                579.7662946912977,
+                1508.3329942491318,
+                623.5663096110026
+              ],
+              "content": "various automobile accidents.  (Tr. 30.)  However, his treating sources were of the opinion that "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                656.4328935411241,
+                1508.3333333333333,
+                700.232908460829
+              ],
+              "content": "conservative therapy was adequate to treat his C5-6 disc herniation and that he was not a candidate "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                733.0995347764757,
+                1508.3328247070312,
+                776.8994649251301
+              ],
+              "content": "for surgical intervention.  (Tr. 19.)  Additionally, Dr. Novik\u2019s notes report that Plaintiff\u2019s "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.9998304578993,
+                809.766133626302,
+                1508.3328247070312,
+                853.566148546007
+              ],
+              "content": "symptoms from both his January 2012 and April 2013 accidents improved with another course of "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.9998304578993,
+                886.4329020182291,
+                1508.3350287543403,
+                930.2328321668837
+              ],
+              "content": "conservative therapy.  (Tr. 19.)  Similarly, the ALJ found that Plaintiff\u2019s testimony that he could "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.9998516506619,
+                963.0995008680555,
+                1508.3324856228298,
+                1006.8995157877604
+              ],
+              "content": "only stand \u00bd hour, sit \u00bd hour, walk \u00bd hour, and lift \u00bd gallon of milk was inconsistent with the "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.9998304578993,
+                1039.7662692599827,
+                1508.333502875434,
+                1083.5661994086372
+              ],
+              "content": "findings of Dr. Glushakow\u2019s November 2012 examination that noted that Plaintiff was able to "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                199.9998304578993,
+                1116.432868109809,
+                1508.332316080729,
+                1160.232883029514
+              ],
+              "content": "walk with a normal unassisted gait and station, that he had full range of motion in the bilateral "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                199.9998304578993,
+                1193.099636501736,
+                1508.3294338650173,
+                1236.8995666503906
+              ],
+              "content": "upper and lower extremities, and that he was able to take his shoes off in a sitting position with no "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                199.9998304578993,
+                1269.7662353515625,
+                1508.3362155490452,
+                1313.5662502712673
+              ],
+              "content": "difficulty.  (Tr. 19.)  Furthermore, Dr. Novik\u2019s January 2014 examination noted no abnormalities "
+            },
+            {
+              "i": 14,
+              "bbox": [
+                199.9998304578993,
+                1346.4330037434895,
+                1508.3324856228298,
+                1390.232933892144
+              ],
+              "content": "or functional limitations related to Plaintiff\u2019s lumbar spine or bilateral lower extremities after his "
+            },
+            {
+              "i": 15,
+              "bbox": [
+                199.9998304578993,
+                1423.0997721354165,
+                884.9999321831597,
+                1466.8997870551216
+              ],
+              "content": "automobile accidents in 2012 and 2013.  (Tr. 19.)   "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            194,
+            1502,
+            1508,
+            1929
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99987284342444,
+                1499.766370985243,
+                1508.3331637912327,
+                1543.5663859049478
+              ],
+              "content": "Concerning Plaintiff\u2019s alleged psychiatric disabilities, the ALJ found that the credible "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.9998304578993,
+                1576.4329698350693,
+                1508.3329942491318,
+                1620.2329847547742
+              ],
+              "content": "evidence did not support a finding of disability.  She properly gave little weight to Dr. Ivanov\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9998304578993,
+                1653.0997382269966,
+                1508.3326551649304,
+                1696.8997531467014
+              ],
+              "content": "opinion that Plaintiff is \u201c100% psychiatrically disabled.\u201d  Dr. Ivanov only treated Plaintiff for three "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.9998304578993,
+                1729.7665066189236,
+                1508.3329942491318,
+                1773.5665215386284
+              ],
+              "content": "months.  In addition, there is no record of any recurrent emergency room or inpatient "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                1806.43310546875,
+                1508.3331637912327,
+                1850.2331203884548
+              ],
+              "content": "hospitalizations due to an exacerbation of his psychiatric symptoms.  However, the ALJ did take "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                1883.0997043185764,
+                1508.3360460069443,
+                1926.8997192382812
+              ],
+              "content": "into consideration Plaintiff\u2019s subjective complaints as well as Dr. Barnett\u2019s psychological "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            834,
+            2028,
+            868,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "15 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 15,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            196,
+            1507,
+            318
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3324856228298,
+                240.23329416910806
+              ],
+              "content": "diagnoses and determined that Plaintiff is capable of simple tasks in a low contact environment "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1474.6666802300347,
+                316.89989301893445
+              ],
+              "content": "involving occasional contact with supervisors but no contact with the general public.  (Tr. 20.)  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            193,
+            330,
+            1509,
+            1713
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                349.76649814181854,
+                1508.3363850911458,
+                393.56651306152344
+              ],
+              "content": "These shortfalls in Plaintiff\u2019s medical evidence allowed ALJ Krappa to conclude that "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1508.3329942491318,
+                470.2331119113498
+              ],
+              "content": "Plaintiff did not meet the requirements of listings 1.02, 1.04, or 12.04.  In regard to listing 1.02, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                503.0996958414713,
+                1508.3328247070312,
+                546.8997107611762
+              ],
+              "content": "Plaintiff\u2019s January 2012 MRI of his left shoulder revealed infraspinatus and supraspinatus "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00004238552518,
+                579.7662946912977,
+                1508.3333333333333,
+                623.5663096110026
+              ],
+              "content": "peritendinitis, moderate hypertrophic degenerative joint disease of the acromioclavicular joint, and "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                656.4328935411241,
+                1508.3333333333333,
+                700.232908460829
+              ],
+              "content": "deficiency and irregularity of the anterior superior labrum, but there was no joint space narrowing, "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                733.0995347764757,
+                1508.3333333333333,
+                776.8994649251301
+              ],
+              "content": "bony destruction or ankyloses as required by the listing.  (Tr. 275.)  Plaintiff\u2019s shoulder "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00008477105035,
+                809.766133626302,
+                1508.3363850911458,
+                853.566148546007
+              ],
+              "content": "examination in November 2012 was normal and his examination in January 2014 revealed normal "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00008477105035,
+                886.4329020182291,
+                1508.3321465386284,
+                930.2328321668837
+              ],
+              "content": "motor strength and sensory examinations in both upper extremities.  (Tr. 334, 373.)  In regard to "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00008477105035,
+                963.0995008680555,
+                1508.3387586805554,
+                1006.8995157877604
+              ],
+              "content": "listing 1.04, Plaintiff\u2019s November 2012 examination revealed only a mild restriction in cervical "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.00008477105035,
+                1039.7662692599827,
+                1508.3333333333333,
+                1083.5661994086372
+              ],
+              "content": "range of motion.  (Tr. 332.)  Examinations that took place more recently revealed improvement in "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.00008477105035,
+                1116.432868109809,
+                1508.3353678385415,
+                1160.232883029514
+              ],
+              "content": "his condition.  (Tr. 373, 377, 385.)  In regard to listing 12.04, Plaintiff does not satisfy section B "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                200.00004238552518,
+                1193.099636501736,
+                1508.331807454427,
+                1236.8995666503906
+              ],
+              "content": "because his mental impairments do not cause at least two \u201cmarked\u201d limitations or one \u201cmarked\u201d "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                200.00004238552518,
+                1269.7662353515625,
+                1508.3328247070312,
+                1313.5662502712673
+              ],
+              "content": "limitation and \u201crepeated\u201d episode of decompensation, each of extended duration.  20 C.F.R. pt. "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                200.00004238552518,
+                1346.4330037434895,
+                1508.3331637912327,
+                1390.232933892144
+              ],
+              "content": "404, subpt. P app. 1, \u00a7 12.04B.  Plaintiff  does not satisfy subsections C(1) and C(2) because there "
+            },
+            {
+              "i": 14,
+              "bbox": [
+                200.0,
+                1423.0997721354165,
+                1508.333502875434,
+                1466.8997870551216
+              ],
+              "content": "is no evidence of repeated episodes of decompensation each of extended duration and there is no "
+            },
+            {
+              "i": 15,
+              "bbox": [
+                200.0,
+                1498.2996622721353,
+                1508.3331637912327,
+                1543.5663859049478
+              ],
+              "content": "evidence that \u201ca minimal increase in mental demands or change in the environment would be "
+            },
+            {
+              "i": 16,
+              "bbox": [
+                200.0,
+                1576.4329698350693,
+                1508.3336724175347,
+                1620.2329847547742
+              ],
+              "content": "predicted to cause the individual to decompensate.\u201d  20 C.F.R. pt. 404, subpt. P app. 1, \u00a7 "
+            },
+            {
+              "i": 17,
+              "bbox": [
+                200.0,
+                1653.0997382269966,
+                1508.333502875434,
+                1696.8997531467014
+              ],
+              "content": "12.04(C)(2).  In addition, Plaintiff is unable to satisfy the requirements of subsection C(3) because "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            834,
+            2028,
+            868,
+            2058
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "16 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 16,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            197,
+            1505,
+            318
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3365546332466,
+                240.23329416910806
+              ],
+              "content": "he lives independently and is able to care for his personal needs, care for his pets, go out alone, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1000.9999593098958,
+                316.89989301893445
+              ],
+              "content": "and handle his financial affairs.  (Tr. 15, 198, 224, 226-27.) "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            352,
+            1508,
+            779
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99991522894965,
+                349.76649814181854,
+                1516.6656494140625,
+                393.56651306152344
+              ],
+              "content": "Finally, Plaintiff alleges that ALJ Krappa did not consider his ailments in combination.  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99993642171222,
+                426.43309699164496,
+                1508.3362155490452,
+                470.2331119113498
+              ],
+              "content": "(Tr. 18.)  However, an ALJ need not \u201cuse particular language or adhere to a particular format in "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99993642171222,
+                503.0996958414713,
+                1508.3360460069443,
+                546.8997107611762
+              ],
+              "content": "conducting his analysis . . . [so far as] there is sufficient development of the record and explanation "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                579.2329576280382,
+                1516.6663275824653,
+                623.5663096110026
+              ],
+              "content": "of findings to permit meaningful review.\u201d   Jones v. Barnhart, 364 F.3d 501, 505 (3d Cir. 2004).  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                656.4328935411241,
+                1508.3329942491318,
+                700.232908460829
+              ],
+              "content": "Here, the ALJ considered Plaintiff\u2019s ailments separately and in combination and determined that "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                733.0995347764757,
+                1350.9998745388455,
+                776.8994649251301
+              ],
+              "content": "they do not meet or medically equal the severity of a listed impairment.  (Tr. 14-16.)   "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            391,
+            812,
+            1333,
+            855
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                399.9998304578993,
+                810.1327684190538,
+                1335.9998067220051,
+                856.8661159939236
+              ],
+              "content": "2. Substantial Evidence Supports the ALJ\u2019s RFC Determination "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            193,
+            866,
+            1508,
+            1993
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9998304578993,
+                867.0995076497395,
+                1508.3331637912327,
+                910.899437798394
+              ],
+              "content": "Plaintiff argues that certain findings in the ALJ\u2019s RFC ignore evidence in the record.  (Pl.\u2019s "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.9998304578993,
+                943.7661064995659,
+                1508.3360460069443,
+                987.5661214192708
+              ],
+              "content": "Br. 27-28.)  However, \u201cthe ALJ need only include in the RFC those limitations which he finds to "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9998304578993,
+                1019.8994954427083,
+                1508.3365546332466,
+                1064.2328050401475
+              ],
+              "content": "be credible.\u201d  Salles v. Comm\u2019r of Soc. Sec., 229 F. App\u2019x 140, 147 (3d Cir. 2007).  In addition, "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99974568684894,
+                1097.0994737413193,
+                1508.3294338650173,
+                1140.8994886610242
+              ],
+              "content": "\u201cwhere there is conflicting evidence, the ALJ must explain which evidence he accepts and which "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99974568684894,
+                1173.2328626844617,
+                1508.3329942491318,
+                1217.566172281901
+              ],
+              "content": "he rejects, and the reasons for that determination.\u201d  Cruz v. Comm\u2019r of Soc. Sec., 244 F. App\u2019x. "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99974568684894,
+                1249.8995463053384,
+                1508.333502875434,
+                1294.2328559027778
+              ],
+              "content": "475, 479 (3d Cir. 2007) (citing Hargenrader v. Califano, 575 F.2d 434, 437 (3d Cir. 1978)).  Here, "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99978807237412,
+                1327.099609375,
+                1508.3324856228298,
+                1370.8995395236545
+              ],
+              "content": "the ALJ referenced the credible evidence in the record, including medical treatment from the same "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99991522894965,
+                1403.7662082248264,
+                1508.3324856228298,
+                1447.5662231445312
+              ],
+              "content": "doctors over an extended period of time, and compared Plaintiff\u2019s subjective complaints to his "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99991522894965,
+                1479.8995971679688,
+                1508.3331637912327,
+                1524.2329915364583
+              ],
+              "content": "daily activities when making her RFC determination.  (See Tr. 16-20.)  In addition, as discussed "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.99991522894965,
+                1556.5663655598958,
+                1508.3333333333333,
+                1600.8997599283853
+              ],
+              "content": "supra, the ALJ explained why she gave little weight to Dr. Ivanov\u2019s findings.  (Tr. 20.)   Using "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.99991522894965,
+                1633.7663438585068,
+                1508.3350287543403,
+                1677.5663587782117
+              ],
+              "content": "this evidence, the ALJ constructed a detailed RFC that limits Plaintiff to light work with the "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                199.99991522894965,
+                1710.4329427083333,
+                1508.3299424913193,
+                1754.232957628038
+              ],
+              "content": "additional limitations that he  must be given the opportunity every 45 minutes to one hour to stand "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                199.99991522894965,
+                1787.0997111002603,
+                1508.3365546332466,
+                1830.899726019965
+              ],
+              "content": "and stretch for three to five minutes; can only reach occasionally overhead with both arms; can "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                199.99991522894965,
+                1863.7663099500867,
+                1508.3328247070312,
+                1907.5663248697915
+              ],
+              "content": "frequently reach in front and laterally to 18 inches; can frequently use ladders, ropes or scaffolds; "
+            },
+            {
+              "i": 14,
+              "bbox": [
+                199.99991522894965,
+                1940.433078342014,
+                1508.3328247070312,
+                1984.2330932617188
+              ],
+              "content": "can frequently climb ramps or stairs; can frequently crawl; is unlimited for balancing, stooping, "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            834,
+            2027,
+            868,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "17 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 17,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            195,
+            1509,
+            854
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.3326551649304,
+                240.23329416910806
+              ],
+              "content": "kneeling and crouching; can perform jobs that were simple and repetitive and required only "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3329942491318,
+                316.89989301893445
+              ],
+              "content": "occasional contact with supervisors but no contact with the general public; cannot perform quick "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                1508.3333333333333,
+                393.56651306152344
+              ],
+              "content": "movements with his head; and is only able to rotate his head side-to-side up to 45 degrees, but his "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.43309699164496,
+                1508.3328247070312,
+                470.2331119113498
+              ],
+              "content": "whole body can be moved to look side-to-side.  (Tr. 16.)  It is also important to note that the RFC "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                503.0996958414713,
+                1508.3328247070312,
+                546.8997107611762
+              ],
+              "content": "is an administrative finding and not a medical decision, and the ALJ\u2019s decision must not be set "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                579.2329576280382,
+                1508.3331637912327,
+                623.5663096110026
+              ],
+              "content": "aside simply because \u201c[a reviewing court] would have reached a different decision.\u201d  Cruz, 244 F. "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                655.8995564778645,
+                1508.3328247070312,
+                700.232908460829
+              ],
+              "content": "App\u2019x. at 479 (citing Hartranft, 181 F.3d at 360).  The possibility of another ALJ reaching a "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99974568684894,
+                733.0995347764757,
+                1508.3331637912327,
+                776.8994649251301
+              ],
+              "content": "different determination from the credible evidence on record is not reason enough for ALJ "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99974568684894,
+                809.766133626302,
+                662.9997253417969,
+                853.566148546007
+              ],
+              "content": "Krappa\u2019s decision to be set aside.  "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            193,
+            883,
+            1508,
+            1936
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9997033013238,
+                886.4329020182291,
+                1508.3329942491318,
+                930.2328321668837
+              ],
+              "content": "Plaintiff also claims that, because his RFC was allegedly improperly constructed, the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99957614474826,
+                963.0995008680555,
+                1508.3328247070312,
+                1006.8995157877604
+              ],
+              "content": "hypothetical given to the vocational expert does not include the entirety of his mental disabilities "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9994913736979,
+                1039.7662692599827,
+                1508.3319769965278,
+                1083.5661994086372
+              ],
+              "content": "and therefore does not sufficiently represent his limitations.  (Pl.\u2019s Br. at 31.)  However, Plaintiff "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.9994913736979,
+                1116.432868109809,
+                1508.3390977647568,
+                1160.232883029514
+              ],
+              "content": "does not specify which of these additional limitations the ALJ allegedly should have included in "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9994913736979,
+                1193.099636501736,
+                1508.3326551649304,
+                1236.8995666503906
+              ],
+              "content": "her hypothetical.  Similar to the construction of the RFC, the ALJ must only consider credibly "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9994913736979,
+                1269.7662353515625,
+                1508.3333333333333,
+                1313.5662502712673
+              ],
+              "content": "established limitations when constructing the hypothetical presented to the vocational expert. "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9994913736979,
+                1345.8996242947048,
+                1508.335706922743,
+                1390.232933892144
+              ],
+              "content": "Rutherford v. Barnhart, 399 F.3d 546, 554 (3d Cir. 2005).  Here, the ALJ included all of Plaintiff\u2019s "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.9994913736979,
+                1423.0997721354165,
+                1508.3326551649304,
+                1466.8997870551216
+              ],
+              "content": "credibly established mental limitations when she presented her hypothetical to the vocational "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.9994913736979,
+                1499.766370985243,
+                1508.3348592122395,
+                1543.5663859049478
+              ],
+              "content": "expert.  (Tr. 54.)  The ALJ\u2019s hypothetical limited Plaintiff to simple and repetitive tasks that "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.9994913736979,
+                1576.4329698350693,
+                1508.332316080729,
+                1620.2329847547742
+              ],
+              "content": "required only occasional contact with supervisors and no contact with the general public, which "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.9994913736979,
+                1653.0997382269966,
+                1508.3329942491318,
+                1696.8997531467014
+              ],
+              "content": "was supported by Dr. Barnett\u2019s credible opinion that Plaintiff had below-average memory and "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                199.9994913736979,
+                1729.7665066189236,
+                1508.3328247070312,
+                1773.5665215386284
+              ],
+              "content": "concentration and would have difficulty coping with stressful situations.  (Tr. 54, 325.)   The "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                199.99966091579861,
+                1806.43310546875,
+                1508.3319769965278,
+                1850.2331203884548
+              ],
+              "content": "vocational expert took into account the credibly established limitations that the ALJ presented in "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                199.99966091579861,
+                1883.0997043185764,
+                1508.3382500542534,
+                1926.8997192382812
+              ],
+              "content": "her hypothetical when determining that a person with Plaintiff\u2019s limitations would be able to "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            834,
+            2028,
+            868,
+            2058
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "18 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 18,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            196,
+            198,
+            1505,
+            393
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.4333004421658,
+                1508.333502875434,
+                240.23329416910806
+              ],
+              "content": "perform certain jobs that exist in significant numbers in the national economy. Therefore, ALJ "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.0998992919922,
+                1508.3329942491318,
+                316.89989301893445
+              ],
+              "content": "Krappa properly formulated both Plaintiff\u2019s RFC and the hypothetical presented to the vocational "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.76649814181854,
+                300.0,
+                393.56651306152344
+              ],
+              "content": "expert. "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            247,
+            429,
+            579,
+            473
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.0,
+                426.4667510986328,
+                304.59999508327905,
+                473.2000562879774
+              ],
+              "content": "IV. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                350.0,
+                426.4667510986328,
+                584.3332926432291,
+                470.90009053548175
+              ],
+              "content": "CONCLUSION "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            196,
+            506,
+            1507,
+            701
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                503.10003492567273,
+                1508.3331637912327,
+                546.9000498453776
+              ],
+              "content": "Because this Court finds that ALJ Krappa\u2019s factual findings are supported by substantial "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.99991522894965,
+                579.7666337754991,
+                1508.3329942491318,
+                623.566648695204
+              ],
+              "content": "credible evidence in the record and that her legal conclusions are correct, the Commissioner\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99991522894965,
+                655.7999081081814,
+                620.3332265218098,
+                700.2332475450304
+              ],
+              "content": "determination is AFFIRMED. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            894,
+            813,
+            1364,
+            931
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                900.0,
+                809.2333475748698,
+                1208.3333333333333,
+                853.566657172309
+              ],
+              "content": "s/ Susan D. Wigenton  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                900.0,
+                848.1333414713541,
+                1257.3337978786892,
+                892.5666809082031
+              ],
+              "content": "SUSAN D. WIGENTON "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                900.0,
+                886.4666408962673,
+                1366.3333468967014,
+                930.8999803331163
+              ],
+              "content": "UNITED STATES DISTRICT JUDGE "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            195,
+            966,
+            488,
+            1039
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                963.4519788953993,
+                272.34266069200305,
+                1003.7479824490017
+              ],
+              "content": "Orig: "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                400.0079684787326,
+                963.4519788953993,
+                475.66261291503906,
+                1003.7479824490017
+              ],
+              "content": "Clerk "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.99995761447482,
+                1000.7732815212673,
+                243.33197275797525,
+                1041.0692850748699
+              ],
+              "content": "cc: "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                400.0079684787326,
+                1000.7732815212673,
+                490.9959581163194,
+                1041.0692850748699
+              ],
+              "content": "Parties "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            835,
+            2028,
+            868,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                2020.7667032877603,
+                875.0,
+                2064.5667182074653
+              ],
+              "content": "19 "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

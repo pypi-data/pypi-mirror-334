@@ -1,0 +1,1032 @@
+{
+  "filename": "doc.pdf.32_0.pdf",
+  "pages": [
+    {
+      "i": 0,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            475,
+            200,
+            1222,
+            305
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                500.0008477105035,
+                201.16693708631726,
+                1200.0016106499565,
+                234.5002704196506
+              ],
+              "content": "IN THE UNITED STATES DISTRICT COURT"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                480.00085618760846,
+                236.83367835150824,
+                1220.0016445583767,
+                270.16701168484155
+              ],
+              "content": "FOR THE NORTHERN DISTRICT OF ILLINOIS"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                690.0008731418186,
+                272.5004196166992,
+                1010.0013732910156,
+                305.83375295003253
+              ],
+              "content": "EASTERN DIVISION"
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            227,
+            343,
+            857,
+            376
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.00089009602863,
+                343.83373260498047,
+                560.000737508138,
+                377.16708713107636
+              ],
+              "content": "MICHAEL RUFFIN-EL,"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                840.0074428982205,
+                343.83373260498047,
+                860.0074768066406,
+                377.16708713107636
+              ],
+              "content": ")"
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            197,
+            415,
+            857,
+            449
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                500.0009324815538,
+                415.167236328125,
+                700.0008477105034,
+                448.5005696614583
+              ],
+              "content": "Plaintiff,"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                840.0042215983073,
+                415.167236328125,
+                860.0042555067274,
+                448.5005696614583
+              ],
+              "content": ")"
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            208,
+            488,
+            1225,
+            519
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0008900960286,
+                486.5007188585069,
+                340.00087314181854,
+                519.8340521918402
+              ],
+              "content": "v."
+            },
+            {
+              "i": 1,
+              "bbox": [
+                840.0009155273438,
+                486.5007188585069,
+                860.0009494357639,
+                519.8340521918402
+              ],
+              "content": ")"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                940.0009155273438,
+                486.5007188585069,
+                1220.0013902452256,
+                519.8340521918402
+              ],
+              "content": "No.  13 C 1739"
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            197,
+            557,
+            858,
+            590
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.00089009602863,
+                557.8342013888889,
+                640.0007035997179,
+                591.1675347222222
+              ],
+              "content": "ST. GOBAIN CONTAINERS,"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                840.0073581271702,
+                557.8342013888889,
+                860.0073920355902,
+                591.1675347222222
+              ],
+              "content": ")"
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            199,
+            630,
+            858,
+            662
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                500.0009324815538,
+                629.1676839192708,
+                700.0008477105034,
+                662.5010172526041
+              ],
+              "content": "Defendant."
+            },
+            {
+              "i": 1,
+              "bbox": [
+                840.0042215983073,
+                629.1676839192708,
+                860.0042555067274,
+                662.5010172526041
+              ],
+              "content": ")"
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            685,
+            699,
+            1013,
+            736
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                690.0013817681206,
+                700.5013359917534,
+                1010.0018819173176,
+                733.8346693250868
+              ],
+              "content": "MEMORANDUM ORDER"
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            196,
+            768,
+            1503,
+            1307
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0013987223307,
+                771.8346489800347,
+                1460.0024753146702,
+                805.167982313368
+              ],
+              "content": "Pro se plaintiff Michael Ruffin-El (\u201cRuffin-El\u201d) continues"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00139872233072,
+                843.1679619683159,
+                1480.0025092230903,
+                876.5012953016493
+              ],
+              "content": "to have difficulty in coming to grips with one of the objections"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00139872233072,
+                914.5012749565972,
+                1380.0023396809895,
+                947.8346082899305
+              ],
+              "content": "interposed by his ex-employer Saint-Gobain Containers, Inc."
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00139872233072,
+                985.8345879448784,
+                1380.0023396809895,
+                1019.1679212782118
+              ],
+              "content": "(\u201cSaint-Gobain\u201d) to his lawsuit charging it with employment"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00139872233072,
+                1057.1679009331597,
+                1500.0025431315103,
+                1090.501234266493
+              ],
+              "content": "discrimination.  Ruffin-El has just filed what he captions as his"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00139872233072,
+                1128.501213921441,
+                1480.0025092230903,
+                1161.8345472547742
+              ],
+              "content": "\u201c2nd Amended Complaint,\u201d in which he continues to stress what he"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00139872233072,
+                1199.8345269097222,
+                1400.0023735894097,
+                1233.1678602430554
+              ],
+              "content": "labels as his Moorish American status, so that he begins his"
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00139872233072,
+                1271.1678398980034,
+                1060.0017971462673,
+                1304.5011732313367
+              ],
+              "content": "current Statement of Claim in this fashion:"
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            298,
+            1340,
+            1368,
+            1447
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0013987223307,
+                1342.5011528862847,
+                1260.0021362304688,
+                1375.834486219618
+              ],
+              "content": "The Plaintiff affirms he is not from the African"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0013987223307,
+                1378.1678093804253,
+                1360.0023057725693,
+                1411.5011427137586
+              ],
+              "content": "continent, that he and his ancestry are indigenous to"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                300.0013987223307,
+                1413.834465874566,
+                940.0015936957465,
+                1447.1677992078992
+              ],
+              "content": "the land of present-day America."
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            194,
+            1484,
+            1485,
+            1951
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0013987223307,
+                1485.1677788628472,
+                1380.0023396809895,
+                1518.5011121961804
+              ],
+              "content": "This Court has great respect for, and has no desire to"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00139872233072,
+                1556.5010918511284,
+                1480.0025092230903,
+                1589.8344251844617
+              ],
+              "content": "challenge, Ruffin-El\u2019s beliefs and self-image.  But what he does"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00139872233072,
+                1627.8344048394097,
+                1380.0023396809895,
+                1661.167738172743
+              ],
+              "content": "not focus on at all is the limited nature of Saint-Gobain\u2019s"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00139872233072,
+                1699.167717827691,
+                1380.0023396809895,
+                1732.5010511610242
+              ],
+              "content": "objection in that respect--an objection that is graphically"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00139872233072,
+                1770.5010308159722,
+                1460.0024753146702,
+                1803.8343641493054
+              ],
+              "content": "demonstrated by the contrast between his original Complaint and"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00139872233072,
+                1841.8343438042534,
+                1360.0023057725693,
+                1875.1676771375867
+              ],
+              "content": "the Charge of Discrimination that he lodged with EEOC as a"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00139872233072,
+                1913.1676567925347,
+                660.0012037489149,
+                1946.500990125868
+              ],
+              "content": "prelude to filing suit:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            295,
+            197,
+            1470,
+            593
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                400.0008477105035,
+                201.16693708631726,
+                1460.001966688368,
+                234.5002704196506
+              ],
+              "content": "1.  Complaint \u00b69 provides a pro se plaintiff with the"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0008477105035,
+                272.5002500745985,
+                1340.0017632378472,
+                305.8335834079318
+              ],
+              "content": "opportunity to check one or more of several boxes to"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                300.0008477105035,
+                343.83356306287976,
+                1320.001729329427,
+                377.1669175889757
+              ],
+              "content": "identify the ground or grounds on which an employer"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                300.0008477105035,
+                415.1668972439236,
+                1460.001966688368,
+                448.5002305772569
+              ],
+              "content": "assertedly discriminated against the plaintiff employee or"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                300.0008477105035,
+                486.50021023220484,
+                1460.001966688368,
+                519.8335435655382
+              ],
+              "content": "ex-employee.  In this instance Ruffin-El checked four such"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                300.0008477105035,
+                557.8335232204861,
+                1400.0018649631077,
+                591.1668565538195
+              ],
+              "content": "grounds, including \u201cNational Origin\u201d (Complaint \u00b69(d))."
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            295,
+            626,
+            1488,
+            1309
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                400.0008477105035,
+                629.1668362087673,
+                1340.0017632378472,
+                662.5001695421007
+              ],
+              "content": "2.  But when Ruffin-El had lodged his Charge of"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0008477105035,
+                700.5001491970486,
+                1480.002000596788,
+                733.833482530382
+              ],
+              "content": "Discrimination (\u201cCharge\u201d) with EEOC back in July 2011, that"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                300.0008477105035,
+                771.8334621853298,
+                1440.0019327799478,
+                805.1667955186632
+              ],
+              "content": "form also gave him a choice of a number of possible bases"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                300.0008477105035,
+                843.1667751736111,
+                1440.0019327799478,
+                876.5001085069445
+              ],
+              "content": "for the alleged discrimination, again including \u201cNATIONAL"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                300.0008477105035,
+                914.5000881618923,
+                1460.001966688368,
+                947.8334214952257
+              ],
+              "content": "ORIGIN\u201d among them. Ruffin-El left that box blank, instead"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                300.0008477105035,
+                985.8334011501736,
+                1320.001729329427,
+                1019.166734483507
+              ],
+              "content": "placing an \u201cX\u201d only in the boxes labeled \u201cRACE\u201d and"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                300.0008477105035,
+                1057.1667141384548,
+                1480.002000596788,
+                1090.500047471788
+              ],
+              "content": "\u201cDISABILITY.\u201d  And those choices, including the omission of"
+            },
+            {
+              "i": 7,
+              "bbox": [
+                300.0008477105035,
+                1128.500027126736,
+                1360.0017971462673,
+                1161.8333604600693
+              ],
+              "content": "any \u201cnational origin\u201d charge, were reconfirmed by the"
+            },
+            {
+              "i": 8,
+              "bbox": [
+                300.0008477105035,
+                1199.8333401150173,
+                1440.0019327799478,
+                1233.1666734483506
+              ],
+              "content": "Charge\u2019s narrative \u201cparticulars\u201d that followed the form\u2019s"
+            },
+            {
+              "i": 9,
+              "bbox": [
+                300.0008477105035,
+                1271.1666531032986,
+                1120.0013902452256,
+                1304.4999864366318
+              ],
+              "content": "designation of discrimination categories:"
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            297,
+            1341,
+            1385,
+            1553
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0008477105035,
+                1342.4999660915798,
+                1360.0017971462673,
+                1375.833299424913
+              ],
+              "content": "I believe that I was discriminated against because of"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0008477105035,
+                1378.1666225857205,
+                1380.0018310546875,
+                1411.4999559190537
+              ],
+              "content": "my race, Black, in violation of Title VII of the Civil"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                300.0008477105035,
+                1413.833279079861,
+                1360.0017971462673,
+                1447.1666124131943
+              ],
+              "content": "Rights Act of 1964, as amended.  Also I believe I was"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                300.0008477105035,
+                1449.500020345052,
+                1300.0016954210068,
+                1482.8333536783853
+              ],
+              "content": "discriminated against because of my disability, in"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                300.0008477105035,
+                1485.1665920681423,
+                1320.001729329427,
+                1518.4999254014756
+              ],
+              "content": "violation of the Americans with Disabilities Act of"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                300.0008477105035,
+                1520.8331637912327,
+                640.0007035997179,
+                1554.166497124566
+              ],
+              "content": "1990, as amended."
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            194,
+            1590,
+            1503,
+            1914
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0008477105035,
+                1592.1666463216145,
+                1380.0018310546875,
+                1625.4999796549478
+              ],
+              "content": "In light of those facts, the portion of Saint-Gobain\u2019s"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00084771050348,
+                1663.4997897677952,
+                1420.0018141004773,
+                1696.8331231011284
+              ],
+              "content": "motion to dismiss that targets Ruffin-El\u2019s presently asserted"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00084771050348,
+                1734.833272298177,
+                1500.0018649631077,
+                1768.1666056315103
+              ],
+              "content": "claim of \u201cnational origin\u201d discrimination must be and is granted,"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00084771050348,
+                1806.1664157443577,
+                1360.001712375217,
+                1839.499749077691
+              ],
+              "content": "and the unbidden and unauthorized 2nd Amended Complaint is"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00084771050348,
+                1877.4998982747395,
+                1400.0017801920571,
+                1910.8332316080728
+              ],
+              "content": "stricken. In addition, Ruffin El\u2019s ill-considered motion for"
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            839,
+            1966,
+            860,
+            1995
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                840.0009155273438,
+                1965.4998779296875,
+                860.0009494357639,
+                1998.8332112630208
+              ],
+              "content": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            198,
+            197,
+            1098,
+            237
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                201.0,
+                204.0,
+                1095.0,
+                234.0
+              ],
+              "content": "summary judgment is denied without prejudice.."
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            195,
+            269,
+            1496,
+            666
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                273.0,
+                1441.0,
+                303.0
+              ],
+              "content": "Because this Court's June 20 memorandum order had granted"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.0,
+                341.0,
+                1356.0,
+                374.0
+              ],
+              "content": "Ruffin-El until July 3 to file a response to the \"national."
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.0,
+                415.0,
+                1379.0,
+                449.0
+              ],
+              "content": "origin\" aspect of Saint-Gobain's motion to dismiss, nothing"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                201.0,
+                488.0,
+                1060.0,
+                518.0
+              ],
+              "content": "further will be required in that respect.."
+            },
+            {
+              "i": 4,
+              "bbox": [
+                1051.0,
+                488.0,
+                1421.0,
+                518.0
+              ],
+              "content": "Instead the July 3"
+            },
+            {
+              "i": 5,
+              "bbox": [
+                201.0,
+                559.0,
+                1499.0,
+                589.0
+              ],
+              "content": "status hearing, which had been set to coincide with that due date"
+            },
+            {
+              "i": 6,
+              "bbox": [
+                201.0,
+                630.0,
+                1437.0,
+                662.0
+              ],
+              "content": "for filing, will be used to discuss other aspects of the case."
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            679,
+            696,
+            1275,
+            806
+          ],
+          "type": "figure",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                741.0,
+                722.0,
+                954.0,
+                786.0
+              ],
+              "content": "Lilt.."
+            },
+            {
+              "i": 1,
+              "bbox": [
+                1049.0,
+                730.0,
+                1263.0,
+                803.0
+              ],
+              "content": "Stadu"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                693.0,
+                802.0,
+                1023.0,
+                846.0
+              ],
+              "content": "Milton I. Shadur"
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            694,
+            810,
+            1404,
+            878
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                695.0,
+                843.0,
+                1402.0,
+                878.0
+              ],
+              "content": "Senior United States District Judge."
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            197,
+            912,
+            604,
+            949
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                201.0,
+                919.0,
+                303.0,
+                944.0
+              ],
+              "content": "Date:"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                335.0,
+                914.0,
+                601.0,
+                946.0
+              ],
+              "content": "June 28, 2013"
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            840,
+            1966,
+            861,
+            1994
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                838.0,
+                1966.0,
+                859.0,
+                1994.0
+              ],
+              "content": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

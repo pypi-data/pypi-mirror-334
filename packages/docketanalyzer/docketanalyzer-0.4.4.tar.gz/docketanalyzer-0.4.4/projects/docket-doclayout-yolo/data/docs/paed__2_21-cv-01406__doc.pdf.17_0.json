@@ -1,0 +1,2304 @@
+{
+  "filename": "doc.pdf.17_0.pdf",
+  "pages": [
+    {
+      "i": 0,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            437,
+            197,
+            1258,
+            279
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                505.6666480170356,
+                195.79993353949652,
+                1202.3332383897568,
+                241.9332504272461
+              ],
+              "content": "IN THE UNITED STATES DISTRICT COURT "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                443.6665852864583,
+                234.1332329644097,
+                1264.333258734809,
+                280.2665498521593
+              ],
+              "content": "FOR THE EASTERN DISTRICT OF PENNSYLVANIA "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            210,
+            351,
+            742,
+            470
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                215.00000423855252,
+                349.13330078125,
+                747.999996609158,
+                395.26663886176215
+              ],
+              "content": "K7 DESIGN GROUP, INC. AND K7 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                215.00000423855252,
+                387.4666002061632,
+                573.3333163791233,
+                433.59993828667535
+              ],
+              "content": "DESIGN GROUP, LLC, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                514.9999830457899,
+                425.80006917317706,
+                661.3332960340712,
+                471.9334072536892
+              ],
+              "content": "Plaintiffs, "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            1035,
+            352,
+            1280,
+            393
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                1039.000023735894,
+                349.13330078125,
+                1285.3333367241753,
+                395.26663886176215
+              ],
+              "content": "CIVIL ACTION "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            411,
+            514,
+            442,
+            544
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                414.9999830457899,
+                502.4666680230035,
+                448.33331637912323,
+                548.6000061035156
+              ],
+              "content": "v. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            1034,
+            544,
+            1229,
+            584
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                1039.000023735894,
+                540.7997979058159,
+                1233.3333333333333,
+                586.9331359863281
+              ],
+              "content": "NO.  21-1406 "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            210,
+            580,
+            674,
+            661
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                214.99998304578992,
+                579.1332668728298,
+                531.6666497124565,
+                625.266604953342
+              ],
+              "content": "FIVE BELOW, INC., "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                514.9999830457899,
+                617.466566297743,
+                679.6666463216145,
+                663.5999043782551
+              ],
+              "content": "Defendant. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            638,
+            752,
+            1060,
+            793
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                640.9999847412109,
+                748.1333414713541,
+                1066.9999864366318,
+                794.2666795518663
+              ],
+              "content": "MEMORANDUM OPINION "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            194,
+            827,
+            1501,
+            1407
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                825.3332349989149,
+                1507.6666937934028,
+                870.2332390679253
+              ],
+              "content": "In the early days of the COVID-19 pandemic, Defendant Five Below, Inc. approached K7 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                901.9999186197916,
+                1432.666524251302,
+                946.899922688802
+              ],
+              "content": "Design Group, Inc. and K7 Design Group, LLC (together, K7 or Plaintiff) to discuss a large "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                978.6666022406683,
+                1493.0001152886284,
+                1023.5666063096788
+              ],
+              "content": "order of hand sanitizer and soap.  Five Below maintains that the relationship was merely that\u2014a "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00008477105035,
+                1055.3332858615452,
+                1410.666232638889,
+                1100.2332899305554
+              ],
+              "content": "preliminary discussion of a potential order that never materialized.  K7, on the other hand, "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00008477105035,
+                1131.9999694824219,
+                1407.3329501681858,
+                1176.8999735514321
+              ],
+              "content": "alleges that Five Below placed an order to the tune of $2 million, which order Five Below "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                1208.6666531032986,
+                1467.9999457465278,
+                1253.566657172309
+              ],
+              "content": "repudiated upon realizing it had ordered far more hand sanitizer than it could sell.  Five Below "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00008477105035,
+                1285.3333367241753,
+                1503.9994981553818,
+                1330.2333407931858
+              ],
+              "content": "moves to dismiss the contract claims brought by K7.  For the reasons that follow, the motion will "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00008477105035,
+                1362.000020345052,
+                353.6667505900065,
+                1406.9000244140625
+              ],
+              "content": "be denied.  "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            198,
+            1441,
+            702,
+            1482
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.00008477105035,
+                1438.1334092881943,
+                230.60008154975043,
+                1485.8668009440103
+              ],
+              "content": "I. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.00008477105035,
+                1438.1334092881943,
+                708.3333333333333,
+                1484.2666625976562
+              ],
+              "content": "STANDARD OF REVIEW1 "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            196,
+            1518,
+            1504,
+            1793
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1515.3333875868054,
+                1495.0000339084202,
+                1560.233391655816
+              ],
+              "content": "Pursuant to Federal Rule of Civil Procedure 12(b)(6), a complaint must be dismissed if it "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1591.9999864366318,
+                1505.6664360894097,
+                1636.8999905056423
+              ],
+              "content": "fails \u201cto state a claim upon which relief can be granted.\u201d  Fed. R. Civ. P. (12)(b)(6).  To survive a "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1668.666754828559,
+                1491.6690402560764,
+                1713.5667588975693
+              ],
+              "content": "motion to dismiss, a complaint must \u201ccontain sufficient factual matter, accepted as true, to \u2018state "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1745.3333536783853,
+                1411.6667005750867,
+                1790.2333577473958
+              ],
+              "content": "a claim to relief that is plausible on its face.\u2019\u201d  Ashcroft v. Iqbal, 556 U.S. 662, 678 (2009) "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            196,
+            1929,
+            1506,
+            2003
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1926.1066012912327,
+                1503.9998372395833,
+                1967.4146864149304
+              ],
+              "content": "1 There is jurisdiction over this dispute pursuant to 28 U.S.C. \u00a7 1332(a) because Five Below is a citizen of "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00667572021484,
+                1961.434597439236,
+                1335.9920077853733,
+                2002.7426825629339
+              ],
+              "content": "Pennsylvania, K7 is a citizen of New York, and the amount in controversy exceeds $75,000. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            196,
+            198,
+            1499,
+            550
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33327060275607,
+                1421.3331434461804,
+                241.2332534790039
+              ],
+              "content": "(quoting Bell Atl. Corp. v. Twombly, 550 U.S. 544, 570 (2007)).  In reviewing a complaint, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                272.99986945258246,
+                1407.3357476128472,
+                317.89985232883026
+              ],
+              "content": "courts must \u201caccept all factual allegations as true, construe the complaint in the light most "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.6664683024088,
+                1498.6663818359375,
+                394.56647237141925
+              ],
+              "content": "favorable to the plaintiff, and determine whether, under any reasonable reading of the complaint, "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.33306715223523,
+                1450.3333197699653,
+                471.23307122124567
+              ],
+              "content": "the plaintiff may be entitled to relief.\u201d  Blanyar v. Genova Prods. Inc., 861 F.3d 426, 431 (3d "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                502.9996660020616,
+                1010.9996371799044,
+                547.899670071072
+              ],
+              "content": "Cir. 2017) (internal quotations marks and citations omitted). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            197,
+            581,
+            846,
+            624
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                579.1332668728298,
+                243.59999762641058,
+                626.8665737575955
+              ],
+              "content": "II. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0,
+                579.1332668728298,
+                850.3335740831163,
+                625.266604953342
+              ],
+              "content": "MATERIALS TO BE CONSIDERED "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            192,
+            662,
+            1494,
+            1473
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                656.3332027859158,
+                1404.6663920084634,
+                701.2332068549262
+              ],
+              "content": "As a preliminary matter, Five Below argues that the Court should look beyond the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                732.999759250217,
+                1404.989284939236,
+                777.8997633192274
+              ],
+              "content": "Complaint to consider the complete chain of emails between the parties and Five Below\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                809.6664428710938,
+                1498.666551378038,
+                854.5664469401041
+              ],
+              "content": "Vendor Manual.  In ruling on a motion to dismiss, in addition to the allegations in the Complaint "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                886.3331264919705,
+                1472.3329332139756,
+                931.2331305609808
+              ],
+              "content": "and exhibits attached thereto, \u201ca court may consider an undisputedly authentic document that a "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                962.9998101128472,
+                1471.6690063476562,
+                1007.8998141818576
+              ],
+              "content": "defendant attaches as an exhibit to a motion to dismiss if the plaintiff\u2019s claims are based on the "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1039.6664937337239,
+                1460.6665717230903,
+                1084.5664978027344
+              ],
+              "content": "document.\u201d  Pension Ben. Guar. Corp. v. White Consol. Indus., Inc., 998 F.2d 1192, 1196 (3d "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1116.3331773546006,
+                1429.3331570095486,
+                1161.233181423611
+              ],
+              "content": "Cir. 1993); see also In re Burlington Coat Factory Sec. Litig., 114 F.3d 1410, 1426 (3d Cir. "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1192.9998609754773,
+                1485.3327433268228,
+                1237.8998650444878
+              ],
+              "content": "1997) (explaining that as \u201can exception to the general rule\u201d that the court may consider only the "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1269.666544596354,
+                1480.9994167751736,
+                1314.5665486653645
+              ],
+              "content": "pleadings, \u201ca document integral to or explicitly relied upon in the complaint may be considered "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.99995761447482,
+                1346.333228217231,
+                1459.9995930989583,
+                1391.2332322862412
+              ],
+              "content": "without converting the motion [to dismiss] into one for summary judgment.\u201d (alteration in the "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.0,
+                1423.0000813802083,
+                973.9997016059027,
+                1467.9000854492188
+              ],
+              "content": "original) (internal quotation marks and citation omitted)). "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            194,
+            1504,
+            1496,
+            1931
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                1499.6666802300347,
+                1489.3329196506077,
+                1544.5666842990452
+              ],
+              "content": "The parties\u2019 email correspondence, but not the Vendor manual, fall within the \u201cnarrowly "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1576.333279079861,
+                1492.3326280381943,
+                1621.2332831488716
+              ],
+              "content": "defined types of material\u201d that may be considered without converting a motion to dismiss to one "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1653.000047471788,
+                1457.6663547092014,
+                1697.9000515407986
+              ],
+              "content": "for summary judgement.  In re Rockefeller Ctr. Props., Inc. Sec. Litig., 184 F.3d 280, 287 (3d "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1729.6668158637153,
+                1496.999274359809,
+                1774.5668199327256
+              ],
+              "content": "Cir. 1999).  As K7 concedes, its breach of contract and promissory estoppel claims are explicitly "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1806.3334147135415,
+                1399.3331061469185,
+                1851.233418782552
+              ],
+              "content": "based on the exchange of emails between K7 and Five Below, and that correspondence is "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1883.000013563368,
+                1419.666035970052,
+                1927.9000176323784
+              ],
+              "content": "integral to those claims.  The Complaint quotes extensively from the emails attached to the "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            839,
+            2028,
+            861,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "2 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            194,
+            196,
+            1504,
+            854
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33344014485675,
+                1479.999796549479,
+                241.23342302110458
+              ],
+              "content": "Motion to Dismiss, the authenticity of which are undisputed.  The Vendor Manual, on the other "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.00003899468317,
+                1461.3330417209202,
+                317.90002187093097
+              ],
+              "content": "hand, is external to the allegations in the Complaint and will not be considered.  K7\u2019s contract "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.6666378445095,
+                1490.3328789605034,
+                394.56664191351996
+              ],
+              "content": "claims are not based on the Vendor Manual, which sets forth supplemental terms and conditions "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.33323669433594,
+                1502.3328993055554,
+                471.2332407633463
+              ],
+              "content": "related to, inter alia, shipping, routing, packaging, testing, labeling, and insurance.  To the extent "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                502.9998355441623,
+                1470.6663343641492,
+                547.8998396131727
+              ],
+              "content": "the Complaint refers to paperwork found in the Vendor Manual or actions taken in compliance "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                579.6664343939887,
+                1446.6664632161458,
+                624.5664384629991
+              ],
+              "content": "with the Manual, such allegations are not, in the context of this motion to dismiss, integral to "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                656.3330332438151,
+                1504.3328179253472,
+                701.2330373128254
+              ],
+              "content": "K7\u2019s breach of contract and promissory estoppel claims.  In fact, it is undisputed that Five Below "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                732.9995897081163,
+                1441.9996473524304,
+                777.8995937771267
+              ],
+              "content": "did not send K7 the Vendor Manual until after K7 alleges a contract was formed on or about "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                808.4399753146702,
+                358.00001356336804,
+                854.5666164822048
+              ],
+              "content": "May 14th.2 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            196,
+            889,
+            413,
+            930
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                885.8000013563368,
+                256.5999984741211,
+                933.5333082411024
+              ],
+              "content": "III. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.0,
+                885.8000013563368,
+                417.66666836208765,
+                931.9333394368489
+              ],
+              "content": "FACTS "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            193,
+            968,
+            1496,
+            1779
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                962.9999796549479,
+                1483.3297729492188,
+                1007.8999837239583
+              ],
+              "content": "The relevant facts are drawn from the Complaint and the email correspondence attached "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                1039.6666632758247,
+                1438.3329603407117,
+                1084.566667344835
+              ],
+              "content": "to Five Below\u2019s motion to dismiss.  See In re Burlington, 114 F.3d at 1426.  Five Below is a "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1116.3333468967014,
+                1383.6665683322483,
+                1161.2333509657117
+              ],
+              "content": "national retailer of discount consumer goods, and K7 is family-owned manufacturer and "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1193.0000305175781,
+                1417.333051893446,
+                1237.9000345865884
+              ],
+              "content": "distributor of consumer goods, including hand sanitizer and soap.  On April 24, 2020, Five "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1269.6667141384548,
+                1389.3333435058594,
+                1314.5667182074653
+              ],
+              "content": "Below solicited an initial proposal from K7 regarding the sale of hand sanitizer and soap "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                1346.3333977593315,
+                1415.6661987304688,
+                1391.233401828342
+              ],
+              "content": "products.  To that end, the parties discussed via email details such as timing, assortment of "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                1423.0000813802083,
+                1351.9999186197915,
+                1467.9000854492188
+              ],
+              "content": "products, supply chain concerns, and price.  On May 11, 2020, Five Below responded "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.99995761447482,
+                1499.6668497721353,
+                1494.9991861979165,
+                1544.5668538411458
+              ],
+              "content": "enthusiastically to K7\u2019s proposal and expressed an interest in moving forward with the order.  In "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.99995761447482,
+                1576.3336181640625,
+                1478.9994981553818,
+                1621.2336222330728
+              ],
+              "content": "the following days, K7 conveyed increasing urgency in nailing down the details as it was in the "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.99995761447482,
+                1653.000217013889,
+                1505.3334554036458,
+                1697.9002210828992
+              ],
+              "content": "midst of allocating production capacity for the season.  On May 14, 2020, Five Below provided a "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.0,
+                1729.6668158637153,
+                1454.9994574652778,
+                1774.5668199327256
+              ],
+              "content": "breakdown by product style for an anticipated order of 600,000 travel size hand sanitizers but "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            195,
+            1859,
+            1503,
+            1966
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1855.7732476128472,
+                1503.4186469184028,
+                1897.0813327365452
+              ],
+              "content": "2 Consequently, Five Below\u2019s invocation of the parole evidence rule based on the integration clause in the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00667572021484,
+                1891.1012437608506,
+                1455.103556315104,
+                1932.4093288845486
+              ],
+              "content": "Vendor Manual and contention that the Vendor Manual requires the issuance of a Purchase Order as a "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00667572021484,
+                1926.0918511284722,
+                1163.676028781467,
+                1967.3999362521702
+              ],
+              "content": "condition precedent to a breach of contract claim will not be addressed herein. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            839,
+            2028,
+            860,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "3 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            195,
+            198,
+            1500,
+            624
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33344014485675,
+                1501.3336181640625,
+                241.23342302110458
+              ],
+              "content": "sought to further negotiate on price.  The same day, K7 responded that the quoted price was final "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.00003899468317,
+                1501.9995795355903,
+                317.90002187093097
+              ],
+              "content": "and asked Five Below for \u201cconfirmation that we can go ahead and submit these in the production "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.6666378445095,
+                1500.9963989257812,
+                394.56664191351996
+              ],
+              "content": "pipeline right away\u201d and to \u201cplease confirm the costs are acceptable so we can begin and not risk "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.33323669433594,
+                1451.332770453559,
+                471.2332407633463
+              ],
+              "content": "losing our production.\u201d  Five Below requested that K7 \u201cplease confirm based on the units . . . "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                502.9998355441623,
+                1491.665988498264,
+                547.8998396131727
+              ],
+              "content": "provided,\u201d to which K7\u2019s representative replied: \u201cYes this is confirmed and I will work with my "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                579.6664343939887,
+                707.3333316379124,
+                624.5664384629991
+              ],
+              "content": "team in getting these in the pipeline.\u201d "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            194,
+            659,
+            1484,
+            1240
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.0,
+                656.3330332438151,
+                1495.6666734483506,
+                701.2330373128254
+              ],
+              "content": "The parties hammered out further details via email in the ensuing months.  K7 confirmed "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00016954210068,
+                732.9995897081163,
+                1469.000244140625,
+                777.8995937771267
+              ],
+              "content": "the order was in production, requested vendor related paperwork, and mailed product samples; "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00025431315103,
+                809.666273328993,
+                1459.9999321831597,
+                854.5662773980034
+              ],
+              "content": "Five Below proceeded to set-up K7 as a vendor, including sending K7 its Vendor Manual and "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00025431315103,
+                886.3329569498698,
+                1464.6664089626736,
+                931.2329610188801
+              ],
+              "content": "issuing K7 a vendor number.  On September 17, 2020, K7 informed Five Below that the order "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00025431315103,
+                962.9996405707465,
+                1382.6666090223523,
+                1007.899644639757
+              ],
+              "content": "was ready and requested shipping instructions.  However, on September 30, Five Below "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00025431315103,
+                1039.6663241916233,
+                1424.6631198459202,
+                1084.5663282606336
+              ],
+              "content": "informed K7 that it could not accept the items.  Five Below thereafter repeatedly refused to "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00033908420139,
+                1116.3330078125,
+                1451.6665988498264,
+                1161.2330118815103
+              ],
+              "content": "accept the items, claiming that it did not issue a purchase order for them and that they did not "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00033908420139,
+                1192.9996914333767,
+                690.667004055447,
+                1237.8996955023872
+              ],
+              "content": "pass Five Below\u2019s testing protocols. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            198,
+            1273,
+            474,
+            1313
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.00033908420139,
+                1269.133080376519,
+                254.60033416748047,
+                1316.8663872612847
+              ],
+              "content": "IV. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                300.00033908420136,
+                1269.133080376519,
+                477.0003424750434,
+                1315.2664184570312
+              ],
+              "content": "ANALYSIS "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            197,
+            1349,
+            1488,
+            1623
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00033908420136,
+                1346.3330586751301,
+                1380.6669447157117,
+                1391.2330627441406
+              ],
+              "content": "Five Below moves to dismiss K7\u2019s claims for breach of contract and promissory "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00042385525174,
+                1421.7733595106336,
+                1473.992919921875,
+                1467.9000854492188
+              ],
+              "content": "estoppel.3  Five Below argues that K7 fails to state a claim for breach of contract because there "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1499.6666802300347,
+                1465.3328789605034,
+                1544.5666842990452
+              ],
+              "content": "was no mutual manifestation of an intent to enter a binding agreement nor sufficiently definite "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.99991522894965,
+                1576.3334486219617,
+                1490.9962972005208,
+                1621.2334526909722
+              ],
+              "content": "terms to enforce.  Because the agreement as alleged is a contract for the sale and manufacture of "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            196,
+            1717,
+            1488,
+            2002
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1715.4398600260415,
+                1308.9995490180122,
+                1756.7479451497395
+              ],
+              "content": "3 Five Below also asserts that, because K7 Design Group, LLC signed the Vendor Manual "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00671810574002,
+                1750.430467393663,
+                1492.6745944552952,
+                1791.738552517361
+              ],
+              "content": "acknowledgement form, K7 Design Group, Inc. is not the real party in interest, lacks standing to sue, and "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00671810574002,
+                1785.7586330837673,
+                1470.7229614257812,
+                1827.066718207465
+              ],
+              "content": "should be dismissed from the case.  However, as explained infra, the Complaint adequately alleges that "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00661214192706,
+                1820.749240451389,
+                1482.6744927300347,
+                1862.0573255750867
+              ],
+              "content": "K7, Inc. entered a contract with Five Below via email for the sale of hand sanitizer products.  Moreover, "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00661214192706,
+                1855.7398478190103,
+                1478.3348931206597,
+                1897.0479329427083
+              ],
+              "content": "that K7, LLC\u2014described in the Complaint as a wholly owned subsidiary of K7, Inc.\u2014signed a form on "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00661214192706,
+                1891.067843967014,
+                1457.0266723632812,
+                1932.3759290907117
+              ],
+              "content": "behalf of its parent company does not deprive K7, Inc. of its interest in the case.  See Freedom Props., "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.03712972005206,
+                1926.058620876736,
+                1472.7066040039062,
+                1967.3667060004339
+              ],
+              "content": "L.P. v. Lansdale Warehouse Co. Inc., 2007 WL 1683850, at *4 (E.D. Pa. June 7, 2007) (explaining that "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.03712972005206,
+                1961.3866170247395,
+                1226.67482164171,
+                2002.6947021484375
+              ],
+              "content": "under Pennsylvania law the principal is the party to a contract entered by an agent). "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            839,
+            2029,
+            861,
+            2055
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "4 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            192,
+            187,
+            1507,
+            1246
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33344014485675,
+                1484.9999321831597,
+                241.23342302110458
+              ],
+              "content": "goods, it is governed by Article 2 of the Pennsylvania Uniform Commercial Code, 13 Pa. Cons. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                271.77335951063367,
+                1391.3330925835503,
+                317.90002187093097
+              ],
+              "content": "Stat. \u00a7 2101 et seq.4  Section 2204 of the Pennsylvania UCC, governing the formation of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00002119276257,
+                349.6666378445095,
+                1456.9997151692708,
+                394.56664191351996
+              ],
+              "content": "contracts, provides that a \u201ccontract for sale of goods may be made in any manner sufficient to "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.00002119276257,
+                426.33323669433594,
+                1438.9995998806423,
+                471.2332407633463
+              ],
+              "content": "show agreement, including conduct by both parties which recognizes the existence of such a "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.00002119276257,
+                502.9998355441623,
+                1345.6664191351997,
+                547.8998396131727
+              ],
+              "content": "contract.\u201d  13 Pa. Cons. Stat. \u00a7 2204(a).  The Pennsylvania UCC has been interpreted "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.0,
+                579.6664343939887,
+                1418.9995659722222,
+                624.5664384629991
+              ],
+              "content": "consistently with the common law requirement of a mutual manifestation of an intent to be "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.0,
+                656.3330332438151,
+                1503.3333672417534,
+                701.2330373128254
+              ],
+              "content": "bound to form a contract.  See, e.g., ATACS Corp. v. Trans World Commc\u2019ns, Inc., 155 F.3d 659, "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.00008477105035,
+                732.9995897081163,
+                1497.9997422960068,
+                777.8995937771267
+              ],
+              "content": "665 (3d Cir. 1998) (\u201cIt is by now hornbook law that the test for enforceability of an agreement is "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.00008477105035,
+                809.666273328993,
+                1454.9994574652778,
+                854.5662773980034
+              ],
+              "content": "whether both parties have manifested an intention to be bound\u201d (internal quotation marks and "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                200.00008477105035,
+                886.3329569498698,
+                1473.0000813802083,
+                931.2329610188801
+              ],
+              "content": "citation omitted)); Reilly Foam Corp. v. Rubbermaid Corp., 206 F. Supp.2d 643, 650 (E.D. Pa. "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                200.00008477105035,
+                962.9996405707465,
+                1386.333296034071,
+                1007.899644639757
+              ],
+              "content": "2002) (explaining that an offer under the Pennsylvania UCC \u201chas been defined based on "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                200.00008477105035,
+                1039.6663241916233,
+                1501.3331095377603,
+                1084.5663282606336
+              ],
+              "content": "common law principles as \u2018the manifestation of willingness to enter into a bargain, so made as to "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                200.00008477105035,
+                1116.3330078125,
+                1503.3328586154514,
+                1161.2330118815103
+              ],
+              "content": "justify another person in understanding that his assent to that bargain is invited and will conclude "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                200.00008477105035,
+                1192.9996914333767,
+                1388.0000644259983,
+                1237.8996955023872
+              ],
+              "content": "it.\u2019\u201d (quoting Bergquist Co. v. Sunroc Corp., 777 F. Supp. 1236, 1248 (E.D. Pa. 1991))). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            193,
+            1274,
+            1505,
+            1777
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                300.00008477105035,
+                1269.6663750542534,
+                1356.3333299424912,
+                1314.566379123264
+              ],
+              "content": "According to Five Below, the email exchange between the parties reveals only "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00008477105035,
+                1346.3330586751301,
+                1460.6665717230903,
+                1391.2330627441406
+              ],
+              "content": "preliminary negotiations regarding the possible future sale of hand sanitizer.  See ATACS, 155 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1422.9997422960068,
+                1410.6664021809895,
+                1467.8997463650173
+              ],
+              "content": "F.3d at 666 (\u201c[I]t is well established that evidence of preliminary negotiations or a general "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1499.666510687934,
+                1500.3158569335938,
+                1544.5665147569443
+              ],
+              "content": "agreement to enter a binding contract in the future fail as enforceable contracts\u201d (citing Goldman "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1576.333279079861,
+                1503.9998372395833,
+                1621.2332831488716
+              ],
+              "content": "v. McShain, 247 A.2d 455, 458 (Pa. 1968))).  However, the Complaint plausibly alleges that Five "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00008477105035,
+                1652.9998779296875,
+                1506.659952799479,
+                1697.8998819986978
+              ],
+              "content": "Below placed and later repudiated a substantial order of hand sanitizer.  Because \u201c[a]n agreement "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00008477105035,
+                1729.666476779514,
+                1498.3330620659722,
+                1774.5664808485242
+              ],
+              "content": "sufficient to constitute a contract for sale may be found even though the moment of its making is "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            196,
+            1894,
+            1502,
+            2001
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1891.1066691080728,
+                1435.7262505425347,
+                1932.4147542317708
+              ],
+              "content": "4 The parties agree that Pennsylvania law applies.  Indeed, the choice of law provision in the Vendor "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00665452745224,
+                1926.0972764756943,
+                1499.6721055772568,
+                1967.4053615993923
+              ],
+              "content": "Manual provides that \u201c[t]he laws of the State of Pennsylvania, without regard to Pennsylvania\u2019s choice of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.00665452745224,
+                1961.4252726236978,
+                1120.6505669487847,
+                2002.7333577473958
+              ],
+              "content": "law principles, govern all matters arising out of or related to the Contract.\u201d "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            839,
+            2028,
+            860,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "5 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            193,
+            198,
+            1471,
+            1012
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33344014485675,
+                1437.9999796549478,
+                241.23342302110458
+              ],
+              "content": "undetermined,\u201d K7 need not pinpoint the precise email that cemented the agreement.  13 Pa. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.00003899468317,
+                1457.666524251302,
+                317.90002187093097
+              ],
+              "content": "Cons. Stat \u00a7 2204(b).  On K7\u2019s reading, after negotiating the terms for weeks, K7 stressed the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.6666378445095,
+                1383.9959886338975,
+                394.56664191351996
+              ],
+              "content": "time sensitive nature of the deal asked Five Below for a firm confirmation.  Both parties "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                425.10672675238715,
+                1461.9998508029514,
+                471.233410305447
+              ],
+              "content": "thereafter confirmed the price and quantity quoted by K7.5  The parties\u2019 subsequent conduct\u2014"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                503.000005086263,
+                1392.666286892361,
+                547.9000091552734
+              ],
+              "content": "exchanging emails regarding the order, sending the Vendor Manual, issuing K7 a vendor "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                579.6666039360894,
+                1469.6663750542534,
+                624.5666080050999
+              ],
+              "content": "number, K7 submitting vendor related paperwork and product samples\u2014further supports K7\u2019s "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.9998304578993,
+                656.3332027859158,
+                1424.9996609157986,
+                701.2332068549262
+              ],
+              "content": "position that a contract was formed.  See 13 Pa. Cons. Stat. \u00a7 2204(a); Standard Bent Glass "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                199.9998304578993,
+                732.999759250217,
+                1396.999274359809,
+                777.8997633192274
+              ],
+              "content": "Corp. v. Glassrobots Oy, 333 F.3d 440, 445 (3d Cir. 2003) (\u201cIn a commercial transaction "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                199.9998304578993,
+                809.6664428710938,
+                1419.6662055121528,
+                854.5664469401041
+              ],
+              "content": "involving the sale of goods [under the Pennsylvania UCC], where the parties\u2019 performance "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                199.9998304578993,
+                886.3331264919705,
+                1440.3327094184028,
+                931.2331305609808
+              ],
+              "content": "demonstrates agreement, we look past disputes over contract formation and move directly to "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                199.9998304578993,
+                962.9998101128472,
+                491.666497124566,
+                1007.8998141818576
+              ],
+              "content": "ascertain its terms.\u201d). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            193,
+            1042,
+            1490,
+            1545
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.9998304578993,
+                1039.6664937337239,
+                1488.3324517144097,
+                1084.5664978027344
+              ],
+              "content": "Five Below also moves to dismiss K7\u2019s promissory estoppel claim on the grounds that it "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.9998304578993,
+                1116.3331773546006,
+                1433.999294704861,
+                1161.233181423611
+              ],
+              "content": "was unreasonable for K7 to manufacture items based on Five Below\u2019s ballpark projections.  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                199.9998304578993,
+                1192.9998609754773,
+                1440.3328789605034,
+                1237.8998650444878
+              ],
+              "content": "Under Pennsylvania law, a \u201cpromise which the promisor should reasonably expect to induce "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                199.9998304578993,
+                1269.666544596354,
+                1344.9994405110676,
+                1314.5665486653645
+              ],
+              "content": "action or forbearance on the part of the promise . . . which does induce such action or "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.9998304578993,
+                1346.333228217231,
+                1380.9994167751736,
+                1391.2332322862412
+              ],
+              "content": "forbearance is binding if injustice can be avoided only by enforcement of the promise.\u201d  "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.9998304578993,
+                1423.0000813802083,
+                1494.9998643663193,
+                1467.9000854492188
+              ],
+              "content": "Thatcher\u2019s Drug Store of W. Goshen, Inc. v. Consol. Supermarkets, Inc., 636 A.2d 156, 160 (Pa. "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99991522894965,
+                1499.6666802300347,
+                1395.66650390625,
+                1544.5666842990452
+              ],
+              "content": "1994) (quoting Restatement (Second) Contracts \u00a7 90(1)).  The Complaint alleges that K7 "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            195,
+            1682,
+            1503,
+            2002
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                1680.1066080729165,
+                1468.3342827690972,
+                1721.4146931966145
+              ],
+              "content": "5 Five Below points to apparent contradictions in the Complaint regarding whether Five Below ordered "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.00667572021484,
+                1715.4346042209202,
+                1460.7884724934895,
+                1756.742689344618
+              ],
+              "content": "soap as well as hand sanitizer and the total value of Five Below\u2019s order as evidence that the agreement "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                1750.439961751302,
+                1431.3251071506077,
+                1791.748046875
+              ],
+              "content": "lacked sufficiently definite terms.  K7\u2019s allegation that Five Below ordered 600,000 travel size hand "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                1785.773213704427,
+                1473.3166164822048,
+                1827.081298828125
+              ],
+              "content": "sanitizers, divided into four sub-groups by product type, at the prices discussed and quoted via email, is "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                200.0,
+                1820.7733154296875,
+                1501.3492160373264,
+                1862.0814005533853
+              ],
+              "content": "sufficiently definite to be enforced.  See 13 Pa. Cons. Stat \u00a7 2204(c) (\u201cEven though one or more terms are "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                200.00004238552518,
+                1855.7639227973089,
+                1491.8316311306423,
+                1897.0720079210068
+              ],
+              "content": "left open a contract for sale does not fail for indefiniteness if the parties have intended to make a contract "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                200.00004238552518,
+                1891.0919189453125,
+                1507.0076836480034,
+                1932.4000040690103
+              ],
+              "content": "and there is a reasonably certain basis for giving an appropriate remedy.\u201d); see also Reilly, 206 F. Supp.2d "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                200.0,
+                1926.1066012912327,
+                1352.6557922363281,
+                1967.4146864149304
+              ],
+              "content": "at 651 (explaining that pursuant to the Pennsylvania UCC \u201ccontract formation depends on the "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                200.0,
+                1961.4398532443577,
+                1494.9920654296875,
+                2002.7479383680554
+              ],
+              "content": "manifestation of intent by the parties to be bound rather than the presence or absence of specific terms\u201d).  "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            838,
+            2029,
+            861,
+            2057
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "6 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 6,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            193,
+            195,
+            1483,
+            704
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                200.0,
+                196.33344014485675,
+                1440.999518500434,
+                241.23342302110458
+              ],
+              "content": "manufactured 600,000 units of hand sanitizer specifically for Five Below in reliance on Five "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                200.0,
+                273.00003899468317,
+                1403.6664326985676,
+                317.90002187093097
+              ],
+              "content": "Below\u2019s purchase commitment and subsequent assurances.  Whether K7\u2019s reliance on the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                200.0,
+                349.6666378445095,
+                1479.6627468532986,
+                394.56664191351996
+              ],
+              "content": "parties\u2019 email exchange in manufacturing the hand sanitizer for Five Below was reasonable is a "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                200.0,
+                426.33323669433594,
+                1419.3333095974392,
+                471.2332407633463
+              ],
+              "content": "question of fact for the jury.  See Toy v. Metro. Life Ins. Co., 928 A.2d 186, 208 (Pa. 2007) "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                199.99991522894965,
+                502.9998355441623,
+                1479.9964057074653,
+                547.8998396131727
+              ],
+              "content": "(\u201c[J]ustifiable reliance is typically a question of fact for the fact-finder to decide, and requires a "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                199.99991522894965,
+                579.6664343939887,
+                1363.6661105685764,
+                624.5664384629991
+              ],
+              "content": "consideration of the parties, their relationship, and the circumstances surrounding their "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                199.99991522894965,
+                656.3330332438151,
+                396.99991014268664,
+                701.2330373128254
+              ],
+              "content": "transaction.\u201d). "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            200,
+            736,
+            531,
+            777
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                199.99991522894965,
+                732.466295030382,
+                241.59990946451822,
+                780.1996019151476
+              ],
+              "content": "V. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                299.99991522894965,
+                732.466295030382,
+                534.3332078721788,
+                778.599633110894
+              ],
+              "content": "CONCLUSION "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            197,
+            814,
+            1355,
+            930
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                299.99991522894965,
+                809.666273328993,
+                1357.3332044813367,
+                854.5662773980034
+              ],
+              "content": "For the foregoing reasons, Five Below\u2019s Motion to dismiss will be denied.  An "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                199.9998304578993,
+                886.3329569498698,
+                555.3331587049696,
+                931.2329610188801
+              ],
+              "content": "appropriate order follows. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            899,
+            1042,
+            1167,
+            1082
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                899.9998304578993,
+                1039.1329447428386,
+                1173.3331468370225,
+                1085.2662828233506
+              ],
+              "content": "BY THE COURT: "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            897,
+            1121,
+            1248,
+            1160
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                899.9997456868489,
+                1115.7995435926648,
+                1252.6663886176216,
+                1161.932881673177
+              ],
+              "content": "/s/Wendy Beetlestone, J. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            899,
+            1235,
+            1326,
+            1274
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                900.0,
+                1192.9999457465278,
+                1425.0,
+                1237.899949815538
+              ],
+              "content": "_______________________________ "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                900.0,
+                1230.8000352647568,
+                1332.6666937934028,
+                1276.933373345269
+              ],
+              "content": "WENDY BEETLESTONE, J. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            840,
+            2028,
+            860,
+            2056
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                2019.6667141384548,
+                866.6666666666666,
+                2064.5667182074653
+              ],
+              "content": "7 "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

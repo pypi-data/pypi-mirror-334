@@ -1,0 +1,5723 @@
+{
+  "filename": "doc.pdf.17_0.pdf",
+  "pages": [
+    {
+      "i": 0,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            506,
+            31,
+            1649,
+            166
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                1504.2222764756943,
+                43.199989530775284,
+                1644.4444444444443,
+                96.62221272786458
+              ],
+              "content": "E-FILED"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                1134.8778618706597,
+                86.28882302178276,
+                1644.4451226128472,
+                126.35548909505208
+              ],
+              "content": " Monday, 30 April, 2018  11:56:48 AM "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                1231.0112847222222,
+                126.28889083862305,
+                1644.4447835286458,
+                166.35555691189236
+              ],
+              "content": " Clerk, U.S. District Court, ILCD"
+            },
+            {
+              "i": 3,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 1 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            492,
+            221,
+            1205,
+            335
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                568.0000305175781,
+                215.46664767795139,
+                1140.3333875868054,
+                261.59996456570093
+              ],
+              "content": "UNITED STATES DISTRICT COURT "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                497.6666768391927,
+                253.79994710286456,
+                1210.6666564941406,
+                299.93326399061414
+              ],
+              "content": "FOR THE CENTRAL DISTRICT OF ILLINOIS "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                696.6666327582465,
+                292.13324652777777,
+                1011.6666158040364,
+                338.26656341552734
+              ],
+              "content": "URBANA DIVISION "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            217,
+            374,
+            934,
+            411
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                368.79984537760413,
+                628.3333248562283,
+                414.93318345811633
+              ],
+              "content": "JESSICA A. WILLIAMS,  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                368.79984537760413,
+                939.3333435058594,
+                414.93318345811633
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                919.9999491373698,
+                407.13314480251734,
+                939.333258734809,
+                453.2664828830295
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            254,
+            421,
+            931,
+            445
+          ],
+          "type": "text",
+          "lines": []
+        },
+        {
+          "i": 4,
+          "bbox": [
+            220,
+            454,
+            933,
+            488
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                445.46644422743054,
+                353.3332824707031,
+                491.5997823079427
+              ],
+              "content": "Plaintiff, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                919.9999491373698,
+                445.46644422743054,
+                939.333258734809,
+                491.5997823079427
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                919.9999491373698,
+                483.79974365234375,
+                939.333258734809,
+                529.9330817328558
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            268,
+            498,
+            934,
+            522
+          ],
+          "type": "text",
+          "lines": []
+        },
+        {
+          "i": 6,
+          "bbox": [
+            218,
+            533,
+            935,
+            561
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                319.99994913736975,
+                522.133043077257,
+                380.3332858615451,
+                568.266381157769
+              ],
+              "content": "-vs- "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                919.9999491373698,
+                522.133043077257,
+                955.9995863172743,
+                568.266381157769
+              ],
+              "content": ")   "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                919.9999491373698,
+                560.4663425021702,
+                939.333258734809,
+                606.5996805826823
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            218,
+            605,
+            934,
+            718
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                598.7996419270833,
+                835.6665717230902,
+                644.9329800075955
+              ],
+              "content": "PAPA JOHN\u2019S INTERNATIONAL, INC., "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                919.9999491373698,
+                598.7996419270833,
+                939.333258734809,
+                644.9329800075955
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                219.99994913736978,
+                637.1329413519965,
+                628.3332824707031,
+                683.2662794325087
+              ],
+              "content": "PAPA JOHN\u2019S USA, INC.,   "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                919.9999491373698,
+                637.1329413519965,
+                939.333258734809,
+                683.2662794325087
+              ],
+              "content": ") "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                219.99994913736978,
+                675.4662407769097,
+                628.333240085178,
+                721.5995788574219
+              ],
+              "content": "HH ENTERPRISES, INC.,  "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                919.9999491373698,
+                675.4662407769097,
+                939.333258734809,
+                721.5995788574219
+              ],
+              "content": ") "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                919.9999491373698,
+                713.7995402018229,
+                939.333258734809,
+                759.9328782823351
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            525,
+            834,
+            1173,
+            874
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                531.3333299424913,
+                828.8000318739149,
+                1176.6666836208767,
+                874.933369954427
+              ],
+              "content": "FIRST AMENDED COMPLAINT AT LAW "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            215,
+            908,
+            1487,
+            1182
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                319.99999152289496,
+                905.333285861545,
+                1488.3329603407117,
+                950.2332899305555
+              ],
+              "content": "NOW COMES Plaintiff, Jessica A. Williams, by and through her attorney of record, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                219.99994913736978,
+                981.9999694824219,
+                1488.3331298828125,
+                1026.8999735514324
+              ],
+              "content": "Ronald S. Langacker of Langacker Law, Ltd., and for her First Amended Complaint at Law "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                219.99986436631943,
+                1058.6666531032986,
+                1488.3336385091145,
+                1103.566657172309
+              ],
+              "content": "against Defendants Papa John\u2019s International, Inc. and Papa John\u2019s USA, Inc. (hereinafter "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                220.00003390842014,
+                1135.3333367241753,
+                1488.333468967014,
+                1180.2333407931858
+              ],
+              "content": "\u201cPapa John\u2019s; and Defendant HH Enterprises, Inc. (\u201cHH Enterprises\u201d), hereby states as follows: "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            639,
+            1215,
+            1061,
+            1259
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                641.999986436632,
+                1212.1333652072483,
+                1066.3333468967014,
+                1258.2667032877603
+              ],
+              "content": "NATURE OF THE ACTION "
+            }
+          ]
+        },
+        {
+          "i": 11,
+          "bbox": [
+            225,
+            1291,
+            1489,
+            1718
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                1288.6666191948784,
+                1488.3329603407117,
+                1334.1666327582466
+              ],
+              "content": "1. This is a case regarding Papa John\u2019s and HH Enterprises, Inc. (collectively referred to herein "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                1365.3333028157551,
+                1488.3329603407117,
+                1410.2333068847656
+              ],
+              "content": "as \u201cDefendants\u201d) and the shocking, offensive, and illegal treatment, discrimination, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99991522894965,
+                1441.9999864366318,
+                1488.337198893229,
+                1486.8999905056423
+              ],
+              "content": "harassment and termination of a pregnant employee. This is an action authorized and "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99991522894965,
+                1518.666754828559,
+                1488.333299424913,
+                1563.5667588975693
+              ],
+              "content": "instituted pursuant to Title VII of the Civil Rights Act of 1964, 42 U.S.C.A \u00a7 2000e et seq., "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.99991522894965,
+                1595.333523220486,
+                1488.333977593316,
+                1640.2335272894966
+              ],
+              "content": "the Pregnancy Discrimination Act amendment, 42 U.S.C.A. \u00a7 2000e(k), to Title VII, and the "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                249.99991522894965,
+                1672.0001220703125,
+                963.6666191948784,
+                1716.9001261393228
+              ],
+              "content": "Illinois Human Rights Act, 775 ILCS 5/2-102 et seq. "
+            }
+          ]
+        },
+        {
+          "i": 12,
+          "bbox": [
+            840,
+            2002,
+            858,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "1 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            508,
+            31,
+            1191,
+            69
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 2 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            623,
+            220,
+            1075,
+            262
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                625.6666819254557,
+                215.46664767795139,
+                1082.3333740234375,
+                261.59996456570093
+              ],
+              "content": "JURISDICTION AND VENUE "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            215,
+            295,
+            1485,
+            489
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                291.99994405110675,
+                1488.333468967014,
+                337.4999364217122
+              ],
+              "content": "2. This Court has jurisdiction pursuant to 28 U.S.C.A \u00a7\u00a7 1331 and 1343 and 42 U.S.C.A \u00a7 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00016954210068,
+                368.66654290093317,
+                1488.333468967014,
+                413.56654696994354
+              ],
+              "content": "2000e-5(f)(3). Supplemental jurisdiction is conferred by 28 U.S.C.A \u00a7 1367 for Plaintiff\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                445.3331417507595,
+                592.3334333631727,
+                490.23314581976996
+              ],
+              "content": "state law cause of action. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            525,
+            1485,
+            718
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0000762939453,
+                521.9997406005859,
+                1488.336181640625,
+                567.4997117784288
+              ],
+              "content": "3. Venue is proper in the Urbana Division of the Central District of Illinois because the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                598.6663394504124,
+                1488.3324517144097,
+                643.5663435194227
+              ],
+              "content": "employment practices hereafter alleged to be unlawful were committed within this judicial "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                675.3329383002387,
+                359.3334197998047,
+                720.2328999837239
+              ],
+              "content": "district. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            458,
+            755,
+            1241,
+            799
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                463.33334181043836,
+                752.1333482530382,
+                1245.0000339084202,
+                798.2666863335503
+              ],
+              "content": "EXHAUSTION OF ADMINISTRATIVE REMEDIES "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            211,
+            832,
+            1428,
+            873
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                828.6666022406683,
+                1420.9999084472656,
+                874.1666158040364
+              ],
+              "content": "4. Plaintiff has exhausted all of her administrative remedies prior to bringing this lawsuit. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            220,
+            908,
+            1490,
+            1335
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                905.333285861545,
+                1488.3355034722222,
+                950.8332994249132
+              ],
+              "content": "5. Plaintiff has filed a charge of discrimination with the Equal Employment Opportunity "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99995761447482,
+                981.9999694824219,
+                1488.333299424913,
+                1026.8999735514324
+              ],
+              "content": "Commission (\u201cEEOC\u201d) in cause 21-B-2017-00351, and with the Illinois Department of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                1058.6666531032986,
+                1488.333299424913,
+                1103.566657172309
+              ],
+              "content": "Human Rights (\u201cIDHR\u201d) in cause 2017SF1148, on November 28, 2016. See Plaintiff\u2019s "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0,
+                1135.3333367241753,
+                1488.333468967014,
+                1180.2333407931858
+              ],
+              "content": "Exhibit A, attached hereto. Plaintiff has received a right to sue letter from the EEOC on "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.00008477105033,
+                1212.000020345052,
+                1488.3295694986978,
+                1256.9000244140625
+              ],
+              "content": "October 2, 2017, a true and correct copy of which is attached hereto as Plaintiff's Exhibit B. "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                250.00004238552518,
+                1288.6667039659287,
+                1332.0000542534722,
+                1333.5667080349392
+              ],
+              "content": "All allegations of said charges and exhibits are incorporated by reference hereto. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            217,
+            1369,
+            1488,
+            1718
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                1365.3333875868054,
+                1480.099826388889,
+                1410.8334011501736
+              ],
+              "content": "6. Plaintiff filed an additional charge of discrimination with the EEOC in cause 21-B-"
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                1442.0001559787327,
+                1488.3326212565103,
+                1486.900160047743
+              ],
+              "content": "201710065, and with the IDHR in cause 2017SF2134, on March 14, 2016. See Plaintiff\u2019s "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99987284342447,
+                1518.6669243706597,
+                1488.3324517144097,
+                1563.5669284396702
+              ],
+              "content": "Exhibit C, attached hereto. Plaintiff has received a right to sue letter from the EEOC on "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99987284342447,
+                1595.333523220486,
+                1488.333299424913,
+                1640.2335272894966
+              ],
+              "content": "October 2, 2017, a true and correct copy of which is attached hereto as Plaintiff's Exhibit D. "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.99991522894965,
+                1672.0001220703125,
+                1331.9998847113716,
+                1716.9001261393228
+              ],
+              "content": "All allegations of said charges and exhibits are incorporated by reference hereto. "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            774,
+            1752,
+            925,
+            1796
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                777.6666429307726,
+                1748.7999810112847,
+                930.333285861545,
+                1794.9332343207464
+              ],
+              "content": "PARTIES "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            217,
+            1828,
+            1485,
+            1949
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                1825.333319769965,
+                1488.3331298828125,
+                1870.8333333333333
+              ],
+              "content": "7. Plaintiff, Jessica A. Williams (\u201cPlaintiff\u201d), is a permanent resident of the United States who, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                1902.0000881618923,
+                1276.666768391927,
+                1946.9000922309026
+              ],
+              "content": "at the time of the events in question, resided in Champaign County, Illinois.  "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            839,
+            2002,
+            861,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "2 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 3 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            216,
+            218,
+            1492,
+            721
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                215.33334520128037,
+                1488.3297390407986,
+                260.83333757188586
+              ],
+              "content": "8. Defendant, Papa John\u2019s International, Inc., is a Delaware corporation, and through its "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                291.99994405110675,
+                1488.3338080512153,
+                336.8999269273546
+              ],
+              "content": "subsidiary, Papa John\u2019s USA, Inc., a Kentucky corporation, (collectively \u201cPapa John\u2019s\u201d), at "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00033908420139,
+                368.66654290093317,
+                1488.3368598090278,
+                413.56654696994354
+              ],
+              "content": "all times material to this action possessed and continues to possess their principal place of "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00025431315103,
+                445.3331417507595,
+                1488.3331298828125,
+                490.23314581976996
+              ],
+              "content": "business in Kentucky. Papa John\u2019s operates under a franchise business model. Specifically, "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.00025431315103,
+                521.9997406005859,
+                1488.3404201931423,
+                566.8997446695963
+              ],
+              "content": "a number of Papa John\u2019s restaurants are not actually owned by Papa John\u2019s, the franchisor, "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                250.00025431315103,
+                598.6663394504124,
+                1488.333977593316,
+                643.5663435194227
+              ],
+              "content": "but by independent franchisees in the United States and Canada. Papa John\u2019s possesses "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                250.00025431315103,
+                675.3329383002387,
+                1272.0000372992622,
+                720.2328999837239
+              ],
+              "content": "franchisees and regularly conducts business in Champaign County, Illinois.  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            214,
+            754,
+            1487,
+            1105
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0002670288086,
+                751.9995795355902,
+                1488.3324517144097,
+                797.4995930989583
+              ],
+              "content": "9. Defendant, HH Enterprises, Inc., (\u201cHH Enterprises\u201d), at all times material to this action, was "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00033908420139,
+                828.666263156467,
+                1488.333468967014,
+                873.5662672254774
+              ],
+              "content": "an Illinois Corporation registered in Champaign County, Illinois. HH Enterprises is a Papa "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00025431315103,
+                905.3329467773438,
+                1488.3304172092014,
+                950.2329508463541
+              ],
+              "content": "John\u2019s franchisee and operates Papa John\u2019s #1831 which is a Papa John\u2019s store (\u201cStore\u201d) "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0002966986762,
+                981.9996303982205,
+                1488.3329603407117,
+                1026.899634467231
+              ],
+              "content": "located at 225 East Congress Avenue, Rantoul, Illinois. At all times therein, the owner of HH "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.00025431315103,
+                1058.6663140190972,
+                964.6668328179253,
+                1103.5663180881077
+              ],
+              "content": "Enterprises was Mr. Hakan Hatipoglu (\u201cHatipoglu\u201d). "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            1137,
+            1488,
+            1640
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                1135.3329976399739,
+                1488.3336385091145,
+                1180.833011203342
+              ],
+              "content": "10. On November 6, 2007, Defendants Papa John\u2019s and HH Enterprises, Inc. entered into a "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00016954210068,
+                1211.9996812608506,
+                1488.3329603407117,
+                1256.899685329861
+              ],
+              "content": "franchise agreement. Pursuant to the franchise agreement, Papa John\u2019s (the \u201cfranchisor\u201d) "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00016954210068,
+                1288.6663648817273,
+                1488.333299424913,
+                1333.5663689507378
+              ],
+              "content": "ensured that HH Enterprises, Inc. (the \u201cfranchisee\u201d) would operate the restaurant in strict "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00016954210068,
+                1365.333048502604,
+                1488.3329603407117,
+                1410.2330525716145
+              ],
+              "content": "compliance with Papa John\u2019s\u2019 standards and policies for employees, provide operational "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.00016954210068,
+                1441.9998168945312,
+                1488.333468967014,
+                1486.8998209635415
+              ],
+              "content": "training for employees as needed, and provide policy and procedure statements or other "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                250.00016954210068,
+                1518.6665852864583,
+                1488.3336385091145,
+                1563.5665893554688
+              ],
+              "content": "written notice of specifications, standards and procedures as required by the franchisor, Papa "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                250.00016954210068,
+                1595.3331841362847,
+                362.00018988715277,
+                1640.2331882052952
+              ],
+              "content": "John\u2019s.  "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            219,
+            1674,
+            1486,
+            1949
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00016106499567,
+                1671.999782986111,
+                1488.3295694986978,
+                1717.499796549479
+              ],
+              "content": "11. Papa John\u2019s is a joint employer with its franchisees because Papa John\u2019s exercises indirect "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00016954210068,
+                1748.666551378038,
+                1488.332790798611,
+                1793.5665554470486
+              ],
+              "content": "control over working conditions and/or reserves the authority to do so through its right to "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00016954210068,
+                1825.3331502278645,
+                1488.3329603407117,
+                1870.233154296875
+              ],
+              "content": "control operations at all of its restaurants via franchise agreements, business manuals, and "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00016954210068,
+                1901.9999186197915,
+                622.333484225803,
+                1946.899922688802
+              ],
+              "content": "other operating documents. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            839,
+            2001,
+            861,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "3 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            31,
+            1191,
+            69
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 4 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            655,
+            219,
+            1045,
+            263
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                659.3333350287543,
+                215.46664767795139,
+                1048.9999559190537,
+                261.59996456570093
+              ],
+              "content": "STATEMENT OF FACTS "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            218,
+            295,
+            1485,
+            491
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                291.99994405110675,
+                1488.3331298828125,
+                337.4999364217122
+              ],
+              "content": "12. At all relevant times therein, Plaintiff, Jessica A. Williams, was a protected party under the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                368.66654290093317,
+                1488.3329603407117,
+                413.56654696994354
+              ],
+              "content": "Pregnancy Discrimination Act, 42 U.S.C.A. \u00a7 2000e(k), and the Illinois Human Rights Act, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99991522894965,
+                445.3331417507595,
+                550.9998745388455,
+                490.23314581976996
+              ],
+              "content": "775 ILCS 5/2-102(I).  "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            218,
+            525,
+            1485,
+            643
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                521.9997406005859,
+                1488.3331298828125,
+                567.4997117784288
+              ],
+              "content": "13. Plaintiff was hired by the Defendant, HH Enterprises, as a Manager in Rantoul, Illinois in "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99974568684894,
+                598.6663394504124,
+                402.6663886176215,
+                643.5663435194227
+              ],
+              "content": "May 2016. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            219,
+            678,
+            1486,
+            798
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99971601698132,
+                675.3329383002387,
+                1488.3324517144097,
+                720.8329094780815
+              ],
+              "content": "14. At all times relevant herein, Plaintiff performed her job duties in a satisfactory manner "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99974568684894,
+                751.9995795355902,
+                1243.9997355143228,
+                796.8995836046007
+              ],
+              "content": "consistent with Papa John\u2019s and HH Enterprise\u2019s reasonable expectations. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            221,
+            832,
+            1487,
+            1334
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.9997795952691,
+                828.666263156467,
+                1488.333299424913,
+                874.1662767198351
+              ],
+              "content": "15. In July of 2016, Plaintiff advised the General Manager of the Store, Jessica Babcock "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99974568684894,
+                905.3329467773438,
+                1488.3329603407117,
+                950.2329508463541
+              ],
+              "content": "(\u201cBabcock\u201d or \u201cGeneral Manager\u201d), that Plaintiff had become pregnant and would need to "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                981.9996303982205,
+                1488.3360120985242,
+                1026.899634467231
+              ],
+              "content": "take unpaid maternity leave later in the year. Babcock stated that Plaintiff\u2019s pregnancy was "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0,
+                1058.6663140190972,
+                1488.333468967014,
+                1103.5663180881077
+              ],
+              "content": "\u201cbullshit,\u201d and that Plaintiff should have let the Defendants know that Plaintiff was pregnant "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.99991522894965,
+                1135.3329976399739,
+                1488.333299424913,
+                1180.2330017089844
+              ],
+              "content": "when she was hired. Babcock also stated that she would need to tell the owner of HH "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                249.99991522894965,
+                1211.9996812608506,
+                1488.333299424913,
+                1256.899685329861
+              ],
+              "content": "Enterprises, Hakam Hatipoglu, about Plaintiff\u2019s pregnancy, and stated ominously that "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                249.99991522894965,
+                1288.6663648817273,
+                886.9999355740017,
+                1333.5663689507378
+              ],
+              "content": "Hatipoglu would \u201cnot be happy\u201d with Plaintiff. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            217,
+            1369,
+            1488,
+            1720
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                1365.333048502604,
+                1488.333468967014,
+                1410.8330620659722
+              ],
+              "content": "16. While working alone at the Store on September 5, 2016, the Plaintiff began experiencing "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                1441.9998168945312,
+                1488.333299424913,
+                1486.8998209635415
+              ],
+              "content": "abdominal cramping and pain. Plaintiff notified the General Manager that she thought she "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99991522894965,
+                1518.6665852864583,
+                1488.3331298828125,
+                1563.5665893554688
+              ],
+              "content": "might be having contractions and needed to go to the hospital to seek medical care. The "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.9998304578993,
+                1595.3331841362847,
+                1488.3329603407117,
+                1640.2331882052952
+              ],
+              "content": "General Manager told the Plaintiff that \u201cshe should have been smart enough to know if she "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.9998304578993,
+                1671.999782986111,
+                1488.3329603407117,
+                1716.8997870551216
+              ],
+              "content": "was having contractions\u201d and did not arrive at the Store to relieve Plaintiff for over two hours. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            218,
+            1752,
+            1487,
+            1948
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99969482421875,
+                1748.666551378038,
+                1488.3324517144097,
+                1794.1665649414062
+              ],
+              "content": "17. Plaintiff gave birth to her child via cesarean section on September 15, 2017. Plaintiff\u2019s "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99970330132376,
+                1825.3331502278645,
+                1488.333299424913,
+                1870.233154296875
+              ],
+              "content": "physician recommended that Plaintiff take six (6) weeks off of work for maternity leave. See "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99974568684894,
+                1901.9999186197915,
+                754.6664767795139,
+                1946.899922688802
+              ],
+              "content": "Plaintiff\u2019s Exhibit E, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            839,
+            2002,
+            861,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "4 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 5 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            218,
+            218,
+            1487,
+            416
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                215.33334520128037,
+                1488.333468967014,
+                260.83333757188586
+              ],
+              "content": "18. During the time Plaintiff was on medical leave, Defendants, by and through their agents, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00016954210068,
+                291.99994405110675,
+                1488.333299424913,
+                336.8999269273546
+              ],
+              "content": "contacted Plaintiff and told her that she would need to report to work under threat of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                368.66654290093317,
+                1375.0000847710503,
+                413.56654696994354
+              ],
+              "content": "termination if Plaintiff refused to comply. See Plaintiff\u2019s Exhibit F, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            218,
+            448,
+            1488,
+            645
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                445.3331417507595,
+                1488.333299424913,
+                490.8331129286024
+              ],
+              "content": "19. When Plaintiff returned to the Store following her maternity leave, she was demoted from "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                521.9997406005859,
+                1488.333299424913,
+                566.8997446695963
+              ],
+              "content": "her position as Manager and was given fewer hours during the week. See Plaintiff\u2019s Exhibit "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99991522894965,
+                598.6663394504124,
+                1432.9996744791665,
+                643.5663435194227
+              ],
+              "content": "G, attached hereto. Plaintiff\u2019s hourly wage was also reduced as a result of her demotion. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            217,
+            678,
+            1486,
+            951
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                675.3329383002387,
+                1488.3331298828125,
+                720.8329094780815
+              ],
+              "content": "20. As a result of complications from her pregnancy, Plaintiff occasionally needed to use the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                751.9995795355902,
+                1488.333299424913,
+                796.8995836046007
+              ],
+              "content": "restroom during her shift at the Store. When Plaintiff advised the General Manager that she "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                828.666263156467,
+                1488.3326212565103,
+                873.5662672254774
+              ],
+              "content": "needed to use the restroom, Plaintiff was told that she would need to clock out in order to do "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.9998304578993,
+                905.3329467773438,
+                296.3331646389431,
+                950.2329508463541
+              ],
+              "content": "so. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            217,
+            985,
+            1489,
+            1489
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99982198079425,
+                981.9996303982205,
+                1488.333299424913,
+                1027.4996439615886
+              ],
+              "content": "21. When the Plaintiff advised the General Manager of the problems Plaintiff was experiencing "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.9998304578993,
+                1058.6663140190972,
+                1488.333299424913,
+                1103.5663180881077
+              ],
+              "content": "regarding hours, wages, and treatment by other employees, the General Manager became "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                1135.3329976399739,
+                1488.3331298828125,
+                1180.2330017089844
+              ],
+              "content": "verbally abusive to the Plaintiff in front of Mr. Hatipoglu. The General Manager stated to the "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99991522894965,
+                1211.9996812608506,
+                1488.3326212565103,
+                1256.899685329861
+              ],
+              "content": "Plaintiff that she had \u201cbetter watch herself\u201d because the General Manager \u201cdid not need a "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.99991522894965,
+                1288.6663648817273,
+                1488.333299424913,
+                1333.5663689507378
+              ],
+              "content": "reason\u201d to terminate the Plaintiff. After the encounter with the General Manager, Mr. "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                250.0,
+                1365.333048502604,
+                1488.3329603407117,
+                1410.2330525716145
+              ],
+              "content": "Hatipoglu stated to the Plaintiff that he \u201cdid not want any drama\u201d and the Plaintiff needed to "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                250.0,
+                1441.9998168945312,
+                1470.6666734483506,
+                1486.8998209635415
+              ],
+              "content": "\u201cthink about if she really wanted her job or not.\u201d See Plaintiff\u2019s Exhibit H, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            215,
+            1522,
+            1486,
+            1640
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                1518.6665852864583,
+                1488.3329603407117,
+                1564.1665988498264
+              ],
+              "content": "22. On November 4, 2016, Plaintiff retained Langacker Law to represent her in regard to her "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00004238552518,
+                1595.3331841362847,
+                798.0000813802083,
+                1640.2331882052952
+              ],
+              "content": "employment issues with the Defendants. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            216,
+            1675,
+            1487,
+            1872
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0000762939453,
+                1671.999782986111,
+                1488.332790798611,
+                1717.499796549479
+              ],
+              "content": "23. On November 9, 2016, Langacker Law sent a request for Plaintiff\u2019s personnel records "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                1748.666551378038,
+                1488.3331298828125,
+                1793.5665554470486
+              ],
+              "content": "pursuant to the Illinois Personnel Record Review Act (820 ILCS Section 40) to the Store "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00016954210068,
+                1825.3331502278645,
+                1390.3335571289062,
+                1870.233154296875
+              ],
+              "content": "location #1831 addressed to Mr. Hatipoglu. See Plaintiff\u2019s Exhibit I, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            839,
+            2001,
+            861,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "5 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 6 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            216,
+            217,
+            1487,
+            413
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                215.33334520128037,
+                1488.333299424913,
+                260.83333757188586
+              ],
+              "content": "24. On November 19, 2016, Plaintiff was written up for being tardy\u2014however, Plaintiff had "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                291.99994405110675,
+                1488.333299424913,
+                336.8999269273546
+              ],
+              "content": "previously requested the time off for a medical appointment. See Plaintiff\u2019s Exhibit J, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                368.66654290093317,
+                469.3333095974392,
+                413.56654696994354
+              ],
+              "content": "attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            215,
+            447,
+            1486,
+            722
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99997033013238,
+                445.3331417507595,
+                1488.3336385091145,
+                490.8331129286024
+              ],
+              "content": "25. On November 28, 2016, Plaintiff filed a Charge of Discrimination (\u201cCharge\u201d) with the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                521.9997406005859,
+                1488.3326212565103,
+                566.8997446695963
+              ],
+              "content": "EEOC and IDHR, Charge No. 2017SF1148, alleging that she had been discriminated against "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                598.6663394504124,
+                1488.333299424913,
+                643.5663435194227
+              ],
+              "content": "by the Defendants as a result of her pregnancy. The Charge was mailed to the Defendants on "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99991522894965,
+                675.3329383002387,
+                1221.9998677571614,
+                720.2328999837239
+              ],
+              "content": "November 30, 2016. Refer to Exhibit A, previously incorporated herein. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            214,
+            754,
+            1488,
+            1102
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                751.9995795355902,
+                1488.3331298828125,
+                797.4995930989583
+              ],
+              "content": "26. On December 3, 2016, Plaintiff was reprimanded for allegedly being late because she had "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.9998304578993,
+                828.666263156467,
+                1488.3363511827256,
+                873.5662672254774
+              ],
+              "content": "a flat tire. Plaintiff pointed out that she had only began receiving written discipline after her "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99978807237412,
+                905.3329467773438,
+                1488.3331298828125,
+                950.2329508463541
+              ],
+              "content": "attorney had contacted the Store and requested her employment file. Upon referencing this "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.9998304578993,
+                981.9996303982205,
+                1488.333468967014,
+                1026.899634467231
+              ],
+              "content": "fact in the write up, the Mr. Hatipoglu refused to sign the reprimand. See Exhibit K, attached "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.9998304578993,
+                1058.6663140190972,
+                349.9998304578993,
+                1103.5663180881077
+              ],
+              "content": "hereto. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            216,
+            1137,
+            1486,
+            1412
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99982198079425,
+                1135.3329976399739,
+                1488.3331298828125,
+                1180.833011203342
+              ],
+              "content": "27. On December 5, 2016, Plaintiff\u2019s hours were again reduced. When Plaintiff asked Mr. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99974568684894,
+                1211.9996812608506,
+                1488.3290608723958,
+                1256.899685329861
+              ],
+              "content": "Hatipoglu why her hours had been reduced, he stated, \u201cif [Plaintiff] tried to hurt his family "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                1288.6663648817273,
+                1488.3331298828125,
+                1333.5663689507378
+              ],
+              "content": "then he would return the favor,\u201d in reference to Plaintiff\u2019s charge of discrimination filed with "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.9998304578993,
+                1365.333048502604,
+                1425.9997897677952,
+                1410.2330525716145
+              ],
+              "content": "the IDHR and EEOC on November 28, 2016. See Plaintiff\u2019s Exhibit L, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            215,
+            1444,
+            1487,
+            1718
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.9997795952691,
+                1441.9998168945312,
+                1488.3331298828125,
+                1487.4998304578992
+              ],
+              "content": "28. On February 27, 2017, Plaintiff was again reprimanded after she was forced to take time "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.9998304578993,
+                1518.6665852864583,
+                1488.336181640625,
+                1563.5665893554688
+              ],
+              "content": "off of work for an emergency dental procedure. As a result of the dental procedure, Plaintiff "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                1595.3331841362847,
+                1488.3331298828125,
+                1640.2331882052952
+              ],
+              "content": "was placed on medical leave and released back to work on March 10, 2017. See Plaintiff\u2019s "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.9998304578993,
+                1671.999782986111,
+                621.9998677571614,
+                1716.8997870551216
+              ],
+              "content": "Exhibit M, attached hereto. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            215,
+            1751,
+            1484,
+            1873
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                1748.666551378038,
+                1488.3324517144097,
+                1794.1665649414062
+              ],
+              "content": "29. On March 10, 2017, Plaintiff was abruptly terminated from her position by Mr. Hatipoglu. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99978807237412,
+                1825.3331502278645,
+                1488.336181640625,
+                1870.233154296875
+              ],
+              "content": "In terminating the Plaintiff, Mr. Hatipoglu stated that he \u201ccouldn\u2019t believe that he hired a "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            838,
+            2002,
+            861,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "6 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 6,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 7 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            246,
+            217,
+            1481,
+            337
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.00004238552518,
+                215.33334520128037,
+                1488.3336385091145,
+                260.2333280775282
+              ],
+              "content": "piece of shit like [Plaintiff],\u201d and demanded that Plaintiff return her keys to the Store. There "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                291.99994405110675,
+                1200.0,
+                336.8999269273546
+              ],
+              "content": "was no legitimate non-discriminatory basis for Plaintiff\u2019s termination.  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            391,
+            372,
+            1309,
+            492
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                779.000006781684,
+                368.80001491970484,
+                929.000006781684,
+                414.933353000217
+              ],
+              "content": "COUNT I "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                458.6666531032986,
+                407.13331434461804,
+                1249.3333604600693,
+                453.2666524251302
+              ],
+              "content": "(Pregnancy Discrimination Act of 1978, Amendment to "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                394.99999152289496,
+                445.46661376953125,
+                1313.333299424913,
+                491.5999518500434
+              ],
+              "content": "Title VII of the Civil Rights Act of 1964, 42 U.S.C.A. \u00a7 2000e(k)) "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            222,
+            526,
+            1478,
+            641
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                522.0000796847874,
+                1488.3326212565103,
+                567.5000508626301
+              ],
+              "content": "30. Plaintiff repeats and re-alleges all of the paragraphs in this Complaint as if fully set forth "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                598.6666785346137,
+                350.00008477105035,
+                643.5666826036241
+              ],
+              "content": "herein. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            217,
+            678,
+            1485,
+            798
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0000762939453,
+                675.3332773844401,
+                1488.3260091145833,
+                720.833248562283
+              ],
+              "content": "31. Plaintiff was a pregnant employee of Defendant within the meaning of employee as defined "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                751.9999186197916,
+                654.6667734781901,
+                796.899922688802
+              ],
+              "content": "under 42 U.S.C.A. \u00a72000e(f). "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            216,
+            830,
+            1485,
+            1105
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                828.6666022406683,
+                1488.333468967014,
+                874.1666158040364
+              ],
+              "content": "32. Defendants, Papa John\u2019s and HH Enterprises were \u201cemployers\u201d under 42 U.S.C.A. \u00a7 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                905.333285861545,
+                1488.3326212565103,
+                950.2332899305555
+              ],
+              "content": "2000e(b) which defines an \u201cemployer\u201d to include a person engaged in an industry affecting "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                981.9999694824219,
+                1488.3260091145833,
+                1026.8999735514324
+              ],
+              "content": "commerce who has 15 or more employees for at least 20 calendar weeks in the current or "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00008477105033,
+                1058.6666531032986,
+                585.0001017252604,
+                1103.566657172309
+              ],
+              "content": "preceding calendar year. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            216,
+            1138,
+            1485,
+            1335
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                1135.3333367241753,
+                1488.3331298828125,
+                1180.8333502875435
+              ],
+              "content": "33. Defendants, Papa John\u2019s and HH Enterprises were also \u201cjoint employers\u201d pursuant to "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                1212.000020345052,
+                1488.3351643880208,
+                1256.9000244140625
+              ],
+              "content": "EEOC, as a plaintiff may have multiple employers for the purposes of Title VII liability. "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0001271565755,
+                1288.6667039659287,
+                1090.6666225857205,
+                1333.5667080349392
+              ],
+              "content": "Tamayo v. Blagojevich, 526 F.3d 1074, 1088 (7th Cir. 2008).   "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            216,
+            1369,
+            1485,
+            1566
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                1365.3333875868054,
+                1488.333468967014,
+                1410.8334011501736
+              ],
+              "content": "34. Through its franchise agreement, policies, and operating manual, Defendant, Papa John\u2019s "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                1442.0001559787327,
+                1488.333468967014,
+                1486.900160047743
+              ],
+              "content": "Inc. exercised significant control over HH Enterprises\u2019 daily operations and could control the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                1518.6669243706597,
+                1095.0001186794705,
+                1563.5669284396702
+              ],
+              "content": "employment decisions, training, and safety of their employees. "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            215,
+            1598,
+            1484,
+            1719
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                1595.333523220486,
+                1488.3336385091145,
+                1640.833536783854
+              ],
+              "content": "35. Defendants, Papa John\u2019s and HH Enterprises, by and through their agents, were aware that "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00016954210068,
+                1672.0001220703125,
+                561.0001458062065,
+                1716.9001261393228
+              ],
+              "content": "Plaintiff was pregnant. "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            214,
+            1750,
+            1481,
+            1795
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00016106499567,
+                1748.6668904622395,
+                1488.333468967014,
+                1794.1669040256077
+              ],
+              "content": "36. Defendants discriminated against Plaintiff because of her pregnancy in the following ways: "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            364,
+            1827,
+            1484,
+            1950
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                370.0002034505208,
+                1825.333489312066,
+                1488.3324517144097,
+                1870.8335028754339
+              ],
+              "content": "a. Defendants harassed Plaintiff during her employment and created a hostile work "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                420.0002034505208,
+                1902.000257703993,
+                954.0001763237847,
+                1946.9002617730034
+              ],
+              "content": "environment because of her pregnancy; "
+            }
+          ]
+        },
+        {
+          "i": 11,
+          "bbox": [
+            840,
+            2001,
+            860,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "7 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 8 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            360,
+            217,
+            1485,
+            954
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                370.0000339084201,
+                215.33334520128037,
+                1488.3326212565103,
+                260.83333757188586
+              ],
+              "content": "b. Defendants treated Plaintiff less favorably in the terms, conditions, privileges, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                420.0000339084201,
+                291.99994405110675,
+                1480.0999959309895,
+                336.8999269273546
+              ],
+              "content": "and responsibilities of her employment compared to similarly situated non-"
+            },
+            {
+              "i": 2,
+              "bbox": [
+                420.00011867947046,
+                368.66654290093317,
+                705.0001356336805,
+                413.56654696994354
+              ],
+              "content": "pregnant employees; "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                370.00011867947046,
+                445.3331417507595,
+                1488.3329603407117,
+                490.8331129286024
+              ],
+              "content": "c. Defendants discussed Plaintiff, Plaintiff's pregnancy, and Plaintiff's ability to "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                420.0000339084201,
+                521.9997406005859,
+                1488.333468967014,
+                566.8997446695963
+              ],
+              "content": "continue working while pregnant openly and unfavorably with Defendants\u2019 "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                420.0002034505208,
+                598.6663394504124,
+                580.0002204047308,
+                643.5663435194227
+              ],
+              "content": "employees; "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                370.0002034505208,
+                675.3329383002387,
+                1416.6668362087673,
+                720.8329094780815
+              ],
+              "content": "d. Defendants refused to accommodate Plaintiff as a result of her pregnancy; "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                370.0002034505208,
+                751.9995795355902,
+                1178.000217013889,
+                797.4995930989583
+              ],
+              "content": "e. Defendants demoted Plaintiff because of her pregnancy; "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                370.0002034505208,
+                828.666263156467,
+                1333.333502875434,
+                874.1662767198351
+              ],
+              "content": "f. Defendants reduced Plaintiff\u2019s pay as a result of her pregnancy; and "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                370.0002034505208,
+                905.3329467773438,
+                1290.000237358941,
+                950.8329603407118
+              ],
+              "content": "g. Defendants terminated the Plaintiff as a result of her pregnancy.  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            216,
+            985,
+            1488,
+            1259
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00020345052081,
+                981.9996303982205,
+                1488.3331298828125,
+                1027.4996439615886
+              ],
+              "content": "37. Defendants\u2019 unlawful conduct, as alleged above, caused Plaintiff substantial damages, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00021192762586,
+                1058.6663140190972,
+                1488.3331298828125,
+                1103.5663180881077
+              ],
+              "content": "including but not limited to: loss of employment, loss of past and future income and benefits, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00016954210068,
+                1135.3329976399739,
+                1488.3336385091145,
+                1180.2330017089844
+              ],
+              "content": "loss of earning capacity, emotional distress, loss of reputation, humiliation, and "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00016954210068,
+                1211.9996812608506,
+                1271.3334825303818,
+                1256.899685329861
+              ],
+              "content": "embarrassment. Plaintiff will continue to suffer these damages in the future. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            219,
+            1291,
+            1487,
+            1639
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00020345052081,
+                1288.6663648817273,
+                1488.3297390407986,
+                1334.1663784450955
+              ],
+              "content": "38. Defendants\u2019 unlawful conduct, as alleged above, was intentional and undertaken with "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00021192762586,
+                1365.333048502604,
+                1488.3329603407117,
+                1410.2330525716145
+              ],
+              "content": "malice and reckless indifference to Plaintiff\u2019s rights under the Equal Protection Clause and "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00021192762586,
+                1441.9998168945312,
+                1488.3336385091145,
+                1486.8998209635415
+              ],
+              "content": "42 U.S.C.A \u00a7\u00a7 1981 and 1983, and Plaintiff therefore seeks awards of punitive damages "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00025431315103,
+                1518.6665852864583,
+                1488.333299424913,
+                1563.5665893554688
+              ],
+              "content": "against these Defendants in order to deter them and others similarly situated from such "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.00025431315103,
+                1595.3331841362847,
+                673.6669328477648,
+                1640.2331882052952
+              ],
+              "content": "wrongful conduct in the future. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            588,
+            1676,
+            1110,
+            1758
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                772.6666768391926,
+                1672.1333821614583,
+                935.6666564941406,
+                1718.2666354709202
+              ],
+              "content": "COUNT II "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                592.999988132053,
+                1710.4666815863716,
+                1115.3333028157551,
+                1756.5999348958333
+              ],
+              "content": "(Violation of Title VII\u2014Retaliation) "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            215,
+            1791,
+            1486,
+            1906
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                1787.000020345052,
+                1488.3326212565103,
+                1832.5000339084202
+              ],
+              "content": "39. Plaintiff repeats and re-alleges all of the paragraphs in this Complaint as if fully set forth "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                1863.666788736979,
+                358.3333333333333,
+                1908.5667928059895
+              ],
+              "content": "herein.  "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            838,
+            2002,
+            860,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "8 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 8,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            507,
+            30,
+            1191,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                513.9999813503689,
+                36.54593891567654,
+                1195.2334933810764,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 9 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            216,
+            216,
+            1487,
+            491
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                215.33334520128037,
+                1488.332282172309,
+                260.83333757188586
+              ],
+              "content": "40. Title VII makes it unlawful for an employer to discriminate against an employee because "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00004238552518,
+                291.99994405110675,
+                1488.326687282986,
+                336.8999269273546
+              ],
+              "content": "he or she has opposed any practice made an unlawful by Title VII, or if he or she has made a "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00004238552518,
+                368.66654290093317,
+                1488.3292304144966,
+                413.56654696994354
+              ],
+              "content": "charge, testified, assisted, or participated in any manner in an investigation, proceeding, or "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.00004238552518,
+                445.3331417507595,
+                576.6667260064019,
+                490.23314581976996
+              ],
+              "content": "hearing under Title VII. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            215,
+            525,
+            1487,
+            721
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0000762939453,
+                521.9997406005859,
+                1488.3336385091145,
+                567.4997117784288
+              ],
+              "content": "41. Plaintiff experienced acts of retaliation from her employer as a result of her having filed a "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                598.6663394504124,
+                1488.333468967014,
+                643.5663435194227
+              ],
+              "content": "charge of discrimination with the EEOC under the Pregnancy Discrimination Act of 1978, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                675.3329383002387,
+                933.333248562283,
+                720.2328999837239
+              ],
+              "content": "including but not limited to the following conduct: "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            362,
+            753,
+            1487,
+            1336
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                369.99994913736975,
+                751.9995795355902,
+                783.000013563368,
+                797.4995930989583
+              ],
+              "content": "a. Having her hours reduced; "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                369.99999152289496,
+                828.666263156467,
+                1488.333299424913,
+                874.1662767198351
+              ],
+              "content": "b. Being threatened by Mr. Hatipoglu, that \u201cif [Plaintiff] tried to hurt his family "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                420.0000339084201,
+                905.3329467773438,
+                856.9999694824219,
+                950.2329508463541
+              ],
+              "content": "then he would return the favor;\u201d "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                369.99999152289496,
+                981.9996303982205,
+                1214.333258734809,
+                1027.4996439615886
+              ],
+              "content": "c. Being reprimanded on numerous occasions without cause;  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                369.99994913736975,
+                1058.6663140190972,
+                1488.332790798611,
+                1104.1663275824653
+              ],
+              "content": "d. Being told by Mr. Hatipoglu that he \u201ccouldn\u2019t believe that he hired a piece of "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                419.99994913736975,
+                1135.3329976399739,
+                763.3332994249132,
+                1180.2330017089844
+              ],
+              "content": "shit like [Plaintiff];\u201d and  "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                369.99994913736975,
+                1211.9996812608506,
+                1488.3329603407117,
+                1257.4996948242188
+              ],
+              "content": "e. Being terminated from her employment on March 10, 2017, in retaliation for "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                419.99994913736975,
+                1288.6663648817273,
+                1239.6665785047742,
+                1333.5663689507378
+              ],
+              "content": "filing a Charge of Discrimination with the IDHR and EEOC. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            216,
+            1368,
+            1484,
+            1488
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                1365.333048502604,
+                1488.333299424913,
+                1410.8330620659722
+              ],
+              "content": "42. There was a causal link (\u201cnexus\u201d) between the filing of the Charge of Discrimination by "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                1441.9998168945312,
+                869.3331400553385,
+                1486.8998209635415
+              ],
+              "content": "Plaintiff and the adverse employment actions. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            217,
+            1521,
+            1486,
+            1795
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00001271565753,
+                1518.6665852864583,
+                1488.3297390407986,
+                1564.1665988498264
+              ],
+              "content": "43. Defendants have subjected Plaintiff to the above-described less favorable terms and "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                1595.3331841362847,
+                1488.3329603407117,
+                1640.2331882052952
+              ],
+              "content": "conditions of employment, failed to take proper steps to address Plaintiff\u2019s complaints of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                1671.999782986111,
+                1488.3297390407986,
+                1716.8997870551216
+              ],
+              "content": "discrimination and harassment, and terminated Plaintiff\u2019s employment because of her "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0,
+                1748.666551378038,
+                821.9999525282118,
+                1793.5665554470486
+              ],
+              "content": "protected activity in violation of Title VII. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            215,
+            1828,
+            1485,
+            1950
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                1825.3331502278645,
+                1488.332790798611,
+                1870.8331637912327
+              ],
+              "content": "44. Defendants\u2019 unlawful conduct, as alleged above, caused Plaintiff substantial damages, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99995761447482,
+                1901.9999186197915,
+                1488.3329603407117,
+                1946.899922688802
+              ],
+              "content": "including but not limited to: loss of employment, loss of past and future income and benefits, "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            838,
+            2001,
+            861,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                841.6666666666666,
+                1993.3334350585938,
+                866.6666666666666,
+                2038.233439127604
+              ],
+              "content": "9 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            498,
+            30,
+            1200,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 10 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            244,
+            217,
+            1485,
+            338
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.00004238552518,
+                215.33334520128037,
+                1488.333468967014,
+                260.2333280775282
+              ],
+              "content": "loss of earning capacity, emotional distress, loss of reputation, humiliation, and "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                291.99994405110675,
+                1270.999993218316,
+                336.8999269273546
+              ],
+              "content": "embarrassment. Plaintiff will continue to suffer these damages in the future. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            382,
+            372,
+            1318,
+            454
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                766.0000271267361,
+                368.80001491970484,
+                942.0000712076823,
+                414.933353000217
+              ],
+              "content": "COUNT III "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                386.00001864963104,
+                407.13331434461804,
+                1322.0000372992622,
+                453.2666524251302
+              ],
+              "content": "(Violation of the Illinois Human Rights Act, 775 ILCS 5/2-102(1)) "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            486,
+            1484,
+            604
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                483.66661071777344,
+                1488.3256700303818,
+                529.1665818956163
+              ],
+              "content": "45. Plaintiff repeats and re-alleges all of the paragraphs in this complaint as if fully set forth "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.9999788072374,
+                560.3332095675999,
+                349.9999788072374,
+                605.2332136366102
+              ],
+              "content": "herein. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            216,
+            640,
+            1484,
+            759
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99997033013238,
+                636.9998084174262,
+                1488.333299424913,
+                682.499779595269
+              ],
+              "content": "46. Plaintiff was an \u201cemployee\u201d as defined under the Illinois Human Rights Act (\u201cAct\u201d) 775 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                713.6663648817274,
+                497.3333570692274,
+                758.5663689507378
+              ],
+              "content": "ILCS 5/2-101(A). "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            217,
+            792,
+            1485,
+            987
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                790.3330485026041,
+                1488.3329603407117,
+                835.8330620659722
+              ],
+              "content": "47. Defendants Papa Johns, Inc., and HH Enterprises are employers within the meaning of the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                866.9997321234808,
+                1488.333299424913,
+                911.8997361924913
+              ],
+              "content": "Act, 775 ILCS 5/101(B)(1)(b), and engaged in business practices within Champaign County, "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                943.6664157443576,
+                361.00006103515625,
+                988.566419813368
+              ],
+              "content": "Illinois. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            216,
+            1024,
+            1487,
+            1219
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0000762939453,
+                1020.3330993652344,
+                1488.333299424913,
+                1065.8331129286023
+              ],
+              "content": "48. The Act includes pregnancy as a protected class and has been broadly defined to include "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                1096.999782986111,
+                1488.332790798611,
+                1141.8997870551216
+              ],
+              "content": "pregnancy, childbirth and medical conditions related to pregnancy or childbirth. 775 ILCS "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.00008477105033,
+                1173.6664666069878,
+                440.66679212782117,
+                1218.5664706759983
+              ],
+              "content": "5/1-103(L-5). "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            215,
+            1254,
+            1046,
+            1296
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.0001186794705,
+                1250.3331502278645,
+                1067.0001559787327,
+                1295.8331637912327
+              ],
+              "content": "49. Plaintiff was in a protected class in that she was pregnant.   "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            219,
+            1330,
+            1398,
+            1373
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00020345052081,
+                1326.9998338487412,
+                1401.3334486219617,
+                1372.4998474121094
+              ],
+              "content": "50. Defendants Papa John\u2019s and HH Enterprises were aware that Plaintiff was pregnant. "
+            }
+          ]
+        },
+        {
+          "i": 9,
+          "bbox": [
+            214,
+            1407,
+            1485,
+            1526
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00020345052081,
+                1403.6664326985676,
+                1488.3321126302083,
+                1449.166531032986
+              ],
+              "content": "51. Defendants Papa John\u2019s and HH Enterprises discriminated against Plaintiff in violation of "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00025431315103,
+                1480.3332858615452,
+                1055.333540174696,
+                1525.2332899305554
+              ],
+              "content": "the Act including, but not limited to, the following conduct: "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            363,
+            1560,
+            1486,
+            1911
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                370.0002034505208,
+                1557.0000542534722,
+                1488.3324517144097,
+                1602.5000678168403
+              ],
+              "content": "a. Defendants harassed Plaintiff during her employment and created a hostile work "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                420.0002034505208,
+                1633.6666531032986,
+                954.0001763237847,
+                1678.566657172309
+              ],
+              "content": "environment because of her pregnancy; "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                370.00016106499567,
+                1710.333251953125,
+                1488.3331298828125,
+                1755.833265516493
+              ],
+              "content": "b. Defendants treated Plaintiff less favorably in the terms, conditions, privileges, "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                420.00011867947046,
+                1787.000020345052,
+                1480.0999959309895,
+                1831.9000244140625
+              ],
+              "content": "and responsibilities of her employment as compared to similarly situated non-"
+            },
+            {
+              "i": 4,
+              "bbox": [
+                420.00011867947046,
+                1863.6666191948784,
+                705.0001356336805,
+                1908.566623263889
+              ],
+              "content": "pregnant employees; "
+            }
+          ]
+        },
+        {
+          "i": 11,
+          "bbox": [
+            834,
+            2002,
+            869,
+            2032
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "10 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            497,
+            30,
+            1201,
+            70
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 11 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            363,
+            216,
+            1488,
+            646
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                370.0000339084201,
+                215.33334520128037,
+                1488.3317735460068,
+                260.83333757188586
+              ],
+              "content": "c. Defendants discussed Plaintiff's pregnancy and Plaintiff's ability to continue "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                420.0000762939453,
+                291.99994405110675,
+                1470.3333536783853,
+                336.8999269273546
+              ],
+              "content": "working while pregnant openly and unfavorably with Defendants\u2019 employees; "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                370.0000339084201,
+                368.66654290093317,
+                1416.6666666666665,
+                414.166514078776
+              ],
+              "content": "d. Defendants refused to accommodate Plaintiff as a result of her pregnancy; "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                370.0000339084201,
+                445.3331417507595,
+                1178.000047471788,
+                490.8331129286024
+              ],
+              "content": "e. Defendants demoted Plaintiff because of her pregnancy; "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                370.0000339084201,
+                521.9997406005859,
+                1333.3333333333333,
+                567.4997117784288
+              ],
+              "content": "f. Defendants reduced Plaintiff\u2019s pay as a result of her pregnancy; and "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                370.0000339084201,
+                598.6663394504124,
+                1290.0000678168403,
+                644.1663106282551
+              ],
+              "content": "g. Defendants terminated the Plaintiff as a result of her pregnancy.  "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            215,
+            678,
+            1484,
+            799
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                675.3329383002387,
+                1488.3326212565103,
+                720.8329094780815
+              ],
+              "content": "52. The discriminatory misconduct described above was the result of a willful or intentional "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00004238552518,
+                751.9995795355902,
+                1453.000047471788,
+                796.8995836046007
+              ],
+              "content": "effort on the part of the Defendants to discriminate against Plaintiff due to her pregnancy. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            831,
+            1484,
+            951
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                828.666263156467,
+                1488.3293999565972,
+                874.1662767198351
+              ],
+              "content": "53. There was a causal link (\u201cnexus\u201d) between the Plaintiff\u2019s pregnancy and the adverse "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                905.3329467773438,
+                522.999996609158,
+                950.2329508463541
+              ],
+              "content": "employment action. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            216,
+            985,
+            1485,
+            1103
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                981.9996303982205,
+                1488.3329603407117,
+                1027.4996439615886
+              ],
+              "content": "54. To prevent future violations of the Act, Plaintiff seeks an award of punitive damages against "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99995761447482,
+                1058.6663140190972,
+                467.6666259765625,
+                1103.5663180881077
+              ],
+              "content": "the Defendants. "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            217,
+            1138,
+            1485,
+            1409
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99997033013238,
+                1135.3329976399739,
+                1488.3326212565103,
+                1180.833011203342
+              ],
+              "content": "55. Plaintiff was treated differently than her similarly situated co-worker(s) at her employment. "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                1211.9996812608506,
+                1488.3326212565103,
+                1256.899685329861
+              ],
+              "content": "Other individuals who were not members of the Plaintiff\u2019s protected class with similar "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99991522894965,
+                1288.6663648817273,
+                1488.332790798611,
+                1333.5663689507378
+              ],
+              "content": "contributions and achievements were not been terminated under similar circumstances by the "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99991522894965,
+                1365.333048502604,
+                405.33324347601996,
+                1410.2330525716145
+              ],
+              "content": "Defendant. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            216,
+            1445,
+            1488,
+            1795
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.9999067518446,
+                1441.9998168945312,
+                1488.3326212565103,
+                1487.4998304578992
+              ],
+              "content": "56. As a result of Defendants\u2019 unlawful employment actions complained of herein, Plaintiff "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99995761447482,
+                1518.6665852864583,
+                1488.3329603407117,
+                1563.5665893554688
+              ],
+              "content": "experienced, and continues to experience, lost wages and benefits. Additionally, Plaintiff has "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.99995761447482,
+                1595.3331841362847,
+                1488.3336385091145,
+                1640.2331882052952
+              ],
+              "content": "suffered and continues to suffer from severe emotional distress, embarrassment, and mental "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                249.99991522894965,
+                1671.999782986111,
+                1488.3295694986978,
+                1716.8997870551216
+              ],
+              "content": "anguish. Plaintiff seeks compensatory damages, reasonable attorney\u2019s fees and costs, and "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                249.99991522894965,
+                1748.666551378038,
+                834.3332926432291,
+                1793.5665554470486
+              ],
+              "content": "other appropriate legal and equitable relief. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            834,
+            2002,
+            865,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "11 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 11,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            498,
+            31,
+            1200,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 12 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            551,
+            219,
+            1147,
+            300
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                766.999986436632,
+                215.46664767795139,
+                941.0002814398871,
+                261.59996456570093
+              ],
+              "content": "COUNT IV "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                556.6666497124565,
+                253.79994710286456,
+                1151.333279079861,
+                299.93326399061414
+              ],
+              "content": "(Retaliation\u2014Illinois Human Rights Act) "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            216,
+            334,
+            1485,
+            451
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                330.33341301812067,
+                1488.3319430881077,
+                375.8333841959635
+              ],
+              "content": "57. Plaintiff repeats and re-alleges all of the paragraphs in this Complaint as if fully set forth "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00004238552518,
+                407.000011867947,
+                358.3333757188585,
+                451.90001593695746
+              ],
+              "content": "herein.  "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            485,
+            1485,
+            760
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                483.66661071777344,
+                1488.3353339301216,
+                529.1665818956163
+              ],
+              "content": "58. The Illinois Human Rights Act (\u201cAct\u201d) makes it unlawful for an employer to discriminate "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00004238552518,
+                560.3332095675999,
+                1488.333299424913,
+                605.2332136366102
+              ],
+              "content": "against an employee because he or she has opposed any practice made an unlawful by the "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                636.9998084174262,
+                1488.332790798611,
+                681.8998124864366
+              ],
+              "content": "Act, or if he or she has made a charge, testified, assisted, or participated in any manner in an "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0,
+                713.6663648817274,
+                946.3333129882812,
+                758.5663689507378
+              ],
+              "content": "investigation, proceeding, or hearing under the Act. "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            214,
+            793,
+            1484,
+            913
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                790.3330485026041,
+                1488.3321126302083,
+                835.8330620659722
+              ],
+              "content": "59. Defendants Papa John\u2019s and HH Enterprises discriminated against the Plaintiff in violation "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.00008477105033,
+                866.9997321234808,
+                1091.3334316677517,
+                911.8997361924913
+              ],
+              "content": "of the Act including, but not limited to, the following conduct: "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            362,
+            946,
+            1487,
+            1527
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                370.00011867947046,
+                943.6664157443576,
+                783.0001831054688,
+                989.1664293077257
+              ],
+              "content": "a. Having her hours reduced; "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                370.00016106499567,
+                1020.3330993652344,
+                1488.3319430881077,
+                1065.8331129286023
+              ],
+              "content": "b. Being threatened by Mr. Hatipoglu that \u201cIf [Plaintiff] tried to hurt his family "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                420.00011867947046,
+                1096.999782986111,
+                856.0000949435764,
+                1141.8997870551216
+              ],
+              "content": "then he would return the favor,\u201d "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                370.00011867947046,
+                1173.6664666069878,
+                1270.666758219401,
+                1219.166480170356
+              ],
+              "content": "c. Being reprimanded on numerous occasions without any cause;  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                370.00011867947046,
+                1250.3331502278645,
+                1488.332790798611,
+                1295.8331637912327
+              ],
+              "content": "d. Being told by Mr. Hatipoglu that he \u201ccouldn\u2019t believe that he hired a piece of "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                420.00011867947046,
+                1326.9998338487412,
+                763.3334689670139,
+                1371.8998379177517
+              ],
+              "content": "shit like [Plaintiff];\u201d and  "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                370.00011867947046,
+                1403.6664326985676,
+                1488.3365207248264,
+                1449.166531032986
+              ],
+              "content": "e. Being terminated from her employment on March 10, 2017, in retaliation for "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                420.00011867947046,
+                1480.3332858615452,
+                1239.666748046875,
+                1525.2332899305554
+              ],
+              "content": "filing a Charge of Discrimination with the IDHR and EEOC. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            215,
+            1560,
+            1485,
+            1679
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                1557.0000542534722,
+                1488.333299424913,
+                1602.5000678168403
+              ],
+              "content": "60. There was a causal link (\u201cnexus\u201d) between the filing of the IDHR complaint by Plaintiff "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                1633.6666531032986,
+                751.6665988498264,
+                1678.566657172309
+              ],
+              "content": "and the adverse employment actions. "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            216,
+            1713,
+            1486,
+            1911
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.9999067518446,
+                1710.333251953125,
+                1488.3295694986978,
+                1755.833265516493
+              ],
+              "content": "61. Defendants have subjected Plaintiff to the above-described less favorable terms and "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                249.99991522894965,
+                1787.000020345052,
+                1488.3324517144097,
+                1831.9000244140625
+              ],
+              "content": "conditions of employment, failed to take proper steps to address Plaintiff\u2019s complaints of "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                249.9998304578993,
+                1863.6666191948784,
+                1488.3295694986978,
+                1908.566623263889
+              ],
+              "content": "discrimination and harassment, and terminated Plaintiff\u2019s employment because of her "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            834,
+            2002,
+            868,
+            2032
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "12 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 12,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            498,
+            31,
+            1200,
+            70
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 13 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            244,
+            219,
+            795,
+            259
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                250.00004238552518,
+                215.33334520128037,
+                801.6666836208767,
+                260.2333280775282
+              ],
+              "content": "protected activity in violation of the Act. "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            218,
+            296,
+            1487,
+            643
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99999152289496,
+                291.99994405110675,
+                1488.3326212565103,
+                337.4999364217122
+              ],
+              "content": "62. As a result of Defendants\u2019 unlawful employment actions complained of herein, Plaintiff "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                250.0,
+                368.66654290093317,
+                1488.3331298828125,
+                413.56654696994354
+              ],
+              "content": "experienced, and continues to experience, lost wages and benefits. Additionally, Plaintiff has "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                250.0,
+                445.3331417507595,
+                1488.3336385091145,
+                490.23314581976996
+              ],
+              "content": "suffered and continues to suffer from severe emotional distress, embarrassment, and mental "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.0,
+                521.9997406005859,
+                1488.3329603407117,
+                566.8997446695963
+              ],
+              "content": "anguish. Plaintiff seeks compensatory damages, reasonable attorney\u2019s fees and costs, and "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.0,
+                598.6663394504124,
+                834.3333774142795,
+                643.5663435194227
+              ],
+              "content": "other appropriate legal and equitable relief. "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            672,
+            679,
+            1029,
+            723
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                675.0,
+                675.4667494032118,
+                1033.3333333333333,
+                721.6000874837239
+              ],
+              "content": "PRAYER FOR RELIEF "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            307,
+            755,
+            1367,
+            798
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                319.99999152289496,
+                751.4667087131077,
+                1372.6665920681423,
+                797.6000467936198
+              ],
+              "content": "WHEREFORE, Plaintiff prays this honorable Court grant the following relief: "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            209,
+            829,
+            1488,
+            1945
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                828.6666870117188,
+                1488.3324517144097,
+                874.1667005750868
+              ],
+              "content": "A. Award damages to Plaintiff for loss of pay and benefits incurred as a result of the "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                219.99986436631943,
+                905.3333706325955,
+                1488.3351643880208,
+                950.2333747016058
+              ],
+              "content": "discrimination against her as alleged in this complaint, pursuant to and within the statutory "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                219.99986436631943,
+                982.0000542534722,
+                1488.34228515625,
+                1026.9000583224827
+              ],
+              "content": "limits under Title VII of the Civil Rights Act as well as incidental, consequential, and punitive "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                219.99986436631943,
+                1058.6667378743489,
+                354.3331993950738,
+                1103.5667419433594
+              ],
+              "content": "damages; "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                219.99986436631943,
+                1135.3334214952256,
+                1207.9998440212673,
+                1180.8334350585938
+              ],
+              "content": "B. Order that Plaintiff be reinstated to her previous employment position; "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                219.99986436631943,
+                1212.0001051161023,
+                1488.3331298828125,
+                1257.5001186794705
+              ],
+              "content": "C. Grant Plaintiff a judgment for compensatory damages as to each count in an amount "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                219.99986436631943,
+                1288.666788736979,
+                1488.333468967014,
+                1333.5667928059895
+              ],
+              "content": "sufficient to fully compensate her, and grant Plaintiff a judgment against the Defendants for "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                220.00003390842014,
+                1365.333472357856,
+                471.6667175292969,
+                1410.2334764268662
+              ],
+              "content": "punitive damages; "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                220.00003390842014,
+                1442.0003255208333,
+                1488.332790798611,
+                1487.5003390842014
+              ],
+              "content": "D. Assess against the Defendants and in favor of the Plaintiff such liquidated and exemplary "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                220.0000762939453,
+                1518.6669243706597,
+                1415.3333875868054,
+                1563.5669284396702
+              ],
+              "content": "damages as may be provided by law for the willful violations of the law committed by it; "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                220.00003390842014,
+                1595.333523220486,
+                906.9999694824219,
+                1640.833536783854
+              ],
+              "content": "E. Award Plaintiff damages for pain and suffering; "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                219.99994913736978,
+                1672.000291612413,
+                1399.3333604600693,
+                1717.5003051757812
+              ],
+              "content": "F. Award Plaintiff pre-judgment interest for the defined sum of wages and benefits lost; "
+            },
+            {
+              "i": 12,
+              "bbox": [
+                220.00003390842014,
+                1748.6670600043403,
+                1246.0000779893662,
+                1794.1670735677083
+              ],
+              "content": "G. Grant Plaintiff reasonable attorneys\u2019 fees, costs, and fees for experts; and "
+            },
+            {
+              "i": 13,
+              "bbox": [
+                220.00003390842014,
+                1825.3336588541665,
+                1256.6667344835068,
+                1870.8336724175347
+              ],
+              "content": "H. Grant Plaintiff such other relief as this Court deems necessary and proper. "
+            },
+            {
+              "i": 14,
+              "bbox": [
+                270.0000339084201,
+                1902.000257703993,
+                879.3333265516493,
+                1946.9002617730034
+              ],
+              "content": "PLAINTIFF DEMANDS TRIAL BY JURY. "
+            }
+          ]
+        },
+        {
+          "i": 6,
+          "bbox": [
+            834,
+            2002,
+            867,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "13 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            498,
+            31,
+            1201,
+            70
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 14 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            918,
+            218,
+            1232,
+            295
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                920.00003390842,
+                215.33334520128037,
+                1239.3333435058594,
+                260.2333280775282
+              ],
+              "content": "JESSICA WILLIAMS, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                253.66664462619357,
+                1095.0000339084202,
+                298.5666275024414
+              ],
+              "content": "PLAINTIFF "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            916,
+            335,
+            1292,
+            450
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                920.00003390842,
+                330.33341301812067,
+                1330.3333706325955,
+                375.23341708713104
+              ],
+              "content": "By: /s/Ronald S. Langacker     "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                368.6667124430338,
+                1216.9999864366318,
+                413.56671651204425
+              ],
+              "content": "Ronald S. Langacker  "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                920.00003390842,
+                407.000011867947,
+                1211.6667005750867,
+                451.90001593695746
+              ],
+              "content": "Attorney for Plaintiff "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            216,
+            602,
+            652,
+            911
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                598.666508992513,
+                655.0000508626301,
+                643.5665130615234
+              ],
+              "content": "Ronald S. Langacker, #6239469 "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                220.00003390842014,
+                636.9998084174262,
+                508.6666954888238,
+                681.8998124864366
+              ],
+              "content": "Attorney for Plaintiff "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                220.00003390842014,
+                675.3331078423394,
+                505.33337063259546,
+                720.2330695258246
+              ],
+              "content": "Langacker Law, Ltd. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                220.00003390842014,
+                713.6663648817274,
+                628.000005086263,
+                758.5663689507378
+              ],
+              "content": "102 E. Main Street, Suite 100  "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                219.99999152289496,
+                751.9996643066406,
+                526.3333214653862,
+                796.899668375651
+              ],
+              "content": "Urbana, Illinois 61801 "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                219.99999152289496,
+                790.3329637315538,
+                434.6666547987196,
+                835.2329678005642
+              ],
+              "content": "(217) 954-1025 "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                219.99999152289496,
+                828.666263156467,
+                434.6666547987196,
+                873.5662672254774
+              ],
+              "content": "(217) 903-5255 "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                219.99999152289496,
+                866.9995625813801,
+                543.9999898274739,
+                911.8995666503906
+              ],
+              "content": "ron@langackerlaw.com "
+            }
+          ]
+        },
+        {
+          "i": 4,
+          "bbox": [
+            834,
+            2003,
+            868,
+            2030
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "14 "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "blocks": [
+        {
+          "i": 0,
+          "bbox": [
+            499,
+            32,
+            1199,
+            69
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                504.7222137451172,
+                36.54593891567654,
+                1204.4890509711372,
+                69.87927224900987
+              ],
+              "content": "2:17-cv-02326-CSB-EIL   # 17    Page 15 of 15 "
+            }
+          ]
+        },
+        {
+          "i": 1,
+          "bbox": [
+            565,
+            220,
+            1132,
+            335
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                568.0000305175781,
+                215.46664767795139,
+                1140.3333875868054,
+                261.59996456570093
+              ],
+              "content": "UNITED STATES DISTRICT COURT "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                576.0000440809462,
+                253.79994710286456,
+                1132.0000542534722,
+                299.93326399061414
+              ],
+              "content": "CENTRAL DISTRICT OF ILLINOIS "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                696.6667175292969,
+                292.13324652777777,
+                1011.6667005750868,
+                338.26656341552734
+              ],
+              "content": "URBANA DIVISION "
+            }
+          ]
+        },
+        {
+          "i": 2,
+          "bbox": [
+            218,
+            373,
+            934,
+            411
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                368.79984537760413,
+                628.3334096272786,
+                414.93318345811633
+              ],
+              "content": "JESSICA A. WILLIAMS,  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                368.79984537760413,
+                939.3333435058594,
+                414.93318345811633
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                920.00003390842,
+                407.13314480251734,
+                939.3333435058594,
+                453.2664828830295
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 3,
+          "bbox": [
+            254,
+            420,
+            931,
+            445
+          ],
+          "type": "text",
+          "lines": []
+        },
+        {
+          "i": 4,
+          "bbox": [
+            221,
+            454,
+            934,
+            488
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                220.00003390842014,
+                445.46644422743054,
+                353.3333672417535,
+                491.5997823079427
+              ],
+              "content": "Plaintiff, "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                445.46644422743054,
+                939.3333435058594,
+                491.5997823079427
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                920.00003390842,
+                483.79974365234375,
+                939.3333435058594,
+                529.9330817328558
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 5,
+          "bbox": [
+            269,
+            498,
+            935,
+            522
+          ],
+          "type": "text",
+          "lines": []
+        },
+        {
+          "i": 6,
+          "bbox": [
+            220,
+            532,
+            936,
+            561
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                320.0000339084201,
+                522.133043077257,
+                380.33337063259546,
+                568.266381157769
+              ],
+              "content": "-vs- "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                920.00003390842,
+                522.133043077257,
+                956.000010172526,
+                568.266381157769
+              ],
+              "content": ")   "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                919.9999491373698,
+                560.4663425021702,
+                939.333258734809,
+                606.5996805826823
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 7,
+          "bbox": [
+            218,
+            604,
+            937,
+            719
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99994913736978,
+                598.7996419270833,
+                835.6665717230902,
+                644.9329800075955
+              ],
+              "content": "PAPA JOHN\u2019S INTERNATIONAL, INC., "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                919.9998643663195,
+                598.7996419270833,
+                939.3331739637587,
+                644.9329800075955
+              ],
+              "content": ") "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                219.99986436631943,
+                637.1329413519965,
+                628.3331976996527,
+                683.2662794325087
+              ],
+              "content": "PAPA JOHN\u2019S USA, INC.,   "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                919.9998643663195,
+                637.1329413519965,
+                939.3331739637587,
+                683.2662794325087
+              ],
+              "content": ") "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                219.99986436631943,
+                675.4662407769097,
+                628.3331553141276,
+                721.5995788574219
+              ],
+              "content": "HH ENTERPRISES, INC.,  "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                919.9998643663195,
+                675.4662407769097,
+                939.3331739637587,
+                721.5995788574219
+              ],
+              "content": ") "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                919.9998643663195,
+                713.7995402018229,
+                939.3331739637587,
+                759.9328782823351
+              ],
+              "content": ") "
+            }
+          ]
+        },
+        {
+          "i": 8,
+          "bbox": [
+            270,
+            728,
+            936,
+            752
+          ],
+          "type": "text",
+          "lines": []
+        },
+        {
+          "i": 9,
+          "bbox": [
+            222,
+            761,
+            933,
+            794
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                219.99986436631943,
+                752.1328396267361,
+                428.33319769965277,
+                798.2661777072483
+              ],
+              "content": "Defendant(s).  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                919.9998643663195,
+                752.1328396267361,
+                947.6665072970919,
+                798.2661777072483
+              ],
+              "content": ")  "
+            }
+          ]
+        },
+        {
+          "i": 10,
+          "bbox": [
+            707,
+            833,
+            1147,
+            874
+          ],
+          "type": "title",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                707.3333316379124,
+                828.8000318739149,
+                1155.0000508626301,
+                874.933369954427
+              ],
+              "content": "CERTIFICATE OF SERVICE "
+            }
+          ]
+        },
+        {
+          "i": 11,
+          "bbox": [
+            233,
+            910,
+            1484,
+            1064
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                335.99999745686847,
+                905.333285861545,
+                1488.3336385091145,
+                950.2332899305555
+              ],
+              "content": "The undersigned attorney hereby certifies that on April 30, 2018, he electronically "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                235.9999762641059,
+                943.1332906087239,
+                1488.333468967014,
+                989.2666286892361
+              ],
+              "content": "filed Plaintiff\u2019s First Amended Complaint at Law with the Clerk of the Court using "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                235.9999762641059,
+                981.9998847113715,
+                1488.333468967014,
+                1026.8998887803818
+              ],
+              "content": "CM/ECF system which will send notification of such filing to the following CM/ECF "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                235.9999762641059,
+                1020.3331841362847,
+                429.3333265516493,
+                1065.2331882052952
+              ],
+              "content": "participant(s): "
+            }
+          ]
+        },
+        {
+          "i": 12,
+          "bbox": [
+            243,
+            1101,
+            1352,
+            1372
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                251.000001695421,
+                1096.9999525282117,
+                491.66666666666663,
+                1141.8999565972222
+              ],
+              "content": "Mr. Eric A. Todd "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                251.000001695421,
+                1135.3333367241753,
+                515.6666649712456,
+                1180.2333407931858
+              ],
+              "content": "Ms. Sarah Kuehnel "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                251.000001695421,
+                1173.6666361490884,
+                912.9999796549479,
+                1218.5666402180989
+              ],
+              "content": "Ogletree, Deakins, Nash, Smoak & Stewart, P.C. "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                250.99995930989581,
+                1211.9999355740017,
+                745.3332689073351,
+                1256.8999396430122
+              ],
+              "content": "7700 Bonhomme Avenue, Suite 650 "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                250.99995930989581,
+                1250.3332349989148,
+                606.6665649414062,
+                1295.2332390679253
+              ],
+              "content": "St. Louis, Missouri 63105 "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                250.99995930989581,
+                1288.6665344238281,
+                580.6666480170355,
+                1333.5665384928384
+              ],
+              "content": "eric.todd@ogletree.com "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                251.000001695421,
+                1327.000003390842,
+                647.3333146837023,
+                1371.9000074598523
+              ],
+              "content": "sarah.kuehnel@ogletree.com "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                946.6666327582465,
+                1096.9999525282117,
+                1261.333296034071,
+                1141.8999565972222
+              ],
+              "content": "Mr. Scott M. Dempsey "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                946.6666327582465,
+                1135.3333367241753,
+                1356.6666497124565,
+                1180.2333407931858
+              ],
+              "content": "Dodson, Piraino & Associates "
+            },
+            {
+              "i": 9,
+              "bbox": [
+                946.6666327582465,
+                1173.6666361490884,
+                1313.9999389648438,
+                1218.5666402180989
+              ],
+              "content": "501 W. University Avenue "
+            },
+            {
+              "i": 10,
+              "bbox": [
+                946.6666327582465,
+                1211.9999355740017,
+                1311.3330417209202,
+                1256.8999396430122
+              ],
+              "content": "Champaign, Illinois 61820 "
+            },
+            {
+              "i": 11,
+              "bbox": [
+                946.6666327582465,
+                1250.3332349989148,
+                1351.333279079861,
+                1295.2332390679253
+              ],
+              "content": "dempsey_scott@hotmail.com "
+            }
+          ]
+        },
+        {
+          "i": 13,
+          "bbox": [
+            819,
+            1486,
+            1142,
+            1523
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                820.0000339084202,
+                1480.3332858615452,
+                1150.666724310981,
+                1525.2332899305554
+              ],
+              "content": "Respectfully Submitted, "
+            }
+          ]
+        },
+        {
+          "i": 14,
+          "bbox": [
+            816,
+            1561,
+            1251,
+            1906
+          ],
+          "type": "text",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                820.0000339084202,
+                1557.0000542534722,
+                1228.3333672417534,
+                1601.9000583224827
+              ],
+              "content": "By: /s/Ronald S. Langacker  "
+            },
+            {
+              "i": 1,
+              "bbox": [
+                820.0000339084202,
+                1595.3333536783853,
+                1255.0000508626301,
+                1640.2333577473958
+              ],
+              "content": "Ronald S. Langacker, #6239469 "
+            },
+            {
+              "i": 2,
+              "bbox": [
+                820.0000339084202,
+                1633.6666531032986,
+                1108.6666531032986,
+                1678.566657172309
+              ],
+              "content": "Attorney for Plaintiff "
+            },
+            {
+              "i": 3,
+              "bbox": [
+                820.0000339084202,
+                1672.0001220703125,
+                1105.3333706325955,
+                1716.9001261393228
+              ],
+              "content": "Langacker Law, Ltd. "
+            },
+            {
+              "i": 4,
+              "bbox": [
+                820.0000339084202,
+                1710.3334214952256,
+                1228.000047471788,
+                1755.233425564236
+              ],
+              "content": "102 E. Main Street, Suite 100  "
+            },
+            {
+              "i": 5,
+              "bbox": [
+                820.0000339084202,
+                1748.666720920139,
+                1126.3333638509114,
+                1793.5667249891492
+              ],
+              "content": "Urbana, Illinois 61801 "
+            },
+            {
+              "i": 6,
+              "bbox": [
+                820.0000339084202,
+                1787.0001898871526,
+                1034.6666971842449,
+                1831.900193956163
+              ],
+              "content": "(217) 954-1025 "
+            },
+            {
+              "i": 7,
+              "bbox": [
+                820.0000339084202,
+                1825.333489312066,
+                1034.6666971842449,
+                1870.2334933810764
+              ],
+              "content": "(217) 903-5255 "
+            },
+            {
+              "i": 8,
+              "bbox": [
+                820.0000339084202,
+                1863.666788736979,
+                1144.0000745985242,
+                1908.5667928059895
+              ],
+              "content": "ron@langackerlaw.com "
+            }
+          ]
+        },
+        {
+          "i": 15,
+          "bbox": [
+            834,
+            2003,
+            867,
+            2031
+          ],
+          "type": "abandon",
+          "lines": [
+            {
+              "i": 0,
+              "bbox": [
+                833.3333333333333,
+                1993.3334350585938,
+                875.0,
+                2038.233439127604
+              ],
+              "content": "15 "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
