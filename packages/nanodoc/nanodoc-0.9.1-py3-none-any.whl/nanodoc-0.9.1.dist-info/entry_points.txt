@@ -1,0 +1,4 @@
+[console_scripts]
+nanodoc=nanodoc.nanodoc:main
+pmrun=nanodoc.nanodoc:main
+
