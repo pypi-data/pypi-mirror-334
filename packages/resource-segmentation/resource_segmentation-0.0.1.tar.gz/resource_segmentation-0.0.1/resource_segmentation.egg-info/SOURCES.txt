@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+resource_segmentation/__init__.py
+resource_segmentation/group.py
+resource_segmentation/segment.py
+resource_segmentation/splitter.py
+resource_segmentation/stream.py
+resource_segmentation/types.py
+resource_segmentation.egg-info/PKG-INFO
+resource_segmentation.egg-info/SOURCES.txt
+resource_segmentation.egg-info/dependency_links.txt
+resource_segmentation.egg-info/top_level.txt
