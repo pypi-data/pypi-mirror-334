@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prastut-ai"
+version = "1.0.0"
+description = "A modern face recognition-based attendance system"
+readme = "README.md"
+authors = [{ name = "Prastut AI", email = "adminprastutai@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+keywords = ["face-recognition", "attendance-system", "deep-learning", "education"]
+requires-python = ">=3.8"
+dependencies = [
+    "Flask==2.3.3",
+    "Werkzeug==2.3.7",
+    "gunicorn==21.2.0",
+    "python-dotenv==1.0.0",
+    "numpy>=1.26.0",
+    "pandas>=2.1.0",
+    "requests==2.31.0",
+    "openpyxl==3.1.2",
+    "Pillow==10.0.0",
+    "opencv-python-headless>=4.9.0.80",
+    "imutils==0.5.4",
+    "facenet-pytorch==2.5.3",
+    "deepface==0.0.79",
+    "pinecone-client==2.2.4",
+    "firebase-admin==6.2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "build",
+    "twine"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/prastut-ai"
+Repository = "https://github.com/yourusername/prastut-ai.git"
+Issues = "https://github.com/yourusername/prastut-ai/issues"
+
+[project.scripts]
+prastut = "backend.Face_attend:main"
+
+[tool.setuptools]
+packages = ["backend"]
+package-dir = {"" = "."}
+
+[tool.setuptools.package-data]
+backend = ["templates/*", "static/*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203" 
