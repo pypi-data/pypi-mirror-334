@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: agentiq-crewai
+Version: 1.0.0rc11
+Summary: Subpackage for CrewAI integration in AgentIQ
+Keywords: ai,rag,agents
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: crewai~=0.95.0
