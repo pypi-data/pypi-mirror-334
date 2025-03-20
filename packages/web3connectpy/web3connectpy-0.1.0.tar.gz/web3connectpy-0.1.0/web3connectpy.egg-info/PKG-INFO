@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: web3connectpy
+Version: 0.1.0
+Summary: A simple library to connect to web3 provider
+Home-page: UNKNOWN
+Author: BakeNeko
+Author-email: bakeneko666@gmail.com
+License: UNKNOWN
+Description: # web3connectpy
+        
+        A simple library to connect to web3 provider.
+        
+        ## Installation
+        
+        ```bash
+        pip install web3connectpy
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
