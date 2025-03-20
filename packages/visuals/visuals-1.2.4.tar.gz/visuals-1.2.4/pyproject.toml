@@ -1,0 +1,33 @@
+[project]
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+name = "visuals"
+version = "1.2.4"
+description = "Create beautiful and colorful designs for your terminal applications"
+authors = [
+    { name = "Zed Cassiel", email = "zedpacked@gmail.com" },
+]
+readme = "README.md"
+dynamic = [ "classifiers" ]
+
+[project.urls]
+homepage = "https://pypi.org/project/visuals"
+documentation = "https://pypi.org/project/visuals"
+Source = "https://pypi.org/project/visuals/#files"
+
+[tool.poetry]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+crgb = "^1.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
