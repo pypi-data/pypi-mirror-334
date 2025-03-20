@@ -1,0 +1,111 @@
+from __future__ import annotations
+
+from metasim.utils import configclass
+
+from .base_robot_metacfg import BaseActuatorMetaCfg, BaseRobotMetaCfg
+
+
+@configclass
+class H1SimpleHandMetaCfg(BaseRobotMetaCfg):
+    name: str = "h1_simple_hand"
+    num_joints: int = 52
+    mjcf_path: str = "roboverse_data/robots/h1_simple_hand/mjcf/h1_simple_hand.xml"
+
+    enabled_gravity: bool = True
+    freejoint: bool = True
+    enabled_self_collisions: bool = False
+
+    actuators: dict[str, BaseActuatorMetaCfg] = {
+        "left_hip_yaw": BaseActuatorMetaCfg(),
+        "left_hip_roll": BaseActuatorMetaCfg(),
+        "left_hip_pitch": BaseActuatorMetaCfg(),
+        "left_knee": BaseActuatorMetaCfg(),
+        "left_ankle": BaseActuatorMetaCfg(),
+        "right_hip_yaw": BaseActuatorMetaCfg(),
+        "right_hip_roll": BaseActuatorMetaCfg(),
+        "right_hip_pitch": BaseActuatorMetaCfg(),
+        "right_knee": BaseActuatorMetaCfg(),
+        "right_ankle": BaseActuatorMetaCfg(),
+        "torso": BaseActuatorMetaCfg(),
+        "left_shoulder_pitch": BaseActuatorMetaCfg(),
+        "left_shoulder_roll": BaseActuatorMetaCfg(),
+        "left_shoulder_yaw": BaseActuatorMetaCfg(),
+        "left_elbow": BaseActuatorMetaCfg(),
+        "left_hand": BaseActuatorMetaCfg(),
+        "right_shoulder_pitch": BaseActuatorMetaCfg(),
+        "right_shoulder_roll": BaseActuatorMetaCfg(),
+        "right_shoulder_yaw": BaseActuatorMetaCfg(),
+        "right_elbow": BaseActuatorMetaCfg(),
+        "right_hand": BaseActuatorMetaCfg(),
+        "L_index_proximal": BaseActuatorMetaCfg(),
+        "L_index_intermediate": BaseActuatorMetaCfg(),
+        "L_middle_proximal": BaseActuatorMetaCfg(),
+        "L_middle_intermediate": BaseActuatorMetaCfg(),
+        "L_ring_proximal": BaseActuatorMetaCfg(),
+        "L_ring_intermediate": BaseActuatorMetaCfg(),
+        "L_pinky_proximal": BaseActuatorMetaCfg(),
+        "L_pinky_intermediate": BaseActuatorMetaCfg(),
+        "L_thumb_proximal_yaw": BaseActuatorMetaCfg(),
+        "L_thumb_proximal_pitch": BaseActuatorMetaCfg(),
+        "L_thumb_intermediate": BaseActuatorMetaCfg(),
+        "L_thumb_distal": BaseActuatorMetaCfg(),
+        "R_index_proximal": BaseActuatorMetaCfg(),
+        "R_index_intermediate": BaseActuatorMetaCfg(),
+        "R_middle_proximal": BaseActuatorMetaCfg(),
+        "R_middle_intermediate": BaseActuatorMetaCfg(),
+        "R_ring_proximal": BaseActuatorMetaCfg(),
+        "R_ring_intermediate": BaseActuatorMetaCfg(),
+        "R_pinky_proximal": BaseActuatorMetaCfg(),
+        "R_pinky_intermediate": BaseActuatorMetaCfg(),
+        "R_thumb_proximal_yaw": BaseActuatorMetaCfg(),
+        "R_thumb_proximal_pitch": BaseActuatorMetaCfg(),
+        "R_thumb_intermediate": BaseActuatorMetaCfg(),
+        "R_thumb_distal": BaseActuatorMetaCfg(),
+    }
+    joint_limits: dict[str, tuple[float, float]] = {
+        "left_hip_yaw": (-0.43, 0.43),
+        "left_hip_roll": (-0.43, 0.43),
+        "left_hip_pitch": (-3.14, 2.53),
+        "left_knee": (-0.26, 2.05),
+        "left_ankle": (-0.87, 0.52),
+        "right_hip_yaw": (-0.43, 0.43),
+        "right_hip_roll": (-0.43, 0.43),
+        "right_hip_pitch": (-3.14, 2.53),
+        "right_knee": (-0.26, 2.05),
+        "right_ankle": (-0.87, 0.52),
+        "torso": (-2.35, 2.35),
+        "left_shoulder_pitch": (-2.87, 2.87),
+        "left_shoulder_roll": (-0.34, 3.11),
+        "left_shoulder_yaw": (-1.3, 4.45),
+        "left_elbow": (-1.25, 2.61),
+        "left_hand": (-6, 6),
+        "right_shoulder_pitch": (-2.87, 2.87),
+        "right_shoulder_roll": (-3.11, 0.34),
+        "right_shoulder_yaw": (-4.45, 1.3),
+        "right_elbow": (-1.25, 2.61),
+        "right_hand": (-6, 6),
+        "L_index_proximal": (-1, 1),
+        "L_index_intermediate": (-1, 1),
+        "L_middle_proximal": (-1, 1),
+        "L_middle_intermediate": (-1, 1),
+        "L_ring_proximal": (-1, 1),
+        "L_ring_intermediate": (-1, 1),
+        "L_pinky_proximal": (-1, 1),
+        "L_pinky_intermediate": (-1, 1),
+        "L_thumb_proximal_yaw": (-1, 1),
+        "L_thumb_proximal_pitch": (-1, 1),
+        "L_thumb_intermediate": (-1, 1),
+        "L_thumb_distal": (-1, 1),
+        "R_index_proximal": (-1, 1),
+        "R_index_intermediate": (-1, 1),
+        "R_middle_proximal": (-1, 1),
+        "R_middle_intermediate": (-1, 1),
+        "R_ring_proximal": (-1, 1),
+        "R_ring_intermediate": (-1, 1),
+        "R_pinky_proximal": (-1, 1),
+        "R_pinky_intermediate": (-1, 1),
+        "R_thumb_proximal_yaw": (-1, 1),
+        "R_thumb_proximal_pitch": (-1, 1),
+        "R_thumb_intermediate": (-1, 1),
+        "R_thumb_distal": (-1, 1),
+    }
