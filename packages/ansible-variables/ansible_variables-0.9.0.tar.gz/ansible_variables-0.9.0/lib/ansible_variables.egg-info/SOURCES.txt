@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+lib/ansible_variables/__init__.py
+lib/ansible_variables.egg-info/PKG-INFO
+lib/ansible_variables.egg-info/SOURCES.txt
+lib/ansible_variables.egg-info/dependency_links.txt
+lib/ansible_variables.egg-info/entry_points.txt
+lib/ansible_variables.egg-info/requires.txt
+lib/ansible_variables.egg-info/top_level.txt
+lib/ansible_variables/cli/__init__.py
+lib/ansible_variables/cli/variables.py
+lib/ansible_variables/utils/__init__.py
+lib/ansible_variables/utils/vars.py
+tests/test_cli.py
+tests/test_utils.py
+tests/test_variablesource.py

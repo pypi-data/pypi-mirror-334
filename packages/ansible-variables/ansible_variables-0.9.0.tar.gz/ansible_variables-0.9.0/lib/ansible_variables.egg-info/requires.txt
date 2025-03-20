@@ -1,0 +1,16 @@
+rich
+
+[:python_version <= "3.9"]
+ansible-core>=2.11.0
+
+[:python_version == "3.10"]
+ansible-core<8,>=2.12.0
+
+[:python_version == "3.11"]
+ansible-core<8,>=2.14.0
+
+[:python_version == "3.12"]
+ansible-core<8,>=2.16.0
+
+[:python_version == "3.13"]
+ansible-core<8,>=2.18.0
