@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "pywaai.__version__"}
+readme = {file = "README.md", content-type = "text/markdown"}
+dependencies = {file = "requirements.txt"}
+
+[tool.setuptools.packages.find]
+include = ["pywa*", "pywaai*"]
+exclude = ["tests*"]
+
+[project]
+name = "pywaai"
+description = "Python AI wrapper for the WhatsApp Cloud API"
+dynamic = ["version", "readme", "dependencies"]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    {name = "David Lev", email = "david@davidlev.dev"},
+    {name = "Gabriel Puliatti", email = "gabriel@emptor.io"},
+]
+keywords = ["whatsapp", "whatsapp-api", "whatsapp-cloud-api", "whatsapp-cloud", "whatsapp-api-python",
+    "whatsapp-cloud-api-python", "pywai", "whatsapp-ai-python", "pywa", "wapy", "wa", "wa-api", "wa-cloud-api", "wa-cloud", "wa-api-python",
+    "wa-cloud-api-python", "whatsapp-webhook", "whatsapp-webhook-python", "whatsapp-webhook-api", "whatsapp-flows",
+    "whatsapp-cloud-api-flows"
+]
+classifiers = [
+    "Topic :: Communications :: Chat",
+    "Topic :: Communications",
+    "Topic :: Utilities",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks"
+]
+
+[project.optional-dependencies]
+flask = ["flask[async]"]
+fastapi = ["fastapi[standard]"]
+loguru = ["loguru"]
+logfire = ["logfire"]
+
+[tool.ruff.lint]
+ignore = ["E731", "F401", "E402", "F405"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+addopts = "-v"
+testpaths = ["tests"]

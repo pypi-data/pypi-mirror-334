@@ -1,0 +1,101 @@
+Metadata-Version: 2.2
+Name: pywaai
+Version: 0.0.18
+Summary: Python AI wrapper for the WhatsApp Cloud API
+Author-email: David Lev <david@davidlev.dev>, Gabriel Puliatti <gabriel@emptor.io>
+License: MIT
+Keywords: whatsapp,whatsapp-api,whatsapp-cloud-api,whatsapp-cloud,whatsapp-api-python,whatsapp-cloud-api-python,pywai,whatsapp-ai-python,pywa,wapy,wa,wa-api,wa-cloud-api,wa-cloud,wa-api-python,wa-cloud-api-python,whatsapp-webhook,whatsapp-webhook-python,whatsapp-webhook-api,whatsapp-flows,whatsapp-cloud-api-flows
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Communications
+Classifier: Topic :: Utilities
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx>=0.27.2
+Requires-Dist: requests>=2.32.3
+Requires-Dist: sqlcipher3-wheels>=0.5.2.post1
+Requires-Dist: instructor>=1.6.3
+Requires-Dist: pydantic>=2.8.2
+Requires-Dist: cachetools>=5.5.0
+Requires-Dist: sqlalchemy>=2.0.27
+Requires-Dist: cryptography>=42.0.2
+Requires-Dist: authlib>=1.3.0
+Provides-Extra: flask
+Requires-Dist: flask[async]; extra == "flask"
+Provides-Extra: fastapi
+Requires-Dist: fastapi[standard]; extra == "fastapi"
+Provides-Extra: loguru
+Requires-Dist: loguru; extra == "loguru"
+Provides-Extra: logfire
+Requires-Dist: logfire; extra == "logfire"
+
+# [PywAI](https://github.com/emptor/pywai) • Python AI wrapper for the WhatsApp Cloud API
+
+________________________
+
+**PywAI is a simple asynchronous framework (based on PyWA) to enable the creation of AI agents and bots on Whatsapp.**
+
+📄 **Quick Documentation Index**
+--------------------------------
+
+*TODO*
+
+------------------------
+
+⚡ **Features**
+---------------
+- 🚀 Fast and simple to use. No need to worry about the low-level details.
+- Use OpenAI to generate responses
+- Rewrite long responses to be more conversational
+- Save conversation history on a local SQLite (encrypted or not)
+
+------------------------
+
+👨‍💻 **Usage**
+----------------
+
+*TODO*
+
+🎛 **Installation**
+--------------------
+
+*TODO*
+
+💾 **Requirements**
+--------------------
+
+- Python 3.10 or higher - https://www.python.org
+
+📖 **Setup and Usage**
+-----------------------
+
+*TODO*
+
+☑️ **TODO**
+------------
+
+- Public docs
+- Sync with pywa 2.0
+- Add more examples and guides
+
+Feel free to open an issue if you have any suggestions. or even better - submit a PR!
+
+⚖️ **License**
+---------------
+
+This project is licensed under the MIT License - see the
+[LICENSE](https://github.com/emptor/pywai/blob/master/LICENSE) file for details
+
+
+🔱 **Contributing**
+--------------------
+
+Contributions are welcome! Please feel free to submit a Pull Request.
