@@ -1,0 +1,3 @@
+include cpp/*.h
+exclude cpp/stb_image_write.h
+exclude tests/*

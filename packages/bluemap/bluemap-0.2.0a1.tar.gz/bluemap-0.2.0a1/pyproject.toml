@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools", "Cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bluemap"
+version = "0.2.0a1"
+requires-python = ">=3.12"
+
+authors = [{ name = "Blaumeis03", email = "dev@blaumeise03.de" }]
+maintainers = [
+    { name = "Blaumeis03", email = "dev@blaumeise03.de" }
+]
+
+description = "An influence map generator"
+readme = "README.md"
+# As of februrary 2025, setuptools does not support PEP 639
+#license = "MIT"
+#license-files = ["LICENSE"]
+license = { file = "LICENSE" }
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: C++",
+    "Programming Language :: Cython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Intended Audience :: Developers",
+    "Typing :: Typed",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/Blaumeise03/bluemap"
+Repository = "https://github.com/Blaumeise03/bluemap.git"
+Documentation = "https://blaumeise03.github.io/bluemap/"
+Issues = "https://github.com/Blaumeise03/bluemap/issues"
+
+[tool.setuptools]
+packages = ["bluemap"]
+ext-modules = [
+    { name = "bluemap.stream", sources = [
+        "bluemap/stream.pyx",
+        "bluemap/stream.pxd",
+    ] },
+    { name = "bluemap._map", sources = [
+        "bluemap/_map.pyx",
+        "cpp/Image.cpp",
+        "cpp/Map.cpp",
+        "cpp/PyWrapper.cpp",
+        "cpp/traceback_wrapper.cpp",
+    ], include-dirs = [
+        "cpp"
+    ], language = "c++", extra-compile-args = [
+        "-std=c++17",
+    ], define-macros = [
+        ["EVE_MAPPER_PYTHON", "1"]
+    ] },
+]
+
+[project.optional-dependencies]
+CLI = [
+    "Pillow>=11.0.0",
+    "pymysql>=1.0.0",
+]
+table = ["Pillow>=11.0.0"]
+minimal = []
+# For unit tests
+dev = [
+    "Pillow>=11.0.0",
+    "pymysql>=1.0.0",
+    "psutil~=7.0.0",
+    "numpy~=2.2.3",
+    "opencv-python~=4.11.0",
+]
+
+[tool.cibuildwheel]
+# Increase pip debugging output
+# build-verbosity = 1
+
+[tool.coverage.run]
+plugins = ["Cython.Coverage"]
+
+[tool.coverage.report]
+omit = [
+    "bluemap/main.py",
+    "bluemap/__init__.py",
+    "bluemap/table.py",
+]

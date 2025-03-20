@@ -1,0 +1,16 @@
+
+[CLI]
+Pillow>=11.0.0
+pymysql>=1.0.0
+
+[dev]
+Pillow>=11.0.0
+pymysql>=1.0.0
+psutil~=7.0.0
+numpy~=2.2.3
+opencv-python~=4.11.0
+
+[minimal]
+
+[table]
+Pillow>=11.0.0
