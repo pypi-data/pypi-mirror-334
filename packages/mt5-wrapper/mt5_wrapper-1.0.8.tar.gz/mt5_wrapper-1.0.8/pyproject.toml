@@ -1,0 +1,13 @@
+[project]
+name = "mt5-wrapper"
+version = "1.0.8"
+description = "A Python package that enhances the MetaTrader5 library by adding type annotations and IntelliSense support for better code readability, auto-complete, and improved developer experience."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "metatrader5>=5.0.4874",
+]
+license = { text = "MIT" }
+[project.urls]
+homepage = "https://github.com/imrbrad/mt5_wrapper"     
+repository = "https://github.com/imrbrad/mt5_wrapper"  
