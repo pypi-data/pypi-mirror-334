@@ -1,0 +1,131 @@
+Metadata-Version: 2.3
+Name: connectome_analysis
+Version: 1.0.0
+Summary: Methods for network analysis of graphs coming from brain models and activity on them
+License: AGPL-3.0-or-later
+Author: Daniela Egas Santander
+Author-email: daniela.egas.math@gmail.com
+Requires-Python: >=3.9,<3.13
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Dist: bigrandomgraphs (>=0.0.4)
+Requires-Dist: ipykernel (>=6.29.5,<7.0.0)
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: progressbar (==2.5)
+Requires-Dist: pyflagser
+Requires-Dist: pyflagsercount (>=0.2.41)
+Requires-Dist: scikit-network
+Requires-Dist: scipy
+Requires-Dist: tables (>3.8)
+Requires-Dist: tqdm
+Project-URL: Documentation, https://openbraininstitute.github.io/connectome-analysis/
+Project-URL: Homepage, https://openbraininstitute.github.io/connectome-analysis/
+Project-URL: Repository, https://github.com/openbraininstitute/connectome-analysis.git
+Description-Content-Type: text/markdown
+
+# Connectome Analysis
+
+#### General functions to analyze connectomes from a topological perspective.  
+
+![](docs/banner_BPP_connalysis.jpg)
+
+---
+
+## Documentation 
+
+See our [**documentation**](https://openbraininstitute.github.io/connectome-analysis/) for detailed explanations including examples and tutorials.
+
+See our [**source code**](src/connalysis) for implementation details.
+
+## User installation
+
+```sh
+pip install git+https://github.com/openbraininstitute/connectome-analysis.git
+```
+
+---
+
+## Citation  
+
+[![DOI:10.1101/2024.03.15.585196](http://img.shields.io/badge/DOI-10.1101/2024.03.15.585196-B31B1B.svg)](https://doi.org/10.1101/2024.03.15.585196)
+
+If you use this software, kindly use the following BibTeX entry for citation:
+
+```
+@article{egas2024efficiency,
+  title={Efficiency and reliability in biological neural network architectures},
+  author={Egas Santander, Daniela and Pokorny, Christoph and Ecker, Andr{\'a}s and Lazovskis, J{\=a}nis and Santoro, Matteo and Smith, Jason P and Hess, Kathryn and Levi, Ran and Reimann, Michael W},
+  journal={bioRxiv},
+  pages={2024--03},
+  year={2024},
+  publisher={Cold Spring Harbor Laboratory},
+  doi = {10.1101/2024.03.15.585196}
+}
+```
+
+---
+## Acknowledgements & Funding
+
+The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
+
+Copyright (c) 2023-2024 Blue Brain Project / EPFL.<br>
+Copyright (c) 2025 Open Brain Institute.
+
+---
+
+## Development installation
+
+* Clone this repository
+* Requirements:
+  * [Poetry](https://python-poetry.org/)
+  * [gcc](https://gcc.gnu.org/) 9+
+  * [CMake](https://cmake.org/)
+  * Python 3.9+
+
+* Create a virtual environment and install the dependencies
+
+```sh
+poetry install
+```
+
+CMake may have difficulties to find the right compilers to compile the C++ code. 
+If that is the case, you have to specify the path to the compilers yourself:
+
+```sh
+CC=/path/to/gcc CXX=/path/to/g++ poetry install
+```
+
+This is especially important on MacOS.
+
+* Activate the virtual environment
+
+```sh
+poetry shell
+```
+
+* Testing
+
+```sh
+poetry run pytest tests
+```
+
+### Documentation
+
+The documentation is automatically generated from the content of the [docs directory](./docs) and from the docstrings
+ of the public signatures of the source code. The documentation is updated and published as a [Github project page
+ ](https://pages.github.com/) automatically as part each release.
+
