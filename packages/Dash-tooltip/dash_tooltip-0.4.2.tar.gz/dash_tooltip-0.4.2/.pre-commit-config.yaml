@@ -1,0 +1,61 @@
+repos:
+- repo: local
+  hooks:
+    - id: ruff
+      name: ruff
+      description: "Run 'ruff' for extremely fast Python linting"
+      entry: ruff check --force-exclude
+      language: python
+      types_or: [python, pyi]
+      args: []
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
+
+    - id: ruff-format
+      name: ruff-format
+      description: "Run 'ruff format' for extremely fast Python formatting"
+      entry: ruff format --force-exclude
+      language: python
+      types_or: [python, pyi]
+      args: []
+      require_serial: true
+      additional_dependencies: []
+      minimum_pre_commit_version: "2.9.2"
+
+    - id: isort-fix
+      name: isort (auto sort)
+      description: "Automatically sort imports using isort"
+      entry: isort
+      language: system
+      types: [python]
+
+    - id: isort
+      name: isort
+      description: "Run isort to check import order"
+      entry: isort
+      language: system
+      types: [python]
+
+#    - id: mypy
+#      name: mypy
+#      description: "Run mypy for static type checking"
+#      entry: mypy
+#      language: system
+#      types: [python]
+
+    - id: pytest-selenium
+      name: pytest (selenium tests)
+      description: "Run pytest for selenium tests"
+      entry: pytest
+      args: ['tests/', '-k', 'selenium', '--webdriver', 'Firefox', '--testmon']
+      language: system
+      pass_filenames: false
+
+    - id: pytest-non-selenium
+      name: pytest (non-selenium tests)
+      description: "Run pytest for non-selenium tests"
+      entry: pytest
+      args: ['tests/', '-k', 'not selenium', '--testmon']
+      language: system
+      pass_filenames: false
