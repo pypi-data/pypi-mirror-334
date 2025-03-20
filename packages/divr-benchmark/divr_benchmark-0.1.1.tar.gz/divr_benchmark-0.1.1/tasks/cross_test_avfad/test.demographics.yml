@@ -1,0 +1,332 @@
+normal:
+  female:
+    total: 2749
+    age_stats:
+      mean: 50.05565660240087
+      std: 15.55237763102816
+      min: 18
+      max: 89
+  male:
+    total: 1243
+    age_stats:
+      mean: 52.95575221238938
+      std: 17.2862274809949
+      min: 18
+      max: 91
+reinkes_edema:
+  female:
+    total: 241
+    age_stats:
+      mean: 49.43568464730291
+      std: 8.334479865802763
+      min: 29
+      max: 69
+  male:
+    total: 88
+    age_stats:
+      mean: 57.125
+      std: 12.115168131337455
+      min: 42
+      max: 79
+vocal_fold_nodules:
+  female:
+    total: 286
+    age_stats:
+      mean: 35.34615384615385
+      std: 9.397037750723843
+      min: 19
+      max: 58
+  male:
+    total: 22
+    age_stats:
+      mean: 37.5
+      std: 14.84122315585561
+      min: 23
+      max: 52
+vocal_fold_polyp:
+  female:
+    total: 220
+    age_stats:
+      mean: 51.4
+      std: 13.900297293230194
+      min: 31
+      max: 78
+  male:
+    total: 77
+    age_stats:
+      mean: 50.42857142857143
+      std: 8.722971143131781
+      min: 41
+      max: 64
+vocal_fold_cyst_sub_epithelial:
+  female:
+    total: 220
+    age_stats:
+      mean: 45.5
+      std: 15.300789366929457
+      min: 23
+      max: 77
+  male:
+    total: 33
+    age_stats:
+      mean: 39
+      std: 8.166241485530538
+      min: 31
+      max: 50
+vocal_fold_scar:
+  female:
+    total: 121
+    age_stats:
+      mean: 52.72727272727273
+      std: 10.730796801729124
+      min: 36
+      max: 72
+  male:
+    total: 22
+    age_stats:
+      mean: 55
+      std: 4.094130525753272
+      min: 51
+      max: 59
+leukoplakia:
+  male:
+    total: 33
+    age_stats:
+      mean: 64.66666666666667
+      std: 19.974462863032556
+      min: 37
+      max: 81
+  female:
+    total: 11
+    age_stats:
+      mean: 45
+      std: 0.0
+      min: 45
+      max: 45
+vocal_fold_sulcus:
+  male:
+    total: 11
+    age_stats:
+      mean: 50
+      std: 0.0
+      min: 50
+      max: 50
+  female:
+    total: 11
+    age_stats:
+      mean: 28
+      std: 0.0
+      min: 28
+      max: 28
+varix_and_ectasia_of_the_vocal_fold:
+  female:
+    total: 88
+    age_stats:
+      mean: 52.625
+      std: 12.22425749337635
+      min: 31
+      max: 73
+  male:
+    total: 55
+    age_stats:
+      mean: 51
+      std: 20.908088103605937
+      min: 19
+      max: 78
+vocal_fold_hemorrhage:
+  female:
+    total: 77
+    age_stats:
+      mean: 49.57142857142857
+      std: 20.065306909025427
+      min: 19
+      max: 72
+  male:
+    total: 22
+    age_stats:
+      mean: 68
+      std: 4.094130525753272
+      min: 64
+      max: 72
+presbyphonia:
+  male:
+    total: 77
+    age_stats:
+      mean: 76.71428571428571
+      std: 4.58790498816738
+      min: 71
+      max: 84
+  female:
+    total: 44
+    age_stats:
+      mean: 80.25
+      std: 5.87119495780528
+      min: 73
+      max: 89
+unilateral_recurrent_laryngeal_nerve_rln_paralysis:
+  female:
+    total: 264
+    age_stats:
+      mean: 58.833333333333336
+      std: 11.04994996232269
+      min: 36
+      max: 78
+  male:
+    total: 22
+    age_stats:
+      mean: 56.5
+      std: 0.511766315719159
+      min: 56
+      max: 57
+bilateral_recurrent_laryngeal_nerve_rln_paralysis_peripheral:
+  female:
+    total: 22
+    age_stats:
+      mean: 69
+      std: 23.541250523081313
+      min: 46
+      max: 92
+  male:
+    total: 22
+    age_stats:
+      mean: 65
+      std: 9.211793682944862
+      min: 56
+      max: 74
+unilateral_or_bilateral_recurrent_laryngeal_nerve_rln_paresis:
+  female:
+    total: 22
+    age_stats:
+      mean: 61
+      std: 15.35298947157477
+      min: 46
+      max: 76
+  male:
+    total: 11
+    age_stats:
+      mean: 73
+      std: 0.0
+      min: 73
+      max: 73
+amyotrophic_lateral_sclerosis:
+  female:
+    total: 33
+    age_stats:
+      mean: 54.333333333333336
+      std: 10.300687679308924
+      min: 40
+      max: 62
+  male:
+    total: 11
+    age_stats:
+      mean: 52
+      std: 0.0
+      min: 52
+      max: 52
+parkinson_disease:
+  male:
+    total: 33
+    age_stats:
+      mean: 69.33333333333333
+      std: 5.823801736552049
+      min: 62
+      max: 76
+laryngeal_mucosa_trauma_chemical_and_thermal:
+  male:
+    total: 33
+    age_stats:
+      mean: 51.666666666666664
+      std: 1.7260262647673315
+      min: 50
+      max: 54
+  female:
+    total: 77
+    age_stats:
+      mean: 50.57142857142857
+      std: 9.860111789999046
+      min: 39
+      max: 67
+non_intubation_related_vocal_fold_granuloma:
+  male:
+    total: 22
+    age_stats:
+      mean: 66
+      std: 3.070597894314954
+      min: 63
+      max: 69
+  female:
+    total: 44
+    age_stats:
+      mean: 59.25
+      std: 23.90983547743772
+      min: 22
+      max: 87
+acute_laryngitis:
+  female:
+    total: 22
+    age_stats:
+      mean: 44.5
+      std: 0.511766315719159
+      min: 44
+      max: 45
+  male:
+    total: 22
+    age_stats:
+      mean: 47.5
+      std: 6.652962104349067
+      min: 41
+      max: 54
+muscle_tension:
+  female:
+    total: 55
+    age_stats:
+      mean: 57.2
+      std: 4.204935371855491
+      min: 53
+      max: 64
+  male:
+    total: 22
+    age_stats:
+      mean: 42.5
+      std: 16.888288418732248
+      min: 26
+      max: 59
+ventricular_dysphonia:
+  male:
+    total: 33
+    age_stats:
+      mean: 65
+      std: 4.387482193696061
+      min: 61
+      max: 71
+  female:
+    total: 33
+    age_stats:
+      mean: 57
+      std: 12.519984025548915
+      min: 41
+      max: 71
+muscle_tension_adaptive:
+  male:
+    total: 44
+    age_stats:
+      mean: 65.75
+      std: 15.112177439956962
+      min: 48
+      max: 82
+reactive_vocal_fold_lesion:
+  female:
+    total: 11
+    age_stats:
+      mean: 40
+      std: 0.0
+      min: 40
+      max: 40
+puberphonia:
+  male:
+    total: 11
+    age_stats:
+      mean: 27
+      std: 0.0
+      min: 27
+      max: 27
