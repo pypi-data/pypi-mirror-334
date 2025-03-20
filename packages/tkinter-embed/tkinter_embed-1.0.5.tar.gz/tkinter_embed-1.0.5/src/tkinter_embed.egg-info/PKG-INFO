@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: tkinter-embed
+Version: 1.0.5
+Summary: Tkinter for Windows Embedded Python
+Author: Tanix
+Author-email: tanixlu@foxmail.com
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Software Development
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# tkinter-embed
+
+install tkinter for embedded python
+
+```cmd
+.\python pip.pyz install setuptools --target .
+.\python pip.pyz install tkinter-embed --target .
+```
+
+## build
+
+```cmd
+python -m build --sdist
+```
+
+
+## test
+
+```cmd
+pip install -v --target embed .\dist\tkinter_embed-1.0.0.tar.gz
+```
+
+## upload
+
+```cmd
+python -m twine upload dist/*
+```
