@@ -1,0 +1,71 @@
+Metadata-Version: 2.2
+Name: opcua-tools
+Version: 1.7.4
+Summary: OPCUA Tools for Python using Pandas DataFrames
+Home-page: https://github.com/PrediktorAS/opcua-tools
+Author: TGS Prediktor AS
+Author-email: dawid.makar@tgs.com
+License: Apache License 2.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: lxml>=5.3.0
+Requires-Dist: lxml<6.0
+Requires-Dist: xmltodict>=0.14.2
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: pandas<2.2.0
+Requires-Dist: scipy>=1.14.1
+Requires-Dist: scipy<2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# opcua-tools
+Python/pandas-based tools for OPC UA information models.
+OPC UA information models are represented and manipulated in Pandas Dataframes.
+There is a parser from NodeSet2 XML files, functions for manipulating/extracting information from information models and a NodeSet2 generator.
+There are some general tests here, but most of the testing is indirect through its use in [quarry](https://github.com/PrediktorAS/quarry) and other internal tools.
+## Installation
+To install, run this command:
+```
+pip install git+https://github.com/PrediktorAS/opcua-tools.git
+```
+## Usage
+Forthcoming... see the test cases.
+
+## Logging
+
+Throughout the package the python `logging` module is used for logging. The
+logging module follows a "bubble up" strategy which means the logging message
+will be available to the application using the package. In each file a
+NullHandler is added as the Handler for logging. As this is a library (or package)
+this is recommended from the authors of the logging package (see. [here](https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library)). This means there is
+no configuration for logging. If logging to console is desired this must be
+setup in the application which uses this package.
+
+There is no configuration needed to connect to this package. Simply setting up
+logging within the application which uses this library, will cause the logs
+within this package to appear. A basic logging configuration can be found in the
+[documentation](https://docs.python.org/3/howto/logging.html) for the logging
+module.
+
+
+
+## License
+The code in this repository is copyrighted to [TGS Prediktor AS](https://prediktor.com), and is licensed under the Apache 2.0 license. \
+Exceptions apply to some of the test data and static files for parsing/generation (see document headers for license information).
+
+Authors:
+Magnus Bakken, Hans Petter Ladim, Olav Landmark Pedersen, [Dawid Makar](mailto:dawid.makar@tgs.com), Mikaeil Orfanian
