@@ -1,0 +1,16 @@
+numpy
+
+[all]
+pyevtk
+matplotlib
+PIL
+scipy
+
+[image]
+matplotlib
+PIL
+scipy
+
+[vtk]
+pyevtk
+scipy
