@@ -1,0 +1,55 @@
+Metadata-Version: 2.2
+Name: cudaq-qec
+Version: 0.2.0
+Summary: Accelerated libraries for Quantum Error Correction built on CUDA-Q
+Author: NVIDIA Corporation & Affiliates
+Maintainer: NVIDIA Corporation & Affiliates
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Environment :: GPU :: NVIDIA CUDA
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 12
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Project-URL: Homepage, https://nvidia.github.io/cudaqx
+Project-URL: Documentation, https://nvidia.github.io/cudaqx/components/qec/introduction.html
+Project-URL: Repository, https://github.com/NVIDIA/cudaqx
+Requires-Python: >=3.10
+Requires-Dist: cuda-quantum-cu12>=0.10
+Description-Content-Type: text/markdown
+
+# CUDA-Q QEC Library
+
+CUDA-Q QEC is a high-performance quantum error correction library
+that leverages NVIDIA GPUs to accelerate classical decoding and
+processing of quantum error correction codes. The library provides optimized
+implementations of common QEC tasks including syndrome extraction,
+decoding, and logical operation tracking.
+
+**Note**: CUDA-Q QEC is currently only supported on Linux operating systems
+using `x86_64` processors or `aarch64`/`arm64` processors. CUDA-Q QEC does
+not require a GPU to use, but some components are GPU-accelerated.
+
+## Features
+
+- Fast syndrome extraction and processing on GPUs
+- Common decoders for surface codes and other topological codes
+- Real-time decoding capabilities for quantum feedback
+- Integration with CUDA-Q quantum program execution
+
+## Getting Started
+
+For detailed documentation, tutorials, and API reference, visit the
+[CUDA-Q QEC Documentation](https://nvidia.github.io/cudaqx/components/qec/introduction.html).
+
+## License
+
+CUDA-Q QEC is an open source project. The source code is available on
+[GitHub][github_link] and licensed under [Apache License
+2.0](https://github.com/NVIDIA/cudaqx/blob/main/LICENSE).
+
+[github_link]: https://github.com/NVIDIA/cudaqx/tree/main/libs/qec
