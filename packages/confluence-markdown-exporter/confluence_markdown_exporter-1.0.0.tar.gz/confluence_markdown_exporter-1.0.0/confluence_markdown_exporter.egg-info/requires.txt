@@ -1,0 +1,11 @@
+atlassian-python-api
+markdownify
+pandas
+pydantic-settings
+pyyaml
+tabulate
+tqdm
+typer
+
+[dev]
+ruff==0.9.10
