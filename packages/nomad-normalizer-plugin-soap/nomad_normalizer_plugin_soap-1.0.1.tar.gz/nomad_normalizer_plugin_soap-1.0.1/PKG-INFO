@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: nomad-normalizer-plugin-soap
+Version: 1.0.1
+Summary: SOAP nomad plugin for NOMAD.
+Author: The NOMAD Authors
+License: Apache-2.0
+Project-URL: homepage, https://github.com/nomad-coe/nomad-normalizer-plugin-soap
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: nomad-lab>=1.3.13
+Provides-Extra: dev
+Requires-Dist: mypy>=1.15; extra == "dev"
+Requires-Dist: pytest==3.10.0; extra == "dev"
+Requires-Dist: pytest-timeout==1.4.2; extra == "dev"
+Requires-Dist: pytest-cov==2.7.1; extra == "dev"
+Requires-Dist: ruff==0.1.4; extra == "dev"
+Provides-Extra: tests
+Requires-Dist: nomad-schema-plugin-simulation-workflow>=1.0.1; extra == "tests"
+Requires-Dist: nomad-schema-plugin-run>=1.0.1; extra == "tests"
+
+This is the normalizer for SOAP in NOMAD.
