@@ -1,0 +1,70 @@
+Metadata-Version: 2.2
+Name: pyrheadb
+Version: 0.1.6
+Summary: Package to facilitate cheminformatics access to RheaDB and its analysis with Python
+Author-email: Anastasia Sveshnikova <anastasia.sveshnikova@sib.swiss>
+Project-URL: Homepage, https://github.com/sib-swiss/pyrheadb
+Project-URL: Issues, https://github.com/sib-swiss/pyrheadb/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: pandas
+Requires-Dist: rdkit
+Requires-Dist: requests_ftp
+Requires-Dist: networkx
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+Requires-Dist: platform
+Requires-Dist: pathlib
+Requires-Dist: rxnmapper
+Requires-Dist: pillow
+Requires-Dist: cobra
+Requires-Dist: sparqlwrapper
+Requires-Dist: jupyterlab
+Provides-Extra: test
+Requires-Dist: pytest>=7.1.3; extra == "test"
+Requires-Dist: pytest-cov>=3.0.0; extra == "test"
+Requires-Dist: mypy>=1.4.1; extra == "test"
+
+![logo](./readme_img/pyrheadb_logo.png)
+Repository for the Python package intended to facilitate access to Rhea data from Python.
+
+[![PyPI - Version](https://img.shields.io/pypi/v/pyrheadb.svg?logo=pypi&label=PyPI&logoColor=silver)](https://pypi.org/project/pyrheadb/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyrheadb.svg?logo=python&label=Python&logoColor=silver)](https://pypi.org/project/pyrheadb/)
+[![license](https://img.shields.io/pypi/l/pyrheadb.svg?color=%2334D058)](https://github.com/sib-swiss/pyrheadb/blob/main/LICENSE)
+![OS linux](https://img.shields.io/badge/OS-Linux-green)
+
+[![Tests](https://github.com/sib-swiss/pyrheadb/actions/workflows/test.yml/badge.svg)](https://github.com/sib-swiss/pyrheadb/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/sib-swiss/pyrheadb/badge.svg?branch=main)](https://coveralls.io/github/sib-swiss/pyrheadb?branch=main)
+
+Installation and usage
+======================
+
+```bash
+pip install pyrheadb
+```
+
+> You might
+
+Check [Wiki](https://github.com/sib-swiss/pyrheadb/wiki) for info about installation and usage.
+
+
+Folder description
+==================
+
+## examples
+[Jupyter notebooks](examples) containing Rhea analysis using the pyrheadb examples.
+
+## src
+Python source code for pyrheadb
+
+## tests
+Unit tests for each class of pyrheadb
