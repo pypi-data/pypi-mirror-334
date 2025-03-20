@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+pyDeltafile/__init__.py
+pyDeltafile/delta.py
+pyDeltafile.egg-info/PKG-INFO
+pyDeltafile.egg-info/SOURCES.txt
+pyDeltafile.egg-info/dependency_links.txt
+pyDeltafile.egg-info/requires.txt
+pyDeltafile.egg-info/top_level.txt
+tests/__init__.py
+tests/test_delta.py
