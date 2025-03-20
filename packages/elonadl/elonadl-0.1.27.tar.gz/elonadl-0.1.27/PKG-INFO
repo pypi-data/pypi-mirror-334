@@ -1,0 +1,119 @@
+Metadata-Version: 2.2
+Name: elonadl
+Version: 0.1.27
+Summary: A Installer to download and setup ElonaPlusCustom-GX on Windows.
+Author: vichmartins
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pywin32
+Requires-Dist: requests
+Requires-Dist: winshell
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ElonaPlusCustom-GX Installer script for Windows
+
+  
+A Installer to download and setup ElonaPlusCustom-GX on Windows.
+
+
+New Repo: **[JianmengYu](https://github.com/JianmengYu/ElonaPlusCustom-GX)** Current Repo based. <br>
+
+Please visit **[Ruin0x11](https://github.com/Ruin0x11/ElonaPlusCustom-GX)**'s Previous Archived Repo
+
+
+### Learn about the game:
+
+**[Ylvania](https://ylvania.org/elona_e.html)**: Official Site.<br>
+**[Fandom Wiki](https://elona.fandom.com/wiki/Elona_Wiki)**: Game Wiki.<br>
+**[Discord](https://discord.gg/Razdxsk)**: Discord Channel.<br>
+
+### Need to Know:
+You may receive a false positive from Windows Defender
+Please review the github issue: **[here](https://github.com/Ruin0x11/ElonaPlusCustom-GX/issues/103)** for more information.
+
+
+ - In this case just disable __Windows Defender__ or other Anti-Virus prior to installing and re-enable after its finished installing.
+<br>
+
+
+
+# Version:
+
+Current Installer Version: **v0.1.25**<br>
+
+Current Game Version: **Elona+ 2.26**<br>
+
+Current Custom-GX Version: **2.26.1.0**<br>
+<br>
+
+
+# Result:
+
+  ##### Installation is placed in your %APPDATA% folder.
+
+- Package will install Elona+ along with Custom-GX Mod
+
+- Create a Desktop Shortcut for Quick Access.
+
+- Create a Start Menu Option (Allows app to be searchable in Windows Search)
+<br>
+
+
+# Installation:
+
+```
+pip install elonadl
+
+python -m elonadl
+```
+<br>
+
+
+# Updates:
+
+If you see a newer release to a newer version. Run the update command:
+ ```pip install elonadl --upgrade``` it'll install the new latest installer version.<br>
+ Run: ```python -m elonadl``` To install latest version of the game.
+
+
+* **It will not impact your current game's installation. Just the python package itself.**
+
+* **Running the command** `python -m elonadl` **will download and install the latest version of the game, it will not impact the previous installation. So your saves will be intact (that being said, we always recommend backing up your saves).**
+<br>
+
+
+
+## Install straight from .whl or tar.gz packages
+
+```
+pip install elonadl-<VERSION>-py3-none-any.whl
+```
+or <br>
+```
+py -m pip install elonadl-<VERSION>.tar.gz
+```
+
+The game will be setup in your current user's **%APPDATA%** folder. **(If run normally)**
+
+The game will be setup in the system's **%APPDATA%** folder. **(if run as admin)**
+
+The script will inform you of the steps in the command line.
+<br>
+
+
+# How to Remove Package.
+
+This won't impact the Elona+CGX setup, just remove the elonadl package from your computer.
+
+```
+pip uninstall elonadl
+```
+or <br>
+```
+py -m pip uninstall elonadl
+```
