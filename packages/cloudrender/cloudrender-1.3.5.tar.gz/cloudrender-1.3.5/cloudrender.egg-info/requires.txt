@@ -1,0 +1,10 @@
+numpy
+scipy
+pyglm>=2.2.0
+trimesh
+torch
+tqdm
+smplpytorch
+chumpy
+PyOpenGL==3.1.5
+videoio>=0.2.3
