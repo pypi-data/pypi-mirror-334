@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: omnidiff
+Version: 1.1
+Summary: A diff toolkit for python
+Home-page: https://github.com/game1024/omnidiff
+Author: game1024
+Author-email: pengbin.xyz@gmail.com
+License: MIT
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: jmespath
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: summary
