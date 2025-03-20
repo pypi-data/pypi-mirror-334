@@ -1,0 +1,5 @@
+[console_scripts]
+dotcat=dotcat:main
+dotcat-install-completions=dotcat.install_completions:main
+install-dotcat-completions=dotcat.install_completions:main
+
