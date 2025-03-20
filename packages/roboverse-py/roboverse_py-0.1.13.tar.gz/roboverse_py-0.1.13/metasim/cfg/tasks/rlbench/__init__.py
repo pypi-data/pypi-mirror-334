@@ -1,0 +1,58 @@
+# ruff: noqa: F401
+from .basketball_in_hoop_metacfg import BasketballInHoopMetaCfg
+from .beat_the_buzz_metacfg import BeatTheBuzzMetaCfg
+from .block_pyramid_metacfg import BlockPyramidMetaCfg
+from .change_channel_metacfg import ChangeChannelMetaCfg
+from .change_clock_metacfg import ChangeClockMetaCfg
+from .close_box_metacfg import CloseBoxMetaCfg
+from .close_door_metacfg import CloseDoorMetaCfg, OpenDoorMetaCfg
+from .close_drawer_metacfg import CloseDrawerMetaCfg, OpenDrawerMetaCfg
+from .close_fridge_metacfg import CloseFridgeMetaCfg, OpenFridgeMetaCfg
+from .close_grill_metacfg import CloseGrillMetaCfg
+from .close_jar_metacfg import CloseJarMetaCfg
+from .close_laptop_lid_metacfg import CloseLaptopLidMetaCfg
+from .close_microwave_metacfg import CloseMicrowaveMetaCfg, OpenMicrowaveMetaCfg
+from .empty_dishwasher_metacfg import EmptyDishwasherMetaCfg
+from .get_ice_from_fridge_metacfg import GetIceFromFridgeMetaCfg
+from .hang_frame_on_hanger_metacfg import HangFrameOnHangerMetaCfg
+from .hit_ball_with_queue_metacfg import HitBallWithQueueMetaCfg
+from .hockey_metacfg import HockeyMetaCfg
+from .insert_onto_square_peg_metacfg import InsertOntoSquarePegMetaCfg
+from .lamp_off_metacfg import LampOffMetaCfg
+from .lamp_on_metacfg import LampOnMetaCfg
+from .lift_numbered_block_metacfg import LiftNumberedBlockMetaCfg
+from .light_bulb_in_metacfg import LightBulbInMetaCfg
+from .light_bulb_out_metacfg import LightBulbOutMetaCfg
+from .meat_off_grill_metacfg import MeatOffGrillMetaCfg
+from .meat_on_grill_metacfg import MeatOnGrillMetaCfg
+from .open_box_metacfg import OpenBoxMetaCfg
+from .open_grill_metacfg import OpenGrillMetaCfg
+from .open_jar_metacfg import OpenJarMetaCfg
+from .open_oven_metacfg import OpenOvenMetaCfg, PutTrayInOvenMetaCfg, TakeTrayOutOfOvenMetaCfg
+from .open_washing_machine_metacfg import OpenWashingMachineMetaCfg
+from .open_window_metacfg import OpenWindowMetaCfg
+from .open_wine_bottle_metacfg import OpenWineBottleMetaCfg
+from .phone_on_base_metacfg import PhoneOnBaseMetaCfg
+from .pick_and_lift_metacfg import PickAndLiftMetaCfg
+from .pick_and_lift_small_metacfg import PickAndLiftSmallMetaCfg
+from .pick_up_cup_metacfg import PickUpCupMetaCfg
+from .place_cups_metacfg import PlaceCupsMetaCfg
+from .place_shape_in_shape_sorter_metacfg import PlaceShapeInShapeSorterMetaCfg
+from .play_jenga_metacfg import PlayJengaMetaCfg
+from .plug_charger_in_power_supply_metacfg import PlugChargerInPowerSupplyMetaCfg
+from .pour_from_cup_to_cup_metacfg import PourFromCupToCupMetaCfg
+from .press_switch_metacfg import PressSwitchMetaCfg
+from .push_button_metacfg import PushButtonMetaCfg
+from .push_buttons_metacfg import PushButtonsMetaCfg
+from .put_all_groceries_in_cupboard_metacfg import PutAllGroceriesInCupboardMetaCfg
+from .put_books_on_bookshelf_metacfg import PutBooksOnBookshelfMetaCfg
+from .put_bottle_in_fridge_metacfg import PutBottleInFridgeMetaCfg
+from .put_groceries_in_cupboard_metacfg import PutGroceriesInCupboardMetaCfg
+from .put_item_in_drawer_metacfg import PutItemInDrawerMetaCfg
+from .put_knife_in_knife_block_metacfg import PutKnifeInKnifeBlockMetaCfg, PutKnifeOnChoppingBoardMetaCfg
+from .put_money_in_safe_metacfg import PutMoneyInSafeMetaCfg
+from .put_plate_in_colored_dish_rack_metacfg import PutPlateInColoredDishRackMetaCfg
+from .put_rubbish_in_bin_metacfg import PutRubbishInBinMetaCfg
+from .put_shoes_in_box_metacfg import PutShoesInBoxMetaCfg
+from .put_toilet_roll_on_stand_metacfg import PutToiletRollOnStandMetaCfg
+# TODO: add task empty_container which uses lots of "procedural_objects"
