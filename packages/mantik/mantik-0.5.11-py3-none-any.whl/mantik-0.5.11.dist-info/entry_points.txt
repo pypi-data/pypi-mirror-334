@@ -1,0 +1,3 @@
+[console_scripts]
+mantik=mantik.cli.main:cli
+

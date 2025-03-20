@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: mantik
+Version: 0.5.11
+Summary: mantik for mlflow
+Home-page: https://mantik.ai/
+License: MIT
+Keywords: mlflow,machine learning,hpc,unicore
+Author: Fabian Emmerich
+Author-email: fabian.emmerich@4-cast.de
+Maintainer: Elia Boscaini
+Maintainer-email: elia.boscaini@ambrosys.de
+Requires-Python: >=3.9,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: all
+Provides-Extra: docker
+Provides-Extra: mlflow
+Provides-Extra: s3
+Provides-Extra: unicore
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: docker (>=6.1.3,<7.0.0) ; extra == "docker"
+Requires-Dist: dvc-s3 (>=3.2.0,<4.0.0)
+Requires-Dist: fs (>=2.4.16,<3.0.0)
+Requires-Dist: fs-s3fs (>=1.1.1,<2.0.0) ; extra == "s3" or extra == "all"
+Requires-Dist: gitpython (>=3.1.43,<4.0.0)
+Requires-Dist: gputil (>=1.4.0,<2.0.0)
+Requires-Dist: ipython (==8.18.1)
+Requires-Dist: mlflow-skinny (==2.2.2) ; extra == "mlflow" or extra == "all"
+Requires-Dist: paramiko (>=3.4.1,<4.0.0)
+Requires-Dist: psutil (>=5.9.6,<6.0.0)
+Requires-Dist: py-cpuinfo (>=9.0.0,<10.0.0)
+Requires-Dist: pyfirecrest (>=2.2.0,<3.0.0)
+Requires-Dist: python-jose (>=3.3.0,<4.0.0)
+Requires-Dist: pyunicore[crypto,fuse] (>=0.15.0,<0.16.0) ; extra == "unicore" or extra == "all"
+Requires-Dist: requests (>=2.27.1,<3.0.0)
+Requires-Dist: ruamel-yaml (>=0.18.6,<0.19.0)
+Project-URL: Documentation, https://mantik-ai.gitlab.io/mantik
+Project-URL: Repository, https://gitlab.com/mantik-ai/mantik
+Description-Content-Type: text/markdown
+
+# Mantik - Enhancing Machine Learning Development on HPC
+
+Mantik allows to manage the full Machine Learning workflow on HPC by
+supporting MLflow and deployment of applications to HPC via the [Mantik platform](https://cloud.mantik.ai).
+
+For a quickstart see [our documentation](https://mantik-ai.gitlab.io/mantik/getting-started/index.html)
+
+## Extra Dependencies
+
+By default, mantik only installs the core dependencies required to use the Mantik API.
+However, additional extras are provided and can be installed:
+
+- `mlflow`: installs the supported MLflow version (i.e. `mlflow-skinny` due do its much smaller size compared to `mlflow`)
+
+  ```shell
+  pip install "mantik[mlflow]"
+  ```
+
+- `s3`: installs the required dependencies to use the [S3 Remote File Service](https://mantik-ai.gitlab.io/mantik/remote-execution/remote-file-service.html)
+
+  ```shell
+  pip install "mantik[s3]"
+  ```
+
+- `unicore`: installs the required dependencies to use the [UNICORE Remote File Service](https://mantik-ai.gitlab.io/mantik/remote-execution/remote-file-service.html)
+
+  ```shell
+  pip install "mantik[unicore]"
+  ```
+
+- `docker`: installs the required dependencies to use the Model Docker images
+
+  ```shell
+  pip install "mantik[docker]"
+  ```
+
+## Helpdesk
+
+For bug reports or feature requests, please email our helpdesk.
+Details can be found [here](https://mantik-ai.gitlab.io/mantik/helpdesk.html).
+
+

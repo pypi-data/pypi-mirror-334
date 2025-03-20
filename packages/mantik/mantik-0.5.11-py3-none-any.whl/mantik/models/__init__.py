@@ -1,0 +1,1 @@
+import mantik.models.image
