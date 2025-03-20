@@ -1,0 +1,5 @@
+[
+    { "path": "mysql_mcp.py", "id": "mysql_mcp"},
+    { "path": "postgresql_mcp.py", "id": "postgresql_mcp"},
+    { "path": "redis_mcp.py", "id": "redis_mcp"}
+  ]
