@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+owui_pipelines/__init__.py
+owui_pipelines.egg-info/PKG-INFO
+owui_pipelines.egg-info/SOURCES.txt
+owui_pipelines.egg-info/dependency_links.txt
+owui_pipelines.egg-info/entry_points.txt
+owui_pipelines.egg-info/requires.txt
+owui_pipelines.egg-info/top_level.txt
+owui_pipelines/api/__init__.py
+owui_pipelines/api/azure_agent.py
+owui_pipelines/cli/__init__.py
+owui_pipelines/cli/main.py
+owui_pipelines/models/__init__.py
+owui_pipelines/utils/__init__.py
