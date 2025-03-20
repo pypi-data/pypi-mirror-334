@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: scalign-umap
+Version: 0.2.0
+Summary: fork from package umap-learn 0.5.8 for usage from scalign package. contains additional bug fixes
+License: BSD
+Requires-Python: >=3.6
+Provides-Extra: parametric
