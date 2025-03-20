@@ -1,0 +1,28 @@
+[project]
+name = "unicall"
+version = "0.2.0post0"
+description = "Easy to use RPC library based on uniserde"
+authors = [{ name = "Jakob Pinterits", email = "jakob.pinterits@gmail.com" }]
+dependencies = ["imy>=0.7post0, <0.8", "uniserde>=0.4.0, <0.5"]
+readme = "README.md"
+requires-python = ">= 3.10"
+license.file = "LICENSE.txt"
+
+[build-system]
+requires = ["hatchling==1.26.3", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["unicall"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.10, <0.10",
+    "pytest>=8.3.4, <9.0",
+    "pre-commit>=4.1.0, <5.0",
+    "pytest-asyncio>=0.25.2, <0.26",
+]
