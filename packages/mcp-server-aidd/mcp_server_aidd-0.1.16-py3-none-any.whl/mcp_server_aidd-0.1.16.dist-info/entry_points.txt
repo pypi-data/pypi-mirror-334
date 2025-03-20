@@ -1,0 +1,4 @@
+[console_scripts]
+aidd = aidd:main
+aidd-cli = aidd.cli:main
+mcp-server-aidd = aidd:main
