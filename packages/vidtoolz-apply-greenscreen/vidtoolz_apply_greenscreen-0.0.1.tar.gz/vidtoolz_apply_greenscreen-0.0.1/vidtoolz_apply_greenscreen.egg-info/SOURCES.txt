@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+tests/test_integration.py
+tests/test_vidtoolz_apply_greenscreen.py
+vidtoolz_apply_greenscreen/__init__.py
+vidtoolz_apply_greenscreen/apply_greenscreen.py
+vidtoolz_apply_greenscreen.egg-info/PKG-INFO
+vidtoolz_apply_greenscreen.egg-info/SOURCES.txt
+vidtoolz_apply_greenscreen.egg-info/dependency_links.txt
+vidtoolz_apply_greenscreen.egg-info/entry_points.txt
+vidtoolz_apply_greenscreen.egg-info/requires.txt
+vidtoolz_apply_greenscreen.egg-info/top_level.txt
