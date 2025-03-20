@@ -1,0 +1,2 @@
+[console_scripts]
+ansari = ansari.app.main_stdio:main
