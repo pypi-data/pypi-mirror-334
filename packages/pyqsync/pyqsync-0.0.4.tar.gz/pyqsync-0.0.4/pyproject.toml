@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyqsync"
+version = "0.0.4"
+authors = [
+  { name="Roman Smolnyk", email="poma23324@gmail.com" },
+]
+description = "Python module to sync files across different systems(local, sftp, adb)"
+readme = "README.md"
+# requires-python = ">=3.8" # Optional
+keywords = ["files", "dirs", "sync"] # Optional
+classifiers = [  # Optional
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "paramiko",
+    "pure-python-adb",
+    "ytils"
+]
+
+[project.urls]  # Optional
+Homepage = "https://gitlab.com/roman-smolnyk/python-files-sync"

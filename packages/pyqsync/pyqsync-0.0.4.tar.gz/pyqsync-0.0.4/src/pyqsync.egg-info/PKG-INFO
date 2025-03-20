@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: pyqsync
+Version: 0.0.4
+Summary: Python module to sync files across different systems(local, sftp, adb)
+Author-email: Roman Smolnyk <poma23324@gmail.com>
+Project-URL: Homepage, https://gitlab.com/roman-smolnyk/python-files-sync
+Keywords: files,dirs,sync
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+Requires-Dist: paramiko
+Requires-Dist: pure-python-adb
+Requires-Dist: ytils
+
+# pyqsync - python files syncronizator
+
+Python module to sync files across different systems: local, sftp, adb
+
+It can be used to compare files and providing diff as well as to sync files
