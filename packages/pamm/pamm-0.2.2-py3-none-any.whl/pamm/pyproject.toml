@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "pamm"
+version = "0.1.4"
+description = "Processing analyze merge machine learning"
+authors = ["Alexeebitch <rmrs1@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<3.13.0"
+numpy = "^1.26.1"
+cvxopt = "^1.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 150
+
+exclude = [
+"__init__.py",
+".venv",
+"tests"
+]
+
+[tool.ruff.lint]
+extend-select = [
+"E501"
+]
+
+[tool.black]
+line-length = 150
+target-version = ['py311']
