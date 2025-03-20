@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: isoddeven
+Version: 0.4.2
+Summary: A Python package to check if a number is odd or even.
+Home-page: https://github.com/nilaysarma/isoddeven
+Author: Nilay Sarma
+License: MIT
+Project-URL: Repository, https://github.com/nilaysarma/isoddeven
+Project-URL: Release Notes, https://github.com/nilaysarma/isoddeven/releases/latest
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: project-url
+Dynamic: summary
