@@ -1,0 +1,48 @@
+Metadata-Version: 2.2
+Name: pyfrigel-db-struct
+Version: 0.0.2
+Summary: Script collection for creation of DB struct JSON files
+Author-email: Artem Piazzi Tsigler <a.piazzi@frigel.com>, Massimo Caverni <m.caverni@frigel.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: docopt
+Requires-Dist: mypy
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: pandas-stubs
+Requires-Dist: pytest
+Requires-Dist: xmltodict
+
+# How to use
+
+First of all clone the repo.
+
+To run the script anywhere:
+    
+    1) pip install -r requirements.txt
+    2) Run the script!
+
+If you want to run the script in a virtual env then:
+    
+    1) Install pipenv (pip install pipenv)
+    2) Install requirements (pipenv install)
+    3) Run the script! (inside the env)
+
+
+# How to release new version to PyPi
+
+1) Update the version in pyproject.toml
+2) Run the following commands:
+
+```python -m pip install --upgrade build```
+
+```cd src```
+
+```python -m pip install --upgrade twine```
+
+```python -m build```
+
+
+```python -m twine upload dist/*```
