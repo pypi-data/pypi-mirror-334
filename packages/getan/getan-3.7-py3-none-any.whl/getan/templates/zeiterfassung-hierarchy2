@@ -1,0 +1,21 @@
+{#- using project keys as zeiterfassung's workpackages
+-#}
+{%- for day, day_entries
+     in entries|sort(attribute='startisoday')|groupby('startisoday') -%}
+  {%- for project in projects -%}
+    {%- for project_id, project_day_entries
+        in day_entries|sort(attribute='project_id')|groupby('project_id') %}
+
+      {%- if project_id == project.id -%}
+{{ project_day_entries[0].start|date_format }} {{ (project_day_entries|duration|human_time).rjust(5)
+          }}h a {{ user.ljust(3) }} [{{ project.key }}]
+        {%- for entry in project_day_entries -%}
+            {%- if loop.index == 1 -%}{{ ' ' }}
+            {%- else -%}{{ ';\n                        ' }}
+            {%- endif -%}
+            {{ entry.get_comment() }}
+        {%- endfor %}{{'\n'}}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{% endfor -%}
