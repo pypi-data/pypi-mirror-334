@@ -1,0 +1,60 @@
+Metadata-Version: 2.3
+Name: sorl-thumbnail-avif
+Version: 0.1.0.post1
+Summary: sorl-thumbnail avif plugin
+License: BSD-3-Caluse
+Author: amirreza
+Author-email: amir.rsf1380@gmail.com
+Requires-Python: >=3.10
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.0
+Classifier: Framework :: Django :: 5.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Multimedia :: Graphics
+Requires-Dist: django (>=4.2)
+Requires-Dist: pillow (>=11.0.0,<12.0.0)
+Requires-Dist: pillow-avif-plugin (>=1.4.6,<2.0.0)
+Requires-Dist: sorl-thumbnail (>=12.11.0,<13.0.0)
+Project-URL: Homepage, https://github.com/django-utils/sorl-thumbnail-avif
+Description-Content-Type: text/markdown
+
+# sorl thumbnail avif
+
+a python package to add avif support to sorl-thumbnail.
+
+**note**: this package will get support until sorl-thumbnail supports avif, then it'll be archived.
+
+**nota2**: this package uses pillow.
+
+### Installation
+
+``` bash
+    pip install sorl-thumbnail-avif
+```
+
+### Usage:
+
+add these lines to your settings file:
+
+``` python
+    THUMBNAIL_FORMAT = "AVIF"
+    THUMBNAIL_ENGINE = "sorl_thumbnail_avif.thubmnail.engines.AvifEngine"
+    THUMBNAIL_BACKEND = "sorl_thumbnail_avif.thubmnail.AvifThumbnail"
+```
+
+**note**: you can use any of the sorl-thumbnail supported formats as well, so `JPEG` or others also work.
+
