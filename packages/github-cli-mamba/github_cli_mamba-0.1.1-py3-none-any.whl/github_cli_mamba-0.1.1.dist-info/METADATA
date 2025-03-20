@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: github-cli-mamba
+Version: 0.1.1
+Summary: A GitHub CLI tool built with Python and Typer
+Author-email: lishaojie <shaojieli.nlp@gmail.com>
+Requires-Python: >=3.10
+Requires-Dist: jmespath>=1.0.1
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: requests>=2.32.3
+Requires-Dist: typer[all]>=0.15.2
+Description-Content-Type: text/markdown
+
+# GitHub CLI Mamba
+
+一个用Python和Typer构建的GitHub命令行工具。
+
+## 安装
+
+```bash
+pip install github-cli-mamba
+```
+
+## 使用
+
+首先，设置GitHub Token环境变量：
+
+```bash
+export GITHUB_TOKEN="your_github_token"
+```
+
+或者创建`.env`文件，添加：
+
+```
+GITHUB_TOKEN=your_github_token
+```
+
+### 命令
+
+#### 仓库命令
+
+列出用户的所有仓库：
+
+```bash
+github-cli-mamba repo list -u username
+```
+
+删除用户的仓库：
+
+```bash
+github-cli-mamba repo delete -u username -r repo_name
+```
+
+#### 用户命令
+
+查看用户资料：
+
+```bash
+github-cli-mamba user profile -u username
+```
