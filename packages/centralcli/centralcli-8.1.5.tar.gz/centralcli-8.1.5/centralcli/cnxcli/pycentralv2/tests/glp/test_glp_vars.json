@@ -1,0 +1,115 @@
+{
+    "credentials": {
+        "aruba_central": {
+            "client_id":"<client-id>",
+            "client_secret":"<client-secret>"
+        },
+        "glp": {
+            "access_token": "<glp-access-token"
+        },  
+        "classic_aruba_central": {
+            "base_url": "<base-url>",
+            "token": {
+                "access_token": "<classic-central-access-token>"
+            }
+        },
+        "ssl_verify": true
+        },
+
+    "test_get_device": {
+        "filter_model": "model eq '<device-serial-number>'",
+        "select": "serialNumber,macAddress",
+        "sort": "serialNumber,macAddress desc"
+    },
+
+    "test_get_device_id": {
+        "serial": "<device-serial-number>",
+        "id": "<device-id>"
+    },
+
+    "test_get_dev_status": {
+        "transaction": "<transaction-id>"
+    },
+
+    "test_add_devices": {
+        "network1": {
+            "serialNumber": "<device-serial-number>", 
+            "macAddress": "<device-mac-address>"
+        },
+        "network2": {
+            "serialNumber": "<device-serial-number>", 
+            "macAddress": "<device-mac-address>"
+        }
+    },
+
+    "test_get_sub_id": {
+        "key": "<subscription-key>",
+        "id": "<subscription-id>"
+    },
+
+    "test_device_subscription": {
+        "serial1": "<device-serial-number>",
+        "serial2": "<device-serial-number>",
+        "sub_key": "<subscription-key>",
+        "sub_id": "<subscription-id>",
+        "dev_id1": "<device-id>",
+        "dev_id2": "<device-id>"
+    },
+
+    "test_get_sub_status": {
+        "transaction": "<transaction-id>"
+    },
+
+    "test_get_all_devices": {
+        "select": "serialNumber"
+    },
+    "test_unassign_devices": {
+        "id": [
+            "<device-id>"
+        ],
+        "devices": [
+            "<device-serial-number>"
+        ]
+    },
+    "test_assign_devices": {
+        "application": {
+            "id": "<application-id>"
+        },
+        "region": "us-west",
+        "id": [
+            "<device-id>"
+        ],
+        "devices": [
+            "<device-serial-number>"
+        ]
+    },
+    "test_get_subscription": {
+        "subscription_filter": "key eq '<subscription-key>'"
+    },
+    "test_get_all_subscriptions": {
+        "select": ""
+    },
+    "test_add_subscription": {
+        "subscriptions": [
+            {
+                "key": ""
+            }
+        ]
+    },
+    "test_get_users": {
+        "filter": "userStatus eq 'UNVERIFIED'"
+    },
+    "test_get_user": {
+        "user_id": "<user-id>",
+        "user_id_fail": "",
+        "email": "<email-address>"
+    },
+    "test_invite_user": {
+        "email": "<email-address>",
+        "email_fail": ""
+    },
+    "test_delete_user": {
+        "email": "<email-address>",
+        "user_id_fail": "fail@gmail.com"
+    }
+}

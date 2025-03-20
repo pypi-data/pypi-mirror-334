@@ -1,0 +1,24 @@
+{
+    "sites": [
+        {
+            "name": "api-site-1",
+            "address": "8000 Foothills",
+            "city": "Roseville",
+            "state": "California",
+            "country": "United States",
+            "zipCode": "95816",
+            "timezone": {
+                "rawOffset": 19800000,
+                "timezone-id": "America/Los_Angeles",
+                "timezone-name": "Pacific Standard Time"
+            }
+        }
+    ],
+    "collections": [
+        {
+            "scope-name": "api-collection-1",
+            "description": "API Site Collection Test",
+            "siteIds": []
+        }
+    ]
+}
