@@ -1,0 +1,26 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+      
+      - name: Run Ruff
+        run: uv run ruff check --output-format=github .
+      
+      - name: Lint the doc strings
+        run: uv run darglint --verbosity 2 --docstring-style sphinx libyamlconf
+      
+      - name: Test with pytest  
+        run: |  
+          uv run coverage run -m pytest  -v -s
+      - name: Generate Coverage Report  
+        run: |  
+          uv run coverage report -m
