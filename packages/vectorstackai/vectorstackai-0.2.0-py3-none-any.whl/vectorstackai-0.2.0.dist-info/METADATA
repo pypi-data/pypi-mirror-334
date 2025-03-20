@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: vectorstackai
+Version: 0.2.0
+Summary: VectorStack AI's Official Python Library
+Author: Shreyas Saxena
+Author-email: shreyas@vectorstack.ai
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.32.3
+Requires-Dist: tenacity==8.5.0
+Requires-Dist: numpy>=1.26.0
+
+# VectorStack AI: Official Python Library
+![PyPI version](https://img.shields.io/pypi/v/vectorstackai.svg)
+
+The VectorStack AI Python library provides a seamless interface for interacting with VectorStack AI's powerful embedding models through their API. These embeddings are essential for a wide range of natural language processing tasks and can be easily integrated into larger AI systems, enhancing the performance of vector databases and generative AI models.
+
+
