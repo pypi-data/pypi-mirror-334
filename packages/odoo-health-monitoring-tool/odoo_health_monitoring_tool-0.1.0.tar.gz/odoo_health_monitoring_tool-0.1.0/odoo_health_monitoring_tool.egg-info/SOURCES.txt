@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+health_report/login_app/templates/odoo_setup_form.html
+health_report/system_report/templates/report_dashboard.html
+odoo_health_monitoring_tool.egg-info/PKG-INFO
+odoo_health_monitoring_tool.egg-info/SOURCES.txt
+odoo_health_monitoring_tool.egg-info/dependency_links.txt
+odoo_health_monitoring_tool.egg-info/entry_points.txt
+odoo_health_monitoring_tool.egg-info/requires.txt
+odoo_health_monitoring_tool.egg-info/top_level.txt
