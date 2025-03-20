@@ -1,0 +1,5 @@
+[console_scripts]
+syn_data_gen-extract = synthetic_data_gen.cli.extract_cli:main
+syn_data_gen-extract_to_yolo = synthetic_data_gen.cli.extract_to_yolo_cli:main
+syn_data_gen-generate = synthetic_data_gen.cli.data_generation_cli:main
+syn_data_gen-mix = synthetic_data_gen.cli.dataset_mixer_cli:main
