@@ -1,0 +1,124 @@
+$id: https://jsonschemata.repodynamics.com/config/sphinx
+title: >-
+  [Sphinx](https://github.com/sphinx-doc/sphinx) Configuration File
+summary: >-
+  The contents of Sphinx's [`conf.py`](https://www.sphinx-doc.org/en/master/usage/configuration.html)
+  configuration file.
+description: |
+  These are the same key-value pairs
+  that can be added to the `conf.py` file of a Sphinx project.
+  Note that not all keys are explicitly listed in the schema,
+  but any valid key can still be added here.
+type: object
+properties:
+  extensions:
+    summary: List of Sphinx [`extensions`](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions) to enable.
+    type: array
+    items:
+      type: string
+  project:
+    summary: Name of the project.
+    type: string
+  author:
+    summary: Author(s) of the project.
+    type: string
+  project_copyright:
+    summary: Copyright notice of the project.
+    type: string
+  version:
+    summary: Public (`major.minor`) version of the project.
+    type: string
+  release:
+    summary: Full version of the project.
+    type: string
+  needs_sphinx:
+    summary: Minimum supported version of Sphinx.
+    description: |
+      The version must be in the form of `major.minor`,
+      where `major` and `minor` are integers.
+    type: string
+  today_fmt:
+    summary: Format of the current date.
+    type: string
+  numfig:
+    summary: Numbering of figures.
+    type: boolean
+  numfig_format:
+    summary: |
+      Format of the figure numbering
+      ([ref](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-numfig_format)).
+    type: object
+    properties:
+      code-block:
+        summary: Format of code block numbering.
+        type: string
+      figure:
+        summary: Format of figure numbering.
+        type: string
+      section:
+        summary: Format of section numbering.
+        type: string
+      table:
+        summary: Format of table numbering.
+        type: string
+  numfig_secnum_depth:
+    summary: Depth of section numbering.
+    type: integer
+  pygment_style:
+    summary: Pygments style to use.
+    type: string
+  show_authors:
+    summary: Show authors in the output.
+    type: boolean
+  exclude_patterns:
+    summary: Patterns to exclude from the build.
+    type: array
+    items:
+      type: string
+  html_static_path:
+    summary: Paths to static files.
+    description: |
+      Paths that do not start with a `/` are relative to the website's `source` directory.
+    type: array
+    items:
+      type: string
+  html_css_files:
+    summary: Paths to CSS files.
+    description: |
+      Any `.css` or `.css_t` file in a directory named `css`
+      directly under the first defined path in `html_static_path`
+      will be automatically added to this list, if not already defined here.
+    type: array
+    items:
+      type: string
+  html_js_files:
+    summary: Paths to JavaScript files.
+    description: |
+      Any `.js` or `.js_t` file in a directory named `js`
+      directly under the first defined path in `html_static_path`
+      will be automatically added to this list, if not already defined here.
+    type: array
+    items:
+      type: string
+  latex_engine:
+    summary: LaTeX engine to use.
+    description: |
+      * https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
+      * https://www.sphinx-doc.org/en/master/latex.html
+    type: string
+    enum: [ pdflatex, xelatex, lualatex, platex, uplatex ]
+    default: 'pdflatex'
+  latex_show_pagerefs:
+    summary: Show page references in LaTeX output.
+    type: boolean
+    default: true
+  latex_show_urls:
+    summary: Show URLs in LaTeX output.
+    type: string
+    enum: [ no, footnote, inline ]
+    default: 'footnote'
+  latex_theme:
+    summary: LaTeX theme to use.
+    type: string
+    enum: [ manual, howto ]
+    default: manual

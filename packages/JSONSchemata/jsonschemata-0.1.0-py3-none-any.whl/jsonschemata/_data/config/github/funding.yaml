@@ -1,0 +1,123 @@
+$id: https://jsonschemata.repodynamics.com/config/github/funding
+title: GitHub Funding Configuration
+summary: >-
+  Configurations for the 
+  [`FUNDING.yml`](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)
+  file.
+description: |
+  The `FUNDING.yml` file is used by GitHub 
+  to display a sponsor button in the repository.
+  Clicking on the button opens the ***Sponsor this project*** section,
+  where a list of links to the specified funding platforms is displayed to the user.
+  
+  You can specify up to four
+  [sponsored GitHub accounts](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors),
+  up to four custom URLs,
+  and one account per supported external funding platform.
+examples:
+  - github: [ MY-GITHUB-USERNAME ]
+    custom: [ 'https://paypal.me/MY-PAYPAL-USERNAME', 'https://example.com/donate' ]
+    tideleft: pypi/MY-PACKAGE-NAME
+type: object
+additionalProperties: false
+properties:
+  community_bridge:
+    title: LFX Mentorship
+    summary: |
+      [LFX Mentorship (CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) project name.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  issuehunt:
+    title: IssueHunt
+    summary: |
+      [IssueHunt](https://issuehunt.io/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  ko_fi:
+    title: Ko-fi
+    summary: |
+      [Ko-fi](https://ko-fi.com/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  liberapay:
+    title: Liberapay
+    summary: |
+      [Liberapay](https://liberapay.com/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  open_collective:
+    title: Open Collective
+    summary: |
+      [Open Collective](https://opencollective.com/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  patreon:
+    title: Patreon
+    summary: |
+      [Patreon](https://www.patreon.com/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  tidelift:
+    title: Tidelift
+    summary: >-
+      [Tidelift](https://tidelift.com/) package address.
+    description: |
+      This is a string with the format `<PLATFORM-NAME>/<PACKAGE-NAME>`,
+      where `<PACKAGE-NAME>` is the name of your package,
+      and platform name is the name of the package manager
+      hosting the package, i.e., one of
+      `npm`, `pypi`, `maven`, `rubygems`, `nuget`, or `packagist`.
+    examples:
+      - pypi/controlman
+    type: string
+    pattern: ^(npm|pypi|rubygems|maven|packagist|nuget)/\S+$
+  polar:
+    title: Polar
+    summary: |
+      [Polar](https://www.polar.sh/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  buy_me_a_coffee:
+    title: Buy Me a Coffee
+    summary: |
+      [Buy Me a Coffee](https://www.buymeacoffee.com/) username.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+  thanks_dev:
+    title: Thanks.dev
+    summary: |
+      [thanks.dev](https://thanks.dev/home) account address.
+    $ref: https://jsonschemata.repodynamics.com/string/oneline
+    examples:
+      - u/gh/USERNAME
+  github:
+    title: GitHub Sponsors
+    summary: Usernames of up to four [GitHub Sponsors](https://docs.github.com/en/sponsors/) accounts.
+    description: |
+      One of these can be a
+      [sponsored organization account](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization),
+      while the others must be
+      [sponsored personal accounts](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account).
+    type: array
+    maxItems: 4
+    uniqueItems: true
+    items:
+      title: GitHub Sponsors Account
+      description: |
+        GitHub username of a sponsored account.
+        
+        This can be either a personal or an organization account.
+      $ref: https://jsonschemata.repodynamics.com/id/github/user
+  custom:
+    summary: URLs to up to four custom funding platforms.
+    description: |
+      These can be any URL, such as a PayPal donation link.
+    examples:
+      - [ 'https://paypal.me/EXAMPLE-PAYPAL-USERNAME', 'https://example.com/donate' ]
+      - [ 'https://example.com/donate' ]
+      - - 'https://funding-platform-1.com'
+        - 'https://funding-platform-2.com'
+        - 'https://funding-platform-3.com'
+        - 'https://funding-platform-4.com'
+    type: array
+    maxItems: 4
+    uniqueItems: true
+    items:
+      title: URL
+      summary: URL to a custom funding platform.
+      examples:
+        - https://paypal.me/EXAMPLE-PAYPAL-USERNAME
+        - https://example.com/donate
+      $ref: https://jsonschemata.repodynamics.com/url/http-ftp-sftp

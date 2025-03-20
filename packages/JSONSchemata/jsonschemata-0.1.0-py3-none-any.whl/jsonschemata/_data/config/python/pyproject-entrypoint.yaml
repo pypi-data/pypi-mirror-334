@@ -1,0 +1,39 @@
+$id: https://jsonschemata.repodynamics.com/config/python/pyproject-entrypoint
+title: Entry Point Group
+summary: A group of project [entry points](https://packaging.python.org/en/latest/specifications/pyproject-toml/#entry-points).
+description: |
+  There are three tables related to entry points. 
+  The `[project.scripts]` table corresponds to the 
+  `console_scripts` group in the entry points specification. 
+  The key of the table is the name of the entry point 
+  and the value is the object reference.
+  The `[project.gui-scripts]` table corresponds to the `gui_scripts` group 
+  in the entry points specification. Its format is the same as `[project.scripts]`.
+  The `[project.entry-points]` table is a collection of tables. 
+  Each sub-table’s name is an entry point group. 
+  The key and value semantics are the same as `[project.scripts]`.
+  Users MUST NOT create nested sub-tables but instead 
+  keep the entry point groups to only one level deep.
+  Build back-ends MUST raise an error if the metadata defines a 
+  `[project.entry-points.console_scripts]` or 
+  `[project.entry-points.gui_scripts]` table, 
+  as they would be ambiguous in the face of 
+  `[project.scripts]` and `[project.gui-scripts]`, respectively.
+examples:
+  my-package-script-1: my_package.my_module
+  my-package-script-2: my_package.my_module:my_object.attr
+type: object
+propertyNames:
+  title: Entry Point Name
+  summary: Name of the entry point.
+  description: |
+    The name may contain any characters except `=`, 
+    but it cannot start or end with any whitespace character, or start with `[`.
+    For new entry points, it is recommended to use only letters, 
+    numbers, underscores, dots and dashes.
+  type: string
+  pattern: ^[^\s\[\=][^\=]*[^\s\=]$
+additionalProperties:
+  title: Entry Point Reference
+  summary: Object reference of the entry point.
+  type: string
