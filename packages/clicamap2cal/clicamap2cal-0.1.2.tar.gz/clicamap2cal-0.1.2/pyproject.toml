@@ -1,0 +1,103 @@
+[project]
+name = "clicamap2cal"
+description = "Convert your clicamap HTML calendar to an ical ready to import"
+authors = [
+  { name = "Rémi Ferrand", email = "riton.github@gmail.com" },
+]
+maintainers = [
+  { name = "Rémi Ferrand", email = "riton.github@gmail.com" },
+]
+license = "CECILL-B"
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dynamic = [
+]
+dependencies = [
+    "pydantic-settings (>=2.7.1,<3.0.0)",
+    "loguru (>=0.7.3,<0.8.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "lxml (>=5.3.1,<6.0.0)",
+    "ics (>=0.7.2,<0.8.0)",
+    "pytz (>=2025.1,<2026.0)",
+]
+version = "0.1.2"
+
+[project.urls]
+homepage = "https://gitlab.com/riton/clicamap-calendar"
+documentation = "https://gitlab.com/riton/clicamap-calendar"
+repository = "https://gitlab.com/riton/clicamap-calendar"
+
+
+[project.scripts]
+clicamap2cal = "clicamap2cal.cli:main"
+
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.9.0"
+poetry-dynamic-versioning = { version = ">=1.7.1,<2.0.0", extras = ["plugin"] }
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+black = "^24.10.0"
+pylint = "^3.2.3"
+pyright = "^1.1.275"
+tox = "^4.0.8"
+poethepoet = "^0.16.4"
+pytest-cov = "^6.0.0"
+isort = "^5.10.1"
+detect-secrets = "^1.5.0"
+rich = "^13.9.4"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0", "poetry-dynamic-versioning>=1.7.1"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry.build]
+generate-setup-file = false
+
+[tool.poetry-dynamic-versioning]
+enable = false
+vcs = "git"
+style = "semver"
+strict = true
+metadata = false
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["clicamap2cal/__init__.py"]
+
+[tool.black]
+line-length = 88
+target-version = [
+'py312',
+'py313',
+
+]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+
+[tool.poe.tasks]
+code-format = "black ."
+code-format-check = "black --check ."
+code-imports-format = "isort clicamap2cal"
+code-imports-format-check = "isort clicamap2cal --check --diff"
+pydoc = "poetry run python -m pydoc"
+lint = "poetry run pylint clicamap2cal"
+pyright = "poetry run pyright --stats --verbose"
+test = "tox -p all -v"
+test-py312 = "tox -e py312"
+test-py313 = "tox -e py313"
+
+# https://docs.pytest.org/en/stable/reference/customize.html#pyproject-toml
+[tool.pytest.ini_options]
+testpaths = [
+  "tests"
+]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
