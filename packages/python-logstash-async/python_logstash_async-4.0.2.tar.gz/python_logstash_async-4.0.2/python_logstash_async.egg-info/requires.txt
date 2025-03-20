@@ -1,0 +1,10 @@
+limits
+pylogbeat
+requests
+
+[dev]
+django
+flask
+
+[docs]
+sphinx-rtd-theme
