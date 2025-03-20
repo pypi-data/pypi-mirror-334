@@ -1,0 +1,88 @@
+[project]
+name = "ecmwfspec"
+dynamic = []
+description = "fsspec implementation for ECMWF File Storage System"
+readme = "README.md"
+dependencies = [
+    "fsspec",
+    "dask",
+    "universal-pathlib",
+    "typing_extensions; python_version<'3.11'",
+    "xarray<=2024.11.0",
+]
+version = "0.0.6"
+
+[project.optional-dependencies]
+tests = [
+    "mock",
+    "pre-commit",
+    "netCDF4",
+    "numpy",
+    "pandas",
+    "xarray",
+    "zarr<3.0.0",
+    "pytest",
+    "pytest-cov",
+]
+
+[project.urls]
+Homepage = "https://github.com/observingClouds/ecmwfspec"
+
+[project.entry-points."fsspec.specs"]
+ec = "ecmwfspec.ECFileSystem"
+ectmp = "ecmwfspec.ECTmpFileSystem"
+
+[project.entry-points."universal_pathlib.implementations"]
+ec = "ecmwfspec.core:ECFSPath"
+ectmp = "ecmwfspec.core:ECFSPath"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.scripts]
+post_install = "pre-commit install"
+
+[tool.ruff]
+line-length = 87
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+files = "ecmwfspec/core.py"
+strict = false
+warn_unused_ignores = true
+warn_unreachable = true
+show_error_codes = true
+install_types = true
+non_interactive = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = false
+warn_redundant_casts = true
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*",
+    "ecmwfspec/_version.py",
+]
+concurrency = [
+    "multiprocessing",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+]
