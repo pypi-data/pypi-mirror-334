@@ -1,0 +1,17 @@
+dolphin/__init__.py,sha256=ZrtJkakAxZhcuFUhyjAS9QT8n4pGlkKTHGoLHm7SmH4,95
+dolphin/__main__.py,sha256=RGqP1EgRWEHJpsNdpOnWA39MiV9V-q0rZIE4HUx_f_4,53
+dolphin/audio.py,sha256=_eslZnE7zFn5eK1MOciR45klyq5md1X0SJ2zYXiC_Zw,840
+dolphin/constants.py,sha256=QZxzpZtg1PwIBg9W4K_0XK4w_8KNnBcS4tGOM8KhlRg,258
+dolphin/languages.py,sha256=hYf2OqCr3l_rBiG_3Xjf7py9_VA7_Qx3mcsmZSX35kw,5444
+dolphin/model.py,sha256=kdZPnpGhh1IMwpWFreOSJs4IWgjrYmqUT2BU-k68o0E,13818
+dolphin/transcribe.py,sha256=kC-J2yGaMVdrb1jlkjSV3lMFYmxdt0iXY65puYMKLRE,7269
+dolphin/version.py,sha256=ek9UB_NBKHIaxGULy6mrBWshNEbmVbbJvGEDFnSUhhE,25
+dolphin/assets/bpe.model,sha256=S5ECGB7xoqPELOj7yopUXqSlW85HunpSIpUatbshuzw,854022
+dolphin/assets/config.yaml,sha256=gM6k47hvNA83OqPkjptPcEoE_tGw0FGxn8CgFyYl5TE,361652
+dolphin/assets/feats_stats.npz,sha256=WjfQDAfVldvCR5sxvkKzx13kIkaalHzkt72hk8Ox3n8,1402
+dataoceanai_dolphin-20250317.dist-info/LICENSE,sha256=JSv_UuMvQzmvym4DV3YEPLlsthHNAvQur6Z1iZDPTHE,11341
+dataoceanai_dolphin-20250317.dist-info/METADATA,sha256=wgtjXW8DebIUPXqikZEAJdhizN-Ng881SaK61WaFYak,2822
+dataoceanai_dolphin-20250317.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+dataoceanai_dolphin-20250317.dist-info/entry_points.txt,sha256=SO4g0rgQ34XBBNf2tVyoI9p2IbPskadMjFcUwOQFSio,51
+dataoceanai_dolphin-20250317.dist-info/top_level.txt,sha256=Nf8Aig6ev0EaleL6Ig2gOHQGRvg_FHGJUEOTygDd-_4,23
+dataoceanai_dolphin-20250317.dist-info/RECORD,,
