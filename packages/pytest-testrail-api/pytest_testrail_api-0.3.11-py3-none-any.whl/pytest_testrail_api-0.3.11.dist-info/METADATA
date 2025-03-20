@@ -1,0 +1,173 @@
+Metadata-Version: 2.1
+Name: pytest-testrail-api
+Version: 0.3.11
+Summary: TestRail Api Python Client
+Home-page: UNKNOWN
+Author: Yevhen Halitsyn
+Author-email: halitsyny@science.regn.net
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: pytest
+Requires-Dist: gherkin-official >=4.1.0
+Requires-Dist: pytest-bdd >=3.3.0
+Requires-Dist: typing
+
+# 3D4Medical Automated Tests
+
+This is repository for 3D4Medical web sites, api and hybrid application automated tests.
+It contains different folders for different kind of tests:
+
+  * Web - web sites tests
+  * Rest - api tests
+  * App - hybrid application tests
+
+# Features!
+
+  - Running automated Rest tests
+  - Running automated Web tests
+  - Running automated tests for hybrid App
+  - Allure Report generatin
+  - Cucumber Report generation
+  - Export test results in TestRail
+  - TBD
+
+You can also:
+
+  - Export BDD test scenarios in TestRail
+
+## Tech
+
+Framework uses a number of open source projects to work properly:
+
+* [pytest](https://docs.pytest.org/en/stable/contents.html) - test runner
+* [pytest-bdd](https://github.com/pytest-dev/pytest-bdd) - for writing tests in BDD format
+* [PyHamcrest](https://pypi.org/project/PyHamcrest/) - framework for writing matcher objects
+* [selene](https://github.com/yashaka/selene#) - framework for testing Web applications
+* [Appium-Python-Client](https://pypi.org/project/Appium-Python-Client/) - for using mobile testing framework [Appium](https://appium.io/)
+* [requests](https://requests.readthedocs.io/en/master/) - elegant and simple HTTP library for Python
+* [allure-pytest-bdd](https://pypi.org/project/allure-pytest-bdd/) - framework for [Allure](https://docs.qameta.io/allure/) report generation
+* [pytest-testrail-client](https://github.com/yeromina/pytest-testrail-client) - framework for [TestRail](https://3d4medical.testrail.net/) integration
+
+## Installation
+
+Each test framework has the requirements.txt file which contains all required packages for running the tests.
+For installing the packages run the following command:
+```sh
+pip install -r requirements.txt
+```
+For TestRail integration one more package is required. It can be installed like:
+```sh
+pip install git+https://github.com/yeromina/pytest-testrail-client.git@master --upgrade
+```
+There is an issue with creating a saucelabs session with default urllib3. I forked it and increased the default retry count. To install it run:
+```sh
+pip install git+https://github.com/yeromina/urllib3.git@1.26.x --upgrade
+```
+
+## Running tests
+All frameworks use the 'pytest' as test runner.
+
+For runnings all tests just run:
+```sh
+$ pytest
+```
+For running tests from specific package run:
+```sh
+$ pytest tests/package_name
+```
+For running tests from specific module run:
+```sh
+$ pytest module_name.py
+```
+More details about pytest on it's official [site](https://docs.pytest.org/en/stable/contents.html)
+For writing tests in BDD format the [pytest-bdd](https://github.com/pytest-dev/pytest-bdd) is used
+The command line that runs tests and generate all kind of reports looks like the following:
+```sh
+pytest --cucumberjson=report/cucumber-report.json --cucumberjson-expanded --alluredir=target/allure-results --clean-alluredir  -v --pytest-testrail-export-test-results --pytest-testrail-test-plan-id 193 --pytest-testrail-test-configuration-name Chrome
+```
+
+## Reporting
+All frameworks can generate different kind of reports: **Allure Report**, **Cucumber Report** and export test results in **TestRail**
+
+#### Allure
+For generating allure report add the '--alluredir=target/allure-results --clean-alluredir' in the command line:
+```sh
+$ pytest --alluredir=target/allure-results --clean-alluredir
+```
+this will create the ***allure-results*** folder with results. After that you can generate report locally like 
+```sh
+$ allure serve
+```
+or use [Allure Jenkins Plugin](https://plugins.jenkins.io/allure-jenkins-plugin/) for publishing report in Jenkins
+#### Cucumber
+For generating cucumber report add the '--cucumberjson=report/cucumber-report.json --cucumberjson-expanded' in the command line:
+```sh
+$ pytest --cucumberjson=report/cucumber-report.json --cucumberjson-expanded
+```
+this will create the ***cucumber-report.json***. After that you can publish it in Jenkins with [Cucumber Reports](https://plugins.jenkins.io/cucumber-reports/) plugin
+#### TestRail
+For exporting tests in TestRail run:
+```sh
+$ pytest -v --pytest-testrail-export-test-cases --pytest-testrail-feature-files-relative-path "features"
+```
+
+## TestRail Integration
+TestRail configuration data can be provided in three different ways:
+
+* **By using Environment Variables**:
+
+Please set your credentials to system variables. Manual at the [Link](https://elsevier.atlassian.net/wiki/spaces/HM3D4MED/pages/119601273666444/How+to+set+up+credentials+for+TestRail)
+```sh
+TESTRAIL_URL=[URL of TestRail instance]
+TESTRAIL_EMAIL= [email [of user to be used for communication]]
+TESTRAIL_KEY=key [of user to be used for communication]
+TESTRAIL_PROJECT_ID=[project id to which the data is sent]
+JIRA_PROJECT_KEY=[Jira project key for integration with Jira]
+```
+* **By using command line arguments:**
+```sh
+--pytest-testrail-client True / False
+--testrail-url [URL of TestRail instance]
+--testrail-email [email [of user to be used for communication]]
+--testrail-key key [of user to be used for communication]
+--testrail-project-id [project id to which the data is sent]
+--jira-project-key [Jira project key for integration with Jira]
+```
+* **By using ***pytest.ini*** file:**
+```sh
+[pytest-testrail-client]
+pytest-testrail-client = True / False
+testrail-url = [URL of TestRail instance]
+testrail-email = [email [of user to be used for communication]]
+testrail-key = key [of user to be used for communication]
+testrail-project-id = [project id to which the data is sent]
+jira-project-key = [Jira project key for integration with Jira]
+```
+For exporting **Test Cases** in TestRail use:
+```sh
+pytest -v --pytest-testrail-export-test-cases --pytest-testrail-feature-files-relative-path "features"
+```
+For exporting **Test Results** in TestRail use:
+```sh
+python -m pytest ./tests -v --pytest-testrail-export-test-results --pytest-testrail-test-plan-id [ID of Plan to be used] --pytest-testrail-test-configuration-name [str: Id of Test Configuration to be used]
+```
+
+## GIT Interaction
+### Pre-commit
+####We are using the pre-commit feature in our project. This app includes 2 automate formatters:
+* Black
+* iSort
+
+**Installation:**
+```sh
+  brew install isort black pre-commit
+  cd /path/to/project/
+  pre-commit install
+```
+After that before every push PyCharm will be applying the pre-commit feature to the updated files.
+
+[Instruction from the Backend team](https://elsevier.atlassian.net/wiki/spaces/HM3D4MED/pages/119600887684266/Code+Style/)
+
+
