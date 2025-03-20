@@ -1,0 +1,14 @@
+include LICENSE
+include onsite-unstructured/kinetic model/linux/*.slxp
+include onsite-unstructured/kinetic model/linux/*.mat
+include onsite-unstructured/kinetic model/linux/*.m
+include onsite-unstructured/kinetic model/linux/*.slx
+include onsite-unstructured/kinetic model/linux/*.slxc
+include onsite-unstructured/kinetic model/win/*.slxp
+include onsite-unstructured/kinetic model/win/*.mat
+include onsite-unstructured/kinetic model/win/*.m
+include onsite-unstructured/kinetic model/win/*.slx
+include onsite-unstructured/kinetic model/win/*.slxc
+include onsite-unstructured/kinetic model/win/*.mexw64
+include onsite-unstructured/data/*.npy
+

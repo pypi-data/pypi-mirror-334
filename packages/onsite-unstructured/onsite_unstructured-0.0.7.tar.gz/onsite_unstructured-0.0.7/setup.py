@@ -1,0 +1,52 @@
+import os
+import setuptools
+from setuptools import setup, find_packages
+# 如果readme文件中有中文，那么这里要指定encoding='utf-8'，否则会出现编码错误
+with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8') as readme:
+    README = readme.read()
+
+# 允许setup.py在任何路径下执行
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+
+setuptools.setup(
+    name="onsite_unstructured",  # 库名，需要在pypi中唯
+    version="0.0.7",  # 版本号
+    author="kaiwen",  # 作者
+    author_email="xhh666@sjtu.edu.cn",  # 作者邮箱（方便使用者发现问题后联系我们）
+    description="A small example package",  # 简介
+    long_description="long_description",  # 详细描述（一般会写在README.md中）
+    long_description_content_type="text/markdown",  # README.md中描述的语法（一般为markdown）
+    url="https://github.com/pypa/sampleproject",  # 库/项目主页，一般我们把项目托管在GitHub，放该项目的GitHub地址即可
+    package=setuptools.find_packages(),
+    package_data =      {
+    "onsite_unstructured": [
+        "onsite-unstructured/data/*.npy",
+        "onsite-unstructured/kinetic_model/linux/*.slxp",
+        "onsite-unstructured/kinetic_model/linux/*.mat",
+        "onsite-unstructured/kinetic_model/linux/*.m",
+        "onsite-unstructured/kinetic_model/linux/*.slx",
+        "onsite-unstructured/kinetic_model/linux/*.slxc",
+        "onsite-unstructured/kinetic_model/win/*.slxp",
+        "onsite-unstructured/kinetic_model/win/*.mat",
+        "onsite-unstructured/kinetic_model/win/*.m",
+        "onsite-unstructured/kinetic_model/win/*.slx",
+        "onsite-unstructured/kinetic_model/win/*.slxc",
+        "onsite-unstructured/kinetic_model/win/*.mexw64"
+    ]
+},
+    include_package_data=True,  # 激活 MANIFEST.in 文件（可选）
+    # 默认值即可，这个是方便以后我们给库拓展新功能的
+    classifiers=[  # 指定该库依赖的Python版本、license、操作系统之类的
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+
+    ],
+    install_requires=[  # 该库需要的依赖库
+
+        # exapmle
+        'pyautogui',
+        'Django >= 1.11',
+    ],
+    python_requires='>=3.6',
+)
