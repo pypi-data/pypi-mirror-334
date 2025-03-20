@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/__init__.py
+src/__version__.py
+src/basis.py
+src/cli.py
+src/symm.py
+src/symm_util.py
+src/write_util.py
+symmetry_analysis.egg-info/PKG-INFO
+symmetry_analysis.egg-info/SOURCES.txt
+symmetry_analysis.egg-info/dependency_links.txt
+symmetry_analysis.egg-info/entry_points.txt
+symmetry_analysis.egg-info/requires.txt
+symmetry_analysis.egg-info/top_level.txt
