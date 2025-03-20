@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: tilemaker
+Version: 0.0.1a11
+Requires-Python: >=3.11
+Requires-Dist: pixell
+Requires-Dist: sqlmodel
+Requires-Dist: pydantic-settings
+Requires-Dist: numpy
+Requires-Dist: pydantic_numpy
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: matplotlib
+Requires-Dist: astropy
+Requires-Dist: fastapi-cache2
+Requires-Dist: typer
