@@ -1,0 +1,9 @@
+celery-types
+dulwich
+pytest >= 8.1
+pytest-mock
+swh.core[testing]
+swh.loader.core[testing]
+swh.scheduler[testing]
+swh.storage[testing]
+testtools
