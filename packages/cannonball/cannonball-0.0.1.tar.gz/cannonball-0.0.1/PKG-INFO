@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: cannonball
+Version: 0.0.1
+Summary: An AI-powered personal productivity system.
+Home-page: https://github.com/yourusername/cannonball
+Author: Thomas Rueckstiess
+Author-email: me@tomr.au
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Cannonball
+
+**Cannonball** is an AI-powered personal productivity system.
+
+<img src="./assets/teaser.png" width="500px">
+
+
+
+### ... More coming soon...
