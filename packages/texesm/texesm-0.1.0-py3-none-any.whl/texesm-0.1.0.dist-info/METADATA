@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: texesm
+Version: 0.1.0
+Summary: Tex code generators
+Author-email: neo-pr <neo_sm@hotmail.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+Create tex codes for tables and imgs from text and png files respectively
