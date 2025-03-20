@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: datadispatcher-client
+Version: 2.0.1
+Summary: Data Dispatcher - core workflow management
+Home-page: https://github.com/fermitools/data_dispatcher
+Author: Alison Peisker, Igor Mandrichenko
+Author-email: apeisker@fnal.gov
+License: BSD 3-clause
+Keywords: workflow management,data management,web service
+License-File: LICENSE
+Requires-Dist: metacat-client>=3.43.0
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary

@@ -1,0 +1,3 @@
+[console_scripts]
+dd-sam = data_dispatcher.ddsam.ddsam:main
+ddisp = data_dispatcher.ui.ui_main:main
