@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ThreeDViewer"
+version = "0.1.5"
+license = { file = "LICENSE.txt" }
+authors = [
+    { name = "Andreas Apseros"},
+]
+description = "Tool for visualising 3D vector and scalar fields"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "magpack",
+    "matplotlib"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+vtk = ["pyvisa", "scipy"]
+
+[project.urls]
+Homepage = "https://github.com/apseros/ThreeDViewer"
+Issues = "https://github.com/apseros/ThreeDViewer/issues"
