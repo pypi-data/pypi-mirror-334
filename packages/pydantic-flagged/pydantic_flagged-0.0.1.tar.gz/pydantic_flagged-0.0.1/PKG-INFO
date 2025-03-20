@@ -1,0 +1,255 @@
+Metadata-Version: 2.4
+Name: pydantic-flagged
+Version: 0.0.1
+Summary: Pydantic BaseModel with flagged fields by name
+Author-email: Ryan Young <dev@ryayoung.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: pydantic<3.0,>=2.0
+Description-Content-Type: text/markdown
+
+# pydantic-flagged
+
+[![PyPI](https://img.shields.io/pypi/v/pydantic-flagged)](https://pypi.org/project/pydantic-flagged/)
+[![Tests](https://github.com/ryayoung/pydantic-flagged/actions/workflows/tests.yml/badge.svg)](https://github.com/ryayoung/pydantic-flagged/actions/workflows/tests.yml)
+[![License](https://img.shields.io/github/license/ryayoung/pydantic-flagged)](https://github.com/ryayoung/pydantic-flagged/blob/main/LICENSE)
+[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Pyright](https://img.shields.io/badge/type%20checker-pyright-blue)](https://github.com/microsoft/pyright)
+
+**pydantic-flagged** is a small extension of [Pydantic v2](https://docs.pydantic.dev/latest/) that introduces the concept of _flagged fields_. A flagged field is defined by its name matching a condition––for example, ending with an underscore (`_`). Once flagged fields are identified, you can `include` or `exclude` them from serialization with a simple API.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Why Flagged Fields?](#why-flagged-fields)
+- [Customization and Class-Level Configuration](#customization-and-class-level-configuration)
+  - [Define Your Own Flag Rules](#define-your-own-flag-rules)
+  - [Class-Level Default Serialization Mode](#class-level-default-serialization-mode)
+  - [Customization via Context Keys](#customization-via-context-keys)
+- [Nested Models](#nested-models)
+- [Advanced Usage Examples](#advanced-usage-examples)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Overview
+
+By default, `pydantic-flagged` treats any field whose name ends with an underscore as "flagged." Using flagged fields, you can:
+
+- **Exclude** them from serialized output (`flagged="exclude"`)
+- **Include** only flagged fields while dropping all others (`flagged="include"`)
+
+This behavior can be configured and applied to an entire model class, or dynamically at serialization time via `model_dump` or `model_dump_json`.
+
+---
+
+## Installation
+
+```bash
+pip install pydantic-flagged
+```
+
+Make sure you're using **Pydantic v2** or higher. If you rely on Pydantic v1, this package will not work as expected.
+
+---
+
+## Quick Start
+
+Use `BaseModelFlagged` instead of `pydantic.BaseModel`. For simplicity, let's assume the default flag rule (names ending in `_`) and see what happens.
+
+```python
+from pydantic_flagged import BaseModelFlagged
+
+class MyModel(BaseModelFlagged):
+    one: int = 0
+    two_: int = 0  # flagged because it ends with an underscore
+
+print(MyModel().model_dump(flagged="exclude"))
+# {'one': 0}
+```
+
+Here, `two_` is excluded from the output because we called `model_dump(flagged="exclude")`. If you switched to `flagged="include"`, only `two_` would remain.
+
+---
+
+## Why Flagged Fields?
+
+You might sometimes have fields that you use internally but don’t want to expose externally, or vice versa. Flagging fields and selectively including/excluding them at serialization time can be a convenient way to maintain clarity in your code. While you could accomplish something similar using custom serialization logic, flagged fields make this much simpler and more explicit.
+
+---
+
+## Customization and Class-Level Configuration
+
+`pydantic-flagged` provides several class-level variables that let you define:
+
+1. **How** a field is flagged (`model_flagged_fields_define`)
+2. **When** flagged fields are included or excluded by default (`model_flagged_fields_ser_mode`)
+3. **Which** context key signals flagged behavior at dump time (`model_flagged_fields_ser_mode_context_key`)
+
+### Define Your Own Flag Rules
+
+Instead of always relying on the default rule (names ending in `_`), you can set `model_flagged_fields_define` to:
+- A **callable** that takes a field name and returns a boolean
+- A **set** or **list** or **tuple** of field names (only those in this collection are flagged)
+
+Example:
+
+```python
+class MyModel(BaseModelFlagged):
+    model_flagged_fields_define = ["secret_field", "debug_field"]
+    secret_field: int = 42
+    debug_field: str = "verbose logs"
+    normal_field: bool = True
+
+m = MyModel()
+print(m.model_flagged_fields.keys())
+# dict_keys(['secret_field', 'debug_field'])
+```
+
+### Class-Level Default Serialization Mode
+
+If you want to always exclude flagged fields by default, set:
+
+```python
+class Child(BaseModelFlagged):
+    model_flagged_fields_define = lambda name: name.endswith("_")
+    model_flagged_fields_ser_mode = "exclude"
+
+    one: int = 0
+    two_: int = 0  # flagged
+
+child = Child()
+print(child.model_dump())
+# {'one': 0}
+```
+
+Even if you embed `Child` in a larger model, this class-level setting applies to the `Child` instance automatically (though you can still override at dump time).
+
+### Customization via Context Keys
+
+By default, `pydantic-flagged` looks for a context key named `"flagged"` when deciding how to handle flagged fields. If you want to allow multiple different types of flagged models in your hierarchy––all with different rules––you can rename this key per class:
+
+```python
+class Color(BaseModelFlagged):
+    model_flagged_fields_ser_mode_context_key = "color_flagged"
+    # ...
+```
+
+Then, in your `model_dump`, you can pass a `context` dict that contains different keys for each model type:
+
+```python
+big_model_instance.model_dump(
+    context={
+        "flagged": "exclude",       # affects normal flagged classes
+        "color_flagged": "include"  # specifically for Color
+    }
+)
+```
+
+---
+
+## Nested Models
+
+If you embed a `BaseModelFlagged` subclass inside another model, its class-level default serialization mode (if any) still applies. However, you can override it at the time of serialization by passing either:
+
+1. The `flagged` parameter directly (`.model_dump(flagged="exclude")`), which will override for that specific instance.
+2. A `context` dictionary (`.model_dump(context={"flagged": "include"})`), which will cascade through nested flagged models that share the same `model_flagged_fields_ser_mode_context_key`.
+
+#### Example
+
+```python
+import pydantic
+from pydantic_flagged import BaseModelFlagged
+
+class Child(BaseModelFlagged):
+    model_flagged_fields_define = lambda name: name.endswith("_")
+    model_flagged_fields_ser_mode = "exclude"
+    visible: int = 0
+    invisible_: int = 0
+
+class Parent(pydantic.BaseModel):
+    child: Child = Child()
+
+# Default: the child's "exclude" rule hides `invisible_`.
+print(Parent().model_dump())
+# {'child': {'visible': 0}}
+
+# Override: now we *include* flagged fields for all flagged models in this hierarchy
+print(Parent().model_dump(flagged="include"))
+# {'child': {'invisible_': 0}}
+```
+
+---
+
+## Advanced Usage Examples
+
+Here are some real-world patterns from the tests:
+
+```python
+from pydantic_flagged import BaseModelFlagged
+import pydantic
+
+class Point(BaseModelFlagged):
+    # Exclude flagged by default
+    model_flagged_fields_define = lambda name: name.endswith("_")
+    model_flagged_fields_ser_mode = "exclude"
+    x: int = 0
+    y_: int = 0  # flagged
+
+class Color(BaseModelFlagged):
+    # We'll define a custom key for flagged logic
+    model_flagged_fields_define = lambda name: name.endswith("_")
+    model_flagged_fields_ser_mode_context_key = "color_flagged"
+    r: int = 0
+    g_: int = 0  # flagged
+    b_: int = 0  # flagged
+
+print(Point().model_dump())             # {'x': 0}
+print(Color().model_dump(flagged="include"))  # {'g_': 0, 'b_': 0}
+
+class Stuff(pydantic.BaseModel):
+    point: Point = Point()
+    color: Color = Color()
+
+# We pass a context that includes instructions for *both* standard flagged fields
+# and the "color_flagged" fields.
+print(
+    Stuff().model_dump(
+        context={
+            "flagged": "include",         # for Point
+            "color_flagged": "exclude"    # for Color
+        }
+    )
+)
+# {'point': {'y_': 0}, 'color': {'r': 0}}
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues, suggest ideas, or submit pull requests on GitHub. Please run tests and format your code with [black](https://github.com/psf/black) before submitting any PRs.
+
+### Running Tests
+
+```bash
+pytest tests
+```
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).  
+© 2023-present Ryan Young. All rights reserved.
