@@ -1,0 +1,41 @@
+Metadata-Version: 2.2
+Name: blueness
+Version: 3.95.1
+Summary: 🌀 the blueness of ai.
+Home-page: https://github.com/kamangir/blueness
+Author: Arash Abadpour (Kamangir)
+Author-email: arash@kamangir.net
+License: Public Domain
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Unix Shell
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml
+Requires-Dist: pylint
+Requires-Dist: pytest
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# 🌀 blueness
+
+🌀 the blueness of ai enables [blue plugins](https://github.com/kamangir/blue-plugin).
+
+```bash
+pip install blueness
+```
+
+---
+
+[![pylint](https://github.com/kamangir/blueness/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blueness/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blueness/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blueness/actions/workflows/pytest.yml) [![PyPI version](https://img.shields.io/pypi/v/blueness.svg)](https://pypi.org/project/blueness/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blueness)](https://pypistats.org/packages/blueness)
+
+built by 🌀 [`blueness-3.95.1`](https://github.com/kamangir/blueness).
