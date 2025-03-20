@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: compass.api_client
+Version: 1.0.88
+Summary: Compass API
+Home-page: 
+Author: OpenAPI Generator community
+Author-email: team@openapitools.org
+Keywords: OpenAPI,OpenAPI-Generator,Compass API
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3<3.0.0,>=2.1.0
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: pydantic>=2
+Requires-Dist: typing-extensions>=4.7.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+      &lt;h3&gt;With this API you can:&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Execute complex DeFi transactions:&amp;nbsp; &lt;/strong&gt;Swap, lend, borrow, stake, LP, and more, with high-level on-chain actions.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Stay secure &amp;amp; non-custodial&lt;/strong&gt; &amp;ndash; Transactions are signed locally, and you retain full control.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Build AI &amp;amp; automation workflows&lt;/strong&gt; &amp;ndash; Power AI agents, trading bots, yield products and DeFi applications with programmatic transaction execution. Integrate seamlessly into existing workflows.&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Interact across multiple protocols &amp;amp; chains&lt;/strong&gt;&amp;nbsp;&amp;ndash; Spot, lending, staking on Ethereum, Arbitrum, Base. Many more to come!&lt;/li&gt; &lt;/ul&gt;  &lt;h3 id&#x3D;\&quot;quick-links\&quot; class&#x3D;\&quot;docs-chapter-header\&quot;&gt;&lt;a class&#x3D;\&quot;not-prose group hover:text-compass-pink transition-colors flex w-fit\&quot; href&#x3D;\&quot;https://www.compasslabs.ai/api-docs#quick-links\&quot;&gt;Quick links&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a href&#x3D;\&quot;https://api.compasslabs.ai/\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener\&quot;&gt;API reference&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href&#x3D;\&quot;https://github.com/CompassLabs/compass_api_examples\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener\&quot;&gt;5 min quickstart&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href&#x3D;\&quot;https://discord.gg/qjP8dCYZ58\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener\&quot;&gt;Discord&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href&#x3D;\&quot;https://www.compasslabs.ai/\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener\&quot;&gt;Compass Labs&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;
+    
