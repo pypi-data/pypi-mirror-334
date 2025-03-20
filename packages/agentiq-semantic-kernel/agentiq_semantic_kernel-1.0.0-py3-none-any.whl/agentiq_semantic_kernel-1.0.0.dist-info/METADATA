@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: agentiq-semantic-kernel
+Version: 1.0.0
+Summary: Subpackage for Semantic-Kernel integration in AgentIQ
+Keywords: ai,rag,agents
+Classifier: Programming Language :: Python
+Requires-Python: >=3.12
+Requires-Dist: agentiq
+Requires-Dist: semantic-kernel~=1.24.0
