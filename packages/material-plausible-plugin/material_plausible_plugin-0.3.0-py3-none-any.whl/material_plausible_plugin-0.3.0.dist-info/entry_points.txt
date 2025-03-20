@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+material-plausible=material_plausible.plugin:MaterialPlausiblePlugin
+
