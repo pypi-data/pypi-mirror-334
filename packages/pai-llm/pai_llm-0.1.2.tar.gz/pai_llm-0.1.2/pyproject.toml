@@ -1,0 +1,16 @@
+[project]
+name = "pai-llm"
+version = "0.1.2"
+description = ""
+authors = [
+    { name = "hzr", email = "hzr@pai.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
