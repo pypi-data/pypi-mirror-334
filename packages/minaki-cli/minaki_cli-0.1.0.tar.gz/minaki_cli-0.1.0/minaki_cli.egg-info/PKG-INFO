@@ -1,0 +1,39 @@
+Metadata-Version: 2.2
+Name: minaki-cli
+Version: 0.1.0
+Summary: A modular and extensible CLI tool for executing commands and managing plugins.
+Home-page: https://github.com/minakilabs/minaki-cli
+Author: Andrew Polykandriotis
+Author-email: andrew@minakilabs.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System :: Shells
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+Requires-Dist: click>=8.0.3
+Requires-Dist: requests>=2.25.1
+Requires-Dist: art>=6.4
+Requires-Dist: gitpython>=3.1.44
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Minaki CLI is a lightweight, extensible command-line tool that allows users to execute modular commands, manage plugins, and interact with system utilities. It supports dynamic plugin management and seamless shell command execution.
