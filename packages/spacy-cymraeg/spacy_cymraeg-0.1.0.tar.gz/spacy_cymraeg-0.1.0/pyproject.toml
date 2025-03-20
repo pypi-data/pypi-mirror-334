@@ -1,0 +1,21 @@
+[project]
+name = "spacy-cymraeg"
+version = "0.1.0"
+description = "An installable version of Techiaith's cy model for SpaCy"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Preben Vangberg", email = "prv21fgt@bangor.ac.uk" }
+]
+requires-python = "==3.9.*"
+dependencies = [
+    "spacy==3.5.*",
+]
+
+[project.urls]
+homepage = "https://gitlab.com/prvInSpace/spacy-cymraeg"
+repository = "https://gitlab.com/prvInSpace/spacy-cymraeg"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
