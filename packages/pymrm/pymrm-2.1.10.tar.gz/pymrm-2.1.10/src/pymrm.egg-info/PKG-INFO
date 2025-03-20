@@ -1,0 +1,82 @@
+Metadata-Version: 2.2
+Name: pymrm
+Version: 2.1.10
+Summary: Functions for multiphase reactor modeling
+Author-email: "E.A.J.F. Peters" <e.a.j.f.peters@tue.nl>, "M. van Sint Annaland" <M.v.SintAnnaland@tue.nl>, "M. Galanti" <m.galanti@tue.nl>, "D.R. Rieder" <d.r.rieder@tue.nl>
+Maintainer-email: "E.A.J.F. Peters" <e.a.j.f.peters@tue.nl>
+License: MIT License
+        
+        Copyright (c) 2025 E.A.J.F. Peters
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://multiscale-modelling-multiphase-flows.github.io/pymrm-book
+Project-URL: Repository, https://github.com/multiscale-modelling-multiphase-flows/pymrm
+Keywords: MRM,modeling,multiphase,diffusion,convection
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pip>=24.0
+Requires-Dist: numpy>=1.26
+Requires-Dist: scipy>=1.13
+Requires-Dist: numba>=0.58
+Requires-Dist: pandas>=2.2
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: ipython>=8.20
+Requires-Dist: ipykernel>=6.28
+Requires-Dist: pytest>=8.3.4
+Requires-Dist: pytest-cov
+Requires-Dist: sphinx
+Requires-Dist: sphinx_rtd_theme
+Requires-Dist: nbclient
+Requires-Dist: myst-parser
+
+# pymrm: Python Package for Multiphase Reactor Modeling
+
+## Overview
+
+Welcome to pymrm, a Python package designed for creating phenomenological models of multiphase reactors. Developed within the ambit of the Multiphase Reactor Modeling course at Eindhoven University of Technology, this package finds its roots in the Department of Chemical Engineering and Chemistry taught by Martin van Sint Annaland and Frank Peters. Originally implemented in Matlab, pymrm stands today as a port to Python, signifying a step forward in accessibility and open access.
+
+## Getting Started
+
+To get a comprehensive understanding of pymrm's capabilities, we recommend exploring the included Jupyter notebook. This notebook is packed with examples that demonstrate the application of the package in the realm of chemical engineering.
+
+### Features
+
+- Comprehensive set of functions for modeling multiphase reactors
+- User-friendly interface tailored for both students and professionals
+- Extensive documentation and example-based learning
+
+### How to Install
+
+pip install pymrm
+
+### Quickstart Guide
+
+Start implementing 1D reaction-diffusion equations, proceed to convection, different phases, mass transfer, etc. The Python notebook: pymrm_examples.ipynb provides examples that are useful to get you started.
+
+### Contributing
+
+We welcome contributions from the community. If you're interested in enhancing pymrm or have suggestions, please contact us.
