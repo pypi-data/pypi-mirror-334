@@ -1,0 +1,11 @@
+numpy>=1.16.5
+scipy>=1.0
+pandas
+pylha>=0.2
+pyyaml
+ckmutil>=1.2.0
+rundec>=0.5
+voluptuous
+
+[testing]
+nose
