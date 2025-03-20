@@ -1,0 +1,5 @@
+[console_scripts]
+anl = anl.cli:main
+anl-vis = anl.visualizer.cli:main
+anlv = anl.visualizer.cli:main
+anlvis = anl.visualizer.cli:main
