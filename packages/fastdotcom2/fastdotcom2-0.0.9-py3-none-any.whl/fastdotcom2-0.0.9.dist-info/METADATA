@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: fastdotcom2
+Version: 0.0.9
+Summary: Python package to perform fast.com speedtest
+Author: rosenrot
+License: MIT
+Project-URL: Homepage, https://github.com/rosenrot00/fastdotcom2
+Project-URL: Issues, https://github.com/rosenrot00/fastdotcom2/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: icmplib>=3.0.4
+Requires-Dist: requests>=2.32.3
+
+# fastdotcom2
+
+no readme yet
