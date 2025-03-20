@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pylibretro"
+version = "0.4.1"
+description = "WIP Python library that runs Libretro cores"
+authors = [{name = "James Ravindran"}]
+license = {text = "GPL-3.0-or-later"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["libretro", "emulator", "retroarch"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "cffi",
+    "pycparser-fake-libc",
+    "numpy",
+]
+
+[project.urls]
+Repository = "https://github.com/jamesravi/pylibretro"
+
+[project.optional-dependencies]
+examples = ["imageio", "tqdm", "pillow", "opencv-python"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pylibretro = ["*.h"]

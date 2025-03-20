@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/pylibretro/__init__.py
+src/pylibretro/core.py
+src/pylibretro/libretro.h
+src/pylibretro/utils.py
+src/pylibretro.egg-info/PKG-INFO
+src/pylibretro.egg-info/SOURCES.txt
+src/pylibretro.egg-info/dependency_links.txt
+src/pylibretro.egg-info/requires.txt
+src/pylibretro.egg-info/top_level.txt

@@ -1,0 +1,9 @@
+cffi
+pycparser-fake-libc
+numpy
+
+[examples]
+imageio
+tqdm
+pillow
+opencv-python
