@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: anl2025
+Version: 0.1.0
+Summary: Temporary development of anl2025
+Requires-Python: ~=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: negmas>=0.11.2
+Requires-Dist: typer>=0.12.5
+Requires-Dist: multiprocess>=0.70.17
+Provides-Extra: doc
+Requires-Dist: jupyter>=1.1.1; extra == "doc"
+Requires-Dist: mkdocs-include-markdown-plugin>=7.1.4; extra == "doc"
+Requires-Dist: mkdocs-material>=9.6.4; extra == "doc"
+Requires-Dist: mkdocs>=1.6.1; extra == "doc"
+Requires-Dist: mkdocstrings-python>=1.16.0; extra == "doc"
+Requires-Dist: mkdocstrings>=0.28.1; extra == "doc"
+Provides-Extra: anl2024
+Requires-Dist: anl>=0.1.13; extra == "anl2024"
+Requires-Dist: anl-agents>=0.1.1; extra == "anl2024"
+Provides-Extra: testing
+Requires-Dist: hypothesis>=6.118.8; extra == "testing"
+Requires-Dist: pytest>=8.3.3; extra == "testing"
+
+# ANL 2025 Official Package
+
+This is the official package for the ANL 2025 compeition
