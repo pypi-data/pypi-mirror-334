@@ -1,0 +1,17 @@
+oci/VERSION,sha256=rYBITpfivFMLEdeIZU7OGilQjA5nltNjPHyivFgrGaM,9
+oci/__init__.py,sha256=zuObeeOIg6WlNjrl9WQ51b_ju96fTru_1f5dlE8wd34,21855
+oci/auth.py,sha256=qBpHBZK0qezGHXEs8vBRaXiXsaEt607zKu1q7NXhCqE,7120
+oci/client.py,sha256=rSpYpVT9OQ5303_t9JcMorMw6UrmogGbqOUdvkaq-zY,40196
+oci/client_async.py,sha256=mD1u4thPxKqm6Ts5Oe05P4KSOKwnjcGa8xAeSBOEYl4,29028
+oci/convert.py,sha256=nQxsT6BvCJNCb10tUziGTKldf6j9zzNHWqVSR4pnSoI,1546
+oci/docker.py,sha256=XTIxwInO6sQhWszV4VpyvKgD02PoovOVhDKEjhYXBeA,1790
+oci/merge.py,sha256=AssgpawSuVooGTCaz5c-IEKPlfw7hI8C7w2BKaagGrY,4514
+oci/model.py,sha256=V-ZBaqYrebjceynV2IEjnQJnJeEHYVM0eoa1M6FpdZ0,14030
+oci/platform.py,sha256=qaBXH5Ryuqcdy50lpYy6yNJEyrTT54vw0z9j_4so2QE,5169
+oci/util.py,sha256=qiAN49ztoSnmiM5vBiIj8fIgyGugmkQEdGE6Be2dbiQ,3638
+oci/workarounds.py,sha256=5DpQGkoX7J_KapgbkiqIZVJ4w5wLka_ZKOF2jQ7Gy3k,3302
+gardener_oci-1.2610.0.dist-info/LICENSE,sha256=WNHhf_5RCaeuKWyq_K39vmp9F28LxKsB4SpomwSZ2L0,11357
+gardener_oci-1.2610.0.dist-info/METADATA,sha256=GJzE2JemfOUn9QiwEW_u1o6Ymy_oBE3FjpwVyZfFvmg,362
+gardener_oci-1.2610.0.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+gardener_oci-1.2610.0.dist-info/top_level.txt,sha256=pgglgZ-UkgKkBLQ5llsxngMQuoQAv7iMaJvRTJJccVg,4
+gardener_oci-1.2610.0.dist-info/RECORD,,
