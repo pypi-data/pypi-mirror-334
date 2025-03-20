@@ -1,0 +1,12 @@
+include README.md
+include src/ubiquitysoftware/VERSION
+include src/ubiquitysoftware/images/icon.ico
+include src/ubiquitysoftware/images/icon.icns
+include src/ubiquitysoftware/images/ubiquity_icon.png
+include src/ubiquitysoftware/images/search_icn.png
+include src/ubiquitysoftware/images/add_folder_icn.png
+include src/ubiquitysoftware/locale/fr/LC_MESSAGES/ubiquity-student.mo
+recursive-include src/ubiquitysoftware/views/gui/themes/sv_ttk *
+recursive-include src/ubiquitysoftware/views/gui/themes/sv_ttk/theme *
+recursive-include src/ubiquitysoftware/views/gui/themes/sv_ttk/theme/light *
+recursive-include src/ubiquitysoftware/views/gui/themes/sv_ttk/theme/dark *
