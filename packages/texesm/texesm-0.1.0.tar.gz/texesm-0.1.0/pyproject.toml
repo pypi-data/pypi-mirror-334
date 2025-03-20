@@ -1,0 +1,14 @@
+[project]
+name = "texesm"
+version = "0.1.0"
+description = "Tex code generators"
+readme = "README.md"
+authors = [
+    { name = "neo-pr", email = "neo_sm@hotmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,11 @@
+# for personal use
+example*
+full_log*
+test*
+
+# Environments
+.venv
+
+# IDE
+.ruff_cache
+.python-version
