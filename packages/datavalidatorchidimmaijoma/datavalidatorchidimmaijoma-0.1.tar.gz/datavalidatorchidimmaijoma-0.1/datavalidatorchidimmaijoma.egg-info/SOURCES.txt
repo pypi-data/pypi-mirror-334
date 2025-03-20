@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+data_validator/__init__.py
+data_validator/validator.py
+datavalidatorchidimmaijoma.egg-info/PKG-INFO
+datavalidatorchidimmaijoma.egg-info/SOURCES.txt
+datavalidatorchidimmaijoma.egg-info/dependency_links.txt
+datavalidatorchidimmaijoma.egg-info/top_level.txt
+tests/__init__.py
+tests/test_validator.py
