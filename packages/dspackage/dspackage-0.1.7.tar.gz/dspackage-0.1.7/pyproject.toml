@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dspackage"
+version = "0.1.7"
+authors = [{name = "Anar", email = "anarstanislavlavrenov@gmail.com"}]
+description = "DSpackage: A Data Science Toolkit"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "torch", "torchtext"
+]
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+langchain_gpt = ["langchain-openai"]
+langchain_deepseek = ["langchain-deepseek"]
+langchain_llama = ["langchain-nvidia-ai-endpoints"]
+
+[tool.setuptools]
+license-files = []
