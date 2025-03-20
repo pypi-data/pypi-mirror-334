@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[project]
+name = "quickmacapp"
+description = "Make it easier to write Mac apps in Python"
+readme = "README.rst"
+version = "2025.03.16"
+dependencies = [
+    "pyobjc-framework-Cocoa",
+    "pyobjc-framework-ExceptionHandling",
+    "pyobjc-framework-UserNotifications",
+    "twisted[tls,macos_platform]",
+]
