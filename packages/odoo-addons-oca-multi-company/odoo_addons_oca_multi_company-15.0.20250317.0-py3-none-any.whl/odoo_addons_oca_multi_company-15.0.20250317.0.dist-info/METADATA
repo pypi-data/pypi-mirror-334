@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-multi-company
+Version: 15.0.20250317.0
+Summary: Meta package for oca-multi-company Odoo addons
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 15.0
+Requires-Dist: odoo-addon-account-invoice-inter-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-account-multicompany-easy-creation<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-base-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-calendar-event-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-login-all-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-mail-multicompany<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-mail-template-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-multicompany-configuration<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-partner-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-product-category-inter-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-product-category-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-product-multi-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-product-multi-company-stock<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-product-tax-multicompany-default<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-purchase-sale-inter-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-purchase-sale-stock-inter-company<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-res-company-code<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-stock-intercompany<15.1dev,>=15.0dev
+Requires-Dist: odoo-addon-utm-source-multi-company<15.1dev,>=15.0dev
+
+UNKNOWN
