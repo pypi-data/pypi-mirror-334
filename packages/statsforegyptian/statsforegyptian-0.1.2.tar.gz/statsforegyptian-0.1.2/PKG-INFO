@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: statsforegyptian
+Version: 0.1.2
+Author: Mohamed Habashy Hussein
+Description-Content-Type: text/markdown
+
+____
+
+A package for Testing uploading package for PyPi.
+
+This package was created a test for uploading and publishing package.
+
+### Features
+
+- Convert lengths between miles, yards, feet and inches.
+- Convert weights between hundredweight, stone, pounds and ounces.
+
+### Usage
+
+____
+import impyrial
+
+# Convert 500 miles to feet
+impyrial.length.convert_unit(500, from_unit='yd', to_unit='ft')  # returns 1500.0
+
+# Convert 100 ounces to pounds
+impyrial.weight.convert_unit(100, from_unit='oz', to_unit='lb')  # returns 6.25
+____
