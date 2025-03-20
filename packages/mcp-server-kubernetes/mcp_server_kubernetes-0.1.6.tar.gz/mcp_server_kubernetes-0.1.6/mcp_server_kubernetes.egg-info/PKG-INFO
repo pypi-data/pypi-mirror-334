@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: mcp-server-kubernetes
+Version: 0.1.6
+Summary: A Python MCP server for Kubernetes environments
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: mcp[cli]>=1.4.1
