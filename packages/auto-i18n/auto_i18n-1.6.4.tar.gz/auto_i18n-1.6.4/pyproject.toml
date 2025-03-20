@@ -1,0 +1,29 @@
+[project]
+name = "auto-i18n"
+version = "1.6.4"
+description = ""
+authors = [
+    { name = "frostime", email = "frostime@foxmail.com" },
+]
+dependencies = [
+    "Click>=8.1.7",
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.scripts]
+i18n = "auto_i18n.cli:cli"
+auto-i18n = "auto_i18n.cli:cli"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool]
