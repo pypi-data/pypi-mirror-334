@@ -1,0 +1,439 @@
+Using pip 25.0.1 from /Users/prajwal/Library/Python/3.11/lib/python/site-packages/pip (python 3.11)
+Defaulting to user installation because normal site-packages is not writeable
+Processing /Users/prajwal/Projects/finmath
+  Installing build dependencies: started
+  Running command pip subprocess to install build dependencies
+  Using pip 25.0.1 from /Users/prajwal/Library/Python/3.11/lib/python/site-packages/pip (python 3.11)
+  Collecting setuptools>=42
+    Obtaining dependency information for setuptools>=42 from https://files.pythonhosted.org/packages/37/66/d2d7e6ad554f3a7c7297c3f8ef6e22643ad3d35ef5c63bf488bc89f32f31/setuptools-76.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-76.0.0-py3-none-any.whl.metadata (6.7 kB)
+  Collecting wheel
+    Obtaining dependency information for wheel from https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl.metadata
+    Using cached wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+  Collecting scikit-build>=0.15
+    Obtaining dependency information for scikit-build>=0.15 from https://files.pythonhosted.org/packages/c3/a3/21b519f58de90d684056c52ec4e45f744cfda7483f082dcc4dd18cc74a93/scikit_build-0.18.1-py3-none-any.whl.metadata
+    Using cached scikit_build-0.18.1-py3-none-any.whl.metadata (18 kB)
+  Collecting cmake
+    Obtaining dependency information for cmake from https://files.pythonhosted.org/packages/7f/09/516b0d709672bc430eb13278f0316acd34869269447744f5d136daeef689/cmake-3.31.6-py3-none-macosx_10_10_universal2.whl.metadata
+    Using cached cmake-3.31.6-py3-none-macosx_10_10_universal2.whl.metadata (6.3 kB)
+  Collecting ninja
+    Obtaining dependency information for ninja from https://files.pythonhosted.org/packages/ea/ba/0069cd4a83d68f7b0308be70e219b15d675e50c8ea28763a3f0373c45bfc/ninja-1.11.1.3-py3-none-macosx_10_9_universal2.whl.metadata
+    Using cached ninja-1.11.1.3-py3-none-macosx_10_9_universal2.whl.metadata (5.3 kB)
+  Collecting distro (from scikit-build>=0.15)
+    Obtaining dependency information for distro from https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl.metadata
+    Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+  Collecting packaging (from scikit-build>=0.15)
+    Obtaining dependency information for packaging from https://files.pythonhosted.org/packages/88/ef/eb23f262cca3c0c4eb7ab1933c3b1f03d021f2c48f54763065b6f0e321be/packaging-24.2-py3-none-any.whl.metadata
+    Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+  Using cached setuptools-76.0.0-py3-none-any.whl (1.2 MB)
+  Using cached wheel-0.45.1-py3-none-any.whl (72 kB)
+  Using cached scikit_build-0.18.1-py3-none-any.whl (85 kB)
+  Using cached cmake-3.31.6-py3-none-macosx_10_10_universal2.whl (47.2 MB)
+  Using cached ninja-1.11.1.3-py3-none-macosx_10_9_universal2.whl (279 kB)
+  Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+  Using cached packaging-24.2-py3-none-any.whl (65 kB)
+  Installing collected packages: wheel, setuptools, packaging, ninja, distro, cmake, scikit-build
+    Creating /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/wheel to 755
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/distro to 755
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/ccmake to 755
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/cmake to 755
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/cpack to 755
+    changing mode of /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/bin/ctest to 755
+  Successfully installed cmake-3.31.6 distro-1.9.0 ninja-1.11.1.3 packaging-24.2 scikit-build-0.18.1 setuptools-76.0.0 wheel-0.45.1
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  running egg_info
+  writing src/python/finmath.egg-info/PKG-INFO
+  writing dependency_links to src/python/finmath.egg-info/dependency_links.txt
+  writing top-level names to src/python/finmath.egg-info/top_level.txt
+  reading manifest file 'src/python/finmath.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*.pyc' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  adding license file 'LICENSE'
+  writing manifest file 'src/python/finmath.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  running dist_info
+  creating /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info
+  writing /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/PKG-INFO
+  writing dependency_links to /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/dependency_links.txt
+  writing top-level names to /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/top_level.txt
+  writing manifest file '/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/SOURCES.txt'
+  reading manifest file '/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*.pyc' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  adding license file 'LICENSE'
+  writing manifest file '/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath.egg-info/SOURCES.txt'
+  creating '/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-modern-metadata-mg9pelsb/finmath-0.1.1.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: finmath
+  Building wheel for finmath (pyproject.toml): started
+  Running command Building wheel for finmath (pyproject.toml)
+
+
+  --------------------------------------------------------------------------------
+  -- Trying 'Ninja' generator
+  --------------------------------
+  ---------------------------
+  ----------------------
+  -----------------
+  ------------
+  -------
+  --
+  CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+    Compatibility with CMake < 3.10 will be removed from a future version of
+    CMake.
+
+    Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+    to tell CMake that the project requires at least <min> but has been updated
+    to work with policies introduced by <max> or earlier.
+
+  Not searching for unused variables given on the command line.
+
+  -- The C compiler identification is AppleClang 16.0.0.16000026
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- The CXX compiler identification is AppleClang 16.0.0.16000026
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  -- Configuring done (0.6s)
+  -- Generating done (0.0s)
+  -- Build files have been written to: /Users/prajwal/Projects/finmath/_cmake_test_compile/build
+  --
+  -------
+  ------------
+  -----------------
+  ----------------------
+  ---------------------------
+  --------------------------------
+  -- Trying 'Ninja' generator - success
+  --------------------------------------------------------------------------------
+
+  Configuring Project
+    Working directory:
+      /Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-build
+    Command:
+      /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/cmake /Users/prajwal/Projects/finmath -G Ninja -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX:PATH=/Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-install/python/finmath -DPYTHON_VERSION_STRING:STRING=3.11.0 -DSKBUILD:INTERNAL=TRUE -DCMAKE_MODULE_PATH:PATH=/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/skbuild/resources/cmake -DPYTHON_EXECUTABLE:PATH=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -DPYTHON_INCLUDE_DIR:PATH=/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11 -DPYTHON_LIBRARY:PATH=/Library/Frameworks/Python.framework/Versions/3.11/lib/libpython3.11.dylib -DPython_EXECUTABLE:PATH=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -DPython_ROOT_DIR:PATH=/Library/Frameworks/Python.framework/Versions/3.11 -DPython_FIND_REGISTRY:STRING=NEVER -DPython_INCLUDE_DIR:PATH=/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11 -DPython3_EXECUTABLE:PATH=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -DPython3_ROOT_DIR:PATH=/Library/Frameworks/Python.framework/Versions/3.11 -DPython3_FIND_REGISTRY:STRING=NEVER -DPython3_INCLUDE_DIR:PATH=/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11 -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja -DPYBIND_SRC:PATH=./src/python_bindings.cpp -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=15.0 -DCMAKE_OSX_ARCHITECTURES:STRING=arm64 -DCMAKE_BUILD_TYPE:STRING=Release
+
+  Not searching for unused variables given on the command line.
+  -- The C compiler identification is AppleClang 16.0.0.16000026
+  -- The CXX compiler identification is AppleClang 16.0.0.16000026
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  CMake Deprecation Warning at _skbuild/macosx-15.0-arm64-3.11/cmake-build/_deps/pybind11-src/CMakeLists.txt:8 (cmake_minimum_required):
+    Compatibility with CMake < 3.10 will be removed from a future version of
+    CMake.
+
+    Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+    to tell CMake that the project requires at least <min> but has been updated
+    to work with policies introduced by <max> or earlier.
+
+
+  -- pybind11 v2.10.0
+  CMake Warning (dev) at _skbuild/macosx-15.0-arm64-3.11/cmake-build/_deps/pybind11-src/tools/FindPythonLibsNew.cmake:98 (find_package):
+    Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+    are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+    the cmake_policy command to set the policy and suppress this warning.
+
+  Call Stack (most recent call first):
+    _skbuild/macosx-15.0-arm64-3.11/cmake-build/_deps/pybind11-src/tools/pybind11Tools.cmake:50 (find_package)
+    _skbuild/macosx-15.0-arm64-3.11/cmake-build/_deps/pybind11-src/tools/pybind11Common.cmake:180 (include)
+    _skbuild/macosx-15.0-arm64-3.11/cmake-build/_deps/pybind11-src/CMakeLists.txt:200 (include)
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+
+  -- Found PythonInterp: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 (found suitable version "3.11", minimum required is "3.6")
+  -- Found PythonLibs: /Library/Frameworks/Python.framework/Versions/3.11/lib/libpython3.11.dylib
+  -- Performing Test HAS_FLTO
+  -- Performing Test HAS_FLTO - Success
+  -- Performing Test HAS_FLTO_THIN
+  -- Performing Test HAS_FLTO_THIN - Success
+  -- Configuring done (2.4s)
+  -- Generating done (0.0s)
+  -- Build files have been written to: /Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-build
+  [1/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/InterestAndAnnuities/compound_interest.cpp.o
+  [2/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/InterestAndAnnuities/simple_interest.cpp.o
+  [3/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/OptionPricing/black_scholes.cpp.o
+  [4/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/Helper/helper.cpp.o
+  [5/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/Helper/helper.cpp.o
+  [6/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/InterestAndAnnuities/compound_interest.cpp.o
+  [7/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/InterestAndAnnuities/simple_interest.cpp.o
+  [8/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/OptionPricing/black_scholes.cpp.o
+  [9/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/ema.cpp.o
+  [10/33] Building CXX object CMakeFiles/black_scholes_test.dir/test/OptionPricing/black_scholes_test.cpp.o
+  [11/33] Building CXX object CMakeFiles/binomial_option_pricing_test.dir/test/OptionPricing/binomial_option_pricing_test.cpp.o
+  [12/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/OptionPricing/binomial_tree.cpp.o
+  [13/33] Building CXX object CMakeFiles/rsi_test.dir/test/TimeSeries/rsi_test.cpp.o
+  [14/33] Building CXX object CMakeFiles/run_all_tests.dir/test/test_runner.cpp.o
+  [15/33] Building CXX object CMakeFiles/compound_interest_test.dir/test/InterestAndAnnuities/compound_interest_test.cpp.o
+  [16/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rsi.cpp.o
+  [17/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/simple_moving_average.cpp.o
+  [18/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/OptionPricing/binomial_tree.cpp.o
+  [19/33] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rolling_volatility.cpp.o
+  [20/33] Linking CXX executable run_all_tests
+  [21/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/TimeSeries/ema.cpp.o
+  [22/33] Linking CXX shared library libfinmath_library.dylib
+  [23/33] Linking CXX executable compound_interest_test
+  [24/33] Linking CXX executable binomial_option_pricing_test
+  [25/33] Linking CXX executable black_scholes_test
+  [26/33] Linking CXX executable rsi_test
+  [27/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/TimeSeries/rolling_volatility.cpp.o
+  [28/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/TimeSeries/rsi.cpp.o
+  [29/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/cpp/TimeSeries/simple_moving_average.cpp.o
+  [30/33] Building CXX object CMakeFiles/finmath_bindings.dir/src/python_bindings.cpp.o
+  [31/33] cd /Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-build && /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/cmake --build . --target black_scholes_test && /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/cmake --build . --target binomial_option_pricing_test && /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/cmake --build . --target compound_interest_test && /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/cmake --build . --target rsi_test && /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-build-env-3chb2ksj/overlay/lib/python3.11/site-packages/cmake/data/bin/ctest --output-on-failure
+  [1/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rsi.cpp.o
+  [2/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rolling_volatility.cpp.o
+  [3/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/simple_moving_average.cpp.o
+  [4/5] Linking CXX shared library libfinmath_library.dylib
+  [5/5] Linking CXX executable black_scholes_test
+  ninja: warning: premature end of file; recovering
+  [1/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rsi.cpp.o
+  [2/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/simple_moving_average.cpp.o
+  [3/5] Building CXX object CMakeFiles/finmath_library.dir/src/cpp/TimeSeries/rolling_volatility.cpp.o
+  [4/5] Linking CXX shared library libfinmath_library.dylib
+  [5/5] Linking CXX executable binomial_option_pricing_test
+  [1/1] Linking CXX executable compound_interest_test
+  [1/1] Linking CXX executable rsi_test
+  Test project /Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-build
+      Start 1: BlackScholesTest
+  1/4 Test #1: BlackScholesTest .................   Passed    0.16 sec
+      Start 2: BinomialOptionPricingTest
+  2/4 Test #2: BinomialOptionPricingTest ........   Passed    0.08 sec
+      Start 3: CompoundInterestTest
+  3/4 Test #3: CompoundInterestTest .............   Passed    0.08 sec
+      Start 4: RSITest
+  4/4 Test #4: RSITest ..........................   Passed    0.08 sec
+
+  100% tests passed, 0 tests failed out of 4
+
+  Total Test time (real) =   0.41 sec
+  [32/33] Linking CXX shared module finmath.cpython-311-darwin.so
+  [32/33] Install the project...
+  -- Install configuration: "Release"
+  -- Installing: /Users/prajwal/Projects/finmath/_skbuild/macosx-15.0-arm64-3.11/cmake-install/python/finmath/./finmath.cpython-311-darwin.so
+  warning: no previously-included files matching '*.pyc' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath
+  copying src/python/finmath/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath/__init__.py
+  copying src/python_bindings.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python_bindings.cpp
+  copying src/python/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/__init__.py
+  copying src/python/finmath/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath/__init__.py
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info
+  copying src/python/finmath.egg-info/PKG-INFO -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/PKG-INFO
+  copying src/python/finmath.egg-info/SOURCES.txt -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/SOURCES.txt
+  copying src/python/finmath.egg-info/top_level.txt -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/top_level.txt
+  copying src/python/finmath.egg-info/dependency_links.txt -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/dependency_links.txt
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp
+  copying src/cpp/finmath.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/finmath.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries
+  copying src/cpp/TimeSeries/rsi.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/rsi.cpp
+  copying src/cpp/TimeSeries/rolling_volatility.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/rolling_volatility.cpp
+  copying src/cpp/TimeSeries/ema.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/ema.cpp
+  copying src/cpp/TimeSeries/docs.md -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/docs.md
+  copying src/cpp/TimeSeries/simple_moving_average.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/simple_moving_average.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/OptionPricing
+  copying src/cpp/OptionPricing/black_scholes.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/OptionPricing/black_scholes.cpp
+  copying src/cpp/OptionPricing/binomial_tree.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/OptionPricing/binomial_tree.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities
+  copying src/cpp/InterestAndAnnuities/compound_interest.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/compound_interest.cpp
+  copying src/cpp/InterestAndAnnuities/docs.md -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/docs.md
+  copying src/cpp/InterestAndAnnuities/simple_interest.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/simple_interest.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/Helper
+  copying src/cpp/Helper/helper.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/Helper/helper.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath
+  copying include/finmath/finmath.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/finmath.h
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries
+  copying include/finmath/TimeSeries/ema.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/ema.h
+  copying include/finmath/TimeSeries/rsi.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/rsi.h
+  copying include/finmath/TimeSeries/simple_moving_average.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/simple_moving_average.h
+  copying include/finmath/TimeSeries/rolling_volatility.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/rolling_volatility.h
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing
+  copying include/finmath/OptionPricing/black_scholes.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/black_scholes.h
+  copying include/finmath/OptionPricing/binomial_tree.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/binomial_tree.h
+  copying include/finmath/OptionPricing/options_pricing.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/options_pricing.h
+  copying include/finmath/OptionPricing/options_pricing_types.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/options_pricing_types.h
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/InterestAndAnnuities
+  copying include/finmath/InterestAndAnnuities/simple_interest.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/InterestAndAnnuities/simple_interest.h
+  copying include/finmath/InterestAndAnnuities/compound_interest.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/InterestAndAnnuities/compound_interest.h
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/Helper
+  copying include/finmath/Helper/helper.h -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/Helper/helper.h
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/test
+  copying test/test_runner.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/test_runner.cpp
+  copying test/test_finmath.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/test_finmath.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/TimeSeries
+  copying test/TimeSeries/rsi_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/TimeSeries/rsi_test.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/OptionPricing
+  copying test/OptionPricing/binomial_option_pricing_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/OptionPricing/binomial_option_pricing_test.cpp
+  copying test/OptionPricing/black_scholes_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/OptionPricing/black_scholes_test.cpp
+  creating directory _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/InterestAndAnnuities
+  copying test/InterestAndAnnuities/compound_interest_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/InterestAndAnnuities/compound_interest_test.cpp
+
+  running bdist_wheel
+  running build
+  running build_py
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/lib.macosx-15.0-arm64-cpython-311/finmath
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/setuptools/lib.macosx-15.0-arm64-cpython-311/finmath
+  running egg_info
+  writing src/python/finmath.egg-info/PKG-INFO
+  writing dependency_links to src/python/finmath.egg-info/dependency_links.txt
+  writing top-level names to src/python/finmath.egg-info/top_level.txt
+  reading manifest file 'src/python/finmath.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*.pyc' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  adding license file 'LICENSE'
+  writing manifest file 'src/python/finmath.egg-info/SOURCES.txt'
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/setuptools/lib.macosx-15.0-arm64-cpython-311/finmath
+  copied 1 files
+  running build_ext
+  installing to _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel
+  running install
+  running install_lib
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath
+  copying _skbuild/macosx-15.0-arm64-3.11/setuptools/lib.macosx-15.0-arm64-cpython-311/finmath/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/./finmath
+  copied 1 files
+  running install_data
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/python/finmath
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/python/finmath/finmath.cpython-311-darwin.so -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/python/finmath
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python_bindings.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/__init__.py -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python/finmath.egg-info
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/SOURCES.txt -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python/finmath.egg-info
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/dependency_links.txt -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python/finmath.egg-info
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/PKG-INFO -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python/finmath.egg-info
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/python/finmath.egg-info/top_level.txt -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/python/finmath.egg-info
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/finmath.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/docs.md -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/ema.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/rsi.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/rolling_volatility.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/TimeSeries/simple_moving_average.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/TimeSeries
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/OptionPricing/black_scholes.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/OptionPricing/binomial_tree.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/OptionPricing
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/docs.md -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/simple_interest.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/InterestAndAnnuities/compound_interest.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/Helper
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/src/cpp/Helper/helper.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/src/cpp/Helper
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/finmath.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/rsi.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/rolling_volatility.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/simple_moving_average.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/TimeSeries/ema.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/TimeSeries
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/black_scholes.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/options_pricing_types.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/options_pricing.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/OptionPricing/binomial_tree.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/OptionPricing
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/InterestAndAnnuities/compound_interest.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/InterestAndAnnuities/simple_interest.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/InterestAndAnnuities
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/Helper
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/include/finmath/Helper/helper.h -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/include/finmath/Helper
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/test_finmath.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/test_runner.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/TimeSeries
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/TimeSeries/rsi_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/TimeSeries
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/OptionPricing/binomial_option_pricing_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/OptionPricing
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/OptionPricing/black_scholes_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/OptionPricing
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/InterestAndAnnuities
+  copying _skbuild/macosx-15.0-arm64-3.11/cmake-install/test/InterestAndAnnuities/compound_interest_test.cpp -> _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.data/data/test/InterestAndAnnuities
+  running install_egg_info
+  Copying src/python/finmath.egg-info to _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/./finmath-0.1.1-py3.11.egg-info
+  running install_scripts
+  copied 0 files
+  creating _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel/finmath-0.1.1.dist-info/WHEEL
+  creating '/private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-wheel-2ymks959/.tmp-7r_dkhex/finmath-0.1.1-cp311-cp311-macosx_15_0_arm64.whl' and adding '_skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel' to it
+  adding 'finmath/__init__.py'
+  adding 'finmath-0.1.1.data/data/include/finmath/finmath.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/Helper/helper.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/InterestAndAnnuities/compound_interest.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/InterestAndAnnuities/simple_interest.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/OptionPricing/binomial_tree.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/OptionPricing/black_scholes.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/OptionPricing/options_pricing.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/OptionPricing/options_pricing_types.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/TimeSeries/ema.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/TimeSeries/rolling_volatility.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/TimeSeries/rsi.h'
+  adding 'finmath-0.1.1.data/data/include/finmath/TimeSeries/simple_moving_average.h'
+  adding 'finmath-0.1.1.data/data/python/finmath/finmath.cpython-311-darwin.so'
+  adding 'finmath-0.1.1.data/data/src/python_bindings.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/finmath.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/Helper/helper.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities/compound_interest.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities/docs.md'
+  adding 'finmath-0.1.1.data/data/src/cpp/InterestAndAnnuities/simple_interest.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/OptionPricing/binomial_tree.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/OptionPricing/black_scholes.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/TimeSeries/docs.md'
+  adding 'finmath-0.1.1.data/data/src/cpp/TimeSeries/ema.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/TimeSeries/rolling_volatility.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/TimeSeries/rsi.cpp'
+  adding 'finmath-0.1.1.data/data/src/cpp/TimeSeries/simple_moving_average.cpp'
+  adding 'finmath-0.1.1.data/data/src/python/__init__.py'
+  adding 'finmath-0.1.1.data/data/src/python/finmath.egg-info/PKG-INFO'
+  adding 'finmath-0.1.1.data/data/src/python/finmath.egg-info/SOURCES.txt'
+  adding 'finmath-0.1.1.data/data/src/python/finmath.egg-info/dependency_links.txt'
+  adding 'finmath-0.1.1.data/data/src/python/finmath.egg-info/top_level.txt'
+  adding 'finmath-0.1.1.data/data/test/test_finmath.cpp'
+  adding 'finmath-0.1.1.data/data/test/test_runner.cpp'
+  adding 'finmath-0.1.1.data/data/test/InterestAndAnnuities/compound_interest_test.cpp'
+  adding 'finmath-0.1.1.data/data/test/OptionPricing/binomial_option_pricing_test.cpp'
+  adding 'finmath-0.1.1.data/data/test/OptionPricing/black_scholes_test.cpp'
+  adding 'finmath-0.1.1.data/data/test/TimeSeries/rsi_test.cpp'
+  adding 'finmath-0.1.1.dist-info/LICENSE'
+  adding 'finmath-0.1.1.dist-info/METADATA'
+  adding 'finmath-0.1.1.dist-info/WHEEL'
+  adding 'finmath-0.1.1.dist-info/top_level.txt'
+  adding 'finmath-0.1.1.dist-info/RECORD'
+  removing _skbuild/macosx-15.0-arm64-3.11/setuptools/bdist.macosx-15.0-arm64/wheel
+  Building wheel for finmath (pyproject.toml): finished with status 'done'
+  Created wheel for finmath: filename=finmath-0.1.1-cp311-cp311-macosx_15_0_arm64.whl size=103956 sha256=fb00bc1f9bbbf5867706eda315d14e5f20f248fcdd84efd21427a1f9ccd0f8fd
+  Stored in directory: /private/var/folders/m2/ppp2hf5j21z_8fb0bp75xflh0000gq/T/pip-ephem-wheel-cache-_hji7smf/wheels/bd/93/41/5484ea75944091cc0e3578a5d27fd48959cb3056b33c539066
+Successfully built finmath
+Installing collected packages: finmath
+  Attempting uninstall: finmath
+    Found existing installation: finmath 0.1.1
+    Uninstalling finmath-0.1.1:
+      Removing file or directory /Users/prajwal/Library/Python/3.11/include/finmath/
+      Removing file or directory /Users/prajwal/Library/Python/3.11/lib/python/site-packages/finmath-0.1.1.dist-info/
+      Removing file or directory /Users/prajwal/Library/Python/3.11/lib/python/site-packages/finmath/__init__.py
+      Removing file or directory /Users/prajwal/Library/Python/3.11/lib/python/site-packages/finmath/__pycache__/
+      Removing file or directory /Users/prajwal/Library/Python/3.11/python/finmath/
+      Removing file or directory /Users/prajwal/Library/Python/3.11/src/
+      Removing file or directory /Users/prajwal/Library/Python/3.11/test/
+      Successfully uninstalled finmath-0.1.1
+Successfully installed finmath-0.1.1
