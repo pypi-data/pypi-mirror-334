@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bbca3f78-1e85-4a0a-823d-97c857765330" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.python-version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/create_ragbits_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/create_ragbits_app/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rag/.python-version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rag/pyproject.toml.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rag/src/{{project_name | python_safe}}/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rag/src/{{project_name | python_safe}}/config.py.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rag/src/{{project_name | python_safe}}/main.py.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/create_ragbits_app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/create_ragbits_app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/create_ragbits_app/template_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rag/main.py.j2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rag/requirements.txt.j2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/rag/template_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rag/template_config.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2uK3PFJ1ZiONCk0zjDAG87XikHF" />
+  <component name="ProjectViewState">
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mateusz/workspace/oss/create-ragbits-app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbca3f78-1e85-4a0a-823d-97c857765330" name="Changes" comment="" />
+      <created>1741983413369</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741983413369</updated>
+      <workItem from="1741983414473" duration="376000" />
+      <workItem from="1741986223757" duration="33000" />
+      <workItem from="1741989221870" duration="1018000" />
+      <workItem from="1742123122869" duration="1799000" />
+      <workItem from="1742133843913" duration="3178000" />
+      <workItem from="1742203838745" duration="7234000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
