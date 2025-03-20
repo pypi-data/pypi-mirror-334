@@ -1,0 +1,10 @@
+{
+    "customBroker" : true,
+    "port" : 8883,
+    "brokerUrl" : "mqtts://mqtt.us-east-2.dev.wiliot.cloud",
+    "username" : "wiliot",
+    "password" : "wiliot",
+    "updateTopic" : "update-test/wiliot/",
+    "statusTopic" : "status-test/wiliot/",
+    "dataTopic" : "data-test/wiliot/"
+}

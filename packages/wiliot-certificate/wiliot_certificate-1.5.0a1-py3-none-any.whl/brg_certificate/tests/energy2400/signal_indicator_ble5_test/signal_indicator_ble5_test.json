@@ -1,0 +1,13 @@
+{
+    "name": "signal_indicator_functionality_ble5_test",
+    "module": "energy2400",
+    "purpose": "TODO",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "TODO",
+    "procedure": ["Test prolog", "TODO", "Test epilog"],
+    "expectedOutcome": "TODO",
+    "mandatory": 0,
+    "multiBridgeTest": 1,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["RX_CHANNEL_10_250K", "RX_CHANNEL_10_500K"]
+}

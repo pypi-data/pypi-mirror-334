@@ -1,0 +1,139 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "boolean"
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "boolean"
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dynamic",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "boolean"
+        }
+      ]
+    }
+  ]
+}

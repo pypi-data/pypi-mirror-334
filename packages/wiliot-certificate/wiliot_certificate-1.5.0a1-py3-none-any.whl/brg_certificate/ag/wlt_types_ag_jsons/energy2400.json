@@ -1,0 +1,550 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "pattern",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Channel 37",
+            "02":"Channel 38",
+            "03":"Channel 39",
+            "04":"2450MHz",
+            "05":"2454MHz"
+          }
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 17,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "pattern",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Channel 37",
+            "02":"Channel 38",
+            "03":"Channel 39",
+            "04":"2450MHz",
+            "05":"2454MHz"
+          }
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 17,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "energyPattern2400",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Channel 37",
+            "02":"Channel 38",
+            "03":"Channel 39",
+            "04":"2450MHz",
+            "05":"2454MHz"
+          }
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 17,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "energyPattern2400",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Channel 37",
+            "02":"Channel 38",
+            "03":"Channel 39",
+            "04":"2450MHz",
+            "05":"2454MHz"
+          }
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "rxTxPeriod",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "txPeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "energyPattern",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "rxTxPeriod",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "txPeriod",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "energyPattern",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "int"
+        },
+        {
+          "name": "txProbability",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 3,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 10
+            },
+            {
+              "operator": "+",
+              "operand": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

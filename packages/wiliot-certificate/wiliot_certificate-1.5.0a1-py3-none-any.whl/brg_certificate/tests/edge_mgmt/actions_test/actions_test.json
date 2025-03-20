@@ -1,0 +1,13 @@
+{
+    "name": "actions_test",
+    "module": "edge_mgmt",
+    "purpose": "Test bridge actions functionality",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Run all actions and test bridge's response accordingly", "Test epilog"],
+    "expectedOutcome": "Bridge responded as expected to all sent actions",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["ACTION_GW_HB", "ACTION_BLINK", "ACTION_SEND_HB", "ACTION_GET_BATTERY_SENSOR" , "ACTION_GET_POF_DATA", "ACTION_PL_STATUS", "ACTION_GET_MODULE", "ACTION_REBOOT", "ACTION_RESTORE_DEFAULTS"]
+}

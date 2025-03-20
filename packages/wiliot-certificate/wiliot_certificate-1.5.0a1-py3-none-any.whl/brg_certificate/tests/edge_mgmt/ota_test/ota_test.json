@@ -1,0 +1,13 @@
+{
+    "name": "ota_test",
+    "module": "edge_mgmt",
+    "purpose": "TODO",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "TODO",
+    "procedure": ["Test prolog", "TODO", "Test epilog"],
+    "expectedOutcome": "TODO",
+    "mandatory": 0,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": []
+}

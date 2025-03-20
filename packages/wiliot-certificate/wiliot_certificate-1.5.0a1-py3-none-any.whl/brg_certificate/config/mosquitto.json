@@ -1,0 +1,10 @@
+{
+    "customBroker" : true,
+    "port" : 1883,
+    "brokerUrl" : "mqtts://localhost",
+    "username" : "",
+    "password" : "",
+    "updateTopic" : "update-test/wiliot/",
+    "statusTopic" : "status-test/wiliot/",
+    "dataTopic" : "data-test/wiliot/"
+}

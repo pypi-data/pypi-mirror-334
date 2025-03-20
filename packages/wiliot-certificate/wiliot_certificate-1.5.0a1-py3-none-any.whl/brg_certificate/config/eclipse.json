@@ -1,0 +1,10 @@
+{
+    "customBroker" : true,
+    "port" : 8883,
+    "brokerUrl" : "mqtts://mqtt.eclipseprojects.io", 
+    "username" : "",
+    "password" : "",
+    "updateTopic" : "update-test/wiliot/",
+    "statusTopic" : "status-test/wiliot/",
+    "dataTopic" : "data-test/wiliot/"
+}

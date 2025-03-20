@@ -1,0 +1,595 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sub1gEnergyPattern",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Single Tone 915MHz",
+            "02":"FCC (Hopping)",
+            "03":"Japan1W",
+            "04":"Japan350mW",
+            "05":"Korea",
+            "06":"Single tone 916300MHz",
+            "07":"Single tone 917500MHz",
+            "08":"Australia",
+            "09":"Israel",
+            "0A":"NZ (Hopping)"
+          }
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 16,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":14,
+            "1":17,
+            "2":20,
+            "3":23,
+            "4":26,
+            "5":29,
+            "6":32
+          }
+        },
+        {
+          "name": "sub1gEnergyPattern",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Single Tone 915MHz",
+            "02":"FCC (Hopping)",
+            "03":"Japan1W",
+            "04":"Japan350mW",
+            "05":"Korea",
+            "06":"Single tone 916300MHz",
+            "07":"Single tone 917500MHz",
+            "08":"Australia",
+            "09":"Israel",
+            "0A":"NZ (Hopping)"
+          }
+        },
+        {
+          "name": "cycle",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":14,
+            "1":17,
+            "2":20,
+            "3":23,
+            "4":26,
+            "5":29,
+            "6":32
+          }
+        },
+        {
+          "name": "sub1gEnergyPattern",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Single Tone 915MHz",
+            "02":"FCC (Hopping)",
+            "03":"Japan1W",
+            "04":"Japan350mW",
+            "05":"Korea",
+            "06":"Single tone 916300MHz",
+            "07":"Single tone 917500MHz",
+            "08":"Australia",
+            "09":"Israel",
+            "0A":"NZ (Hopping)"
+          }
+        },
+        {
+          "name": "cycle",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorCycle",
+          "byteOffset": 18,
+          "byteLength": 2,
+          "bitOffset": 2,
+          "bitLength": 14,
+          "outType": "uint"
+        },
+        {
+          "name": "signalIndicatorRep",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 2,
+          "outType": "uint",
+          "map": {
+            "0":1,
+            "1":2,
+            "2":3,
+            "3":4
+          }
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":14,
+            "1":17,
+            "2":20,
+            "3":23,
+            "4":26,
+            "5":29,
+            "6":32
+          }
+        },
+        {
+          "name": "sub1gEnergyPattern",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "string",
+          "map": {
+            "00":"No Energizing",
+            "01":"Single Tone 915MHz",
+            "02":"FCC (Hopping)",
+            "03":"Japan1W",
+            "04":"Japan350mW",
+            "05":"Korea",
+            "06":"Single tone 916300MHz",
+            "07":"Single tone 917500MHz",
+            "08":"Australia",
+            "09":"Israel",
+            "0A":"NZ (Hopping)"
+          }
+        },
+        {
+          "name": "cycle",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "dutyCycle",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":14,
+            "1":17,
+            "2":20,
+            "3":23,
+            "4":26,
+            "5":29,
+            "6":32
+          }
+        },
+        {
+          "name": "frequency",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":915000,
+            "2":916300,
+            "3":917500,
+            "4":918000,
+            "5":919100
+          }
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "outputPower",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":14,
+            "1":17,
+            "2":20,
+            "3":23,
+            "4":26,
+            "5":29,
+            "6":32
+          }
+        },
+        {
+          "name": "frequency",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint",
+          "map": {
+            "0":915000,
+            "2":916300,
+            "3":917500,
+            "4":918000,
+            "5":919100
+          }
+        }
+      ]
+    }
+  ]
+}

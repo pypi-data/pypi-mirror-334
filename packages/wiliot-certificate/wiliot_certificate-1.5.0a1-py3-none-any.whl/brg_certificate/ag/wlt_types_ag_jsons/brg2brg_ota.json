@@ -1,0 +1,142 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "srcBrgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "actionId",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "destBrgMac",
+          "byteOffset": 15,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "app",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "bootloader",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "srcBrgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "actionId",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "destBrgMac",
+          "byteOffset": 15,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "app",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "bootloader",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}

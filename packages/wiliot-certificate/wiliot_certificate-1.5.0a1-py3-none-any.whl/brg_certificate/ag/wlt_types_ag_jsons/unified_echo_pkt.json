@@ -1,0 +1,110 @@
+{
+  "versions": [
+    {
+      "version": "1",
+      "packetFields": [
+        {
+          "name": "tbc",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "rssi",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 6,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 1
+            },
+            {
+              "operator": "+",
+              "operand": 40
+            }
+          ]
+        },
+        {
+          "name": "brgLatency",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 6,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 200
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        },
+        {
+          "name": "nfpkt",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "0",
+      "packetFields": [
+        {
+          "name": "nfpkt",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "rssi",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 6,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 1
+            },
+            {
+              "operator": "+",
+              "operand": 40
+            }
+          ]
+        },
+        {
+          "name": "brgLatency",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 6,
+          "outType": "uint",
+          "calculations": [
+            {
+              "operator": "*",
+              "operand": 200
+            },
+            {
+              "operator": "+",
+              "operand": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

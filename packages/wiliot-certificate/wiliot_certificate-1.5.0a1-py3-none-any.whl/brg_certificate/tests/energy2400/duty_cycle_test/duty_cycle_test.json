@@ -1,0 +1,13 @@
+{
+    "name": "duty_cycle_test",
+    "module": "energy2400",
+    "purpose": "Test configuration for supported energy2400 duty cycle values",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "Configurations", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": [1, 25, 50, 75]
+}

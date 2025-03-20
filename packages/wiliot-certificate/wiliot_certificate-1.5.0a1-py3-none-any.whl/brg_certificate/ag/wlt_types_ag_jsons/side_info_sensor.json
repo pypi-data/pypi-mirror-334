@@ -1,0 +1,105 @@
+{
+  "versions": [
+    {
+      "version": "0",
+      "packetFields": [
+        {
+          "name": "bridgeId",
+          "byteOffset": 5,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "nfpkt",
+          "byteOffset": 11,
+          "byteLength": 2,
+          "bitOffset": 0,
+          "bitLength": 16,
+          "outType": "uint"
+        },
+        {
+          "name": "rssi",
+          "byteOffset": 13,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensorId",
+          "byteOffset": 15,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "sensorServiceId",
+          "byteOffset": 21,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensorUuidMsb",
+          "byteOffset": 22,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "sensorUuidLsb",
+          "byteOffset": 23,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 24,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "scrambled",
+          "byteOffset": 24,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "embedded",
+          "byteOffset": 24,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "isSensor",
+          "byteOffset": 24,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "boolean"
+        },
+        {
+          "name": "pktId",
+          "byteOffset": 25,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "string"
+        }
+      ]
+    }
+  ]
+}

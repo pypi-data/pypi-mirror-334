@@ -1,0 +1,13 @@
+{
+    "name": "num_of_tags_test",
+    "module": "datapath",
+    "purpose": "Test pixels handling in the bridge for different amount of pixels",
+    "documentaion": "<TEST_DOCUMENTATION_LINK>",
+    "initialCondition": "Bridge & data simulator configured to defaults",
+    "procedure": ["Test prolog", "Generate packets from the given amount of pixels & scan for packets in the bridge", "Compare received amount of pixels and the heartbeat pixels counter to the given value","Repeat for all given pixels amounts", "Test epilog and revert to defaults"],
+    "expectedOutcome": "All values configured successfully",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": [500, 1000, 2500]
+}

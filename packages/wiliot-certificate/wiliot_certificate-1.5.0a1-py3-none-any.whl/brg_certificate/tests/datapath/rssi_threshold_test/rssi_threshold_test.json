@@ -1,0 +1,13 @@
+{
+    "name": "rssi_threshold_test",
+    "module": "datapath",
+    "purpose": "Test RSSI threshold configuration and functionality in the bridge",
+    "documentaion": "TODO",
+    "initialCondition": "Bridge configured to defaults",
+    "procedure": ["Test prolog", "RSSI Threshold configuration", "Checking for packets violating RSSI threshold", "Test epilog and revert to defaults"],
+    "expectedOutcome": "RSSI Threshold configured successfully and no pixel packets with RSSI weaker than the threshold have been echoed.",
+    "mandatory": 1,
+    "multiBridgeTest": 0,
+    "gwOnlyTest": 0,
+    "allSupportedValues": ["-80", "-65", "-10"]
+}

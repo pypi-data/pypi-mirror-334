@@ -1,0 +1,938 @@
+{
+  "versions": [
+    {
+      "version": "12",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "cfgHash",
+          "byteOffset": 20,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "11",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "cfgHash",
+          "byteOffset": 20,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "10",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "cfgHash",
+          "byteOffset": 20,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "9",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "cfgHash",
+          "byteOffset": 20,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "8",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "cfgHash",
+          "byteOffset": 20,
+          "byteLength": 4,
+          "bitOffset": 0,
+          "bitLength": 32,
+          "outType": "uint"
+        }
+      ]
+    },
+    {
+      "version": "7",
+      "packetFields": [
+        {
+          "name": "moduleType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "msgType",
+          "byteOffset": 5,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 4,
+          "outType": "uint"
+        },
+        {
+          "name": "apiVersion",
+          "byteOffset": 6,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "seqId",
+          "byteOffset": 7,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "brgMac",
+          "byteOffset": 8,
+          "byteLength": 6,
+          "bitOffset": 0,
+          "bitLength": 48,
+          "outType": "string"
+        },
+        {
+          "name": "boardType",
+          "byteOffset": 14,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "blVersion",
+          "byteOffset": 15,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "majorVer",
+          "byteOffset": 16,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "minorVer",
+          "byteOffset": 17,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "patchVer",
+          "byteOffset": 18,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 8,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapGlobal",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 7,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapDatapath",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 6,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergy2400",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 5,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapEnergySub1g",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 4,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCalibration",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 3,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapPowerManagement",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 2,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapExternalSensor",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 1,
+          "bitLength": 1,
+          "outType": "uint"
+        },
+        {
+          "name": "supCapCustom",
+          "byteOffset": 19,
+          "byteLength": 1,
+          "bitOffset": 0,
+          "bitLength": 1,
+          "outType": "uint"
+        }
+      ]
+    }
+  ]
+}
