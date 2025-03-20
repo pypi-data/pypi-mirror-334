@@ -1,0 +1,29 @@
+LICENSE
+README.md
+pyproject.toml
+ppar/__init__.py
+ppar/analytics.py
+ppar/attribution.py
+ppar/classification.py
+ppar/columns.py
+ppar/demo_data_sources.py
+ppar/errors.py
+ppar/format_chart.py
+ppar/format_table.py
+ppar/frequency.py
+ppar/mapping.py
+ppar/performance.py
+ppar/py.typed
+ppar/riskstatistics.py
+ppar/utilities.py
+ppar.egg-info/PKG-INFO
+ppar.egg-info/SOURCES.txt
+ppar.egg-info/dependency_links.txt
+ppar.egg-info/requires.txt
+ppar.egg-info/top_level.txt
+ppar/demo_data/classifications/Economic Sector.csv
+ppar/demo_data/classifications/Security.csv
+ppar/demo_data/mappings/Security--to--Economic Sector.csv
+ppar/demo_data/performance/Large-Cap Alpha Portfolio.csv
+ppar/demo_data/performance/Large-Cap Benchmark.csv
+tests/test_utilities.py
