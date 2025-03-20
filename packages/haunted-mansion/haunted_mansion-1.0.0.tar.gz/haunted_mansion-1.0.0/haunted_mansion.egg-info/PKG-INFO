@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: haunted_mansion
+Version: 1.0.0
+Summary: A text-based adventure game set in a haunted mansion.
+Author: Karthikeya
+Author-email: karthikeyaa.official@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: colorama
+Requires-Dist: emoji
+
+# Haunted Mansion Game
+
+A text-based adventure game where you explore a haunted mansion, complete quests, and defeat enemies.
+
+## Installation
+
+Install the package using pip:
+
+```bash
+pip install haunted_mansion
