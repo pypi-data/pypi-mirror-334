@@ -1,0 +1,16 @@
+LICENCE
+README.md
+pyproject.toml
+setup.py
+git_observer/__init__.py
+git_observer/git_handler.py
+git_observer/main.py
+git_observer/utils.py
+git_observer/watcher copy.py
+git_observer/watcher.py
+gitobserver.egg-info/PKG-INFO
+gitobserver.egg-info/SOURCES.txt
+gitobserver.egg-info/dependency_links.txt
+gitobserver.egg-info/entry_points.txt
+gitobserver.egg-info/requires.txt
+gitobserver.egg-info/top_level.txt
