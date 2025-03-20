@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+sqlshell/__init__.py
+sqlshell/create_test_data.py
+sqlshell/main.py
+sqlshell.egg-info/PKG-INFO
+sqlshell.egg-info/SOURCES.txt
+sqlshell.egg-info/dependency_links.txt
+sqlshell.egg-info/entry_points.txt
+sqlshell.egg-info/requires.txt
+sqlshell.egg-info/top_level.txt
