@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: simple-mongo
+Version: 0.0.2
+Summary: A simple MongoDB module with less configuration
+Author: Marjon Godito
+Requires-Dist: pymongo
+Requires-Dist: python-dotenv
+Requires-Dist: pydantic
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
