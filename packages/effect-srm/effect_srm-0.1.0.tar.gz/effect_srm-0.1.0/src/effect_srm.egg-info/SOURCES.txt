@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/effectScreenRecorderMaster/__init__.py
+src/effectScreenRecorderMaster/__main__.py
+src/effectScreenRecorderMaster/config_manager.py
+src/effectScreenRecorderMaster/effectScreenRecorderMaster.py
+src/effectScreenRecorderMaster/preview_manager.py
+src/effectScreenRecorderMaster/assets/preview.png
+src/effect_srm.egg-info/PKG-INFO
+src/effect_srm.egg-info/SOURCES.txt
+src/effect_srm.egg-info/dependency_links.txt
+src/effect_srm.egg-info/entry_points.txt
+src/effect_srm.egg-info/requires.txt
+src/effect_srm.egg-info/top_level.txt

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=67.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["effectScreenRecorderMaster"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+effectScreenRecorderMaster = ["assets/*.png"]
+
+[project]
+name = "effect-srm"
+version = "0.1.0"
+authors = [
+    { name = "Tutos Rive", email = "srmtrg.ser@gmail.com" },
+]
+description = "Grabador de pantalla con efectos en tiempo real (Sin POSTPROCESADO)"
+readme = "README.md"
+requires-python = ">=3.11.6"
+license = { text = "MIT" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+]
+dependencies = [
+    "customtkinter == 5.2.2",
+    "pillow == 11.1.0",
+    "ffmpeg-python == 0.2.0",
+    "chromologger == 0.1.8"
+]
+
+[project.urls]
+Documentation = "https://tutosrive.github.io/effect-screen-recorder-master/"
+Repositorio = "https://github.com/tutosrive/effect-screen-recorder-master/"
+
+[project.scripts]
+esrm = "effectScreenRecorderMaster.__main__:main"
+srm = "effectScreenRecorderMaster.__main__:main"
+effect-screen-recorder-master = "effectScreenRecorderMaster.__main__:main"
