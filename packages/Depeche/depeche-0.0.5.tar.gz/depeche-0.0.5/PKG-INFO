@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: Depeche
+Version: 0.0.5
+Summary: A simple message pipeline.
+Home-page: https://gitea.com/Lerking/depeche
+Author: Jan Lerking
+Author-email: 
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# depeche
+
+A small Python message pipeline to process messages as they come in.
