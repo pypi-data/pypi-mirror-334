@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "inception"
+version = "0.1.0"
+description = "Python client and CLI for the Inception AI API"
+readme = "README.md"
+packages = [
+    { include = "inception", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+httpx = ">=0.24.0"
+pydantic = ">=2.0.0"
+sseclient-py = ">=1.8.0"
+typing-extensions = ">=4.5.0"
+click = ">=8.0.0"
+platformdirs = ">=3.0.0"
+rich = ">=13.0.0"
+playwright = "^1.50.0"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[tool.poetry.scripts]
+inception = "inception.main:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
