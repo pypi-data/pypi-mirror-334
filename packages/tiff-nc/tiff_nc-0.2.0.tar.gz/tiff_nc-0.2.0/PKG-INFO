@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: tiff-nc
+Version: 0.2.0
+Summary: Add your description here
+Author-email: MarkusPersad <msp060308@gmail.com>
+Requires-Python: >=3.13
+Requires-Dist: dask>=2025.2.0
+Requires-Dist: gdal>=3.10.2
+Requires-Dist: geopandas>=1.0.1
+Requires-Dist: h5netcdf>=1.6.1
+Requires-Dist: pyogrio>=0.10.0
+Requires-Dist: rioxarray>=0.18.2
+Requires-Dist: xarray>=2025.1.2
