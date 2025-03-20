@@ -1,0 +1,195 @@
+Metadata-Version: 2.2
+Name: vpplib
+Version: 0.0.4
+Summary: simulating distributed energy appliances in a virtual power plant
+Author-email: Sascha Birk <pyosch@posteo.de>
+License: GPL-3.0
+Project-URL: GitHub, https://github.com/Pyosch/vpplib
+Keywords: virtual power plant,energy system
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: aenum==3.1.15
+Requires-Dist: aiohttp==3.8.6
+Requires-Dist: aiosignal==1.3.1
+Requires-Dist: annotated-types==0.7.0
+Requires-Dist: ansi2html==1.8.0
+Requires-Dist: asttokens==2.4.1
+Requires-Dist: async-timeout==4.0.3
+Requires-Dist: attrs==23.1.0
+Requires-Dist: Babel==2.13.0
+Requires-Dist: backports-datetime-fromisoformat==2.0.1
+Requires-Dist: beautifulsoup4==4.12.2
+Requires-Dist: cachetools==5.3.1
+Requires-Dist: certifi==2023.7.22
+Requires-Dist: cffi==1.16.0
+Requires-Dist: charset-normalizer==3.3.1
+Requires-Dist: click==8.1.7
+Requires-Dist: click-params==0.4.1
+Requires-Dist: cloup==3.0.2
+Requires-Dist: colorama==0.4.6
+Requires-Dist: comm==0.1.4
+Requires-Dist: contourpy==1.1.1
+Requires-Dist: cycler==0.12.1
+Requires-Dist: dash==2.14.0
+Requires-Dist: dash-bootstrap-components==1.5.0
+Requires-Dist: dash-core-components==2.0.0
+Requires-Dist: dash-daq==0.5.0
+Requires-Dist: dash-html-components==2.0.0
+Requires-Dist: dash-table==5.0.0
+Requires-Dist: debugpy==1.8.0
+Requires-Dist: decorator==5.1.1
+Requires-Dist: deepdiff==6.6.1
+Requires-Dist: deprecation==2.1.0
+Requires-Dist: diskcache==5.6.3
+Requires-Dist: eccodes==1.6.1
+Requires-Dist: environs==9.5.0
+Requires-Dist: et-xmlfile==1.1.0
+Requires-Dist: executing==2.0.1
+Requires-Dist: fastexcel==0.13.0
+Requires-Dist: findlibs==0.0.5
+Requires-Dist: Flask==2.2.5
+Requires-Dist: fonttools==4.43.1
+Requires-Dist: frozenlist==1.4.0
+Requires-Dist: fsspec==2023.9.2
+Requires-Dist: geojson==3.2.0
+Requires-Dist: h3==3.7.6
+Requires-Dist: h5py==3.10.0
+Requires-Dist: idna==3.4
+Requires-Dist: importlib-metadata==6.8.0
+Requires-Dist: ipykernel==6.26.0
+Requires-Dist: ipython==8.17.2
+Requires-Dist: itsdangerous==2.1.2
+Requires-Dist: jedi==0.19.1
+Requires-Dist: Jinja2==3.1.2
+Requires-Dist: joblib==1.3.2
+Requires-Dist: jupyter_client==8.5.0
+Requires-Dist: jupyter_core==5.5.0
+Requires-Dist: kiwisolver==1.4.5
+Requires-Dist: llvmlite==0.41.1
+Requires-Dist: lxml==4.9.3
+Requires-Dist: MarkupSafe==2.1.3
+Requires-Dist: marshmallow==3.20.1
+Requires-Dist: matplotlib==3.10.1
+Requires-Dist: matplotlib-inline==0.1.7
+Requires-Dist: measurement==3.2.2
+Requires-Dist: mpmath==1.3.0
+Requires-Dist: multidict==6.0.4
+Requires-Dist: nest-asyncio==1.5.8
+Requires-Dist: networkx==3.2
+Requires-Dist: NREL-PySAM==6.0.1
+Requires-Dist: numba==0.58.1
+Requires-Dist: numpy==1.26.1
+Requires-Dist: numpy-financial==1.0.0
+Requires-Dist: openpyxl==3.1.2
+Requires-Dist: ordered-set==4.1.0
+Requires-Dist: packaging==23.2
+Requires-Dist: pandapower==3.0.0
+Requires-Dist: pandas==2.2.3
+Requires-Dist: parso==0.8.3
+Requires-Dist: pillow==10.3.0
+Requires-Dist: Pint==0.22
+Requires-Dist: platformdirs==4.3.6
+Requires-Dist: plotly==5.17.0
+Requires-Dist: polars==1.1.0
+Requires-Dist: portion==2.4.2
+Requires-Dist: prompt-toolkit==3.0.39
+Requires-Dist: psutil==5.9.6
+Requires-Dist: pure-eval==0.2.2
+Requires-Dist: pvlib==0.11.2
+Requires-Dist: pyarrow==13.0.0
+Requires-Dist: pycparser==2.21
+Requires-Dist: pydantic==2.8.2
+Requires-Dist: pydantic-extra-types==2.10.3
+Requires-Dist: pydantic-settings==2.8.1
+Requires-Dist: pydantic_core==2.20.1
+Requires-Dist: Pygments==2.16.1
+Requires-Dist: pyparsing==3.1.1
+Requires-Dist: pypdf==3.16.4
+Requires-Dist: python-dateutil==2.8.2
+Requires-Dist: python-dotenv==1.0.0
+Requires-Dist: pytz==2023.3.post1
+Requires-Dist: pyzmq==25.1.1
+Requires-Dist: rapidfuzz==3.4.0
+Requires-Dist: requests==2.31.0
+Requires-Dist: retrying==1.3.4
+Requires-Dist: scikit-learn==1.3.2
+Requires-Dist: scipy==1.11.3
+Requires-Dist: simbench==1.4.0
+Requires-Dist: simses==1.3.5
+Requires-Dist: six==1.16.0
+Requires-Dist: sortedcontainers==2.4.0
+Requires-Dist: soupsieve==2.5
+Requires-Dist: stack-data==0.6.3
+Requires-Dist: stamina==23.1.0
+Requires-Dist: sympy==1.12
+Requires-Dist: tabulate==0.9.0
+Requires-Dist: tenacity==8.2.3
+Requires-Dist: threadpoolctl==3.2.0
+Requires-Dist: timezonefinder==6.2.0
+Requires-Dist: tkcalendar==1.6.1
+Requires-Dist: tornado==6.3.3
+Requires-Dist: tqdm==4.66.1
+Requires-Dist: traitlets==5.13.0
+Requires-Dist: typing_extensions==4.12.2
+Requires-Dist: tzdata==2024.2
+Requires-Dist: tzfpy==0.15.5
+Requires-Dist: urllib3==2.0.7
+Requires-Dist: validators==0.20.0
+Requires-Dist: wcwidth==0.2.9
+Requires-Dist: Werkzeug==2.2.3
+Requires-Dist: wetterdienst==0.89.0
+Requires-Dist: windpowerlib==0.2.2
+Requires-Dist: xlsx2csv==0.8.1
+Requires-Dist: XlsxWriter==3.1.9
+Requires-Dist: yarl==1.9.2
+Requires-Dist: zipp==3.17.0
+
+# Virtual Power Plant Library (vpplib)
+
+The Virtual Power Plant Library (`vpplib`) is a Python library designed to simulate and manage virtual power plants (VPPs) and local energy systems. It provides functionalities for various components such as wind power, photovoltaic systems, battery electric vehicles, heat pumps, and more.
+
+## Features
+
+- **Wind Power**: Simulate wind turbines and their power output.
+- **Photovoltaic Systems**: Model PV systems and their energy generation.
+- **Battery Electric Vehicles**: Simulate the charging and discharging behavior of BEVs.
+- **Heat Pumps**: Model the operation of heat pumps.
+- **Thermal Energy Storage**: Simulate thermal energy storage systems.
+- **Combined Heat and Power**: Model combined heat and power plants.
+- **Hydrogen Storage**: Simulate hydrogen storage systems.
+- **Environment**: Manage environmental data such as weather and location.
+
+## Installation
+
+You can install the library using pip:
+
+```bash
+pip install vpplib
+```
+
+## Introdction to the VPPlib structure
+For the simulation of the virtual power plant a basic data structure is developed. It consists of multiple classes to design a virtual power plant, build models of the components and operate it in a distribution grid. The "Environment" class describes the overall environment, in which the vpp is being operated. It contains all time- and weather-related information and data. The class "UserProfile" contains information, which is specific for a certain house or housing unit, like heat demand or usage times of an electric vehicle. The "Component" classes, can then compose the Environment and UserProfile, to access their information for simulating the single components. To aggregate the components, the "VirtualPowerPlant" class composes the components. To be able to mirror the behavior of the components to the distribution grid, a pandapower net object is created, containing loads, storages and generation units, which correspond to the components in the VirtualPowerPlant. The net object along with the VirtualPowerPlant are then passed on to the "Operator" class. In this class, operation strategies as well as optimizations can be implemented, considering restrictions which arise from the components as well as the grid. Besides the technical issues, time series from markets can also be included to analyze the financial aspects of the virtual power plant at hand. 
+
+### Component
+The Component class represents a component within the virtual power plant. This can be, for example, a photovoltaik system or a combined heat and power plant. In addition to the generators, consumers and electrical storage devices can also be stored in this way.
+The different generators, consumers and storages are derived from the Component superclass. The superclass is used to provide general functionality for the accounting of the power flows within the virtual power plant. Therefore, it does not matter whether an electricity storage device or a photovoltaik system is to be balanced afterwards. However, you can create derivations from this object so that you can still represent the special features of the individual components.
+
+### Virtual power plant
+The second superordinate element is the VirtualPowerPlant object. This represents a combination of different components. Individual components can be added and removed for the simulation. By this encapsulation of the individual components, different topologies of the virtual power plant can be simulated.
+
+### Operator
+The Operator object receives a reference to a VirtualPowerPlant object and controls this according to the implemented logic. This element can also be used as a basis to achieve different goals. By deriving this class one Operator can, for example, aim to maximize the share of renewable energies. Another Operator could maximize the monetary profit.
+
+### Environment
+The Environment class is an encapsulation of every environmental impact on the system. In addition to basic weather and time related data, it is also possible to store regulatory framework conditions for the operation of a virtual power plant.
+The Environment can be passed to any Component in the constructor. Depending on the component, individual data is accessed.
+
+### UserProfile
+The UserProfile class is similar to the Environment class. However, this contains information on the respective usage behaviour of different types of users.
