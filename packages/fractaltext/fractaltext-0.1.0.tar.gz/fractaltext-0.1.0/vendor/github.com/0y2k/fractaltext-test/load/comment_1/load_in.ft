@@ -1,0 +1,8 @@
+# This is a comment line
+#
+#continues
+:key 1
+  # comment of "value 1"
+  value 1
+    # indented comment
+  value 2

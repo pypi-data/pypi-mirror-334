@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: fractaltext
+Version: 0.1.0
+Summary: FractalText: recursive plaintext data format
+Project-URL: Changelog, https://0y2k.github.io/fractaltext-python/changelog.html
+Project-URL: Documentation, https://0y2k.github.io/fractaltext-python/
+Project-URL: Homepage, https://0y2k.github.io/fractaltext-python/
+Project-URL: Issues, https://github.com/0y2k/fractaltext-python/issues/
+Project-URL: Repository, https://github.com/0y2k/fractaltext-python/
+Author-email: 0y2k <0x0y2k@gmail.com>
+Maintainer-email: 0y2k <0x0y2k@gmail.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: fractaltext
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: File Formats
+Requires-Python: >=3.10
+Requires-Dist: more-itertools>=10.6.0
+Requires-Dist: typing-extensions>=4.12.2
+Description-Content-Type: text/x-rst
+
+###########
+FractalText
+###########
+
+Python implementation of `FractalText <https://github.com/0y2k/fractaltext-spec>`_.
+FractalText is a recursive plaintext data format.
+
+***************
+Install and Run
+***************
+
+build
+  ::
+
+    uv build
+test
+  ::
+
+    uv run --group test pytest
+
+***********
+Development
+***********
+
+install pre-commit
+  ::
+
+    uv run pre-commit install
+lint and format
+  ::
+
+    uv run pre-commit run -a
+generate doc
+  ::
+
+    uv run --group doc make -C doc html
