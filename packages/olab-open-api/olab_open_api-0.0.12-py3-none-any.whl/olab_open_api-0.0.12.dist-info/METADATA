@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: olab_open_api
+Version: 0.0.12
+Summary: call openapi directly without using complete sdk
+Home-page: 
+Author: nik.opinionlabs
+Author-email: nik_opinionlabs <nik@opinionlabs.xyz>
+Requires-Dist: urllib3>=1.15
+Requires-Dist: six>=1.10
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Dynamic: author
