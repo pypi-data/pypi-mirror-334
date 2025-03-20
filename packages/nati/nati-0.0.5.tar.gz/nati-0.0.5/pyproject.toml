@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nati"  # Choose a unique name
+version = "0.0.5"
+authors = [
+    {name = "Joshua James", email = "josh@unobi.com"}
+]
+description = "Network Analytics and Telemetry Interface (NATI) for gathering network information from various devices."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+dependencies = [
+    "datetime",
+    "netmiko",
+    "requests",
+    "pymysql"
+]
