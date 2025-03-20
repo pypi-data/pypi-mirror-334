@@ -1,0 +1,5 @@
+[console_scripts]
+mikromanager = mikrotools.mikromanager:cli
+
+[gui_scripts]
+
