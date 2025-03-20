@@ -1,0 +1,40 @@
+{
+    "topology": {
+        "iterations" : 1,
+        "layer_definitions" : [
+            {
+                "switch_count": 4,
+                "max_hosts_per_switch": 2,
+                "host_types" : {
+                    "SERVER" : 2,
+                    "CONTROLLER" : 2,
+                    "IT_END_DEVICE" : -1
+                },
+                "structure": {
+                    "LINE": 1
+                },
+                "subnet_descendants" : 2
+            },
+            {
+                "switch_count": 2,
+                "max_hosts_per_switch": 2,
+                "host_types" : {
+                    "CONTROLLER" : 2,
+                    "IT_END_DEVICE" : -1,
+                    "OT_END_DEVICE" : -1
+                },
+                "structure": {
+                    "LINE": 1
+                }
+            }
+        ]
+    },
+    "communication": {
+        "traffic_profile": "DISTRIBUTED_CONTROL",
+        "upper_connection_bound": -1
+    },
+    "security" : {
+        "anomaly_count": 0,
+        "stateful_percentage" : 0
+    }
+}

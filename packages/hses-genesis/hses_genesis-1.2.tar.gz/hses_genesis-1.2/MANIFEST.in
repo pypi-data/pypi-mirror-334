@@ -1,0 +1,4 @@
+include resources/templates/*.ned
+include resources/templates/*.ini
+include resources/templates/*.cc
+include resources/configurations/*.json
