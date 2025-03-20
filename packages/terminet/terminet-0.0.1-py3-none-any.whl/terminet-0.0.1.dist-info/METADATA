@@ -1,0 +1,53 @@
+Metadata-Version: 2.4
+Name: terminet
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/no-kris/terminet#readme
+Project-URL: Issues, https://github.com/no-kris/terminet/issues
+Project-URL: Source, https://github.com/no-kris/terminet
+Author-email: Kris Treska <kris.tresk@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: linkify-it-py==2.0.3
+Requires-Dist: markdown-it-py==3.0.0
+Requires-Dist: mdit-py-plugins==0.4.2
+Requires-Dist: mdurl==0.1.2
+Requires-Dist: platformdirs==4.3.6
+Requires-Dist: pygments==2.19.1
+Requires-Dist: rich==13.9.4
+Requires-Dist: scapy==2.6.1
+Requires-Dist: textual==2.1.2
+Requires-Dist: typing-extensions==4.12.2
+Requires-Dist: uc-micro-py==1.0.3
+Description-Content-Type: text/markdown
+
+# TermiNet
+
+[![PyPI - Version](https://img.shields.io/pypi/v/terminet.svg)](https://pypi.org/project/terminet)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/terminet.svg)](https://pypi.org/project/terminet)
+
+-----
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install terminet
+```
+
+## License
+
+`terminet` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
