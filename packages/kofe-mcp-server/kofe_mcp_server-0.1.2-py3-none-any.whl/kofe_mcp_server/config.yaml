@@ -1,0 +1,12 @@
+kofe_url: "https://kofe.ai/v1"
+kofe_app_sks:
+  - {
+    "name": "翻译",
+    "description": "实时翻译服务、自动文档翻译、支持工单翻译、产品描述翻译等，确保跨语言无缝沟通。",
+    "appKey": "app-C9R0kRf2hU231123a45633ye",
+    "app_param":{
+        'input_text': {'string': {'variable': 'input_text', 'label': 'Input Text', 'required': True}},
+        'target_language': {'string': {'variable': 'target_language', 'label': 'Target Language', 'required': True}},
+    }
+  }
+
