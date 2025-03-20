@@ -1,0 +1,39 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 6-38
+
+Processing data file test-attr-dates.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 53
+Obs: 
+** Processing source fonte$test-atr-date
+
+WARNING: test-attr-dates.cli line 3 * Warning: Filename should match source Id to avoid errors. File: test-attr-dates Id: test-atr-date.
+Near lines: 3 
+Near lines: 4       lista$lista-test-atr-dates/11/02/2020/loc=A/obs=Exemplo de registos com datas nos atributos
+
+6: lista$lista-test-atr-dates
+*** End of File
+
+
+Structure file: /kleio-home/projects/test-project/structures/sources.str
+Structure processing report: /kleio-home/projects/test-project/structures/sources.srpt
+Structure in JSON: /kleio-home/projects/test-project/structures/sources.str.json
+
+Kleio file: /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.cli
+Original file: /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.org
+Previous version: /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.old
+Temp file with ids: /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.ids
+** - /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.cli-renamed to- /kleio-home/projects/test-project/sources/reference_sources/test-attr-dates/test-attr-dates.old
+0  errors. 
+1  warnings.
+Groups in this file:[pai,ls,atr,n,lista,fonte,kleio]
+Translation finished.

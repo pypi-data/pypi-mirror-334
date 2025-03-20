@@ -1,0 +1,87 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-57
+
+Processing data file genealdiversas.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 22
+Obs: 
+** Processing source fonte$genealdiversas
+6: familia$diversas-his1
+31: familia$albuquerque-his1
+185: familia$diversas-his2
+195: familia$diversas-his3
+275: familia$diversas-his4
+290: familia$diversas-his5
+300: familia$diversas-his6
+320: familia$diversas-his7
+338: familia$diversas-his8
+349: familia$diversas-his9
+371: familia$diversas-his10
+388: familia$diversas-his11
+397: familia$diversas-his12
+505: familia$diversas-his13
+533: familia$diversas-his14
+550: familia$diversas-his15
+563: familia$diversas-his16
+574: familia$diversas-his17
+583: familia$diversas-his18
+595: familia$diversas-his19
+629: familia$diversas-his20
+638: familia$diversas-his21
+645: familia$diversas-his22
+657: familia$diversas-his23
+671: familia$diversas-his24
+698: familia$diversas-his25
+706: familia$diversas-his26
+741: familia$diversas-his27
+815: familia$diversas-his28
+830: familia$diversas-his29
+845: familia$diversas-his30
+868: familia$diversas-his31
+932: familia$diversas-his32
+942: familia$diversas-his33
+1034: familia$diversas-his34
+1091: familia$diversas-his35
+1130: familia$diversas-his36
+1160: familia$diversas-his37
+1175: familia$diversas-his38
+1204: familia$diversas-his39
+1211: familia$diversas-his40
+1255: familia$diversas-his41
+1299: familia$diversas-his42
+1374: familia$diversas-his43
+1424: familia$diversas-his44
+1440: familia$diversas-his45
+1452: familia$diversas-his46
+*** End of File
+
+Line 559 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (liv521pe-per424) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 566 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (mrstos62-1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 833 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (macao3-1-per411) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 848 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (macao3-1-per966-per1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 871 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (posse20-per1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1134 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (cbr-tesegeorge-his9-obj1-per11) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1163 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (livrz519-1-mtg) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1178 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (livrz521-1-per801) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/varia/genealdiversas.cli
+Original file: /kleio-home/sources/reference_sources/varia/genealdiversas.org
+Previous version: /kleio-home/sources/reference_sources/varia/genealdiversas.old
+Temp file with ids: /kleio-home/sources/reference_sources/varia/genealdiversas.ids
+** - /kleio-home/sources/reference_sources/varia/genealdiversas.cli-renamed to- /kleio-home/sources/reference_sources/varia/genealdiversas.old
+0  errors. 
+0  warnings.
+Translation finished.

@@ -1,0 +1,35 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 17-28
+
+Processing data file crono-avulsos.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 72
+Obs: 
+** Processing source fonte$crono-avulsos
+19: crono$crono-avulsos-his1-47
+41: crono$crono-avulsos-his2-47
+*** End of File
+
+
+Structure file: /kleio-home/structures/reference_sources/cronologias/sources.str
+Structure processing report: /kleio-home/structures/reference_sources/cronologias/sources.srpt
+Structure in JSON: /kleio-home/structures/reference_sources/cronologias/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/cronologias/crono-avulsos.cli
+Original file: /kleio-home/sources/reference_sources/cronologias/crono-avulsos.org
+Previous version: /kleio-home/sources/reference_sources/cronologias/crono-avulsos.old
+Temp file with ids: /kleio-home/sources/reference_sources/cronologias/crono-avulsos.ids
+** - /kleio-home/sources/reference_sources/cronologias/crono-avulsos.cli-renamed to- /kleio-home/sources/reference_sources/cronologias/crono-avulsos.old
+0  errors. 
+0  warnings.
+Groups in this file:[rel,lugar,ls,referido,crono,fonte,link,property,kleio]
+Translation finished.

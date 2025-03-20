@@ -1,0 +1,41 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 6-39
+
+Processing data file issue48b.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2str
+Prefix: 
+Autorel: 
+Translation count: 156
+Obs: 
+** Processing source fonte$issue48b
+18: crono$issue48-sourceb-his1-79
+22: crono$deh-chronologie-his2-78
+26: crono$deh-chronologie-his3-78
+32: crono$deh-chronologie-his4-78
+38: crono$deh-chronologie-his5-78
+44: crono$deh-chronologie-his6-78
+*** End of File
+
+Line 28 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (francisco-xavier) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 36 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (francisco-xavier) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+Structure file: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.str
+Structure processing report: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.srpt
+Structure in JSON: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.str.json
+
+Kleio file: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.cli
+Original file: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.org
+Previous version: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.old
+Temp file with ids: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.ids
+** - /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.cli-renamed to- /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48b.old
+0  errors. 
+0  warnings.
+Groups in this file:[lugar,referido,crono,fonte,link,property,kleio]
+Translation finished.

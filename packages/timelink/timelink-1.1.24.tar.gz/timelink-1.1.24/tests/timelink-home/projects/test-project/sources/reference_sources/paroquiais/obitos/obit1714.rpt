@@ -1,0 +1,59 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-58
+
+Processing data file obit1714.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto.str
+Prefix: 
+Autorel: 
+Translation count: 20
+Obs: 
+** Processing source fonte$obit1714
+6: obito$o1714-1
+17: obito$o1714-2
+28: obito$o1714-3
+41: obito$o1714-4
+56: obito$o1714-5
+71: obito$o1714-6
+84: obito$o1714-7
+95: obito$o1714-8
+106: obito$o1714-9
+117: obito$o1714-10
+129: obito$o1714-11
+141: obito$o1714-12
+152: obito$o1714-13
+165: obito$o1714-14
+179: obito$o1714-15
+193: obito$o1714-16
+205: obito$o1714-17
+216: obito$o1714-18
+229: obito$o17141-19
+241: obito$o1714-20
+252: obito$o1714-21
+263: obito$o1714-22
+276: obito$o1714-23
+287: obito$o1714-24
+300: obito$o1714-25
+315: obito$o1714-26
+327: obito$o1714-27
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.cli
+Original file: /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.org
+Previous version: /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.old
+Temp file with ids: /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.ids
+** - /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.cli-renamed to- /kleio-home/sources/reference_sources/paroquiais/obitos/obit1714.old
+0  errors. 
+0  warnings.
+Translation finished.

@@ -1,0 +1,33 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+24-2-2025 8-23
+
+Processing data file real-entities.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: 9
+Prefix: 
+Autorel: 
+Translation count: 3
+Obs: 
+** Processing source fonte$real-entities
+11: lista$sameas-dehergne
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/sources/real-entities/real-entities.cli
+Original file: /kleio-home/sources/real-entities/real-entities.org
+Previous version: /kleio-home/sources/real-entities/real-entities.old
+Temp file with ids: /kleio-home/sources/real-entities/real-entities.ids
+** - /kleio-home/sources/real-entities/real-entities.cli-renamed to- /kleio-home/sources/real-entities/real-entities.old
+0  errors. 
+0  warnings.
+Translation finished.

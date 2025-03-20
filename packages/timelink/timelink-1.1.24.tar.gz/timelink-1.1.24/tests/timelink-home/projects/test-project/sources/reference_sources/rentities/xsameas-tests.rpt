@@ -1,0 +1,43 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 6-45
+
+Processing data file xsameas-tests.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: 
+Prefix: 
+Autorel: 
+Translation count: 58
+Obs: 
+** Processing source fonte$xsameas-tests
+6: lista$bio-notes-list-1
+
+WARNING: xsameas-tests.cli line 20 destination id of "same as" not found. Will check again at the end of file.
+Near lines: 20             referido$Michele Ruggieri/mesmo_que=bio-michele-ruggieri/id=bio-matteo-ricci-per1-35
+Near lines: 21                rel$sociabilidade/esteve com/Matteo Ricci/bio-matteo-ricci/data=15580000/obs=Em Lisboa
+
+44: viagem$bio-michele-ruggieri-his4-19
+52: estadia$bio-michele-ruggieri-his4-20
+*** End of File
+
+Line 7 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (deh-matteo-ricci) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 40 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (deh-michele-ruggiere) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+Structure file: /kleio-home/projects/test-project/structures/sources.str
+Structure processing report: /kleio-home/projects/test-project/structures/sources.srpt
+Structure in JSON: /kleio-home/projects/test-project/structures/sources.str.json
+
+Kleio file: /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.cli
+Original file: /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.org
+Previous version: /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.old
+Temp file with ids: /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.ids
+** - /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.cli-renamed to- /kleio-home/projects/test-project/sources/reference_sources/rentities/xsameas-tests.old
+0  errors. 
+1  warnings.
+Groups in this file:[estadia,viagem,rel,referido,ls,n,lista,fonte,kleio]
+Translation finished.

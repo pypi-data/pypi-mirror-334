@@ -1,0 +1,33 @@
+KleioTranslator - server version 12.5 - build 570 2024-02-29 07:39:02
+2-5-2024 23-33
+
+Processing data file dehergne-locations-1701.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 10
+Obs: 
+** Processing source fonte$dehergne-locations-1701
+93: geodesc$deh-chre-1701
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/dehergne-locations-1701.cli
+Original file: /kleio-home/kleio/dehergne-locations-1701.org
+Previous version: /kleio-home/kleio/dehergne-locations-1701.old
+Temp file with ids: /kleio-home/kleio/dehergne-locations-1701.ids
+** - /kleio-home/kleio/dehergne-locations-1701.cli-renamed to- /kleio-home/kleio/dehergne-locations-1701.old
+0  errors. 
+0  warnings.
+Translation finished.

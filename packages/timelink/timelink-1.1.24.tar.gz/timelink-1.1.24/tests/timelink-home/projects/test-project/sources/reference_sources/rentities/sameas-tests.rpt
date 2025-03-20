@@ -1,0 +1,34 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+16-3-2025 13-44
+
+Processing data file sameas-tests.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: 
+Prefix: 
+Autorel: 
+Translation count: 360
+Obs: 
+** Processing source fonte$sameas-tests
+13: lista$sameas-dehergne
+*** End of File
+
+
+Structure file: /kleio-home/projects/test-project/structures/sources.str
+Structure processing report: /kleio-home/projects/test-project/structures/sources.srpt
+Structure in JSON: /kleio-home/projects/test-project/structures/sources.str.json
+
+Kleio file: /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.cli
+Original file: /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.org
+Previous version: /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.old
+Temp file with ids: /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.ids
+** - /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.cli-renamed to- /kleio-home/projects/test-project/sources/reference_sources/rentities/sameas-tests.old
+0  errors. 
+0  warnings.
+Groups in this file:[referida,irmao,referido,rel,mae,pai,ls,n,lista,fonte,link,kleio]
+Translation finished.

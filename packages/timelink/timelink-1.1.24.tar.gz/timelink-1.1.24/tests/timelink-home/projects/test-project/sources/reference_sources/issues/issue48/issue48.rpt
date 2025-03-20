@@ -1,0 +1,37 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 6-39
+
+Processing data file issue48.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: 
+Prefix: 
+Autorel: 
+Translation count: 92
+Obs: 
+** Processing source fonte$issue48
+6: carta$deh-ca-1645-b-2-a
+8: adenda$deh-ca-1645-b-2-b
+10: adenda$deh-ca-1645-b-2-c
+11: carta$deh-ca-1645-b-3
+*** End of File
+
+
+Structure file: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.str
+Structure processing report: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.srpt
+Structure in JSON: /kleio-home/projects/test-project/structures/reference_sources/issues/issue48/sources.str.json
+
+Kleio file: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.cli
+Original file: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.org
+Previous version: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.old
+Temp file with ids: /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.ids
+** - /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.cli-renamed to- /kleio-home/projects/test-project/sources/reference_sources/issues/issue48/issue48.old
+0  errors. 
+0  warnings.
+Groups in this file:[adenda,carta,fonte,kleio]
+Translation finished.

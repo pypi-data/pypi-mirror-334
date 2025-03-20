@@ -1,0 +1,32 @@
+KleioTranslator - server version 12.1 - build 555 2023-12-13 18:54:44
+28-12-2023 10-11
+
+Processing data file test-atr-date.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 1
+Obs: 
+** Processing source fonte$test-atr-date
+7: lista$lista-test-atr-dates
+*** End of File
+
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/kleio/reference_sources/varia/test-atr-date.cli
+Original file: /kleio-home/kleio/reference_sources/varia/test-atr-date.org
+Previous version: /kleio-home/kleio/reference_sources/varia/test-atr-date.old
+Temp file with ids: /kleio-home/kleio/reference_sources/varia/test-atr-date.ids
+0  errors. 
+0  warnings.
+Translation finished.

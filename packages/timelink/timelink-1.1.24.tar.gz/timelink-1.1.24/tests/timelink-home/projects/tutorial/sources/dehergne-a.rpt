@@ -1,0 +1,36 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+24-2-2025 8-23
+
+Processing data file dehergne-a.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 186
+Obs: 
+** Processing source fonte$dehergne-a
+7: lista$dehergne-notices-a
+*** End of File
+
+Line 541 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (deh-belchior-miguel-carneiro-leitao) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 814 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (deh-jean-regis-lieou) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 876 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (deh-alessandro-cicero) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+Structure file: /usr/local/timelink/clio/src/gacto2.str
+Structure processing report: /usr/local/timelink/clio/src/gacto2.srpt
+Structure in JSON: /usr/local/timelink/clio/src/gacto2.str.json
+
+Kleio file: /kleio-home/sources/dehergne-a.cli
+Original file: /kleio-home/sources/dehergne-a.org
+Previous version: /kleio-home/sources/dehergne-a.old
+Temp file with ids: /kleio-home/sources/dehergne-a.ids
+** - /kleio-home/sources/dehergne-a.cli-renamed to- /kleio-home/sources/dehergne-a.old
+0  errors. 
+0  warnings.
+Translation finished.

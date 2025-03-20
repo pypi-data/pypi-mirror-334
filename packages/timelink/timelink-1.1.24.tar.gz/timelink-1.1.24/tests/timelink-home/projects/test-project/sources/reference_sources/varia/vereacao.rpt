@@ -1,0 +1,34 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-58
+
+Processing data file vereacao.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: cbr
+Autorel: cbr
+Translation count: 22
+Obs: 
+** Processing source fonte$cbr-vereacao
+6: acto$cbr-v1793-1
+53: acto$cbr-v1793-2
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/varia/vereacao.cli
+Original file: /kleio-home/sources/reference_sources/varia/vereacao.org
+Previous version: /kleio-home/sources/reference_sources/varia/vereacao.old
+Temp file with ids: /kleio-home/sources/reference_sources/varia/vereacao.ids
+** - /kleio-home/sources/reference_sources/varia/vereacao.cli-renamed to- /kleio-home/sources/reference_sources/varia/vereacao.old
+0  errors. 
+0  warnings.
+Translation finished.

@@ -1,0 +1,36 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-57
+
+Processing data file eiras-rol1.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 27
+Obs: 
+** Processing source fonte$eiras-rol1
+6: rol$r1775
+
+ERROR: eiras-rol1.cli line 1019 Bad date format:francisca. Use YYYYMMDD, YYYY-MM-DD, FROM_DATE:UNTIL_DATE
+Near lines: 1019 
+Near lines: 1020          fogo$r1775-f110/casais de eiras
+
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/roisdeconfessados/eiras-rol1.cli
+Original file: /kleio-home/sources/reference_sources/roisdeconfessados/eiras-rol1.org
+Previous version: /kleio-home/sources/reference_sources/roisdeconfessados/eiras-rol1.old
+1  errors. 
+0  warnings.
+Translation finished.

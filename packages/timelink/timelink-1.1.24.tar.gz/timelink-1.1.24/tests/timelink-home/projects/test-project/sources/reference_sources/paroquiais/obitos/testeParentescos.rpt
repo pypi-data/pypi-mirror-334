@@ -1,0 +1,36 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-58
+
+Processing data file testeParentescos.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 21
+Obs: 
+** Processing source fonte$testeParentescos
+6: obito$ox-1
+20: obito$ox-2
+34: obito$ox-3
+48: obito$ox-4
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.cli
+Original file: /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.org
+Previous version: /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.old
+Temp file with ids: /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.ids
+** - /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.cli-renamed to- /kleio-home/sources/reference_sources/paroquiais/obitos/testeParentescos.old
+0  errors. 
+0  warnings.
+Translation finished.

@@ -1,0 +1,93 @@
+<?xml version='1.0'?>
+<KLEIO STRUCTURE="/kleio-home/projects/test-project/structures/sources.str" SOURCE="/kleio-home/projects/test-project/sources/reference_sources/rentities/aregister-tests.cli" TRANSLATOR="gactoxml2.str" WHEN="2025-3-16 13:44:4" OBS="Generated from database toliveira_china by user toliveira, file date: +2021-06-18 Timestamp:2021-06-18T02:43:33.674Z" SPACE="">
+<CLASS NAME="aregister" SUPER="entity" TABLE="aregisters" GROUP="identifications">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="user" COLUMN="user" CLASS="user" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="name" COLUMN="name" CLASS="name" TYPE="varchar" SIZE="254" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="dbase" COLUMN="dbase" CLASS="dbase" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="mode" COLUMN="replace_mode" CLASS="mode" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="aregister-tests" NAME="identifications" CLASS="aregister" ORDER="1" LEVEL="1" LINE="5">
+    <ELEMENT NAME="line" CLASS="line"><core>5</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>aregister-tests</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>identifications</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>root</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>aregister</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>1</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>1</core></ELEMENT>
+   <ELEMENT NAME="name" CLASS="name">
+         <core><![CDATA[Dehergne, Repertoire, ids]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[Real entities, including real persons and real objects]]></core>   </ELEMENT>
+   <ELEMENT NAME="dbase" CLASS="dbase">
+         <core><![CDATA[toliveira_china]]></core>   </ELEMENT>
+   <ELEMENT NAME="user" CLASS="user">
+         <core><![CDATA[toliveira]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[20210618]]></core>   </ELEMENT>
+   <ELEMENT NAME="mode" CLASS="mode">
+         <core><![CDATA[backup]]></core>   </ELEMENT>
+</GROUP>
+<CLASS NAME="rentity" SUPER="entity" TABLE="rentities" GROUP="rentity">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="the_class" COLUMN="the_class" CLASS="the_class" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="description" COLUMN="description" CLASS="name" TYPE="varchar" SIZE="128" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="user" COLUMN="user" CLASS="user" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="status" COLUMN="status" CLASS="status" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+<CLASS NAME="rperson" SUPER="rentity" TABLE="rpersons" GROUP="rperson">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="seq" COLUMN="seq" CLASS="seq" TYPE="int" SIZE="10" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="sname" COLUMN="sname" CLASS="name" TYPE="varchar" SIZE="128" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="user" COLUMN="user" CLASS="user" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="status" COLUMN="status" CLASS="status" TYPE="varchar" SIZE="1" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="sex" COLUMN="sex" CLASS="sex" TYPE="varchar" SIZE="1" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="rp-66" NAME="rperson" CLASS="rperson" ORDER="2" LEVEL="2" LINE="7">
+    <ELEMENT NAME="line" CLASS="line"><core>7</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>rp-66</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>rperson</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>aregister-tests</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>rperson</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>2</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>2</core></ELEMENT>
+   <ELEMENT NAME="sname" CLASS="name">
+         <core><![CDATA[Matteo Ricci]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+   <ELEMENT NAME="status" CLASS="status">
+         <core><![CDATA[N]]></core>   </ELEMENT>
+   <ELEMENT NAME="description" CLASS="name">
+         <core><![CDATA[Matteo Ricci]]></core>   </ELEMENT>
+   <ELEMENT NAME="user" CLASS="user">
+         <core><![CDATA[toliveira]]></core>   </ELEMENT>
+   <ELEMENT NAME="the_class" CLASS="the_class">
+         <core><![CDATA[rperson]]></core>   </ELEMENT>
+</GROUP>
+
+<RELATION ID="rp-66-occ5" REGISTER="aregister-tests" USER="toliveira" ORG="deh-joao-barradas-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ6" REGISTER="aregister-tests" USER="toliveira" ORG="deh-giovanni-cola-niccolo-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ7" REGISTER="aregister-tests" USER="toliveira" ORG="deh-bento-de-gois-ref2" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ8" REGISTER="aregister-tests" USER="toliveira" ORG="deh-sebastien-fernandes-tchong-ref2" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ9" REGISTER="aregister-tests" USER="toliveira" ORG="deh-sabatino-de-ursis-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ10" REGISTER="aregister-tests" USER="toliveira" ORG="deh-michele-ruggiere-ref4" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ11" REGISTER="aregister-tests" USER="toliveira" ORG="deh-matteo-ricci" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ12" REGISTER="aregister-tests" USER="toliveira" ORG="deh-manuel-pereira-yeou-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ13" REGISTER="aregister-tests" USER="toliveira" ORG="deh-lazzaro-cattaneo-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+
+<RELATION ID="rp-66-occ14" REGISTER="aregister-tests" USER="toliveira" ORG="deh-jean-fernandes-tchong-ref1" DEST="rp-66" TYPE="META" VALUE="attach_to_rentity"/>
+</KLEIO>

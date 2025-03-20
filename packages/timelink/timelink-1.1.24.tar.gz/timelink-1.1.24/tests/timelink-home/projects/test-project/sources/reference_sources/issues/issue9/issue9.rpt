@@ -1,0 +1,35 @@
+KleioTranslator - server version 12.8 - build 591 2025-03-14 12:56:23
+15-3-2025 17-29
+
+Processing data file issue9.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 217
+Obs: 
+** Processing source fonte$issue9
+11: geodesc$issue9-geoentity
+15: lista$issue9-lista
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/issues/issue9/issue9.cli
+Original file: /kleio-home/sources/reference_sources/issues/issue9/issue9.org
+Previous version: /kleio-home/sources/reference_sources/issues/issue9/issue9.old
+Temp file with ids: /kleio-home/sources/reference_sources/issues/issue9/issue9.ids
+** - /kleio-home/sources/reference_sources/issues/issue9/issue9.cli-renamed to- /kleio-home/sources/reference_sources/issues/issue9/issue9.old
+0  errors. 
+0  warnings.
+Groups in this file:[ls,n,lista,geo1,geodesc,fonte,link,kleio]
+Translation finished.

@@ -1,0 +1,260 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-58
+
+Processing data file nommiz.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto.str
+Prefix: 
+Autorel: 
+Translation count: 12
+Obs: 
+** Processing source fonte$nommiz
+6: nom$nom1a
+15: nom$nom1
+21: nom$nom2
+35: nom$nom3
+45: nom$nom4
+54: nom$nom5
+64: nom$nom6
+69: nom$nom7
+80: nom$nom8
+88: nom$nom9
+96: nom$nom9a
+103: nom$nom10
+111: nom$nom11
+119: nom$nom12
+129: nom$nom13
+140: nom$nom14
+150: nom$nom15
+159: nom$nom16
+170: nom$nom17
+176: nom$nom18
+182: nom$nom18a
+188: nom$nom19
+194: nom$nom20
+200: nom$nom21
+205: nom$nom21b
+210: nom$nom22
+216: nom$nom23
+221: nom$nom24
+227: nom$nom25
+233: nom$nom26
+238: nom$nom27
+243: nom$nom28
+248: nom$nom29
+254: nom$nom30
+260: nom$nom31
+267: nom$nom32
+274: nom$nom33
+281: nom$nom34
+287: nom$nom35
+293: nom$nom36
+299: nom$nom37
+306: nom$nom38
+311: nom$mon39
+317: nom$nom40
+326: nom$nom41
+331: nom$nom42
+338: nom$nom43
+
+WARNING: nommiz.cli line 495 destination id of "same as" not found. Will check again at the end of file.
+Near lines: 495          referido$joze joaquim da silva galvao/mesmo_que=nom54-p1/obs=joze joaquim da silva galvao- a fl. 14?/id=nom43-per49-4
+Near lines: 496             ls$titulo/irmao/17780412
+
+512: nom$nom44
+523: nom$nom45
+538: nom$nom46
+
+ERROR: nommiz.cli line 544 Bad date format:nivel 1. Use YYYYMMDD, YYYY-MM-DD, FROM_DATE:UNTIL_DATE
+Near lines: 544 
+Near lines: 545       nom$nom47/19/3/1729/62/obs=no mesmo termo aceita-se joam francisco-o bruxo
+
+547: nom$nom47
+555: nom$nom48
+568: nom$nom49
+580: nom$nom50
+591: nom$nom51
+604: nom$nom52
+612: nom$nom53
+625: nom$nom53a
+632: nom$nom54
+640: nom$nom55
+648: nom$nom56
+655: nom$nom57
+663: nom$nom58
+674: nom$nom59
+682: nom$60
+689: nom$61
+700: nom$nom62
+713: nom$nom63
+721: nom$nom63a
+726: nom$nom63b
+731: nom$nom64
+739: nom$nom64a
+744: nom$nom65
+749: nom$nom66
+760: nom$nom67
+771: nom$nom68
+781: nom$nom69
+795: nom$nom70
+806: nom$nom71
+813: nom$nom72
+824: nom$nom73
+837: nom$nom74
+848: nom$nom75
+859: nom$nom76
+872: nom$nom77
+883: nom$nom78
+894: nom$nom79
+904: nom$nom80
+910: nom$nom81
+926: nom$nom82
+933: nom$nom83
+940: nom$nom84
+947: nom$nom85
+954: nom$nom86
+961: nom$nom87
+968: nom$nom88
+975: nom$nom89
+981: nom$nom90
+1017: nom$nom91
+1031: nom$nom92
+1038: nom$nom93
+1045: nom$nom94
+1052: nom$nom95
+1059: nom$nom96
+1066: nom$nom97
+1073: nom$nom98
+1080: nom$nom99
+1088: nom$nom100
+1095: nom$nom101
+1102: nom$nom102
+1109: nom$nom103
+1116: nom$nom104
+1123: nom$nom105
+1130: nom$nom106
+1137: nom$nom107
+1144: nom$nom108
+1151: nom$nom109
+1158: nom$nom110
+1165: nom$nom111
+1172: nom$nom112
+1179: nom$nom113
+1184: nom$nom114
+1192: nom$nom115
+1199: nom$nom116
+1206: nom$nom117
+1213: nom$nom118
+1220: nom$nom119
+1246: nom$nom120
+1254: nom$nom121
+1260: nom$nom122
+1267: nom$nom123
+1279: nom$nom124
+1286: nom$nom125
+1293: nom$nom126
+1299: nom$nom127
+1305: nom$nom128
+1312: nom$nom128a
+1320: nom$nom129
+1327: nom$nom130
+1334: nom$nom131
+1341: nom$nom132
+1348: nom$nom133
+1355: nom$nom134
+1362: nom$nom135
+1369: nom$nom136
+1376: nom$nom137
+1383: nom$nom137a
+1390: nom$nom138
+1397: nom$nom139
+1404: nom$nom140
+1411: nom$nom141
+1418: nom$nom142
+1425: nom$nom143
+1432: nom$nom144
+1439: nom$nom145
+1446: nom$nom146
+1453: nom$nom147
+1460: nom$nom148
+1467: nom$nom149
+1474: nom$nom150
+1486: nom$nom151
+1497: nom$nom152
+1505: nom$nom153
+1513: nom$nom154
+1520: nom$nom155
+1527: nom$nom156
+1534: nom$nom157
+1541: nom$nom158
+1548: nom$nom159
+1555: nom$nom160
+1562: nom$nom161
+1569: nom$nom162
+1576: nom$nom163
+1587: nom$nom164
+1598: nom$nom165
+1605: nom$nom166
+1612: nom$nom167
+1619: nom$nom168
+1626: nom$nom169
+1633: nom$nom179
+1646: nom$nom180
+1653: nom$nom181
+1660: nom$nom182
+1667: nom$nom183
+1674: nom$nom184
+1681: nom$nom185
+1690: nom$nom186
+1698: nom$nom186a
+1705: nom$nom187
+1712: nom$nom188
+1720: nom$nom189
+1726: nom$nom190
+1806: nom$nom191
+1817: nom$nom192
+1819: nom$nom193
+
+ERROR: nommiz.cli line 1861 Bad date format:manoel moreira. Use YYYYMMDD, YYYY-MM-DD, FROM_DATE:UNTIL_DATE
+Near lines: 1861             ls$titulo/irmao de menor condicaoreferido/manoel moreira/obs=manoel moreira de alfucheira-morto
+Near lines: 1862             ls$residencia/alfucheira
+
+
+ERROR: nommiz.cli line 1997 Bad date format:val da velha. Use YYYYMMDD, YYYY-MM-DD, FROM_DATE:UNTIL_DATE
+Near lines: 1997             ls$titulo/residencia/val da velha
+Near lines: 1998             ls$titulo/irmao demenor condicao
+
+*** End of File
+
+Line 422 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom64-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 425 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom7-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 484 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom29) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 507 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom179-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 1980 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom45-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2070 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom64-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2088 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom69-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2132 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (76) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2193 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom100-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2225 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom1056-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2291 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom123-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2392 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom150-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2396 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom151-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2444 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom163-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+Line 2448 "SAME AS" TO EXTERNAL REFERENCE EXPORTED (nom164-p1) CHECK IF IT EXISTS BEFORE IMPORTING THIS FILE.
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/varia/nommiz.cli
+Original file: /kleio-home/sources/reference_sources/varia/nommiz.org
+Previous version: /kleio-home/sources/reference_sources/varia/nommiz.old
+3  errors. 
+1  warnings.
+Translation finished.

@@ -1,0 +1,810 @@
+<?xml version='1.0'?>
+<KLEIO STRUCTURE="/kleio-home/structures/reference_sources/cronologias/sources.str" SOURCE="/kleio-home/sources/reference_sources/cronologias/crono-avulsos.cli" TRANSLATOR="gactoxml2.str" WHEN="2025-3-15 17:28:49" OBS="" SPACE="">
+<CLASS NAME="source" SUPER="entity" TABLE="sources" GROUP="fonte">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="type" COLUMN="the_type" CLASS="type" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="value" COLUMN="the_value" CLASS="value" TYPE="varchar" SIZE="254" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="loc" COLUMN="loc" CLASS="loc" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="ref" COLUMN="ref" CLASS="ref" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="kleiofile" COLUMN="kleiofile" CLASS="kleiofile" TYPE="varchar" SIZE="512" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="32768" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="replace" COLUMN="replaces" CLASS="replace" TYPE="varchar" SIZE="254" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos" NAME="fonte" CLASS="source" ORDER="1" LEVEL="1" LINE="17">
+    <ELEMENT NAME="line" CLASS="line"><core>17</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>fonte</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>root</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>source</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>1</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>1</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[cronologia]]></core>   </ELEMENT>
+   <ELEMENT NAME="data" CLASS="date">
+         <core><![CDATA[1552:1758]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA["""
+
+         Referências:
+
+         Pires, Benjamim Videira. 1999. «The Antecedents and Context of the University
+         College of St.Paul». em Religion and culture: an international symposium
+         commemorating the fourth centenary of the University College of St. Paul, Macau,
+         28 November to 1 December 1994.
+
+         """]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15520000.17580000]]></core>   </ELEMENT>
+   <ELEMENT NAME="kleiofile" CLASS="kleiofile">
+         <core><![CDATA[/kleio-home/sources/reference_sources/cronologias/crono-avulsos.cli]]></core>   </ELEMENT>
+</GROUP>
+<CLASS NAME="act" SUPER="entity" TABLE="acts" GROUP="historical-act">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="type" COLUMN="the_type" CLASS="type" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="loc" COLUMN="loc" CLASS="loc" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="ref" COLUMN="ref" CLASS="ref" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+<CLASS NAME="event" SUPER="act" TABLE="events" GROUP="crono">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="description" COLUMN="description" CLASS="description" TYPE="varchar" SIZE="1024" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos-his1-47" NAME="crono" CLASS="event" ORDER="2" LEVEL="2" LINE="19">
+    <ELEMENT NAME="line" CLASS="line"><core>19</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>crono</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>event</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>2</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>2</core></ELEMENT>
+   <ELEMENT NAME="data" CLASS="date">
+         <core><![CDATA[1555-11-20]]></core>   </ELEMENT>
+   <ELEMENT NAME="loc" CLASS="loc">
+         <core><![CDATA[China]]></core>   </ELEMENT>
+   <ELEMENT NAME="description" CLASS="description">
+         <core><![CDATA[Chegada primeiros jesuítas a Macau]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[Pires, 1999.]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+   <ELEMENT NAME="type" CLASS="type">
+         <core><![CDATA[crono]]></core>   </ELEMENT>
+</GROUP>
+<CLASS NAME="person" SUPER="entity" TABLE="persons" GROUP="referido">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="name" COLUMN="name" CLASS="name" TYPE="varchar" SIZE="128" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="sex" COLUMN="sex" CLASS="sex" TYPE="char" SIZE="1" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos-belchior-barreto" NAME="referido" CLASS="person" ORDER="3" LEVEL="3" LINE="20">
+    <ELEMENT NAME="line" CLASS="line"><core>20</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-belchior-barreto</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>3</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Belchior Nunes Barreto]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+<CLASS NAME="relation" SUPER="entity" TABLE="relations" GROUP="relation">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="origin" COLUMN="origin" CLASS="origin" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="destination" COLUMN="destination" CLASS="destination" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="type" COLUMN="the_type" CLASS="type" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="value" COLUMN="the_value" CLASS="value" TYPE="varchar" SIZE="254" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos-his1-47-rela1" NAME="relation"  ORDER="4" LEVEL="4" CLASS="relation" LINE="20">
+    <ELEMENT NAME="line" CLASS="line"><core>20</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-belchior-barreto</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>4</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-belchior-barreto</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela1</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP><CLASS NAME="attribute" SUPER="entity" TABLE="attributes" GROUP="ls">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="entity" COLUMN="entity" CLASS="entity" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="date" COLUMN="the_date" CLASS="date" TYPE="varchar" SIZE="24" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="type" COLUMN="the_type" CLASS="type" TYPE="varchar" SIZE="512" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="value" COLUMN="the_value" CLASS="value" TYPE="varchar" SIZE="1024" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos-belchior-barreto-att1-73" NAME="ls" CLASS="attribute" ORDER="5" LEVEL="4" LINE="22">
+    <ELEMENT NAME="line" CLASS="line"><core>22</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-belchior-barreto-att1-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-belchior-barreto</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>5</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-cargo]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[Vice-Provincial]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-belchior-barreto-att1-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-belchior-barreto]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-gaspar-vilela" NAME="referido" CLASS="person" ORDER="6" LEVEL="3" LINE="23">
+    <ELEMENT NAME="line" CLASS="line"><core>23</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-gaspar-vilela</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>6</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Gaspar Vilela]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela2" NAME="relation"  ORDER="7" LEVEL="4" CLASS="relation" LINE="23">
+    <ELEMENT NAME="line" CLASS="line"><core>23</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-gaspar-vilela</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>7</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-gaspar-vilela</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela2</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-gaspar-vilela-att2-73" NAME="ls" CLASS="attribute" ORDER="8" LEVEL="4" LINE="25">
+    <ELEMENT NAME="line" CLASS="line"><core>25</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-gaspar-vilela-att2-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-gaspar-vilela</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>8</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[profissao]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[padre]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-gaspar-vilela-att2-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-gaspar-vilela]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-antonio-dias" NAME="referido" CLASS="person" ORDER="9" LEVEL="3" LINE="26">
+    <ELEMENT NAME="line" CLASS="line"><core>26</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-antonio-dias</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>9</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[António Dias]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela3" NAME="relation"  ORDER="10" LEVEL="4" CLASS="relation" LINE="26">
+    <ELEMENT NAME="line" CLASS="line"><core>26</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-antonio-dias</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>10</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-antonio-dias</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela3</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-antonio-dias-att3-73" NAME="ls" CLASS="attribute" ORDER="11" LEVEL="4" LINE="28">
+    <ELEMENT NAME="line" CLASS="line"><core>28</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-antonio-dias-att3-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-antonio-dias</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>11</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[profissao]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[padre]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-antonio-dias-att3-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-antonio-dias]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-per1-47" NAME="referido" CLASS="person" ORDER="12" LEVEL="3" LINE="29">
+    <ELEMENT NAME="line" CLASS="line"><core>29</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>12</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Fernão Mendes Pinto]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela4" NAME="relation"  ORDER="13" LEVEL="4" CLASS="relation" LINE="29">
+    <ELEMENT NAME="line" CLASS="line"><core>29</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>13</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his1-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela4</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-his1-47-per1-47-att4-73" NAME="ls" CLASS="attribute" ORDER="14" LEVEL="4" LINE="31">
+    <ELEMENT NAME="line" CLASS="line"><core>31</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-per1-47-att4-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47-per1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>14</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-estatuto]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[escolástico]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-his1-47-per1-47-att4-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-his1-47-per1-47]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-belchior-dias" NAME="referido" CLASS="person" ORDER="15" LEVEL="3" LINE="32">
+    <ELEMENT NAME="line" CLASS="line"><core>32</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-belchior-dias</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>15</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Belchior Dias]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela5" NAME="relation"  ORDER="16" LEVEL="4" CLASS="relation" LINE="32">
+    <ELEMENT NAME="line" CLASS="line"><core>32</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-belchior-dias</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>16</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-belchior-dias</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela5</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-belchior-dias-att5-73" NAME="ls" CLASS="attribute" ORDER="17" LEVEL="4" LINE="34">
+    <ELEMENT NAME="line" CLASS="line"><core>34</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-belchior-dias-att5-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-belchior-dias</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>17</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-estatuto]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[escolástico]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-belchior-dias-att5-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-belchior-dias]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-estevao-de-gois" NAME="referido" CLASS="person" ORDER="18" LEVEL="3" LINE="35">
+    <ELEMENT NAME="line" CLASS="line"><core>35</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-estevao-de-gois</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>18</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Estevão de Góis]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[Fica em Cantão para estudar Chinês, mas adoece e volta a Goa]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela6" NAME="relation"  ORDER="19" LEVEL="4" CLASS="relation" LINE="35">
+    <ELEMENT NAME="line" CLASS="line"><core>35</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-estevao-de-gois</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>19</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-estevao-de-gois</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela6</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-estevao-de-gois-att6-73" NAME="ls" CLASS="attribute" ORDER="20" LEVEL="4" LINE="37">
+    <ELEMENT NAME="line" CLASS="line"><core>37</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-estevao-de-gois-att6-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-estevao-de-gois</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>20</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-estatuto]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[escolástico]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-estevao-de-gois-att6-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-estevao-de-gois]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15551120]]></core>   </ELEMENT>
+</GROUP>
+<CLASS NAME="geoentity" SUPER="entity" TABLE="geoentities" GROUP="lugar">
+     <ATTRIBUTE NAME="id" COLUMN="id" CLASS="id" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="1" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="type" COLUMN="the_type" CLASS="type" TYPE="varchar" SIZE="32" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="name" COLUMN="name" CLASS="name" TYPE="varchar" SIZE="64" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+     <ATTRIBUTE NAME="obs" COLUMN="obs" CLASS="obs" TYPE="varchar" SIZE="16654" PRECISION="0" PKEY="0" ></ATTRIBUTE>
+</CLASS>
+
+<GROUP ID="crono-avulsos-his1-47-geo1-47" NAME="lugar" CLASS="geoentity" ORDER="21" LEVEL="3" LINE="39">
+    <ELEMENT NAME="line" CLASS="line"><core>39</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-geo1-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>lugar</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>geoentity</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>21</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="name" CLASS="name">
+         <core><![CDATA[Macau]]></core>   </ELEMENT>
+   <ELEMENT NAME="type" CLASS="type">
+         <core><![CDATA[lugar]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his1-47-rela7" NAME="relation"  ORDER="22" LEVEL="4" CLASS="relation" LINE="39">
+    <ELEMENT NAME="line" CLASS="line"><core>39</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his1-47-geo1-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>22</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>lugar</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his1-47-geo1-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his1-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his1-47-rela7</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15551120</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-his2-47" NAME="crono" CLASS="event" ORDER="23" LEVEL="2" LINE="41">
+    <ELEMENT NAME="line" CLASS="line"><core>41</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>crono</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>event</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>23</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>2</core></ELEMENT>
+   <ELEMENT NAME="data" CLASS="date">
+         <core><![CDATA[1562]]></core>   </ELEMENT>
+   <ELEMENT NAME="loc" CLASS="loc">
+         <core><![CDATA[China]]></core>   </ELEMENT>
+   <ELEMENT NAME="description" CLASS="description">
+         <core><![CDATA[Embaixada para Pequim em Macau]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[Pires, 1999]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+   <ELEMENT NAME="type" CLASS="type">
+         <core><![CDATA[crono]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-1562-diogo" NAME="referido" CLASS="person" ORDER="24" LEVEL="3" LINE="42">
+    <ELEMENT NAME="line" CLASS="line"><core>42</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-1562-diogo</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>24</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Diogo Pereira]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela8" NAME="relation"  ORDER="25" LEVEL="4" CLASS="relation" LINE="42">
+    <ELEMENT NAME="line" CLASS="line"><core>42</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-1562-diogo</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>25</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-1562-diogo</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela8</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-1562-diogo-att1-73" NAME="ls" CLASS="attribute" ORDER="26" LEVEL="4" LINE="43">
+    <ELEMENT NAME="line" CLASS="line"><core>43</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-1562-diogo-att1-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-1562-diogo</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>26</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[profissao]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[mercador]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-1562-diogo-att1-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-1562-diogo]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-1562-diogo-att2-73" NAME="ls" CLASS="attribute" ORDER="27" LEVEL="4" LINE="45">
+    <ELEMENT NAME="line" CLASS="line"><core>45</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-1562-diogo-att2-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-1562-diogo</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>27</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[cargo]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[enviado do Rei de Portugal ao Imperador da China]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-1562-diogo-att2-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-1562-diogo]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-guilherme-pereira" NAME="referido" CLASS="person" ORDER="28" LEVEL="3" LINE="46">
+    <ELEMENT NAME="line" CLASS="line"><core>46</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-guilherme-pereira</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>28</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Guilherme Pereira]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[ofereceu alojamento]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[ofereceu alojamento]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela9" NAME="relation"  ORDER="29" LEVEL="4" CLASS="relation" LINE="46">
+    <ELEMENT NAME="line" CLASS="line"><core>46</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-guilherme-pereira</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>29</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-guilherme-pereira</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela9</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-guilherme-pereira-att3-73" NAME="ls" CLASS="attribute" ORDER="30" LEVEL="4" LINE="48">
+    <ELEMENT NAME="line" CLASS="line"><core>48</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-guilherme-pereira-att3-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-guilherme-pereira</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>30</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[residencia]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[Macau]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-guilherme-pereira-att3-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-guilherme-pereira]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-per1-47" NAME="referido" CLASS="person" ORDER="31" LEVEL="3" LINE="49">
+    <ELEMENT NAME="line" CLASS="line"><core>49</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>31</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Luís Fróis]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela10" NAME="relation"  ORDER="32" LEVEL="4" CLASS="relation" LINE="49">
+    <ELEMENT NAME="line" CLASS="line"><core>49</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>32</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his2-47-per1-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela10</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-his2-47-per1-47-att4-73" NAME="ls" CLASS="attribute" ORDER="33" LEVEL="4" LINE="50">
+    <ELEMENT NAME="line" CLASS="line"><core>50</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-per1-47-att4-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-per1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>33</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-estatuto]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[Padre]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-his2-47-per1-47-att4-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-his2-47-per1-47]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-per1-47-rel1-73" NAME="rel" CLASS="relation" ORDER="34" LEVEL="4" LINE="52">
+    <ELEMENT NAME="line" CLASS="line"><core>52</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-per1-47-rel1-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>rel</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-per1-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>34</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[parentesco]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[irmão]]></core>   </ELEMENT>
+   <ELEMENT NAME="nomedest" CLASS="undef">
+         <core><![CDATA[Guilherme Pereira]]></core>   </ELEMENT>
+   <ELEMENT NAME="iddest" CLASS="destination">
+         <core><![CDATA[crono-avulsos-guilherme-pereira]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-his2-47-per1-47-rel1-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="origin" CLASS="origin">
+         <core><![CDATA[crono-avulsos-his2-47-per1-47]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-giovanni-battista-de-monte" NAME="referido" CLASS="person" ORDER="35" LEVEL="3" LINE="53">
+    <ELEMENT NAME="line" CLASS="line"><core>53</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-giovanni-battista-de-monte</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>35</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Giovanni Battista de Monte]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela11" NAME="relation"  ORDER="36" LEVEL="4" CLASS="relation" LINE="53">
+    <ELEMENT NAME="line" CLASS="line"><core>53</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-giovanni-battista-de-monte</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>36</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-giovanni-battista-de-monte</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela11</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-giovanni-battista-de-monte-att5-73" NAME="ls" CLASS="attribute" ORDER="37" LEVEL="4" LINE="55">
+    <ELEMENT NAME="line" CLASS="line"><core>55</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-giovanni-battista-de-monte-att5-73</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>ls</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-giovanni-battista-de-monte</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>attribute</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>37</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+   <ELEMENT NAME="tipo" CLASS="type">
+         <core><![CDATA[jesuita-estatuto]]></core>   </ELEMENT>
+   <ELEMENT NAME="valor" CLASS="value">
+         <core><![CDATA[Padre]]></core>   </ELEMENT>
+   <ELEMENT NAME="id" CLASS="id">
+         <core><![CDATA[crono-avulsos-giovanni-battista-de-monte-att5-73]]></core>   </ELEMENT>
+   <ELEMENT NAME="entity" CLASS="entity">
+         <core><![CDATA[crono-avulsos-giovanni-battista-de-monte]]></core>   </ELEMENT>
+   <ELEMENT NAME="date_extra_info" CLASS="undef">
+         <core><![CDATA[{}]]></core>   </ELEMENT>
+   <ELEMENT NAME="date" CLASS="date">
+         <core><![CDATA[15620000]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-per2-47" NAME="referido" CLASS="person" ORDER="38" LEVEL="3" LINE="57">
+    <ELEMENT NAME="line" CLASS="line"><core>57</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-per2-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>referido</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>person</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>38</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="nome" CLASS="name">
+         <core><![CDATA[Pedro Quintero]]></core>   </ELEMENT>
+   <ELEMENT NAME="obs" CLASS="obs">
+         <core><![CDATA[Ofereceu fundos para a primeira residência Jesuíta em Macau (Pires, 1999)]]></core>   </ELEMENT>
+   <ELEMENT NAME="sex" CLASS="sex">
+         <core><![CDATA[m]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela12" NAME="relation"  ORDER="39" LEVEL="4" CLASS="relation" LINE="57">
+    <ELEMENT NAME="line" CLASS="line"><core>57</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-per2-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>39</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>referido</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his2-47-per2-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela12</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-his2-47-geo2-47" NAME="lugar" CLASS="geoentity" ORDER="40" LEVEL="3" LINE="59">
+    <ELEMENT NAME="line" CLASS="line"><core>59</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-geo2-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>lugar</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>geoentity</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>40</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="name" CLASS="name">
+         <core><![CDATA[Macau]]></core>   </ELEMENT>
+   <ELEMENT NAME="type" CLASS="type">
+         <core><![CDATA[lugar]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela13" NAME="relation"  ORDER="41" LEVEL="4" CLASS="relation" LINE="59">
+    <ELEMENT NAME="line" CLASS="line"><core>59</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-geo2-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>41</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>lugar</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his2-47-geo2-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela13</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP>
+<GROUP ID="crono-avulsos-his2-47-geo3-47" NAME="lugar" CLASS="geoentity" ORDER="42" LEVEL="3" LINE="60">
+    <ELEMENT NAME="line" CLASS="line"><core>60</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-geo3-47</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>lugar</core></ELEMENT>
+   <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47</core></ELEMENT>
+   <ELEMENT NAME="class" CLASS="class"><core>geoentity</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>42</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>3</core></ELEMENT>
+   <ELEMENT NAME="name" CLASS="name">
+         <core><![CDATA[Pequim]]></core>   </ELEMENT>
+   <ELEMENT NAME="type" CLASS="type">
+         <core><![CDATA[lugar]]></core>   </ELEMENT>
+</GROUP>
+
+<GROUP ID="crono-avulsos-his2-47-rela14" NAME="relation"  ORDER="43" LEVEL="4" CLASS="relation" LINE="60">
+    <ELEMENT NAME="line" CLASS="line"><core>60</core></ELEMENT>
+    <ELEMENT NAME="groupname" CLASS="groupname"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="inside" CLASS="inside"><core>crono-avulsos-his2-47-geo3-47</core></ELEMENT>
+    <ELEMENT NAME="class" CLASS="class"><core>relation</core></ELEMENT>
+    <ELEMENT NAME="order" CLASS="order"><core>43</core></ELEMENT>
+    <ELEMENT NAME="level" CLASS="level"><core>4</core></ELEMENT>
+    <ELEMENT NAME="type" CLASS="type"><core>function-in-act</core></ELEMENT>
+    <ELEMENT NAME="value" CLASS="value"><core>lugar</core></ELEMENT>
+    <ELEMENT NAME="destname" CLASS="destname"><core>crono</core></ELEMENT>
+    <ELEMENT NAME="origin" CLASS="origin"><core>crono-avulsos-his2-47-geo3-47</core></ELEMENT>
+    <ELEMENT NAME="destination" CLASS="destination"><core>crono-avulsos-his2-47</core></ELEMENT>
+    <ELEMENT NAME="id" CLASS="id"><core>crono-avulsos-his2-47-rela14</core></ELEMENT>
+    <ELEMENT NAME="date" CLASS="date"><core>15620000</core></ELEMENT>
+</GROUP></KLEIO>

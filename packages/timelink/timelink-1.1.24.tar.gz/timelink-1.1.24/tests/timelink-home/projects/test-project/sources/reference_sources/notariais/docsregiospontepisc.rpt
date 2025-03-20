@@ -1,0 +1,35 @@
+KleioTranslator - server version 12.7 - build 579 2025-01-29 17:45:15
+9-2-2025 3-57
+
+Processing data file docsregiospontepisc.cli
+-------------------------------------------
+Generic Act translation module with geoentities (XML).
+     Joaquim Ramos de Carvalho (joaquim@uc.pt) 
+** New document: kleio
+=========================
+kleio translation started
+=========================
+Structure: gacto2.str
+Prefix: 
+Autorel: 
+Translation count: 25
+Obs: 
+** Processing source fonte$docsregiospontepisc
+8: docregio$docreg-1
+20: docpontificio$docpapal-1
+34: docepiscopal$docepis-1
+*** End of File
+
+
+Structure file: /kleio-home/structures/sources.str
+Structure processing report: /kleio-home/structures/sources.srpt
+Structure in JSON: /kleio-home/structures/sources.str.json
+
+Kleio file: /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.cli
+Original file: /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.org
+Previous version: /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.old
+Temp file with ids: /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.ids
+** - /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.cli-renamed to- /kleio-home/sources/reference_sources/notariais/docsregiospontepisc.old
+0  errors. 
+0  warnings.
+Translation finished.
