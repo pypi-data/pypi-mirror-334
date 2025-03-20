@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: pyBodyTrack
+Version: 2025.3.1
+Summary: A Python library for multi-algorithm motion quantification and tracking in videos
+Author-email: Angel Ruiz Zafra <angelrzafra@gmail.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/bihut/pyBodyTrack
+Project-URL: Documentation, https://github.com/bihut/pyBodyTrack
+Project-URL: Source, https://github.com/bihut/pyBodyTrack
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy==2.2.4
+Requires-Dist: opencv-python==4.11.0.86
+Requires-Dist: scipy==1.15.2
+Requires-Dist: mediapipe==0.10.21
+Requires-Dist: pandas==2.2.3
+Requires-Dist: ultralytics==8.3.78
+Requires-Dist: opencv-contrib-python==4.11.0.86
+Requires-Dist: setuptools==44.1.1
+
+# pyBodyTrack
