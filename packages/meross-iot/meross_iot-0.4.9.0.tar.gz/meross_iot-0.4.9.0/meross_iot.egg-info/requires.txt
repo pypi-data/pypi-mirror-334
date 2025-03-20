@@ -1,0 +1,4 @@
+paho-mqtt<3.0.0,>=2.1.0
+requests<3.0.0,>=2.19.1
+aiohttp[speedups]<4.0.0,>=3.7.4.post0
+pycryptodomex>=3.20.0
