@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag=""
+>
+  <span class="option"
+        tal:repeat="item view/items"
+  >
+    <input id="${item/id}"
+           name="${item/name}"
+           value="${item/value}"
+           tal:attributes="
+             view/attributes;
+           "
+    />
+  </span>
+</html>
