@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+dspack/__init__.py
+dspack/masking.py
+dspack/tokenizers.py
+dspack/transformer.py
+dspackage.egg-info/PKG-INFO
+dspackage.egg-info/SOURCES.txt
+dspackage.egg-info/dependency_links.txt
+dspackage.egg-info/requires.txt
+dspackage.egg-info/top_level.txt
