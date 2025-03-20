@@ -1,0 +1,177 @@
+Metadata-Version: 2.2
+Name: pdf2s
+Version: 0.1.2
+Summary: Extended PDF Manipulation Toolkit
+Author-email: fit-sizhe <sizhe.liu@fit-foxconn.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyPDF2>=3.0.0
+Requires-Dist: pdfplumber>=0.9.0
+Requires-Dist: markdown2>=2.4.8
+Requires-Dist: weasyprint>=57.2.0
+Requires-Dist: Pillow>=9.0.0
+
+# PDF2S 🔖
+
+A Swiss Army knife for PDF manipulations with Markdown conversion capabilities
+
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Features ✨
+
+- **Merge PDFs** with regex filename filtering
+- **Split PDFs** by:
+  - Page ranges (e.g., "1-3,5-8")
+  - Fixed page chunks (e.g., every 5 pages)
+  - Special "all" keyword for full document split
+- **Convert Markdown ↔ PDF**:
+  - Preserve formatting with custom CSS styles
+  - Basic text extraction from PDF to Markdown
+- **Extract Images** from PDF files:
+  - Filter by minimum size
+  - Convert to specific formats
+  - Automatic output directory creation
+- **CLI Interface** with intuitive subcommands
+- **Pipx Installable** for easy system-wide use
+
+## Installation 📦
+
+```bash
+pipx install pdf2s
+```
+
+**System Requirements**:  
+- Python 3.8+
+- libpangocairo-1.0-0 (for WeasyPrint)
+  - Ubuntu/Debian: `sudo apt-get install libpangocairo-1.0-0`
+
+## Usage 💻
+
+```text
+$ pdf2s --help
+Usage: pdf2s [OPTIONS] COMMAND [ARGS]...
+
+Commands:
+  merge    Merge PDF files
+  split    Split PDF files
+  md2pdf   Convert Markdown to PDF
+  pdf2md   Convert PDF to Markdown
+  pdf2img  Extract images from PDF
+```
+
+### Merge PDFs
+```bash
+# Merge all PDFs in directory (sorted)
+pdf2s merge ./documents merged.pdf --sort
+
+# Merge only files matching regex pattern
+pdf2s merge ./reports final_report.pdf -r 'Q[1-4]_2023'
+```
+
+### Split PDFs
+```bash
+# Split into individual pages
+pdf2s split input.pdf output_dir
+
+# Split every 5 pages
+pdf2s split input.pdf output_dir --pages 5
+
+# Split specific ranges
+pdf2s split input.pdf output_dir --ranges "1-3,5-8"
+
+# Split entire document
+pdf2s split input.pdf output_dir --ranges "all"
+```
+
+### Markdown Conversion
+```bash
+# MD to PDF with custom styling
+pdf2s md2pdf input.md output.pdf --style styles.css
+
+# PDF to Markdown
+pdf2s pdf2md input.pdf output.md
+```
+
+### Extract Images
+```bash
+# Basic usage (creates output in myfile_imgs directory)
+pdf2s pdf2img myfile.pdf
+
+# Specify output directory
+pdf2s pdf2img myfile.pdf --output-dir extracted_images
+
+# Only extract larger images
+pdf2s pdf2img myfile.pdf --min-size 300
+
+# Convert all images to specific formats
+pdf2s pdf2img myfile.pdf --formats "jpg,png"
+```
+
+## Development 🛠️
+
+1. Clone repository
+2. Install dependencies:
+```bash
+pipx install poetry
+poetry install
+```
+
+3. Run tests:
+```bash
+poetry run pytest
+```
+
+## Distribution Options 📦
+
+### Using pipx
+
+The recommended way to install pdf2s is using pipx, which installs the package in an isolated environment:
+
+```bash
+# Install pipx if you don't have it
+pip install --user pipx
+python -m pipx ensurepath
+
+# Install pdf2s
+pipx install pdf2s
+
+# Update to latest version
+pipx upgrade pdf2s
+```
+
+### Publishing to PyPI
+
+To publish the package to PyPI:
+
+```bash
+# Install build tools
+pip install build twine
+
+# Build the distribution packages
+python -m build
+
+# Upload to TestPyPI first (optional)
+twine upload --repository testpypi dist/*
+
+# Upload to PyPI
+twine upload dist/*
+```
+
+Make sure to update the version in `pyproject.toml` before building a new release.
+
+## Contributing 🤝
+
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a Pull Request
+
+Report issues using the [GitHub Issues](https://github.com/yourusername/pdf2s/issues) tracker.
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
