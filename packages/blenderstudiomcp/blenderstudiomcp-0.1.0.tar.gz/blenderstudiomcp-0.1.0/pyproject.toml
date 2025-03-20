@@ -1,0 +1,17 @@
+[project]
+name = "blenderstudiomcp"
+version = "0.1.0"
+description = "A MCP server for Blender"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [ "mcp>=1.4.1",]
+[[project.authors]]
+name = "cpjet64"
+email = "CURT.PETRICCA@YAHOO.COM"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+blenderstudiomcp = "blenderstudiomcp:main"
