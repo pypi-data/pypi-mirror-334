@@ -1,0 +1,20 @@
+{
+  "articles": {
+    "definite": ["o", "a", "os", "as"],
+    "indefinite": ["um", "uma", "uns", "umas"]
+  },
+  "pronouns": {
+    "personal": ["eu", "tu", "ele", "ela", "você", "nós", "vós", "eles", "elas", "vocês", "me", "te", "o", "a", "lhe", "nos", "vos", "os", "as", "lhes", "mim", "ti", "si", "ele", "ela", "nós", "vós", "eles", "elas", "consigo", "conosco", "convosco"],
+    "possessive": ["meu", "minha", "meus", "minhas", "teu", "tua", "teus", "tuas", "seu", "sua", "seus", "suas", "nosso", "nossa", "nossos", "nossas", "vosso", "vossa", "vossos", "vossas"],
+    "demonstrative": ["este", "esta", "estes", "estas", "esse", "essa", "esses", "essas", "aquele", "aquela", "aqueles", "aquelas", "isto", "isso", "aquilo"],
+    "relative": ["que", "quem", "qual", "quais", "onde", "cujo", "cuja", "cujos", "cujas"],
+    "indefinite": ["algum", "alguma", "alguns", "algumas", "nenhum", "nenhuma", "nenhuns", "nenhumas", "todo", "toda", "todos", "todas", "outro", "outra", "outros", "outras", "muito", "muita", "muitos", "muitas", "pouco", "pouca", "poucos", "poucas", "certo", "certa", "certos", "certas", "qualquer", "quaisquer", "alguém", "ninguém", "outrem", "algo", "nada", "tudo", "cada", "bastante", "mais", "menos", "tanto", "vários", "várias", "demais"]
+  },
+  "prepositions": ["a", "ante", "após", "até", "com", "contra", "de", "desde", "em", "entre", "para", "per", "perante", "por", "sem", "sob", "sobre", "trás", "durante", "mediante", "segundo", "conforme", "consoante", "menos", "tirante", "fora", "afora", "salvo", "senão", "excepto", "exceto", "através", "através de", "junto a", "atrás de", "dentro de", "dentro em", "fora de", "junto de", "acerca de", "acima de", "antes de", "além de", "apesar de", "aquém de", "cerca de", "depois de", "graças a", "perto de"],
+  "conjunctions": {
+    "coordinating": ["e", "nem", "mas", "porém", "todavia", "contudo", "entretanto", "ou", "ora", "já", "quer", "logo", "por isso", "por conseguinte", "assim", "portanto", "entretanto", "pois"],
+    "subordinating": ["que", "se", "porque", "como", "quando", "enquanto", "embora", "conforme", "consoante", "caso", "segundo", "visto que", "já que", "uma vez que", "posto que", "dado que", "apesar de que", "ainda que", "mesmo que", "por mais que", "por menos que", "a menos que", "a fim de que", "para que", "de modo que", "de forma que", "de sorte que", "de maneira que", "à medida que", "ao passo que", "tanto que", "antes que", "depois que", "sempre que", "logo que", "assim que"]
+  },
+  "auxiliary_verbs": ["ser", "estar", "ter", "haver", "ir", "sou", "és", "é", "somos", "sois", "são", "era", "eras", "éramos", "éreis", "eram", "fui", "foste", "foi", "fomos", "fostes", "foram", "estou", "estás", "está", "estamos", "estais", "estão", "estava", "estavas", "estávamos", "estáveis", "estavam", "estive", "estiveste", "esteve", "estivemos", "estivestes", "estiveram", "tenho", "tens", "tem", "temos", "tendes", "têm", "tinha", "tinhas", "tínhamos", "tínheis", "tinham", "tive", "tiveste", "teve", "tivemos", "tivestes", "tiveram", "hei", "hás", "há", "havemos", "haveis", "hão", "havia", "havias", "havíamos", "havíeis", "haviam", "houve", "houveste", "houve", "houvemos", "houvestes", "houveram", "vou", "vais", "vai", "vamos", "ides", "vão", "ia", "ias", "íamos", "íeis", "iam", "fui", "foste", "foi", "fomos", "fostes", "foram"],
+  "common_adverbs": ["não", "sim", "talvez", "mais", "menos", "muito", "pouco", "bastante", "demasiado", "tão", "tanto", "quase", "apenas", "só", "somente", "principalmente", "primeiramente", "exclusivamente", "inclusive", "também", "mesmo", "até", "ainda", "já", "agora", "logo", "depois", "antes", "cedo", "tarde", "ontem", "hoje", "amanhã", "sempre", "nunca", "jamais", "raramente", "frequentemente", "geralmente", "ocasionalmente", "aqui", "aí", "ali", "cá", "lá", "acolá", "perto", "longe", "dentro", "fora", "adiante", "atrás", "acima", "abaixo", "bem", "mal", "depressa", "devagar", "assim", "como", "conforme", "segundo", "porque", "porquê", "portanto"]
+} 
