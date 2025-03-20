@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: pydantic-evaluation
+Version: 0.0.1
+Author-email: David Montague <david@pydantic.dev>
+License-Expression: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Requires-Dist: logfire-api>=1.2.0
+Requires-Dist: pydantic>=2.10
+Requires-Dist: rich>=13.9.4
+Provides-Extra: anthropic
+Requires-Dist: anthropic>=0.40.0; extra == 'anthropic'
+Provides-Extra: cohere
+Requires-Dist: cohere>=5.13.11; extra == 'cohere'
+Provides-Extra: groq
+Requires-Dist: groq>=0.12.0; extra == 'groq'
+Provides-Extra: logfire
+Requires-Dist: logfire>=2.3; extra == 'logfire'
+Provides-Extra: mistral
+Requires-Dist: mistralai>=1.2.5; extra == 'mistral'
+Provides-Extra: openai
+Requires-Dist: openai>=1.61.0; extra == 'openai'
+Provides-Extra: vertexai
+Requires-Dist: google-auth>=2.36.0; extra == 'vertexai'
+Requires-Dist: requests>=2.32.3; extra == 'vertexai'
