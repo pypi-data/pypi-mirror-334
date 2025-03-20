@@ -1,0 +1,2 @@
+[console_scripts]
+odoo_health_monitoring_tool = health_report.cli:main
