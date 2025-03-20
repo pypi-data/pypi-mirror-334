@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: swikv4-minimal
+Version: 0.0.4
+Summary: A PDF Swiss Knife
+Home-page: https://github.com/dantard/swikv3
+Author: Danilo Tardioli
+Author-email: dantard@unizar.es
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+### Swikv4
+
+A basic widget for displaying PDF files.
