@@ -1,0 +1,46 @@
+Metadata-Version: 2.2
+Name: polympiads_telemetry
+Version: 1.0.0
+Summary: Polympiads Framework for Telemetry
+Home-page: https://polympiads.github.io/telemetry
+Author: Polympiads
+License: MIT
+Project-URL: About Polympiads, https://polympiads.ch/
+Project-URL: Source, https://github.com/polympiads/telemetry
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: OpenTelemetry
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opentelemetry-api
+Requires-Dist: opentelemetry-exporter-otlp-proto-common
+Requires-Dist: opentelemetry-exporter-otlp-proto-grpc
+Requires-Dist: opentelemetry-exporter-otlp-proto-http
+Requires-Dist: opentelemetry-instrumentation
+Requires-Dist: opentelemetry-instrumentation-logging
+Requires-Dist: opentelemetry-proto
+Requires-Dist: opentelemetry-sdk
+Requires-Dist: opentelemetry-semantic-conventions
+Requires-Dist: opentelemetry-util-http
+Requires-Dist: coverage
+Requires-Dist: pytest
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
+
+
+# polympiads/telemetry
+
+This is a telemetry wrapper used at Polympiads to configure the OpenTelemetry framework, and to unit test the parts using the telemetry.
+
+# Documentation
+
+Documentation for the project is accessible at `https://polympiads.github.io/telemetry`
