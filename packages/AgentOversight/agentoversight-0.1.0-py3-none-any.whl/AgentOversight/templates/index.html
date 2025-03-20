@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent Oversight Hub</title>
+</head>
+<body>
+    <h1>Agent Oversight Hub</h1>
+    <form method="POST">
+        <textarea name="output" rows="5" cols="50" placeholder="Paste agent output here"></textarea><br>
+        <input type="submit" value="Analyze">
+    </form>
+    {% if output %}
+        <h2>Results</h2>
+        <p><strong>Output:</strong> {{ output }}</p>
+        <p><strong>Validation:</strong> {{ validation }}</p>
+        <p><strong>Guidance:</strong> {{ guidance }}</p>
+        <p><strong>Metrics:</strong> 
+            Response Time: {{ metrics.response_time|round(2) }}s, 
+            Accuracy: {{ metrics.accuracy|round(2) }}
+        </p>
+    {% endif %}
+</body>
+</html>
