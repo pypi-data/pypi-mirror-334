@@ -1,0 +1,7 @@
+/dist
+/build
+/htmlcov
+junit*xml
+test_*xml
+*.pyc
+*.swp

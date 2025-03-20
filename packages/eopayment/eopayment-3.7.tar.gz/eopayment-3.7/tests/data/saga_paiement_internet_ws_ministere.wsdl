@@ -1,0 +1,153 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" xmlns:intf="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="PageRetourAsynchroneRequest">
+
+      <wsdl:part name="idop" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="TransactionResponse">
+
+      <wsdl:part name="TransactionReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="PageRetourSynchroneResponse">
+
+      <wsdl:part name="PageRetourSynchroneReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="PageRetourAsynchroneResponse">
+
+      <wsdl:part name="PageRetourAsynchroneReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="PageRetourSynchroneRequest">
+
+      <wsdl:part name="idop" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="TransactionRequest">
+
+      <wsdl:part name="num_service" type="xsd:string"/>
+
+      <wsdl:part name="id_tiers" type="xsd:string"/>
+
+      <wsdl:part name="compte" type="xsd:string"/>
+
+      <wsdl:part name="lib_ecriture" type="xsd:string"/>
+
+      <wsdl:part name="montant" type="xsd:string"/>
+
+      <wsdl:part name="urlretour_asynchrone" type="xsd:string"/>
+
+      <wsdl:part name="email" type="xsd:string"/>
+
+      <wsdl:part name="urlretour_synchrone" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PaiementLigneWebServiceWSMinistere">
+
+      <wsdl:operation name="PageRetourSynchrone" parameterOrder="idop">
+
+         <wsdl:input message="impl:PageRetourSynchroneRequest" name="PageRetourSynchroneRequest"/>
+
+         <wsdl:output message="impl:PageRetourSynchroneResponse" name="PageRetourSynchroneResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="PageRetourAsynchrone" parameterOrder="idop">
+
+         <wsdl:input message="impl:PageRetourAsynchroneRequest" name="PageRetourAsynchroneRequest"/>
+
+         <wsdl:output message="impl:PageRetourAsynchroneResponse" name="PageRetourAsynchroneResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="Transaction" parameterOrder="num_service id_tiers compte lib_ecriture montant urlretour_asynchrone email urlretour_synchrone">
+
+         <wsdl:input message="impl:TransactionRequest" name="TransactionRequest"/>
+
+         <wsdl:output message="impl:TransactionResponse" name="TransactionResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="paiement_internet_ws_ministereSoapBinding" type="impl:PaiementLigneWebServiceWSMinistere">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="PageRetourSynchrone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="PageRetourSynchroneRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="PageRetourSynchroneResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="PageRetourAsynchrone">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="PageRetourAsynchroneRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="PageRetourAsynchroneResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="Transaction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="TransactionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="TransactionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://web_service.saga.futursystem.com/namespace/paiement_internet_ws_ministere" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PaiementLigneWebServiceWSMinistereService">
+
+      <wsdl:port binding="impl:paiement_internet_ws_ministereSoapBinding" name="paiement_internet_ws_ministere">
+
+         <wsdlsoap:address location="https://saga.example.com/saga/paiement_internet_ws_ministere"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

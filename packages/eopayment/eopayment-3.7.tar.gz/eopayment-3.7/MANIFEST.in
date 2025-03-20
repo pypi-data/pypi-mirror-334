@@ -1,0 +1,18 @@
+recursive-include debian *
+recursive-include tests *.py
+recursive-include eopayment/locale *.po *.mo
+include COPYING
+include VERSION
+include README.txt
+include eopayment/response
+recursive-include eopayment/resource *.wsdl *.xsd
+
+recursive-include tests *.json
+recursive-include tests *.wsdl
+recursive-include tests *.yaml
+
+include *.py
+include *.yaml
+include .coveragerc
+
+exclude .git-blame-ignore-revs

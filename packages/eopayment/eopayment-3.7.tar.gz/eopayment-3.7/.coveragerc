@@ -1,0 +1,6 @@
+[run]
+dynamic_context = test_function
+omit = */.tox/*
+
+[html]
+show_contexts = True

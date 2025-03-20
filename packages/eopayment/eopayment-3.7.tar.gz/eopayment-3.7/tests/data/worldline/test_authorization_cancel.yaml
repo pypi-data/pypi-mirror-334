@@ -1,0 +1,266 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"RETURNMAC":"8f09091c-f6e5-4150-8381-bcc37bda8016","hostedCheckoutId":"4315624897","merchantReference":"abcd5678
+      #1234","redirectUrl":"https://payment.preprod.direct.worldline-solutions.com/hostedcheckout/PaymentMethods/Selection/0a1b90ad4ff348b08251f2421a0bccfe","partialRedirectUrl":"preprod.direct.worldline-solutions.com/hostedcheckout/PaymentMethods/Selection/0a1b90ad4ff348b08251f2421a0bccfe"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '400'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; img-src ''self'' data: https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; style-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/ ''nonce-70OEnEhH3IQ=''  ; style-src-attr
+        ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com/ https://www.paypal.com
+        https://www.paypalobjects.com https://www.sandbox.paypal.com https://pay.google.com
+        https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js
+        https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png https://us-online.stg.mpay.samsung.com/
+        ''nonce-70OEnEhH3IQ=''; object-src ''none'';'
+      correlation-id: 5b8fac3b-c644-46bf-b85b-2d8853b7d131, 5b8fac3b-c644-46bf-b85b-2d8853b7d131
+      date: Sun, 16 Mar 2025 16:55:14 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: POST
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/hostedcheckouts
+- response:
+    auto_calculate_content_length: false
+    body: '{"createdPaymentOutput":{"payment":{"hostedCheckoutSpecificOutput":{"hostedCheckoutId":"4315624897"},"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":1010,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"schemeReferenceData":"752974986776","paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"id":"4315624897_0"},"paymentStatusCategory":"SUCCESSFUL"},"status":"PAYMENT_CREATED"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1315'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; img-src ''self'' data: https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; style-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/ ''nonce-4MKgOcB6SVA=''  ; style-src-attr
+        ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com/ https://www.paypal.com
+        https://www.paypalobjects.com https://www.sandbox.paypal.com https://pay.google.com
+        https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js
+        https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png https://us-online.stg.mpay.samsung.com/
+        ''nonce-4MKgOcB6SVA=''; object-src ''none'';'
+      correlation-id: 80d55f44-484d-4a90-bcb2-45a1038c5c49, 80d55f44-484d-4a90-bcb2-45a1038c5c49
+      date: Sun, 16 Mar 2025 16:55:35 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/hostedcheckouts/4315624897
+- response:
+    auto_calculate_content_length: false
+    body: '{"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":1010,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"schemeReferenceData":"752974986776","paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"Operations":[{"id":"4315624897_0","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}}],"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"id":"4315624897_0"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1532'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com;
+        img-src ''self'' data: https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com; style-src
+        ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com ''nonce-rTbxHEojfaY='';
+        style-src-attr ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com
+        ''nonce-rTbxHEojfaY=''; object-src ''none'';'
+      correlation-id: 40baeb4d-6c59-4ba5-afd2-ee8e16005387, 40baeb4d-6c59-4ba5-afd2-ee8e16005387
+      date: Sun, 16 Mar 2025 16:55:35 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/payments/4315624897_0/details
+- response:
+    auto_calculate_content_length: false
+    body: '{"createdPaymentOutput":{"payment":{"hostedCheckoutSpecificOutput":{"hostedCheckoutId":"4315624897"},"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":1010,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"schemeReferenceData":"752974986776","paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"id":"4315624897_0"},"paymentStatusCategory":"SUCCESSFUL"},"status":"PAYMENT_CREATED"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1315'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; img-src ''self'' data: https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; style-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/ ''nonce-KE8gRqFwX6k=''  ; style-src-attr
+        ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com/ https://www.paypal.com
+        https://www.paypalobjects.com https://www.sandbox.paypal.com https://pay.google.com
+        https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js
+        https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png https://us-online.stg.mpay.samsung.com/
+        ''nonce-KE8gRqFwX6k=''; object-src ''none'';'
+      correlation-id: 568fc587-6d2e-412a-b504-520b21e02adc, 568fc587-6d2e-412a-b504-520b21e02adc
+      date: Sun, 16 Mar 2025 16:55:36 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/hostedcheckouts/4315624897
+- response:
+    auto_calculate_content_length: false
+    body: '{"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":1010,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"schemeReferenceData":"752974986776","paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"Operations":[{"id":"4315624897_0","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}}],"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"id":"4315624897_0"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1532'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com;
+        img-src ''self'' data: https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com; style-src
+        ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com ''nonce-HxZDUcRzklo='';
+        style-src-attr ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com
+        ''nonce-HxZDUcRzklo=''; object-src ''none'';'
+      correlation-id: c004f15f-f765-4c25-964e-d3d3b9a77772, c004f15f-f765-4c25-964e-d3d3b9a77772
+      date: Sun, 16 Mar 2025 16:55:36 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/payments/4315624897_0/details
+- response:
+    auto_calculate_content_length: false
+    body: '{"payment":{"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":0,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"status":"CANCELLED","statusOutput":{"isCancellable":false,"statusCategory":"PENDING_MERCHANT","statusCode":61,"isAuthorized":true,"isRefundable":false},"id":"4315624897_1"}}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1117'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com;
+        img-src ''self'' data: https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com; style-src
+        ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com ''nonce-fsOUFgT6h6M='';
+        style-src-attr ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com
+        ''nonce-fsOUFgT6h6M=''; object-src ''none'';'
+      correlation-id: 26a6ab9b-5cc9-4ca4-bb27-82ad24bba1b9, 26a6ab9b-5cc9-4ca4-bb27-82ad24bba1b9
+      date: Sun, 16 Mar 2025 16:55:36 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: POST
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/payments/4315624897_0/cancel
+- response:
+    auto_calculate_content_length: false
+    body: '{"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":0,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"flow":"frictionless","eci":"5","xid":"NDMxNTYyNDg5Nw=="},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"Operations":[{"id":"4315624897_0","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}},{"id":"4315624897_1","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"CANCELLED","statusOutput":{"isCancellable":false,"statusCategory":"PENDING_MERCHANT","statusCode":61,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}}],"status":"CANCELLED","statusOutput":{"isCancellable":false,"statusCategory":"PENDING_MERCHANT","statusCode":61,"isAuthorized":true,"isRefundable":false},"id":"4315624897_1"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1616'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com;
+        img-src ''self'' data: https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com; style-src
+        ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com ''nonce-PNXqqZBjPmo='';
+        style-src-attr ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com
+        ''nonce-PNXqqZBjPmo=''; object-src ''none'';'
+      correlation-id: ea969490-8a1a-4cc1-a4b7-46deffe4d892, ea969490-8a1a-4cc1-a4b7-46deffe4d892
+      date: Sun, 16 Mar 2025 16:55:36 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/payments/4315624897_0/details
+- response:
+    auto_calculate_content_length: false
+    body: '{"createdPaymentOutput":{"payment":{"hostedCheckoutSpecificOutput":{"hostedCheckoutId":"4315624897"},"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":0,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"schemeReferenceData":"752974986776","paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"version":"2.2.0","flow":"frictionless","cavv":"AAABBEg0VhI0VniQEjRWAAAAAAA=","eci":"5","schemeEci":"02","authenticationStatus":"Y","acsTransactionId":"30085389-CFC5-46D1-AF3C-B5D8F7E486BC","dsTransactionId":"f25084f0-5b16-4c0a-ae5d-b24808a95e4b","xid":"NDMxNTYyNDg5Nw==","liability":"issuer"},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"id":"4315624897_0"},"paymentStatusCategory":"SUCCESSFUL"},"status":"PAYMENT_CREATED"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1312'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; img-src ''self'' data: https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; style-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/ ''nonce-m8T0bXGKeMU=''  ; style-src-attr
+        ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com/ https://www.paypal.com
+        https://www.paypalobjects.com https://www.sandbox.paypal.com https://pay.google.com
+        https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js
+        https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png https://us-online.stg.mpay.samsung.com/
+        ''nonce-m8T0bXGKeMU=''; object-src ''none'';'
+      correlation-id: 3d9743e6-36c6-46a7-943d-d405cd668f7b, 3d9743e6-36c6-46a7-943d-d405cd668f7b
+      date: Sun, 16 Mar 2025 16:55:36 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/hostedcheckouts/4315624897
+- response:
+    auto_calculate_content_length: false
+    body: '{"paymentOutput":{"amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"references":{"merchantReference":"abcd5678
+      #1234"},"acquiredAmount":{"amount":0,"currencyCode":"EUR"},"customer":{"device":{"ipAddressCountryCode":"99"}},"cardPaymentMethodSpecificOutput":{"paymentProductId":3,"authorisationCode":"471288","card":{"cardNumber":"************3438","expiryDate":"0129","bin":"51370098","countryCode":"BE"},"fraudResults":{"fraudServiceResult":"no-advice","avsResult":"U","cvvResult":"M"},"paymentAccountReference":"S1IPWDSY0UQCKXPG0WFL6NTC6FBYO","threeDSecureResults":{"flow":"frictionless","eci":"5","xid":"NDMxNTYyNDg5Nw=="},"acquirerInformation":{"name":"ACQUIRER"}},"paymentMethod":"card"},"Operations":[{"id":"4315624897_0","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"PENDING_CAPTURE","statusOutput":{"isCancellable":true,"statusCategory":"PENDING_MERCHANT","statusCode":5,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}},{"id":"4315624897_1","amountOfMoney":{"amount":1010,"currencyCode":"EUR"},"status":"CANCELLED","statusOutput":{"isCancellable":false,"statusCategory":"PENDING_MERCHANT","statusCode":61,"isAuthorized":true,"isRefundable":false},"paymentMethod":"card","references":{"merchantReference":"abcd5678
+      #1234"},"operationReferences":{"merchantReference":"abcd5678 #1234"}}],"status":"CANCELLED","statusOutput":{"isCancellable":false,"statusCategory":"PENDING_MERCHANT","statusCode":61,"isAuthorized":true,"isRefundable":false},"id":"4315624897_1"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '1616'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com;
+        img-src ''self'' data: https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com; style-src
+        ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com ''nonce-J+hvdM9prhM='';
+        style-src-attr ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com
+        ''nonce-J+hvdM9prhM=''; object-src ''none'';'
+      correlation-id: 0c728e53-669e-43ae-9f9e-4ba79ee28336, 0c728e53-669e-43ae-9f9e-4ba79ee28336
+      date: Sun, 16 Mar 2025 16:55:37 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: GET
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/payments/4315624897_0/details

@@ -1,0 +1,36 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"RETURNMAC":"d85bb158-a214-4080-9801-f78ea38f9083","hostedCheckoutId":"4307592085","merchantReference":"1234","redirectUrl":"https://payment.preprod.direct.worldline-solutions.com/hostedcheckout/PaymentMethods/Selection/47c25cc943fc43f5a852efa7b61fdf3d","partialRedirectUrl":"preprod.direct.worldline-solutions.com/hostedcheckout/PaymentMethods/Selection/47c25cc943fc43f5a852efa7b61fdf3d"}'
+    content_type: application/json; charset=utf-8
+    headers:
+      api_auth: 'true'
+      content-length: '390'
+      content-security-policy: 'default-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; img-src ''self'' data: https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/; style-src ''self'' https://assets.test.cdn.v-psp.com
+        https://external-assets.test.cdn.v-psp.com https://devicefingerprint.pay.checkout.worldline-solutions.com/
+        https://www.paypal.com https://www.paypalobjects.com https://www.sandbox.paypal.com
+        https://pay.google.com https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk
+        https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png
+        https://us-online.stg.mpay.samsung.com/ ''nonce-xn3mH1B2PyE=''  ; style-src-attr
+        ''unsafe-inline''; script-src ''self'' https://assets.test.cdn.v-psp.com https://external-assets.test.cdn.v-psp.com
+        https://devicefingerprint.pay.checkout.worldline-solutions.com/ https://www.paypal.com
+        https://www.paypalobjects.com https://www.sandbox.paypal.com https://pay.google.com
+        https://www.google.com/pay https://img.mpay.samsung.com/gsmpi/sdk https://img.mpay.samsung.com/gsmpi/sdk/samsungpay_web_sdk.js
+        https://resource.stg.samsungpay.com/gsmpi/images/button_buy_black.png https://us-online.stg.mpay.samsung.com/
+        ''nonce-xn3mH1B2PyE=''; object-src ''none'';'
+      correlation-id: dc675cb1-da88-47b6-8f5b-c35a7f34e636, dc675cb1-da88-47b6-8f5b-c35a7f34e636
+      date: Wed, 26 Feb 2025 21:11:48 GMT
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    method: POST
+    status: 200
+    url: https://payment.preprod.direct.worldline-solutions.com/v2/Entrouvert1/hostedcheckouts
