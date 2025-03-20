@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: apimagic
+Version: 0.0.2
+Summary: ApiMagic is the fastest way to deploy serverless APIs.
+Home-page: https://github.com/jrolf/apimagic
+Author: James A. Rolfsen
+Author-email: james@think.dev
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+Requires-Dist: requests
+
+ApiMagic is the fastest way to deploy serverless APIs.
