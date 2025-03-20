@@ -1,0 +1,29 @@
+query aggregatedValues(
+    {% for variable_name in variable_names -%}
+    ${{variable_name}}: ID!
+    {% endfor -%}
+    $startEventTime: DateTime!
+    $endEventTime: DateTime!
+    $interval: String!,
+    $aggregationFunctions: [String!]!
+) {
+    {% for variable_name in variable_names -%}
+    {{variable_name}}: entity(id: ${{variable_name}}) {
+        name
+        trait(id: "foresight:Datapoint") {
+            quantity(key: "Value") {
+                aggregatedTimeseries(
+                    aggregationFunctions: $aggregationFunctions
+                    interval: $interval
+                    startEventTime: $startEventTime
+                    endEventTime: $endEventTime
+                ){
+                    eventTime
+                    value
+                    aggregationFunction
+                }
+            }
+        }
+    }
+    {% endfor -%}
+}

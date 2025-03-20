@@ -1,0 +1,27 @@
+{% raw %}
+query value(
+{% endraw %}
+{% for variable_name in variable_names -%}
+    ${{variable_name}}: ID!
+{% endfor -%}
+{% raw %}
+    $startEventTime: DateTime!
+    $endEventTime: DateTime!
+) {
+{% endraw %}
+{% for variable_name in variable_names -%}
+    {{variable_name}}: entity(id: ${{variable_name}}) {
+        name
+        trait(id: "foresight:Datapoint") {
+            quantity(key: "Value") {
+                values(startEventTime: $startEventTime, endEventTime: $endEventTime) {
+                    eventTime
+                    value
+                }
+            }
+        }
+    }
+{% endfor %}
+{% raw %}
+}
+{% endraw %}
