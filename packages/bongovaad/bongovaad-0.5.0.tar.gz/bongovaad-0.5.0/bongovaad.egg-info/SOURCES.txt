@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+bongovaad/__init__.py
+bongovaad/__main__.py
+bongovaad/transcriber.py
+bongovaad.egg-info/PKG-INFO
+bongovaad.egg-info/SOURCES.txt
+bongovaad.egg-info/dependency_links.txt
+bongovaad.egg-info/entry_points.txt
+bongovaad.egg-info/requires.txt
+bongovaad.egg-info/top_level.txt
+examples/simple_transcription.py
