@@ -1,0 +1,14 @@
+[tool.setuptools]
+license-files = []
+
+[project]
+name = "immundata"
+version = "0.1.1dev"
+description = "A data layer for single-cell, spatial and bulk immunomics, providing a unified structure for immune receptor repertoire data."
+authors = [{ name = "Vadim Nazarov", email = "support@immunomind.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "airr>=1.5.1",
+    "polars>=1.25.2",
+]
