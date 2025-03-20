@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: clips2share
+Version: 0.0.2
+Summary: Create a torrent including metadata from a c4s link
+Home-page: https://codeberg.org/c2s/clips2share
+Author: c2s
+Author-email: c2s@noreply.codeberg.org
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+Requires-Dist: torf
+Requires-Dist: vcsi
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+Create a torrent including header image, thumbnails and all other metadata that can be extracted from a c4s link
