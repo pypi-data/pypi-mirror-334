@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: purreal
+Version: 0.1a1
+Summary: A Connection Pooler for SurrealDB
+Project-URL: Homepage, https://github.com/dyleeeeeeee/purreal
+Project-URL: Issues, https://github.com/dyleeeeeeee/purreal/issues
+Author-email: Dylee <calistaff33@proton.me>
+License-Expression: GPL-3.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
