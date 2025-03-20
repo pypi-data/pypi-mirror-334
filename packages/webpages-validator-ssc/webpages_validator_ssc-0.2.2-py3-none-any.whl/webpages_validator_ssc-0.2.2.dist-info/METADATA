@@ -1,0 +1,55 @@
+Metadata-Version: 2.2
+Name: webpages-validator-ssc
+Version: 0.2.2
+Summary: A simple command-line utility for checking a webpage.
+Author-email: Ildar Gaziev <ildar@gaziev.info>
+License: MIT
+Project-URL: Homepage, https://github.com/ildar-gaziev/simple-site-checker
+Project-URL: repository, https://github.com/ildar-gaziev/simple-site-checker
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# Simple Site Checker
+
+## (webpages-validator-ssc)
+
+Simple command-line utility for checking links on a web page.
+
+---
+
+## Overview
+
+`simple-site-checker` (`ssc`) is a lightweight Python CLI tool designed to quickly verify the HTTP status codes of all hyperlinks on a given web page. It uses only standard Python libraries and has no external dependencies.
+
+---
+
+## Installation
+
+### Install via PIP
+
+```bash
+pip install webpages-validator-ssc
+```
+
+```bash
+ssc -links -url https://www.example.com
+```
+
+### Optional: Save results to CSV
+
+```bash
+ssc -links -url https://www.example.com -res results.csv
+```
+
+### Optional: set cookies
+
+```bash
+ssc -links -url https://www.example.com -auth cookies.txt
+```
+
+#### cookies.txt
+
+```txt
+name=value
+```
