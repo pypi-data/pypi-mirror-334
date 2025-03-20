@@ -1,0 +1,19 @@
+[project]
+name = "hello-python3"
+version = "0.0.1"
+authors = [
+  { name="piyush joshi", email="thefarmguy011@gmail.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
