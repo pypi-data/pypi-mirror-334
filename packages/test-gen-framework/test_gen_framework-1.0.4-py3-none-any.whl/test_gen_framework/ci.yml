@@ -1,0 +1,54 @@
+name: Generate and Execute Unit Tests on PR
+
+on:
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  generate_and_execute_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Set up Git config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Generate test cases
+        run: |
+          test-gen generate ${{ github.event.pull_request.number }}
+
+      - name: Execute generated tests
+        run: |
+          export PYTHONPATH=$(pwd)
+          test-gen execute tests ${{ github.event.pull_request.number }}
+
+      - name: Commit generated test files
+        run: |
+          git add .
+          git commit -m "Auto-generated and executed test cases for PR ${{ github.event.pull_request.number }}"
+      
+      - name: Push changes to PR branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+permissions:
+  contents: write
