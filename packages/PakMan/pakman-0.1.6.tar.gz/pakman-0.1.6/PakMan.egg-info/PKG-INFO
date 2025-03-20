@@ -1,0 +1,32 @@
+Metadata-Version: 2.2
+Name: PakMan
+Version: 0.1.6
+Summary: A simple Python package for managing installations with pip.
+Home-page: https://github.com/Swig4/PakMan
+Author: Swig4
+Author-email: swigistoshort@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# PakMan
+
+PakMan is a simple Python package for managing package installations using `pip`. It automatically installs any missing dependencies for your Python projects.
+
+## Installation
+
+To install:
+
+```bash
+pip install PakMan
