@@ -1,0 +1,146 @@
+Metadata-Version: 2.2
+Name: gitbase
+Version: 0.5.0
+Summary: A GitHub based database system ('GitBase') which offers offline backups and optional encryption.
+Home-page: https://github.com/TaireruLLC/gitbase
+Author: Taireru LLC
+Author-email: tairerullc@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: cryptography
+Requires-Dist: altcolor>=0.0.5
+Requires-Dist: moviepy
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# GitBase
+
+GitBase is a Python package for custom databases powered by GitHub ("Gitbases"/"GitBase"), with encryption using `cryptography`. It provides Python developers with a quick and easy-to-use database solution without requiring knowledge of a new programming language. Additionally, GitBase offers offline backups, allowing users to save, load, and delete their data even without an internet connection. The online database will automatically sync with the latest file, whether offline or online.
+
+---
+
+## Latest Update
+- Removed init function from GitBase (in-testing still)
+- Fixed '200' error code bug with deleting key-value data & player accounts
+- Fixed 'get_all' for both DataSystem and PlayerDataSystem
+- Added optional path parameters for DataSystem.save_data & DataSystem.delete_data
+
+---
+
+## Example Code
+
+```python
+# Example for GitBase 0.5.0
+from gitbase import GitBase, PlayerDataSystem, DataSystem, KeyValue
+from cryptography.fernet import Fernet
+import sys
+
+# Initialize GitHub database and encryption key
+GITHUB_TOKEN = "YOUR_TOKEN"
+REPO_OWNER = "YOUR_GITHUB_USERNAME"
+REPO_NAME = "YOUR_REPO_NAME"
+encryption_key = Fernet.generate_key()
+
+# Setup GitBase with GitHub credentials
+database = GitBase(GITHUB_TOKEN, REPO_OWNER, REPO_NAME)
+player_data_system = PlayerDataSystem(db=database, encryption_key=encryption_key)
+data_system = DataSystem(db=database, encryption_key=encryption_key)
+
+# Upload and download example files to/from GitHub
+database.upload_file(file_path="my_file.txt", remote_path="saved_files")
+database.download_file(remote_path="my_file.txt", local_path="files")
+
+# Define the Player class to manage individual player instances
+class Player:
+    def __init__(self, username, score, password):
+        self.username = username
+        self.score = score
+        self.password = password
+
+# Create a sample player instance
+player = Player(username="john_doe", score=100, password="123")
+
+# Save specific attributes of the player instance with encryption
+player_data_system.save_account(
+    username="john_doe",
+    player_instance=player,
+    encryption=True,
+    attributes=["username", "score", "password"],
+    path="players"
+)
+
+# Load player data
+player_data_system.load_account(username="john_doe", player_instance=player, encryption=True)
+
+# Placeholder functions for game flow
+def load_game():
+    print("Game starting...")
+
+def main_menu():
+    sys.exit("Exiting game...")
+
+# Check if an account exists and validate user password
+if player_data_system.get_all(path="players"):
+    if player.password == input("Enter your password: "):
+        print("Login successful!")
+        load_game()
+    else:
+        print("Incorrect password!")
+        main_menu()
+
+# Save key-value data with encryption
+data_system.save_data(key="key_name", value=69, path="data", encryption=True)
+
+# Load and display a specific key-value pair
+loaded_key_value: KeyValue = data_system.load_data(key="key_name", path="data", encryption=True)
+print(f"Key: {loaded_key_value.key}, Value: {loaded_key_value.value}")
+
+# Retrieve and display all key-value pairs in the data path
+print("All stored data:", data_system.get_all(path="data"))
+
+# Delete specific key-value data
+data_system.delete_data(key="key_name", path="data")
+
+# Retrieve and display all player accounts
+print("All player accounts:", player_data_system.get_all(path="players"))
+
+# Delete a specific player account
+player_data_system.delete_account(username="john_doe")
+```
+
+---
+
+## Consider Using [GitBase Web](https://tairerullc.vercel.app/products/extensions/gitbase-web)
+
+### GitBase Web
+GitBase Web is an extension of the Python project developed by Taireru LLC called GitBase. This extension allows developers to view all their saved data via the web. 
+
+**Note:** To use GitBase Web, you **must**:
+1. Use a private GitHub repository.
+2. Host the website using a service such as [Vercel](https://vercel.com).
+
+---
+
+## Links
+- **GitBase:** [https://tairerullc.vercel.app/products/packages/gitbase](https://tairerullc.vercel.app/products/packages/gitbase)
+- **Website:** [https://tairerullc.vercel.app/](https://tairerullc.vercel.app/)
+
+---
+
+## Contact
+For any inquiries, please email us at **tairerullc@gmail.com**. Weâ€™ll get back to you as soon as possible.  
+Thank you for using GitBase, and happy coding!
