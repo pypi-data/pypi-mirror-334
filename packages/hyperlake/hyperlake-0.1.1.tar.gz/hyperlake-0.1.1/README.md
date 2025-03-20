@@ -1,0 +1,586 @@
+# Hyperlake Python client
+
+## About
+This project, `hyperlake`, is a fork of the [Trino Python Client](https://github.com/trinodb/trino-python-client) developed by the Trino Team. It is licensed under the Apache License 2.0.
+
+## Acknowledgments
+This package is based on the original work by the Trino Team. See the [original repository](https://github.com/trinodb/trino-python-client) for more details.
+
+Client for Hyperlake, a distributed SQL engine (based on Trino) for interactive and batch big data processing.
+Provides a low-level client and a DBAPI 2.0 implementation and a SQLAlchemy adapter.
+It supports Python>=3.9 and PyPy.
+
+
+
+## Usage
+
+### The Python Database API (DBAPI)
+
+**Installation**
+
+```
+$ pip install hyperlake
+```
+
+**Quick Start**
+
+Use the DBAPI interface to query hyperlake:
+
+if `host` is a valid url, the port and http schema will be automatically determined. For example `https://my-hyperlake-server:9999` will assign the `http_schema` property to `https` and port to `9999`.
+
+```python
+from hyperlake.dbapi import connect
+
+conn = connect(
+    host="<host>",
+    port=<port>,
+    user="<username>",
+    catalog="<catalog>",
+    schema="<schema>",
+)
+cur = conn.cursor()
+cur.execute("SELECT * FROM system.runtime.nodes")
+rows = cur.fetchall()
+```
+
+This will query the `system.runtime.nodes` system tables that shows the nodes
+in the hyperlake cluster.
+
+The DBAPI implementation in `hyperlake.dbapi` provides methods to retrieve fewer
+rows for example `Cursor.fetchone()` or `Cursor.fetchmany()`. By default
+`Cursor.fetchmany()` fetches one row. Please set
+`hyperlake.dbapi.Cursor.arraysize` accordingly.
+
+### SQLAlchemy
+
+
+
+**Compatibility**
+
+`hyperlake.sqlalchemy` is compatible with the latest 1.3.x, 1.4.x and 2.0.x SQLAlchemy
+versions at the time of release of a particular version of the client.
+
+**Installation**
+
+```
+$ pip install hyperlake[sqlalchemy]
+```
+
+**Usage**
+
+To connect to hyperlake using SQLAlchemy, use a connection string (URL) following this pattern:
+
+```
+hyperlake://<username>:<password>@<host>:<port>/<catalog>/<schema>
+```
+
+NOTE: `password` and `schema` are optional
+
+**Examples**:
+
+```python
+from sqlalchemy import create_engine
+from sqlalchemy.schema import Table, MetaData
+from sqlalchemy.sql.expression import select, text
+
+engine = create_engine('hyperlake://user@localhost:8080/system')
+connection = engine.connect()
+
+rows = connection.execute(text("SELECT * FROM runtime.nodes")).fetchall()
+
+# or using SQLAlchemy schema
+nodes = Table(
+    'nodes',
+    MetaData(schema='runtime'),
+    autoload=True,
+    autoload_with=engine
+)
+rows = connection.execute(select(nodes)).fetchall()
+```
+
+In order to pass additional connection attributes use [connect_args](https://docs.sqlalchemy.org/en/14/core/engines.html#sqlalchemy.create_engine.params.connect_args) method.
+Attributes can also be passed in the connection string.
+
+```python
+from sqlalchemy import create_engine
+from hyperlake.sqlalchemy import URL
+
+engine = create_engine(
+    URL(
+        host="localhost",
+        port=8080,
+        catalog="system"
+    ),
+    connect_args={
+      "session_properties": {'query_max_run_time': '1d'},
+      "client_tags": ["tag1", "tag2"],
+      "roles": {"catalog1": "role1"},
+    }
+)
+
+# or in connection string
+engine = create_engine(
+    'hyperlake://user@localhost:8080/system?'
+    'session_properties={"query_max_run_time": "1d"}'
+    '&client_tags=["tag1", "tag2"]'
+    '&roles={"catalog1": "role1"}'
+)
+
+# or using the URL factory method
+engine = create_engine(URL(
+  host="localhost",
+  port=8080,
+  client_tags=["tag1", "tag2"]
+))
+```
+
+## Authentication mechanisms
+
+### Basic authentication
+
+The `BasicAuthentication` class can be used to connect to a hyperlake cluster configured with
+the [Password file, LDAP or Salesforce authentication type](https://trino.io/docs/current/security/authentication-types.html):
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import BasicAuthentication
+
+    conn = connect(
+        user="<username>",
+        auth=BasicAuthentication("<username>", "<password>"),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+
+    engine = create_engine("hyperlake://<username>:<password>@<host>:<port>/<catalog>")
+
+    # or as connect_args
+    from hyperlake.auth import BasicAuthentication
+    engine = create_engine(
+        "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": BasicAuthentication("<username>", "<password>"),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+### JWT authentication
+
+The `JWTAuthentication` class can be used to connect to a hyperlake cluster configured with
+the [`JWT` authentication type](https://trino.io/docs/current/security/jwt.html):
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import JWTAuthentication
+
+    conn = connect(
+        user="<username>",
+        auth=JWTAuthentication("<jwt_token>"),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+
+    engine = create_engine("hyperlake://<username>@<host>:<port>/<catalog>/<schema>?access_token=<jwt_token>")
+
+    # or as connect_args
+    from hyperlake.auth import JWTAuthentication
+    engine = create_engine(
+        "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": JWTAuthentication("<jwt_token>"),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+### OAuth2 authentication
+
+The `OAuth2Authentication` class can be used to connect to a hyperlake cluster configured with
+the [OAuth2 authentication type](https://trino.io/docs/current/security/oauth2.html).
+
+A callback to handle the redirect url can be provided via param `redirect_auth_url_handler` of the `hyperlake.auth.OAuth2Authentication` class. By default, it will try to launch a web browser (`hyperlake.auth.WebBrowserRedirectHandler`) to go through the authentication flow and output the redirect url to stdout (`hyperlake.auth.ConsoleRedirectHandler`). Multiple redirect handlers are combined using the `hyperlake.auth.CompositeRedirectHandler` class.
+
+The OAuth2 token will be cached either per `hyperlake.auth.OAuth2Authentication` instance and username or, when keyring is installed, it will be cached within a secure backend (MacOS keychain, Windows credential locker, etc) under a key including host of the hyperlake connection. Keyring can be installed using `pip install 'hyperlake[external-authentication-token-cache]'`.
+
+> [!WARNING]
+> If username is not specified then the OAuth2 token cache is shared and stored per host.
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import OAuth2Authentication
+
+    conn = connect(
+        user="<username>",
+        auth=OAuth2Authentication(),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+    from hyperlake.auth import OAuth2Authentication
+
+    engine = create_engine(
+    "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": OAuth2Authentication(),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+### Certificate authentication
+
+`CertificateAuthentication` class can be used to connect to hyperlake cluster configured with [certificate based authentication](https://trino.io/docs/current/security/certificate.html). `CertificateAuthentication` requires paths to a valid client certificate and private key.
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import CertificateAuthentication
+
+    conn = connect(
+        user="<username>",
+        auth=CertificateAuthentication("/path/to/cert.pem", "/path/to/key.pem"),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+    from hyperlake.auth import CertificateAuthentication
+
+    engine = create_engine("hyperlake://<username>@<host>:<port>/<catalog>/<schema>?cert=<cert>&key=<key>")
+
+    # or as connect_args
+    engine = create_engine(
+    "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": CertificateAuthentication("/path/to/cert.pem", "/path/to/key.pem"),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+### Kerberos authentication
+
+Make sure that the Kerberos support is installed using `pip install hyperlake[kerberos]`.
+The `KerberosAuthentication` class can be used to connect to a hyperlake cluster configured with
+the [`Kerberos` authentication type](https://trino.io/docs/current/security/kerberos.html):
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import KerberosAuthentication
+
+    conn = connect(
+        user="<username>",
+        auth=KerberosAuthentication(...),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+    from hyperlake.auth import KerberosAuthentication
+
+    engine = create_engine(
+        "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": KerberosAuthentication(...),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+### GSSAPI authentication
+
+Make sure that the GSSAPI support is installed using `pip install hyperlake[gssapi]`.
+The `GSSAPIAuthentication` class can be used to connect to a hyperlake cluster configured with
+the [`Kerberos` authentication type](https://trino.io/docs/current/security/kerberos.html):
+
+It follows the interface for `KerberosAuthentication`, but is using
+[requests-gssapi](https://github.com/pythongssapi/requests-gssapi), instead of [requests-kerberos](https://github.com/requests/requests-kerberos) under the hood.
+
+- DBAPI
+
+    ```python
+    from hyperlake.dbapi import connect
+    from hyperlake.auth import GSSAPIAuthentication
+
+    conn = connect(
+        user="<username>",
+        auth=GSSAPIAuthentication(...),
+        http_scheme="https",
+        ...
+    )
+    ```
+
+- SQLAlchemy
+
+    ```python
+    from sqlalchemy import create_engine
+    from hyperlake.auth import GSSAPIAuthentication
+
+    engine = create_engine(
+        "hyperlake://<username>@<host>:<port>/<catalog>",
+        connect_args={
+            "auth": GSSAPIAuthentication(...),
+            "http_scheme": "https",
+        }
+    )
+    ```
+
+## User impersonation
+
+In the case where user who submits the query is not the same as user who authenticates to hyperlake server (e.g in Superset),
+you can set `username` to be different from `principal_id`. Note that `principal_id` is extracted from `auth`,
+for example `username` in BasicAuthentication, `sub` in JWT token or `service-name` in KerberosAuthentication.
+You need to make sure that [`principal_id` has permission to impersonate `username`](https://trino.io/docs/current/security/file-system-access-control.html#impersonation-rules).
+
+
+
+```python
+import hyperlake
+conn = hyperlake.dbapi.connect(
+    host='localhost',
+    port=443,
+    user='the-user',
+    extra_credential=[('a.username', 'bar'), ('a.password', 'foo')],
+)
+
+cur = conn.cursor()
+cur.execute('SELECT * FROM system.runtime.nodes')
+rows = cur.fetchall()
+```
+
+## Roles
+
+Authorization roles to use for catalogs, specified as a dict with key-value pairs for the catalog and role. For example, `{"catalog1": "roleA", "catalog2": "roleB"}` sets `roleA` for `catalog1` and `roleB` for `catalog2`. 
+
+```python
+import hyperlake
+conn = hyperlake.dbapi.connect(
+    host='localhost',
+    port=443,
+    user='the-user',
+    roles={"catalog1": "roleA", "catalog2": "roleB"},
+)
+```
+
+You could also pass `system` role without explicitly specifing "system" catalog:
+
+```python
+import hyperlake
+conn = hyperlake.dbapi.connect(
+    host='localhost',
+    port=443,
+    user='the-user',
+    roles="role1" # equivalent to {"system": "role1"}
+)
+```
+
+## Timezone
+
+The time zone for the session can be explicitly set using the IANA time zone
+name. When not set the time zone defaults to the client side local timezone.
+
+```python
+import hyperlake
+conn = hyperlake.dbapi.connect(
+    host='localhost',
+    port=443,
+    user='username',
+    timezone='Europe/Brussels',
+)
+```
+
+> **NOTE: The behaviour till version 0.320.0 was the same as setting session timezone to UTC.**
+> **To preserve that behaviour pass `timezone='UTC'` when creating the connection.**
+
+## SSL
+
+### SSL verification
+
+In order to disable SSL verification, set the `verify` parameter to `False`.
+
+```python
+from hyperlake.dbapi import connect
+from hyperlake.auth import BasicAuthentication
+
+conn = connect(
+    user="<username>",
+    auth=BasicAuthentication("<username>", "<password>"),
+    http_scheme="https",
+    verify=False
+)
+```
+
+### Self-signed certificates
+
+To use self-signed certificates, specify a path to the certificate in `verify` parameter.
+More details can be found in [the Python requests library documentation](https://requests.readthedocs.io/en/latest/user/advanced/#ssl-cert-verification).
+
+```python
+from hyperlake.dbapi import connect
+from hyperlake.auth import BasicAuthentication
+
+conn = connect(
+    user="<username>",
+    auth=BasicAuthentication("<username>", "<password>"),
+    http_scheme="https",
+    verify="/path/to/cert.crt"
+)
+```
+
+## Spooled protocol
+
+The client spooling protocol requires [a hyperlake server based on hyperlake with spooling protocol support](https://trino.io/docs/current/client/client-protocol.html#spooling-protocol).
+
+Enable the spooling protocol by specifying a supported encoding in the `encoding` parameter:
+
+Supported encodings are `json`, `json+lz4` and `json+zstd`.
+
+```python
+from hyperlake.dbapi import connect
+
+conn = connect(
+    encoding="json+zstd"
+)
+```
+
+or a list of supported encodings in order of preference:
+
+```python
+from hyperlake.dbapi import connect
+
+conn = connect(
+    encoding=["json+zstd", "json"]
+)
+```
+
+## Transactions
+
+The client runs by default in *autocommit* mode. To enable transactions, set
+*isolation_level* to a value different than `IsolationLevel.AUTOCOMMIT`:
+
+```python
+from hyperlake.dbapi import connect
+from hyperlake.transaction import IsolationLevel
+
+with connect(
+        isolation_level=IsolationLevel.REPEATABLE_READ,
+        ...
+) as conn:
+    cur = conn.cursor()
+    cur.execute('INSERT INTO sometable VALUES (1, 2, 3)')
+    cur.fetchall()
+    cur.execute('INSERT INTO sometable VALUES (4, 5, 6)')
+    cur.fetchall()
+```
+
+The transaction is created when the first SQL statement is executed.
+`hyperlake.dbapi.Connection.commit()` will be automatically called when the code
+exits the *with* context and the queries succeed, otherwise
+`hyperlake.dbapi.Connection.rollback()` will be called.
+
+## Custom requests Session
+
+You can create a custom [requests.Session object](https://requests.readthedocs.io/en/latest/user/advanced/#session-objects) and pass it to the `http_session` parameter. This can be used for things like setting additional HTTP headers, client certificates, etc.
+
+```python
+import requests
+from hyperlake.dbapi import connect
+
+s = requests.Session()
+s.cert = '/path/client.cert'
+
+conn = connect(
+    http_session=s,
+    ...
+)
+```
+
+## Legacy Primitive types
+
+By default, the client will convert the results of the query to the
+corresponding Python types. For example, if the query returns a `DECIMAL` column, the result will be a `Decimal` object.
+If you want to disable this behaviour, set flag `legacy_primitive_types` to `True`.
+
+Limitations of the Python types are described in the 
+[Python types documentation](https://docs.python.org/3/library/datatypes.html). These limitations will generate an 
+exception `trino.exceptions.TrinoDataError` if the query returns a value that cannot be converted to the corresponding Python 
+type.
+
+```python
+import hyperlake
+
+conn = hyperlake.dbapi.connect(
+    legacy_primitive_types=True,
+    ...
+)
+
+cur = conn.cursor()
+# Negative DATE cannot be represented with Python types
+# legacy_primitive_types needs to be enabled
+cur.execute("SELECT DATE '-2001-08-22'")
+rows = cur.fetchall()
+
+assert rows[0][0] == "-2001-08-22"
+assert cur.description[0][1] == "date"
+```
+
+### hyperlake Trino to Python type mappings
+
+| Trino type | Python type       |
+|------------|-------------------|
+| BOOLEAN    | bool              |
+| TINYINT    | int               |
+| SMALLINT   | int               |
+| INTEGER    | int               |
+| BIGINT     | int               |
+| REAL       | float             |
+| DOUBLE     | float             |
+| DECIMAL    | decimal.Decimal   |
+| VARCHAR    | str               |
+| CHAR       | str               |
+| VARBINARY  | bytes             |
+| DATE       | datetime.date     |
+| TIME       | datetime.time     |
+| TIMESTAMP  | datetime.datetime |
+| ARRAY      | list              |
+| MAP        | dict              |
+| ROW        | tuple             |
+
+Trino types other than those listed above are not mapped to Python types. To use those use [legacy primitive types](#legacy-primitive-types).
+
+
