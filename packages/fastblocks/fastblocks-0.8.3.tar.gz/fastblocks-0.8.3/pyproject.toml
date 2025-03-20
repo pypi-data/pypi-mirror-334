@@ -1,0 +1,199 @@
+[project]
+name = "fastblocks"
+version = "0.8.3"
+description = "Starlette based app for the rapid delivery HTMX/Jinja template blocks"
+authors = [
+    { name = "lesleslie", email = "les@wedgwoodwebworks.com" },
+]
+maintainers = [
+    { name = "lesleslie", email = "les@wedgwoodwebworks.com" },
+]
+requires-python = ">=3.13"
+keywords = [
+    "starlette",
+    "htmx",
+    "jinja",
+    "httpx",
+    "sqladmin",
+    "sqlmodel",
+    "pydantic",
+    "sqlalchemy",
+    "redis",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Operating System :: OS Independent",
+    "Framework :: Pydantic",
+    "Framework :: Pydantic :: 2",
+    "Framework :: AsyncIO",
+    "Typing :: Typed",
+    "License :: OSI Approved :: BSD License",
+    "Development Status :: 3 - Alpha",
+]
+readme = "README.md"
+dependencies = [
+    "asgi-htmx>=0.1.0",
+    "brotli-asgi>=1.4.0",
+    "starlette-csrf>=3.0.0",
+    "starception>=1.2.1",
+    "pydantic>=2.10.6",
+    "pyfiglet>=1.0.2",
+    "starlette>=0.46.1",
+    "uvicorn>=0.34.0",
+    "starlette-async-jinja>=1.9.5",
+    "secure>=1.0.1",
+    "minify-html>=0.15.0",
+    "rcssmin>=1.2.1",
+    "rjsmin>=1.2.4",
+    "acb[cache,requests,secret,storage]",
+]
+
+[project.optional-dependencies]
+sitemap = [
+    "asgi-sitemaps>=1.0.0",
+]
+admin = [
+    "sqladmin>=0.20.1",
+]
+monitoring = [
+    "sentry-sdk[starlette]>=2.22.0",
+    "logfire[starlette]>=3.7.1",
+]
+dev = [
+    "crackerjack>=0.14.3",
+]
+
+[project.license]
+text = "BSD-3-Clause"
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+fix = true
+show-fixes = true
+output-format = "full"
+unsafe-fixes = true
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+ignore = [
+    "F821",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+]
+extend-select = [
+    "I",
+    "C901",
+    "D",
+]
+
+[tool.ruff.lint.isort]
+no-lines-before = [
+    "first-party",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.creosote]
+paths = [
+    "fastblocks",
+]
+deps-file = "pyproject.toml"
+exclude-deps = [
+    "autotyping",
+    "pytest",
+    "pytest-mock",
+    "tomli-w",
+    "pyfiglet",
+    "pdm",
+    "pytest-cov",
+    "pdm-bump",
+    "pyyaml",
+    "pytest-asyncio",
+    "google-crc32c",
+    "pre-commit",
+    "uv",
+]
+
+[tool.refurb]
+enable_all = true
+
+[tool.bandit]
+target = [
+    "fastblocks",
+]
+skips = [
+    "B603",
+    "B403",
+    "B704",
+    "B602",
+    "B301",
+    "B404",
+    "B101",
+    "B607",
+    "B311",
+]
+
+[tool.pyright]
+verboseOutput = true
+include = [
+    "fastblocks",
+]
+exclude = [
+    "scratch",
+]
+extraPaths = [
+    ".venv/lib/python3.13/site-packages/",
+]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+reportOptionalMemberAccess = false
+reportOptionalCall = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+reportUnknownArgumentType = false
+reportInvalidTypeForm = false
+reportUnknownLambdaType = false
+reportUnknownParameterType = "warning"
+reportPrivateUsage = false
+pythonVersion = "3.13"
+pythonPlatform = "Darwin"
+
+[tool.codespell]
+skip = "*/data/*"
+quiet-level = 3
+ignore-words-list = "crate,uptodate"
+
+[tool.vulture]
+min_confidence = 86
+paths = [
+    "fastblocks",
+]
+ignore_names = [
+    "cls",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=fastblocks"
+asyncio_default_fixture_loop_scope = "function"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
