@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "docketanalyzer-core"
+version = "0.1.5"
+authors = [
+    { name = "Nathan Dahlberg" },
+]
+description = "Docket Analyzer Core Utilities"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "awscli>=1.38.11",
+    "boto3>=1.37.11",
+    "click>=8.0.0",
+    "elasticsearch>=8.17.2",
+    "pandas>=2.2.3",
+    "pathlib>=1.0.1",
+    "peewee>=3.17.9",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.0.0",
+    "redis>=5.0.1",
+    "regex>=2.5.148",
+    "requests>=2.32.3",
+    "simplejson>=3.19.3",
+    "tqdm>=4.66.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.0.0",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.9.10",
+    "tomli>=2.0.0",
+    "twine>=4.0.0",
+]
+
+[tool.ruff]
+lint.select = ["E", "F", "I", "B", "UP", "N", "SIM", "PD", "NPY", "PTH", "RUF", "D"]
+lint.ignore = ["D100", "D104", "N801"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["docketanalyzer_core"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["I001", "I002"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+addopts = "-ra -q --cov=docketanalyzer_core"
+testpaths = ["tests"]
+pythonpath = "."
