@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.py
+src/datasiphon/__init__.py
+src/datasiphon/sql_filter.py
+src/datasiphon.egg-info/PKG-INFO
+src/datasiphon.egg-info/SOURCES.txt
+src/datasiphon.egg-info/dependency_links.txt
+src/datasiphon.egg-info/requires.txt
+src/datasiphon.egg-info/top_level.txt
+src/datasiphon/core/__init__.py
+src/datasiphon/core/_exc.py
+src/datasiphon/core/_filter_core.py
+tests/test_sql.py
+tests/test_sql_on_database.py
