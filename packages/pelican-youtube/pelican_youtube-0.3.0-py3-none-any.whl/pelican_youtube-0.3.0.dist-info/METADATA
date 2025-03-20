@@ -1,0 +1,180 @@
+Metadata-Version: 2.4
+Name: pelican-youtube
+Version: 0.3.0
+Summary: Easily embed YouTube videos in your posts
+Author-Email: Kura <kura@kura.gg>, Peter Bittner <django@gittner.it>
+Maintainer-Email: Kura <kura@kura.gg>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing
+Project-URL: Homepage, https://github.com/kura/pelican_youtube
+Requires-Python: <4.0,>=3.8
+Requires-Dist: pelican>=4.5
+Description-Content-Type: text/x-rst
+
+===============
+Pelican YouTube
+===============
+
+Pelican YouTube is a Pelican plugin, which allows you to embed YouTube videos
+in your pages and articles.
+
+Installation
+============
+
+Pip
+---
+
+You can install `pelican-youtube`_ from PyPI as usual, e.g.
+
+.. code-block:: bash
+
+    pip install pelican-youtube
+
+Pelican 4.5+ will detect the newly installed plugin automatically.
+
+See the `Pelican documentation`_ on plugins if you use an older version or
+you want to manually integrate the plugin in your `pelicanconf.py`.
+
+.. _pelican-youtube: https://pypi.org/project/pelican-youtube
+.. _Pelican documentation: https://docs.getpelican.com/en/latest/plugins.html
+
+Local plugins directory
+-----------------------
+
+.. code-block:: bash
+
+    $ mkdir plugins
+    $ cd plugins
+    $ git clone https://github.com/kura/pelican_youtube.git
+
+Then enable it in your `pelicanconf.py`, e.g.
+
+.. code-block:: python
+
+    PLUGIN_PATHS = ["plugins/"]
+    PLUGINS = [
+        # ...
+        "pelican_youtube",
+        # ...
+    ]
+
+Usage
+=====
+
+In your article or page, you simply need to add a line to embed your video.
+
+.. code-block:: rst
+
+    .. youtube:: VIDEO_ID
+
+Which will result in:
+
+.. code-block:: html
+
+    <div class="youtube youtube-16x9">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen seamless frameBorder="0"></iframe>
+    </div>
+
+.. note::
+
+    This code will render you a fully responsive YouTube video, spanning the
+    whole available container width.  Note that you will need to integrate the
+    code from `youtube.css`_ in your project or template style sheet.
+    Alternatively, you can specify `width` and `height` as detailed below.
+
+
+.. _youtube.css: https://github.com/kura/pelican_youtube/blob/main/pelican/plugins/youtube/youtube.css
+
+Additional arguments
+--------------------
+
++-------------------+------------------+---------------------------------------------------------+
+| Attribute         | default          |                                                         |
++===================+==================+=========================================================+
+| `allowfullscreen` | ``yes``          | allow video to be displayed full-screen                 |
++-------------------+------------------+---------------------------------------------------------+
+| `seamless`        | ``yes``          | no borders around iframe                                |
++-------------------+------------------+---------------------------------------------------------+
+| `class`           | ``youtube-16x9`` | additional CSS classes, usually for responsive behavior |
++-------------------+------------------+---------------------------------------------------------+
+|                   | empty°           | (° when `width` or `height` are specified)              |
++-------------------+------------------+---------------------------------------------------------+
+| `width`, `height` | empty            | video dimensions when responsive design is not desired  |
++-------------------+------------------+---------------------------------------------------------+
+
+Example 1: (responsive design)
+
+.. code-block:: rst
+
+    .. youtube:: 4_X6EyqXa2s
+        :class: youtube-4x3
+        :allowfullscreen: no
+        :seamless: no
+
+Will result in:
+
+.. code-block:: html
+
+    <div class="youtube youtube-4x3">
+    <iframe src="https://www.youtube.com/embed/4_X6EyqXa2s"></iframe>
+    </div>
+
+Example 2: (non-responsive design)
+
+.. code-block:: rst
+
+    .. youtube:: 4_X6EyqXa2s
+        :width: 800
+        :height: 500
+        :allowfullscreen: no
+
+Will result in:
+
+.. code-block:: html
+
+    <div class="youtube">
+    <iframe width="800" height="500" src="https://www.youtube.com/embed/4_X6EyqXa2s" seamless frameBorder="0"></iframe>
+    </div>
+
+More Control of YouTube Video Player
+------------------------------------
+
+YouTube offers more control via player parameters, which you simply attach to the VIDEO_ID
+as query parameters.  See `YouTube documentation`_ for a list of possible parameters.
+
+Example: (start video at time 00:20, start playing automatically, don't show related content at end of video)
+
+.. code-block:: rst
+
+    .. youtube:: 4_X6EyqXa2s?start=20&amp;autoplay=1&amp;rel=0
+
+
+.. _YouTube documentation: https://developers.google.com/youtube/player_parameters#Parameters
+
+Known Issues
+------------
+
+The presence of the ``frameBorder`` attribute causes an HTML5 validation error.  Unfortunately,
+this attribute is still necessary for supporting older versions of Internet Explorer.
+
+License
+=======
+
+`MIT`_ license.
+
+.. _MIT: http://opensource.org/licenses/MIT
