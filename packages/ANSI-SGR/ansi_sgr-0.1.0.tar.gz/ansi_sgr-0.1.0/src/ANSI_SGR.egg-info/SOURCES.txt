@@ -1,0 +1,11 @@
+pyproject.toml
+src/ANSI_SGR.egg-info/PKG-INFO
+src/ANSI_SGR.egg-info/SOURCES.txt
+src/ANSI_SGR.egg-info/dependency_links.txt
+src/ANSI_SGR.egg-info/not-zip-safe
+src/ANSI_SGR.egg-info/requires.txt
+src/ANSI_SGR.egg-info/top_level.txt
+src/ansi_sgr/__init__.py
+src/ansi_sgr/element.py
+src/ansi_sgr/protocol.py
+src/ansi_sgr/sgr.py
