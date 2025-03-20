@@ -1,0 +1,5 @@
+[console_scripts]
+pydantic2 = pydantic2.utils.cli:cli
+pydantic2-view-all = pydantic2.utils.cli:view_all
+pydantic2-view-models = pydantic2.utils.cli:view_models
+pydantic2-view-usage = pydantic2.utils.cli:view_usage
