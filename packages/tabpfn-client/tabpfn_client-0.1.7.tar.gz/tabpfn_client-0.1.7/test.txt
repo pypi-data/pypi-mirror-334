@@ -1,0 +1,578 @@
+INFO:     Will watch for changes in these directories: ['/Users/leo/VSCProjects/tabpfn-server']
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:     Started reloader process [77605] using StatReload
+INFO:     Creating environment from env var: ENVIRONMENT
+INFO:     Initializing environment in mode: Mode.DEV
+INFO:     Creating local database engine at /Users/leo/VSCProjects/tabpfn-server/output/DEVELOPMENT
+INFO:     Started server process [77607]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55584 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55596 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55597 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55603 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55606 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55591 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55608 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55600 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55592 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55602 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55593 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55607 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55610 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55612 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55613 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55614 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55618 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55616 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55620 - "GET / HTTP/1.1" 200 OK
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+INFO:     127.0.0.1:55584 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55605 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55591 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55608 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55593 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55616 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55592 - "GET /protected/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55618 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55614 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55610 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55602 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55603 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55606 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55612 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55597 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55607 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55600 - "GET /protected/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55613 - "GET /protected/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55596 - "GET /protected/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55620 - "GET /protected/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55584 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55591 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55616 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55605 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+INFO:     127.0.0.1:55606 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55620 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+INFO:     127.0.0.1:55608 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55603 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55618 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55613 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     127.0.0.1:55612 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55616 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+INFO:     127.0.0.1:55584 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55614 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55600 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     127.0.0.1:55596 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55597 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55593 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55610 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55592 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+INFO:     127.0.0.1:55620 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     127.0.0.1:55606 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+OPENING DB SESSION
+INFO:     127.0.0.1:55602 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55607 - "GET /retrieve_greeting_messages/ HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55605 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55608 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55591 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55613 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55618 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     127.0.0.1:55603 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55610 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     127.0.0.1:55612 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55600 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55614 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55616 - "POST /predict/?train_set_uid=5efe4947-b41a-45ce-92b5-a450a893e0a7&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     127.0.0.1:55596 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+CLOSING DB SESSION
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 1 0 1 0 0 1 1 1 1 0 0 1 1 0 0 1 1 0]
+res type int64
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55584 - "POST /predict/?train_set_uid=f509bbed-9198-4ed7-98f3-3182deb42a59&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55592 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 1 1 0 1 1 0 1 1 1 0 0 0 0 0 0 1 0 1 0]
+res type int64
+INFO:     127.0.0.1:55593 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55597 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+OPENING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55602 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+OPENING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55607 - "POST /fit/?tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55620 - "POST /predict/?train_set_uid=32886b6b-23b2-4a0a-99e3-3c37cb1dac83&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     127.0.0.1:55606 - "POST /predict/?train_set_uid=392dfe2c-a8f1-4e60-a663-be17e34c4ebf&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 1 0 0 1 1 1 0 0 0 1 1 0 1 1 0 0 0 1]
+res type int64
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 1 1 0 0 1 1 1 0 0 0 0 0 0 0 1 1 0 1 1]
+res type int64
+OPENING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55605 - "POST /predict/?train_set_uid=e2e22e90-dee0-4add-9ece-cd3033f4d753&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 1 0 0 1 1 0 0 0 1 0 1 0 1 1 0 0 0 0]
+res type int64
+INFO:     Initialized DatasetRepoService with LocalStorage.
+OPENING DB SESSION
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 289, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 278, in wrap
+    await func()
+  File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 228, in listen_for_disconnect
+    message = await receive()
+              ^^^^^^^^^^^^^^^
+  File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/asyncio/locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError: Cancelled by cancel scope 31935d0d0
+
+During handling of the above exception, another exception occurred:
+
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+  |     result = await app(  # type: ignore[func-returns-value]
+  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+  |     return await self.app(scope, receive, send)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+  |     await super().__call__(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/applications.py", line 113, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/middleware/errors.py", line 187, in __call__
+  |     raise exc
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/middleware/errors.py", line 165, in __call__
+  |     await self.app(scope, receive, _send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+  |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+  |     raise exc
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/routing.py", line 715, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/routing.py", line 735, in app
+  |     await route.handle(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/routing.py", line 288, in handle
+  |     await self.app(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/routing.py", line 76, in app
+  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+  |     raise exc
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/starlette/routing.py", line 74, in app
+  |     await response(scope, receive, send)
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 275, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 767, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/routers/prediction.py", line 289, in event_generator
+    |     predict_serv.log_prediction(
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/services/tabpfn_prediction_service.py", line 399, in log_prediction
+    |     self._prediction_log_repo.create(
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/db/crud.py", line 352, in create
+    |     return self._add_entry(prediction_log)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/db/crud.py", line 15, in _add_entry
+    |     self._db.commit()
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    |     trans.commit(_to_root=True)
+    |   File "<string>", line 2, in commit
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    |     ret_value = fn(self, *arg, **kw)
+    |                 ^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    |     self._prepare_impl()
+    |   File "<string>", line 2, in _prepare_impl
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    |     ret_value = fn(self, *arg, **kw)
+    |                 ^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    |     self.session.flush()
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    |     self._flush(objects)
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4487, in _flush
+    |     with util.safe_reraise():
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    |     raise exc_value.with_traceback(exc_tb)
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    |     flush_context.execute()
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    |     rec.execute(self)
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    |     util.preloaded.orm_persistence.save_obj(
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 60, in save_obj
+    |     for (
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 223, in _organize_states_for_save
+    |     for state, dict_, mapper, connection in _connections_for_states(
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1753, in _connections_for_states
+    |     connection = uowtransaction.transaction.connection(base_mapper)
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<string>", line 2, in connection
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    |     ret_value = fn(self, *arg, **kw)
+    |                 ^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1039, in connection
+    |     return self._connection_for_bind(bind, execution_options)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<string>", line 2, in _connection_for_bind
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    |     ret_value = fn(self, *arg, **kw)
+    |                 ^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1175, in _connection_for_bind
+    |     conn = self._parent._connection_for_bind(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<string>", line 2, in _connection_for_bind
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    |     ret_value = fn(self, *arg, **kw)
+    |                 ^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1189, in _connection_for_bind
+    |     conn = bind.connect()
+    |            ^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3278, in connect
+    |     return self._connection_cls(self)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    |     self._dbapi_connection = engine.raw_connection()
+    |                              ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 3302, in raw_connection
+    |     return self.pool.connect()
+    |            ^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    |     return _ConnectionFairy._checkout(self)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 1263, in _checkout
+    |     fairy = _ConnectionRecord.checkout(pool)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    |     rec = pool._do_get()
+    |           ^^^^^^^^^^^^^^
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 168, in _do_get
+    |     raise exc.TimeoutError(
+    | sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 278, in wrap
+    |     await func()
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sse_starlette/sse.py", line 258, in stream_response
+    |     async for data in self.body_iterator:
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/routers/prediction.py", line 298, in event_generator
+    |     predict_serv.log_prediction(
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/services/tabpfn_prediction_service.py", line 399, in log_prediction
+    |     self._prediction_log_repo.create(
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/db/crud.py", line 352, in create
+    |     return self._add_entry(prediction_log)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/leo/VSCProjects/tabpfn-server/app/db/crud.py", line 15, in _add_entry
+    |     self._db.commit()
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2028, in commit
+    |     trans.commit(_to_root=True)
+    |   File "<string>", line 2, in commit
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 103, in _go
+    |     self._raise_for_prerequisite_state(fn.__name__, current_state)
+    |   File "/Users/leo/mambaforge/envs/tabpfn_server_env/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 973, in _raise_for_prerequisite_state
+    |     raise sa_exc.PendingRollbackError(
+    | sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r) (Background on this error at: https://sqlalche.me/e/20/7s2a)
+    +------------------------------------
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+CLOSING DB SESSION
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     127.0.0.1:55591 - "POST /predict/?train_set_uid=48fc8e7e-9a7d-41b6-9cbc-57ac715eef16&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55613 - "POST /predict/?train_set_uid=0fc758f8-6113-4d52-bad3-13539c13621b&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55608 - "POST /predict/?train_set_uid=14b3e6ed-a4d0-4c03-ac59-5891a462e137&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 1 1 0 0 0 1 0 1 0 1 1 0 0 1 1 1 1 1 0]
+res type int64
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 1 1 0 1 1 0 1 0 0 1 0 1 0 1 1 0 0 0 1]
+res type int64
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 0 0 0 0 1 1 0 1 0 0 1 1 1 1 0 1 0 1]
+res type int64
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     127.0.0.1:55603 - "POST /predict/?train_set_uid=1b822e37-6109-4eca-bbd2-6f5b61b16b0b&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     127.0.0.1:55618 - "POST /predict/?train_set_uid=654efeab-fb09-45a4-bcb0-24e9f76421d6&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 1 1 1 1 1 1 1 1 1 0 1 0 1 0 1 1 1 0 1]
+res type int64
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     Initialized DatasetRepoService with LocalStorage.
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 0 0 1 1 1 0 1 0 1 0 1 0 1 0 1 0 1 1]
+res type int64
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+INFO:     127.0.0.1:55610 - "POST /predict/?train_set_uid=34b11ac2-048b-470f-82d7-ff2dca0d6ad6&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 1 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 0 0 0]
+res type int64
+INFO:     127.0.0.1:55600 - "POST /predict/?train_set_uid=752c30fd-10d6-4717-93c0-c46f643c4c38&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 0 0 0 1 1 1 1 0 1 0 0 1 0 0 1 0 0 1]
+res type int64
+CLOSING DB SESSION
+INFO:     127.0.0.1:55614 - "POST /predict/?train_set_uid=91fbfd3d-fc88-44c8-99c8-43f1c534c8da&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 1 1 0 0 0 1 0 1 1 1 1 1 1 0 1 0 0 1]
+res type int64
+CLOSING DB SESSION
+INFO:     127.0.0.1:55612 - "POST /predict/?train_set_uid=3a03b77f-fdcb-43b8-bb82-88de000d1b5c&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+INFO:     Initialized TabPFNPredictionService with LocalTabPFN.
+CLOSING DB SESSION
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 1 0 0 0 0 0 0 1 0 1 1 0 1 0 0 0 0 1]
+res type int64
+INFO:     127.0.0.1:55596 - "POST /predict/?train_set_uid=f9f62eaa-e083-456c-87ac-2f0a15428100&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 1 1 1 0 0 0 0 1 1 1 0 0 0 0 1 1 1 0 0]
+res type int64
+INFO:     127.0.0.1:55592 - "POST /predict/?train_set_uid=3c5df481-5bcd-4526-b1ab-caf6a7c9375b&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 0 0 0 1 0 0 1 1 0 0 1 0 1 1 0 1 1 0]
+res type int64
+INFO:     127.0.0.1:55597 - "POST /predict/?train_set_uid=0ef1bf10-47c0-47af-86ca-550a1c48c05e&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55593 - "POST /predict/?train_set_uid=6bb29678-5eb3-44fc-ab15-59910c9b7063&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 1 0 1 0 1 1 0 1 0 0 0 1 0 0 0 0 1 1]
+res type int64
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [1 0 1 1 1 0 1 0 1 0 0 1 0 1 0 0 1 1 0 1]
+res type int64
+CLOSING DB SESSION
+CLOSING DB SESSION
+INFO:     127.0.0.1:55607 - "POST /predict/?train_set_uid=30ff3767-4b01-4002-a2c6-0368397aac8d&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55584 - "POST /predict/?train_set_uid=286db4f5-dbe5-4ae0-86b6-923c02344fc4&task=classification&predict_params=%7B%22output_type%22%3A%20%22preds%22%7D&tabpfn_config=%7B%22average_before_softmax%22%3A%20false%2C%20%22balance_probabilities%22%3A%20false%2C%20%22ignore_pretraining_limits%22%3A%20false%2C%20%22inference_config%22%3A%20null%2C%20%22inference_precision%22%3A%20%22auto%22%2C%20%22model_path%22%3A%20%22tabpfn-v2-classifier.ckpt%22%2C%20%22n_estimators%22%3A%201%2C%20%22random_state%22%3A%20null%2C%20%22softmax_temperature%22%3A%200.9%7D&tabpfn_systems=%5B%22preprocessing%22%2C%20%22text%22%5D HTTP/1.1" 200 OK
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 0 1 1 1 1 1 0 1 0 0 0 0 0 1 0 0 1 1]
+res type int64
+INFO:     <class 'tabpfn.classifier.TabPFNClassifier'> config: {'average_before_softmax': False, 'balance_probabilities': False, 'categorical_features_indices': None, 'device': 'auto', 'fit_mode': 'fit_preprocessors', 'ignore_pretraining_limits': False, 'inference_config': None, 'inference_precision': 'auto', 'memory_saving_mode': 'auto', 'model_path': 'tabpfn-v2-classifier.ckpt', 'n_estimators': 1, 'n_jobs': 1, 'random_state': None, 'softmax_temperature': 0.9}
+res [0 0 1 1 0 0 0 1 1 0 0 1 1 0 1 1 1 0 1 0]
+res type int64
