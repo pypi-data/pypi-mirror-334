@@ -1,0 +1,2 @@
+recursive-include coordinate_converter *.py
+include coordinate_converter/*.py

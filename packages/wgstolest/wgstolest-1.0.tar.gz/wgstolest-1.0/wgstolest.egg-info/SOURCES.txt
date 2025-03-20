@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+coordinate_converter/__init__.py
+coordinate_converter/coordinate_converter.py
+wgstolest.egg-info/PKG-INFO
+wgstolest.egg-info/SOURCES.txt
+wgstolest.egg-info/dependency_links.txt
+wgstolest.egg-info/requires.txt
+wgstolest.egg-info/top_level.txt
