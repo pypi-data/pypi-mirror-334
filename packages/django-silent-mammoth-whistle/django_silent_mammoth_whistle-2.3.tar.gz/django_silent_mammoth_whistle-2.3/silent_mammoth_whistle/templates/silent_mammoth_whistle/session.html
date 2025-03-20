@@ -1,0 +1,147 @@
+{% extends 'silent_mammoth_whistle/base.html' %}
+{% load whistle_helpers %}
+
+{% block title %}{{ user_id}} on {{ date_str }}{% endblock %}
+
+{% block extra_styles %}
+	#body {
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	h1 {
+		margin: 0
+	}
+	.time-fromto:hover {
+		cursor: pointer;
+	}
+{% endblock %}
+
+{% block content %}
+
+	<div id="whistles-header">
+		<a href="{% url 'silent_mammoth_whistle:index_by_date' date %}" onclick="history.back();" class="button">
+			{% include "silent_mammoth_whistle/_icon_previous.svg" %}
+		</a>
+		<div id="user-header">
+			<h1 class='heading large'><sl-icon name="person"></sl-icon> {{ user_id }}</h1>
+			<div>{{ date_str }}</div>
+			<div class='secondary'>
+				<div class="browser-change">
+					{% if useragent %}<div class="data"><sl-icon name="globe"></sl-icon> {{ useragent|ua_parse }}</div>{% endif %}
+					{% if viewport_dimensions %}
+						<div class="data">
+							<sl-icon name="display"></sl-icon>
+							{{ viewport_dimensions }}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div id="session-time">
+			<div class="duration"><sl-icon name="stopwatch"></sl-icon> {% time_duration min_time max_time %}</div>
+			<div class="time-fromto" onclick="toggleTimestamps()">{{ min_time|date:"H:i" }} to {{ max_time|date:"H:i" }}</div>
+		</div>
+	</div>
+
+	<div class='container container-padding'>
+		<table class="primary{% if is_authenticated %} authed{% else %} unauthed{% endif %}">
+			<thead>
+				<tr>
+					<td class='timestamp hidden'>Timestamp</td>
+					<td class='number-cell' style="white-space: nowrap;">Time delta</td>
+					{% comment %} If the request method is being shown, we add it to its own column so things are easier to read {% endcomment %}
+					<td{% if autolog_request_method %} colspan=2{% endif %}>Request</td>
+					<td>Response</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for whistle in whistles %}
+					{% comment %} https://stackoverflow.com/questions/32795907/how-to-access-the-next-and-the-previous-elements-in-a-django-template-forloop {% endcomment %}
+
+					{% with previous_whistle=whistles|forloop_previous:forloop.counter0 %}
+						{% if not forloop.first %}
+							{% if whistle|browser_change:previous_whistle %}
+								<tr>
+									<td {% if autolog_request_method %}colspan=5{% else %}colspan=4{% endif %}>
+										<div class="browser-change">
+											<em>Browser change:</em>
+											{% if whistle.useragent %}<div class="data"><sl-icon name="globe"></sl-icon> {{ whistle.useragent|ua_parse  }}</div>{% endif %}
+											{% if whistle.viewport_dimensions %}<div class="data"><sl-icon name="arrows-fullscreen"></sl-icon> {{ whistle.viewport_dimensions }}</div>{% endif %}
+										</div>
+									</td>
+								</tr>
+							{% endif %}
+						{% endif %}
+
+						<tr class='{% if autolog_response_code and whistle.response_code >= 400 and whistle.response_code <= 499 %}warning{% elif autolog_response_code and whistle.response_code >= 500 and whistle.response_code <= 599 %}danger{% endif %}'>
+							<td class='timestamp hidden'>{{ whistle.datetime|date:'r' }}</td>
+							<td class='number-cell small-cell'>
+								{% if forloop.first %}
+									START
+								{% else %}
+									{% time_duration_condensed previous_whistle.datetime whistle.datetime %}
+								{% endif %}
+							</td>
+							{% if autolog_request_method %}
+								<td class='request-method'>
+									{{ whistle.request_method }}
+								</td>
+							{% endif %}
+							<td>
+								{% comment %} On the first loop, this cell is split in two to show the whistle request on the left and the request referer on the right. {% endcomment %}
+								{% if forloop.first and whistle.referer %}
+									<div id='refer-row'>
+										<div>
+								{% endif %}
+
+								{% if autolog_request_path and whistle.request_path %}
+									{{ whistle.request_path|small_guids }}&nbsp;&nbsp;&nbsp;&nbsp;
+								{% endif %}
+								{{ whistle.request|html_tabs|small_guids }}
+
+								{% if forloop.first and whistle.referer %}
+										</div>
+										<div id='referer-cell'>
+											Referer: {{ whistle.referer }}
+										</div>
+									</div>
+								{% endif %}
+							</td>
+							<td>
+								{% if autolog_response_code and whistle.response_code %}
+									<abbr title="{{ whistle.response_code|reason_phrase }}">{{ whistle.response_code }}</abbr>&nbsp;&nbsp;&nbsp;&nbsp;
+								{% endif %}
+								{{ whistle.response|html_tabs|small_guids }}
+							</td>
+						</tr>
+					{% endwith %}
+				{% endfor %}
+				<tr>
+					<td class='timestamp hidden'></td>
+					<td class='number-cell small-cell'>END</td>
+					{% if autolog_request_method %}
+						<td></td>
+					{% endif %}
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		const timestamps = document.querySelectorAll('.timestamp')
+		function toggleTimestamps() {
+			timestamps.forEach((item) => {
+				item.classList.toggle('hidden')
+			})
+
+			// Fix for Firefox rendering bug 😭
+			const table = document.querySelector('table')
+			const thead = document.querySelector('table thead')
+			table.removeChild(thead)
+    		table.appendChild(thead)
+		}
+	</script>
+{% endblock %}
