@@ -1,0 +1,64 @@
+= odoo_filestore_s3
+
+Odoo modules pour utiliser le S3 comme filestore system.
+
+Dépot original: https://gitlab.ndp-systemes.fr/odoo/cloud-modules
+
+== Utilisation
+
+`odoo_filestore_s3` est un module Odoo, qui ne doit pas être installé, mais chargé côté serveur. Pour cela, il faut l'ajouter dans les `server_wide_modules` de votre fichier de configuration, ou l'ajouter dans la variable `--load=` au démarrage de votre serveur.
+
+== Fonctionnement
+
+Le point d'entrée de ce module est le fichier `ir_attachment.py`.
+
+
+Celui-ci va vérifier que le module pour être utilisé selon les règles suivantes:
+
+- La version de Odoo est supérieur à 10
+- "odoo_filestore_s3" est présent dans les `server_wide_modules`
+- Les variables d'environnement comporte des informations de connection au serveur S3
+
+=== Variable d'environnement nécessaire
+
+Plusieurs informations de connection au serveur S3 sont nécessaires, notamment le `host`, `access_key`, `secret_key`.
+Le nommage des variables d'environnement est déterminé par la librairie https://gitlab.ndp-systemes.fr/python-libs/odoo-libs/oenv2config[oenv2config].
+
+Pour connaitre les différentes clés, il faut se rendre dans le fichier `src/odoo_env_config/mappers.py` et dans la fonction `clevercloud_cellar`
+
+=== Application des patchs
+
+Le patch à utiliser est déterminé directement dans le fichier `ir.attachment` selon la version de Odoo. Celui-ci va venir charger un patcher et modifier les méthodes du fichier IrAttachement de Odoo via la méthode https://github.com/odoo/odoo/blob/d8e1e9281ebd037b56d945e08b34db37de3615c5/odoo/models.py#L5100[ `_patch_method`].
+
+Cette méthode est une méthode native Odoo, qui permet de définir une nouvelle méthode, via `FichierDorigine._patch_method`. Tout en permettant de garder la méthode d'origine grâce à la méthode  `mon_record.ma_method._origin`
+
+IMPORTANT: Cette focntion à été copié/collé depuis la v16 pour être utilisé en `v17` et `v18`.
+
+=== Patcher
+
+Les patchers sont simplement des fichiers avec des méthodes dedants.
+
+Le rôle du patcher est de redéclarer les méthodes propres à la gestion du filestore en gardant une signature identique en fonction de la version, et d'appeler l'adapter permettant de redéfinir le fonctionnement.
+
+
+Il est possible de définir des patchs par version, ceux-ci sont disponibles dans le répertoire patchers.
+
+=== Adapter
+
+L'adapter s'apparente à une classe statique dans le sens pour l'ensemble des méthodes sont des méthodes statiques.
+
+Chaque méthode prend en paramètre une instance Odoo de `ir.attachment` et va permettre de modifier le fonctionnement des méthodes, notamment pour aller stocker les fichiers sur le S3 grâce à la classe S3Odoo.
+
+=== S3Odoo
+
+S3Odoo est simplement une classe enrobant Minio afin de simplifier et d'adapter son utilisation à nos besoins.
+Celle-ci utilise le package Oenv2config pour determiner la connection au serveur S3.
+
+
+Todo :
+
+- [X] Add documentation (Specially on structure and on _patch_method)
+- [X] Add tests on librairy odoo_s3_fs
+- [ ] Add tests on module odoo_filestore_s3 for each version (> 11.0)
+- [ ] Add typing on class and function
+- [ ] Rework git tree and history.
