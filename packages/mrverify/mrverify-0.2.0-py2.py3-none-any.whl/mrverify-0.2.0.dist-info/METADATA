@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: mrverify
+Version: 0.2.0
+Summary: MRI scan parameter verification
+Home-page: https://github.com/harvard-nrg/mrverify
+Author: Neuroinformatics Research Group
+Author-email: info@neuroinfo.org
+License-File: LICENSE
+Requires-Dist: yaxil
+Requires-Dist: pyaml
+Requires-Dist: jinja2
+Requires-Dist: natsort
+Requires-Dist: jsonpath-ng
+Requires-Dist: google-api-python-client
+Requires-Dist: google-auth-oauthlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary

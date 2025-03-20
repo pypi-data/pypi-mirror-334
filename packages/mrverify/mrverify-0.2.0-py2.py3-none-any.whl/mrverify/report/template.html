@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .header {
+        background-color: white;
+        position: sticky;
+        top: 0px;
+      }
+      table.metadata td {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <nav aria-label="breadcrumb">
+        {% if errors %}
+        <ol style="background-color: #f5c6cb" class="breadcrumb">
+        {% else %}
+        <ol class="breadcrumb">
+        {% endif %}
+          <li class="breadcrumb-item">{{ meta['project'] }}</li>
+          <li class="breadcrumb-item">{{ meta['subject'] }}</li>
+          <li class="breadcrumb-item">{{ meta['session'] }}</li>
+          <li class="breadcrumb-item">checked {{ data|length }} scans</li>
+          {% if errors %}
+          <li class="breadcrumb-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bug-fill" viewBox="0 0 16 16">
+              <path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z"></path>
+              <path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5H13zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975z"></path>
+            </svg>
+          </li>
+          {% endif %}
+        </ol>
+      </nav>
+    </div>
+    <table class="table table-striped table-hover">
+      {% for scan,item in data.items() %}
+        <thead class="thead-dark">
+        <tr>
+          <th colspan="4">
+            {{ item['scan']['series_description'] }} / {{ item['scan']['id'] }}
+          </th>
+        </tr>
+        </thead>
+        <tr class="table-secondary">
+          <td>
+            <b>Parameter</b>
+          </td>
+          <td>
+            <b>Expected</b>
+          </td>
+          <td>
+            <b>Actual</b>
+          </td>
+          <td>
+            <b>Result</b>
+          </td>
+        </tr>
+        {% for param,result in item['checker'].result.items() %}
+        {% if result.__str__() == 'Ok' %}
+        <tr class="table-success">
+        {% elif result.__str__() == 'Err' %}
+        <tr class="table-danger">
+        {% elif result.__str__() == 'Miss' %}
+        <tr class="table-warning">
+        {% else %}
+        <tr>
+        {% endif %}
+          <td>
+            {{ param }} 
+          </td>
+          <td>
+            {{ result.expected }}
+          </td>
+          <td>
+            {{ result.actual }}
+          </td>
+          <td>
+            {{ result }}
+          </td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+     </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>
