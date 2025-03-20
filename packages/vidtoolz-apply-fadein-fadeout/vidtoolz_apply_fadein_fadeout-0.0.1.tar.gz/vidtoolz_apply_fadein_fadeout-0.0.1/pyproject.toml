@@ -1,0 +1,33 @@
+[project]
+name = "vidtoolz-apply-fadein-fadeout"
+version = "0.0.1"
+description = "Apply fadein-fadeout effects on videos "
+readme = "README.md"
+authors = [{name = "Sukhbinder Singh"}]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "vidtoolz",
+]
+
+[project.urls]
+Homepage = "https://github.com/sukhbinder/vidtoolz-apply-fadein-fadeout"
+Changelog = "https://github.com/sukhbinder/vidtoolz-apply-fadein-fadeout/releases"
+Issues = "https://github.com/sukhbinder/vidtoolz-apply-fadein-fadeout/issues"
+CI = "https://github.com/sukhbinder/vidtoolz-apply-fadein-fadeout/actions"
+
+[project.entry-points."vidtoolz_plugins"]
+fadeinout = "vidtoolz_apply_fadein_fadeout:fadeinout_plugin"
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
