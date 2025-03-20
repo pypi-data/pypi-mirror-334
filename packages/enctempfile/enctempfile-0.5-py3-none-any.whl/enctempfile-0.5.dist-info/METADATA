@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: enctempfile
+Version: 0.5
+Summary: Transparently encrypted temporary files
+Home-page: https://github.com/f0rk/enctempfile
+Author: Ryan P. Kelly
+Author-email: ryan@ryankelly.us
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: cryptography
+
