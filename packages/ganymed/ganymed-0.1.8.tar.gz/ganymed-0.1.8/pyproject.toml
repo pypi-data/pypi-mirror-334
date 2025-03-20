@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ganymed"
+version = "0.1.8"
+description = "Sensry Ganymed Sy1xx Package"
+authors = [{ name = "Sven Ginka", email = "s.ginka@sensry.de" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = ["pyserial"]
+
+[tool.setuptools.packages]
+find = {}
+
+[project.urls]
+Homepage = "https://github.com/sensry-de/ganymed-pypi"
