@@ -1,0 +1,12 @@
+numpy<3.0.0,>=2.0.0
+scipy<2.0.0,>=1.13.1
+
+[dev]
+
+[lint]
+pylint
+
+[test]
+flake8
+pytest
+pytest-asyncio

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scietex.hal.analog_sensor"
+dynamic = ["version"]
+description = "Analog sensor signal conversion"
+authors = [
+  { name = "Anton Bondarenko", email = "bond.anton@gmail.com" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy >= 2.0.0, < 3.0.0",
+    "scipy >= 1.13.1, < 2.0.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/bond-anton/scietex.hal.analog_sensor"
+"Bug Tracker" = "https://github.com/bond-anton/scietex.hal.analog_sensor/issues"
+
+[project.optional-dependencies]
+dev = []
+test = ["flake8", "pytest", "pytest-asyncio"]
+lint = ["pylint"]
+
+[tool.setuptools.dynamic]
+version = {attr = "scietex.hal.analog_sensor.version.__version__"}
+
+[tool.setuptools.package-data]
+"scietex.hal.analog_sensor" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.mypy]
+python_version = "3.9"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
