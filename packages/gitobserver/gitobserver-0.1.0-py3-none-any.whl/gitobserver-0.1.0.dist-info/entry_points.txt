@@ -1,0 +1,2 @@
+[console_scripts]
+git_observer = git_observer.main:start_watcher
