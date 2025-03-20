@@ -1,0 +1,6 @@
+yum libaec-devel libaec-devel-1.0.2-3.el8.x86_64
+yum libpng-devel libpng-devel-2:1.6.34-5.el8.x86_64
+yum gobject-introspection-devel gobject-introspection-devel-1.56.1-1.el8.x86_64
+git https://github.com/ecmwf/ecbuild.git 31ffab847c2af2c827d70baf0f6de4a3216ad9a0
+git https://github.com/ecmwf/eccodes.git f6a19f7851b14583df162ad38217c982c5652fcc
+git https://github.com/uclouvain/openjpeg 39e8c50a2f9bdcf36810ee3d41bcbf1cc78968ae
