@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: youtube_sync
+Version: 0.0.1
+Summary: syncs youtube for offline play
+Home-page: https://github.com/zackees/youtube-sync
+Maintainer: Zachary Vorhies
+License: BSD 3-Clause License
+Keywords: template-python-cmd
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: home-page
+Dynamic: maintainer
+
+# youtube-sync
