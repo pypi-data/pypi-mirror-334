@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: certbot-dns-gigahostdk
+Version: 0.0.1
+Summary: Custom Certbot DNS Authenticator for Gigahost.dk
+License-File: LICENSE
+Requires-Dist: certbot
+Requires-Dist: requests
+Requires-Dist: requests-mock
+Requires-Dist: bs4
+Requires-Dist: lxml
+Dynamic: requires-dist
+Dynamic: summary
