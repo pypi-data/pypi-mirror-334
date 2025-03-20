@@ -1,0 +1,6 @@
+{
+    "id": "evoked_permutation_test",
+    "name": "Evoked permutation tests",
+    "entry": "PermutationTest",
+    "description": "Run permutation tests for evoked objects."
+}

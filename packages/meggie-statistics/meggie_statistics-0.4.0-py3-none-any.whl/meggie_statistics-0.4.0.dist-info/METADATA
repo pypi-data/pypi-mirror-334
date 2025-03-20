@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: meggie_statistics
+Version: 0.4.0
+Summary: Statistics plugin for Meggie
+License: BSD
+Project-URL: homepage, https://github.com/cibr-jyu/meggie_statistics
+Requires-Dist: meggie>=1.9.0
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: pylama; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-qt; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: setuptools; extra == "dev"
+Provides-Extra: test
+Requires-Dist: black; extra == "test"
+Requires-Dist: pylama; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-qt; extra == "test"
+Requires-Dist: setuptools; extra == "test"
