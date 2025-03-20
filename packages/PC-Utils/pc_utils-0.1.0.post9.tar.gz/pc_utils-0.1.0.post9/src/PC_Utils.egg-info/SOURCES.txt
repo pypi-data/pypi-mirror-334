@@ -1,0 +1,17 @@
+.gitattributes
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+src/PC_Utils/Datetime.py
+src/PC_Utils/FileManagement.py
+src/PC_Utils/FileManagement_w_Azure.py
+src/PC_Utils/ObtainEmails.py
+src/PC_Utils/Runtime.py
+src/PC_Utils/__init__.py
+src/PC_Utils/_version.py
+src/PC_Utils.egg-info/PKG-INFO
+src/PC_Utils.egg-info/SOURCES.txt
+src/PC_Utils.egg-info/dependency_links.txt
+src/PC_Utils.egg-info/top_level.txt
+tests/database_connection_test.py
