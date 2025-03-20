@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: ecopystats
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytest
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: typing>=3.10.0.0
+Requires-Dist: cython>=3.0.12
+Requires-Dist: duckdb>=1.2.1
+Requires-Dist: build>=1.2.2.post1
+
+# ecopystats
+ecopystats is a Python module to calculate several statical indexes related to ecology and biodiveristy
