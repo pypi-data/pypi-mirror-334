@@ -1,0 +1,20 @@
+[project]
+name = "nonary"
+version = "0.2.0"
+description = "CLI tool for The Nonary games"
+readme = "README.md"
+authors = [
+    { name = "Jorge Gómez Zarzosa", email = "jorge.gomez@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.urls]
+Source = 'https://github.com/jorgegomzar/nonary'
+
+[project.scripts]
+nonary = "nonary:cli_entrypoint"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

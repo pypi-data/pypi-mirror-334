@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: nonary
+Version: 0.2.0
+Summary: CLI tool for The Nonary games
+Project-URL: Source, https://github.com/jorgegomzar/nonary
+Author-email: Jorge Gómez Zarzosa <jorge.gomez@gmail.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# nonary
+
+CLI tool to assist on the Nonary games.
+
+Assist with things related to digital roots, combinations and encoding.
