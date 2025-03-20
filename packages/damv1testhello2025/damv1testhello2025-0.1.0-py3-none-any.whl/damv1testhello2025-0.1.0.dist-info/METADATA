@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: damv1testhello2025
+Version: 0.1.0
+Summary: development testhello2025 package
+Home-page: UNKNOWN
+Author: dhonyabumuhammad (Bekasi)
+Author-email: <baba-rtw24133@tutamail.com>
+License: UNKNOWN
+Keywords: testhello2025,development,testing,email,smtp
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: requests==2.32.3
+
+## damv1testhello2025
+
+A simple Python package for testing and development purposes.
+
+### Installation
+
+```bash
+pip install damv1testhello2025
+```
+
+⌘ <b>Usage</b>
+
+1. Class hellowords2025 <br />
+   This class provides two methods:
+   - sayhello(): Returns a greeting message.
+   - wordsloremipsum(): Returns a Lorem Ipsum text.
+
+   Example Usage:
+   <pre>
+    from damv1testhello2025 import hellowords2025
+
+    # Initialize the class
+    hello = hellowords2025()
+
+    # Use the sayhello method
+    greeting = hello.sayhello()
+    print(greeting)  # Output: "Hello, what's up. You are currently using package damv1testhello2025"
+
+    # Use the wordsloremipsum method
+    lorem_ipsum = hello.wordsloremipsum()
+    print(lorem_ipsum)  # Output: Lorem Ipsum text   
+   </pre>
+
+   <br />
+
+2. Class SendEmail <br />
+   This class is used to send emails using SMTP configuration. The SMTP configuration can be customized via a .env file or directly in the code. <br />
+
+   .env File Configuration: <br />
+
+   Create a .env file in your project directory with the following content:
+
+   <pre>
+    SMTP_SERVER=smtp.gmail.com
+    SMTP_PORT=587
+    SMTP_USER=your-email@gmail.com
+    SMTP_PASS=your-email-password   
+   </pre>
+
+   Example Usage:
+   <pre>
+    from damv1testhello2025 import SendEmail
+
+    # Initialize the class with a custom .env path (optional)
+    sender = SendEmail(env_path="path/to/.env")
+
+    # Send an email
+    sender.send(
+        subject="Test Email",
+        body="Hello, this is a test email!",
+        receiver_email="recipient@example.com"
+    )   
+   </pre>
+   Parameters:
+   - env_path (optional): Path to the .env file. If not provided, defaults to .env in the current directory.
+   - subject: Email subject.
+   - body: Email body.
+   - receiver_email: Recipient's email address.
+
