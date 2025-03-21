@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: djangoiransms
+Version: 1.0.0
+Summary: Alias package for django-iran-sms
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: django-iran-sms
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: summary
