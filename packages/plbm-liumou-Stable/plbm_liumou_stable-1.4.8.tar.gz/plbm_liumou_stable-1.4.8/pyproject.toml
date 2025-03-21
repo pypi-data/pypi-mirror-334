@@ -1,0 +1,22 @@
+[project]
+name = "plbm_liumou_Stable"
+version = "1.4.8"
+authors = [
+    { name = "坐公交也用券", email = "liumou.site@qq.com" },
+]
+description = "使用Python3进行编写的一个开源系统管理工具， 通过封装Linux系统都软件包管理、磁盘管理、文件管理、网络管理、安全管理、服务管理等内容从而实现快速开发的效果"
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[build-system]
+requires = ["hatchling", "psutil"]
+build-backend = "hatchling.build"
+
+
+[project.urls]
+"Homepage" = "https://gitee.com/liumou_site/plbm"
+"Bug Tracker" = "https://gitee.com/liumou_site/plbm/issues"
