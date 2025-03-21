@@ -1,0 +1,57 @@
+Metadata-Version: 2.2
+Name: ouseful_fsa_datasupply
+Version: 0.2.0
+Summary: A simple tool for bulk downloading of etsablishment details and ratings data from food.gov.uk
+Home-page: https://github.com/ouseful-datasupply/food_gov_uk
+Author: Tony Hirst
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Click
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: pandas
+Requires-Dist: xmltodict
+Requires-Dist: tqdm
+Requires-Dist: lxml
+Requires-Dist: html5lib
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# food\_gov\_uk
+Tools for grabbing data from food.gov.uk
+
+`pip install --upgrade git+https://github.com/ouseful-datasupply/food_gov_uk.git`
+
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ouseful-datasupply/food_gov_uk/master)
+
+## Command Line Interface
+
+The CLI will scrape the [UK Food Standards Agency ratings data](https://ratings.food.gov.uk/open-data/en-GB) XML files and construct a simple SQLite database from them containing two tables:
+
+- `fsa_ratings_metadata`: containing the name and publication date of each scraped file
+- `USER-DEFINED` (default: `ratingstable`) containing the ratings data from the XML files.
+
+The created database can then be used with tools such as [`datasette`](https://github.com/simonw/datasette/tree/master/datasette).
+
+```
+Usage: fsa_data [OPTIONS] COMMAND
+
+Commands:
+  collect              Collect data from FSA website
+
+Options:
+  --dbname TEXT        SQLite database name (default: fsa_ratings_all.db)
+  --ratingstable TEXT  FSA Ratings table name (default: ratingstable)
+  --area TEXT          Specfiy an area to download data for
+  --authority TEXT     Specfiy a local authority to download data for
+  --help               Show this message and exit.
+```
