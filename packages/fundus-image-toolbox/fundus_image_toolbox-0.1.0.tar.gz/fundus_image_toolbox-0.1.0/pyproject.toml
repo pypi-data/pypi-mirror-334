@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "fundus_image_toolbox/_version.py"
+
+[project]
+name = "fundus_image_toolbox"
+version = "0.1.0"
+description = "A toolbox for fundus image analysis"
+readme = {file = "Readme.md", content-type = "text/markdown"}
+authors = [
+    {name = "Julius Gervelmeyer", email = "Julius.Gervelmeyer@uni-tuebingen.de"},
+]
+requires-python = ">=3.9"
+dependencies = [
+    "albumentations",
+    "captum>=0.7.0",
+    "gdown>=5.2.0",
+    "imgaug>=0.4.0",
+    "ipykernel>=6.29.5",
+    "ipython>=8.18.1",
+    "jupyter>=1.1.1",
+    "jupyter-black>=0.4.0",
+    "matplotlib>=3.6.2",
+    "matplotlib-inline>=0.1.6",
+    "munch>=4.0.0",
+    "mypy>=0.910",
+    "notebook-shim>=0.2.4",
+    "numpy>=1.24.0",
+    "opencv-python-headless>=4.9.0.80",
+    "openpyxl>=3.1.2",
+    "pandas>=1.4.2",
+    "pillow>=10.2.0",
+    "pip>=25.0",
+    "pyyaml>=6.0.0",
+    "scikit-image>=0.22.0",
+    "scikit-learn>=1.1.2",
+    "scipy>=1.10.0",
+    "seaborn>=0.13.2",
+    "timm>=0.9.16",
+    "torch>=2.2.0",
+    "torchinfo>=1.8.0",
+    "torchvision>=0.15.2",
+    "tqdm>=4.66.2",
+]
+
+[dependency-groups]
+dev = [
+    "tox>=4.24.1",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.uv.workspace]
+members = ["."]
+
+[project.urls]
+repository = "https://github.com/berenslab/fundus_image_toolbox"
