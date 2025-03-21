@@ -1,0 +1,10 @@
+astropy
+reproject
+pyproj
+dask[array]
+healpy
+pytz
+h5py
+
+[mocpy]
+mocpy

@@ -1,0 +1,120 @@
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+
+
+"""
+    Computes the parallactic angle corrections matrices as seen
+    during a NenuFAR tracking observation.
+    This is a wrapper around the DreamBeam module written by
+    Tobia Carozzi (https://github.com/2baOrNot2ba/dreamBeam).
+    The NenuFAR antenna element radiation pattern has been provided
+    by the NenuFAR team and integrated by Tobia in DreamBeam.
+
+    Using this software requires that DreamBeam is already installed.
+    The latter requires AntPat (https://github.com/2baOrNot2ba/AntPat)
+    and python-casacore (https://github.com/casacore/python-casacore).
+"""
+
+
+__author__ = "Alan Loh"
+__copyright__ = "Copyright 2023, nenupy"
+__credits__ = ["Alan Loh"]
+__maintainer__ = "Alan"
+__email__ = "alan.loh@obspm.fr"
+__status__ = "Production"
+
+
+from astropy.coordinates import SkyCoord
+from astropy.time import Time, TimeDelta
+import argparse
+
+from nenupy.astro.beam_correction import (
+    compute_jones_matrices,
+    convert_to_mueller,
+    matrices_to_hdf5
+)
+
+# ============================================================= #
+# ---------------------- argument_parser ---------------------- #
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-t", "--time", type=str, required=True,
+        help="Start time (UTC, ISOT format)."
+    )
+    parser.add_argument(
+        "-dt", "--tstep", type=int, required=True,
+        help="Time step (in seconds)."
+    )
+    parser.add_argument(
+        "-dd", "--duration", type=int, required=True,
+        help="Observation duration (in seconds)."
+    )
+    parser.add_argument(
+        "-r", "--ra", type=float, required=True,
+        help="Target Right Ascension (in degrees)."
+    )
+    parser.add_argument(
+        "-d", "--dec", type=float, required=True,
+        help="Target Declination (in degrees)."
+    )
+    parser.add_argument(
+        "-f", "--file_name", type=str, required=True,
+        help="File name where the results will be stored (FITS extension)."
+    )
+    matrix_parser = parser.add_mutually_exclusive_group(required=False)
+    matrix_parser.add_argument(
+        "-m", "--mueller",
+        dest="output_mueller", action="store_true",
+        help="Output Mueller matrices."
+    )
+    matrix_parser.add_argument(
+        "-j", "--jones",
+        dest="output_mueller", action="store_false",
+        help="Output Jones matrices."
+    )
+    parallactic_parser = parser.add_mutually_exclusive_group(required=False)
+    parallactic_parser.add_argument(
+        "-p", "--parallactic_rotation",
+        dest="parallactic_rotation", action="store_true",
+        help="Account for parallactic angle rotation."
+    )
+    parallactic_parser.add_argument(
+        "-np", "--no_parallactic_rotation",
+        dest="parallactic_rotation", action="store_false",
+        help="Do not account for parallactic angle rotation."
+    )
+    parser.set_defaults(parallactic_rotation=True)
+    args = parser.parse_args()
+    return args
+# ============================================================= #
+# ============================================================= #
+
+# ============================================================= #
+# --------------------------- main ---------------------------- #
+if __name__ == "__main__":
+
+    args = parse_arguments()
+
+    # Compute the Jones matrices using DreamBeam
+    times, frequencies, output_matrices = compute_jones_matrices(
+        start_time=Time(args.time),
+        time_step=TimeDelta(args.tstep, format="sec"),
+        duration=TimeDelta(args.duration, format="sec"),
+        skycoord=SkyCoord(args.ra, args.dec, unit="deg", frame="icrs"),
+        parallactic=args.parallactic_rotation
+    )
+
+    # Convert these matrices into Mueller matrices
+    if args.output_mueller:
+        output_matrices = convert_to_mueller(output_matrices)
+    
+    # Store the results in a FITS file
+    matrices_to_hdf5(
+        times=times,
+        frequencies=frequencies,
+        matrices=output_matrices,
+        file_name=args.file_name
+    )
+# ============================================================= #
+# ============================================================= #
