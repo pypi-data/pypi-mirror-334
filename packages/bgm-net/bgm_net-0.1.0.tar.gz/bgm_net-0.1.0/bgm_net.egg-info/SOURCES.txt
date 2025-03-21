@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+bgm_net.egg-info/PKG-INFO
+bgm_net.egg-info/SOURCES.txt
+bgm_net.egg-info/dependency_links.txt
+bgm_net.egg-info/requires.txt
+bgm_net.egg-info/top_level.txt
+package/__init__.py
+package/client.py
+package/server.py
