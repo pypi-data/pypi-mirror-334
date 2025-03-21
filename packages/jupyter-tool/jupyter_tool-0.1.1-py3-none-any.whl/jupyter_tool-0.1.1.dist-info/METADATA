@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: jupyter_tool
+Version: 0.1.1
+Summary: A Python package providing atomic tools for langchain-based AI agents to manipulate Jupyter notebooks. Built on nbclient/nbformat, it enables programmatic notebook creation, loading, and manipulation.
+Home-page: https://github.com/cab938/jupyter_tool/
+Author: Christopher Brooks
+Author-email: cab938@gmail.com
+Requires-Python: >=3.10
+Requires-Dist: nbclient
+Requires-Dist: nbformat
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: requests
+Requires-Dist: langchain>=0.3.0
+Requires-Dist: boto3
+Requires-Dist: langchain-aws>=0.2.12
+Requires-Dist: langchain-community>=0.3.16
+Requires-Dist: langchain-core>=0.3.33
+Requires-Dist: ipykernel
+Requires-Dist: langgraph
+Requires-Dist: langfuse
+Requires-Dist: setuptools
+Requires-Dist: build
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
