@@ -1,0 +1,1 @@
+IsInstanceFromPython = isinstance
