@@ -1,0 +1,48 @@
+---
+ancestor: null
+releases:
+  1.0.0:
+    changes:
+      release_summary: Initial release.
+    fragments:
+      - 1.0.0.yml
+    release_date: '2024-09-09'
+  1.0.1:
+    changes:
+      bugfixes:
+        - Remove accidentally left-in ``print()`` statement in ``antsibull_fileutils.io.write_file()``
+          (https://github.com/ansible-community/antsibull-fileutils/pull/5).
+      release_summary: Bugfix release.
+    fragments:
+      - 1.0.1.yml
+      - 5-io-print.yml
+    release_date: '2024-09-13'
+  1.1.0:
+    changes:
+      bugfixes:
+        - '``CollectionCopier``''s ``source_directory`` argument now accepts ``pathlib.Path``
+          objects in addition to ``str`` s (https://github.com/ansible-community/antsibull-fileutils/pull/6).'
+      minor_changes:
+        - Declare support for Python 3.13 (https://github.com/ansible-community/antsibull-fileutils/pull/10).
+        - 'Rewrite ``Copier`` and ``GitCopier`` so that both symlinks outside the
+          tree and symlinks inside the tree are handled more correctly: symlinks inside
+          the tree are kept, while for symlinks outside the tree the content is copied.
+          Symlinks are normalized by default, which makes this behavior similar to
+          ansible-core''s behavior in ``ansible-galaxy collection build``. Also copying
+          now tries to preserve metadata (https://github.com/ansible-community/antsibull-fileutils/pull/8).'
+      release_summary: Bugfix and feature release.
+    fragments:
+      - 1.1.0.yml
+      - 6-collection-copier-strpath.yml
+      - 8-copier.yml
+      - python-3.13.yml
+    release_date: '2024-10-22'
+  1.2.0:
+    changes:
+      minor_changes:
+        - Allow to exclude top-level files and directories when copying trees (https://github.com/ansible-community/antsibull-fileutils/pull/14).
+      release_summary: Feature release.
+    fragments:
+      - 1.2.0.yml
+      - 14-exclude-root.yml
+    release_date: '2025-03-18'
