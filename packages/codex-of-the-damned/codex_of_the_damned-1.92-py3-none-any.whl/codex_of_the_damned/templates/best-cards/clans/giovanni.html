@@ -1,0 +1,95 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1>{{ giovanni }} Giovanni</h1>
+<div class="insert tip">
+    <p>
+        {% trans trimmed
+        khazar_s_diary_arch=link("/archetypes/khazars-diary"),
+        khazar_s_diary=card("Khazar's Diary (Endless Night)"),
+        shambling_hordes_arch=link("/archetypes/shambling-hordes"),
+        shambling_hordes=card("Shambling Hordes")
+        %}
+        The Giovanni and their rare {{ nec }} discipline, combined with the fact that
+        they have {{ dom }} as a clan discipline, come up with two original allies
+        archetypes: the {{ khazar_s_diary_arch }}, centered on allies and
+        {{ khazar_s_diary }}, and {{ shambling_hordes_arch }}, an allies archetype using
+        {{ shambling_hordes }}. Due to nature of these archetypes and usefulness of
+        {{ dom }}, Giovanni vampires popularity is skewed towards lower capacitiess.
+        {% endtrans %}
+    </p>
+    <p>
+        {% trans trimmed
+        powerbleed=link("/archetypes/giovanni-powerbleed"),
+        call_of_the_hungry_dead=card("Call of the Hungry Dead"),
+        seduction=card("Seduction"),
+        guillaume_giovanni=card("Guillaume Giovanni")
+        %}
+        The {{ powerbleed }} angle is also tournament-worthy. The combination of
+        {{ call_of_the_hungry_dead }} and {{ seduction }} is strong, and
+        {{ guillaume_giovanni }} gave birth to interesting deck lists,
+        though all quite different.
+        {% endtrans %}
+    </p>
+</div>
+
+{% call layout.card_column("Sudario Refraction", decks=15, copies="2-5") %}
+{% trans trimmed %}
+The most played Giovanni card. Its rare recursion ability enables the Giovanni players
+to adapt their hand to the table context, which is a nice advantage.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Lia Milliner", decks=12, copies="1") %}
+{% trans trimmed %}
+{{ dom }} and {{ nec }} for only 3 pool: a bargain. She can even find her place
+in mono {{ dom }} decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Gloria Giovanni", decks=11, copies="1") %}
+{% trans trimmed %}
+Superior {{ DOM }} and {{ nec }} for only 4 pool: another bargain.
+She finds an easy place in mono {{ dom }} builds.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Tye Cooper", decks=10, copies="1") %}
+{% trans trimmed %}
+Played in many Giovanni decks, even when they are not centred on allies,
+he is very resilient and can be good defence.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Powerbase: Cape Verde", decks=10, copies="1") %}
+{% trans trimmed blood_doll=card("Blood Doll") %}
+A generalized {{ blood_doll }},
+it is an efficient bloat device at no cost. Most Giovanni decks play it.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Gianna di Canneto", decks=10, copies="1") %}
+{% trans trimmed %}
+The additional damage and equipment burning ability is unique and so useful.
+Moreover, she can bleed! A bargain for any combat-capable Giovanni deck.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Isabel Giovanni", decks=9, copies="1-2") %}
+{% trans trimmed %}
+Superior {{ DOM }}{{ NEC }} for only 5 pool,
+it is often the perfect disciplines combination for Giovanni decks,
+so Isabel is often played in multiple copies.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Guillaume Giovanni", decks=8, copies="4-5") %}
+{% trans trimmed
+own_archetype=link("/archetypes/guillaume-real-estate", _("own archetype"))
+%}
+Star of his {{ own_archetype }}, Guillaume lets you build the largest hands in the game.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}
