@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: robotpy-romi
+Version: 2025.3.2.0
+Summary: Binary wrapper for WPILib Romi Vendor library
+Home-page: https://github.com/robotpy/mostrobotpy
+Author: RobotPy Development Team
+Author-email: robotpy@googlegroups.com
+License: BSD-3-Clause
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: wpilib==2025.3.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+robotpy-romi
+============
+
+RobotPy support for the WPILib ROMI vendor library.
