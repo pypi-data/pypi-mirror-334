@@ -1,0 +1,47 @@
+Metadata-Version: 2.2
+Name: gps-tools-pkg
+Version: 0.1.1
+Summary: Tools for handling GPS data and calculations
+Home-page: https://github.com/yourusername/gps_tools
+Author: Your Name
+Author-email: your.email@example.com
+Keywords: gps,navigation,geolocation
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
+
+# GPS Tools
+
+A Python package for handling GPS data and operations.
+
+## Installation
+
+```
+pip install gps_tools
+```
+
+## Usage
+
+```python
+import gps_tools
+
+# Your code here
+```
+
+## License
+
+MIT 
