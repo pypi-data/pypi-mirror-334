@@ -1,0 +1,17 @@
+description: Loads and profiles serialized Python scripts.
+
+build_args:
+  extra-requirements: EXTRA_REQUIREMENTS
+
+args:
+  - name: script
+    description: Path to the script to profile.
+    required: true
+    volume: true
+
+examples:
+  - description: "Load a Python script:"
+    command: dyana trace --loader python --script /path/to/file.py
+
+  - description: "Networking is disabled by default, if you need to allow it, you can pass the --allow-network flag:"
+    command: dyana trace --loader python --script /path/to/file.py --allow-network

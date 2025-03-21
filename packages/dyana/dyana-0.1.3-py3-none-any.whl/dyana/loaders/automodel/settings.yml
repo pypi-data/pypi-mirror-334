@@ -1,0 +1,33 @@
+description: Loads and profiles machine learning models compatible with AutoModel and AutoTokenizer.
+
+gpu: true
+build_args:
+  extra-requirements: EXTRA_REQUIREMENTS
+
+args:
+  - name: model
+    description: Path to the model to profile.
+    required: true
+    volume: true
+
+  - name: input
+    description: Input for the model.
+    default: This is an example sentence.
+    required: false
+
+  - name: low-memory
+    description: Perform tokenizer and model initialization without loading weights.
+    required: false
+
+examples:
+  - description: "Load a model and run it with an example input:"
+    command: dyana trace --loader automodel --model /path/to/model --input "This is an example sentence."
+
+  - description: "automodel is the default loader, so this is equivalent to:"
+    command: dyana trace --model /path/to/model --input "This is an example sentence."
+
+  - description: "In case the model requires extra dependencies, you can pass them as:"
+    command: dyana trace --model tohoku-nlp/bert-base-japanese --input "This is an example sentence." --extra-requirements "protobuf fugashi ipadic"
+
+  - description: "To perform tokenizer and model initialization without loading weights:"
+    command: dyana trace --model /path/to/model --low-memory

@@ -1,0 +1,6 @@
+[console_scripts]
+dyana=dyana.__main__:run
+
+[pipx.run]
+dyana=dyana.__main__:run
+

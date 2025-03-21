@@ -1,0 +1,14 @@
+description: Loads and profiles serialized Pickle files.
+
+args:
+  - name: pickle
+    description: Path to the python pickle file to deserialize.
+    required: true
+    volume: true
+
+examples:
+  - description: "Load a Pickle file:"
+    command: dyana trace --loader pickle --pickle /path/to/file.pickle
+
+  - description: "Networking is disabled by default, if you need to allow it, you can pass the --allow-network flag:"
+    command: dyana trace --loader pickle --pickle /path/to/file.pickle --allow-network
