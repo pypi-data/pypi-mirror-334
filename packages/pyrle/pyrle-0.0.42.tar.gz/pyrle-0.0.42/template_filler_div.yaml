@@ -1,0 +1,16 @@
+
+
+div_nonzeroes:
+  name: nonzeroes
+  nv: "nv = values1[x1] / values2[x2]"
+
+div_zeroes:
+  name: zeroes
+  nv: "\n\
+\        if values2[x2] != 0:\n\
+\            nv = values1[x1] / values2[x2]\n\
+\        elif values1[x1] != 0:\n\
+\            sign = copysign(1, values1[x1]) * copysign(1, values2[x2])\n\
+\            nv = inf * sign\n\
+\        else:\n\
+\            nv = NAN\n"

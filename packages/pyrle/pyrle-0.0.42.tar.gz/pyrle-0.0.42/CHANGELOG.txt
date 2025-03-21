@@ -1,0 +1,59 @@
+# 0.0.41 (17.03.25)
+- use importlib not pkg_resources
+
+# 0.0.40 (01.05.24)
+- add support for new pyranges
+
+# 0.0.37 (18.05.23)
+- remove option to return 32-bit PyRanges
+
+# 0.0.36 (01.05.22)
+- Update numpy types
+
+# 0.0.35 (27.05.22)
+- update np.long to np.int to avoid depr warnings
+
+# 0.0.34 (03.02.22)
+- attempt to fix #5
+
+# 0.0.33 (10.06.21)
+- fix bug in setup.py
+
+# 0.0.32 (25.02.21)
+- fix bug in .stranded
+
+# 0.0.31 (unreleased)
+- helper method make_strands_same_length to rledicts
+
+# 0.0.30 (14.01.20)
+- add unary negation to rle/rledict
+- add apply, apply_values and apply_runs to rle/rledict
+- add iter to rledict to for loop through keys/values
+- subsetting an RLE with a dataframe now returns a dataframe
+- printing rles respects terminal width
+- add copy() to rledict
+- add shift to rle/rledict
+- add .length property to Rle which gives sum of runs
+- allow for empty constructors (Rle() and PyRles())
+- add .chromosomes property to rledict
+- add len() to PyRles
+- rledicts now also have a to_csv method
+- add to_table to rledict
+
+# 0.0.29 (21.01.19)
+- try to fix bug when subsetting with pyranges
+
+# 0.0.28 (17.01.19)
+- improve speed when subsetting with pyranges
+
+# 0.0.27 (10.01.19)
+- better api for subsetting rles with dfs
+
+# 0.0.26 (07.01.19)
+- better api for subsetting with pyranges
+
+# 0.0.25 (24.10.19)
+- allow creating pyrle from values only (thanks Alistair Miles)
+
+# 0.0.23 (09.05.19)
+- remove pyranges dependency
