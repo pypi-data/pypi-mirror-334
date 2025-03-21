@@ -1,0 +1,93 @@
+Metadata-Version: 2.2
+Name: doraemon-torch
+Version: 0.0.3a0
+Summary: Doraemon
+Home-page: https://github.com/wuji3/Doraemon
+Author: duke
+Author-email: dk812821001@163.com
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torchmetrics==0.11.4
+Requires-Dist: opencv-python==4.7.0.72
+Requires-Dist: numpy==1.24.3
+Requires-Dist: tqdm==4.66.4
+Requires-Dist: Pillow==9.4.0
+Requires-Dist: grad-cam==1.4.8
+Requires-Dist: timm==0.9.16
+Requires-Dist: tensorboard==2.16.2
+Requires-Dist: prettytable==3.10.0
+Requires-Dist: datasets==2.20.0
+Requires-Dist: imagehash==4.3.1
+Requires-Dist: transformers==4.48.3
+Requires-Dist: torch==2.5.1
+Requires-Dist: torchvision==0.20.1
+Requires-Dist: torchaudio==2.5.1
+Requires-Dist: faiss-cpu==1.7.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# <div align="center">DORAEMON: Deep Object Recognition And Embedding Model Of Networks</div>
+
+<p align="center">
+<img src="./misc/doraemon.jpg">
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/python-3.10-blue.svg">
+<img src="https://img.shields.io/badge/pytorch-2.0+-orange.svg">
+<img src="https://img.shields.io/badge/torchmetrics-0.11.4-green.svg">
+<img src="https://img.shields.io/badge/timm-0.9.16-red.svg">
+<img src="https://img.shields.io/badge/opencv-4.7.0-lightgrey.svg">
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+</p>
+
+## 🚀 Quick Start
+
+<summary><b>Installation Guide</b></summary>
+
+```bash
+# Create and activate environment
+python -m venv doraemon
+source doraemon/bin/activate
+
+# Install Doraemon
+pip install doraemon-torch
+```
+
+## 📢 What's New
+
+- **[Oct. 2024]** [Content-Based Image Retrieval(CBIR)](doraemon/models/representation/README_CBIR.md) support added with ConvNext backbone
+- **[Apr. 2024]** [Face Recognition Task(FRT)] launched with various backbones and loss functions
+- **[Jun. 2023]** [Image Classification Task(ICT)](doraemon/models/classifier/README.md) released with advanced training strategies
+- **[May. 2023]** Initial release of Doraemon
+
+## 🎯 Implemented Methods
+
+|Category | Methods |
+|----------|---------|
+| Optimization | SAM, Progressive Learning, OHEM, Focal Loss, Cosine Annealing |
+| Regularization | Label Smoothing, Mixup, CutOut |
+| Attention & Visualization | Attention Pool, GradCAM |
+| Representation Learning | ArcFace, CircleLoss, MegFace, MV Softmax |
+
+## 🔮 Supported Models
+ 
+**Doraemon** now supports 1000+ models through integration with Timm:
+ 
+- All models from `timm.list_models(pretrained=True)`
+- Including CLIP, SigLIP, DeiT, BEiT, MAE, EVA, DINO and more
+
+[Model Performance Benchmarks](https://github.com/huggingface/pytorch-image-models/tree/main/results) can help you select the most suitable model by comparing:
+- Inference speed
+- Training efficiency 
+- Accuracy across different datasets
+- Parameter count vs performance trade-offs
+
+> For detailed benchmark results, see [@huggingface/pytorch-image-models#1933](https://github.com/huggingface/pytorch-image-models/issues/1933)
