@@ -1,0 +1,43 @@
+Metadata-Version: 2.3
+Name: fango
+Version: 0.0.28
+Summary: Metaframework for web with combined FastAPI and Django
+License: MIT
+Keywords: fastapi,django,fango
+Author: Egor Gamazin
+Author-email: egorgamazin@yandex.ru
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: django (>=4.2,<6.0)
+Requires-Dist: django-filter (>=24.2,<25.0)
+Requires-Dist: fastapi (>=0.108.0,<0.109.0)
+Requires-Dist: pytest (>=8.0.1,<9.0.0)
+Requires-Dist: python-jose (>=3.3.0,<4.0.0)
+Project-URL: Repository, https://github.com/egorgam/fango
+Description-Content-Type: text/markdown
+
+# <img src='https://github.com/egorgam/fango/assets/13712792/e541fff2-3833-4f30-ba9b-09ea5c375077' width='30'> FANGO
+
+Metaframework for web with combined FastAPI and Django.
+
+Why?
+
+Django has async orm, but DRF is not supports it. But there is a nice FastAPI framework without native Django ORM mode and admin panel. So...
+
+Organize your app like a djangoproject, and use FastAPI over django orm with FANGO.
+
+
+Some built in features of FANGO:
+
+1. Async cypher JWT auth
+2. DRF-like cursor paginaton
+3. DRF-lile GenericViewSet
+4. Adapter for save pydantic model data with ORM
+5. FastAPI TestClient for pytest-django tests
+6. Django-filter support
+
