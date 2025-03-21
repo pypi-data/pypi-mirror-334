@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+jupyter_notebook_toc.egg-info/PKG-INFO
+jupyter_notebook_toc.egg-info/SOURCES.txt
+jupyter_notebook_toc.egg-info/dependency_links.txt
+jupyter_notebook_toc.egg-info/entry_points.txt
+jupyter_notebook_toc.egg-info/requires.txt
+jupyter_notebook_toc.egg-info/top_level.txt
+jupyter_toc_generator/__init__.py
+jupyter_toc_generator/cli.py
+jupyter_toc_generator/core.py
