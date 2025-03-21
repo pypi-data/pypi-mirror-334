@@ -1,0 +1,42 @@
+[project]
+name = "daisy-dtb"
+description = "A library to deal with Daisy 2.02 digital talking books"
+version = "0.0.17"
+
+authors = [{ "name" = "Martin Mohnhaupt", email = "m.mohnhaupt@bluewin.ch" }]
+maintainers = [
+    { "name" = "Martin Mohnhaupt", email = "m.mohnhaupt@bluewin.ch" },
+]
+
+license = { text = "MIT License" }
+
+readme = "README.md"
+requires-python = ">=3.11"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = ["chardet>=5.2.0", "loguru>=0.7.3"]
+
+[dependency-groups]
+dev = [
+    "getkey>=0.6.5",
+    "pygame>=2.6.1",
+    "pygame-widgets>=1.1.6",
+    "pylint>=3.3.3",
+    "pyside6>=6.8.2",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "python-vlc>=3.0.21203",
+]
+
+[project.urls]
+Homepage = "https://github.com/nicedata/daisy-dtb"
+Issues = "https://github.com/nicedata/daisy-dtb/issues"
+
+[tool.pytest.ini_options]
+pythonpath = "src/"
+testpaths = ['tests']
+filterwarnings = ["ignore::pytest.PytestCollectionWarning"]
