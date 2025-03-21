@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+an_condamanager/__init__.py
+an_condamanager/condamanager.py
+an_condamanager.egg-info/PKG-INFO
+an_condamanager.egg-info/SOURCES.txt
+an_condamanager.egg-info/dependency_links.txt
+an_condamanager.egg-info/requires.txt
+an_condamanager.egg-info/top_level.txt
