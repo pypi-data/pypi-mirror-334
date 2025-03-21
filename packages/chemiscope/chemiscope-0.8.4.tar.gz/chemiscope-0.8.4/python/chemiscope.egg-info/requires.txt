@@ -1,0 +1,10 @@
+numpy
+ipywidgets<9,>=7
+
+[explore]
+dscribe
+scikit-learn
+
+[metatensor]
+metatensor-operations<0.4,>=0.3
+metatensor-torch<0.7,>=0.6
