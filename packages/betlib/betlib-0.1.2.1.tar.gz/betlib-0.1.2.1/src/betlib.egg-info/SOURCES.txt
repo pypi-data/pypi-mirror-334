@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+src/betlib/__init__.py
+src/betlib/bet_lib.py
+src/betlib.egg-info/PKG-INFO
+src/betlib.egg-info/SOURCES.txt
+src/betlib.egg-info/dependency_links.txt
+src/betlib.egg-info/requires.txt
+src/betlib.egg-info/top_level.txt
+tests/test_bet_lib.py
