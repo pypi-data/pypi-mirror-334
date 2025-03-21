@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 Anthony Zimmermann
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "KMC"
+authors = [
+  { name="Anthony Zimmermann", email="anthony.zimmermann@protonmail.com" },
+]
+description = "KMC - Keyboard Mouse Connect - Forward keyboard and mouse input to another machine via a software communication protocol like ethernet."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Desktop Environment",
+    "Topic :: Multimedia",
+    "Topic :: Office/Business",
+    "Topic :: System",
+    "Topic :: Utilities",
+]
+license = "GPL-3.0-only"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "pynput>=1.7,<2.0",
+]
+keywords = [
+    "keyboard",
+    "mouse",
+    "kvm",
+    "kvmswitch",
+    "connect",
+    "share",
+    "sharing",
+    "kmc",
+    "input",
+]
+dynamic = ["version"]
+
+[project.scripts]
+kmc = "KMC.client.kmc:run"
+kmc-server = "KMC.server.kmc:run"
+
+[project.urls]
+Homepage = "https://gitlab.com/AnthonyZimmermann/kmc"
+Issues = "https://gitlab.com/AnthonyZimmermann/kmc/-/issues"
+
+[tool.hatch.version]
+path = "README.md"
+pattern = "KMC Version (?P<version>\\d+\\.\\d+\\.\\d+)<!-- VERSION -->"
+
+[tool.hatch.build]
+packages = ["KMC"]
+exclude = []
