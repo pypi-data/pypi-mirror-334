@@ -1,0 +1,26 @@
+- href: "https://example.com/about"
+  expected: "about"
+
+- href: "https://example.com/signup/"
+  expected: "signup"
+
+- href: "https://example.com/signup"
+  expected: "signup"
+
+- href: "https://example.com/sign-up/"
+  expected: "signup"
+
+- href: "https://example.com/sign-up"
+  expected: "signup"
+
+- href: "https://example.com/team"
+  expected: "team"
+
+- href: "https://example.com/work"
+  expected: "work"
+
+- href: "https://example.com/en/career"
+  expected: "jobs"
+
+- href: "https://example.com/careers"
+  expected: "jobs"
