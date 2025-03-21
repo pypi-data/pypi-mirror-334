@@ -1,0 +1,3 @@
+[console_scripts]
+dubstub=dubstub.cli.main:main
+
