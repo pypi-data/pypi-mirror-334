@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/EnergyCalibrationPy/__init__.py
+src/EnergyCalibrationPy/calibration_plot.py
+src/EnergyCalibrationPy/data_processing.py
+src/EnergyCalibrationPy/utils.py
+src/EnergyCalibrationPy/version.py
+src/EnergyCalibrationPy.egg-info/PKG-INFO
+src/EnergyCalibrationPy.egg-info/SOURCES.txt
+src/EnergyCalibrationPy.egg-info/dependency_links.txt
+src/EnergyCalibrationPy.egg-info/requires.txt
+src/EnergyCalibrationPy.egg-info/top_level.txt
