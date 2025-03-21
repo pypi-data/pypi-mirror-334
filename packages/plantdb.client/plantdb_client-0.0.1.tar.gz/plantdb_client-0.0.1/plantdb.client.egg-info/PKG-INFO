@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: plantdb.client
+Version: 0.0.1
+Summary: Client-side database library for the ROMI (Robotics for Microfarms) project.
+Author-email: Nabil Ait Taleb <mohamednabil.aittaleb@sony.com>, Peter Hanappe <peter.hanappe@sony.com>, Timothée Wintz <timothee@timwin.fr>, Arthur Luciani <arthur.luciani@ens-lyon.fr>
+Maintainer-email: Jonathan Legrand <jonathan.legrand@ens-lyon.fr>
+Project-URL: Homepage, https://romi-project.eu/
+Project-URL: Documentation, https://docs.romi-project.eu/plant_imager/
+Project-URL: Repository, https://github.com/romi/plantdb
+Project-URL: Issues, https://github.com/romi/plantdb/issues
+Keywords: Robotics for Microfarms,ROMI,Database,REST API
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: plantdb.commons
+Requires-Dist: requests
+Requires-Dist: tqdm
