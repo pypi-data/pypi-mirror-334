@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vtes-rulings"
+dynamic = ["version"]
+authors = [{ name = "VEKN" }]
+description = "Website for VTES cards rulings"
+keywords = ["vtes", "Vampire: The Eternal Struggle", "CCG"]
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: JavaScript",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "aiofiles>=24",
+    "aiohttp>=3",
+    "arrow>=1",
+    "asgiref>=3",
+    "click>=8",
+    "quart>=0",
+    "gitpython>=3",
+    "unidecode>=1",
+    "jinja2>=3",
+    "orjson>=3",
+    "pydantic>=2",
+    "psycopg[pool]>=3",
+    "pyyaml>=6",
+    "yamlfix>=1",
+    "krcg>=4.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24",
+    "build>=1",
+    "ipdb>=0",
+    "ipython>=8",
+    "pytest>=8",
+    "pytest-asyncio>=0",
+    "python-dotenv",
+    "ruff>=0",
+    "setuptools-scm>=8",
+    "twine>=5",
+]
+
+[project.scripts]
+rulings-web = "vtesrulings:main"
+
+[project.urls]
+Repository = "https://github.com/vtes-biased/vtesrulings-website"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["vtesrulings*"]
+
+[tool.setuptools_scm]
+
+[tool.pytest.ini_options]
+addopts = "-vvs --strict-markers -m 'not discord'"
+markers = ["discord: marks tests as running against Discord Test Server"]
+
+[tool.yamlfix]
+line_length = 120
+sequence_style = "block_style"

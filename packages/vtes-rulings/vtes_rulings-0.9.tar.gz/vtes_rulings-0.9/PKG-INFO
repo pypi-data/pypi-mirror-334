@@ -1,0 +1,76 @@
+Metadata-Version: 2.2
+Name: vtes-rulings
+Version: 0.9
+Summary: Website for VTES cards rulings
+Author: VEKN
+Project-URL: Repository, https://github.com/vtes-biased/vtesrulings-website
+Keywords: vtes,Vampire: The Eternal Struggle,CCG
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiofiles>=24
+Requires-Dist: aiohttp>=3
+Requires-Dist: arrow>=1
+Requires-Dist: asgiref>=3
+Requires-Dist: click>=8
+Requires-Dist: quart>=0
+Requires-Dist: gitpython>=3
+Requires-Dist: unidecode>=1
+Requires-Dist: jinja2>=3
+Requires-Dist: orjson>=3
+Requires-Dist: pydantic>=2
+Requires-Dist: psycopg[pool]>=3
+Requires-Dist: pyyaml>=6
+Requires-Dist: yamlfix>=1
+Requires-Dist: krcg>=4.6
+Provides-Extra: dev
+Requires-Dist: black>=24; extra == "dev"
+Requires-Dist: build>=1; extra == "dev"
+Requires-Dist: ipdb>=0; extra == "dev"
+Requires-Dist: ipython>=8; extra == "dev"
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: pytest-asyncio>=0; extra == "dev"
+Requires-Dist: python-dotenv; extra == "dev"
+Requires-Dist: ruff>=0; extra == "dev"
+Requires-Dist: setuptools-scm>=8; extra == "dev"
+Requires-Dist: twine>=5; extra == "dev"
+
+# VTES rulings website
+
+## Develop
+
+You'll need [Python3](https://www.python.org) and [NodeJS](https://nodejs.org) to build the project.
+
+### Setting up the development environment
+
+Create a Python virtual env, an `.env` file, and install:
+
+```shell
+$ python3 -m venv .venv
+$ touch .env
+$ make update
+```
+
+You want a couple of env variables for tha app to run correctly:
+
+```shell
+export QUART_APP="vtesrulings:app"
+export DISCORD_WEBHOOK=<your Discord community server webhook URL>
+```
+
+You can now launch the server locally:
+
+```shell
+§ make serve
+```
