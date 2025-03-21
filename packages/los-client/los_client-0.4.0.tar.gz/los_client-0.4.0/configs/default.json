@@ -1,0 +1,21 @@
+{
+    "solvers": [
+        {
+            "solver_path": "/home/los/kissat/build/kissat",
+            "token": "0000_kissat",
+            "args": [],
+            "output_path": null
+        },
+        {
+            "solver_path": "/nopath/kissat",
+            "token": "0001_kissat",
+            "args": [],
+            "output_path": null
+        }
+    ],
+    "problem_path": "problem.cnf",
+    "output_folder": "/home/los/los_client/output",
+    "host": "ws://localhost:8765",
+    "quiet": false,
+    "write_outputs": false
+}
