@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="lewis"
+description="Lewis - Let's write intricate simulators!"
+requires-python=">=3.10"
+readme="README.md"
+classifiers=[
+        "Development Status :: 5 - Production/Stable",
+
+        "Environment :: Console",
+
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+
+        "Topic :: Scientific/Engineering",
+        "Topic :: Software Development :: Libraries",
+
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+
+        "Operating System :: OS Independent",
+
+        "Programming Language :: Python :: 3",
+    ]
+license= {file = "LICENSE"}
+dynamic=["version"]
+authors=[
+    {name = "ScreamingUdder"},
+    {name = "ISIS Experiment Controls", email="ISISExperimentControls@stfc.ac.uk"}
+]
+keywords=["hardware", "controls", "epics", "simulation"]
+dependencies=[
+    "pyzmq",
+    "json-rpc",
+    "semantic_version",
+    "PyYAML",
+    "scanf",
+    "pyasynchat;python_version >= '3.12'",
+]
+
+[project.optional-dependencies]
+epics = ["pcaspy"]
+doc = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "myst_parser",
+    "sphinx-autobuild",
+]
+dev = [
+    "parameterized",
+    "lewis[doc]",
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "tox",
+    "approvaltests",
+    "pytest-approvaltests",
+    "ruff",
+    "pyright"
+]
+
+[project.scripts]
+lewis = "lewis.scripts.run:run_simulation"
+lewis-control = "lewis.scripts.control:control_simulation"
+
+[project.urls]
+"Homepage" = "https://github.com/ISISComputingGroup/lewis"
+"Bug Reports" = "https://github.com/ISISComputingGroup/lewis/issues"
+"Source" = "https://github.com/ISISComputingGroup/lewis"
+
+[tool.setuptools.packages.find]
+exclude=["tests", "tests.*"]
+
+[tool.setuptools_scm]
+version_file = "lewis/_version.py"

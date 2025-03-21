@@ -1,0 +1,16 @@
+*.pyc
+.idea
+.coverage
+.tox
+.cache
+dist/
+build/
+doc/_build/
+lewis.egg-info
+.DS_Store
+.venv
+doc/generated
+_build
+.approval_tests_temp
+# setuptools_scm-generated file
+lewis/_version.py
