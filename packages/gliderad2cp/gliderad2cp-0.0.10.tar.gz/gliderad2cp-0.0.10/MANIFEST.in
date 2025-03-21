@@ -1,0 +1,23 @@
+include *.txt
+include *.md
+include pyproject.toml
+
+include *.bib
+include *.cff
+recursive-include paper_figures *.png
+
+graft gliderad2cp
+
+prune docs
+prune tests
+prune notebooks
+prune *.egg-info
+
+global-exclude *.nc
+global-exclude *.pyc
+
+exclude *.yml
+exclude *.yaml
+exclude *.enc
+exclude .giti
+exclude gliderad2cp/_version.py
