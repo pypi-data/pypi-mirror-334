@@ -1,0 +1,19 @@
+# General Python
+################
+
+*.py[co]
+build/
+dist/
+venv/
+virtualenv/
+virtualenv.cache/
+
+# Authentication
+################
+
+authentication.py
+
+# Py.test
+#########
+
+.cache
