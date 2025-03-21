@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-clearfacts-api"
+version = "0.1.0"
+description = "Basic wrapper for the Clearfacts GraphQL API"
+readme = "README.md"
+authors = [
+    { name = "Alexander Schillemans", email = "alexander.schillemans@hotmail.com" }
+]
+license = { text = "GPL-3.0-or-later" }
+dependencies = [
+    "requests"
+]
+keywords = ["clearfacts", "clear", "facts", "api"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3.10"
+]
+
+[project.urls]
+Homepage = "https://github.com/alexander-schillemans/python-clearfacts-api"
+Download = "https://github.com/alexander-schillemans/python-clearfacts-api/archive/refs/tags/0.1.0.tar.gz"
+Repository = "https://github.com/alexander-schillemans/python-clearfacts-api"
+
+[tool.setuptools]
+packages = ["clearfacts", "clearfacts.models", "clearfacts.constants", "clearfacts.methods"]
