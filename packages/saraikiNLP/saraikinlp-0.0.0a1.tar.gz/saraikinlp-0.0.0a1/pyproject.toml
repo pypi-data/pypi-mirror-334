@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saraikiNLP"
+version = "0.0.0a1" 
+authors = [{ name = "Muhammad Muzamil", email = "muzamil.abdulsalam786@email.com" }]
+description = "SaraikiNLP – The NLP Framework for Saraiki Language"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
