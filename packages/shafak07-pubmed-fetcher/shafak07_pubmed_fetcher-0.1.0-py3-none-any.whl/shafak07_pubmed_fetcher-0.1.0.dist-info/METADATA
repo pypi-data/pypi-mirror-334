@@ -1,0 +1,17 @@
+Metadata-Version: 2.3
+Name: shafak07-pubmed-fetcher
+Version: 0.1.0
+Summary: Fetch PubMed research papers with biotech/pharma authors.
+License: MIT
+Author: Md Shafak
+Requires-Python: >=3.9,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: biopython (>=1.85,<2.0)
+Requires-Dist: pandas (>=2.2.3,<3.0.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Description-Content-Type: text/markdown
+
+
