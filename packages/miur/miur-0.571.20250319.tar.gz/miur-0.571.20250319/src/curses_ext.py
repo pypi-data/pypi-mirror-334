@@ -1,0 +1,246 @@
+import os
+import sys
+from contextlib import contextmanager
+
+# WARN:PERF: somehow doing import here is 2ms faster, than moving into func-local stmt
+from subprocess import CompletedProcess, run
+from threading import BoundedSemaphore
+from typing import Any, Callable, Iterator, Mapping, Sequence
+
+import _curses as C
+
+from . import iomgr
+from .app import g_app
+from .ui.colorscheme import init_colorscheme
+
+
+## ALT: C.wrapper(drawloop: Callable[[C.window], None])
+@contextmanager
+def curses_stdscr() -> Iterator[C.window]:
+    if not C.has_extended_color_support():
+        raise NotImplementedError
+
+    # import traceback as TR
+    # from .util.logger import log
+
+    # NOTE: only activate stderr=ttyalt when ncurses is active, otherwise print immediately
+    # sys.stderr = g_app.io.ttyalt
+
+    C.setupterm(term=os.environ.get("TERM", "unknown"), fd=iomgr.CURSES_STDOUT_FD)
+    try:
+        stdscr = C.initscr()
+        C.noecho()  # echoing of keys = off
+        ## DISABLED:(cbreak->raw): we free up [^Z,^C,^\,^S,^Q] but lose interrup/quit/suspend/flow-ctrl
+        # C.cbreak()  # buffering on keyboard input = off
+        C.raw()
+        stdscr.keypad(True)  # sup special escape seq for e.g. curses.KEY_LEFT
+        pvis = C.curs_set(0)
+        C.start_color()  # WAIT: which exception does it throw? TRY: TERM=dummy
+        stdscr.nodelay(True)
+        init_colorscheme(stdscr)
+
+        ## HACK: allow ANSI colors in curses.addstr()
+        # SRC: https://github.com/getcuia/cusser
+        # FAIL: doesn't work on !python>=3.11
+        # from cusser import Cusser
+        # if not isinstance(stdscr, Cusser):
+        #     stdscr = Cusser(stdscr)
+
+        yield stdscr
+    # except Exception as exc:
+    #     log.error("E1: " + "".join(TR.format_exception(exc, chain=True)))
+    #     raise
+    finally:
+        try:
+            stdscr.refresh()
+            stdscr.nodelay(False)
+            C.curs_set(pvis)
+            stdscr.keypad(False)
+            # del stdscr  # TRY? ALT:BAD: not ported :: delscreen(stdscr)
+            C.echo()
+            # BAD: both nocbreak and endwin may return _curses.error/ERR
+            # C.nocbreak()
+            C.noraw()
+            C.endwin()  # CHECK: is it safe to deinit libncurses multiple times in Jupyter?
+        # except Exception as exc:
+        #     log.error("E2: " + "".join(TR.format_exception(exc, chain=True)))
+        #     raise
+        finally:
+            # TEMP:HACK: dump logs on app exit
+            #   BAD? probably doesn't belong here, but whatever
+            # iomgr.dump_logbuf_to_tty()
+            # sys.stderr = g_app.io.ttyout
+            pass
+
+
+class curses_altscreen:
+    # FIXME! we should control not altscreen, but exclusive access to TTY
+    _sema1 = BoundedSemaphore(value=1)
+
+    def __init__(
+        self, stdscr: C.window, *, fflush: Callable[[], None] | None = None
+    ) -> None:
+        self._stdscr = stdscr
+        self._flush = fflush
+
+    def __enter__(self) -> None:
+        # HACK: throw BUG if you try to altscreen when you are already altscreen (e.g. shell_out)
+        #  ALT: inof failing (on bug) OR blocking -- simply print to screen as-is
+        if not self._sema1.acquire(blocking=False):
+            # sys.exit("BUG")
+            ## FAIL: ignored by asyncio
+            raise RuntimeError("BUG: altscreen is already switched out")
+        C.def_prog_mode()  # save current tty modes
+        C.endwin()  # restore original tty modes
+
+        iomgr.dump_logbuf_to_tty(g_app)
+
+    # def __exit__(self,
+    #   exc_type: Optional[Type[BaseException]],
+    #   exc_value: Optional[BaseException],
+    #   traceback: Optional[TracebackType]
+    #   ) -> Optional[bool]:
+    def __exit__(self, et=None, exc=None, tb=None):  # type:ignore[no-untyped-def]
+        # ATT: force immediate output before you switch back to curses alt-screen
+        if self._flush:
+            self._flush()
+        # ALT:TRY: C.doupdate()
+        self._stdscr.refresh()  # restore save modes, repaint screen
+        self._sema1.release()
+
+
+def resize() -> None:
+    from .app import g_app as g
+    from .util.logger import log
+
+    ## HACK:SRC: https://stackoverflow.com/questions/1022957/getting-terminal-width-in-c
+    ##   >> make curses to calc sizes by itself (as it does on each .refresh)
+    # HACK: force size reinit (as ncurses only does it in .iniscr())
+    # SRC:OLD: https://post.bytes.com/forum/topic/python/541442-curses-and-resizing-windows
+    # ALT:TRY: C.update_lines_cols()
+    C.def_prog_mode()
+    C.endwin()
+    g.stdscr.refresh()
+    # HACK: remove KEY_RESIZE from queue to avoid multi-refresh after several resizes
+    #   ALT:FAIL: _ch = g.stdscr.getch(); assert _ch == C.KEY_RESIZE, _ch
+    C.flushinp()
+
+    log.info("resize: [{}x{}]".format(*g.stdscr.getmaxyx()))
+    ## DEP:configure(--enable-sigwinch)
+    # BAD: does not work inside jupyter
+    # BAD: should press some key before ev:410 will be reported
+    #   ::: it's due to epoll() doesn't listen for SIGWINCH
+    #     SEE: /usr/lib/python3.12/site-packages/pexpect/pty_spawn.py
+    #   2024-05-11 BUT it works if get_wch() used directly
+    # REGR: redraw() during KEY_RESIZE results in ncurses crash
+    #   THINK: how to prevent/block redraw in that case?
+    try:
+        g.stdscr.clear()  # CHECK:NEED:OR:NOT? e.g. to clear bkgr (which earlier wasn't redrawn on resize)
+        g.root_wdg.resize(*g.stdscr.getmaxyx())
+        g.root_wdg.redraw(g.stdscr)
+        g.stdscr.refresh()
+    except Exception as exc:
+        from .util.exchook import log_exc
+
+        log_exc(exc)
+
+
+def shell_out(
+    stdscr: C.window, cmdv: Sequence[str] = (), **envkw: str
+) -> CompletedProcess[str]:
+    if not cmdv:
+        cmdv = (os.environ.get("SHELL", "sh"),)
+    envp = dict(os.environ, **envkw)
+    with curses_altscreen(stdscr):
+        ## PERF=57MB
+        # with open(f"/proc/{os.getpid()}/smaps", "r") as f:
+        #     pssmem = sum(int(l.split()[1]) for l in f.readlines() if l.startswith("Pss:"))
+        #     print(pssmem)
+        # NOTE: we shouldn't crash on ZSH (or whatever) returning "exitcode=1"
+        # [_] TODO: ..., stdin=g_app.io.ttyin, stdout=g_app.io.ttyout,
+        #                stderr=(g_app.io.pipeerr or g_app.io.ttyalt))
+        return run(cmdv, env=envp, check=False, text=True)
+
+
+async def shell_async(
+    stdscr: C.window,
+    cmdv: Sequence[str] = (),
+    input: str | None = None,  # pylint:disable=redefined-builtin
+    interactive: bool = False,
+    env: Mapping[str, str] | None = None,
+) -> int:
+
+    # WARN: #miur can run in bkgr, but is not allowed to interact with TTY
+    #   OR:MAYBE: we can allow it -- like create notifications,
+    #    or embed small curses popups directly around cursor
+    with curses_altscreen(stdscr):
+        import asyncio
+        import subprocess
+
+        from .app import g_app as g
+        from .util.logger import log
+
+        log.trace(f"Running: {"" if input is None else "...| "}{cmdv}")
+
+        # SRC: https://docs.python.org/3/library/asyncio-subprocess.html#examples
+        proc = await asyncio.create_subprocess_exec(
+            *cmdv,
+            env=env,
+            stdin=g.io.ttyin if input is None else subprocess.PIPE,
+            stdout=g.io.ttyout,
+            # FIXED:WTF: !nvim freezes up if stderr=g.io.ttyout
+            #   BUT:WTF:(this works OK): $ echo hi | nvim - 2>/t/err
+            stderr=(g.io.pipeerr if interactive else (g.io.pipeerr or g.io.ttyout)),
+        )
+        if input is None:
+            rc = await proc.wait()
+        else:
+            # BET?CHG: popen
+            # io - A non-blocking read on a subprocess.PIPE in Python - Stack Overflow ⌇⡧⠾⣪⢇
+            #   https://stackoverflow.com/questions/375427/a-non-blocking-read-on-a-subprocess-pipe-in-python
+            # Python asyncio subprocess write stdin and read stdout/stderr continuously - Stack Overflow ⌇⡧⡁⡩⠠
+            #   https://stackoverflow.com/questions/57730010/python-asyncio-subprocess-write-stdin-and-read-stdout-stderr-continuously
+            (_out, _err) = await proc.communicate(input=input.encode("utf-8"))
+            rc_ = proc.returncode
+            assert rc_ is not None
+            rc = rc_
+            # ALT:(manually): only for single pipe, otherwise deadblocks
+            # try:
+            #     proc.stdin.write(input.encode("utf-8"))
+            #     await proc.stdin.drain()
+            # except (BrokenPipeError, ConnectionResetError) as _exc:
+            #     pass
+            # proc.stdin.close()
+            # rc = await proc.wait()
+        if rc:
+            # from .util.logger import log
+
+            msg = f"{rc=} <- {cmdv} {proc}"
+            log.error(msg)
+            if not interactive:
+                raise RuntimeError(msg)
+        return rc
+
+
+def ipython_out(stdscr: C.window, user_ns: dict[str, Any] | None = None) -> None:
+    if user_ns is None:
+        fr = sys._getframe(1)  # pylint:disable=protected-access
+        # user_ns = fr.f_globals | fr.f_locals
+        user_ns = fr.f_locals
+
+    # pylint:disable=import-outside-toplevel
+    import IPython
+    from traitlets.config import Config
+
+    c = Config()
+    c.InteractiveShell.confirm_exit = False
+    c.TerminalIPythonApp.display_banner = False
+
+    with curses_altscreen(stdscr):
+        IPython.start_ipython(
+            argv=[], config=c, user_ns=user_ns
+        )  # type:ignore[no-untyped-call]
+        ## ATT: It's not what I want
+        # NameError in list comprehension when using embed · Issue #8918 · ipython/ipython ⌇⡦⠿⢘⢵
+        #   https://github.com/ipython/ipython/issues/8918#issuecomment-149898784
+        # IPython.embed(config=c, user_ns=user_ns)
