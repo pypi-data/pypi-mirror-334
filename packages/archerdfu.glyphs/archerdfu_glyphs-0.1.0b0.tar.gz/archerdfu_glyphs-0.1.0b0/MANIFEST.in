@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include py.typed
+recursive-include archerdfu/glyphs/fonts *
+recursive-include archerdfu/glyphs/assets *
