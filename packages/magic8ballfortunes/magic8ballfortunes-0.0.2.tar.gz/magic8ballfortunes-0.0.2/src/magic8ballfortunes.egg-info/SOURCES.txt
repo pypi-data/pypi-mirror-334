@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/magic8ball/__init__.py
+src/magic8ball/__main__.py
+src/magic8ball/fortunes.py
+src/magic8ballfortunes.egg-info/PKG-INFO
+src/magic8ballfortunes.egg-info/SOURCES.txt
+src/magic8ballfortunes.egg-info/dependency_links.txt
+src/magic8ballfortunes.egg-info/entry_points.txt
+src/magic8ballfortunes.egg-info/requires.txt
+src/magic8ballfortunes.egg-info/top_level.txt
+tests/test_fortunes.py
