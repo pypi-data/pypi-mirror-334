@@ -1,0 +1,108 @@
+Metadata-Version: 2.2
+Name: monitorpeek
+Version: 2.1.0
+Summary: A lightweight secondary monitor viewer with cursor tracking
+Home-page: https://github.com/zorat111/MonitorPeek
+Author: John
+Author-email: zorat@abv.bg
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Desktop Environment :: Window Managers
+Classifier: Topic :: System :: Monitoring
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt6>=6.4.0
+Requires-Dist: opencv-python>=4.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: mss>=9.0.1
+Requires-Dist: pywin32>=305
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# MonitorPeek
+
+A sleek, lightweight application that creates a resizable, always-on-top window to display a live view of your secondary monitor. Perfect for keeping an eye on another screen while working.
+
+## 💭 Developer's Note
+
+Dear Users,
+
+MonitorPeek was born from real-world challenges we face in multi-monitor setups. While seemingly simple, it solves several practical scenarios:
+
+- When files or applications unexpectedly jump to a powered-off secondary display, eliminating the need to power on the monitor just to retrieve them
+- For workstations where the secondary display faces another direction (like in customer service setups), allowing you to monitor it without physical repositioning
+- In situations where screen duplication isn't ideal due to confidential information on your primary display
+- When you need to quickly check your secondary display without the overhead of managing multiple physical screens
+
+The goal was to create a lightweight, unobtrusive tool that makes multi-monitor management more efficient and practical. While it may seem niche, I believe it fills a specific gap in our daily workflow that existing solutions don't quite address.
+
+I hope you find it as useful as I do.
+
+Best regards,
+John
+
+## 📸 Gallery
+
+### Main View
+![MonitorPeek Main Window](images/monitorpeek-main.png)
+*Default view of MonitorPeek showing a secondary monitor*
+
+### Resized View with Cursor Tracking
+![MonitorPeek Resized with Cursor](images/monitorpeek-cursor-resized.png)
+*Resized window showing aspect ratio maintenance and cursor tracking (red dot)*
+
+## ✨ Features
+
+- 🖥️ Live monitor capture at ~25 FPS
+- 📺 Maintains 16:9 aspect ratio
+- 📌 Always-on-top window
+- 🖱️ Draggable window with smooth movement
+- 🎯 Real-time cursor position tracking with visual indicator
+- 💾 Window position/size persistence between sessions
+- 🎨 Minimalistic UI with custom icon
+
+## 🚀 Quick Start
+
+### Using the Executable
+1. Download the latest release from the [Releases page](https://github.com/zorat111/MonitorPeek/releases)
+2. Run `MonitorPeek2.1.0.exe`
+3. The window will display your secondary monitor (monitor index 2 by default)
+4. Drag and resize the window as needed
+
+### From Source
+1. Clone this repository
+2. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the application:
+   ```bash
+   python MonitorPeek2.1.0.pyw
+   ```
+
+## 💡 Usage Tips
+
+- Double-click the title bar to maximize
+- Click and drag anywhere on the window to move it
+- Resize from any edge or corner while maintaining aspect ratio
+- The red dot shows your current cursor position on the captured monitor
+
+## 🛠️ Requirements
+
+- Windows OS
+- Python 3.x (if running from source)
+- Secondary monitor
+
+## 📝 License
+
+MIT License - Feel free to use and modify as needed. 
