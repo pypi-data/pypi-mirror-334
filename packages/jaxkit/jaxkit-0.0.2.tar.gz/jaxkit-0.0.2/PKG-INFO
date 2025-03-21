@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: jaxkit
+Version: 0.0.2
+Summary: A collection of deep learning architectures, written in jax and flax.
+Author-email: Lars Kühmichel <larskuedev@gmail.com>
+Project-URL: Homepage, https://github.com/LarsKue/jaxkit
+Project-URL: Issues, https://github.com/LarsKue/jaxkit/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: flax>=0.10
+Requires-Dist: jax>=0.5
+Provides-Extra: test
+Requires-Dist: pytest>=8.3; extra == "test"
+Provides-Extra: dev
+Requires-Dist: jupyter>=1.1; extra == "dev"
+Requires-Dist: jupyterlab>=4.3; extra == "dev"
+
+# jaxkit
+A collection of deep learning architectures, written in jax and flax.
