@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+sentichain/__init__.py
+sentichain/client.py
+sentichain.egg-info/PKG-INFO
+sentichain.egg-info/SOURCES.txt
+sentichain.egg-info/dependency_links.txt
+sentichain.egg-info/requires.txt
+sentichain.egg-info/top_level.txt
+tests/test_client.py
