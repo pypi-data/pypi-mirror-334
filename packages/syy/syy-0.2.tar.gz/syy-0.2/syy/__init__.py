@@ -1,0 +1,1 @@
+from .DEMO import repr, open, stdout
