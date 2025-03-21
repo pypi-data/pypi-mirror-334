@@ -1,0 +1,36 @@
+Metadata-Version: 2.2
+Name: synpro
+Version: 0.1.0
+Summary: SynPro: Advanced synthetic tabular data generation.
+Author-email: Aman Jaglan <amanwork2025@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/aman-jaglan/synpro
+Project-URL: Bug Tracker, https://github.com/yourusername/synpro/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.0.0
+Requires-Dist: numpy>=1.23.0
+Requires-Dist: pandas>=1.4.0
+Requires-Dist: rdt>=1.8.0
+Requires-Dist: joblib>=1.2.0
+Requires-Dist: tqdm>=4.64.0
+
+# SynPro 🔥
+
+**SynPro** is an advanced synthetic data generation library that helps you produce realistic synthetic tabular data for data science tasks using state-of-the-art GAN methods.
+
+## Features 🚀
+- ✅ Easy-to-use API
+- ✅ Supports conditional data generation
+- ✅ Multiple advanced GAN losses (WGAN-GP, R1, Hinge)
+- ✅ Mixed-precision training for faster GPU training
+- ✅ Spectral normalization for stable training
+
+## Installation ⚙️
+```bash
+pip install synpro
+
