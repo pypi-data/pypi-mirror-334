@@ -1,0 +1,29 @@
+{#
+    Custom Filters Available in This Template:
+    - camel_case: Converts a string to camelCase (e.g., 'phone_number' → 'phoneNumber').
+    - pascal_case: Converts a string to PascalCase (e.g., 'phone_number' → 'PhoneNumber').
+    - kebab_case: Converts a string to kebab-case (e.g., 'phoneNumber' → 'phone-number').
+    - snake_case: Converts a string to snake_case (e.g., 'PhoneNumber' → 'phone_number').
+    - get_model_file_name: Generates a model file name (e.g., 'phone_number' → 'PhoneNumberModel.ts').
+#}
+{% include 'header.jinja2' %}
+
+from pydantic import BaseModel
+{%- set included_types = [] %}
+{%- for field in spec.fields %}
+{%- if field.type_str in ['date', 'datetime'] and field.type_str not in included_types %}
+from datetime import {{ field.type_str }}
+{%- do included_types.append(field.type_str) %}
+{%- endif %}
+{%- endfor %}
+
+{% for model in spec.referenced_models %}
+from models.{{ model | get_model_file_name }} import {{ model }}
+{% endfor %}
+
+class {{ spec.name | pascal_case }}Model(BaseModel):
+    {%- for field in spec.fields %}
+    {{ field.mapped_name }}: {{ field.type_str }}
+    {%- endfor %}
+
+{% include 'footer.jinja2' %}
