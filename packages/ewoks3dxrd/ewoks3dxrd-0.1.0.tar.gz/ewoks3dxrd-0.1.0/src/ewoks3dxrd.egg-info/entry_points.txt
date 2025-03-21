@@ -1,0 +1,11 @@
+[ewoks.tasks.class]
+ewoks3dxrd.tasks.* = ewoks3dxrd
+
+[orange.canvas.help]
+html-index = orangecontrib.ewoks3dxrd:WIDGET_HELP_PATH
+
+[orange.widgets]
+ewoks3dxrd = orangecontrib.ewoks3dxrd
+
+[orange3.addon]
+ewoks3dxrd = orangecontrib.ewoks3dxrd
