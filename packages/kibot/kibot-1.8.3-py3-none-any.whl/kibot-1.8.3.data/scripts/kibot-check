@@ -1,0 +1,2128 @@
+#!python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2022-2025 Salvador E. Tropea
+# Copyright (c) 2022-2025 Instituto Nacional de Tecnología Industrial
+# License: GPL-3.0
+# Project: KiBot (formerly KiPlot)
+#
+# This is the installation checker, should help people to detect installation issues and install needed tools
+import argparse
+from contextlib import contextmanager
+import importlib
+import json
+import os
+import platform
+import re
+from shutil import which
+import site
+import subprocess
+import sys
+import tempfile
+
+deps = '{\
+    "Bash": {\
+        "arch": "bash",\
+        "command": "bash",\
+        "comments": [],\
+        "deb_package": "bash",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 3,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Bash",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "pcb_replace",\
+        "plugin_dirs": null,\
+        "pypi_name": "Bash",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Run external commands to create replacement text",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_replace",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Run external commands to create replacement text",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "sch_replace",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Run external commands to create replacement text",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "set_text_variables",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://www.gnu.org/software/bash/",\
+        "url_down": null\
+    },\
+    "Blender": {\
+        "arch": "blender",\
+        "command": "blender",\
+        "comments": [],\
+        "deb_package": "blender",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Blender",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "blender_export",\
+        "plugin_dirs": null,\
+        "pypi_name": "Blender",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "blender_export",\
+                "version": [\
+                    3,\
+                    4,\
+                    0\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://www.blender.org/",\
+        "url_down": null\
+    },\
+    "Colorama": {\
+        "arch": "python-colorama",\
+        "command": "colorama",\
+        "comments": [],\
+        "deb_package": "python3-colorama",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 100,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "colorama",\
+        "name": "Colorama",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "global",\
+        "plugin_dirs": null,\
+        "pypi_name": "Colorama",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Get color messages in a portable way",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "global",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "Ghostscript": {\
+        "arch": "ghostscript",\
+        "command": "gs",\
+        "comments": [],\
+        "deb_package": "ghostscript",\
+        "downloader": {},\
+        "downloader_str": "gs",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 3,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Ghostscript",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "navigate_results",\
+        "plugin_dirs": null,\
+        "pypi_name": "Ghostscript",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results_rb",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create PNG, PS and EPS formats",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_print",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://www.ghostscript.com/",\
+        "url_down": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases"\
+    },\
+    "Git": {\
+        "arch": "git",\
+        "command": "git",\
+        "comments": [],\
+        "deb_package": "git",\
+        "downloader": {},\
+        "downloader_str": "git",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 8,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Git",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "diff",\
+        "plugin_dirs": null,\
+        "pypi_name": "Git",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Compare with files in the repo",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "diff",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find commit hash and/or date",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "kikit_present",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Compare with files in the repo",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "kiri",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find origin url",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find origin url",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results_rb",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find commit hash and/or date",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_replace",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find commit hash and/or date",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "sch_replace",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Find commit hash and/or date",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "set_text_variables",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://git-scm.com/",\
+        "url_down": null\
+    },\
+    "ImageMagick": {\
+        "arch": "imagemagick",\
+        "command": "convert",\
+        "comments": [],\
+        "deb_package": "imagemagick",\
+        "downloader": {},\
+        "downloader_str": "convert",\
+        "extra_arch": [\
+            "gsfonts"\
+        ],\
+        "extra_checks": [\
+            "check_imagick_policy"\
+        ],\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 6,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "ImageMagick",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "blender_export",\
+        "plugin_dirs": null,\
+        "pypi_name": "ImageMagick",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Automatically crop images",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "blender_export",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results_rb",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create monochrome prints and scaled PNG files",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_print",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create JPG and BMP images",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcbdraw",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Automatically crop images",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "render_3d",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://imagemagick.org/",\
+        "url_down": "https://imagemagick.org/script/download.php"\
+    },\
+    "Interactive HTML BoM": {\
+        "arch": null,\
+        "command": "generate_interactive_bom.py",\
+        "comments": [],\
+        "deb_package": "interactive html bom",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10000,\
+        "in_debian": false,\
+        "is_kicad_plugin": true,\
+        "is_python": false,\
+        "name": "Interactive HTML BoM",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": true,\
+        "output": "ibom",\
+        "plugin_dirs": [\
+            "InteractiveHtmlBom",\
+            "InteractiveHtmlBom/InteractiveHtmlBom",\
+            "org_openscopeproject_InteractiveHtmlBom",\
+            "org_openscopeproject_InteractiveHtmlBom/InteractiveHtmlBom"\
+        ],\
+        "pypi_name": "Interactive HTML BoM",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "ibom",\
+                "version": [\
+                    2,\
+                    7,\
+                    0\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/INTI-CMNB/InteractiveHtmlBom",\
+        "url_down": "https://github.com/INTI-CMNB/InteractiveHtmlBom/releases"\
+    },\
+    "KiBoM": {\
+        "arch": null,\
+        "command": "KiBOM_CLI.py",\
+        "comments": [],\
+        "deb_package": "kibom",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10000,\
+        "in_debian": false,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "KiBoM",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "kibom",\
+        "plugin_dirs": null,\
+        "pypi_name": "KiBoM",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "kibom",\
+                "version": [\
+                    1,\
+                    9,\
+                    1\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/INTI-CMNB/KiBoM",\
+        "url_down": "https://github.com/INTI-CMNB/KiBoM/releases"\
+    },\
+    "KiCad Automation tools": {\
+        "arch": null,\
+        "command": "pcbnew_do",\
+        "comments": [],\
+        "deb_package": "kicad automation tools",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 160004,\
+        "in_debian": false,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "KiCad Automation tools",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "diff",\
+        "plugin_dirs": null,\
+        "pypi_name": "kiauto",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Compare schematics",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "diff",\
+                "version": [\
+                    2,\
+                    2,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "dxf_sch_print",\
+                "version": [\
+                    2,\
+                    3,\
+                    4\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "gencad",\
+                "version": [\
+                    1,\
+                    6,\
+                    5\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "hpgl_sch_print",\
+                "version": [\
+                    2,\
+                    3,\
+                    4\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Show KiAuto installation information",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "info",\
+                "version": [\
+                    2,\
+                    0,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Compare schematics",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "kiri",\
+                "version": [\
+                    2,\
+                    2,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "netlist",\
+                "version": [\
+                    2,\
+                    0,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Print the page frame in GUI mode",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_print",\
+                "version": [\
+                    1,\
+                    6,\
+                    7\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "pdf_pcb_print",\
+                "version": [\
+                    1,\
+                    6,\
+                    7\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "pdf_sch_print",\
+                "version": [\
+                    2,\
+                    3,\
+                    4\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "ps_sch_print",\
+                "version": [\
+                    2,\
+                    3,\
+                    4\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "render_3d",\
+                "version": [\
+                    2,\
+                    3,\
+                    1\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "step",\
+                "version": [\
+                    1,\
+                    6,\
+                    1\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "svg_pcb_print",\
+                "version": [\
+                    1,\
+                    6,\
+                    7\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "svg_sch_print",\
+                "version": [\
+                    2,\
+                    3,\
+                    4\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "vrml",\
+                "version": [\
+                    2,\
+                    1,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "convert_pcb",\
+                "version": [\
+                    2,\
+                    3,\
+                    2\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "run_drc",\
+                "version": [\
+                    2,\
+                    0,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "run_erc",\
+                "version": [\
+                    2,\
+                    2,\
+                    1\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "update_xml",\
+                "version": [\
+                    1,\
+                    5,\
+                    4\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/INTI-CMNB/KiAuto",\
+        "url_down": "https://github.com/INTI-CMNB/KiAuto/releases"\
+    },\
+    "KiCad PCB/SCH Diff": {\
+        "arch": null,\
+        "command": "kicad-diff.py",\
+        "comments": [],\
+        "deb_package": "kicad pcb/sch diff",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 20000,\
+        "in_debian": false,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "KiCad PCB/SCH Diff",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "diff",\
+        "plugin_dirs": null,\
+        "pypi_name": "kidiff",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "diff",\
+                "version": [\
+                    2,\
+                    5,\
+                    3\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "kiri",\
+                "version": [\
+                    2,\
+                    5,\
+                    1\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/INTI-CMNB/KiDiff",\
+        "url_down": "https://github.com/INTI-CMNB/KiDiff/releases"\
+    },\
+    "KiCost": {\
+        "arch": null,\
+        "command": "kicost",\
+        "comments": [],\
+        "deb_package": "kicost",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10001,\
+        "in_debian": false,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "KiCost",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "bom",\
+        "plugin_dirs": null,\
+        "pypi_name": "KiCost",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Find components costs and specs",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "bom",\
+                "version": [\
+                    1,\
+                    1,\
+                    8\
+                ]\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "kicost",\
+                "version": [\
+                    1,\
+                    1,\
+                    7\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/hildogjr/KiCost",\
+        "url_down": "https://github.com/hildogjr/KiCost/releases"\
+    },\
+    "KiKit": {\
+        "arch": null,\
+        "command": "kikit",\
+        "comments": [],\
+        "deb_package": "kikit",\
+        "downloader": {},\
+        "downloader_str": "pytool",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 30100,\
+        "in_debian": false,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "KiKit",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "global",\
+        "plugin_dirs": null,\
+        "pypi_name": "KiKit",\
+        "role": [\
+            {\
+                "all_versions": {\
+                    "6": "1.5.0",\
+                    "7": "1.6.0",\
+                    "9": "1.7.0"\
+                },\
+                "desc": "Separate multiboard projects",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "global",\
+                "version": [\
+                    1,\
+                    6,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {\
+                    "6": "1.5.0",\
+                    "7": "1.6.0",\
+                    "9": "1.7.0"\
+                },\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "panelize",\
+                "version": [\
+                    1,\
+                    6,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {\
+                    "6": "1.5.0",\
+                    "7": "1.6.0",\
+                    "9": "1.7.0"\
+                },\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_3d",\
+                "version": [\
+                    1,\
+                    6,\
+                    0\
+                ]\
+            },\
+            {\
+                "all_versions": {\
+                    "6": "1.5.0",\
+                    "7": "1.6.0",\
+                    "9": "1.7.0"\
+                },\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_for_jig",\
+                "version": [\
+                    1,\
+                    6,\
+                    0\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://github.com/INTI-CMNB/KiKit",\
+        "url_down": "https://github.com/INTI-CMNB/KiKit/releases"\
+    },\
+    "LXML": {\
+        "arch": "python-lxml",\
+        "command": "lxml",\
+        "comments": [],\
+        "deb_package": "python3-lxml",\
+        "downloader": {},\
+        "downloader_str": "python",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 20000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "lxml",\
+        "name": "LXML",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "pcb_print",\
+        "plugin_dirs": null,\
+        "pypi_name": "LXML",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "pcb_print",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "pcbdraw",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "Lark": {\
+        "arch": "python-lark",\
+        "command": "lark",\
+        "comments": [],\
+        "deb_package": "python3-lark",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 1000000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "lark",\
+        "name": "Lark",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "global",\
+        "plugin_dirs": null,\
+        "pypi_name": "Lark",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "global",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "OpenSCAD": {\
+        "arch": "openscad",\
+        "command": "openscad",\
+        "comments": [],\
+        "deb_package": "openscad",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 20000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "OpenSCAD",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "stencil_3d",\
+        "plugin_dirs": null,\
+        "pypi_name": "OpenSCAD",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_3d",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_for_jig",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://openscad.org/",\
+        "url_down": "https://openscad.org/downloads.html"\
+    },\
+    "Pandoc": {\
+        "arch": "pandoc",\
+        "command": "pandoc",\
+        "comments": [\
+            "In CI/CD environments: the `kicad_auto_test` docker image contains it."\
+        ],\
+        "deb_package": "pandoc",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": [\
+            "texlive-core"\
+        ],\
+        "extra_checks": null,\
+        "extra_deb": [\
+            "texlive",\
+            "texlive-latex-base",\
+            "texlive-latex-recommended"\
+        ],\
+        "help_option": "--version",\
+        "importance": 1,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Pandoc",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "report",\
+        "plugin_dirs": null,\
+        "pypi_name": "Pandoc",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Create PDF/ODF/DOCX files",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "report",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://pandoc.org/",\
+        "url_down": "https://github.com/jgm/pandoc/releases"\
+    },\
+    "PyYAML": {\
+        "arch": "python-yaml",\
+        "command": "pyyaml",\
+        "comments": [],\
+        "deb_package": "python3-yaml",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 1000000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "yaml",\
+        "name": "PyYAML",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "global",\
+        "plugin_dirs": null,\
+        "pypi_name": "PyYAML",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "global",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "QRCodeGen": {\
+        "arch": null,\
+        "command": "qrcodegen",\
+        "comments": [],\
+        "deb_package": "python3-qrcodegen",\
+        "downloader": {},\
+        "downloader_str": "python",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "qrcodegen",\
+        "name": "QRCodeGen",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "qr_lib",\
+        "plugin_dirs": null,\
+        "pypi_name": "QRCodeGen",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "qr_lib",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "RAR": {\
+        "arch": "rar(AUR)",\
+        "command": "rar",\
+        "comments": [],\
+        "deb_package": "rar",\
+        "downloader": {},\
+        "downloader_str": "rar",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "-?",\
+        "importance": 1,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "RAR",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "compress",\
+        "plugin_dirs": null,\
+        "pypi_name": "RAR",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Compress in RAR format",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "compress",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://www.rarlab.com/",\
+        "url_down": "https://www.rarlab.com/download.htm"\
+    },\
+    "RSVG tools": {\
+        "arch": "librsvg",\
+        "command": "rsvg-convert",\
+        "comments": [],\
+        "deb_package": "librsvg2-bin",\
+        "downloader": {},\
+        "downloader_str": "rsvg",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 7,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "RSVG tools",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "bom",\
+        "plugin_dirs": null,\
+        "pypi_name": "RSVG tools",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "SVG logos for the BoM",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "bom",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create PNG icons",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create outputs preview",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results_rb",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create PNG icons",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "navigate_results_rb",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create PDF, PNG, PS and EPS formats",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcb_print",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": "Create PNG, JPG and BMP images",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcbdraw",\
+                "version": null\
+            }\
+        ],\
+        "tests": [\
+            {\
+                "command": [\
+                    "convert",\
+                    "-list",\
+                    "font"\
+                ],\
+                "error": "Missing Helvetica font, try installing Ghostscript fonts",\
+                "search": "Helvetica"\
+            }\
+        ],\
+        "url": "https://gitlab.gnome.org/GNOME/librsvg",\
+        "url_down": null\
+    },\
+    "Requests": {\
+        "arch": "python-requests",\
+        "command": "requests",\
+        "comments": [],\
+        "deb_package": "python3-requests",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 1000000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "requests",\
+        "name": "Requests",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "global",\
+        "plugin_dirs": null,\
+        "pypi_name": "Requests",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "global",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "XLSXWriter": {\
+        "arch": "python-xlsxwriter",\
+        "command": "xlsxwriter",\
+        "comments": [],\
+        "deb_package": "python3-xlsxwriter",\
+        "downloader": {},\
+        "downloader_str": "python",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 1,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "xlsxwriter",\
+        "name": "XLSXWriter",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "bom",\
+        "plugin_dirs": null,\
+        "pypi_name": "XLSXWriter",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Create XLSX files",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "bom",\
+                "version": [\
+                    1,\
+                    1,\
+                    2\
+                ]\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "Xvfb": {\
+        "arch": "xorg-server-xvfb",\
+        "command": "xvfb-run",\
+        "comments": [],\
+        "deb_package": "xvfb",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 20000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": false,\
+        "name": "Xvfb",\
+        "no_cmd_line_version": true,\
+        "no_cmd_line_version_old": false,\
+        "output": "stencil_3d",\
+        "plugin_dirs": null,\
+        "pypi_name": "Xvfb",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_3d",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_for_jig",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": "https://www.x.org",\
+        "url_down": null\
+    },\
+    "Xvfbwrapper": {\
+        "arch": "python-xvfbwrapper",\
+        "command": "xvfbwrapper",\
+        "comments": [],\
+        "deb_package": "python3-xvfbwrapper",\
+        "downloader": {},\
+        "downloader_str": "python",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 20000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "xvfbwrapper",\
+        "name": "Xvfbwrapper",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "stencil_3d",\
+        "plugin_dirs": null,\
+        "pypi_name": "Xvfbwrapper",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_3d",\
+                "version": null\
+            },\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "stencil_for_jig",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "markdown2": {\
+        "arch": "python-markdown2",\
+        "command": "markdown2",\
+        "comments": [],\
+        "deb_package": "python3-markdown2",\
+        "downloader": null,\
+        "downloader_str": null,\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 10000,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "markdown2",\
+        "name": "markdown2",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "kikit_present",\
+        "plugin_dirs": null,\
+        "pypi_name": "markdown2",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": null,\
+                "mandatory": true,\
+                "max_version": null,\
+                "output": "kikit_present",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    },\
+    "numpy": {\
+        "arch": "python-numpy",\
+        "command": "numpy",\
+        "comments": [],\
+        "deb_package": "python3-numpy",\
+        "downloader": {},\
+        "downloader_str": "python",\
+        "extra_arch": null,\
+        "extra_checks": null,\
+        "extra_deb": null,\
+        "help_option": "--version",\
+        "importance": 1,\
+        "in_debian": true,\
+        "is_kicad_plugin": false,\
+        "is_python": true,\
+        "module_name": "numpy",\
+        "name": "numpy",\
+        "no_cmd_line_version": false,\
+        "no_cmd_line_version_old": false,\
+        "output": "pcbdraw",\
+        "plugin_dirs": null,\
+        "pypi_name": "numpy",\
+        "role": [\
+            {\
+                "all_versions": {},\
+                "desc": "Automatically adjust SVG margin",\
+                "mandatory": false,\
+                "max_version": null,\
+                "output": "pcbdraw",\
+                "version": null\
+            }\
+        ],\
+        "tests": [],\
+        "url": null,\
+        "url_down": null\
+    }\
+}\
+'
+# Dirs to look for plugins
+kicad_plugins_dirs = []
+NOT_AVAIL = 'Not available'
+UNKNOWN = '*UNKNOWN*'
+if sys.stdout.isatty():
+    CSI = '\033['
+    RED = CSI+str(31)+'m'
+    GREEN = CSI+str(32)+'m'
+    YELLOW = CSI+str(33)+'m'
+    YELLOW2 = CSI+str(93)+'m'
+    RESET = CSI+str(39)+'m'
+    BRIGHT = CSI+";1;4"+'m'
+    NORMAL = CSI+'0'+'m'
+else:
+    RED = GREEN = YELLOW = YELLOW2 = RESET = BRIGHT = NORMAL = ''
+last_ok = False
+last_cmd = None
+tests_ok = True
+tests_msg = ''
+is_x86 = is_64 = is_linux = False
+ver_re = re.compile(r'(\d+)\.(\d+)(?:\.(\d+))?(?:[\.-](\d+))?')
+BOGUS_PDF = """%PDF-1.0
+1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>
+endobj 3 0 obj<</Type/Page/MediaBox[0 0 3 3]>>endobj
+trailer<</Root 1 0 R>>"""
+
+
+def check_tool_binary_python(name):
+    base = os.path.join(site.USER_BASE, 'bin')
+    full_name = os.path.join(base, name)
+    if not os.path.isfile(full_name) or not os.access(full_name, os.X_OK):
+        return None
+    return full_name
+
+
+def check_tool_binary_local(name):
+    home = os.path.expanduser('~')
+    if not home:
+        return None
+    home_bin = os.path.join(home, '.local', 'share', 'kibot', 'bin')
+    full_name = os.path.join(home_bin, name)
+    if not os.path.isfile(full_name) or not os.access(full_name, os.X_OK):
+        return None
+    return full_name
+
+
+def look_for_command(command):
+    cmd_full = which(command)
+    if not cmd_full:
+        cmd_full = check_tool_binary_python(command)
+    if not cmd_full:
+        cmd_full = check_tool_binary_local(command)
+    return cmd_full
+
+
+def run_command(cmd, only_first_line=False, pre_ver_text=None, no_err_2=False, no_err_msg=False):
+    global last_ok
+    global last_cmd
+    cmd_full = look_for_command(cmd[0])
+    if not cmd_full:
+        last_ok = False
+        return NOT_AVAIL
+    cmd[0] = cmd_full
+    last_cmd = None
+    try:
+        res_run = subprocess.run(cmd, check=True, capture_output=True)
+        last_cmd = cmd[0]
+    except FileNotFoundError as e:
+        last_ok = False
+        return NOT_AVAIL
+    except subprocess.CalledProcessError as e:
+        if (e.returncode != 2 or not no_err_2) and not no_err_msg:
+            print('Failed to run %s, error %d' % (cmd[0], e.returncode))
+            if e.output:
+                print('Output from command: '+e.output.decode())
+        last_ok = False
+        return UNKNOWN
+    res = res_run.stdout.decode().strip()
+    if len(res) == 0:
+        res = res_run.stderr.decode().strip()
+    if only_first_line:
+        res = res.split('\n')[0]
+    pre_vers = (cmd[0]+' version ', cmd[0]+' ', pre_ver_text)
+    for pre_ver in pre_vers:
+        if pre_ver and res.startswith(pre_ver):
+            res = res[len(pre_ver):]
+    last_ok = True
+    return res
+
+
+def simple_run_command(cmd):
+    res = run_command(cmd)
+    sev, ver = check_version(res, [{'mandatory': True, 'output': 'global', 'version': None}], no_ver=True)
+    return do_color(res, sev, version=ver)
+
+
+def search_as_plugin(cmd, names):
+    """ If a command isn't in the path look for it in the KiCad plugins """
+    if which(cmd) is not None:
+        return which(cmd)
+    for dir in kicad_plugins_dirs:
+        for name in names:
+            fname = os.path.join(dir, name, cmd)
+            # print('Trying '+fname)
+            if os.path.isfile(fname):
+                # print('Using `{}` for `{}` ({})'.format(fname, cmd, name))
+                return fname
+    return cmd
+
+
+@contextmanager
+def hide_stderr():
+    """ Low level stderr suppression, used to hide KiCad bugs. """
+    newstderr = os.dup(2)
+    devnull = os.open(os.devnull, os.O_WRONLY)
+    os.dup2(devnull, 2)
+    os.close(devnull)
+    yield
+    os.dup2(newstderr, 2)
+
+
+def do_int(v):
+    return int(v) if v is not None else 0
+
+
+def check_tests(tests):
+    global tests_ok
+    global tests_msg
+    for t in tests:
+        cmd = t['command']
+        cmd_full = look_for_command(cmd[0])
+        if cmd_full is None:
+            tests_ok = False
+            tests_msg = 'Missing test tool `{}`'.format(cmd[0])
+            return True
+        cmd[0] = cmd_full
+        try:
+            cmd_output = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+        except FileNotFoundError as e:
+            tests_ok = False
+            tests_msg = 'Missing test tool `{}`'.format(cmd[0])
+            return True
+        except subprocess.CalledProcessError as e:
+            tests_ok = False
+            tests_msg = 'Failed to run %s, error %d' % (cmd[0], e.returncode)
+            if e.output:
+                tests_msg += '\nOutput from command: '+e.output.decode()
+            return True
+        res = cmd_output.decode().strip()
+        if not re.search(t['search'], res):
+            tests_ok = False
+            tests_msg = t['error']
+            return True
+    return False
+
+
+def get_version(r):
+    single = r['version']
+    if not single:
+        return single
+    all = r['all_versions']
+    if not all:
+        return single
+    k_ver = kicad_version[0]
+    version = None
+    while k_ver >= 5 and version is None:
+        version = all.get(str(k_ver), None)
+        k_ver -= 1
+    return list(map(do_int, version.split('.'))) if version is not None else single
+
+
+def check_version(version, roles, no_ver=False, tests=None):
+    res = ver_re.search(version)
+    if res:
+        ver = list(map(do_int, res.groups()))
+    else:
+        ver = [0, 0, 0]
+    not_avail = version == NOT_AVAIL or version == UNKNOWN
+    global tests_ok
+    tests_ok = True
+    if tests and res and not not_avail:
+        not_avail = check_tests(tests)
+    severity = 0
+    for r in roles:
+        mandatory = r['mandatory']
+        glb = r['output'] == 'global'
+        this_sever = 0
+        max_version = r.get('max_version')
+        version = get_version(r)
+        if not_avail or (version and ver < version) or (max_version and ver >= max_version):
+            if mandatory:
+                this_sever = 4 if glb else 3
+            else:
+                this_sever = 2 if glb else 1
+            severity = max(severity, this_sever)
+        r['sev'] = this_sever
+    return severity, ver
+
+
+def sev2color(severity):
+    if severity == 4:
+        return RED
+    elif severity == 3:
+        return YELLOW2
+    elif severity:
+        return YELLOW
+    else:
+        return GREEN
+
+
+def do_color(msg, severity, version=None):
+    if version is not None and version != [0, 0, 0]:
+        if len(version) == 4 and version[3] == 0:
+            version = version[:-1]
+        ver_str = '.'.join(map(str, version))
+        if ver_str != msg:
+            msg = ver_str+' ('+msg+')'
+    return sev2color(severity)+msg+RESET
+
+
+def error(msg):
+    print(sev2color(4)+'**> '+msg+RESET)
+
+
+def do_bright(msg):
+    return BRIGHT+msg+NORMAL
+
+
+def global2human(name):
+    return '`'+name+'`' if name != 'global' else 'general use'
+
+
+def show_roles(roles):
+    needed = []
+    optional = []
+    for r in roles:
+        if r['mandatory']:
+            needed.append(r)
+        else:
+            optional.append(r)
+        r['output'] = global2human(r['output'])
+    if needed:
+        if len(needed) == 1:
+            color = sev2color(needed[0]['sev'])
+            name = needed[0]['output']
+            if name == 'general use':
+                print(color+'  - Mandatory')
+            else:
+                print(color+'  - Mandatory for '+name)
+        else:
+            need_s = sorted(needed, key=lambda x: x['output'])
+            print(RESET+'  - Mandatory for: '+', '.join([sev2color(f['sev'])+f['output']+RESET for f in need_s]))
+    if optional:
+        if len(optional) == 1:
+            o = optional[0]
+            desc = o['desc'][0].lower()+o['desc'][1:]
+            print(sev2color(o['sev'])+'  - Optional to {} for {}'.format(desc, o['output']))
+        else:
+            print(RESET+'  - Optional to:')
+            for o in optional:
+                ver = ''
+                version = get_version(o)
+                if version:
+                    ver = ' (v'+'.'.join(map(str, version))+')'
+                print(sev2color(o['sev'])+'    - {} for {}{}'.format(o['desc'], o['output'], ver))
+
+
+def python_module(severity, name, deb_package, roles, arch):
+    if not severity:
+        return
+    print(sev2color(severity)+'* Python module `{}` not installed, too old or incompatible'.format(name))
+    if debian_support:
+        if deb_package is None:
+            deb_package = 'python3-'+name
+        print('  Install the `{0}` package, i.e.: `sudo apt-get install {0}`'.format(deb_package))
+    elif arch_support:
+        if arch is None:
+            arch = 'python-'+name
+        print('  Install the `{0}` package, i.e.: `sudo pacman -S {0}`'.format(arch))
+    elif pip_ok:
+        print('  run `{} install {}` as root,'.format(pip_command, name))
+        print('  or run `{} install --user {}` as a regular user'.format(pip_command, name))
+    else:
+        print('  Install the Package Installer for Python (pip) and run this script again')
+    show_roles(roles)
+    print(RESET)
+
+
+def check_imagick_policy(command):
+    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.pdf', prefix='kibot-check_') as f:
+        f.write(BOGUS_PDF)
+    ps_file = f.name.replace('.pdf', '.ps')
+    try:
+        r = run_command([command, f.name, ps_file], no_err_msg=True)
+    finally:
+        os.remove(f.name)
+    if r == UNKNOWN:
+        print(do_color('- Image Magick is installed, but its configuration forbids the PS/PDF manipulation', 1))
+        print(do_color('  You must edit it in order to get full functionality', 1))
+        print(do_color('  Consult the installation section of the docs:', 1))
+        print(do_color('  https://kibot.readthedocs.io/en/master/installation.html', 1))
+        if os.path.isfile(ps_file):
+            os.remove(ps_file)
+        return
+
+
+def do_extra_checks(extra_checks, cmd_found):
+    if not extra_checks:
+        return
+    for check in extra_checks:
+        globals()[check](cmd_found)
+
+
+def binary_tool(severity, name, url, url_down, deb_package, deb, extra_deb, roles, downloader, comments, arch, extra_arch,
+                extra_checks, cmd_found):
+    if not severity:
+        do_extra_checks(extra_checks, cmd_found)
+        return
+    print(sev2color(severity)+'* {} not installed or too old'.format(name))
+    if deb and debian_support:
+        if deb_package is None:
+            deb_package = name.lower()
+        print('  Install the `{0}` package, i.e.: `sudo apt-get install {0}`'.format(deb_package))
+        if extra_deb:
+            print('  You should also install the following packages: '+', '.join(extra_deb))
+    elif arch and arch_support:
+        if arch.endswith('(AUR)'):
+            print('  Install the `{0}` package, i.e.: `sudo yay -S {0}`'.format(arch[:-5]))
+        else:
+            print('  Install the `{0}` package, i.e.: `sudo pacman -S {0}`'.format(arch))
+        if extra_arch:
+            print('  You should also install the following packages: '+', '.join(extra_arch))
+    else:
+        print('  Visit: '+url)
+        if url_down:
+            print('  Download it from: '+url_down)
+    for c in comments:
+        print('  '+c)
+    if isinstance(downloader, str):
+        if downloader == 'pytool' and not pip_ok:
+            print('  Please install the Python Installer (pip).')
+        else:
+            print('  This tool might be automatically downloaded by KiBot.')
+    show_roles(roles)
+    print(RESET)
+
+
+parser = argparse.ArgumentParser(description='KiBot installation checker')
+parser.add_argument('--show-paths', '-p', help='Show paths to tools', action='store_true')
+args = parser.parse_args()
+
+# Force iBoM to avoid the use of graphical stuff
+os.environ['INTERACTIVE_HTML_BOM_NO_DISPLAY'] = 'True'
+
+# ######################################################################################################################
+#  Core tools
+# ######################################################################################################################
+
+print('KiBot installation checker\n')
+
+print(do_bright('Core:'))
+# Operating system
+system = platform.system()
+if system == 'Linux':
+    linux_version = simple_run_command(['uname', '-a'])
+    print('Linux: '+linux_version)
+    if args.show_paths:
+        print('  '+str(which('uname')))
+    os_ok = True
+    is_x86 = 'x86' in linux_version
+    is_64 = ('x86_64' in linux_version) or ('amd64' in linux_version)
+    is_linux = True
+else:
+    print(system)
+    os_ok = False
+# Python version
+if sys.version_info >= (3, 6):
+    py_ok = True
+    sev = 0
+else:
+    py_ok = False
+    sev = 4
+print('Python: '+do_color(sys.version.replace('\n', ' '), sev))
+if args.show_paths:
+    print('  '+os.__file__)
+    print('  '+str(which('python3')))
+# KiCad
+home = os.path.expanduser('~')
+try:
+    import pcbnew
+    kicad_ok = True
+    # Fill the plug-in locations
+    # TODO: Windows? MacOSX?
+    kicad_share_path = '/usr/share/kicad'
+    if hasattr(pcbnew, 'GetKicadConfigPath'):
+        with hide_stderr():
+            kicad_conf_path = pcbnew.GetKicadConfigPath()
+    elif hasattr(pcbnew, 'GetSettingsManager'):
+        kicad_conf_path = pcbnew.GetSettingsManager().GetUserSettingsPath()
+    else:
+        kicad_conf_path = None
+    # /usr/share/kicad/*
+    kicad_plugins_dirs.append(os.path.join(kicad_share_path, 'scripting'))
+    kicad_plugins_dirs.append(os.path.join(kicad_share_path, 'scripting', 'plugins'))
+    kicad_plugins_dirs.append(os.path.join(kicad_share_path, '3rdparty', 'plugins'))  # KiCad 6.0 PCM
+    # ~/.config/kicad/*
+    if kicad_conf_path:
+        kicad_plugins_dirs.append(os.path.join(kicad_conf_path, 'scripting'))
+        kicad_plugins_dirs.append(os.path.join(kicad_conf_path, 'scripting', 'plugins'))
+    # ~/.kicad_plugins and ~/.kicad
+    if home:
+        kicad_plugins_dirs.append(os.path.join(home, '.kicad_plugins'))
+        kicad_plugins_dirs.append(os.path.join(home, '.kicad', 'scripting'))
+        kicad_plugins_dirs.append(os.path.join(home, '.kicad', 'scripting', 'plugins'))
+except FileNotFoundError:
+    kicad_ok = False
+except ModuleNotFoundError:
+    kicad_ok = False
+    if which('kicad'):
+        error("KiCad installed but the Python support is broken")
+        res = run_command(['find', '/usr/lib', '-name', 'pcbnew.py'])
+        if res:
+            cand = res.split('\n')
+            if cand:
+                cand = [x for x in cand if 'pcbnewTransition' not in x]
+                if cand:
+                    if len(cand) == 1:
+                        dname = os.path.dirname(cand[0])
+                        if dname in sys.path:
+                            error(f"The pcbnew module should be loadable, but fails to load")
+                        else:
+                            error(f"Broken Python support {dname} not in sys.path ({sys.path})")
+                    else:
+                        error(f'Multiple pcbnew modules found: {str(cand)}')
+    else:
+        error("KiCad not installed or not available in the path")
+kicad_version = (0, 0, 0)
+if kicad_ok:
+    try:
+        version = pcbnew.GetBuildVersion()
+        # KiCad version
+        m = re.search(r'(\d+)\.(\d+)\.(\d+)', version)
+        if m is None:
+            error("Unable to detect KiCad version, got: `{}`".format(version))
+        else:
+            kicad_version = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            if kicad_version[0] >= 6 and home:
+                # KiCad 6.0 PCM
+                ver_dir = str(kicad_version[0])+'.'+str(kicad_version[1])
+                if system == 'Linux':
+                    local_share = os.path.join(home, '.local', 'share', 'kicad', ver_dir)
+                else:
+                    local_share = os.path.join(home, 'Documents', 'KiCad', ver_dir)
+                kicad_plugins_dirs.append(os.path.join(local_share, 'scripting'))
+                kicad_plugins_dirs.append(os.path.join(local_share, 'scripting', 'plugins'))
+                kicad_plugins_dirs.append(os.path.join(local_share, '3rdparty', 'plugins'))  # KiCad 6.0 PCM
+    except:
+        version = 'Older than 5.1.6'
+else:
+    version = NOT_AVAIL
+if kicad_version >= (5, 1, 6) and kicad_version < (9, 99):
+    sev = 0
+else:
+    sev = 4
+print('KiCad: '+do_color(version, sev))
+if args.show_paths and kicad_ok:
+    print('  '+pcbnew.__file__)
+    print('  '+str(which('kicad')))
+# KiBot version
+try:
+    import kibot.__main__
+    version = kibot.__main__.__version__
+    kibot_ok = True
+    sev = 0
+except:
+    version = NOT_AVAIL
+    kibot_ok = False
+    sev = 4
+print('Kibot: '+do_color(version, sev))
+if args.show_paths and kibot_ok:
+    print('  '+kibot.__main__.__file__)
+    print('  '+str(which('kibot')))
+if kibot_ok and which('kibot') is None:
+    print(sev2color(4)+'* KiBot is installed but not available in your PATH')
+    import kibot
+    if '/lib/' in kibot.__file__:
+        v = re.sub(r'\/lib\/.*', '/bin/kibot', kibot.__file__)
+        if os.path.isfile(v):
+            print('  Try adding `{}` to your PATH'.format(v[:-5]))
+            print('  I.e.: export PATH=$PATH:'+v[:-5])
+    sys.exit(1)
+
+dependencies = json.loads(deps)
+print(do_bright('\nModules:'))
+for name, d in dependencies.items():
+    if not d['is_python']:
+        continue
+    mod = None
+    try:
+        mod = importlib.import_module(d['module_name'])
+        if hasattr(mod, '__version__'):
+            version = mod.__version__
+        else:
+            version = 'Ok'
+    except:
+        version = NOT_AVAIL
+    sev, ver = check_version(version, d['role'])
+    d['sev'] = sev
+    version = version.split('\n')[0]
+    print(name+': '+do_color(version, sev, version=ver))
+    if args.show_paths and mod:
+        print('  '+mod.__file__)
+
+print(do_bright('\nTools:'))
+for name, d in dependencies.items():
+    if d['is_python']:
+        continue
+    command = d['command']
+    if d['is_kicad_plugin']:
+        command = search_as_plugin(command, d['plugin_dirs'])
+    if d['no_cmd_line_version']:
+        version = 'Ok ({})'.format(command) if which(command) is not None else NOT_AVAIL
+    else:
+        cmd = [command, d['help_option']]
+        if d['is_kicad_plugin'] and os.path.isfile(command):
+            # There is no point in adding the interpreter if the script isn't there
+            # It will just confuse run_command thinking we need to check Python
+            cmd.insert(0, 'python3')
+        version = run_command(cmd, no_err_2=d['no_cmd_line_version_old'])
+    d['cmd_found'] = command
+    sev, ver = check_version(version, d['role'], tests=d['tests'])
+    d['sev'] = sev
+    version = version.split('\n')[0]
+    pypi_name = d['pypi_name']
+    if pypi_name and pypi_name.lower() != name.lower():
+        name += ' ({})'.format(pypi_name)
+    print(name+': '+do_color(version, sev, version=ver))
+    if not tests_ok:
+        print('- '+do_color(tests_msg, sev))
+    if args.show_paths and last_cmd:
+        print('  '+last_cmd)
+
+# ######################################################################################################################
+#  Recommendations
+# ######################################################################################################################
+
+print()
+
+debian_support = False
+if which('apt-get'):
+    debian_support = True
+arch_support = False
+if which('pacman'):
+    arch_support = True
+pip_ok = False
+if which('pip3'):
+    pip_ok = True
+    pip_command = 'pip3'
+elif which('pip'):
+    pip_ok = True
+    pip_command = 'pip'
+
+if not os_ok:
+    print(sev2color(4)+'* KiBot is currently tested under Linux')
+    if system == 'Darwin':
+        print('  MacOSX should be supported for KiCad 6.x or newer')
+    elif system == 'Windows':
+        print('  Windows may work with some limitations for KiCad 6.x or newer')
+        print('  Consider using a docker image, Windows docker can run Linux images (using virtualization)')
+        print('  You can also try WSL (Windows Subsystem for Linux)')
+    else:
+        print('  What OS are you using? Is KiCad available for it?')
+    print('   Please consult: https://github.com/INTI-CMNB/KiBot/issues')
+    print(RESET)
+
+if not py_ok:
+    print(sev2color(4)+'* Install Python 3.6 or newer')
+    print(RESET)
+
+if not kicad_ok:
+    print(sev2color(4)+'* Install KiCad 5.1.6 or newer')
+    if debian_support:
+        print('  Try `apt-get install kicad` as root')
+    else:
+        print('  Download it from: https://www.kicad.org/download/')
+    print(RESET)
+
+if not kibot_ok:
+    print(sev2color(4)+'* Install KiBot!')
+    if debian_support:
+        print('  Follow the instructions here: https://set-soft.github.io/debian/')
+    elif pip_ok:
+        print('  run `{} install --no-compile kibot` as root,'.format(pip_command))
+        print('  or run `{} install --user --no-compile kibot` as a regular user'.format(pip_command))
+    else:
+        print('  Install the Package Installer for Python (pip) and run this script again')
+    print(RESET)
+
+for name, d in dependencies.items():
+    if d['is_python']:
+        python_module(d['sev'], d['pypi_name'], d['deb_package'], d['role'], d['arch'])
+    else:
+        binary_tool(d['sev'], d['name'], d['url'], d['url_down'], d['deb_package'], d['in_debian'], d['extra_deb'],
+                    d['role'], d['downloader_str'], d['comments'], d['arch'], d['extra_arch'], d['extra_checks'],
+                    d['cmd_found'])
+
+if sys.stdout.isatty():
+    labels = ('ok', 'optional for an output', 'optional for general use', 'mandatory for an output', 'mandatory for general use')
+    text = ', '.join([sev2color(c)+l+RESET for c, l in enumerate(labels)])
+    print(do_bright('\nColor reference:')+' '+text)
+
+    print('\nDid this help? Please consider commenting it on https://github.com/INTI-CMNB/KiBot/discussions/categories/kibot-check')
+
