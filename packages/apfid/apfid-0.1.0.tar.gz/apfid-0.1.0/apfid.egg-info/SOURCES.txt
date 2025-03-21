@@ -1,0 +1,11 @@
+LICENSE
+README.MD
+pyproject.toml
+setup.py
+apfid/__init__.py
+apfid.egg-info/PKG-INFO
+apfid.egg-info/SOURCES.txt
+apfid.egg-info/dependency_links.txt
+apfid.egg-info/not-zip-safe
+apfid.egg-info/top_level.txt
+tests/test_apfid.py
