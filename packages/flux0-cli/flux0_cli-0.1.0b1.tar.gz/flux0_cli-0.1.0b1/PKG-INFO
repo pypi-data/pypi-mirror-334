@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: flux0-cli
+Version: 0.1.0b1
+Requires-Python: >=3.13
+Requires-Dist: click>=8.1.8
+Requires-Dist: flux0-client
+Requires-Dist: jsonpath-ng>=1.7.0
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: rich>=13.9.4
