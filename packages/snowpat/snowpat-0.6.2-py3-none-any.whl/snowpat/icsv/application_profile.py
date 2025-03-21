@@ -1,0 +1,1 @@
+# This file contains dictionaries and lists, for additional required metadata and fields in application profiles
