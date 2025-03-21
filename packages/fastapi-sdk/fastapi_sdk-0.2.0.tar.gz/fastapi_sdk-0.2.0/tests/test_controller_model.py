@@ -1,0 +1,364 @@
+"""Test controller."""
+
+import time
+from datetime import UTC
+
+import pytest
+from fastapi import HTTPException
+from motor.core import AgnosticDatabase
+
+from fastapi_sdk.controllers import ModelController
+from tests.controllers import Account, Project, PublicController, Task
+
+
+@pytest.fixture(autouse=True)
+def register_controllers():
+    """Register controllers for testing."""
+    ModelController.register_controller("Account", Account)
+    ModelController.register_controller("Project", Project)
+    ModelController.register_controller("Task", Task)
+
+
+async def fixtures(db_engine: AgnosticDatabase):
+    """Re-usable test fictures"""
+    account_1 = await Account(db_engine).create({"name": "Account 1"})
+    account_2 = await Account(db_engine).create({"name": "Account 2"})
+
+    return account_1, account_2
+
+
+@pytest.mark.asyncio
+async def test_model_controller(db_engine: AgnosticDatabase):
+    """Test model controller."""
+
+    # Create two accounts, one for crud test and one for listing
+    account_1, account_2 = await fixtures(db_engine)
+
+    assert account_1.uuid
+    assert account_1.name == "Account 1"
+    assert account_1.created_at
+    assert account_1.updated_at
+
+    # Get account
+    account_1 = await Account(db_engine).get(uuid=account_1.uuid)
+    assert account_1
+
+    # Sleep for 1 seconds to test updated_at
+    time.sleep(1)
+
+    # Update account
+    account_1 = await Account(db_engine).update(
+        uuid=account_1.uuid, data={"name": "Account 1 Updated"}
+    )
+
+    assert account_1.name == "Account 1 Updated"
+    assert account_1.updated_at > account_1.created_at.replace(tzinfo=UTC)
+
+    # List accounts
+    accounts = await Account(db_engine).list()
+    assert len(accounts["items"]) == 2
+    assert accounts["total"] == 2
+    assert accounts["page"] == 0
+    assert accounts["pages"] == 1
+
+    # Delete account
+    account_1 = await Account(db_engine).delete(uuid=account_1.uuid)
+    assert account_1.deleted is True
+
+    # Get deleted account
+    deleted_account = await Account(db_engine).get(uuid=account_1.uuid)
+    assert deleted_account is None
+
+    # Update deleted account
+    deleted_account = await Account(db_engine).update(
+        uuid=account_1.uuid, data={"name": "Account 1 Updated"}
+    )
+    assert deleted_account is None
+
+    # List accounts with one deleted
+    accounts = await Account(db_engine).list()
+    assert len(accounts["items"]) == 1
+    assert accounts["items"][0].uuid == account_2.uuid
+    assert accounts["total"] == 1
+    assert accounts["page"] == 0
+    assert accounts["pages"] == 1
+
+
+@pytest.mark.asyncio
+async def test_list_options(db_engine: AgnosticDatabase):
+    """Test the list options of the controller."""
+
+    # Create two accounts, one for crud test and one for listing
+    account_1, account_2 = await fixtures(db_engine)
+
+    # Default listing
+    accounts = await Account(db_engine).list()
+    assert len(accounts["items"]) == 2
+    assert accounts["total"] == 2
+    assert accounts["page"] == 0
+    assert accounts["pages"] == 1
+
+    # List with page 2 (Page 1 is the same as default, page 0)
+    accounts = await Account(db_engine).list(page=2)
+    assert len(accounts["items"]) == 0
+    assert accounts["total"] == 2
+    assert accounts["page"] == 2
+    assert accounts["pages"] == 1
+
+    # List with query
+    accounts = await Account(db_engine).list(query=[{"name": "Account 1"}])
+    assert len(accounts["items"]) == 1
+    assert accounts["items"][0].uuid == account_1.uuid
+    assert accounts["total"] == 1
+    assert accounts["page"] == 0
+    assert accounts["pages"] == 1
+
+    # List with order_by
+    accounts = await Account(db_engine).list(order_by={"name": -1})
+    assert len(accounts["items"]) == 2
+    assert accounts["items"][0].uuid == account_2.uuid
+    assert accounts["items"][1].uuid == account_1.uuid
+    assert accounts["total"] == 2
+    assert accounts["page"] == 0
+    assert accounts["pages"] == 1
+
+
+@pytest.mark.asyncio
+async def test_relationships(db_engine: AgnosticDatabase):
+    """Test relationship handling between models."""
+    # Create an account
+    account = await Account(db_engine).create({"name": "Test Account"})
+
+    # Create a project for this account
+    project = await Project(db_engine).create(
+        {"name": "Test Project", "account_id": account.uuid}
+    )
+
+    # Create a task for this project
+    task = await Task(db_engine).create(
+        {
+            "description": "Test Task",
+            "account_id": account.uuid,
+            "project_id": project.uuid,
+        }
+    )
+
+    # Test getting account with related projects
+    account_with_projects = await Account(db_engine).get_with_relations(
+        uuid=account.uuid, include=["projects"]
+    )
+    assert len(account_with_projects.projects) == 1
+    assert account_with_projects.projects[0].uuid == project.uuid
+
+    # Test getting project with related account and tasks
+    project_with_relations = await Project(db_engine).get_with_relations(
+        uuid=project.uuid, include=["account", "tasks"]
+    )
+    assert project_with_relations.account.uuid == account.uuid
+    assert len(project_with_relations.tasks) == 1
+    assert project_with_relations.tasks[0].uuid == task.uuid
+
+    # Test cascade delete
+    await Account(db_engine).delete_with_relations(uuid=account.uuid)
+
+    # Verify everything is deleted
+    deleted_project = await Project(db_engine).get(uuid=project.uuid)
+    deleted_task = await Task(db_engine).get(uuid=task.uuid)
+    assert deleted_project is None
+    assert deleted_task is None
+
+
+@pytest.mark.asyncio
+class TestOwnership:
+    """Test ownership functionality."""
+
+    @pytest.fixture
+    def account_claims(self, account):
+        """Create test account claims."""
+        return {"account_id": account.uuid}
+
+    @pytest.fixture
+    def different_account_claims(self):
+        """Create claims for a different account."""
+        return {"account_id": "acc_456"}
+
+    @pytest.fixture
+    def no_account_claims(self):
+        """Create claims without account_id."""
+        return {"user_id": "user_123"}
+
+    async def test_create_with_ownership(self, db_engine, account_claims):
+        """Test creating a record with ownership."""
+        controller = Project(db_engine)
+        data = {"name": "Test project", "account_id": account_claims["account_id"]}
+
+        instance = await controller.create(data, claims=account_claims)
+        assert instance.name == "Test project"
+        assert instance.account_id == account_claims["account_id"]
+
+    async def test_create_without_claims(self, db_engine, no_account_claims):
+        """Test creating a record without required claims."""
+        controller = Account(db_engine)
+        data = {"name": "Test Account"}
+
+        with pytest.raises(HTTPException) as exc_info:
+            await controller.create(data, claims=no_account_claims)
+        assert exc_info.value.status_code == 403
+        assert "Missing required claim: account_id" in str(exc_info.value.detail)
+
+    async def test_get_with_ownership(self, db_engine, account_claims):
+        """Test getting a record owned by the user."""
+        controller = Project(db_engine)
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+
+        # Create a record
+        instance = await controller.create(data, claims=account_claims)
+
+        # Get the record
+        retrieved = await controller.get(instance.uuid, claims=account_claims)
+        assert retrieved is not None
+        assert retrieved.uuid == instance.uuid
+        assert retrieved.account_id == account_claims["account_id"]
+
+    async def test_get_without_ownership(
+        self, db_engine, account_claims, different_account_claims
+    ):
+        """Test getting a record not owned by the user."""
+        controller = Project(db_engine)
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+
+        # Create a record with one account
+        instance = await controller.create(data, claims=account_claims)
+
+        # Try to get it with different account
+        retrieved = await controller.get(instance.uuid, claims=different_account_claims)
+        assert retrieved is None
+
+    async def test_list_with_ownership(
+        self, db_engine, account_claims, different_account_claims
+    ):
+        """Test listing records with ownership filter."""
+        controller = Project(db_engine)
+
+        # Create records for different accounts
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+        await controller.create(data, claims=account_claims)
+
+        data = {
+            "name": "Test Project",
+            "account_id": different_account_claims["account_id"],
+        }
+        await controller.create(data, claims=different_account_claims)
+
+        # List records for first account
+        result = await controller.list(claims=account_claims)
+        assert len(result["items"]) == 1
+        assert result["items"][0].account_id == account_claims["account_id"]
+
+        # List records for second account
+        result = await controller.list(claims=different_account_claims)
+        assert len(result["items"]) == 1
+        assert result["items"][0].account_id == different_account_claims["account_id"]
+
+    async def test_update_with_ownership(
+        self, db_engine, account_claims, different_account_claims
+    ):
+        """Test updating records with ownership."""
+        controller = Project(db_engine)
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+
+        # Create a record
+        instance = await controller.create(data, claims=account_claims)
+
+        # Update with correct ownership
+        updated = await controller.update(
+            instance.uuid,
+            {"name": "Updated Project"},
+            claims=account_claims,
+        )
+        assert updated is not None
+        assert updated.name == "Updated Project"
+
+        # Try to update with different account
+        updated = await controller.update(
+            instance.uuid,
+            {"name": "Hacked Account"},
+            claims=different_account_claims,
+        )
+        assert updated is None
+
+    async def test_delete_with_ownership(
+        self, db_engine, account_claims, different_account_claims
+    ):
+        """Test deleting records with ownership."""
+        controller = Project(db_engine)
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+
+        # Create a record
+        instance = await controller.create(data, claims=account_claims)
+
+        # Delete with correct ownership
+        deleted = await controller.delete(instance.uuid, claims=account_claims)
+        assert deleted is not None
+        assert deleted.deleted is True
+
+        # Try to delete with different project
+        instance = await controller.create(data, claims=account_claims)
+        deleted = await controller.delete(
+            instance.uuid, claims=different_account_claims
+        )
+        assert deleted is None
+
+    async def test_public_access(self, db_engine, account_claims, no_account_claims):
+        """Test access to public records."""
+        controller = PublicController(db_engine)
+        data = {"name": "Test Project", "account_id": account_claims["account_id"]}
+
+        # Create a record without claims
+        instance = await controller.create(data, claims=no_account_claims)
+        assert instance.name == "Test Project"
+        assert instance.account_id == account_claims["account_id"]
+
+        # Get the record without claims
+        retrieved = await controller.get(instance.uuid, claims=no_account_claims)
+        assert retrieved is not None
+        assert retrieved.uuid == instance.uuid
+        assert retrieved.account_id == account_claims["account_id"]
+
+    async def test_nested_ownership(self, db_engine, account_claims):
+        """Test ownership with nested relationships."""
+        account_controller = Account(db_engine)
+        project_controller = Project(db_engine)
+
+        # Create an account
+        account = await account_controller.create(
+            {"name": "Test Account"},
+            claims=account_claims,
+        )
+
+        # Create a project for the account
+        project = await project_controller.create(
+            {"name": "Test Project", "account_id": account.uuid},
+            claims={"account_id": account.uuid},
+        )
+
+        # Verify project ownership
+        assert project.account_id == account.uuid
+
+        # Try to get project with different account
+        different_claims = {"account_id": "acc_456"}
+        retrieved = await project_controller.get(project.uuid, claims=different_claims)
+        assert retrieved is None
+
+    async def test_create_with_ownership_forbidden(self, db_engine, account_claims):
+        """Test creating a record with incorrect ownership value is forbidden."""
+        controller = Project(db_engine)
+        data = {
+            "name": "Test project",
+            "account_id": "acc_999",  # Different from the claim value "acc_123"
+        }
+
+        with pytest.raises(HTTPException) as exc_info:
+            await controller.create(data, claims=account_claims)
+        assert exc_info.value.status_code == 403
+        assert "Invalid account_id" in str(exc_info.value.detail)
