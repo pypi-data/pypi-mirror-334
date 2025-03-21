@@ -1,0 +1,8 @@
+psutil
+pyreadline3
+
+[unix]
+python-magic
+
+[win]
+python-magic-bin
