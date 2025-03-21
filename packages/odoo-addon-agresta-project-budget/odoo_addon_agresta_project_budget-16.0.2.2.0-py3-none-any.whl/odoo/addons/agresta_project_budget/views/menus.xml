@@ -1,0 +1,17 @@
+<odoo>
+     <record id="execution_call_recalculate" model="ir.actions.server">
+        <field name="name">Recalculate all executions</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_project_project"/>
+        <field name="binding_model_id" ref="model_project_project"/>
+        <field name="sequence">0</field>
+        <field name="state">code</field>
+        <field name="code">action = model.recalc_execution_active_projects()</field>
+    </record>
+    <menuitem
+        id="menu_execution_recalculate"
+        parent="project.menu_project_config"
+        groups="group_agresta_project_manager"
+        action="execution_call_recalculate"
+    />
+</odoo>

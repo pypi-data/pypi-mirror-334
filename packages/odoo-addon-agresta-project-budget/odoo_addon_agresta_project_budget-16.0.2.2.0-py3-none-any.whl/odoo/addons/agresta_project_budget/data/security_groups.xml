@@ -1,0 +1,28 @@
+<odoo>
+<data>
+	<!-- Defineix la categoria de grup (el que surt a opcions de usuari) -->
+	<record model="ir.module.category" id="agresta_project_mngmt">
+ 		<field name="name">Project execution access</field>
+  		<field name="description">Access level for project execution </field>
+		<field name="sequence">3</field>
+	</record>
+
+	<!-- User Group  -->
+	<record id="group_agresta_project_user" model="res.groups">
+     <field name="name">User</field>
+     <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> <!-- Implica que aquest grup també es té -->
+     <field name="users" eval="[(4, ref('base.user_root'))]"/> <!-- Per defecte el Admin ho és -->
+     <field name="category_id" ref="agresta_project_budget.agresta_project_mngmt"/> <!-- Fa referència als permisos d'aquesta categoria -->
+    </record>
+
+	<!-- Coordinator Group -->
+   <record id="group_agresta_project_manager" model="res.groups">
+     <field name="name">Coordinator</field>
+     <field name="implied_ids" eval="[(4, ref('agresta_project_budget.group_agresta_project_user'))]"/> <!-- Implica que aquest grup també es té -->
+     <field name="users" eval="[(4, ref('base.user_root'))]"/> <!-- Per defecte el Admin ho és -->
+     <field name="category_id" ref="agresta_project_budget.agresta_project_mngmt"/> <!-- Fa referència als permisos d'aquesta categoria -->
+    </record>
+
+
+</data>
+</odoo>
