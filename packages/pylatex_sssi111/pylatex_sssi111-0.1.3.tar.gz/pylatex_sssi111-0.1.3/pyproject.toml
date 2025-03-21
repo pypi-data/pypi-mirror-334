@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pylatex_sssi111"
+version = "0.1.3"
+description = "LaTeX document generator"
+authors = ["sssi111 <truesssi111@gmail.com>"]
+packages = [
+    { include = "pylatex_sssi111" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
