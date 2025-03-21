@@ -1,0 +1,16 @@
+*.pyc
+.DS_Store
+__pycache__
+Manual.aux
+Manual.bbl
+Manual.blg
+Manual.log
+Manual.out
+Manual.synctex.gz
+*.egg-info
+dist
+build
+.vscode/
+.made
+.ipynb_checkpoints/
+poetry.lock

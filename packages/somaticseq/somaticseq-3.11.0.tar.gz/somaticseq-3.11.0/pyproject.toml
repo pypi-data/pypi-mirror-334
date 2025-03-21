@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "somaticseq"
+keywords = ["somatic mutations", "bioinformatics", "genomics", "ngs"]
+authors = [
+    {name = "Li Tai Fang"},
+    {name = "Pegah Tootoonchi Afshar"},
+    {name = "Aparna Chhibber"},
+    {name = "Marghoob Mohiyuddin"},
+    {name = "John C. Mu"},
+    {name = "Greg Gibeling"},
+    {name = "Sharon Barr"},
+    {name = "Narges Bani Asadi"},
+    {name = "Hugo Y.K. Lam"},
+]
+maintainers = [
+    {name = "Li Tai Fang", email = "ltfang@gmail.com"},
+]
+description = "SomaticSeq: An ensemble approach to accurately detect somatic mutations using SomaticSeq"
+readme = "README.md"
+requires-python = ">=3.11.0"
+license = {text = "BSD-2-Clause"}
+dependencies = [
+    "pysam",
+    "numpy",
+    "scipy",
+    "pandas",
+    "pybedtools>=0.12.0",
+    "xgboost>=1.4",
+    "pydantic>=2.0.0,<3.0",
+]
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Healthcare Industry",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Homepage = "https://github.com/bioinform/somaticseq"
+
+[project.scripts]
+somaticseq = "somaticseq.somaticseq_parallel:main"
+somaticseq_parallel = "somaticseq.somaticseq_parallel:main"
+somaticseq_xgboost = "somaticseq.somatic_xgboost:main"
+somaticseq_tsv2vcf = "somaticseq.somatic_tsv2vcf:main"
+somaticseq_single_vcf2tsv = "somaticseq.single_sample_vcf2tsv:main"
+somaticseq_paired_vcf2tsv = "somaticseq.somatic_vcf2tsv:main"
+somaticseq_concat = "somaticseq.genomic_file_parsers.concat:main"
+somaticseq_linguistic_sequence_complexity = "somaticseq.utilities.linguistic_sequence_complexity:main"
+somaticseq_loci_counter = "somaticseq.utilities.lociCounterWithLabels:main"
+somaticseq_paired_end_bam2fastq = "somaticseq.utilities.paired_end_bam2fastq:main"
+somaticseq_split_bed_into_equal_regions = "somaticseq.utilities.split_bed_into_equal_regions:main"
+somaticseq_make_alignment_scripts = "somaticseq.utilities.dockered_pipelines.makeAlignmentScripts:main"
+somaticseq_make_somatic_scripts = "somaticseq.utilities.dockered_pipelines.makeSomaticScripts:main"
+somaticseq_run_workflows = "somaticseq.utilities.dockered_pipelines.run_workflows:main"
+somaticseq_split_vcf = "somaticseq.vcf_modifier.split_vcf:main"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "mypy",
+    "pytest",
+    "pytest-mock",
+    "twine",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"

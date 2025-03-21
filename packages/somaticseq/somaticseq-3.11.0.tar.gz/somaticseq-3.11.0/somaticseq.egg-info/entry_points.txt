@@ -1,0 +1,16 @@
+[console_scripts]
+somaticseq = somaticseq.somaticseq_parallel:main
+somaticseq_concat = somaticseq.genomic_file_parsers.concat:main
+somaticseq_linguistic_sequence_complexity = somaticseq.utilities.linguistic_sequence_complexity:main
+somaticseq_loci_counter = somaticseq.utilities.lociCounterWithLabels:main
+somaticseq_make_alignment_scripts = somaticseq.utilities.dockered_pipelines.makeAlignmentScripts:main
+somaticseq_make_somatic_scripts = somaticseq.utilities.dockered_pipelines.makeSomaticScripts:main
+somaticseq_paired_end_bam2fastq = somaticseq.utilities.paired_end_bam2fastq:main
+somaticseq_paired_vcf2tsv = somaticseq.somatic_vcf2tsv:main
+somaticseq_parallel = somaticseq.somaticseq_parallel:main
+somaticseq_run_workflows = somaticseq.utilities.dockered_pipelines.run_workflows:main
+somaticseq_single_vcf2tsv = somaticseq.single_sample_vcf2tsv:main
+somaticseq_split_bed_into_equal_regions = somaticseq.utilities.split_bed_into_equal_regions:main
+somaticseq_split_vcf = somaticseq.vcf_modifier.split_vcf:main
+somaticseq_tsv2vcf = somaticseq.somatic_tsv2vcf:main
+somaticseq_xgboost = somaticseq.somatic_xgboost:main
