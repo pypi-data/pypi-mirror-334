@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+crudgen/__init__.py
+crudgen/apps.py
+crudgen/generators.py
+django_crudgen.egg-info/PKG-INFO
+django_crudgen.egg-info/SOURCES.txt
+django_crudgen.egg-info/dependency_links.txt
+django_crudgen.egg-info/requires.txt
+django_crudgen.egg-info/top_level.txt
