@@ -1,0 +1,78 @@
+Metadata-Version: 2.2
+Name: SC2Spa
+Version: 1.3.1
+Summary: SC2Spa: a deep learning based approach to map transcriptome to spatial origins at cellular resolution
+Author-email: "Linbu Liao, Won Lab" <linbu.liao@gmail.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2023 Linbu Liao, Won Lab
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Homepage, https://github.com/linbuliao/SC2Spa
+Project-URL: Bug Tracker, https://github.com/pypa/SC2Spa/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+[![PyPI](https://img.shields.io/pypi/v/SC2Spa?logo=PyPI)](https://pypi.org/project/SC2Spa)
+[![Docs](https://img.shields.io/readthedocs/sc2spa)](https://sc2spa.readthedocs.io)
+
+SC2Spa: a deep learning based approach to map transcriptome to spatial origins at cellular resolution
+====================================================================================
+
+<p align="center">
+  <img src="./SC2Spa.png" alt="SC2Spa Overview" width="600"/>
+</p>
+
+## Install
+Install SC2Spa:
+```
+conda create -n SC2Spa python=3.9
+conda activate SC2Spa
+pip install SC2Spa
+```
+
+## Analysis for the SC2Spa manuscript
+The analysis for the SC2Spa manuscript can be found in [this repository](https://github.com/linbuliao/SC2Spa_Notebooks).
+The analysis and related data were also uploaded to [Figshare](https://figshare.com/articles/dataset/Datasets_for_high_resolution_spatial_mapping_of_mouse_hippocampus_Slide-seqV2_for_SC2Spa/21829905) and [Zenodo](https://zenodo.org/records/8252715).
+
+## Benchmarking and validation code  
+The benchmarking code, including scripts for cross-validation and cross-dataset validation, is available for download as `CV_code.zip` from:
+https://figshare.com/ndownloader/files/53089715
+
+## Many more to come!
+We will update more on our [Read the Docs page](https://sc2spa.readthedocs.io/en/latest/)
+
+## News
+
+__2023/08/22__
+
+SC2Spa is now on BioRXiv!
+https://www.biorxiv.org/content/10.1101/2023.08.22.554277v1
