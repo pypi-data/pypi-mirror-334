@@ -1,0 +1,48 @@
+Metadata-Version: 2.2
+Name: kbatch-papermill
+Version: 0.1.0a1
+Summary: KBatch Papermill: Run papermill in kbatch
+Author-email: Min RK <benjaminrk@gmail.com>
+License: BSD-3-Clause
+Project-URL: Homepage, https://github.com/minrk/kbatch-papermill
+Project-URL: Source, https://github.com/minrk/kbatch-papermill
+Project-URL: Tracker, https://github.com/minrk/kbatch-papermill/issues
+Keywords: Jupyter,Kubernetes
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX
+Classifier: Framework :: Jupyter
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ipython
+Requires-Dist: ipywidgets
+Requires-Dist: kbatch
+Requires-Dist: pyyaml
+Requires-Dist: rich
+Requires-Dist: s3fs
+Requires-Dist: tqdm
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+
+# kbatch-papermill
+
+Currently designed for [Destination-Earth GFTS](https://github.com/destination-earth/DestinE_ESA_GFTS), it runs notebooks with [papermill] on Kubernetes via [kbatch].
+It does not currently target general use because the following assumptions, specific to GFTS deployments, are made:
+
+1. Default AWS credentials are set up via environment variables, and work.
+2. Jobs should always run with the same $JUPYTER_IMAGE as the submitting environment.
+3. $JUPYTER_IMAGE has `papermill`.
+4. We have read/write access to S3 for _both_ the code input directory and the output directory (completed job results).
+
+Note that we do not use the [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) approach to pass the code directory, because of the size limit on config maps.
+So we essentially replicate the code directory functionality of kbatch, but store in S3 instead.
+
+We also add some generic functionality to make a nicer Python API for kbatch, which should perhaps be upstreamed. See `_kbatch.py` for most of that.
+
+[papermill]: https://papermill.readthedocs.io
+[kbatch]: https://kbatch.readthedocs.io
