@@ -1,0 +1,22 @@
+Metadata-Version: 2.2
+Name: meetupscraper
+Version: 0.11.0
+Summary: A web scraper for meetup.com
+Home-page: http://github.com/hakierspejs/meetupscraper
+Author: Hakiespejs Łódź
+Author-email: d33tah@gmail.com
+License: WTFPL
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: python-dateutil
+Requires-Dist: icalendar
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+Allows you to access events tied to a specific meetup group in a structured way
