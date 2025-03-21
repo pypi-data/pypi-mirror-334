@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/discordifyText/__init__.py
+src/discordifyText/__main__.py
+src/discordifyText/discordifyText.py
+src/discordifyText.egg-info/PKG-INFO
+src/discordifyText.egg-info/SOURCES.txt
+src/discordifyText.egg-info/dependency_links.txt
+src/discordifyText.egg-info/entry_points.txt
+src/discordifyText.egg-info/requires.txt
+src/discordifyText.egg-info/top_level.txt
+tests/test_discordifyText.py
