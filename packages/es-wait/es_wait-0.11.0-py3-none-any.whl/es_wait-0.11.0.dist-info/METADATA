@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: es-wait
+Version: 0.11.0
+Summary: Helping you wait for certain Elasticsearch tasks and API calls to finish
+Project-URL: Documentation, https://github.com/untergeek/es-wait#readme
+Project-URL: Issues, https://github.com/untergeek/es-wait/issues
+Project-URL: Source, https://github.com/untergeek/es-wait
+Author-email: Aaron Mildenstein <untergeek@elastic.co>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: elasticsearch,tools,wait
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Requires-Dist: dotmap==1.3.30
+Requires-Dist: elasticsearch8>=8.17.1
+Provides-Extra: doc
+Requires-Dist: sphinx; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: es-client>=8.13.4; extra == 'test'
+Requires-Dist: mock; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest>=7.2.1; extra == 'test'
+Requires-Dist: python-dotenv==1.0.1; extra == 'test'
+Requires-Dist: requests; extra == 'test'
+Description-Content-Type: text/markdown
+
+# es-wait
+
+Classes that wait for different Elasticsearch API calls and tasks to complete
+
+Documentation at https://es-wait.readthedocs.io
