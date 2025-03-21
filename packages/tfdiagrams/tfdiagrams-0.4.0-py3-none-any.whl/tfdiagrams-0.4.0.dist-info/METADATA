@@ -1,0 +1,12 @@
+Metadata-Version: 2.3
+Name: tfdiagrams
+Version: 0.4.0
+Summary: 
+Author: Tetsuya Shinone
+Author-email: info@semnil.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: diagrams (>=0.24.0,<0.25.0)
+Requires-Dist: pydot (>=3.0.0,<4.0.0)
