@@ -1,0 +1,35 @@
+description: A graph to traverse ResearchStudy, ResearchSubject, Patient, Specimen,
+  and DocumentReference - uses iteration to link from source to target.
+id: research-study-graph-iterate
+name: ResearchStudyGraph
+resourceType: GraphDefinition
+status: active
+link:
+
+# find all Patients that are ResearchSubject for the study, retrieve Observation, Specimen, and DocumentReference resources
+- params: _has:ResearchSubject:individual:study={ref}&_revinclude=Group:member&_revinclude=ResearchSubject:individual&_revinclude=Specimen:subject&_revinclude=Observation:subject&_revinclude=DocumentReference:subject&_count=1000&_total=accurate
+  sourceId: ResearchStudy
+  targetId: Patient
+  path: ResearchStudy.id
+
+# no-op bridge between Patient and Specimen
+- sourceId: Patient
+  targetId: Specimen
+
+# find all DocumentReference resources that have a Specimen resource as a subject
+- params: subject={ref}&_count=1000&_total=accurate
+  path: Specimen.id
+  sourceId: Specimen
+  targetId: DocumentReference
+
+# find all DocumentReference resources that have a Specimen resource as a relatesto reference
+- params: relatesto={ref}&_count=1000&_total=accurate
+  path: Specimen.id
+  sourceId: Specimen
+  targetId: DocumentReference
+
+# find all Observation resources that have a Specimen resource as a subject
+- params: subject={ref}&_count=1000&_total=accurate
+  path: Specimen.id
+  sourceId: Specimen
+  targetId: Observation
