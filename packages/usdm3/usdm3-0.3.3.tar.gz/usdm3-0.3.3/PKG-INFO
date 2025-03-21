@@ -1,0 +1,39 @@
+Metadata-Version: 2.2
+Name: usdm3
+Version: 0.3.3
+Summary: A python package for using the CDISC TransCelerate USDM
+Author: D Iberson-Hurst
+Author-email: 
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: beautifulsoup4
+Requires-Dist: pyyaml
+Requires-Dist: simple-error-log
+Requires-Dist: jsonschema
+Requires-Dist: beautifulsoup4
+Requires-Dist: simple-error-log
+Requires-Dist: jsonschema
+Requires-Dist: python-dotenv
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: summary
+
+# USDM3
+
+Library for USDM Version 3
+
+# Build Package
+
+Build steps for deployment to pypi.org
+
+- Build with `python3 -m build --sdist --wheel`
+- Upload to pypi.org using `twine upload dist/* `
