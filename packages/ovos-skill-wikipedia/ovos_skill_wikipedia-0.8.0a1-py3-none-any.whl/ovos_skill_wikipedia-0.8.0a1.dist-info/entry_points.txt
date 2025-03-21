@@ -1,0 +1,8 @@
+[neon.plugin.solver]
+ovos-solver-plugin-wikipedia = skill_ovos_wikipedia:WikipediaSolver
+
+[opm.plugin.persona]
+Wikipedia = skill_ovos_wikipedia:WIKIPEDIA_PERSONA
+
+[ovos.plugin.skill]
+skill-ovos-wikipedia.openvoiceos = skill_ovos_wikipedia:WikipediaSkill
