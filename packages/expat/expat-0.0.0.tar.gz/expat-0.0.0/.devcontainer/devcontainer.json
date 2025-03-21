@@ -1,0 +1,30 @@
+{
+	"name": "Expat Devcontainer",
+	"dockerComposeFile": "${localWorkspaceFolder}/.devcontainer/docker-compose.yml",
+	"service": "dev-environment",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"containerEnv": {
+		"UV_CACHE_DIR": "${containerWorkspaceFolder}/.uv_cache",
+		"VIRTUAL_ENV": "${containerWorkspaceFolder}/.venv",
+		"EXPAT_SOURCE_DIR": "${containerWorkspaceFolder}",
+		"EXPAT_CONFIG_FILE": "${containerWorkspaceFolder}/expat.toml"
+	},
+	"postStartCommand": "bash ${EXPAT_SOURCE_DIR}/.devcontainer/post-start-command.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-azuretools.vscode-docker",
+				"charliermarsh.ruff",
+				"tamasfe.even-better-toml"
+			],
+			"settings": {
+				"python.analysis.typeCheckingMode": "basic",
+				"files.autoSave": "afterDelay",
+				"files.eol": "auto",
+				"editor.rulers": [88, 120]
+			}
+		}
+	}
+}

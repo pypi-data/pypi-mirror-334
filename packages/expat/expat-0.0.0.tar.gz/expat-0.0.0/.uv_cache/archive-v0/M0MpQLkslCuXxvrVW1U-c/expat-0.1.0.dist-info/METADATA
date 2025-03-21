@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: expat
+Version: 0.1.0
+Summary: Add your description here
+Author-email: William Strausser <william.e.strausser@gmail.com>
+Requires-Python: >=3.13
+Requires-Dist: click>=8.1.8
+Requires-Dist: psycopg[binary]>=3.2.6
+Requires-Dist: pydantic>=2.10.6
