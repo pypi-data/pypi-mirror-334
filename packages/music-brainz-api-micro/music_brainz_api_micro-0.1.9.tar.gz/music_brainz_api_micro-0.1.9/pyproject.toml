@@ -1,0 +1,28 @@
+[build-system]
+requires = [
+  "hatchling",
+]
+build-backend = "hatchling.build"
+[project]
+name = "music_brainz_api_micro"
+version = "0.1.9"
+authors = [
+  { name = "Samuel Shiels" },
+]
+description = "A micro client for MusicBrainz, implements simple functions to retrieve information"
+readme = "README.md"
+requires-python = ">=3.11.5"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Other Environment",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "jsonpickle",
+  "rest_client_micro",
+]
