@@ -1,0 +1,2 @@
+[console_scripts]
+pii-tool = es_pii_tool.cli:run
