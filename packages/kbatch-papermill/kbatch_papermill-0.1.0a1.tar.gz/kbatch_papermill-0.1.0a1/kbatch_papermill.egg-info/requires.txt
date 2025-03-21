@@ -1,0 +1,10 @@
+ipython
+ipywidgets
+kbatch
+pyyaml
+rich
+s3fs
+tqdm
+
+[test]
+pytest
