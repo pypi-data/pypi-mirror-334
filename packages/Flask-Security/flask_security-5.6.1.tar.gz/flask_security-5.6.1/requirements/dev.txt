@@ -1,0 +1,23 @@
+-r docs.txt
+-r tests.txt
+mypy
+flit
+check-wheel-contents
+psycopg2-binary
+pymysql
+pre-commit
+tox
+sqlalchemy
+types-requests
+
+# for dev - might not install Flask-Security - list those dependencies here
+flask
+flask-wtf
+flask-login
+wtforms
+markupsafe
+passlib
+blinker
+email_validator
+itsdangerous
+importlib_resources>=5.10.0
