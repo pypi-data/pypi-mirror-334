@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "XceptHttp"
+version = "0.0.2"
+authors = [
+  { name="OperatorV", email="kendricklamar@gmail.com" },
+]
+description = "XceptHttp is a powerful, easy-to-use Python library built on top of httpx to simplify HTTP request handling. With intuitive methods for making asynchronous and synchronous HTTP requests."
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/PyLC/hmPy"
+Issues = "https://github.com/PyLC/hmPy"
