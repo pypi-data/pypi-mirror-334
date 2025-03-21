@@ -1,0 +1,43 @@
+"/home/sokol/sysbio/dev/ftbl2sys/influx_si/influx_i.py" "--pref" "e_coli_i" "--pref" "e_coli_iv" "--pref" "ex_i_2box_var" "--pref" "../prl_exp/mtf/e_coli_GX_prl"
+code gen: 2025-03-18 15:12:29
+calcul  : 2025-03-18 15:12:30
+load    : 2025-03-18 15:12:30.95 cpu=0.596
+rinit   : 2025-03-18 15:12:30.95 cpu=0.601
+r_flux  : 2025-03-18 15:12:30.95 cpu=0.601
+Afl qr(): 2025-03-18 15:12:30.96 cpu=0.61
+dfl_dffg: 2025-03-18 15:12:30.97 cpu=0.615
+spAbr   : 2025-03-18 15:12:30.97 cpu=0.616
+weight  1: 2025-03-18 15:12:30.97 cpu=0.617
+weight  2: 2025-03-18 15:12:30.97 cpu=0.618
+weight  3: 2025-03-18 15:12:30.97 cpu=0.619
+weight  4: 2025-03-18 15:12:30.97 cpu=0.619
+weight  5: 2025-03-18 15:12:30.97 cpu=0.62
+weight  6: 2025-03-18 15:12:30.97 cpu=0.621
+weight  7: 2025-03-18 15:12:30.97 cpu=0.622
+weight  8: 2025-03-18 15:12:30.97 cpu=0.622
+weight  9: 2025-03-18 15:12:30.98 cpu=0.624
+measure : 2025-03-18 15:12:30.99 cpu=0.649
+ineq    : 2025-03-18 15:12:31.01 cpu=0.679
+preopt  : 2025-03-18 15:12:31.14 cpu=0.771
+labargs : 2025-03-18 15:12:31.14 cpu=0.772
+run    1: 2025-03-18 15:12:31.14 cpu=0.773
+
+Starting point
+check ja: 2025-03-18 15:12:31.59 cpu=1.157
+optim   : 2025-03-18 15:12:32.94 cpu=2.49
+it=0	res=46.694
+it=1	res=46.48103	normstep=2.927638	btk=0.25
+it=2	res=46.344	normstep=2.248907	btk=0.25
+it=3	res=46.25468	normstep=1.772153	btk=0.25
+it=4	res=46.19203	normstep=1.431594	btk=0.25
+it=5	res=46.14514	normstep=1.158672	btk=0.25
+it=6	res=46.1077	normstep=0.9127221	btk=0.25
+it=7	res=46.07336	normstep=0.7505174	btk=0.25
+it=8	res=46.03924	normstep=0.6463508	btk=0.25
+it=9	res=46.00498	normstep=0.5895323	btk=0.25
+it=10	res=45.9741	normstep=0.5662715	btk=0.25
+it=20	res=45.88456	normstep=0.005092575	btk=1
+it=27	res=45.88455	normstep=7.951339e-06	btk=1
+postopt : 2025-03-18 15:12:54.81 cpu=29.442
+linstats: 2025-03-18 15:12:55.11 cpu=30.001
+rend    : 2025-03-18 15:12:55.13 cpu=30.059
