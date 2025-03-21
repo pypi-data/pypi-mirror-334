@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: pyeuvac
+Version: 0.0.9b0
+Author-email: Anton Tatarnikov <tatarnikoffanton@yandex.ru>, Oleg Zolotov <ovz.office@gmail.com>
+Project-URL: Homepage, https://github.com/klklklo/pyeuvac
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: importlib-resources
+Requires-Dist: netcdf4
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: xarray
+
+# pyeuvac
