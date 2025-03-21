@@ -1,0 +1,61 @@
+Metadata-Version: 2.2
+Name: openprotocal
+Version: 0.1.0
+Summary: Open Protocal to adapt different protocols and deploy frameworks
+Home-page: https://github.com/puppyagent/openprotocal
+Author: JZ
+Author-email: zjlpaul@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: FastAPI
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: pydantic>=1.8.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# FastAPI MCP
+
+A JSON-RPC MCP protocol implementation based on FastAPI.
+
+## Installation
+
+```bash
+pip install fastapi-mcp
+```
+
+## Quick Start
+
+```python
+from fastapi import FastAPI
+from fastapi_mcp import mcp
+
+app = FastAPI()
+
+@mcp()
+async def hello(request, name: str = "World"):
+    return f"Hello, {name}!"
+
+# MCP routes will be automatically registered to the FastAPI application
+```
+
+## Features
+
+- Fully compatible with JSON-RPC 2.0 specification
+- Automatic route registration
+- Exception handling
+- Type hint support
+
+## License
+
+MIT License
