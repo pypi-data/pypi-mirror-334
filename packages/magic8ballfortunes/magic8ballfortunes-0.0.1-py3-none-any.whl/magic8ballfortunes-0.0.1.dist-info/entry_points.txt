@@ -1,0 +1,2 @@
+[console_scripts]
+magic8ballfortunes = magic8ball.__main__:main
