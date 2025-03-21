@@ -1,0 +1,26 @@
+# YAML 1.2
+---
+cff-version: "1.2.0"
+title: "pycoeus"
+authors:
+  - family-names: Meijer
+    given-names: Christiaan
+    email: c.meijer@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: "https://orcid.org/0000-0002-5529-5761"
+  - given-names: Ou
+    family-names: Ku
+    email: o.ku@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-5373-5209'
+date-released: 2024-10-08
+version: "0.4.0"
+repository-code: "https://github.com/DroneML/pycoeus"
+keywords:
+  - "Segmentation"
+  - " UNet"
+  - " Active learning"
+  - " Drone"
+  - " Raster data"
+  - " Spatial data"
+message: "If you use this software, please cite it using these metadata."
