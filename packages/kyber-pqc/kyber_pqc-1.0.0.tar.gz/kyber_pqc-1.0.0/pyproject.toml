@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kyber-pqc"
+version = "1.0.0"
+description = "Production-Grade Post-Quantum Cryptography Implementation"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Krishna Bajpai", email = "bajpaikrishna715@gmail.com"}]
+keywords = ["post-quantum", "cryptography", "kyber", "security"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Security :: Cryptography"
+]
+
+dependencies = [
+    "cryptography>=3.4.7",
+    "crystals-kyber-python>=1.0.2",
+    "numpy>=1.21.0"
+]
+
+[project.optional-dependencies]
+benchmark = ["pytest-benchmark>=3.4.1"]
+
+dev = ["pytest>=6.2.5", "mypy>=0.910", "flake8>=4.0.1"]
