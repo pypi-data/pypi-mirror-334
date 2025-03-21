@@ -1,0 +1,116 @@
+# MIT License
+#
+# Copyright (c) 2025 Clivern
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# Storage temp dir
+temp_dir: /tmp
+
+# SQlite state file
+state_file: /etc/gulper.db
+
+# Logging configs
+logging:
+  level: error
+  # console or file
+  handler: console
+  # path to log file if handler is a file
+  path: ~
+
+storage:
+  local_01:
+    type: local
+    path: /opt/backups/
+    # Keep 3 months worth of backups
+    retention: 3 months # x days or x years
+
+  aws_s3_01:
+    type: s3
+    access_key_id: your_access_key_id
+    secret_access_key: your_secret_access_key
+    bucket_name: your_bucket_name
+    region: your_region
+    path: /
+    retention: 1 years
+
+  do_s3_01:
+    type: s3
+    access_key_id: your_access_key_id
+    secret_access_key: your_secret_access_key
+    endpoint_url: https://nyc3.digitaloceanspaces.com
+    bucket_name: your_bucket_name
+    region: nyc3
+    path: /team_name/db_backups
+    retention: 1 years
+
+  local_02:
+    type: local
+    path: /mnt/data01
+    # Keep 20 days worth of backups
+    retention: 20 days
+
+schedule:
+    daily_01:
+      expression: "0 0 * * * *"  # Daily at midnight
+
+database:
+  db01:
+    type: mysql
+    host: localhost
+    username: root
+    password: your_password
+    database:
+      - db01
+      - db02
+    storage:
+      - local_01
+    schedule: daily_01
+    options:
+      add_drop_table: True
+
+  db02:
+    type: mysql
+    host: localhost
+    username: root
+    password: your_password
+    storage:
+      - local_01
+    schedule: daily_01
+    options:
+      add_drop_table: True
+
+  db03:
+    type: postgresql
+    host: localhost
+    username: root
+    password: your_password
+    database:
+      - db01
+      - db02
+    storage:
+      - aws_s3_01
+    schedule: daily_01
+
+  db04:
+    type: sqlite
+    path: /opt/app/opswork.db
+    storage:
+      - local_02
+    schedule: daily_01
