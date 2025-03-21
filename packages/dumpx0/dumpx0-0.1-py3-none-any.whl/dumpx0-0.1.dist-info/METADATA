@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: dumpx0
+Version: 0.1
+Summary: ...
+Home-page: https://github.com/certikpolik1/thecryptoxprotox
+Author: ALfisene Keita
+Author-email: info@infopeklo.cz
+Requires-Dist: cryptography
+Requires-Dist: pycryptodome
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
