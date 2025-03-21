@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: embedded_adaptive_stacking_keras
+Version: 0.1
+Summary: Biblioteca para detecção de outliers baseada em Stacking com Keras
+Author: Matheus Lima Maturano Martins de Castro
+Requires-Python: >=3.7
+Requires-Dist: tensorflow>=2.5.0
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
