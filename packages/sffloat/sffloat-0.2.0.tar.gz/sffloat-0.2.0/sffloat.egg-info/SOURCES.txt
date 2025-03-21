@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+sffloat/__init__.py
+sffloat/__version__.py
+sffloat/sffloat.py
+sffloat.egg-info/PKG-INFO
+sffloat.egg-info/SOURCES.txt
+sffloat.egg-info/dependency_links.txt
+sffloat.egg-info/requires.txt
+sffloat.egg-info/top_level.txt
+test/test_class.py
+test/test_except.py
+test/test_func.py
+test/test_oper.py
+test/test_readme.py
