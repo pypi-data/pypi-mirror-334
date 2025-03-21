@@ -1,0 +1,23 @@
+.vscode/
+venv/
+
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+htmlcov/
+/.coverage
+/.coverage.*
+gl-codequality.json
+
+/build/
+/dist/
+*.egg-info/
+
+/log/
+dut.log
+
+# docs
+/docs/*.rst
+/docs/_build/
+!/docs/index.rst
