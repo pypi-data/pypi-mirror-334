@@ -1,0 +1,3 @@
+[console_scripts]
+rbfe_production = atm.rbfe_production:rbfe_production
+rbfe_structprep = atm.rbfe_structprep:rbfe_structprep
