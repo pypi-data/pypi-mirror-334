@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: constellaxion
+Version: 0.3.2
+Summary: The constellaXion CLI for managing your laboratory database
+Author: Constellaxion Technologies, Inc.
+Author-email: dev@constellaxion.ai
+Keywords: constellaxion,ai,ml ops
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# constellaXion CLI
+
+The fastest way to Train, Deploy and Serve Open Source Language Models to your Cloud environment
+
+## Installation
+
+Install the package:
+
+```sh
+pip install constellaxion
+```
+
+
+## Usage
+1. Init your model:
+
+    ```sh
+    constellaXion init
+    ```
+
+2. View Training and Serving configurations:
+
+    ```sh
+    constallaXion model view
+    ```
+
+3. Run training job:
+
+    ```sh
+    constallaXion model train
+    ```
+
+4. Serve model:
+
+    ```sh
+    constallaXion model serve
+    ```
+
+5. Prompt model:
+
+    ```sh
+    constallaXion model prompt
+    ```
