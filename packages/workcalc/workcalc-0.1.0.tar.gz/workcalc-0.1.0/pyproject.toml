@@ -1,0 +1,23 @@
+[project]
+name = "workcalc"
+version = "0.1.0"
+description = "Calculate how much time went into a project"
+authors = [{ name = "Danny Stewart", email = "danny@stewart.cc" }]
+urls = { repository = "https://github.com/dannystewart/dsbin" }
+readme = "README.md"
+packages = [{ include = "workcalc", from = "src" }]
+requires-python = ">=3.12"
+dependencies = [
+    "dsbase (>=0.2.0a1)",
+]
+
+[tool.poetry.group.dev.dependencies]
+mypy = ">=1.15.0"
+ruff = ">=0.11.0"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+workcalc = "workcalc.main:main"
