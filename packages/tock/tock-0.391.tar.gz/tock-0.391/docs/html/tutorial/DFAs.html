@@ -1,0 +1,1582 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Deterministic finite automata &#8212; tock  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nondeterministic finite automata" href="NFAs.html" />
+    <link rel="prev" title="Tutorial" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="Deterministic-finite-automata">
+<h1>Deterministic finite automata<a class="headerlink" href="#Deterministic-finite-automata" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tock</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<section id="Loading-DFAs-from-files">
+<h2>Loading DFAs from files<a class="headerlink" href="#Loading-DFAs-from-files" title="Permalink to this headline">¶</a></h2>
+<p>Sipser and other textbooks represent DFAs, and all kinds of automata, using either tables or graphs. You can create automata either way and load them into Tock.</p>
+<p>To create tables, you can use any spreadsheet software (Excel, OpenOffice, iWork, Google Drive) and export in CSV or Excel (<code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>) format. Then read it into Tock using the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> or <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;examples/sipser-1-4.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Graphs should be in Trivial Graph Format (TGF), which most graph-editing software (<a class="reference external" href="http://www.yworks.com/en/products/yfiles/yed/">yED</a>, <a class="reference external" href="http://gephi.github.io">Gephi</a>) can export in. Then a graph can be read into Tock using the <code class="docutils literal notranslate"><span class="pre">read_tgf</span></code> function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">read_tgf</span><span class="p">(</span><span class="s2">&quot;examples/sipser-1-4.tgf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Creating-DFAs-in-code">
+<h2>Creating DFAs in code<a class="headerlink" href="#Creating-DFAs-in-code" title="Permalink to this headline">¶</a></h2>
+<p>You can also use Tock functions to create an automaton in code.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">FiniteAutomaton</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_start_state</span><span class="p">(</span><span class="s1">&#39;q1&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_accept_state</span><span class="p">(</span><span class="s1">&#39;q2&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span><span class="s1">&#39;q1, 0 -&gt; q1&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span><span class="s1">&#39;q1, 1 -&gt; q2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>You can also specify a transition as two strings or two lists of strings.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_transition</span><span class="p">(</span><span class="s1">&#39;q2, 0&#39;</span><span class="p">,</span> <span class="s1">&#39;q3&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_transition</span><span class="p">([</span><span class="s1">&#39;q2&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;q3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>And you can use <code class="docutils literal notranslate"><span class="pre">m.add_transitions</span></code> to add several transitions at once.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_transitions</span><span class="p">([</span><span class="s1">&#39;q3, 0 -&gt; q2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;q3, 1 -&gt; q2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Editing-DFAs-graphically">
+<h2>Editing DFAs graphically<a class="headerlink" href="#Editing-DFAs-graphically" title="Permalink to this headline">¶</a></h2>
+<p>In a Jupyter notebook, you can edit a DFA graphically.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">edit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+/*
+ Finite State Machine Designer (http://madebyevan.com/fsm/)
+ License: MIT License (see below)
+
+ Copyright (c) 2010 Evan Wallace
+
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+/*
+   Bugs:
+   - In Jupyter, if the canvas is too wide, a horizontal scrollbar appears,
+     which makes the output too high, so a vertical scrollbar appears too.
+
+   To do:
+   - Change keybinding for delete node/edge
+   - Change edge's endpoint
+   - Map > and @ to start/accept state?
+   - Help
+*/
+
+function StartLink(node, start) {
+    this.node = node;
+    this.deltaX = 0;
+    this.deltaY = 0;
+
+    if(start) {
+        this.setAnchorPoint(start.x, start.y);
+    }
+}
+
+StartLink.prototype.setAnchorPoint = function(x, y) {
+    this.deltaX = x - this.node.x;
+    this.deltaY = y - this.node.y;
+
+    if(Math.abs(this.deltaX) < snapToPadding) {
+        this.deltaX = 0;
+    }
+
+    if(Math.abs(this.deltaY) < snapToPadding) {
+        this.deltaY = 0;
+    }
+};
+
+StartLink.prototype.getEndPoints = function() {
+    var startX = this.node.x + this.deltaX;
+    var startY = this.node.y + this.deltaY;
+    var end = this.node.closestPointOnCircle(startX, startY);
+    return {
+        'startX': startX,
+        'startY': startY,
+        'endX': end.x,
+        'endY': end.y,
+    };
+};
+
+StartLink.prototype.draw = function(c) {
+    var stuff = this.getEndPoints();
+
+    // draw the line
+    c.beginPath();
+    c.moveTo(stuff.startX, stuff.startY);
+    c.lineTo(stuff.endX, stuff.endY);
+    c.stroke();
+
+    // draw the head of the arrow
+    drawArrow(c, stuff.endX, stuff.endY, Math.atan2(-this.deltaY, -this.deltaX));
+};
+
+StartLink.prototype.containsPoint = function(x, y) {
+    var stuff = this.getEndPoints();
+    var dx = stuff.endX - stuff.startX;
+    var dy = stuff.endY - stuff.startY;
+    var length = Math.sqrt(dx*dx + dy*dy);
+    var percent = (dx * (x - stuff.startX) + dy * (y - stuff.startY)) / (length * length);
+    var distance = (dx * (y - stuff.startY) - dy * (x - stuff.startX)) / length;
+    return (percent > 0 && percent < 1 && Math.abs(distance) < hitTargetPadding);
+};
+
+function Link(a, b) {
+    this.nodeA = a;
+    this.nodeB = b;
+    this.text = '';
+    this.lineAngleAdjust = 0; // value to add to textAngle when link is straight line
+
+    // make anchor point relative to the locations of nodeA and nodeB
+    this.parallelPart = 0.5; // percentage from nodeA to nodeB
+    this.perpendicularPart = 0; // pixels from line between nodeA and nodeB
+}
+
+Link.prototype.getAnchorPoint = function() {
+    var dx = this.nodeB.x - this.nodeA.x;
+    var dy = this.nodeB.y - this.nodeA.y;
+    var scale = Math.sqrt(dx * dx + dy * dy);
+    return {
+        'x': this.nodeA.x + dx * this.parallelPart - dy * this.perpendicularPart / scale,
+        'y': this.nodeA.y + dy * this.parallelPart + dx * this.perpendicularPart / scale
+    };
+};
+
+Link.prototype.setAnchorPoint = function(x, y) {
+    var dx = this.nodeB.x - this.nodeA.x;
+    var dy = this.nodeB.y - this.nodeA.y;
+    var scale = Math.sqrt(dx * dx + dy * dy);
+    this.parallelPart = (dx * (x - this.nodeA.x) + dy * (y - this.nodeA.y)) / (scale * scale);
+    this.perpendicularPart = (dx * (y - this.nodeA.y) - dy * (x - this.nodeA.x)) / scale;
+    // snap to a straight line
+    if(this.parallelPart > 0 && this.parallelPart < 1 && Math.abs(this.perpendicularPart) < snapToPadding) {
+        this.lineAngleAdjust = (this.perpendicularPart < 0) * Math.PI;
+        this.perpendicularPart = 0;
+    }
+};
+
+Link.prototype.getEndPointsAndCircle = function() {
+    if(this.perpendicularPart == 0) {
+        var midX = (this.nodeA.x + this.nodeB.x) / 2;
+        var midY = (this.nodeA.y + this.nodeB.y) / 2;
+        var start = this.nodeA.closestPointOnCircle(midX, midY);
+        var end = this.nodeB.closestPointOnCircle(midX, midY);
+        return {
+            'hasCircle': false,
+            'startX': start.x,
+            'startY': start.y,
+            'endX': end.x,
+            'endY': end.y,
+        };
+    }
+    var anchor = this.getAnchorPoint();
+    var circle = circleFromThreePoints(this.nodeA.x, this.nodeA.y, this.nodeB.x, this.nodeB.y, anchor.x, anchor.y);
+    var isReversed = (this.perpendicularPart > 0);
+    var reverseScale = isReversed ? 1 : -1;
+    var startAngle = Math.atan2(this.nodeA.y - circle.y, this.nodeA.x - circle.x) - reverseScale * nodeRadius / circle.radius;
+    var endAngle = Math.atan2(this.nodeB.y - circle.y, this.nodeB.x - circle.x) + reverseScale * nodeRadius / circle.radius;
+    var startX = circle.x + circle.radius * Math.cos(startAngle);
+    var startY = circle.y + circle.radius * Math.sin(startAngle);
+    var endX = circle.x + circle.radius * Math.cos(endAngle);
+    var endY = circle.y + circle.radius * Math.sin(endAngle);
+    return {
+        'hasCircle': true,
+        'startX': startX,
+        'startY': startY,
+        'endX': endX,
+        'endY': endY,
+        'startAngle': startAngle,
+        'endAngle': endAngle,
+        'circleX': circle.x,
+        'circleY': circle.y,
+        'circleRadius': circle.radius,
+        'reverseScale': reverseScale,
+        'isReversed': isReversed,
+    };
+};
+
+Link.prototype.draw = function(c) {
+    var stuff = this.getEndPointsAndCircle();
+    // draw arc
+    c.beginPath();
+    if(stuff.hasCircle) {
+        c.arc(stuff.circleX, stuff.circleY, stuff.circleRadius, stuff.startAngle, stuff.endAngle, stuff.isReversed);
+    } else {
+        c.moveTo(stuff.startX, stuff.startY);
+        c.lineTo(stuff.endX, stuff.endY);
+    }
+    c.stroke();
+    // draw the head of the arrow
+    if(stuff.hasCircle) {
+        drawArrow(c, stuff.endX, stuff.endY, stuff.endAngle - stuff.reverseScale * (Math.PI / 2));
+    } else {
+        drawArrow(c, stuff.endX, stuff.endY, Math.atan2(stuff.endY - stuff.startY, stuff.endX - stuff.startX));
+    }
+    // draw the text
+    if(stuff.hasCircle) {
+        var startAngle = stuff.startAngle;
+        var endAngle = stuff.endAngle;
+        if(endAngle < startAngle) {
+            endAngle += Math.PI * 2;
+        }
+        var textAngle = (startAngle + endAngle) / 2 + stuff.isReversed * Math.PI;
+        var textX = stuff.circleX + stuff.circleRadius * Math.cos(textAngle);
+        var textY = stuff.circleY + stuff.circleRadius * Math.sin(textAngle);
+        drawText(c, this.text, textX, textY, textAngle, selectedObject == this);
+    } else {
+        var textX = (stuff.startX + stuff.endX) / 2;
+        var textY = (stuff.startY + stuff.endY) / 2;
+        var textAngle = Math.atan2(stuff.endX - stuff.startX, stuff.startY - stuff.endY);
+        drawText(c, this.text, textX, textY, textAngle + this.lineAngleAdjust, selectedObject == this);
+    }
+};
+
+Link.prototype.containsPoint = function(x, y) {
+    var stuff = this.getEndPointsAndCircle();
+    if(stuff.hasCircle) {
+        var dx = x - stuff.circleX;
+        var dy = y - stuff.circleY;
+        var distance = Math.sqrt(dx*dx + dy*dy) - stuff.circleRadius;
+        if(Math.abs(distance) < hitTargetPadding) {
+            var angle = Math.atan2(dy, dx);
+            var startAngle = stuff.startAngle;
+            var endAngle = stuff.endAngle;
+            if(stuff.isReversed) {
+                var temp = startAngle;
+                startAngle = endAngle;
+                endAngle = temp;
+            }
+            if(endAngle < startAngle) {
+                endAngle += Math.PI * 2;
+            }
+            if(angle < startAngle) {
+                angle += Math.PI * 2;
+            } else if(angle > endAngle) {
+                angle -= Math.PI * 2;
+            }
+            return (angle > startAngle && angle < endAngle);
+        }
+    } else {
+        var dx = stuff.endX - stuff.startX;
+        var dy = stuff.endY - stuff.startY;
+        var length = Math.sqrt(dx*dx + dy*dy);
+        var percent = (dx * (x - stuff.startX) + dy * (y - stuff.startY)) / (length * length);
+        var distance = (dx * (y - stuff.startY) - dy * (x - stuff.startX)) / length;
+        return (percent > 0 && percent < 1 && Math.abs(distance) < hitTargetPadding);
+    }
+    return false;
+};
+
+function Node(x, y) {
+    this.x = x;
+    this.y = y;
+    this.mouseOffsetX = 0;
+    this.mouseOffsetY = 0;
+    this.isAcceptState = false;
+    this.text = '';
+}
+
+Node.prototype.setMouseStart = function(x, y) {
+    this.mouseOffsetX = this.x - x;
+    this.mouseOffsetY = this.y - y;
+};
+
+Node.prototype.setAnchorPoint = function(x, y) {
+    this.x = x + this.mouseOffsetX;
+    this.y = y + this.mouseOffsetY;
+};
+
+Node.prototype.draw = function(c) {
+    // draw the circle
+    c.beginPath();
+    c.arc(this.x, this.y, nodeRadius, 0, 2 * Math.PI, false);
+    c.stroke();
+
+    // draw the text
+    drawText(c, this.text, this.x, this.y, null, selectedObject == this, nodeRadius*1.6);
+
+    // draw a double circle for an accept state
+    if(this.isAcceptState) {
+        c.beginPath();
+        c.arc(this.x, this.y, nodeRadius * 0.8, 0, 2 * Math.PI, false);
+        c.stroke();
+    }
+};
+
+Node.prototype.closestPointOnCircle = function(x, y) {
+    var dx = x - this.x;
+    var dy = y - this.y;
+    var scale = Math.sqrt(dx * dx + dy * dy);
+    return {
+        'x': this.x + dx * nodeRadius / scale,
+        'y': this.y + dy * nodeRadius / scale,
+    };
+};
+
+Node.prototype.containsPoint = function(x, y) {
+    return (x - this.x)*(x - this.x) + (y - this.y)*(y - this.y) < nodeRadius*nodeRadius;
+};
+
+function SelfLink(node, mouse) {
+    this.node = node;
+    this.anchorAngle = 0;
+    this.mouseOffsetAngle = 0;
+    this.text = '';
+
+    if(mouse) {
+        this.setAnchorPoint(mouse.x, mouse.y);
+    }
+}
+
+SelfLink.prototype.setMouseStart = function(x, y) {
+    this.mouseOffsetAngle = this.anchorAngle - Math.atan2(y - this.node.y, x - this.node.x);
+};
+
+SelfLink.prototype.setAnchorPoint = function(x, y) {
+    this.anchorAngle = Math.atan2(y - this.node.y, x - this.node.x) + this.mouseOffsetAngle;
+    // snap to 90 degrees
+    var snap = Math.round(this.anchorAngle / (Math.PI / 2)) * (Math.PI / 2);
+    if(Math.abs(this.anchorAngle - snap) < 0.1) this.anchorAngle = snap;
+    // keep in the range -pi to pi so our containsPoint() function always works
+    if(this.anchorAngle < -Math.PI) this.anchorAngle += 2 * Math.PI;
+    if(this.anchorAngle > Math.PI) this.anchorAngle -= 2 * Math.PI;
+};
+
+SelfLink.prototype.getEndPointsAndCircle = function() {
+    var circleX = this.node.x + 1.5 * nodeRadius * Math.cos(this.anchorAngle);
+    var circleY = this.node.y + 1.5 * nodeRadius * Math.sin(this.anchorAngle);
+    var circleRadius = 0.75 * nodeRadius;
+    var startAngle = this.anchorAngle - Math.PI * 0.8;
+    var endAngle = this.anchorAngle + Math.PI * 0.8;
+    var startX = circleX + circleRadius * Math.cos(startAngle);
+    var startY = circleY + circleRadius * Math.sin(startAngle);
+    var endX = circleX + circleRadius * Math.cos(endAngle);
+    var endY = circleY + circleRadius * Math.sin(endAngle);
+    return {
+        'hasCircle': true,
+        'startX': startX,
+        'startY': startY,
+        'endX': endX,
+        'endY': endY,
+        'startAngle': startAngle,
+        'endAngle': endAngle,
+        'circleX': circleX,
+        'circleY': circleY,
+        'circleRadius': circleRadius
+    };
+};
+
+SelfLink.prototype.draw = function(c) {
+    var stuff = this.getEndPointsAndCircle();
+    // draw arc
+    c.beginPath();
+    c.arc(stuff.circleX, stuff.circleY, stuff.circleRadius, stuff.startAngle, stuff.endAngle, false);
+    c.stroke();
+    // draw the text on the loop farthest from the node
+    var textX = stuff.circleX + stuff.circleRadius * Math.cos(this.anchorAngle);
+    var textY = stuff.circleY + stuff.circleRadius * Math.sin(this.anchorAngle);
+    drawText(c, this.text, textX, textY, this.anchorAngle, selectedObject == this);
+    // draw the head of the arrow
+    drawArrow(c, stuff.endX, stuff.endY, stuff.endAngle + Math.PI * 0.4);
+};
+
+SelfLink.prototype.containsPoint = function(x, y) {
+    var stuff = this.getEndPointsAndCircle();
+    var dx = x - stuff.circleX;
+    var dy = y - stuff.circleY;
+    var distance = Math.sqrt(dx*dx + dy*dy) - stuff.circleRadius;
+    return (Math.abs(distance) < hitTargetPadding);
+};
+
+function TemporaryLink(from, to) {
+    this.from = from;
+    this.to = to;
+}
+
+TemporaryLink.prototype.draw = function(c) {
+    // draw the line
+    c.beginPath();
+    c.moveTo(this.to.x, this.to.y);
+    c.lineTo(this.from.x, this.from.y);
+    c.stroke();
+
+    // draw the head of the arrow
+    drawArrow(c, this.to.x, this.to.y, Math.atan2(this.to.y - this.from.y, this.to.x - this.from.x));
+};
+
+function det(a, b, c, d, e, f, g, h, i) {
+    return a*e*i + b*f*g + c*d*h - a*f*h - b*d*i - c*e*g;
+}
+
+function circleFromThreePoints(x1, y1, x2, y2, x3, y3) {
+    var a = det(x1, y1, 1, x2, y2, 1, x3, y3, 1);
+    var bx = -det(x1*x1 + y1*y1, y1, 1, x2*x2 + y2*y2, y2, 1, x3*x3 + y3*y3, y3, 1);
+    var by = det(x1*x1 + y1*y1, x1, 1, x2*x2 + y2*y2, x2, 1, x3*x3 + y3*y3, x3, 1);
+    var c = -det(x1*x1 + y1*y1, x1, y1, x2*x2 + y2*y2, x2, y2, x3*x3 + y3*y3, x3, y3);
+    return {
+        'x': -bx / (2*a),
+        'y': -by / (2*a),
+        'radius': Math.sqrt(bx*bx + by*by - 4*a*c) / (2*Math.abs(a))
+    };
+}
+
+var mappings = {'&': 'ε', '|-': '⊢', '-|': '⊣', '_': '␣', '->': '→'}
+function convertShortcuts(text) {
+    for (var s in mappings)
+        text = text.replace(s, mappings[s]);
+    return text;
+}
+
+function drawArrow(c, x, y, angle) {
+    var dx = Math.cos(angle) * arrowSize;
+    var dy = Math.sin(angle) * arrowSize;
+    c.beginPath();
+    c.moveTo(x, y);
+    c.lineTo(x - 2 * dx + dy, y - 2 * dy - dx);
+    c.lineTo(x - 2 * dx - dy, y - 2 * dy + dx);
+    c.fill();
+}
+
+function canvasHasFocus() {
+    return document.activeElement == canvas;
+}
+
+function drawText(c, originalText, x, y, angleOrNull, isSelected, maxWidth) {
+    var text = convertShortcuts(originalText);
+    c.save();
+
+    var tmpFontSize = fontSize;
+    c.font = ''+tmpFontSize+'px monospace';
+    var width = c.measureText(text).width;
+
+    // resize to fit in maxWidth
+    if (maxWidth !== undefined && width > maxWidth) {
+        tmpFontSize *= maxWidth/width;
+        c.font = ''+tmpFontSize+'px monospace';
+        width = c.measureText(text).width;
+    }
+
+    // center the text
+    x -= width / 2;
+
+    // position the text intelligently if given an angle
+    if(angleOrNull != null) {
+        var cos = Math.cos(angleOrNull);
+        var sin = Math.sin(angleOrNull);
+        var cornerPointX = (width / 2 + fontSize/4) * (cos > 0 ? 1 : -1);
+        var cornerPointY = (fontSize/2 + 5) * (sin > 0 ? 1 : -1);
+        var slide = sin * Math.pow(Math.abs(sin), 40) * cornerPointX - cos * Math.pow(Math.abs(cos), 10) * cornerPointY;
+        x += cornerPointX - sin * slide;
+        y += cornerPointY + cos * slide;
+    }
+
+    // draw text and caret (round the coordinates so the caret falls on a pixel)
+    x = Math.round(x);
+    y = Math.round(y);
+    c.textBaseline = "middle";
+    c.fillText(text, x, y);
+    if(isSelected && caretVisible && canvasHasFocus() && document.hasFocus()) {
+        x += width;
+        c.lineWidth = lineWidth;
+        c.beginPath();
+        c.moveTo(x, y - fontSize/2);
+        c.lineTo(x, y + fontSize/2);
+        c.stroke();
+    }
+    c.restore();
+}
+
+var caretTimer;
+var caretVisible = true;
+
+function resetCaret() {
+    clearInterval(caretTimer);
+    caretTimer = setInterval(function () { caretVisible = !caretVisible; draw(); }, 500);
+    caretVisible = true;
+}
+
+var canvas;
+var canvas_dpr;
+var nodeRadius = 30;
+var arrowSize = 4;
+var lineWidth = 1;
+var fontSize = 16;
+var selectColor = '#00823e';
+var nodes = [];
+var links = [];
+
+var cursorVisible = true;
+var snapToPadding = 6; // pixels
+var hitTargetPadding = 6; // pixels
+var selectedObject = null; // either a Link or a Node
+var currentLink = null; // a Link
+var movingObject = false;
+var originalClick;
+
+function drawUsing(c) {
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    c.save();
+    c.translate(0.5, 0.5);
+
+    for(var i = 0; i < nodes.length; i++) {
+        if (nodes[i] == selectedObject) {
+            c.lineWidth = 3*lineWidth;
+            c.fillStyle = c.strokeStyle = selectColor;
+        } else {
+            c.lineWidth = lineWidth;
+            c.fillStyle = c.strokeStyle = 'black';
+        }
+        nodes[i].draw(c);
+    }
+    for(var i = 0; i < links.length; i++) {
+        if (links[i] == selectedObject) {
+            c.lineWidth = 3*lineWidth;
+            c.fillStyle = c.strokeStyle = selectColor;
+        } else {
+            c.lineWidth = lineWidth;
+            c.fillStyle = c.strokeStyle = 'black';
+        }
+        links[i].draw(c);
+    }
+    if(currentLink != null) {
+        c.lineWidth = lineWidth;
+        c.fillStyle = c.strokeStyle = 'black';
+        currentLink.draw(c);
+    }
+
+    c.restore();
+}
+
+function draw() {
+    drawUsing(canvas.getContext('2d'));
+}
+
+function selectObject(x, y) {
+    for(var i = 0; i < nodes.length; i++) {
+        if(nodes[i].containsPoint(x, y)) {
+            return nodes[i];
+        }
+    }
+    for(var i = 0; i < links.length; i++) {
+        if(links[i].containsPoint(x, y)) {
+            return links[i];
+        }
+    }
+    return null;
+}
+
+function snapNode(node) {
+    for(var i = 0; i < nodes.length; i++) {
+        if(nodes[i] == node) continue;
+
+        if(Math.abs(node.x - nodes[i].x) < snapToPadding) {
+            node.x = nodes[i].x;
+        }
+
+        if(Math.abs(node.y - nodes[i].y) < snapToPadding) {
+            node.y = nodes[i].y;
+        }
+    }
+}
+
+var message_bar;
+function message(s) {
+    message_bar.innerHTML = s;
+}
+
+function main(ei) {
+    canvas = document.createElement("canvas");
+    canvas.setAttribute("style", "outline: 1px solid black; width: 600px; height: 600px;");
+    canvas.setAttribute("tabindex", -1); // make canvas focusable
+    canvas_dpr = window.devicePixelRatio || 1;
+    canvas.width = 600 * canvas_dpr;
+    canvas.height = 600 * canvas_dpr;
+    element.append(canvas);
+
+    nodeRadius *= canvas_dpr; arrowSize *= canvas_dpr;
+    lineWidth *= canvas_dpr; fontSize *= canvas_dpr;
+    snapToPadding *= canvas_dpr; hitTargetPadding *= canvas_dpr;
+
+    load(ei); // bug: if there is an error later in the notebook, this doesn't work
+    //draw();
+
+    element.append(document.createElement("br"));
+
+    function make_button(label, callback) {
+        var button = document.createElement("button");
+        button.setAttribute("style", "margin: 0 10px 0 0;");
+        button.innerHTML = label;
+        button.onclick = callback;
+        element.append(button);
+    }
+    make_button('Load', function() { load(ei); });
+    make_button('Save', function() { save(ei); });
+
+    message_bar = document.createElement("span");
+    element.append(message_bar);
+
+    canvas.onmousedown = function(e) {
+        var mouse = crossBrowserRelativeMousePos(e);
+        selectedObject = selectObject(mouse.x, mouse.y);
+        movingObject = false;
+        originalClick = mouse;
+
+        if(selectedObject != null) {
+            if(shift && selectedObject instanceof Node) {
+                currentLink = new SelfLink(selectedObject, mouse);
+            } else {
+                movingObject = true;
+                if(selectedObject.setMouseStart) {
+                    selectedObject.setMouseStart(mouse.x, mouse.y);
+                }
+            }
+            resetCaret();
+        } else if(shift) {
+            currentLink = new TemporaryLink(mouse, mouse);
+        }
+
+        draw();
+
+        // In Colab the canvas is inside an iframe, which seems to cause trouble
+        // with this first case.
+        if(0 && canvasHasFocus()) {
+            // disable drag-and-drop only if the canvas is already focused
+            return false;
+        } else {
+            // otherwise, let the browser switch the focus away from wherever it was
+            resetCaret();
+            return true;
+        }
+    };
+
+    canvas.ondblclick = function(e) {
+        var mouse = crossBrowserRelativeMousePos(e);
+        selectedObject = selectObject(mouse.x, mouse.y);
+
+        if(selectedObject == null) {
+            selectedObject = new Node(mouse.x, mouse.y);
+            if(typeof Jupyter !== 'undefined') Jupyter.keyboard_manager.disable();
+            nodes.push(selectedObject);
+            resetCaret();
+            draw();
+        } else if(selectedObject instanceof Node) {
+            selectedObject.isAcceptState = !selectedObject.isAcceptState;
+            draw();
+        }
+    };
+
+    canvas.onmousemove = function(e) {
+        var mouse = crossBrowserRelativeMousePos(e);
+
+        if(currentLink != null) {
+            var targetNode = selectObject(mouse.x, mouse.y);
+            if(!(targetNode instanceof Node)) {
+                targetNode = null;
+            }
+
+            if(selectedObject == null) {
+                if(targetNode != null) {
+                    currentLink = new StartLink(targetNode, originalClick);
+                } else {
+                    currentLink = new TemporaryLink(originalClick, mouse);
+                }
+            } else {
+                if(targetNode == selectedObject) {
+                    currentLink = new SelfLink(selectedObject, mouse);
+                } else if(targetNode != null) {
+                    currentLink = new Link(selectedObject, targetNode);
+                } else {
+                    currentLink = new TemporaryLink(selectedObject.closestPointOnCircle(mouse.x, mouse.y), mouse);
+                }
+            }
+            draw();
+        }
+
+        if(movingObject) {
+            selectedObject.setAnchorPoint(mouse.x, mouse.y);
+            if(selectedObject instanceof Node) {
+                snapNode(selectedObject);
+            }
+            draw();
+        }
+    };
+
+    canvas.onmouseup = function(e) {
+        movingObject = false;
+
+        if(currentLink != null) {
+            if(!(currentLink instanceof TemporaryLink)) {
+                selectedObject = currentLink;
+                if (currentLink instanceof StartLink) {
+                    for(var i=0; i<links.length; i++) {
+                        if (links[i] instanceof StartLink)
+                            links.splice(i--, 1);
+                    }
+                }
+                links.push(currentLink);
+                resetCaret();
+            }
+            currentLink = null;
+            draw();
+        }
+    };
+}
+
+var shift = false;
+
+document.onkeydown = function(e) {
+    var key = crossBrowserKey(e);
+
+    if(key == 16) {
+        shift = true;
+    } else if(!canvasHasFocus()) {
+        // don't read keystrokes when other things have focus
+        return true;
+    } else if(key == 8) { // backspace key
+        if (!shift) {
+            if(selectedObject != null && 'text' in selectedObject) {
+                selectedObject.text = selectedObject.text.substr(0, selectedObject.text.length - 1);
+                resetCaret();
+                draw();
+            }
+        } else {
+            if(selectedObject != null) {
+                for(var i = 0; i < nodes.length; i++) {
+                    if(nodes[i] == selectedObject) {
+                        nodes.splice(i--, 1);
+                    }
+                }
+                for(var i = 0; i < links.length; i++) {
+                    if(links[i] == selectedObject || links[i].node == selectedObject || links[i].nodeA == selectedObject || links[i].nodeB == selectedObject) {
+                        links.splice(i--, 1);
+                    }
+                }
+                selectedObject = null;
+                draw();
+            }
+        }
+
+        // backspace is a shortcut for the back button, but do NOT want to change pages
+        return false;
+    }
+};
+
+document.onkeyup = function(e) {
+    var key = crossBrowserKey(e);
+
+    if(key == 16) {
+        shift = false;
+    }
+};
+
+document.onkeypress = function(e) {
+    // don't read keystrokes when other things have focus
+    var key = crossBrowserKey(e);
+    if(!canvasHasFocus()) {
+        // don't read keystrokes when other things have focus
+        return true;
+    } else if(key >= 0x20 && key <= 0x7E && !e.metaKey && !e.altKey && !e.ctrlKey && selectedObject != null && 'text' in selectedObject) {
+        selectedObject.text += String.fromCharCode(key);
+        resetCaret();
+        draw();
+
+        // don't let keys do their actions (like space scrolls down the page)
+        return false;
+    } else if(key == 8) {
+        // backspace is a shortcut for the back button, but do NOT want to change pages
+        return false;
+    }
+};
+
+function crossBrowserKey(e) {
+    e = e || window.event;
+    return e.which || e.keyCode;
+}
+
+function crossBrowserElementPos(e) {
+    e = e || window.event;
+    // Add up offsets
+    var obj = e.target || e.srcElement;
+    var x = 0, y = 0;
+    while(obj.offsetParent) {
+        x += obj.offsetLeft;
+        y += obj.offsetTop;
+        obj = obj.offsetParent;
+    }
+    // Add up scroll positions
+    obj = e.target || e.srcElement;
+    while (obj) {
+        x -= obj.scrollLeft;
+        y -= obj.scrollTop;
+        obj = obj.parentElement;
+    }
+    return { 'x': x * canvas_dpr, 'y': y * canvas_dpr };
+}
+
+function crossBrowserMousePos(e) {
+    e = e || window.event;
+    var x = e.pageX || e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    var y = e.pageY || e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    return { 'x': x * canvas_dpr, 'y': y * canvas_dpr };
+}
+
+function crossBrowserRelativeMousePos(e) {
+    var element = crossBrowserElementPos(e);
+    var mouse = crossBrowserMousePos(e);
+    return {
+        'x': mouse.x - element.x,
+        'y': mouse.y - element.y
+    };
+}
+
+function getNodeId(node) {
+    for(var i = 0; i < nodes.length; i++)
+        if(nodes[i] == node)
+            return i;
+}
+
+function to_json() {
+    var g = {'nodes': {}, 'edges': {}};
+    var start;
+    for(var i = 0; i < links.length; i++) {
+        if(links[i] instanceof StartLink)
+            start = getNodeId(links[i].node);
+    }
+    for (var i = 0; i < nodes.length; i++) {
+        g.nodes[nodes[i].text] = {
+            'start': i == start,
+            'accept': nodes[i].isAcceptState
+        };
+    }
+    if (Object.keys(g.nodes).length != nodes.length) {
+        message("Every state must have a unique name.");
+        return null;
+    }
+    for(var i = 0; i < links.length; i++) {
+        if(links[i] instanceof Link) {
+            var u = links[i].nodeA.text;
+            var v = links[i].nodeB.text;
+            if (!(u in g.edges)) g.edges[u] = {};
+            if (!(v in g.edges[u])) g.edges[u][v] = [];
+            g.edges[u][v].push({ 'label': links[i].text });
+        } else if(links[i] instanceof SelfLink) {
+            var v = links[i].node.text;
+            if (!(v in g.edges)) g.edges[v] = {};
+            if (!(v in g.edges[v])) g.edges[v][v] = [];
+            g.edges[v][v].push({ 'label': links[i].text });
+        }
+    }
+    return g;
+}
+
+function save(ei) {
+    for (var vi=0; vi<nodes.length; vi++)
+        if (nodes[vi].text === "") {
+            message('Every state must have a nonempty name.');
+            return;
+        }
+    for (var li=0; li<links.length; li++)
+        if ((links[li] instanceof Link || links[li] instanceof SelfLink) && links[li].text === "") {
+            message('Every transition must have a nonempty label.');
+            return;
+        }
+
+    var g = to_json();
+    if (g === null) return;
+    if (typeof Jupyter !== 'undefined') {
+        function handle (r) {
+            if (r.content.status == "ok") {
+                message('Save successful');
+            } else if (r.content.status == "error") {
+                message(r.content.evalue);
+                console.log(r);
+            }
+        }
+        var cmd = 'import tock, json; tock.graphs.editor_save(' + ei + ', json.loads("""' + JSON.stringify(g) + '"""))';
+        Jupyter.notebook.kernel.execute(cmd, {"shell": {"reply": handle}});
+    } else if (typeof google !== 'undefined') {
+        var result = google.colab.kernel.invokeFunction('notebook.editor_save', [ei, g]).then(() => message('Save successful'), message);
+    }
+}
+
+function from_json(g) {
+    // Clear the current graph
+    nodes = [];
+    links = [];
+    selectedObject = null;
+
+    // Transform from graphviz coordinates to ours
+    var eps = Math.min(canvas.width, canvas.height)*0.03;
+    function tx(x) { return (x-g.xmin+eps) / (g.xmax-g.xmin+2*eps) * canvas.width; }
+    function ty(y) { return (g.ymax-y+eps) / (g.ymax-g.ymin+2*eps) * canvas.height; }
+
+    var node_index = {}
+    for (var v in g.nodes) {
+        var newnode;
+        if ('x' in g.nodes[v] && 'y' in g.nodes[v])
+            newnode = new Node(tx(g.nodes[v].x), ty(g.nodes[v].y));
+        else
+            newnode = new Node(0, 0); // will move later
+        var label = v;
+        if (g.nodes[v].start)
+            links.push(new StartLink(newnode, {'x': tx(g.nodes[v].startx),
+                                               'y': ty(g.nodes[v].starty)}));
+        if (g.nodes[v].accept)
+            newnode.isAcceptState = true;
+        newnode.text = label;
+        nodes.push(newnode);
+        node_index[v] = newnode;
+    }
+
+    for (var u in g.edges) {
+        var unode = node_index[u];
+        for (var v in g.edges[u]) {
+            var vnode = node_index[v];
+            for (var i=0; i<g.edges[u][v].length; i++) {
+                var newlink;
+                if (u == v)
+                    newlink = new SelfLink(unode);
+                else
+                    newlink = new Link(unode, vnode);
+                newlink.setAnchorPoint(tx(g.edges[u][v][i].anchorx),
+                                       ty(g.edges[u][v][i].anchory));
+                newlink.text = g.edges[u][v][i].label;
+                links.push(newlink);
+            }
+        }
+    }
+}
+
+function load(ei) {
+    if (typeof Jupyter !== 'undefined') {
+        function handle (r) {
+            if (r.msg_type == "stream") {
+                message('Load successful');
+                from_json(JSON.parse(r.content.text));
+                draw();
+            } else if (r.msg_type == "error") {
+                message(r.content.evalue);
+                console.log(r);
+            }
+        }
+        var cmd = 'import tock; import json; print(json.dumps(tock.graphs.editor_load(' + ei + ')))';
+        Jupyter.notebook.kernel.execute(cmd, {"iopub": {"output": handle}});
+    } else if (typeof google !== 'undefined') {
+        function success (r) {
+            message('Load successful');
+            from_json(r.data['application/json']);
+            draw();
+        }
+        var result = google.colab.kernel.invokeFunction('notebook.editor_load', [ei]).then(success, message);
+    }
+}
+main(0);
+</script></div>
+</div>
+</section>
+<section id="Inspecting-DFAs">
+<h2>Inspecting DFAs<a class="headerlink" href="#Inspecting-DFAs" title="Permalink to this headline">¶</a></h2>
+<p>Once a machine is loaded, we can test whether it is indeed a DFA:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">is_finite</span><span class="p">()</span> <span class="c1"># is it a finite automaton?</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">is_deterministic</span><span class="p">()</span> <span class="c1"># is it deterministic?</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>Regardless of how it was created and loaded, it can be viewed as a table:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_table</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table style="font-family: monospace;">
+  <tr>
+    <th style="text-align: left"></th>
+    <th style="text-align: left">0</th>
+    <th style="text-align: left">1</th>
+  </tr>
+  <tr>
+    <th style="text-align: left">&gt;q1</th>
+    <td style="text-align: left">q1</td>
+    <td style="text-align: left">q2</td>
+  </tr>
+  <tr>
+    <th style="text-align: left">@q2</th>
+    <td style="text-align: left">q3</td>
+    <td style="text-align: left">q3</td>
+  </tr>
+  <tr>
+    <th style="text-align: left">q3</th>
+    <td style="text-align: left">q2</td>
+    <td style="text-align: left">q2</td>
+  </tr>
+</table></div>
+</div>
+<p>This machine has three states, listed in the first column: <code class="docutils literal notranslate"><span class="pre">q1</span></code>, <code class="docutils literal notranslate"><span class="pre">q2</span></code>, and <code class="docutils literal notranslate"><span class="pre">q3</span></code>. The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> means that <code class="docutils literal notranslate"><span class="pre">q1</span></code> is the start state (the state the machine starts in), and the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> means that <code class="docutils literal notranslate"><span class="pre">q2</span></code> is a final state (meaning that when the machine has read all of the input, it accepts the input iff it is in a final state). These symbols are not part of the state name.</p>
+<p>The first row lists all possible input symbols (here, <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>), and the interior cells indicate what the new state should be after reading a symbol. For example, if the machine is in state <code class="docutils literal notranslate"><span class="pre">q1</span></code> and reads a <code class="docutils literal notranslate"><span class="pre">1</span></code>, then it changes to state <code class="docutils literal notranslate"><span class="pre">q2</span></code>.</p>
+<p>It’s more convenient to visualize the automaton’s operation using a state transition diagram:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_graph</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_DFAs_21_0.svg" src="../_images/tutorial_DFAs_21_0.svg" /></div>
+</div>
+<p>You can also iterate over all transitions:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">get_transitions</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+q1,0 → q1
+q1,1 → q2
+q2,0 → q3
+q2,1 → q3
+q3,0 → q2
+q3,1 → q2
+</pre></div></div>
+</div>
+</section>
+<section id="Running-DFAs">
+<h2>Running DFAs<a class="headerlink" href="#Running-DFAs" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s run the automaton on a string (remember to separate symbols by spaces):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">&#39;0 0 0 1 1 1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">only_path</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table style="font-family: Monospace, monospace;">
+  <tr><td style="text-align: left">q1</td><td style="text-align: left">[0] 0 0 1 1 1</td></tr>
+  <tr><td style="text-align: left">q1</td><td style="text-align: left">[0] 0 1 1 1</td></tr>
+  <tr><td style="text-align: left">q1</td><td style="text-align: left">[0] 1 1 1</td></tr>
+  <tr><td style="text-align: left">q1</td><td style="text-align: left">[1] 1 1</td></tr>
+  <tr><td style="text-align: left">q2</td><td style="text-align: left">[1] 1</td></tr>
+  <tr><td style="text-align: left">q3</td><td style="text-align: left">1</td></tr>
+  <tr><td style="text-align: left">q2</td><td style="text-align: left">ε</td></tr>
+</table>
+<p>accept</p></div>
+</div>
+<p>At each time step, this shows the state and the remainder of the input, with square brackets on the next-to-be-read symbol.</p>
+<p>The return value of <code class="docutils literal notranslate"><span class="pre">run</span></code> is actually a graph:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">&#39;0 0 0 1 1 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_DFAs_28_0.svg" src="../_images/tutorial_DFAs_28_0.svg" /></div>
+</div>
+<p>Each node says what state the machine is at a time step, and on the right is the input string, with the next symbol marked with square brackets. The run ends with a double node, indicating that at the end of the input string, the machine was in a final state, so it accepted the string.</p>
+<p>Let’s try a different string:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s1">&#39;1 0 0 0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_DFAs_30_0.svg" src="../_images/tutorial_DFAs_30_0.svg" /></div>
+</div>
+<p>This time, the fact that the run doesn’t end with a double node means that the string was rejected.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">tock</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deterministic finite automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NFAs.html">Nondeterministic finite automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Regexps.html">Regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFGs.html">Context-free grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PDAs.html">Pushdown automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TMs.html">Turing machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="General.html">More general machines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Tutorial</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Tutorial</a></li>
+      <li>Next: <a href="NFAs.html" title="next chapter">Nondeterministic finite automata</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, David Chiang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/tutorial/DFAs.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
