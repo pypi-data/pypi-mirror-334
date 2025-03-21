@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include rxnDB/data *.csv *.json
+recursive-include rxnDB/static *
