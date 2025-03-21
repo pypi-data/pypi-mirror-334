@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+
+from fire import Fire
+from nuphy2.version import __version__
+print(__version__)
+import nuphy2
+#print("D... react ")
+from nuphy2 import react
+#print("D... isotope:")
+from nuphy2 import isotope
+#print("D... rolfs")
+from nuphy2 import rolfs
+from nuphy2 import kinematics
+from nuphy2 import srim
+
+from nuphy2 import h5
+from nuphy2 import schemes
+#import prj_utils   # overload print
+
+from nuphy2.prj_utils import fail
+from nuphy2.prj_utils import Bcolors
+from nuphy2.prj_utils import super_print
+print=super_print("output.txt")(print)
+
+
+
+# class Bcolors:
+#     HEADER = '\033[95m'
+#     OKBLUE = '\033[94m'
+#     OKGREEN = '\033[92m'
+#     WARNING = '\033[93m'
+#     FAIL = '\033[91m'
+#     ENDC = '\033[0m'
+#     BOLD = '\033[1m'
+#     UNDERLINE = '\033[4m'
+
+
+
+
+# def fall(t):
+#     print("")
+#     print(t)
+#     quit()
+# def gall(t):
+#     print("")
+#     print(t)
+#     #quit()
+
+
+
+
+# def launch(MODE="help", i="", o="" , e="", t="", a="", x=0, f=""):
+#     if MODE=="help":
+#         print("...------------------------------------------------")
+#         print("H... available modes:"+Bcolors.OKGREEN+" help reac rolfs "+Bcolors.ENDC )
+#         print("H...  ...")
+#         print("H...  --i=o15,h2  ... input channel")
+#         print("H...  --o=h1      ... output channel ")
+#         print("H...   nuphy2 rea -i h2,f19 -o h1 -e 17 -a 7 ")
+#         print("...------------------------------------------------")
+#     print("D... MODE=",MODE)
+
+
+#     #===================================== digest the parameters ======
+#     if i!="":
+#         print("D... type of i", type(i) )
+#         if type(i) is tuple: # sometimes tuple, sometimes str???
+#             print("D... tuple")
+#             in1=i[0]
+#             in2=i[1]
+#         elif type(i) is list:
+#             print("D... list")
+#             in1=i[0]
+#             in2=i[1]
+#         else:
+#             print("D... string", i)
+#             inc1=i.split(",")[0]
+#             in2=i.split(",")[1]
+#         nu1=isotope.create( in1 )
+#         nu2=isotope.create( in2 )
+#     if o!="":
+#         nu3=isotope.create( o )
+
+
+#     #=========================================== MODES ===========================rolfs
+#     if MODE.find("rol")==0:
+#         print("i... Rolfs functions")
+#     #=========================================== MODES ===========================react
+#     if MODE.find("rea")==0:
+#         if i == "": fall(Bcolors.WARNING+"?... give me projectile,target  -i=h2,o15" + Bcolors.ENDC )
+#         if o == "": fall(Bcolors.WARNING+"?... give me outgoing           -o=h1" + Bcolors.ENDC )
+#         if e == "": fall(Bcolors.WARNING+"?... give me energy of the reaction in MeV -e=5" + Bcolors.ENDC )
+#         if a == "": fall(Bcolors.WARNING+"?... give me angle of the reaction -a 15" + Bcolors.ENDC )
+#         if t == "": gall(Bcolors.WARNING+"?... give me target thickness   -t=10ug -t=10um" + Bcolors.ENDC )
+#         if f == "": gall(Bcolors.WARNING+"?... give me value,outfile      -f=t3a  -f=t3a,a.txt" + Bcolors.ENDC )
+#         # -S a,T3 ... save to textfile the value
+#         #
+#         #
+#         print(Bcolors.OKGREEN + "\nD... PROJECTILE   :", in1 + Bcolors.ENDC )
+#         nu1.pprint()
+#         print( Bcolors.OKGREEN +  "D... E=           :", e,"MeV" )
+#         print( Bcolors.OKGREEN +  "D... TARGET       :", in2 + Bcolors.ENDC )
+#         nu2.pprint()
+#         print( Bcolors.OKGREEN +  "D... Thickness   =:", t )
+#         print( Bcolors.OKGREEN +  "D... OUTGOING 1   :" , o+ Bcolors.ENDC)
+#         nu3.pprint()
+
+#         print( Bcolors.BOLD +  "D... Angle       =:", str(a) + Bcolors.ENDC)
+#         print( Bcolors.BOLD +  "D... Excitation  =:", x,"MeV"+ Bcolors.ENDC )
+#         print( Bcolors.BOLD +  "D... Outputfile,V=:", "None"+ Bcolors.ENDC )
+#         #react( a,b,  c,d, TKE=1, theta=10, ExcT=0 , silent=0):
+#         #res=kin.react( nu1,nu2,nu3,nu4, TKE=TKE, ExcT=excitation, theta=th,silent=1)
+
+#         coul=rolfs.CoulombBarrier( nu1.A, nu1.Z, nu2.A, nu2.Z )
+#         print(Bcolors.OKGREEN + "D... Coulomb (Rolfs) =: {:.3f} MeV".format( coul/1000)+ Bcolors.ENDC )
+
+#         nu4=isotope.create( nu1.A +  nu2.A - nu3.A, nu1.Z +  nu2.Z - nu3.Z )
+#         if nu4 is None:
+#             print(Bcolors.WARNING+"Cannot calculate 2nd outgoing: fussion instead:"+ Bcolors.ENDC )
+#             Q= (nu1.mex+nu2.mex-nu3.mex)/1000
+#             print("Q(gs2gs)= {:10.4f} MeV".format( Q  ) )
+#             print("E*({}) = {:10.4f} MeV + TKECMS (not Etot_CMS)!".format( nu3.name, Q  ) )
+#             # # TKE2 = TKE1
+#             # #NONSENSE. cannot
+#             # #print("Eout=  {:10.4f} MeV".format(TKE+Q) )
+#             # # ????? where is the logic?
+#             # nu4amu=2*0.511/931.49403   #Q/931 not
+#             # nu4mex=0
+#             # print(Bcolors.WARNING+"D...  e+ e- pair;  amu=",str(nu4amu)+ Bcolors.ENDC)
+#             # #nu4.name="e+e-"
+#             # #nu4.Z=0 # repair Z from -1
+#             # res=kinematics._REACT( nu1.amu, nu1.mex, nu2.amu, nu2.mex,
+#             #             nu3.amu, nu3.mex, nu4amu,  nu4mex,
+#             #                        TKE=e, theta=a, ExcT=x, silent=False)
+#             # #res=kin.react( nu1,nu2,nu3,nu4, TKE=TKE, ExcT=excitation, theta=th,silent=1)
+#             # EXC=res[4]+Q
+#             # print(Bcolors.OKGREEN+ "E*({}) = {:.3f} MeV".format( nu3.name, EXC)+ Bcolors.ENDC )
+
+
+
+
+
+#             ##elif op[1]=='gamma':
+#             #nu4amu=0.000001/931.49403  # 1eV
+#             #nu4amu=0.000000/931.49403  #
+#             #print(Bcolors.WARNING+"D...  gamma;       amu=",str(nu4amu)+ Bcolors.ENDC)
+#             #nu4.name="gamma"
+#             #nu4.Z=0 # repair Z from -1
+#             res=kinematics.react( nu1,nu2,nu3,nu4, TKE=e, ExcT=x, theta=a,silent=0)
+#             #res=kinematics._REACT( nu1.amu, nu1.mex, nu2.amu, nu2.mex,
+#             #            nu3.amu, nu3.mex, nu4amu,  nu4mex,
+#             #                       TKE=e, theta=a, ExcT=x, silent=False)
+#             #res=kinematics._REACT( nu1.amu, nu1.mex, nu2.amu, nu2.mex,
+#             #            nu3.amu, nu3.mex, nu4amu,  nu4mex,
+#             #                       TKE=e, theta=a, ExcT=x, silent=False)
+#             if not res is None:
+#                 EXC=res[4]+Q
+#                 print(Bcolors.OKGREEN+ "E*({}) = {:.3f} MeV".format( nu3.name, EXC)+ Bcolors.ENDC  )
+#                 print(Bcolors.WARNING+"D... needs to be verified"+ Bcolors.ENDC )
+#             else:
+#                 print(Bcolors.WARNING+"D... impossible reaction"+ Bcolors.ENDC )
+
+#         else:
+#             print(Bcolors.OKGREEN +   "D... OUTGIONG 2   :" + Bcolors.ENDC )
+#             nu4.pprint()
+#             print(Bcolors.OKGREEN +   "D... KINEMATICS   :" + Bcolors.ENDC )
+#             res=kinematics.react( nu1,nu2,nu3,nu4, TKE=e, ExcT=x, theta=a,output=f,silent=0)
+#             #res=kinematics._REACT( nu1.amu, nu1.mex, nu2.amu, nu2.mex,
+#             #            nu3.amu, nu3.mex, nu4.amu,  nu4.mex,
+#             #                       TKE=e, theta=a, ExcT=x, silent=True)
+
+#             print(res)
+
+
+if __name__=="__main__":
+    # nice colored
+    # print("D... nuphy2 SCRIPT ver: "+Bcolors.HEADER+
+    #       __version__+ Bcolors.ENDC+" IS ON "+
+    #       Bcolors.WARNING+"FIRE!  "+ Bcolors.ENDC)
+
+    #Fire( launch )
+    Fire( {"kin":kinematics.main,
+           "kincode": kinematics.printc_code,
+           "sri":srim.main,
+           "iso":isotope.create_fire,
+           "h5":h5.main,
+           "sch":schemes.run_one,
+#           "rea":react.func, # No Reactions Function
+    }
+    )
