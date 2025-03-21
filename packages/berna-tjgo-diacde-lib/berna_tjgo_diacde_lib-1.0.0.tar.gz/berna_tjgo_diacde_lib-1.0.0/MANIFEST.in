@@ -1,0 +1,6 @@
+include berna_tjgo_diacde_lib/data/data.pkl
+include requirements.txt
+exclude .gitignore
+exclude __pycache__/
+exclude README.md
+exclude LICENSE.md

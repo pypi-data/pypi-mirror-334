@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.py
+berna_tjgo_diacde_lib/__init__.py
+berna_tjgo_diacde_lib/_methods.py
+berna_tjgo_diacde_lib/bernaClass.py
+berna_tjgo_diacde_lib/packages.py
+berna_tjgo_diacde_lib/preProcessamento.py
+berna_tjgo_diacde_lib/teste.py
+berna_tjgo_diacde_lib.egg-info/PKG-INFO
+berna_tjgo_diacde_lib.egg-info/SOURCES.txt
+berna_tjgo_diacde_lib.egg-info/dependency_links.txt
+berna_tjgo_diacde_lib.egg-info/top_level.txt
+berna_tjgo_diacde_lib/data/data.pkl
