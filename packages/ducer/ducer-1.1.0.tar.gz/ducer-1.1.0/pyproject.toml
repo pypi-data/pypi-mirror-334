@@ -1,0 +1,69 @@
+[project]
+name = "ducer"
+description = "Fast and compact maps and sets with Billions of keys, based on finite-state-transducers."
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [{ name = "Joachim Folz", email = "joachim.folz@dfki.de" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = [
+    "big data",
+    "compression",
+    "dataset",
+    "dict",
+    "finite-state-machines",
+    "finite-state-transducers",
+    "frozen",
+    "fst",
+    "map",
+    "serialization",
+    "set",
+    "streaming",
+]
+requires-python = ">=3.8"
+dynamic = ["version"]
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/jfolz/ducer"
+Documentation = "https://ducer.readthedocs.io/stable/"
+Repository = "https://github.com/jfolz/ducer"
+Issues = "https://github.com/jfolz/ducer/issues"
+Changelog = "https://github.com/jfolz/ducer/blob/main/CHANGELOG.md"
+
+[tool.setuptools_scm]
+
+[tool.setuptools]
+packages = ["ducer"]
+
+[build-system]
+requires = [
+    "setuptools>=71.1.0",
+    "setuptools-rust>=1.9.0",
+    "setuptools_scm>=8.1.0",
+]
+build-backend = "setuptools.build_meta"
+
+[[tool.setuptools-rust.ext-modules]]
+target = "ducer._fst"
+path = "rust/Cargo.toml"
+binding = "PyO3"
+args = ["--profile", "prod"]
+
+[tool.cibuildwheel]
+skip = "*_i686 pp* *musllinux* *-win32"
+build-verbosity = 1
+build-frontend = "build"
+test-requires = "pytest>=8.3.1"
+test-command = "pytest {project}/tests -vv"
