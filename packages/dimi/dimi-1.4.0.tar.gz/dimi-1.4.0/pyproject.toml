@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dimi"
+version = "1.4.0"
+description = "Minimalistic Dependency Injection for Python"
+authors = [
+    {name = "Anton Miasnikov", email = "anton2008m@gmail.com"},
+]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development",
+]
+requires-python = ">=3.9"
+dynamic = ["dependencies", "optional-dependencies"]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+
+[tool.setuptools.packages.find]
+include = ["dimi*"]
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = {file = ["requirements/dev.txt"]}
+
+[tool.ruff]
+include = ["dimi/**.py", "tests/**.py"]
+exclude = ["__pycache__", "development"]
+line-length = 120
+indent-width = 4
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "T", "I"]
+ignore = ["B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["dimi"]
+no-lines-before = ["local-folder"]
+lines-after-imports = 2
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+
+[tool.pytest.ini_options]
+addopts = "-vv"
+testpaths = ["tests"]
+pythonpath = [""]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+branch = true
+source = ["dimi"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+exclude_lines = ["@abstractmethod"]
