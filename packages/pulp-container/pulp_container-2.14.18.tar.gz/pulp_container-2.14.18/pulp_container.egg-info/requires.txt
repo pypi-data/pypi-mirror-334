@@ -1,0 +1,5 @@
+pulpcore<3.25,>=3.22.0
+pyjwkest<=1.4.2,>=1.4
+pyjwt[crypto]<=2.5,>=2.4
+jsonschema<4.17,>=4.4
+tablib<3.6.0
