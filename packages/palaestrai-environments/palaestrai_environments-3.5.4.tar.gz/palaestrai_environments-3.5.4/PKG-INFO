@@ -1,0 +1,57 @@
+Metadata-Version: 2.2
+Name: palaestrai-environments
+Version: 3.5.4
+Summary: A set of example environments for palaestrAI.
+Author-email: The ARL Developers <eric.veith@offis.de>
+Project-URL: Homepage, http://docs.palaestr.ai
+Project-URL: Bug Tracker, https://gitlab.com/arl2/palaestrai-environments/-/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: palaestrai~=3.5.0
+Provides-Extra: gym
+Requires-Dist: gymnasium; extra == "gym"
+Provides-Extra: dev
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: setuptools; extra == "dev"
+Requires-Dist: black==22.3.0; extra == "dev"
+Requires-Dist: build; extra == "dev"
+
+# The palaestrAI environments package
+
+## Introduction
+
+This package contains a set of environemnts for palaestrAI that are 
+ready-to-use.
+
+## Installation
+
+Clone the repository, install the project with pip:
+
+```bash
+pip install -e .
+```
+
+## Usage
+
+Use one of the environments in your experiment run file. The environments
+live in the `palaestrai.environment` namespace. For example, in your 
+experiment run file, set 
+`palaestrai_environments.tictactoe:TicTacToeEnvironment` as argument to the 
+environment `name` key. Also do not forget to define the respective sensors 
+and actuators.
+
+Please consult palaestrAI's main documentation at <http://docs.palaestr.
+ai> to learn more.
+
+Have a lot of fun!

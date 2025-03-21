@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "palaestrai-environments"
+version = "3.5.4"
+authors = [{name="The ARL Developers", email="eric.veith@offis.de"}]
+description = "A set of example environments for palaestrAI."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "palaestrai~=3.5.0"
+]
+
+[project.optional-dependencies]
+gym = [
+    "gymnasium"
+]
+dev = [
+    "twine",
+    "setuptools",
+    "black==22.3.0",
+    "build",
+]
+
+[project.urls]
+"Homepage" = "http://docs.palaestr.ai"
+"Bug Tracker" = "https://gitlab.com/arl2/palaestrai-environments/-/issues"
+
+[tool.black]
+line-length = 79

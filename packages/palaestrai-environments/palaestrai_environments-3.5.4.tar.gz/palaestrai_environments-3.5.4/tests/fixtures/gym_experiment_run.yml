@@ -1,0 +1,40 @@
+uid: "Yo-ho, a gym experiment run for me!" # User defined ID
+seed: 42  # The random seed, as usual
+version: 3.4.1
+schedule:  # The schedule for this run; it is a list
+  - phase_0:  # Name of the current phase. Can be any user-chosen name
+      environments:  # Definition of the environments for this phase
+        - environment:
+            name: palaestrai_environments.gym.gym_environment:GymEnvironment
+            uid: myenv
+            params: { env_name: "CartPole-v1",
+                      conversion: {gym.spaces.box.Box: [palaestrai.types.box.Box, [ "low", "high", "shape", "dtype" ]],
+                                   gym.spaces.discrete.Discrete: [palaestrai.types.discrete.Discrete, [ "n" ]]},
+                      reward_space: "Box(low=-1000, high=1000, shape=(), dtype=np.float32)"
+                    }
+      agents:  # Definiton of agents for this phase
+        - name: mighty_defender
+          brain:
+            name: palaestrai.agent.dummy_brain:DummyBrain
+            params: { }
+          muscle:
+            name: palaestrai.agent.dummy_muscle:DummyMuscle
+            params: { }
+          objective:
+            name: palaestrai.agent.dummy_objective:DummyObjective
+            params: {"params": 1}
+          sensors: [myenv.0]
+          actuators: [myenv.0]
+      simulation:  # Definition of the simulation controller for this phase
+        name: palaestrai.simulation:TakingTurns
+        conditions:
+          - name: palaestrai.experiment:EnvironmentTerminationCondition
+            params: {}
+      phase_config:  # Additional config for this phase
+        mode: train
+        worker: 1
+        episodes: 1
+run_config:  # Not a runTIME config
+  condition:
+    name: palaestrai.experiment:VanillaRunGovernorTerminationCondition
+    params: {}

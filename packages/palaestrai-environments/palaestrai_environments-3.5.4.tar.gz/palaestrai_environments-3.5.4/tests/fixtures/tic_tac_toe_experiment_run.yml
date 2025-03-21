@@ -1,0 +1,45 @@
+# Very simple tic tac toe experiment. One Agent can play Tic Tac Toe against the environment which uses the minimax algorithm
+# to calculate the optimal turn. In order to allow the agent to win, the environment sometimes makes random turns. The probability of random
+# turns kann be controlled with the randomness parameter. The verbose parameter is used to decide whether or not the environment should print
+# the game state into the debug log.
+# Do not change it! But can copy it and modify it to your needs, of course. :^)
+
+uid: "Yo-ho, a dummy experiment run for me!"# User defined ID
+seed: 42  # The random seed, as usual
+# Version of palaestrai this run file is compatible with
+# Just a check and a log message if versions do not match
+version: 3.2.1
+schedule:  # The schedule for this run; it is a list
+  - phase_0:  # Name of the current phase. Can be any user-chosen name
+      environments:  # Definition of the environments for this phase
+        - environment:
+            name: tictactoe.tic_tac_toe_environment:TicTacToeEnvironment
+            uid: myenv
+            params: {"randomness": 0.5, "invalid_turn_limit": 5}
+      agents:  # Definiton of agents for this phase
+        - name: ttt_agent
+          brain:
+            name: palaestrai.agent.dummy_brain:DummyBrain
+            params: { }
+          muscle:
+            name: palaestrai.agent.dummy_muscle:DummyMuscle
+            params: { }
+          objective:
+            name: palaestrai.agent.dummy_objective:DummyObjective
+            params: {"params": 1}
+          sensors: [myenv.Tile 1-1, myenv.Tile 1-2, myenv.Tile 1-3, myenv.Tile 2-1, myenv.Tile 2-2, myenv.Tile 2-3, myenv.Tile 3-1, myenv.Tile 3-2, myenv.Tile 3-3]
+          actuators: [myenv.Field selector]
+      simulation:  # Definition of the simulation controller for this phase
+        name: palaestrai.simulation:VanillaSimController
+        conditions:
+          - name: palaestrai.simulation:VanillaSimControllerTerminationCondition
+            params: {}
+      phase_config:  # Additional config for this phase
+        mode: train
+        worker: 1
+        episodes: 1
+run_config:  # Not a runTIME config
+  condition:
+    name: palaestrai.experiment:VanillaRunGovernorTerminationCondition
+    params: {}
+
