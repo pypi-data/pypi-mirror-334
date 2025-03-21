@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: ouseful_nhs_datasupply
+Version: 0.3.1
+Summary: pandas data reader extensions for NHS Digital
+Home-page: https://github.com/psychemedia/python-pandas-datareader-NHSDigital
+Author: Tony Hirst
+Author-email: tony.hirst@gmail.com
+License: MIT
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: requests_cache
+Requires-Dist: lxml
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
