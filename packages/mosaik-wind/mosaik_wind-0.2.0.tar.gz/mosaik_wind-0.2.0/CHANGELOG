@@ -1,0 +1,16 @@
+Changelog
+=========
+
+0.1.0 - 2024-03-06
+------------------
+
+- Initial release of the mosaik-wind simulator
+
+
+0.2.0 - 2025-03-18
+------------------
+
+- Refactoring of attributes and parameters: power_curve_csv -> power_curve_file; P_gen -> P[MW].
+- The power_curve_file can now be specified during simulator initialization and during model creation. 
+- power_factor, power_kw or power_mw can be used as input data for the power curve.
+- To calculate a power curve based on power_factor, either rotor_area or max_power_mw is required as input data.
