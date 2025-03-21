@@ -1,0 +1,11 @@
+{
+    "speak_commands": false,
+    "command_execution_confirmation": false,
+    "use_colors": true,
+    "security_check": true,
+    "gemini_model_config": {
+      "model_name": "gemini-1.5-pro",
+      "temperature": 0.7,
+      "max_tokens": 100
+    }
+}
