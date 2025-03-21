@@ -1,0 +1,27 @@
+[project]
+name = "pywet"
+version = "0.1.4"
+description = "Python Windows Emergency Tiler - a workflow centric windows tiling manager for Windows"
+readme = "README.md"
+authors = [
+    { name = "tonyatpeking", email = "tonyatpeking@gmail.com" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pywin32; sys_platform == 'win32'",
+]
+
+[project.scripts]
+pywet = "pywet:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[project.license]
+file = "LICENSE"
