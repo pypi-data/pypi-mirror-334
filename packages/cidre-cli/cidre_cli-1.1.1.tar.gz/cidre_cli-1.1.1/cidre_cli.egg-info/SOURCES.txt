@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+cidre/__init__.py
+cidre/cidr_store.py
+cidre/cli.py
+cidre/countries.py
+cidre/iptables_firewall.py
+cidre/rir_fetcher.py
+cidre/ufw_firewall.py
+cidre_cli.egg-info/PKG-INFO
+cidre_cli.egg-info/SOURCES.txt
+cidre_cli.egg-info/dependency_links.txt
+cidre_cli.egg-info/entry_points.txt
+cidre_cli.egg-info/requires.txt
+cidre_cli.egg-info/top_level.txt
