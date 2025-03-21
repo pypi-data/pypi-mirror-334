@@ -1,0 +1,47 @@
+Metadata-Version: 2.2
+Name: spike-psf
+Version: 1.0.1
+Summary: Drizzle/resample HST, JWST, and Roman PSFs for improved analyses.
+Home-page: https://github.com/avapolzin/spike
+Author: Ava Polzin
+Author-email: apolzin@uchicago.edu
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: asdf
+Requires-Dist: astropy
+Requires-Dist: crds
+Requires-Dist: drizzle
+Requires-Dist: gwcs
+Requires-Dist: jsonschema
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: photutils
+Requires-Dist: psutil
+Requires-Dist: pyyaml
+Requires-Dist: roman-datamodels
+Requires-Dist: scipy
+Requires-Dist: spherical-geometry
+Requires-Dist: stdatamodels==2.2.0
+Requires-Dist: tweakwcs
+Requires-Dist: webbpsf
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+README.md
