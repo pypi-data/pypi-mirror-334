@@ -1,0 +1,16 @@
+Metadata-Version: 2.2
+Name: particle_system
+Version: 1.1
+Summary: Easy to use visual Particle System for pygame Games
+Author: At7791
+Author-email: a@a.com
+License: MIT
+Requires-Dist: pygame
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+For more informations you can visit the github repository. https://github.com/At7791/Particle-System
