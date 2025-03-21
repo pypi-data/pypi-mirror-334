@@ -1,0 +1,169 @@
+Metadata-Version: 2.4
+Name: miur
+Version: 0.571.20250319
+Summary: Modern Interface for Uniform Reconnaissance
+Project-URL: Homepage, https://github.com/miur/miur
+Project-URL: GitHub, https://github.com/miur/miur
+Project-URL: Source, https://github.com/miur/miur
+Project-URL: Issues, https://github.com/miur/miur/issues
+Project-URL: Documentation, https://github.com/miur/miur/wiki
+Project-URL: Changelog, https://github.com/miur/miur/blob/main/README.rst
+Project-URL: Chat, https://github.com/miur/miur/discussions
+Project-URL: ReleaseNotes, https://github.com/miur/miur/releases
+Project-URL: Download, https://github.com/miur/miur/releases
+Project-URL: PyPI, https://pypi.org/project/miur/
+Author-email: Dmytro Kolomoiets <amerlyq+code@gmail.com>
+License-Expression: GPL-3.0-only
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Requires-Dist: pygments
+Requires-Dist: python-mpd2
+Requires-Dist: ranger-fm
+Provides-Extra: all
+Requires-Dist: beautifulsoup4; extra == 'all'
+Requires-Dist: glfw; extra == 'all'
+Requires-Dist: imgui-bundle; extra == 'all'
+Requires-Dist: lxml; extra == 'all'
+Requires-Dist: pyqt6; extra == 'all'
+Requires-Dist: pyqtgraph; extra == 'all'
+Requires-Dist: pysdl3; extra == 'all'
+Requires-Dist: requests; extra == 'all'
+Requires-Dist: vispy; extra == 'all'
+Provides-Extra: default
+Requires-Dist: beautifulsoup4; extra == 'default'
+Requires-Dist: lxml; extra == 'default'
+Requires-Dist: requests; extra == 'default'
+Provides-Extra: demo
+Requires-Dist: glfw; extra == 'demo'
+Requires-Dist: imgui-bundle; extra == 'demo'
+Requires-Dist: pyqt6; extra == 'demo'
+Requires-Dist: pyqtgraph; extra == 'demo'
+Requires-Dist: pysdl3; extra == 'demo'
+Requires-Dist: vispy; extra == 'demo'
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: jupyter-console; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pip-tools; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pylint-venv; extra == 'dev'
+Provides-Extra: web
+Requires-Dist: beautifulsoup4; extra == 'web'
+Requires-Dist: lxml; extra == 'web'
+Requires-Dist: requests; extra == 'web'
+Description-Content-Type: text/x-rst
+
+.. SPDX-FileCopyrightText: 2025 Dmytro Kolomoiets <amerlyq+code@gmail.com>
+
+.. SPDX-License-Identifier: CC-BY-SA-4.0
+
+####
+miur
+####
+
+Modern/Modal Interface for Uniform Reconnaissance.
+
+**Mission:** interpret everything as graphs and navigate them like a filesystem.
+
+**Motto:** ⌇⡦⡋⣑⣳
+
+- "Everything is a list"
+- "Anything can be interpreted as list"
+- "Multiple ways to interpret -- is a list too"
+- "Making choices is a function"  [delegated to *YOU* by the program]
+- "Workflow as a plugin"  -- upload yours and explore others
+- "Consistency first, usability second"  [-- everything else is not on the chart]
+- "Be frontend to anything out there"  [bridge what you can; reimplement what you must]
+- "Tools in the loop"  (interpret output as structures and actions)
+- "Explore even itself"  (events, logs, ui, config, workflows, keybindings, runtime, RAM, etc.)
+- "Embrace cognitive constrains"  (suggest workflows and give feedback)
+- "Bind all events to current contexts"  == that's simply how attention-memory works
+- "File Manager is a lie. What you manage -- is your attention."
+
+.. tip::
+   It's hilarious, but you can treat any folder of files as a *Lisp* program.
+   If you name folders/files after some AST -- you can execute the dir as an app! (homoiconicity)
+   By using scripts as function names and symlinks to other files as args,
+   you should be able to compose an adhoc application -- something worthy to explore.
+   Writing code solely by moving files around -- who would even dare to call it programming? :)
+
+
+CHANGELOG
+=========
+
+TBD
+
+- homoiconic Entity/Action data interpretation
+- subscribe/publish change propagation channels
+- new miur-relevant argparse
+
+
+2025-03-19 (0.571)
+------------------
+
+DONE: pre-alpha (distributable)
+
+- docker img
+- better venv mgmt and streamlined entrypoint
+- enhanced pyproject.toml and reqs.txt
+- automated dev-wf for updating gen-artfs
+- children logs redir + early pool
+- add listview orderby/reverse
+- add navi app hist save/restore
+- switch navi widget layout by keybind
+
+
+2025-02-14 (0.400)
+------------------
+
+DONE: pre-alpha
+
+- interlace objects (Entitis) and methods (Actions) during navigation
+- auto-convert any python object to explorable entity
+- preview nodes under cursor and previous history
+- inputfield/editbox for FilterBy() with readline/emacs bindings
+- draft localhost rootnodes for FS, /proc, pacman
+- draft internal rootnodes for env, keybind, demos
+- draft protocol rootnodes for web, mpd
+- draft dataset rootnode for unicode symbols
+- add demos for future UI clients in qt6/qml/sdl3/glfw/imgui/pyqtgraph
+- provide ZSH integration and shell aliases
+- add clipboard / copy to xclip
+- adaptive layout for navi
+- list UI got itemwrap, colsep, spacemark, linenum, decortail
+
+
+2024-12-01
+----------
+
+DONE
+
+- list widget (SatelliteViewport)
+- class hierarchy for ui
+- automatic venv
+- PoC file system navigation
+- PoC highlighting file by type
+- PoC pygmentized in curses
+- PoC selectors mainloop (w/o asyncio)
+- separate FDs for jupyter, tty, stdin/stdout and logs
+- FIXED: no curses resize on SIGWINCH
+
+
+2024-06-01
+----------
+
+DONE
+
+- curses terminal UI
+- asyncio based mainloop
+- jupyter kernel integration
+- bash multi-shebang with aliases
+- tty shell_out (async!)
+- pipe stdin/stdout (with concurrent tty)
+- print to terminal altscreen
+- new lightweight logger
+- global app singleton
