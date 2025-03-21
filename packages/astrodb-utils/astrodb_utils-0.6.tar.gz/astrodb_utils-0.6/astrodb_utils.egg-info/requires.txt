@@ -1,0 +1,13 @@
+numpy<2.0
+astroquery>=0.4.9
+astropy>7.0
+astrodbkit>=2.3
+lsst-felis
+pandas
+tqdm
+ads
+dateparser
+
+[test]
+pytest
+ruff>0.3.7
