@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# PyInstaller files
+*.spec
+
+# Logs & debugging
+logs/
+*.log
+*.out
+*.err
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS & Windows files
+.DS_Store
+Thumbs.db
+
+# Secrets & credentials (NEVER store sensitive files in Git)
+.env
+*.secret
+config.yaml

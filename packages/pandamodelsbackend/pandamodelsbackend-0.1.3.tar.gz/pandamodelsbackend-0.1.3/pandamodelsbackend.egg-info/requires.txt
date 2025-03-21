@@ -1,0 +1,11 @@
+numpy<2.0
+scipy
+pandas
+pandapower<3.0
+grid2op
+
+[numba]
+numba
+
+[tests]
+setuptools

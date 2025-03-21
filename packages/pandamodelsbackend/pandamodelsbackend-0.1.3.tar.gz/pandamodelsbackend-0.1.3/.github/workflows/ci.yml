@@ -1,0 +1,275 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "9 16 * * 1"
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        cfg:
+          - conda-env: unix
+            python-version: "3.12"
+            julia-version: "1.10"
+            label: conda
+            runs-on: ubuntu-latest
+            shell: 'bash -l {0}'
+
+          - conda-env: null
+            python-version: "3.12"
+            julia-version: "1.10"
+            label: installer
+            runs-on: ubuntu-latest
+            shell: 'bash -e {0}'
+
+          - conda-env: unix
+            python-version: "3.12"
+            julia-version: "1.10"
+            label: conda
+            runs-on: macos-13
+            shell: 'bash -l {0}'
+
+          - conda-env: null
+            python-version: "3.12"
+            julia-version: "1.10"
+            label: installer
+            runs-on: macos-13
+            # runs-on: macos-latest  # fails b/c cbc can't compile on M1 (the GHA runners)
+            shell: 'bash -e {0}'
+
+    defaults:
+      run:
+        shell: ${{ matrix.cfg.shell }}
+
+    name: "🐍 ${{ matrix.cfg.python-version }} • ${{ matrix.cfg.label }} • ${{ matrix.cfg.runs-on }}"
+    runs-on: ${{ matrix.cfg.runs-on }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+
+    - name: Install Conda Python ${{ matrix.cfg.python-version }} and power software
+      if: matrix.cfg.label == 'conda'
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        activate-environment: test
+        environment-file: devtools/conda-envs/${{ matrix.cfg.conda-env }}.yaml
+        python-version: ${{ matrix.cfg.python-version }}
+        auto-activate-base: false
+        show-channel-urls: true
+        add-pip-as-python-dependency: true
+        conda-remove-defaults: true
+
+    - name: Install Python ${{ matrix.cfg.python-version }}
+      if: matrix.cfg.label == 'installer'
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.cfg.python-version }}
+
+    - name: Install Python power software
+      if: matrix.cfg.label == 'installer'
+      run: |
+        uname -p
+        which python pip
+        python --version
+        python -m pip install numpy pandas scipy pytest grid2op julia "pandapower==2.14.11"
+
+    - name: Install Julia ${{ matrix.cfg.julia-version }}
+      if: matrix.cfg.label == 'installer'
+      uses: julia-actions/setup-julia@v2
+      with:
+        version: ${{ matrix.cfg.julia-version }}
+
+    - name: Cache Julia
+      if: matrix.cfg.label == 'installer'
+      uses: julia-actions/cache@v2
+      with:
+        cache-name: ${{ matrix.cfg-runs-on }}-test-${{ matrix.cfg.julia-version }}-${{ matrix.cfg.python-version }}
+        cache-packages: false
+
+    - name: Install Julia power software
+      run: |
+        julia -e '
+            using Pkg
+            Pkg.add([
+                Pkg.PackageSpec(;name="Ipopt"),
+                Pkg.PackageSpec(;name="PowerModels", version="0.21.3"),
+                Pkg.PackageSpec(;name="PyCall"),
+                Pkg.PackageSpec(;url="https://github.com/loriab/PandaModels.jl", rev="update_pm")
+            ])'
+
+    - name: Install PandaModelsBackend
+      run: |
+        python -m pip install -e .[tests]
+
+    - name: Environment information
+      run: |
+        python -m pip list
+        python -m pip list | grep -e power -e grid -e panda
+        which python python-jl julia
+        python --version
+        python-jl --version
+        julia --version
+        julia -e 'using Pkg; Pkg.status(); Pkg.status(outdated=true)'
+
+    - name: Test PowerModels in Julia
+      # if: false
+      run: |
+        julia -e 'using PyCall; math = pyimport("math"); print(math.sin(math.pi/4))'
+        julia -e 'using Pkg; Pkg.test("PowerModels")'
+        # PM testing above is clean but takes 6m, so optionally toggle off
+
+    - name: Test PandaModels in Julia
+      run: |
+        julia -e 'using Pkg; Pkg.add(Pkg.PackageSpec(;name="Ipopt", version="0.9"))'
+        julia -e 'using Pkg; Pkg.status(); Pkg.status(outdated=true)'
+        julia -e 'using PandaModels'
+        julia -e 'using Pkg; Pkg.test("PandaModels")'
+        # PdM testing above has a couple failures b/c Ipopt=1 unless downgrade (taking PM with it)
+        # shortcut this step by commenting out the Pkg.test above
+
+    - name: Special setup Mac
+      if: matrix.cfg.label == 'installer' && runner.os == 'macOS'
+      run: |
+        # warning: hard coded path
+        julia -e 'ENV["PYTHON"]="/Users/runner/hostedtoolcache/Python/3.12.9/x64/bin/python"; using Pkg; Pkg.build("PyCall")'
+
+    - name: Special setup download delay
+      if: false  # runner.os == 'macOS'
+      # file download in (basic) section is flaky for Mac. use `sed -i "s;;;g"` for non-Mac
+      run: |
+        sed -E -i.bak "s;nb_retry=10;nb_retry=100;g" $(dirname $(which python))/../lib/python${{ matrix.cfg.python-version }}/site-packages/grid2op/MakeEnv/Make.py
+        sed -E -i.bak "s;time.sleep(1);time.sleep(8);g" $(dirname $(which python))/../lib/python${{ matrix.cfg.python-version }}/site-packages/grid2op/MakeEnv/Make.py
+
+    - name: Test PowerModels in PandaPower
+      run: |
+        which python python-jl
+        python-jl -m pytest -v $(dirname $(which python))/../lib/python${{ matrix.cfg.python-version }}/site-packages/pandapower/test/opf/test_pandamodels_runpm.py
+        # use python-jl instead of python above if get a static libpython error
+        # loc is simply $CONDA_PREFIX but the setup-python counterpart env.pythonLocation seems broken
+        # PdP testing above has a couple failures b/c Ipopt=1 unless downgrade (taking PM with it)
+
+    - name: Test PandaModelsBackend (basic)
+      if: runner.os == 'Linux'
+      run: |
+        which python python-jl
+        python-jl tests/test_basic_usage.py
+
+    - name: Test PandaModelsBackend (API)
+      run: |
+        python-jl tests/test_backend_api.py
+
+    - name: Install pypa/build & build a binary wheel and a source tarball
+      if: matrix.cfg.label == 'installer' && runner.os == 'Linux'
+      run: |
+        python -m pip install build --user
+        python -m build
+
+    - name: Store the distribution packages
+      if: matrix.cfg.label == 'installer' && runner.os == 'Linux'
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+
+  publish-to-pypi:
+    name: >-
+      Publish Python 🐍 distribution 📦 to PyPI
+    if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
+    needs:
+    - build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pandamodelsbackend
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    name: >-
+      Sign the Python 🐍 distribution 📦 with Sigstore
+      and upload them to GitHub Release
+    needs:
+    - publish-to-pypi
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # IMPORTANT: mandatory for making GitHub Releases
+      id-token: write  # IMPORTANT: mandatory for sigstore
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Sign the dists with Sigstore
+      uses: sigstore/gh-action-sigstore-python@v3.0.0
+      with:
+        inputs: >-
+          ./dist/*.tar.gz
+          ./dist/*.whl
+    - name: Create GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: >-
+        gh release create
+        "$GITHUB_REF_NAME"
+        --repo "$GITHUB_REPOSITORY"
+        --notes ""
+    - name: Upload artifact signatures to GitHub Release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      # Upload to GitHub Release using the `gh` CLI.
+      # `dist/` contains the built packages, and the
+      # sigstore-produced signatures and certificates.
+      run: >-
+        gh release upload
+        "$GITHUB_REF_NAME" dist/**
+        --repo "$GITHUB_REPOSITORY"
+
+  publish-to-testpypi:
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
+    needs:
+    - build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/pandamodelsbackend
+
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+        verbose: true
