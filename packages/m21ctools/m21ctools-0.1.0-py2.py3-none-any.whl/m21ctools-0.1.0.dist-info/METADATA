@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: m21ctools
+Version: 0.1.0
+Summary: Tools for processing cubed-sphere data.
+Project-URL: Homepage, https://github.com/sabin413/m21ctools
+Author-email: Sabin Adhikari <sbn.adh@gmail.com>
+License: MIT
+License-File: LICENCE.txt
+Requires-Dist: cartopy
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: xarray
+Description-Content-Type: text/markdown
+
+sample
