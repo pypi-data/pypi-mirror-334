@@ -1,0 +1,6 @@
+zuko>=1.3.1
+
+[dev]
+pre-commit
+pytest
+ruff
