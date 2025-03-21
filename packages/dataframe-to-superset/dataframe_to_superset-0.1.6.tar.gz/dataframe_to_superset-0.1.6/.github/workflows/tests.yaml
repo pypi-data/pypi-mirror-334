@@ -1,0 +1,29 @@
+name: "Publish"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pytest:
+    name: Run pytest tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - name: 🛠️ Checkout code"
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up UV environment
+        uses: astral-sh/setup-uv@v3
+
+      - name: 🐍 Set up Python
+        run: uv venv --python ${{ matrix.python-version }}
+
+      - name: ✅ Run pytest tests
+        run: |
+          source .venv/bin/activate
+          uv run pytest

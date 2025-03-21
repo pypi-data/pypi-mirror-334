@@ -1,0 +1,26 @@
+name: "Publish"
+
+on:
+  release:
+    types: ["published"]
+
+jobs:
+  pypi:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: publish
+    permissions:
+      id-token: write
+    steps:
+      - name: 🛠️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Set up UV environment
+        uses: astral-sh/setup-uv@v3
+
+      - name: 🏗️ Build the project
+        run: uv build
+
+      - name: 🚀 Publish to PyPI
+        run: uv publish --trusted-publishing always
