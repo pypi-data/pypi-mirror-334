@@ -1,0 +1,91 @@
+[project]
+name = "mcp-server-b24"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fast-bitrix24>=1.8.4",
+  "mcp[cli]>=1.4.1",
+  "pydantic>=2.10.6",
+  "pydantic-settings>=2.8.1",
+  "ruff>=0.11.0",
+  "structlog>=25.2.0",
+  "wireup>=0.16.0",
+]
+
+[project.scripts]
+mcp-server-b24 = "app.presentation.mcp:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py312"
+fix = true
+unsafe-fixes = false
+cache-dir = "~/.cache/ruff"
+
+[tool.ruff.format]
+quote-style = "single"
+line-ending = "auto"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 20
+
+[tool.ruff.lint]
+select = ["ALL"]
+exclude = ['tests/*']
+
+ignore = [
+  # Документация
+  "D100",   # Отсутствие докстринга в публичных модулях
+  "D212",
+  "D200",
+  "ANN401",
+  "TRY300",
+  "TRY003",
+  "FBT001",
+  "FBT002",
+  "FBT003",
+  "ARG002",
+  "D106",
+  "BLE001",
+  "D107",   # Отсутствие докстринга в __init__
+  "D205",   # Пустая строка требуется между резюме и описанием
+
+  # Стиль кода
+  "EM102",  # Строка исключения должна быть в логировании
+  "RUF001", # Строка содержит неоднозначный символ Юникода
+  "RUF002", # Неоднозначные символы Юникода в докстрингах
+  "RUF012", # Классификатор PyPI, который не соответствует нормам
+
+  # Безопасность и производительность
+  "S101", # Использование assert
+  "B008", # Вызов функции как аргумент по умолчанию
+
+  # Структура проекта и импорты
+  "INP001", # Файл __init__.py отсутствует в пакете
+  "UP008",  # Использование super() без аргументов
+
+  # Прочие предупреждения
+  "RET505", # Ненужный else после return
+]
+
+[tool.ruff.lint.flake8-annotations]
+mypy-init-return = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[dependency-groups]
+dev = ["ruff>=0.11.0"]
