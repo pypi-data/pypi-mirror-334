@@ -1,0 +1,2 @@
+[airflow.plugins]
+apache_airflow_dragdrop_plugin = apache_airflow_dragdrop_plugin.plugin:MyReactPlugin
