@@ -1,0 +1,75 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master, inginious-0.8 ]
+  pull_request:
+    branches: [ master, inginious-0.8 ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  tests:
+
+    strategy:
+      # Ensure that each python version will be tested even if one of them fails.
+      fail-fast: false
+      matrix:
+        python_version: ["3.10", "3.11", "3.12", "3.13"]
+
+    runs-on: ubuntu-24.04
+    services:
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libtidy5deb1 libzmq3-dev
+
+      - name: Start services
+        run: |
+          sudo systemctl start docker
+
+      - name: Install INGInious
+        run: |
+          pip3 install .
+          pip3 install .[test]
+
+      - name: Launch nose tests
+        run: nose2
+
+      - name: Launch pytest tests
+        if: always()
+        run: coverage run -a --branch -m pytest -v
+
+      - name: Generate coverage report
+        # Launch even if one of the two test jobs fails
+        if: always()
+        run: |
+          coverage report --include="inginious/*"
+          coverage xml --include="inginious/*"
+
+      - name: Save coverage output
+        uses: codacy/codacy-coverage-reporter-action@v1
+        if: ${{ github.event_name == 'push' }}
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage.xml
