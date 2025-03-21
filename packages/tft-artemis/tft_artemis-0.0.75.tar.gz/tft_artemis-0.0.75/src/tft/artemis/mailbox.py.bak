@@ -1,0 +1,41 @@
+from typing import cast, Optional, Dict, Any
+from dramatiq.worker import _ConsumerThread as BaseConsumerThread
+from gluetool.log import ContextAdapter
+import dramatiq.broker
+import dramatiq.worker
+import queue
+
+
+class MailboxConsumerThread(BaseConsumerThread):
+    def __init__(
+        self,
+        *,
+        logger: ContextAdapter,
+        broker: dramatiq.broker.Broker,
+        queue_name: str,
+        prefetch: int = 1,
+        work_queue: dramatiq.worker.PriorityQueue
+    ) -> None:
+        super().__init__(
+            broker=broker,
+            queue_name=queue_name,
+            prefetch=prefetch,
+            work_queue=work_queue,
+            worker_timeout=1000
+        )
+
+        self.logger = logger
+
+
+class Mailbox:
+    _work_queue: dramatiq.worker.PriorityQueue
+
+    def __init__(self, logger, broker, entity: str) -> None:
+        self._work_queue = dramatiq.worker.PriorityQueue()
+
+        self._consumer = MailboxConsumerThread(
+            logger=logger,
+            broker=broker,
+            queue_name=f'mailbox.{entity}',
+            work_queue=self._work_queue
+        )
