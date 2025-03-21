@@ -1,0 +1,4 @@
+include src/CMakeLists.txt
+include src/screen_capture_module.cpp
+include src/xxhash.c
+include src/xxhash.h

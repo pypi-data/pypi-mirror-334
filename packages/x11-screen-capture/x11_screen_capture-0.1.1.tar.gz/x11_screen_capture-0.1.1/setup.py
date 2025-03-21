@@ -1,0 +1,87 @@
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import setuptools
+from setuptools import Extension, setup
+from setuptools.command.build_ext import build_ext
+from setuptools.command.install_lib import install_lib
+
+CMAKE_INSTALL_DIR = Path("/tmp/screen_capture_build_output") # Or better: Path(__file__).parent / "build_cmake_output"
+
+
+def run_cmake_command(command_list, build_path):
+    if not os.path.exists(build_path):
+        os.makedirs(build_path)
+    command = " ".join(command_list)
+    print(f"Running in {build_path}: {command}")
+    try:
+        subprocess.check_call(command, cwd=build_path, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(f"CMake command failed: {e}")
+        sys.exit(1)
+
+
+class CMakeBuildExt(build_ext):
+    def run(self):
+        cmake_args = ["-DCMAKE_INSTALL_PREFIX=" + str(CMAKE_INSTALL_DIR)]
+        cmake_build_path = Path(__file__).parent / "src" / "build"
+
+        cmake_configure_command = ["cmake", ".."] + cmake_args
+        run_cmake_command(cmake_configure_command, str(cmake_build_path))
+
+        cmake_build_command = ["cmake", "--build", ".", "--target", "install"]
+        run_cmake_command(cmake_build_command, str(cmake_build_path))
+
+    def get_outputs(self):
+        so_path = CMAKE_INSTALL_DIR / "screen_capture" / "screen_capture_module.so"
+        return [str(so_path)]
+
+
+class CustomInstallLib(install_lib):
+    def install(self):
+        outputs = super().install()
+        cmake_so_path = CMAKE_INSTALL_DIR / "screen_capture" / "screen_capture_module.so"
+        lib_dir = Path(self.install_dir)
+        install_so_path = lib_dir / "x11_screen_capture" / "screen_capture_module.so" # Changed to x11_screen_capture
+
+        os.makedirs(str(install_so_path.parent), exist_ok=True)
+        shutil.copy2(str(cmake_so_path), str(install_so_path))
+        outputs.append(str(install_so_path))
+        return outputs
+
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setup(
+    name="x11_screen_capture", # Keep this as x11_screen_capture
+    version="0.1.1",
+    author="Ryan Kuba",
+    author_email="ryankuba@gmail.com",
+    description="A Python module for screen capture and image encoding.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="",
+    packages=setuptools.find_packages(),
+    package_dir={"x11_screen_capture": "screen_capture"}, # Changed to x11_screen_capture to match name
+    ext_modules=[
+        Extension(
+            "x11_screen_capture.screen_capture_module", # Changed to x11_screen_capture
+            sources=[],
+        )
+    ],
+    cmdclass={
+        "build_ext": CMakeBuildExt,
+        "install_lib": CustomInstallLib,
+    },
+    package_data={"x11_screen_capture": ["*.so"]}, # Changed to x11_screen_capture
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        "Operating System :: POSIX :: Linux",
+    ],
+    python_requires=">=3.6",
+)
