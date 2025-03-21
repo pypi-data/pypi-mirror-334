@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: turby
+Version: 0.0.1.dev0
+Summary: Optical Turbulence Profiling with Machine Learning
+Author: Zachary R. Claytor
+Author-email: zclaytor@stsci.edu
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
