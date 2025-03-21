@@ -1,0 +1,16 @@
+recmd/__init__.py,sha256=mkx6Sf433px5o95uZUV3qwTvk8m4kbK2KJ6Zy1UtVP4,698
+recmd/command.py,sha256=Dn2xXrWKpKi64PehnEWinpEXD2Q_7KucyA1XI1HSVAU,10675
+recmd/exceptions.py,sha256=IqUgEHhlX7EPqZoh4gIatzMtyQl3sdU37oz_Kcelvj4,45
+recmd/map_result.py,sha256=QoE69DB7X37BkK_S3tlX4XHfVTfVqBqrG1NUhmkIMvI,2739
+recmd/patcher.py,sha256=PXXyIYGAxsRltka40inxvULjlmwuozJvqNSdsX-nR3g,4106
+recmd/shell.py,sha256=uPFEZlOvwVsGojSyg22UtVxckVPvAU2pA2jS5sb8L40,563
+recmd/shell_patch.py,sha256=6oYjKElPkPwUTS0LeRPsboTBL-Qmn48UGmbQaAOCWcE,9351
+recmd/stream.py,sha256=F-rjqRoQR_qOk_gdgrMkVu5AVwAuTsX2qHe2XxpmFLM,6408
+recmd/executor/abc.py,sha256=83BUDxEYVgl73vmWgwcqqJbdXr8qwKRmixALOsD_n-g,1642
+recmd/executor/anyio.py,sha256=583VBmnaJgCz6JARK01CZ0NU1bwI6IOiMjPRuyaA9Ec,2827
+recmd/executor/subprocess.py,sha256=wKYvuWw7M-AE8T8Zhb9F_Xk86Yadv7re7dxWioWTv-A,2269
+recmd-0.1.0.dist-info/LICENSE,sha256=4IOfNHTAwoIj7hAWo-oWtUF1KMLK_dmuTx-MIVdPjaA,1065
+recmd-0.1.0.dist-info/METADATA,sha256=D4XgePVGJiPznpMd2LtKcMh2q0jZXPcdgMpDd_1tQPM,5148
+recmd-0.1.0.dist-info/WHEEL,sha256=beeZ86-EfXScwlR_HKu4SllMC9wUEj_8Z_4FJ3egI2w,91
+recmd-0.1.0.dist-info/top_level.txt,sha256=nYHHuhO8ykwjzb2xvgCf043cdmeoIvZ56xnW_TkYwIs,6
+recmd-0.1.0.dist-info/RECORD,,
