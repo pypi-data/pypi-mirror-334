@@ -1,0 +1,102 @@
+$schema: http://json-schema.org/draft-07/schema#
+description: Azure pool driver schema
+
+type: object
+
+properties:
+  login:
+    type: string
+
+  capabilities:
+    type: object
+
+  cost:
+    type: object
+
+  image-filters:
+    type: array
+    items:
+      type: object
+      properties:
+        name-regex:
+          type: string
+
+        offer:
+          type: string
+
+        publisher:
+          type: string
+
+        sku:
+          type: string
+
+  # Azure doesn't have flavors, it has sizes. However let's keep it unified as flavor is something natural when it
+  # comes to instance types
+  flavor-regex:
+    type: string
+
+  default-flavor:
+    type: string
+
+  default-location:
+    type: string
+
+  # Default resource group for all cloud primitives that the driver needs which will be used for multiple guests
+  # creation, like storage account for boot log storage
+  default-resource-group:
+    type: string
+    default: artemis-internals
+
+  guest-resource-group:
+    type: string
+
+  use-default-flavor-when-no-suitable:
+    type: boolean
+    default: true
+
+  boot-log-storage:
+    type: string
+
+  password:
+    type: string
+
+  patch-images:
+    type: array
+
+  post-install-template:
+    type: string
+
+  resources:
+    type: object
+
+  tenant:
+    type: string
+
+  use-public-ip:
+    type: boolean
+    default: false
+
+  use-only-when-addressed:
+    type: boolean
+
+  username:
+    type: string
+
+  ssh-options:
+    type: array
+    items:
+      type: string
+
+  preserve-for-investigation:
+    type: boolean
+
+  patch-flavors:
+    type: array
+
+additionalProperties: false
+
+required:
+- password
+- username
+- default-flavor
+- default-location

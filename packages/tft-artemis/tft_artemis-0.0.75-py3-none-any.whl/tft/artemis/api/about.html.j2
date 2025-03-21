@@ -1,0 +1,181 @@
+{% macro emit_boolean(value) %}
+    {% if value %}<span class="badge bg-success">yes</span>{% else %}<span class="badge bg-danger">no</span>{% endif %}
+{% endmacro %}
+
+{% macro emit_boolean_flag(name, value) %}
+    {% if value %}
+        <span class="badge bg-success">{{ name }}: yes</span>
+    {% else %}
+        <span class="badge bg-danger">{{ name }}: no</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro emit_literal(value) %}
+    <span class="badge bg-light text-dark font-monospace">{{ value }}</span>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <title>About</title>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h2>Versions</h2>
+
+                <div class="row">
+                    <b class="col-4">Package version:</b>
+                    <div class="col-8">{{ __VERSION__ }}</div>
+                </div>
+
+                <div class="row">
+                    <b class="col-4">Image URL:</b>
+                    <div class="col-8">{{ os.getenv('ARTEMIS_IMAGE_URL', 'unknown') }}</div>
+                </div>
+
+                <div class="row">
+                    <b class="col-4">Image digest:</b>
+                    <div class="col-8">{{ os.getenv('ARTEMIS_IMAGE_DIGEST', 'unknown') }}</div>
+                </div>
+
+                <div class="row">
+                    <b class="col-4">Supported API versions:</b>
+                    <div class="col-8">
+                        {% for version, _, _ in API_MILESTONES %}
+                        <span class="badge bg-light text-dark font-monospace">{{ version }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2>Deployment</h2>
+
+                <div class="row">
+                    <b class="col-4">Deployment name:</b>
+                    <div class="col-8">{{ KNOB_DEPLOYMENT.value }}</div>
+                </div>
+
+                <div class="row">
+                    <b class="col-4">Deployment environment:</b>
+                    <div class="col-8">{{ KNOB_DEPLOYMENT_ENVIRONMENT.value }}</div>
+                </div>
+            </div>
+
+            <hr class="hr" />
+
+            <div>
+                <h2>Pools</h2>
+
+{% for pool in POOLS | sort(attribute='poolname') %}
+                <div>
+                    <div class="row">
+                        <div class="col-11 offset-1"><h4>{{ pool.poolname }}</h4></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-1"><b>Driver</b></div>
+                        <div class="col-7"><code>{{ pool.drivername }}</code></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-1"><b>Enabled?</b></div>
+                        <div class="col-7">
+                            {% set flag = query_or_die(KNOB_POOL_ENABLED.get_value, session=SESSION, entityname=pool.poolname) %}
+                            {{ emit_boolean_flag('enabled', flag)}}
+
+                            {% set flag = query_or_die(KNOB_ROUTE_POOL_ENABLED.get_value, session=SESSION, entityname=pool.poolname) %}
+                            {{ emit_boolean_flag('routing enabled', flag) }}
+
+                            {{ emit_boolean_flag('use only when addressed', pool.pool_config.get('use-only-when-addressed')) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-1"><b>Guest tags</b></div>
+                        <div class="col-7">
+                            {% set r_guest_tags = pool.get_shared_guest_tags(LOGGER, SESSION) %}
+                            {% if r_guest_tags.is_error %}
+                            {% else %}
+                                {% for name, value in r_guest_tags.unwrap().items() %}
+                                    {{ emit_literal(name + ': ' + value) }}
+                                    {% if not loop.last %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 offset-1"><b>SSH options</b></div>
+                        <div class="col-7">
+                            {% for option in pool.ssh_options %}
+                                {{ emit_literal(option) }}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% if pool.drivername == 'aws' or pool.drivername == 'openstack' %}
+                        <div class="row">
+                            <div class="col-4 offset-1"><b>Cache</b></div>
+                            <div class="col-7">
+                                <a href="../_cache/pools/{{ pool.poolname }}/image-info">Image info</a>
+                                | <a href="../_cache/pools/{{ pool.poolname }}/flavor-info">Flavor info</a>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if pool.drivername == 'aws' %}
+                        <div class="row">
+                            <div class="col-4 offset-1"><b>Image filters</b></div>
+                            <div class="col-7">
+                                {% macro _emit_image_filter(image_filter, rule_key, operator) %}
+                                    {% if rule_key in image_filter %}
+                                        <span class="badge bg-light text-dark font-monospace">{{ rule_key }} {{ operator }} {{ image_filter[rule_key] }}</span>
+                                        {# {{ emit_literal(rule_key + ' ' + operator + ' ' + image_filter[rule_key]) }} #}
+                                    {% endif %}
+                                {% endmacro %}
+
+                                <ul>
+                                {% for image_filter in pool.image_filters %}
+                                    <li>
+                                        {{ _emit_image_filter(image_filter, 'name-regex', '=~') }}
+                                        {{ _emit_image_filter(image_filter, 'name-wildcard', '=~') }}
+                                        {{ _emit_image_filter(image_filter, 'creation-date-regex', '=~') }}
+                                        {{ _emit_image_filter(image_filter, 'max-age', '<=') }}
+
+                                        {% if 'owner' in image_filter %}
+                                            {{ emit_literal('owned by ' + image_filter['owner']) }}
+                                        {% else %}
+                                            {{ emit_literal('owned by self') }}
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if pool.drivername == 'rest' %}
+                        <div class="row">
+                            <div class="col-4 offset-1"><b>URL</b></div>
+                            <div class="col-7">{{ emit_literal(pool.pool_config['url']) }}</div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-11 offset-1"><hr class="hr" /></div>
+                    </div>
+                </div>
+{% endfor %}
+
+            </div>
+
+
+        </div>
+    </body>
+</html>

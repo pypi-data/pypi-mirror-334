@@ -1,0 +1,65 @@
+# Copyright Contributors to the Testing Farm project.
+# SPDX-License-Identifier: Apache-2.0
+
+# flake8: noqa: FS003 f-string missing prefix
+# NEW: HW requirement changes - refactored `disk`
+
+import fastapi
+import gluetool.log
+from fastapi import APIRouter, Depends, Request, Response, status
+from typing_extensions import Annotated
+
+from .. import errors
+from ..dependencies import get_auth_context, get_logger
+from ..models import AuthContext, EventSearchParameters, GuestEvent, GuestLogResponse, GuestRequest, GuestResponse, \
+    SnapshotRequest, SnapshotResponse
+from . import CacheManager, GuestEventManager, GuestRequestManager, SnapshotRequestManager, create_guest_request, \
+    create_guest_request_log
+from . import delete_guest as delete_artemis_guest
+from . import get_guest_request, get_guest_request_log, get_guest_requests
+from .common import router_default, router_knobs, router_users
+
+
+router__cache = APIRouter(
+    prefix="/_cache",
+    tags=["cache"],
+    responses={status.HTTP_404_NOT_FOUND: {"description": "Not found"}}
+)
+
+
+@router__cache.get('/pools/{poolname}/image-info', status_code=status.HTTP_200_OK)
+def get_pool_image_info(
+    poolname: str,
+    manager: Annotated[CacheManager, Depends(CacheManager)],
+    logger: Annotated[gluetool.log.ContextAdapter, Depends(get_logger)]
+) -> Response:
+    return CacheManager.entry_pool_image_info(poolname=poolname, manager=manager, logger=logger)
+
+
+@router__cache.get('/pools/{poolname}/flavor-info', status_code=status.HTTP_200_OK)
+def get_pool_flavor_info(
+    poolname: str,
+    manager: Annotated[CacheManager, Depends(CacheManager)],
+    logger: Annotated[gluetool.log.ContextAdapter, Depends(get_logger)]
+) -> Response:
+    return CacheManager.entry_pool_flavor_info(poolname=poolname, manager=manager, logger=logger)
+
+
+@router__cache.post('/pools/{poolname}/image-info', status_code=status.HTTP_204_NO_CONTENT)
+def refresh_pool_image_info(
+    poolname: str,
+    request: Request,
+    manager: Annotated[CacheManager, Depends(CacheManager)],
+    logger: Annotated[gluetool.log.ContextAdapter, Depends(get_logger)]
+) -> None:
+    return CacheManager.entry_refresh_pool_image_info(poolname=poolname, manager=manager, logger=logger, request=request)
+
+
+@router__cache.post('/pools/{poolname}/flavor-info', status_code=status.HTTP_204_NO_CONTENT)
+def refresh_pool_flavor_info(
+    poolname: str,
+    request: Request,
+    manager: Annotated[CacheManager, Depends(CacheManager)],
+    logger: Annotated[gluetool.log.ContextAdapter, Depends(get_logger)]
+) -> None:
+    return CacheManager.entry_refresh_pool_flavor_info(poolname=poolname, manager=manager, logger=logger, request=request)
