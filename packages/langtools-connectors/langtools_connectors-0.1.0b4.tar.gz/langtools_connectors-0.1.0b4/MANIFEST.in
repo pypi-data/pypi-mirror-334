@@ -1,0 +1,5 @@
+include README.md
+recursive-include langtools/connectors/objectstore_client/linux-x64 *.dll
+recursive-include langtools/connectors/objectstore_client/linux-x64 *.so
+recursive-include langtools/connectors/objectstore_client/linux-x64 *.pdb
+recursive-include langtools/connectors/objectstore_client/linux-x64 *.config
