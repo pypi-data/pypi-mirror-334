@@ -1,0 +1,60 @@
+# -- ciecplib source package --------------------------------------------------
+
+Source: ciecplib
+Section: python
+Priority: optional
+Maintainer: Duncan Macleod <duncan.macleod@ligo.org>
+Standards-Version: 4.2.1
+X-Python3-Version: >= 3.6
+Homepage: https://github.com/duncanmmacleod/ciecplib
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ pybuild-plugin-pyproject,
+ python3-all,
+ python3-argparse-manpage,
+ python3-cryptography,
+ python3-gssapi,
+ python3-openssl (>=17.1.0),
+ python3-importlib-metadata | python3-minimal (>= 3.8.0),
+ python3-pytest,
+ python3-requests,
+ python3-requests-ecp,
+ python3-requests-kerberos,
+ python3-requests-mock,
+ python3-setuptools (>= 61.0.0),
+
+# -- python3-ciecplib ---------------------------------------------------------
+# requires buster-backports or newer
+
+Package: python3-ciecplib
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-cryptography,
+ python3-openssl (>=17.1.0),
+ python3-requests,
+ python3-requests-ecp,
+Recommends:
+ python3-gssapi,
+ python3-requests-kerberos,
+Description: Python client for SAML/ECP authentication and HTTP requests
+ CIECPLib provides Python-based utilities for SAML/ECP authentication
+ and HTTP requests.
+ .
+ This package provides the Python 3 library.
+
+# -- ciecp-utils --------------------------------------------------------------
+
+Package: ciecp-utils
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-ciecplib,
+Description: Command-line utilities for SAML/ECP authentication
+ CIECPLib provides Python-based utilities for SAML/ECP authentication
+ and HTTP requests.
+ .
+ This package provides the command-line utilities.

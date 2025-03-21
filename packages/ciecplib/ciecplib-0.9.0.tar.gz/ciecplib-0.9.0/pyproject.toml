@@ -1,0 +1,165 @@
+[build-system]
+requires = [
+  "argparse-manpage[setuptools]",
+  "setuptools>=61.0.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ciecplib"
+description = "A python client for SAML/ECP authentication"
+authors = [
+  { name = "Duncan Macleod", email = "duncan.macleod@ligo.org" },
+]
+license = { text = "GPL-3.0-or-later" }
+readme = "README.md"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.6"
+dependencies = [
+  "cryptography >=36.0.0",
+  "requests",
+  "requests-ecp",
+]
+dynamic = [
+  "version",
+]
+
+[project.optional-dependencies]
+docs = [
+  "furo",
+  "Sphinx",
+  "sphinx-argparse",
+  "sphinx-automodapi",
+  "sphinx-copybutton",
+  "sphinx-design",
+  "sphinx-github-style",
+]
+kerberos = [
+  "gssapi",
+  "requests-ecp[kerberos]",
+]
+manpages = [
+  "argparse-manpage",
+]
+tests = [
+  "pytest >= 3.9.0",
+  "pytest-cov",
+  "requests-mock",
+]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/duncanmmacleod/ciecplib/issues"
+"Documentation" = "https://ciecplib.readthedocs.io/"
+"Source Code" = "https://github.com/duncanmmacleod/ciecplib/"
+
+[project.scripts]
+ecp-cert-info = "ciecplib.tool.ecp_cert_info:main"
+ecp-curl = "ciecplib.tool.ecp_curl:main"
+ecp-get-cert = "ciecplib.tool.ecp_get_cert:main"
+ecp-get-cookie = "ciecplib.tool.ecp_get_cookie:main"
+
+# -- tools
+
+[tool.build_manpages]
+manpages = [
+  "man/ecp-cert-info.1:function=create_parser:module=ciecplib.tool.ecp_cert_info",
+  "man/ecp-curl.1:function=create_parser:module=ciecplib.tool.ecp_curl",
+  "man/ecp-get-cert.1:function=create_parser:module=ciecplib.tool.ecp_get_cert",
+  "man/ecp-get-cookie.1:function=create_parser:module=ciecplib.tool.ecp_get_cookie",
+]
+
+[tool.coverage.paths]
+# map standard install paths back to the source to
+# enable merging coverage of installed module from
+# multiple platforms
+source = [
+  "ciecplib/",
+  "*/ciecplib/",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  # ignore when asked
+  "pragma: no( |-)cover",
+  # don't complain about typing blocks
+  "if (typing\\.)?TYPE_CHECKING",
+]
+# print report with one decimal point
+precision = 1
+
+[tool.mypy]
+check_untyped_defs = true
+exclude = [
+  "^docs/",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-r a"
+filterwarnings = [
+  # error on any unhandled warnings
+  "error",
+  # ignore PKCS#12 support warning on Debian 11
+  "ignore:PKCS#12 support in pyOpenSSL is deprecated",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "ANN003",  # type annotations for **kwargs
+  "D203",  # blank line before class docstring
+  "D213",  # docstring summary on second line
+  "D413",  # blank line after last section
+  "PLR0913",  # too many arguments
+  "SIM108",  # if-else instead of ternary if
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+  "F401",  # unused-import
+  "F403",  # undefined-local-with-import-star
+]
+"*/tests/*" = [
+  "ANN",  # type annotations
+  "B904",  # raise from
+  "EM101",  # string literal in exception
+  "PLR2004",  # magic value used in comparison
+  "S101",  # assert
+]
+"docs/*" = [
+  "A",  # builtins
+  "ANN",  # type annotations
+  "D",  # docstrings
+  "INP001",  # implicit namespace package
+]
+
+[tool.setuptools]
+license-files = [ "LICENSE" ]
+
+[tool.setuptools.dynamic]
+version = { attr = "ciecplib.__version__" }
+
+[tool.setuptools.packages.find]
+include = [
+  "ciecplib*",
+]
