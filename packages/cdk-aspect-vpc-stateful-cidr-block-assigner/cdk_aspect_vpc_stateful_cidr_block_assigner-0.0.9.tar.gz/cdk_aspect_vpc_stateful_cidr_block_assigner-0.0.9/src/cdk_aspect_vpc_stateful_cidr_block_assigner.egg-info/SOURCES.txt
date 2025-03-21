@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk_aspect_vpc_stateful_cidr_block_assigner/__init__.py
+src/cdk_aspect_vpc_stateful_cidr_block_assigner/py.typed
+src/cdk_aspect_vpc_stateful_cidr_block_assigner.egg-info/PKG-INFO
+src/cdk_aspect_vpc_stateful_cidr_block_assigner.egg-info/SOURCES.txt
+src/cdk_aspect_vpc_stateful_cidr_block_assigner.egg-info/dependency_links.txt
+src/cdk_aspect_vpc_stateful_cidr_block_assigner.egg-info/requires.txt
+src/cdk_aspect_vpc_stateful_cidr_block_assigner.egg-info/top_level.txt
+src/cdk_aspect_vpc_stateful_cidr_block_assigner/_jsii/__init__.py
+src/cdk_aspect_vpc_stateful_cidr_block_assigner/_jsii/cdk-aspect-vpc-stateful-cidr-block-assigner@0.0.9.jsii.tgz
