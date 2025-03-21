@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dw-shared-kernel"
+version = "0.3.0"
+authors = [
+  { name="Panchenko Kirill", email="pnchkirill@gmail.com" },
+]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+description = "The shared kernel for python microservices."
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic",
+]
+
+[project.optional-dependencies]
+local = [
+    "pytest",
+    "ipython",
+    "invoke",
+    "ruff",
+    "pre-commit",
+    "bumpver",
+]
+
+[tool.ruff]
+fix=true
+unsafe-fixes = true
+line-length = 120
+indent-width = 4
+exclude = [
+    "venv",
+    ".git",
+    "__pycache__",
+]
+target-version = "py313"
+
+[tool.ruff.lint]
+ignore = ["N818"]
+select = [
+    "F",
+    "E",
+    "W",
+    "N",
+    "A",
+    "COM",
+    "PIE",
+    "T20",
+    "ARG",
+    "ERA",
+    "FAST",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tasks/*" = ["T201", "ARG001"]
+"src/infrastructure/database/migrations/env.py" = ["F401"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+
+[bumpver]
+current_version = "0.3.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+
+[bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"$',
+]

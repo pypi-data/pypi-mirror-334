@@ -1,0 +1,9 @@
+pydantic
+
+[local]
+pytest
+ipython
+invoke
+ruff
+pre-commit
+bumpver

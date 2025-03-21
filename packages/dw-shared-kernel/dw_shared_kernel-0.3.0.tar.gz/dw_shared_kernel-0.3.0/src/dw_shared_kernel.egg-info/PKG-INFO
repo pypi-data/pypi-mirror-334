@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: dw-shared-kernel
+Version: 0.3.0
+Summary: The shared kernel for python microservices.
+Author-email: Panchenko Kirill <pnchkirill@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic
+Provides-Extra: local
+Requires-Dist: pytest; extra == "local"
+Requires-Dist: ipython; extra == "local"
+Requires-Dist: invoke; extra == "local"
+Requires-Dist: ruff; extra == "local"
+Requires-Dist: pre-commit; extra == "local"
+Requires-Dist: bumpver; extra == "local"
+
+# Deye Web Shared Kernel
