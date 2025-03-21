@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ title }}</title>
+  {% if atom %}<link rel="alternate" type="application/atom+xml" title="{{ title }}" href="/atom.xml">{% endif %}
+  <meta name="description" content="{{ description }}">
+  <meta property="og:title" content="{{ title }}"/>
+  <meta property="og:type" content="website"/>
+  {% for favicon in favicons %}{{ favicon|safe }}
+  {% endfor %}
+  <style type="text/css">{% for family in fonts %}{% for font in family.fonts %}
+    @font-face {
+      {% if font["variations"] %}/* {% for k, v in font["variations"].items() %} {{ k }} {{ v["minValue"] }} {{ v["maxValue"] }} ({{ v["defaultValue"] }}) {% endfor %}*/{% else %}/* static font */{% endif %}
+      font-family: '{{family.name}}Web';
+      {% if font.embedded %}
+      src: url(data:font/woff2;charset=utf-8;base64,{{font.embedded}}) format('woff2');
+      {% else %}
+      src: url('/{{str(font.woff2.relative_to(root)).replace("_site/", "")}}?t=1') format('woff2');
+      {% endif %}
+      font-weight: {% if font.bold %}bold{% else %}regular{% endif %};
+      font-style: {% if font.italic %}italic{% else %}normal{% endif %};
+    }{% endfor %}{% endfor %}
+
+    :root { {% for family in fonts %}
+      --{{ family.variable_name }}: "{{ family.name }}Web", sans-serif;{% endfor %}
+    }
+
+    * { padding: 0; margin: 0; font-weight: normal; }
+    body { font-family: var(--text-font); }
+
+    #skip-to-main {
+      color: white;
+      background: black;
+      display: inline-block;
+      position: absolute;
+      top: 0px;
+      left: -100%;
+      padding: 0px;
+      z-index: 100;
+    }
+
+    #skip-to-main:focus {
+      left: 0px;
+    }
+  </style>
+  {% if info["style"] %}
+  <style type="text/css">
+  {{ info["style"] }}
+  </style>
+  {% elif info["has_style"] %}
+  <link rel="stylesheet" href="/assets/style.css?t={{ version }}"/>
+  {% endif %}
+  <script type="text/javascript">
+    const fontdata = {};
+    {% for family in fonts %}{% for font in family.fonts %}{% if font.variations %}
+    fontdata['{{ family.name }}Web'] = {{ font.variations }};{% endif %}{% endfor %}{% endfor %}
+
+    {% for family in fonts %}{% for font in family.fonts %}{% if font.variations %}
+    function fvs_{{family.variable_name_js}}(el, {{ font.js_args() }}) {
+      el.style.fontVariationSettings = `{{ font.js_setter() }}`;
+    }
+    {% endif %}{% endfor %}{% endfor %}
+  </script>
+</head>
+<body{% if url == "/" %} class="index"{% endif %}>
+  <header id="header">
+    <a href="#maincontent" id="skip-to-main">Skip to main content</a>
+    {% if header %}
+    <div class="wrapper">
+      {{ header|safe }}
+    </div><!-- /wrapper -->
+    {% endif %}
+  </header>
+  <main id="maincontent">
+    <div class="wrapper">
+    {{ content|safe }}
+    </div><!-- /wrapper -->
+  </main>
+  <footer id="footer">
+    {% if footer %}
+    <div class="wrapper">
+    {{ footer|safe }}
+    </div><!-- /wrapper -->
+    {% endif %}
+  </footer>
+  {% if info["scripts"] %}
+  {% for script in info["scripts"] %}
+  <script type="text/javascript" src="{{ script }}?t={{ version }}"></script>
+  {% endfor %}
+  {% endif %}
+  {% if info["script"] %}
+  <script type="text/javascript">
+  {{ info["script"] }}
+  </script>
+  {% endif %}
+</body>
+</html>
