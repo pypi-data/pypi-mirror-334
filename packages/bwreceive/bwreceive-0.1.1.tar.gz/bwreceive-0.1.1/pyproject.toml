@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.version]
+path = "src/bwreceive/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bwreceive"]
+
+
+[project]
+name = "bwreceive"
+description = "bwreceive is a wrapper around bw-cli to display bitwarden send password"
+readme = "README.md"
+dynamic = ["version"]
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "hatch",
+    "zenipy",
+    "PyGObject",
+]
+
+[project.scripts]
+bwreceive = "bwreceive.__main__:main"
+
+
+[tool.ruff]
+include = ["*.py"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+# Enable all rules.
+select = ["ALL"]
+
+ignore = [
+    "ANN",  # annotations
+    "D",    # docstrings
+    "E501", # line length violations
+    "G004", # logging f-string
+    "Q000", # inline quotes
+    "S603", # subprocess-without-shell-equals-true
+    "S607", # start-process-with-partial-path
+]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+# Ignore `E402` (import violations) in all `__init__.py` files.
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402"]

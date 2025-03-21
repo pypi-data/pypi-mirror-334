@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Bitward Send Opener
+GenericName=Bitwarden Send
+Comment=Handle URL Scheme bwsend://
+Exec=bwreceive %u
+Terminal=false
+Type=Application
+MimeType=x-scheme-handler/bwsend;
+Categories=Utility;
