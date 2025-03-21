@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: Snowforge-package
+Version: 0.2.2
+Summary: A Python package for supporting migration from on-prem to cloud
+Home-page: https://github.com/yourusername/Snowforge
+Author: Andreas Heggelund
+Author-email: andreasheggelund@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3
+Requires-Dist: snowflake-connector-python
+Requires-Dist: coloredlogs
+Requires-Dist: colored
+Requires-Dist: tqdm
+Requires-Dist: toml
+Requires-Dist: argparse
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
