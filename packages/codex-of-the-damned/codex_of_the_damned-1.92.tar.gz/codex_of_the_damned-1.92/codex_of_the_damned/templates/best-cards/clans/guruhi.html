@@ -1,0 +1,65 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1>{{ guruhi }} Guruhi</h1>
+<div class="insert tip">
+    <p>
+        {% trans trimmed
+        nananimalism=link("/archetypes/nananimalism"),
+        nana_buruku=card("Nana Buruku"),
+        guruhi_rush=link("/archetypes/guruhi-rush"),
+        nangila_were=card("Nangila Were"),
+        blind_spot=link("/archetypes/blind-spot")
+        %}
+        The Guruhi and their unique {{ ani }}{{ pre }}{{ pot }} disciplines combination
+        have excellent vampires with outstanding abilities.
+        This led to the {{ nananimalism }} archetype, a weenie {{ ani }} deck using
+        {{ nana_buruku }} as star, and the {{ guruhi_rush }}, using
+        {{ nangila_were }} and the {{ ani }}{{ pot }} combination for combat.
+        They can even put together strong bleed decks like {{ blind_spot }}.
+        {% endtrans %}
+    </p>
+    <p>
+        {% trans trimmed
+        immortal_grapple=card("Immortal Grapple")
+        %}
+        The lack of damage prevention is an issue for combat-oriented decks,
+        but the access to {{ immortal_grapple }} makes up for it.
+        Multiple vote constructs have also been seen.
+        {% endtrans %}
+    </p>
+</div>
+
+{% call layout.card_column("Nana Buruku", decks=24, copies="2-4") %}
+{% trans trimmed %}
+The absolute star of the Guruhi clan, she is often played for her rare ability
+to grant more Master actions.
+Her disciplines are often a secondary subject and she is largely played
+in non-Guruhi decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Lucian, the Perfect", decks=13, copies="1-5") %}
+{% trans trimmed %}
+The only vampire of the game with a bleed power of 4.
+He can be brutal, and is often played in big capacity {{ DOM }}{{ OBF }} decks
+with no Guruhi specifics.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Fish", decks=6, copies="1") %}
+{% trans trimmed %}
+{{ ANI }}{{ POT }} for only 5 pool is a bargain.
+An easy inclusion in any Guruhi or Nosferatu {{ nosferatu }} build.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Nangila Were", decks=5, copies="2-3") %}
+{% trans trimmed nana_buruku=card("Nana Buruku") %}
+All clan disciplines at superior with a rush ability included.
+A must-have in rush decks, often played along {{ nana_buruku }}.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}

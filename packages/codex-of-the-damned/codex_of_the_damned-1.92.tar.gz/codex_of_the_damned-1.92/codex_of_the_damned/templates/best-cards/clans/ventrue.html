@@ -1,0 +1,84 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1>{{ ventrue }} Ventrue</h1>
+<div class="insert tip">
+    {% trans trimmed
+    anti_ventrue_grinder=link("/archetypes/anti-ventrue-grinder"),
+    ventrue_royalty=link("/archetypes/gentlemen-with-sticks"),
+    gentlemen_with_sticks=link("/archetypes/gentlemen-with-sticks")
+    %}
+    <p>
+        The Ventrue with {{ pre }}{{ dom }}{{ for }} have powerful disciplines and abilities.
+        They allow for interesing toolboxes like {{ ventrue_royalty }} or {{ gentlemen_with_sticks }}.
+    </p>
+    {% endtrans %}
+</div>
+
+{% call layout.card_column("Ventrue Headquarters", decks=20, copies="1") %}
+{% trans trimmed %}
+A powerful edge for Ventrue political decks, it often gets included
+if there is the slightest chance some additional votes can come in handy,
+even defensively.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Arika", decks=57, copies="1-5") %}
+{% trans trimmed
+council_of_doom=link("/archetypes/council-of-doom"),
+the_dark_side_of_politics=link("/archetypes/the-dark-side-of-politics")
+%}
+The infamous Ventrue <em>Inner Circle</em>, her ability and access to {{ DOM }}{{ OBF }}
+gets her included in many <em>Inner Circle</em> constructs, like in the
+{{ council_of_doom }} or {{ the_dark_side_of_politics }} archetypes, but she can run her own show too.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Marcus Vitel", decks=14, copies="1-2") %}
+{% trans trimmed arika=card("Arika") %}
+Although he is a bit pricey, his title and access to {{ DOM }}{{ OBF }},
+and in some cases {{ OBT }}, gets him included in many crypts. A good friend of {{ arika }}
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Graham Gottesman", decks=14, copies="1-2") %}
+{% trans trimmed %}
+A cheap <em>Prince</em> in group 5, he finds his place in many political decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Alice Chen", decks=14, copies="1-2") %}
+{% trans trimmed infernal_princes=link("/archetypes/infernal-princes") %}
+A <em>Prince</em> with {{ PRE }}{{ obf }}, she gets in in many political decks,
+including out of her clans like {{ infernal_princes }}
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Lodin (Olaf Holte)", decks=10, copies="1-3") %}
+{% trans trimmed
+ventrue_royalty=link("/archetypes/gentlemen-with-sticks")
+%}
+Star of the modern variant of the {{ ventrue_royalty }} archetype,
+he has all clan disciplines at superior {{ DOM }}{{ PRE }}{{ FOR }} and
+his ability to prevent damage makes him quite sturdy.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Lucinde, Alastor", decks=10, copies="1-2") %}
+{% trans trimmed
+ventrue_royalty=link("/archetypes/gentlemen-with-sticks")
+%}
+Although she's expensive, her title and {{ PRE }}{{ obf }} combination gets her included in many political decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Queen Anne", decks=10, copies="1-2") %}
+{% trans trimmed
+ventrue_royalty=link("/archetypes/gentlemen-with-sticks")
+%}
+Also on the expensive side, also running {{ PRE }}{{ obf }}, her bleed bonus is a nice plus.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}

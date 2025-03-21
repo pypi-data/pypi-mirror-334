@@ -1,0 +1,81 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1>Camarilla</h1>
+<div class="insert tip">
+    <p>
+        {% trans trimmed %}
+        The Camarilla is the first sect (publication-wise), and it offers
+        unique and powerful tools to its members, especially when it comes to politics.
+        {% endtrans %}
+    </p>
+</div>
+
+{% call layout.card_column("Second Tradition: Domain", decks=96, copies="3-9") %}
+{% trans trimmed %}
+Only available for <em>Princes</em> and <em>Justicars</em>, it is one of the most
+effective reaction of the game. Not only does it unlock — not just wake — the vampire,
+it also provides a solid +2 intercept bonus. Furthermore, the reasonable blood cost
+of one is only paid when the unlock effect is needed.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Parity Shift", decks=83, copies="2-6") %}
+{% trans trimmed %}
+One of the best vote available with its -3/+3 pool effect.
+The trick is to keep one's pool not too high to be able to continue to play them.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Camarilla's Iron Fist", decks=30, copies="2-6") %}
+{% trans trimmed kine_resources_contested=card("Kine Resources Contested") %}
+The new Camarilla vote released in 2024, it quickly entered the top ranks of Camarilla cards.
+It is more damage than a {{ kine_resources_contested }}, and gives a bit of pool back.
+It is only playable as long as there are at least three players on the table, though.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Judgment: Camarilla Segregation", decks=27, copies="1-4") %}
+{% trans trimmed
+kine_resources_contested=card("Kine Resources Contested")
+%}
+A decent pool damaging action, it can account to a serious overall amount
+if played early enough. Provided the opponents are not Camarilla too, of course.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Anathema", decks=19, copies="1-5") %}
+{% trans trimmed %}
+A powerful bloat device, but tricky to land: one needs both the stealth
+and votes to get it through, and a combat module strong enough to trigger it.
+A vote most often seen played by the Banu Haqim {{ banu_haqim }} or the Brujah {{ brujah }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Camarilla Conclave", decks=17, copies="1-2") %}
+{% trans trimmed %}
+Very helpful in political decks using Justicar or Inner Circle. Both stealth or votes come in handy.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Protected District", decks=16, copies="2-11") %}
+{% trans trimmed %}
+Solid bleed defense when running Primogens, especially for those who cannot bounce.
+Typically found in Nosferatu {{ nosferatu }} decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Alastor", decks=13, copies="2-5") %}
+{% trans trimmed
+helicopter=card("Helicopter"),
+assault_rifle=card("Assault Rifle")
+%}
+Although only available for <em>Justicars</em> and <em>Inner Circles</em>, this vote let
+them fetch costly equipment at a bargain, like an {{ helicopter }} or an
+{{ assault_rifle }}. Combined with a strong weapon, the option to enter combat becomes
+dreadful.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}
