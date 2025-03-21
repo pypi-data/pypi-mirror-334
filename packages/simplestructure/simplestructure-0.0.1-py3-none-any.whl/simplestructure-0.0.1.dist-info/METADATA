@@ -1,0 +1,43 @@
+Metadata-Version: 2.2
+Name: simplestructure
+Version: 0.0.1
+Summary: Create a package using the simple structure of a module.
+Home-page: https://github.com/karinfaraujo/simplestructure
+Author: karinf
+Author-email: karinf.araujo@gmail.com
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# simplestructure
+
+Description. 
+The package simplestructure is used to:
+	- Create a package using the simple structure of a module.
+	-
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install simplestructure
+```bash
+pip install simplestructure
+```
+
+## Usage
+
+```python
+from simplestructure import file1_name
+file1_name.my_function()
+```
+
+## Author
+Karin
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
