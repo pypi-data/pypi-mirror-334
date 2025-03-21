@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rabbitmq-broker"
+version = "1.2.6"
+authors = [
+  { name="Nikita Sysoev", email="njt55cs@gmail.com" },
+]
+description = "RPC брокер сообщений"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "aio-pika ~= 9.0.2",
+    "django-environ ~= 0.9.0",
+    "starlette ~= 0.25.0",
+    "webportal-utils >= 0.1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/nylinary/rabbitmq-broker"
+Repository = "https://github.com/nylinary/rabbitmq-broker"
+Issues = "https://github.com/nylinary/rabbitmq-broker/issues"
