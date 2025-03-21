@@ -1,0 +1,11 @@
+pandas>=1.5.0
+pydantic>=2.10.0
+
+[dev]
+coverage
+mypy
+pytest
+pytest-cov
+ruff
+mccabe
+panda-stubs
