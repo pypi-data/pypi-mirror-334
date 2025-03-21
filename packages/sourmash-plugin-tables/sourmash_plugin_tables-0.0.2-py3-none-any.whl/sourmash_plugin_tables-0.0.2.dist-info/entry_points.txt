@@ -1,0 +1,3 @@
+[sourmash.cli_script]
+gather_tables_command = sourmash_plugin_tables:Command_Gather_Tables
+prefetch_tables_command = sourmash_plugin_tables:Command_Prefetch_Tables
