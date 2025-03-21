@@ -1,0 +1,32 @@
+Metadata-Version: 2.2
+Name: toolbox-llamaindex
+Version: 0.1.0
+Summary: Python SDK for interacting with the Toolbox service with LlamaIndex
+Author-email: Google LLC <googleapis-packages@google.com>
+Project-URL: Homepage, https://github.com/googleapis/genai-toolbox
+Project-URL: Repository, https://github.com/googleapis/genai-toolbox.git
+Project-URL: Bug Tracker, https://github.com/googleapis/genai-toolbox/issues
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Requires-Dist: llama-index<1.0.0,>=0.12.0
+Requires-Dist: PyYAML<7.0.0,>=6.0.1
+Requires-Dist: pydantic<3.0.0,>=2.8.0
+Requires-Dist: aiohttp<4.0.0,>=3.8.6
+Requires-Dist: deprecated<2.0.0,>=1.2.10
+Provides-Extra: test
+Requires-Dist: black[jupyter]==24.10.0; extra == "test"
+Requires-Dist: isort==5.13.2; extra == "test"
+Requires-Dist: mypy==1.13.0; extra == "test"
+Requires-Dist: pytest-asyncio==0.24.0; extra == "test"
+Requires-Dist: pytest==8.3.3; extra == "test"
+Requires-Dist: pytest-cov==6.0.0; extra == "test"
+Requires-Dist: Pillow==10.4.0; extra == "test"
+Requires-Dist: google-cloud-secret-manager==2.22.0; extra == "test"
+Requires-Dist: google-cloud-storage==2.19.0; extra == "test"
