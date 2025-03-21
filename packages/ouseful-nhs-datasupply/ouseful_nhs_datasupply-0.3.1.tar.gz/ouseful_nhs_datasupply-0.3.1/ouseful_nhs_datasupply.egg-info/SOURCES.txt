@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+ouseful_nhs_datasupply/__init__.py
+ouseful_nhs_datasupply/cli.py
+ouseful_nhs_datasupply/nhs_digital_ods.py
+ouseful_nhs_datasupply.egg-info/PKG-INFO
+ouseful_nhs_datasupply.egg-info/SOURCES.txt
+ouseful_nhs_datasupply.egg-info/dependency_links.txt
+ouseful_nhs_datasupply.egg-info/entry_points.txt
+ouseful_nhs_datasupply.egg-info/not-zip-safe
+ouseful_nhs_datasupply.egg-info/requires.txt
+ouseful_nhs_datasupply.egg-info/top_level.txt
+ouseful_nhs_datasupply/data/nhsdigitalods.json
