@@ -1,0 +1,49 @@
+{
+  "name": "dash_pdf_highlighter",
+  "version": "0.0.7",
+  "description": "Components to view PDFs and edit and show highlighted regions",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VK/dash-pdf-highlighter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VK/dash-pdf-highlighter/issues"
+  },
+  "homepage": "https://github.com/VK/dash-pdf-highlighter",
+  "scripts": {
+    "build:js::dev": "webpack --mode development",
+    "build:init": "node -e \"const fs = require('fs-extra'); const sourceDir = 'dash_pdf_highlighter_base'; const destDir = 'dash_pdf_highlighter'; fs.ensureDirSync(destDir); fs.copySync(sourceDir, destDir, { overwrite: true }); console.log('Build:init script completed.');\"",
+    "build:js": "webpack",
+    "build:backends": "dash-generate-components ./src/ts/components dash_pdf_highlighter -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
+    "build": "npm run build:init && npm run build:js && npm run build:backends",
+    "watch": "npm run build:js::dev -- --watch"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "css-loader": "^6.7.1",
+    "npm-run-all": "^4.1.5",
+    "ramda": "^0.28.0",
+    "react": "^18.3.1",
+    "react-docgen": "^5.4.0",
+    "react-dom": "^18.3.1",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^5.6.2",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.3",
+    "react-dom": "^18.3.0"
+  },
+  "author": "Viktor Krückl <viktor@krueckl.de>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "re-resizable": "^6.9.17",
+    "react-is": "^18.3.1",
+    "react-pdf-highlighter": "^8.0.0-rc.0"
+  }
+}
