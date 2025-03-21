@@ -1,0 +1,110 @@
+Metadata-Version: 2.2
+Name: embedded_adaptive_stacking_keras
+Version: 0.5
+Summary: Biblioteca para detecção de outliers baseada em Stacking com Keras
+Author: Matheus Lima Maturano Martins de Castro
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow>=2.5.0
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 📌 EAS - Embedded Adaptive Stacking  
+EAS (**Embedded Adaptive Stacking**) is a library for pattern detection in time series using **model stacking** with LSTM, GRU, BiLSTM, and BiGRU.
+
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.5%2B-orange.svg) ![PyPI](https://img.shields.io/pypi/v/adaptive-stacking-keras.svg)
+
+## 🚀 About the Project
+EAS (**Embedded Adaptive Stacking**) is a library for time series analysis using **model stacking** based on recurrent neural networks.
+
+### 🔹 **Key Features**
+✔ **Smart Stacking**: Combines **LSTM, GRU, BiLSTM, and BiGRU** to improve predictions.  
+✔ **Dynamic Optimization**: Includes the **LossAdaptiveOptimizer (LORO)**, which automatically adjusts the learning rate.  
+✔ **Cost-Sensitive Loss Function**: `CustomLossWithRegression` allows fine-tuning penalties for extreme events.  
+✔ **Results Visualization**: Clear comparison between predictions and actual values.  
+
+---
+
+## 📀 Installation
+To install the library directly from **PyPI**, use:
+```bash
+pip install adaptive-stacking-keras
+```
+Or to manually install the latest version from the repository:
+```bash
+git clone https://github.com/your-username/adaptive-stacking-keras.git
+cd adaptive-stacking-keras
+pip install .
+```
+
+---
+
+## 📀 How to Use
+
+### 🔹 **Usage Example**
+Here is a simple example of **how to use the library** to train a model with **Stacking and dynamic optimization**.
+
+```python
+import tensorflow as tf
+from adaptive_stacking_keras import (
+    StackingModel,
+    CustomLossWithRegression,
+    LORO,
+    plot_time_series_comparison,
+)
+
+# Creating the model with multiple hidden layers
+hidden_dims = [64, 128]
+model = StackingModel(input_dim=10, hidden_dims=hidden_dims, embedding_dim=32, output_dim=1)
+
+# Creating LORO optimizer
+optimizer = LORO(learning_rate=0.001)
+
+# Generating synthetic data
+tf.random.set_seed(42)
+x_train = tf.random.normal((100, 10, 10))
+y_train = tf.random.normal((100, 1))
+
+# Training the model
+for epoch in range(5):  # Only 5 epochs for demonstration
+    with tf.GradientTape() as tape:
+        y_pred, (threshold, alpha) = model(x_train)
+        loss = CustomLossWithRegression(model.threshold_alpha_layer)(y_train, y_pred)
+    gradients = tape.gradient(loss, model.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+    print(f"Epoch [{epoch+1}/5] - Loss: {loss.numpy():.4f} - Threshold: {threshold.numpy():.4f} - Alpha: {alpha.numpy():.4f}")
+
+# Testing with data
+x_test = tf.random.normal((50, 10, 10))
+y_test = tf.random.normal((50, 1))
+y_pred, _ = model(x_test)
+
+# Visualization of results
+plot_time_series_comparison(y_test, y_pred, time_range=(10, 40), title="Model Results")
+```
+
+---
+
+## 📝 Documentation
+Check out the full documentation on the **[GitHub repository](https://github.com/your-username/adaptive-stacking-keras)**.
+
+## 💎 Contributions
+Contributions are welcome! To contribute:
+1. **Fork** this repository.
+2. Create a **branch** with your feature (`git checkout -b my-feature`).
+3. **Commit** your changes (`git commit -m 'Adding new feature'`).
+4. Push to the repository (`git push origin my-feature`).
+5. Open a **Pull Request**.
+
+## 🌟 License
+This project is licensed under the MIT License - see the **LICENSE** file for more details.
+
+---
+
+💪 **Built with dedication for developers and researchers!**
