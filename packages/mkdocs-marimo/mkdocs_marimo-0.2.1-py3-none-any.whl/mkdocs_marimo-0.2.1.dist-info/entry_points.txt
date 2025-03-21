@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+marimo = mkdocs_marimo.plugin:MarimoPlugin
