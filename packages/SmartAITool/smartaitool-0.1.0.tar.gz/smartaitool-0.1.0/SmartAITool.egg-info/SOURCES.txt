@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+SmartAITool/__init__.py
+SmartAITool/core.py
+SmartAITool.egg-info/PKG-INFO
+SmartAITool.egg-info/SOURCES.txt
+SmartAITool.egg-info/dependency_links.txt
+SmartAITool.egg-info/top_level.txt
+tests/__init__.py
+tests/local_test.py
+tests/test_core.py
