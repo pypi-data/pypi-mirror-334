@@ -1,0 +1,13 @@
+LICENSE.apache2
+NOTICE
+README.md
+pyproject.toml
+dd_trace_api/__init__.py
+dd_trace_api/constants.py
+dd_trace_api/written.py
+ddtrace_api.egg-info/PKG-INFO
+ddtrace_api.egg-info/SOURCES.txt
+ddtrace_api.egg-info/dependency_links.txt
+ddtrace_api.egg-info/requires.txt
+ddtrace_api.egg-info/top_level.txt
+tests/test_api.py
