@@ -1,0 +1,15 @@
+[project]
+name = "openrewrite-python-test-recipes"
+version = "0.3.0"
+description = "Testing recipe introspection"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["openrewrite>=1.30.0"]
+
+[project.optional-dependencies]
+dev = ["poethepoet==0.31.1"]
+
+[dependency-groups]
+dev = [
+    "bumpversion>=0.6.0",
+]
