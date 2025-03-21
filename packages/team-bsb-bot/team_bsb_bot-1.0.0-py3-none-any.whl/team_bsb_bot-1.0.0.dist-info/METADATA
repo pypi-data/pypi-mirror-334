@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: team-bsb-bot
+Version: 1.0.0
+Summary: A Telegram bot package for monitoring photos, messages, contacts, and installed apps.
+Home-page: https://github.com/BlackSpammerBd/team-bsb-bot
+Author: BLACK SPAMMER BD
+Author-email: shawponsp6@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: watchdog
+Requires-Dist: py-getch
+Requires-Dist: pyTelegramBotAPI
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# team-bsb-bot
