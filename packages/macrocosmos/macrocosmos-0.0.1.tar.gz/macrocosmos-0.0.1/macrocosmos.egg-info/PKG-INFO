@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: macrocosmos
+Version: 0.0.1
+Summary: SDK for Macrocosmos API
+Home-page: https://github.com/macrocosm-os/macrocosmos-py
+Author: Macrocosmos
+Author-email: Macrocosmos <support@macrocosmos.ai>
+Project-URL: Homepage, https://github.com/macrocosm-os/macrocosmos-py
+Keywords: macrocosmos,api,sdk
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: bumpver; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: pip-tools; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# macrocosmos
+SDK for Macrocosmos APIs

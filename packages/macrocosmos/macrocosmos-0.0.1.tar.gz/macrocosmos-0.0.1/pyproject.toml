@@ -1,0 +1,29 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macrocosmos"
+version = "0.0.1"
+description = "SDK for Macrocosmos API"
+readme = "README.md"
+authors = [{ name = "Macrocosmos", email = "support@macrocosmos.ai" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["macrocosmos", "api", "sdk"]
+dependencies = [
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/macrocosm-os/macrocosmos-py"
+
+[project.scripts]
+# macrocosmos = "macrocosmos.__main__:main"
