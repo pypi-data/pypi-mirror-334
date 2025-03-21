@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: simple-hosting-capacity
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/Aadil Latif/simple_hosting_capacity#readme
+Project-URL: Issues, https://github.com/Aadil Latif/simple_hosting_capacity/issues
+Project-URL: Source, https://github.com/Aadil Latif/simple_hosting_capacity
+Author-email: Aadil Latif <aadil.latif@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: bokeh~=3.7.0
+Requires-Dist: click~=8.1.8
+Requires-Dist: loguru~=0.7.3
+Requires-Dist: matplotlib~=3.10.1
+Requires-Dist: networkx~=3.4.2
+Requires-Dist: opendssdirect-py~=0.9.4
+Requires-Dist: pandas~=2.2.3
+Requires-Dist: pyproj~=3.7.1
+Requires-Dist: pytest
+Requires-Dist: ruff
+Requires-Dist: scipy
+Description-Content-Type: text/markdown
+
+# .
+
+[![PyPI - Version](https://img.shields.io/pypi/v/-.svg)](https://pypi.org/project/-)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/-.svg)](https://pypi.org/project/-)
+
+-----
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install -
+```
+
+## License
+
+`-` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
