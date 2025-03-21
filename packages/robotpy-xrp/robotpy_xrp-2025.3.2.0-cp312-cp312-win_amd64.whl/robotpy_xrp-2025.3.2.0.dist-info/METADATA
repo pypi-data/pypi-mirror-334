@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: robotpy-xrp
+Version: 2025.3.2.0
+Summary: Binary wrapper for WPILib XRP Vendor library
+Home-page: https://github.com/robotpy/mostrobotpy
+Author: RobotPy Development Team
+Author-email: robotpy@googlegroups.com
+License: BSD-3-Clause
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: wpilib==2025.3.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+robotpy-xrp
+============
+
+RobotPy support for the WPILib XRP vendor library.
