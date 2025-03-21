@@ -1,0 +1,85 @@
+name: "Server2"
+rx_buffer_size: 100
+services:
+  - name: "s00"
+    id: 0
+    functions:
+      - name: "f0"
+        id: 0
+        params:
+          - name: "p0"
+            type: bool
+          - name: "p1"
+            type: string
+      - name: "f1"
+        id: 1
+        params:
+          - name: "p0"
+            type: string
+          - name: "p1"
+            type: bool
+  - name: "s01"
+    id: 1
+    functions:
+      - name: "f0"
+        id: 0
+        params:
+          - name: "p0"
+            type: string_2
+            count: 2
+      - name: "f1"
+        id: 1
+        returns:
+          - name: "r00"
+            type: string_2
+            count: 2
+      - name: "f2"
+        id: 2
+        params:
+          - name: "p01"
+            type: string_2
+            count: "?"
+      - name: "f3"
+        id: 3
+        params:
+          - name: "p01"
+            type: string
+            count: "?"
+      - name: "f4"
+        id: 4
+        returns:
+          - name: "r0"
+            type: string_2
+            count: "?"
+      - name: "f5"
+        id: 5
+        params:
+          - name: "a"
+            type: "@StringStruct"
+      - name: "f6"
+        id: 6
+        returns:
+          - name: "a"
+            type: "@StringStruct"
+      - name: "f7"
+        id: 7
+        params:
+          - name: "p0"
+            type: string
+        returns:
+          - name: "r0"
+            type: string_5
+structs:
+  - name: "StringStruct"
+    fields:
+      - name: "aa"
+        type: string_2
+      - name: "b"
+        type: string_2
+        count: 2
+      - name: "c"
+        type: string_2
+        count: "?"
+
+# TODO: test for function that returns multiple arrays
+# + test for function that returns multiple arrays of strings
