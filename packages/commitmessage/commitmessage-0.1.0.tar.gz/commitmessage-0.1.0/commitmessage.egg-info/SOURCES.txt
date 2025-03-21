@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+commitmessage/__init__.py
+commitmessage/drama.py
+commitmessage/emoji.py
+commitmessage/haiku.py
+commitmessage/style.py
+commitmessage.egg-info/PKG-INFO
+commitmessage.egg-info/SOURCES.txt
+commitmessage.egg-info/dependency_links.txt
+commitmessage.egg-info/top_level.txt
+tests/test_emoji.py
+tests/test_haiku.py
+tests/test_style.py
