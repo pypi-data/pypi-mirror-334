@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dicom_bone"
+version = "0.0.1"
+authors = [
+    { name = "GGN_2015", email = "premierbob@qq.com" },
+]
+description = "get bone point cloud from dicom folder"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pydicom>=3.0.1",
+    "SimpleITK>=2.4.1",
+    "numpy>=2.2.3",
+    "scikit-image>=0.25.2",
+    "tqdm>=4.67.1",
+    "vtk>=9.3.1"
+]
+
+[tool.setuptools]
+packages = ["dicom_bone"]

@@ -1,0 +1,6 @@
+pydicom>=3.0.1
+SimpleITK>=2.4.1
+numpy>=2.2.3
+scikit-image>=0.25.2
+tqdm>=4.67.1
+vtk>=9.3.1
