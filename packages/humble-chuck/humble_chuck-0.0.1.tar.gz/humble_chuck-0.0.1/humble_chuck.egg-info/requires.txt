@@ -1,0 +1,17 @@
+requests
+pandas
+pydantic
+pydantic-core
+pydantic-settings
+sqlalchemy
+json2html
+plotly
+python-graphviz
+
+[dev]
+nbdev
+psycopg2
+nbformat
+dash
+lxml
+statsapi
