@@ -1,0 +1,41 @@
+name: Generating Telegram Bot API types
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 13 * * *"
+
+jobs:
+  lock_file:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: uv lock --locked
+
+  type_generation:
+    runs-on: ubuntu-22.04
+    needs: [lock_file]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: uv run typegen
+
+  open_pr:
+    runs-on: ubuntu-22.04
+    needs: [type_generation]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: >
+            Update Bot API types based on the latest schema changes
+          title: >
+            Update Bot API types based on the latest schema changes
+          body: >
+            This is an automated PR. Please check the diff, and the action logs, to check for any funky behavior.
+          branch: automated/types
+          reviewers: luwqz1
+          assignees: luwqz1
+          labels: automated, types
+          delete-branch: true
