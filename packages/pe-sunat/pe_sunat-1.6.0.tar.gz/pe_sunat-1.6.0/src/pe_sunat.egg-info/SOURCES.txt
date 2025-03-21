@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cordada/__init__.py
+src/cordada/pe_sunat/__init__.py
+src/cordada/pe_sunat/py.typed
+src/cordada/pe_sunat/ruc/__init__.py
+src/cordada/pe_sunat/ruc/constants.py
+src/cordada/pe_sunat/ruc/entities.py
+src/pe_sunat.egg-info/PKG-INFO
+src/pe_sunat.egg-info/SOURCES.txt
+src/pe_sunat.egg-info/dependency_links.txt
+src/pe_sunat.egg-info/not-zip-safe
+src/pe_sunat.egg-info/top_level.txt
