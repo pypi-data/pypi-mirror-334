@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: vigilant-py
+Version: 2.0.1
+Summary: Python SDK for the Vigilant logging platform
+Requires-Python: >=3.7
+Requires-Dist: requests>=2.31.0
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
