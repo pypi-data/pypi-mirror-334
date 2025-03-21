@@ -1,0 +1,347 @@
+Metadata-Version: 2.2
+Name: mapc_sim
+Version: 0.2.0
+Summary: IEEE 802.11 MAPC (C-SR) simulator
+Author-email: Maksymilian Wojnar <maksymilian.wojnar@agh.edu.pl>, Wojciech Ciężobka <wojciech.ciezobka@agh.edu.pl>, Katarzyna Kosek-Szott <katarzyna.kosek-szott@agh.edu.pl>, Krzysztof Rusek <krzysztof.rusek@agh.edu.pl>, Szymon Szott <szymon.szott@agh.edu.pl>
+License: Creative Commons Legal Code
+        
+        CC0 1.0 Universal
+        
+            CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
+            LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
+            ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
+            INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
+            REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
+            PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
+            THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
+            HEREUNDER.
+        
+        Statement of Purpose
+        
+        The laws of most jurisdictions throughout the world automatically confer
+        exclusive Copyright and Related Rights (defined below) upon the creator
+        and subsequent owner(s) (each and all, an "owner") of an original work of
+        authorship and/or a database (each, a "Work").
+        
+        Certain owners wish to permanently relinquish those rights to a Work for
+        the purpose of contributing to a commons of creative, cultural and
+        scientific works ("Commons") that the public can reliably and without fear
+        of later claims of infringement build upon, modify, incorporate in other
+        works, reuse and redistribute as freely as possible in any form whatsoever
+        and for any purposes, including without limitation commercial purposes.
+        These owners may contribute to the Commons to promote the ideal of a free
+        culture and the further production of creative, cultural and scientific
+        works, or to gain reputation or greater distribution for their Work in
+        part through the use and efforts of others.
+        
+        For these and/or other purposes and motivations, and without any
+        expectation of additional consideration or compensation, the person
+        associating CC0 with a Work (the "Affirmer"), to the extent that he or she
+        is an owner of Copyright and Related Rights in the Work, voluntarily
+        elects to apply CC0 to the Work and publicly distribute the Work under its
+        terms, with knowledge of his or her Copyright and Related Rights in the
+        Work and the meaning and intended legal effect of CC0 on those rights.
+        
+        1. Copyright and Related Rights. A Work made available under CC0 may be
+        protected by copyright and related or neighboring rights ("Copyright and
+        Related Rights"). Copyright and Related Rights include, but are not
+        limited to, the following:
+        
+          i. the right to reproduce, adapt, distribute, perform, display,
+             communicate, and translate a Work;
+         ii. moral rights retained by the original author(s) and/or performer(s);
+        iii. publicity and privacy rights pertaining to a person's image or
+             likeness depicted in a Work;
+         iv. rights protecting against unfair competition in regards to a Work,
+             subject to the limitations in paragraph 4(a), below;
+          v. rights protecting the extraction, dissemination, use and reuse of data
+             in a Work;
+         vi. database rights (such as those arising under Directive 96/9/EC of the
+             European Parliament and of the Council of 11 March 1996 on the legal
+             protection of databases, and under any national implementation
+             thereof, including any amended or successor version of such
+             directive); and
+        vii. other similar, equivalent or corresponding rights throughout the
+             world based on applicable law or treaty, and any national
+             implementations thereof.
+        
+        2. Waiver. To the greatest extent permitted by, but not in contravention
+        of, applicable law, Affirmer hereby overtly, fully, permanently,
+        irrevocably and unconditionally waives, abandons, and surrenders all of
+        Affirmer's Copyright and Related Rights and associated claims and causes
+        of action, whether now known or unknown (including existing as well as
+        future claims and causes of action), in the Work (i) in all territories
+        worldwide, (ii) for the maximum duration provided by applicable law or
+        treaty (including future time extensions), (iii) in any current or future
+        medium and for any number of copies, and (iv) for any purpose whatsoever,
+        including without limitation commercial, advertising or promotional
+        purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each
+        member of the public at large and to the detriment of Affirmer's heirs and
+        successors, fully intending that such Waiver shall not be subject to
+        revocation, rescission, cancellation, termination, or any other legal or
+        equitable action to disrupt the quiet enjoyment of the Work by the public
+        as contemplated by Affirmer's express Statement of Purpose.
+        
+        3. Public License Fallback. Should any part of the Waiver for any reason
+        be judged legally invalid or ineffective under applicable law, then the
+        Waiver shall be preserved to the maximum extent permitted taking into
+        account Affirmer's express Statement of Purpose. In addition, to the
+        extent the Waiver is so judged Affirmer hereby grants to each affected
+        person a royalty-free, non transferable, non sublicensable, non exclusive,
+        irrevocable and unconditional license to exercise Affirmer's Copyright and
+        Related Rights in the Work (i) in all territories worldwide, (ii) for the
+        maximum duration provided by applicable law or treaty (including future
+        time extensions), (iii) in any current or future medium and for any number
+        of copies, and (iv) for any purpose whatsoever, including without
+        limitation commercial, advertising or promotional purposes (the
+        "License"). The License shall be deemed effective as of the date CC0 was
+        applied by Affirmer to the Work. Should any part of the License for any
+        reason be judged legally invalid or ineffective under applicable law, such
+        partial invalidity or ineffectiveness shall not invalidate the remainder
+        of the License, and in such case Affirmer hereby affirms that he or she
+        will not (i) exercise any of his or her remaining Copyright and Related
+        Rights in the Work or (ii) assert any associated claims and causes of
+        action with respect to the Work, in either case contrary to Affirmer's
+        express Statement of Purpose.
+        
+        4. Limitations and Disclaimers.
+        
+         a. No trademark or patent rights held by Affirmer are waived, abandoned,
+            surrendered, licensed or otherwise affected by this document.
+         b. Affirmer offers the Work as-is and makes no representations or
+            warranties of any kind concerning the Work, express, implied,
+            statutory or otherwise, including without limitation warranties of
+            title, merchantability, fitness for a particular purpose, non
+            infringement, or the absence of latent or other defects, accuracy, or
+            the present or absence of errors, whether or not discoverable, all to
+            the greatest extent permissible under applicable law.
+         c. Affirmer disclaims responsibility for clearing rights of other persons
+            that may apply to the Work or any use thereof, including without
+            limitation any person's Copyright and Related Rights in the Work.
+            Further, Affirmer disclaims responsibility for obtaining any necessary
+            consents, permissions or other rights required for any use of the
+            Work.
+         d. Affirmer understands and acknowledges that Creative Commons is not a
+            party to this document and has no duty or obligation with respect to
+            this CC0 or use of the Work.
+        
+Keywords: 802.11,coordinated spatial reuse,multi-access point coordination,simulator
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jax~=0.5.0
+Requires-Dist: tensorflow-probability[jax]~=0.25.0
+Provides-Extra: graph
+Requires-Dist: jraph~=0.0.6.dev0; extra == "graph"
+
+# IEEE 802.11 MAPC Coordinated Spatial Reuse (C-SR) Simulator
+
+`mapc-sim` is a simulation tool for IEEE 802.11 Multi-Access Point Coordination (MAPC) scenarios with coordinated 
+spatial reuse (C-SR). It provides a framework for modeling and analyzing the performance of wireless networks under 
+various configurations and environmental conditions. A detailed description can be found in:
+
+- Maksymilian Wojnar, Wojciech Ciezobka, Katarzyna Kosek-Szott, Krzysztof Rusek, Szymon Szott, David Nunez, and Boris Bellalta. "IEEE 802.11bn Multi-AP Coordinated Spatial Reuse with Hierarchical Multi-Armed Bandits", IEEE Communications Letters, 2025.
+- Maksymilian Wojnar, Wojciech Ciężobka, Artur Tomaszewski, Piotr Chołda, Krzysztof Rusek, Katarzyna Kosek-Szott, Jetmir Haxhibeqiri, Jeroen Hoebeke, Boris Bellalta, Anatolij Zubow, Falko Dressler, and Szymon Szott. "Coordinated Spatial Reuse Scheduling With Machine Learning in IEEE 802.11 MAPC Networks", 2025.
+
+## Features
+
+- **Simulation of C-SR**: You can simulate the C-SR performance of an 802.11 network, including the effects of hidden 
+nodes, variable transmission power, node positions, and modulation and coding schemes (MCS). Calculate the aggregated 
+effective data rate.
+- **TGax channel model**: The simulator incorporates the TGax channel model for realistic simulation in enterprise scenarios. The 
+simulator also supports the effects of wall attenuation and random noise in the environment.
+- **JAX JIT compilation**: The simulator is written in JAX, which enables just-in-time (JIT) compilation and hardware acceleration.
+- **Reproducibility**: The simulator uses JAX's pseudo random number generator (PRNG) to generate random numbers. This ensures that the
+simulator is fully reproducible and you will get the same results for the same input parameters.
+
+## Repository Structure
+
+The repository is structured as follows:
+
+- `mapc_sim/`: Main package containing the simulator.
+  - `constants.py`: Physical and MAC layer constants used in the simulator.
+  - `sim.py`: Main simulator code.
+  - `utils.py`: Utility functions, including the TGax channel model.
+- `test/`: Unit tests and benchmarking scripts.
+
+## Installation
+
+The package can be installed using pip:
+
+```bash
+pip install mapc-sim
+```
+
+## Usage
+
+The main functionality is provided by the `network_data_rate` function in `mapc_sim/sim.py`. This function calculates 
+the effective data rate for a given network configuration. Example usage:
+
+```python
+import jax
+import jax.numpy as jnp
+from mapc_sim.sim import network_data_rate
+
+# Random number generator key
+key = jax.random.PRNGKey(42)
+
+# Transmission matrix - 1 if node i transmits to node j, 0 otherwise
+tx = jnp.zeros((n_nodes, n_nodes))
+tx = tx.at[i_0, j_0].set(1)
+tx = tx.at[i_1, j_1].set(1)
+...
+tx = tx.at[i_n, j_n].set(1)
+
+# Node positions
+pos = jnp.array([
+    [x_0, y_0],
+    [x_1, y_1],
+    ...
+    [x_n, y_n],
+])
+
+# MCS values of transmitting nodes
+mcs = jnp.array([mcs_0, mcs_1, ..., mcs_n], dtype=int)
+
+# You can also set the MCS value to None if you want to use the greedy MCS selection for all nodes
+# mcs = None
+
+# Transmission power of transmitting nodes
+tx_power = jnp.array([tx_power_0, tx_power_1, ..., tx_power_n])
+
+# Standard deviation of the white Gaussian noise
+sigma = 2.
+
+# Walls matrix - 1 if there is a wall between node k and node l, 0 otherwise
+walls = jnp.zeros((n_nodes, n_nodes))
+walls = walls.at[k_0, l_0].set(1)
+walls = walls.at[k_1, l_1].set(1)
+...
+walls = walls.at[k_m, l_m].set(1)
+
+# Calculate the effective data rate with the simulator
+data_rate = network_data_rate(key, tx, pos, mcs, tx_power, sigma, walls)
+```
+
+For more detailed examples, refer to the test cases in `test/test_sim.py`.
+
+### JAX JIT Compilation
+
+The simulator is written in JAX, which enables just-in-time (JIT) compilation and hardware acceleration. 
+The use of JIT is strongly recommended as it can improve the performance of the simulator by orders of magnitude.
+To enable JIT, apply the `jax.jit` transformation on the simulator function:
+ 
+```python
+import jax
+from mapc_sim.sim import network_data_rate
+
+# Define your network configuration
+# ...
+
+network_data_rate_jit = jax.jit(network_data_rate)
+data_rate = network_data_rate_jit(key, tx, pos, mcs, tx_power, sigma, walls)
+```
+
+As the `jax.jit` transformation can be applied to any function, you can also use it to JIT-compile closures. 
+For example, you can JIT-compile the `network_data_rate` function with a fixed network configuration as follows:
+
+```python
+from functools import partial
+
+import jax
+from mapc_sim.sim import network_data_rate
+
+pos = ...
+walls = ...
+
+network_data_rate_jit = jax.jit(partial(
+    network_data_rate,
+    pos=pos,
+    walls=walls,
+))
+
+# Define the remaining values
+# ...
+
+data_rate = network_data_rate_jit(key=key, tx=tx, mcs=mcs, tx_power=tx_power, sigma=sigma)
+```
+
+### Reproducibility
+
+The simulator uses JAX's PRNG. This ensures that the simulator is fully reproducible. However, the same key should 
+be used at most once for each simulation so that the results are not correlated. For example, you can generate a new 
+key and split it into two keys in each step of a simulation:
+
+```python
+import jax
+from mapc_sim.sim import network_data_rate
+
+# Define your network configuration
+# ...
+
+key = jax.random.PRNGKey(42)
+
+for _ in range(n):
+    # Generate two new keys, one for the current step and one for the next splits
+    key, subkey = jax.random.split(key)
+    data_rate = network_data_rate(subkey, tx, pos, mcs, tx_power, sigma, walls)
+```
+
+### 64-bit Floating Point Precision
+
+If you want to use 64-bit floating point precision, you can set the appropriate environment variable before running
+your script:
+
+```bash
+export JAX_ENABLE_X64="True
+```
+
+Alternatively, you can set the environment variable in your Python script:
+
+```python
+import os
+os.environ["JAX_ENABLE_X64"] = "True"
+```
+
+## Testing and Benchmarking
+
+Run the unit tests to ensure everything is working correctly:
+
+```bash
+python -m unittest
+```
+
+You can benchmark the performance of the simulator using `test/sim_benchmark.py`.
+
+## Additional Notes
+
+-   The simulator is written in JAX, an autodiff library for Python. It may require additional dependencies or 
+configurations to run properly, especially with hardware acceleration. For more information on JAX, please refer 
+to the official [JAX repository](https://jax.readthedocs.io/en/latest/).
+
+## How to reference `mapc-sim`?
+
+If you use this repository or tool in your research, please cite the following paper:
+
+```
+@article{wojnar2025coordinated,
+  author={Wojnar, Maksymilian and Ciężobka, Wojciech and Tomaszewski, Artur and Chołda, Piotr and Rusek, Krzysztof and Kosek-Szott, Katarzyna and Haxhibeqiri, Jetmir and Hoebeke, Jeroen and Bellalta, Boris and Zubow, Anatolij and Dressler, Falko and Szott, Szymon},
+  title={{Coordinated Spatial Reuse Scheduling With Machine Learning in IEEE 802.11 MAPC Networks}}, 
+  year={2025},
+}
+```
+
+For a detailed description of the tool, you may also refer to:
+
+```
+@article{wojnar2025ieee,
+  author={Wojnar, Maksymilian and Ciezobka, Wojciech and Kosek-Szott, Katarzyna and Rusek, Krzysztof and Szott, Szymon and Nunez, David and Bellalta, Boris},
+  journal={IEEE Communications Letters}, 
+  title={{IEEE 802.11bn Multi-AP Coordinated Spatial Reuse With Hierarchical Multi-Armed Bandits}}, 
+  year={2025},
+  volume={29},
+  number={3},
+  pages={428-432},
+  doi={10.1109/LCOMM.2024.3521079}
+}
+```
