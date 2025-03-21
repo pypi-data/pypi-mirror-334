@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnemosyne"
+version = "0.1.0"
+description = "A Python package for memory-related utilities"
+readme = "README.md"
+authors = [
+    {name = "Laurent-Philippe Albou", email = "laurent.albou@example.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/username/mnemosyne"
+"Bug Tracker" = "https://github.com/username/mnemosyne/issues"
+
+[project.scripts]
+mnemosyne = "mnemosyne.cli:main" 

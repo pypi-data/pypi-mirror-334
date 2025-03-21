@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+mnemosyne/__init__.py
+mnemosyne/cli.py
+mnemosyne/core.py
+mnemosyne.egg-info/PKG-INFO
+mnemosyne.egg-info/SOURCES.txt
+mnemosyne.egg-info/dependency_links.txt
+mnemosyne.egg-info/entry_points.txt
+mnemosyne.egg-info/top_level.txt
