@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/jaxkit/__init__.py
+src/jaxkit.egg-info/PKG-INFO
+src/jaxkit.egg-info/SOURCES.txt
+src/jaxkit.egg-info/dependency_links.txt
+src/jaxkit.egg-info/requires.txt
+src/jaxkit.egg-info/top_level.txt
+tests/test_stuff.py

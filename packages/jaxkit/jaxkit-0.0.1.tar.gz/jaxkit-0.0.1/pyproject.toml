@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jaxkit"
+version = "0.0.1"
+authors = [
+    { name = "Lars Kühmichel", email = "larskuedev@gmail.com" },
+]
+description = "A collection of deep learning architectures, written in pure JAX."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "jax >= 0.5",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest >= 8.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/LarsKue/jaxkit"
+Issues = "https://github.com/LarsKue/jaxkit/issues"
