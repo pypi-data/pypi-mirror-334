@@ -1,0 +1,142 @@
+# ppaudio
+
+A simple audio classification library based on PaddlePaddle.
+
+## Features
+
+- Easy-to-use API for audio classification tasks
+- Support for various audio classification scenarios:
+  - Industrial noise detection
+  - Fan noise classification
+  - Engine sound analysis
+  - Animal sound classification
+  - Music genre classification
+- Multiple feature extraction methods
+- Various neural network architectures
+- Visualization tools for audio analysis
+
+## Installation
+
+```bash
+pip install ppaudio
+```
+
+## Quick Start
+
+1. Prepare your data in CSV format:
+   - train_data.csv
+   - val_data.csv
+   - test_data.csv
+
+   Each CSV file should contain two columns: audio file path and label (0 or 1).
+
+2. Create a configuration file (e.g., `motor.yaml`):
+
+```yaml
+# Dataset parameters
+dataset_conf:
+  dataset:
+    adjust_audio_length: True
+    use_dB_normalization: True
+    is_full_path: False
+  sampler:
+    batch_size: 64
+    shuffle: True
+    drop_last: True
+  train_data: 'dataset/train_data.csv'
+  val_data: 'dataset/val_data.csv'
+  test_data: 'dataset/test_data.csv'
+
+# Preprocessing parameters
+preprocess_conf:
+  feature_method: 'LogMelSpectrogram'
+  method_args:
+    sr: 48000
+    n_fft: 1024
+    hop_length: 512
+    win_length: 1024
+    window: 'hann'
+    f_min: 50
+    f_max: 14000
+    n_mels: 64
+
+# Loss function configuration
+loss_conf:
+  criterion: 'CrossEntropyLoss'
+
+# Optimizer configuration
+optimizer_conf:
+  optimizer: 'Adam'
+  optimizer_args:
+    learning_rate: 0.001
+
+# System configuration
+sys_conf:
+  use_GPU: True
+  max_epoch: 60
+  show_train_process: True
+  save_train_process: False
+  model_save_name: 'model'
+```
+
+3. Train your model:
+
+```python
+import ppaudio
+
+# Train model
+ppaudio.train(config_path='motor.yaml')
+```
+
+4. Test your model:
+
+```python
+# Test on dataset
+ppaudio.test('model', 'dataset/test_data.csv')
+
+# Test single audio file
+ppaudio.test_single('model', '123.wav')
+
+# Compare two audio files
+ppaudio.compare('model', '123.wav', '456.wav', show_pic=True)
+```
+
+## Documentation
+
+For detailed documentation, please visit [project documentation](https://github.com/yourusername/ppaudio/docs).
+
+## Examples
+
+Here are some example use cases:
+
+1. Industrial noise detection:
+
+```python
+import ppaudio
+
+# Train model
+ppaudio.train(config_path='motor.yaml')
+
+# Test new samples
+ppaudio.test_single('model', 'new_sample.wav')
+```
+
+2. Music genre classification:
+
+```python
+import ppaudio
+
+# Train model (using a different configuration)
+ppaudio.train(config_path='music.yaml')
+
+# Compare two music samples
+ppaudio.compare('model', 'rock.wav', 'jazz.wav', show_pic=True)
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
