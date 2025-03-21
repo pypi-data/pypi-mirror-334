@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "minagent"
+version = "0.0.1"
+dependencies = [
+  "openai",
+]
+authors = [
+  { name="xuyangbo", email="xuyangbocn@gmail.com" },
+]
+description = "An agent wrapper over OpenAI Compatible API"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/xuyangbocn/minagent"
+Issues = "https://github.com/xuyangbocn/minagent/issues"
