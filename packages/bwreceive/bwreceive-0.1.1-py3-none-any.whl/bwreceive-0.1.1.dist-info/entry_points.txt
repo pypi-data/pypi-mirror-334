@@ -1,0 +1,2 @@
+[console_scripts]
+bwreceive = bwreceive.__main__:main
