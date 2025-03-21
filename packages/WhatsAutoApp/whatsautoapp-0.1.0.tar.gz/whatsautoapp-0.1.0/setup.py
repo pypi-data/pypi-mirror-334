@@ -1,0 +1,31 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='WhatsAutoApp',
+    version='0.1.0',
+    author='Otanazar2007',
+    author_email='kakojtocel13@gmail.com',
+    description="Библиотека для отправки сообщений через WhatsApp",
+    long_description=open("README.md", encoding="utf-8").read(),
+    long_description_content_type = "text/markdown",
+    url='https://github.com/Otanazar2007/WhatsAutoApp',
+    packages=find_packages(),
+    install_requires = ['certifi==2025.1.31',
+                        'charset-normalizer==3.4.1',
+                        'idna==3.10', 'pyTelegramBotAPI==4.26.0',
+                        'requests==2.32.3',
+                        'telebot==0.0.5',
+                        'urllib3==2.3.0',
+                        'websocket==0.2.1',
+                        'selenium==4.29.0',
+                        'undetected-chromedriver==3.5.5',
+                        'whatsapp-web==0.0.1',
+                        'pandas==2.2.3',
+                        'setuptools==76.1.0'],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+python_requires=">=3.6",
+)
