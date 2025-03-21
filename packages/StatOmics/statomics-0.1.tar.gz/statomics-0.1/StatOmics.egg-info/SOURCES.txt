@@ -1,0 +1,13 @@
+README.md
+setup.py
+StatOmics/__init__.py
+StatOmics/main.py
+StatOmics/r_interface.py
+StatOmics.egg-info/PKG-INFO
+StatOmics.egg-info/SOURCES.txt
+StatOmics.egg-info/dependency_links.txt
+StatOmics.egg-info/requires.txt
+StatOmics.egg-info/top_level.txt
+StatOmics/Analysis/__init__.py
+StatOmics/Preprocessing/__init__.py
+StatOmics/Test/__init__.py
