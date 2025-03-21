@@ -1,0 +1,3 @@
+[console_scripts]
+pgstart.py = rda_python_setuid.pgstart:main
+pywrapper.py = rda_python_setuid.pywrapper:main
