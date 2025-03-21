@@ -1,0 +1,2 @@
+[console_scripts]
+ktune = ktune.cli.command:cli
