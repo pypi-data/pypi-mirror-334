@@ -1,0 +1,51 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "flexdown"
+dynamic = []
+description = "Write interactive documentation with Markdown and Python."
+requires-python = ">=3.10, <4.0"
+authors = [
+    {name= "Nikhil Rao", email="nikhil@reflex.dev"},
+    {name= "Thomas Brandého", email="thomas@reflex.dev"}
+]
+dependencies = [
+    "reflex (>=0.7.1)",
+    "pyyaml (>=6.0.1)",
+    "black (>=25.0)",
+]
+readme = "README.md"
+version = "0.2.3"
+
+[project.scripts]
+flexdown = "flexdown.cli:app"
+
+[tool.poetry]
+
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
+
+[tool.poetry-dynamic-versioning]
+enable = false
+style = "pep440"
+metadata = false
+bump = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+ruff = "^0.9.9"
+
+[tool.ruff]
+target-version = "py310"
+output-format = "concise"
+lint.isort.split-on-trailing-comma = false
+lint.select = ["ANN001","B", "C4", "D", "E", "ERA", "F", "FURB", "I", "N", "PERF", "PGH", "PTH", "RUF", "SIM", "T", "TRY", "W"]
+lint.ignore = ["B008", "D205", "E501", "F403", "SIM115", "RUF006", "RUF008", "RUF012", "TRY0"]
+lint.pydocstyle.convention = "google"
+
+[tool.pyright]
+reportIncompatibleMethodOverride = false
+reportMissingImports = false
+reportPrivateImportUsage = false
