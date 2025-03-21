@@ -1,0 +1,18 @@
+{% load bulma %}
+<div class="field">
+  {% if field|is_checkbox %}
+  {% include "bulma/checkbox.html" %}
+  {% elif field|is_radio %}
+  {% include "bulma/radio.html" %}
+  {% elif field|is_input %}
+  {% include "bulma/input.html" %}
+  {% elif field|is_textarea %}
+  {% include "bulma/textarea.html" %}
+  {% elif field|is_select %}
+  {% include "bulma/select.html" %}
+  {% elif field|is_file %}
+  {% include "bulma/file.html" %}
+  {% else %}
+  {% include "bulma/other.html" %}
+  {% endif %}
+</div>

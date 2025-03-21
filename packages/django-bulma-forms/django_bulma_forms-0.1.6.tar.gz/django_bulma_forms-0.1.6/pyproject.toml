@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-bulma-forms"
+dynamic = ["version"]
+authors = [{name = "Tom Hubrecht", email = "pypi@mail.hubrecht.ovh"}]
+description = ""
+keywords = ["django", "bulma"]
+license = {file = "LICENSE"}
+readme = "README.md"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "django",
+]
+
+[project.urls]
+Homepage = "https://git.hubrecht.ovh/hubrecht/django-bulma-forms"
+Issues = "https://git.hubrecht.ovh/hubrecht/django-bulma-forms/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "bulma.__VERSION__"}
