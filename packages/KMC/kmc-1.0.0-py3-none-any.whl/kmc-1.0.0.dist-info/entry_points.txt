@@ -1,0 +1,3 @@
+[console_scripts]
+kmc = KMC.client.kmc:run
+kmc-server = KMC.server.kmc:run
