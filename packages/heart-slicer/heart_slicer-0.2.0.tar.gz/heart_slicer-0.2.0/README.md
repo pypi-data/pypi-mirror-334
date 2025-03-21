@@ -1,0 +1,190 @@
+# Heart Slicer
+The Heart Slicer is a Python package that processes and analyzes images of heart slices. It separates each slice into individual segments based on predefined segmentation types (AHA, CAG, MINI) and then counts the red/fibrotic and yellow/viable tissue areas. The Heart Slicer can also generate summary data for each slice and produce diagram plots.
+
+The Heart Slicer consists of various Python modules that collectively:  
+1. Load and configure settings from a YAML file (`config.yml`).  
+2. Process (cut) each slice into separate segments following a specific segmentation type:  
+   - **AHA** (American Heart Association segmentation)  
+   - **CAG** (Custom segmentation)  
+   - **MINI** (Small sections that can be combined into either AHA or CAG segmentation)  
+3. Analyze each segment, counting pixels associated with fibrotic (red) versus viable (yellow) tissue, calculating percentages and edge characteristics.  
+4. Output the results in structured files (e.g., `output_new.txt`).  
+
+## 1. Table of Contents
+TODO
+
+## 2. Overview
+This package provides two tools for the processing and analyses of coloured histological sections of the heart. Depending on the settings in the configuration file `config.yml` one or both are used. 
+
+### 2.1 Slicer
+The heart slicer can be cut an image of a histological section of the heart into smaller segments. There are 3 [supported segmentation types](#segmentation-types). 
+
+The tool processes all images of type *png* in the provided ```folder_input```. The resulting segment images are saved in the ```folder_outpt```. Images are sorted in subfolders for convenience. To maove  processed images to the relevant subfolder set ```move_slice_file``` to `True`.
+
+### 2.2 Slice Analyer
+The Slice Analyzer processes each segmented image to quantify the tissue composition. It identifies and counts the pixels corresponding to fibrotic (red) and viable (yellow) tissue within each segment. The tool then calculates the percentage of each tissue type and generates summary statistics. Additionally, it can produce visual diagrams to represent the distribution of tissue types across the heart slices. The results are saved in structured output files for further analysis.
+
+## 3. Installation Methods
+You can install the Heart Slicer package in several ways:
+
+#### 3.1 Using `uv`
+To install the package using `uv`, run the following command:
+```bash
+uv install heart_slicer
+```
+
+#### 3.2 Using `pip`
+To install the package using `pip`, run the following command:
+```bash
+pip install heart_slicer
+```
+
+#### 3.3 Using a tar file
+To install the package by downloading the tar file, follow these steps:
+1. Download the tar file from the repository or release page.
+2. Extract the tar file
+3. Navigate to the extracted directory:
+4. Install the package using `pip`:
+   ```bash
+   pip install .
+   ```
+
+## 4. Dependencies
+The Heart Slicer package requires the following Python libraries to function correctly:
+
+```plaintext
+matplotlib>=3.10.1
+numpy>=2.2.3
+pillow>=11.1.0
+pyyaml>=6.0.2
+```
+
+Ensure these dependencies are installed in your Python environment before running the Heart Slicer.
+
+## 5. Configuration
+To configure the Heart Slicer package, you need to edit the `config.yml` file. This file contains various settings that control how the package processes and analyzes heart slices. Below are the key settings you can configure:
+
+### 5.1 Key Settings
+
+- **mode**: Specifies the operation mode of the package. Possible values are `cutter`, `counter`, `all`, or `example`. The `example` mode processes example images in the folder 'example' and is only available when the package is installed using [a tar file](#33-using-a-tar-file)
+- **folder_input**: The directory path where the input images are located.
+- **folder_output**: The directory path where the processed images and results will be saved.
+- **overwrite_existing**: Boolean value (`True` or `False`) indicating whether to overwrite existing files in the output directory.
+- **output_file**: The name of the file where the summary results will be saved.
+- **delimiter**: The delimiter used in the output file (e.g., `;`).
+
+### 5.2 Example Configuration
+
+Here is an example of what the `config.yml` file might look like:
+
+```yml
+settings:
+   mode: 'all'
+   folder_input: 'C:\\path\\to\\input\\folder'
+   folder_output: 'C:\\path\\to\\output\\folder'
+   overwrite_existing: True
+   output_file: 'output_new.txt'
+   delimiter: ';'
+   pixlength: 0.01
+   pixarea: 0.0001
+   diagram_settings:
+      display: True
+      save: True
+```
+
+### 5.3 Additional Settings
+
+- **pixlength**: Calibration value for the length in millimeters per pixel.
+- **pixarea**: Calibration value for the area in square millimeters per pixel.
+- **diagram_settings**: Settings related to the display and saving of diagrams. It includes:
+   - **display**: Boolean value (`True` or `False`) indicating whether to display diagrams after analysis.
+   - **save**: Boolean value (`True` or `False`) indicating whether to save diagrams after analysis.
+
+Make sure to set the paths and other values according to your specific requirements before running the Heart Slicer package.
+
+## 6. Filename Formatting
+
+Proper naming convention is critical so the tool can parse the file and associate each slice or segment with the correct heart, slice number, section, segmentation type, and so on.
+
+### 6.1 Segment Filenames
+**Segment** filenames have the following structure:
+```
+heartName_sliceNr_section_resolution_abblationState_none.png
+```
+For instance:
+```
+HeartA_01_B_SC2_WABL_none.png
+```
+- **heartName** e.g. "HeartA"  
+- **sliceNr** e.g. "01"  
+- **section** e.g. "B"  
+- **resolution** e.g. "SC2"  
+- **abblationState** e.g. "WABL" or "NABL"  
+- `none` placeholder in the file name  
+
+### 6.2 Slice Filenames
+**Slice** filenames have an additional two fields for the segmentation:
+```
+heartName_sliceNr_section_resolution_abblationState_none_segmentType_segmentNr.png
+```
+For instance:
+```
+HeartA_01_B_SC2_WABL_none_CAG_A.png
+```
+Where:  
+- **segmentType** e.g. "AHA", "CAG", or "MINI"  
+- **segmentNr** e.g. "A", "1", "12", etc.  
+
+The script uses underscores (_) to extract which part of the filename is the heart, slice number, or segmentation details.
+
+**Improper** naming will cause the script to skip or fail on that file.
+
+## 7. Running the Script
+To run the script, follow these steps:
+
+1. Ensure that you have configured the `config.yml` file with the appropriate settings as described in the [Configuration](#5-configuration) section.
+2. Open a terminal or command prompt in the project directory.
+3. Execute the script using the following command:
+   ```bash
+   python run_heart.py
+   ```
+Depending on the `mode` setting in your `config.yml`, the script will perform either the *cutter*, *analyzer* or both.
+
+Make sure to review the output files and diagrams generated by the script to verify the results of the analysis.
+
+**Happy slicing and analyzing!**
+
+## Annex
+## A. Segmentation types
+The slicer supports 3 segmentation types: *AHA*, *CAG* and *MINI*
+- AHA - Segmentation as per American Heart Association standard.
+- CAG - Segmentation as per C.A. Glashan. 
+- MINI - Small sections that can be combined into either CAG or AHA segmentations. 
+
+Slice names per section for this segmentation type are:
+
+| Segmentation Type | Section | Slice Names       |
+|-------------------|---------|-------------------|
+| **AHA**           | B       | 1 - 6             |
+|                   | M       | 7 - 12            |
+|                   | A       | 13 - 16           |
+| **CAG**           | B       | A - F             |
+|                   | M       | G - L             |
+|                   | A       | M - P             |
+| **MINI**          | B       | 1 - 12            |
+|                   | M       | 13 - 24           |
+|                   | A       | 25 - 32           |
+
+---
+
+## B. Glossary
+
+- **Heart**: Denotes all slices originating from one particular heart.  
+- **Section**: A major partition of the heart, typically labeled B (basal), M (mid), or A (apical).  
+- **Slice**: A single cross-sectional image (e.g., slice #1, #2, etc.).  
+- **Segmentation type**: Dictates how each slice is cut into segments. Valid options are AHA, CAG, or MINI.  
+- **Segment**: A piece or zone of the heart slice after cutting it by the chosen segmentation type.  
+- **Ablation state**: Describes whether the tissue is ablated (WABL) or non-ablated (NABL).  
+- **pixlength / pixarea**: Calibration values for real-world size measurement based on pixel data (e.g., millimeters per pixel).
+
+---
