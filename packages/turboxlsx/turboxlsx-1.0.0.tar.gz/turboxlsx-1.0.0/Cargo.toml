@@ -1,0 +1,17 @@
+[package]
+name = "turboxlsx"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "turboxlsx"
+crate-type = ["cdylib"]
+
+[dependencies]
+quick-xml = "0.37"
+zip = "2.4"
+
+[dependencies.pyo3]
+version = "0.24"
+features = ["abi3-py38"]
