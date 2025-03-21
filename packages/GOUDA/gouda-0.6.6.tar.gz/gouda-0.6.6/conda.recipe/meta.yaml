@@ -1,0 +1,48 @@
+{% set name = "gouda" %}
+{% set version = "0.6.4" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - pyscaffold >=3.2a0,<3.3a0
+    - python >=3.8
+  run:
+    - importlib-metadata
+    - colorama
+    - matplotlib-base>=3.6
+    - numpy>=1.20
+    - scipy
+    - opencv >=4.5
+    - python >=3.8
+
+test:
+  imports:
+    - gouda
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/mullans/GOUDA
+  summary: Good Old Utilities for Data Analysis!
+  dev_url: https://github.com/mullans/GOUDA
+  license: MIT
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - Mullans

@@ -1,0 +1,19 @@
+numpy>=1.21
+opencv-python
+scipy
+matplotlib
+colorama
+types-colorama
+
+[:python_version < "3.10"]
+typing-extensions
+
+[:python_version >= "3.10"]
+scipy-stubs
+
+[dev]
+build
+pytest
+pytest-cov
+pre-commit
+mypy
