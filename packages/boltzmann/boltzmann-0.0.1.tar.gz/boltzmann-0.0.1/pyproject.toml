@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boltzmann"
+version = "0.0.1"
+description = "some ai shit that prints what up"
+readme = "README.md"
+authors = [{name = "Jeroen Rombouts", email = "jeroen@strangeloop.nl"}]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.11"
+
+[project.urls]
+"Homepage" = "https://github.com/jarombouts/boltzmann"
+"Bug Tracker" = "https://github.com/jarombouts/boltzmann/issues"

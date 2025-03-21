@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: boltzmann
+Version: 0.0.1
+Summary: some ai shit that prints what up
+Author-email: Jeroen Rombouts <jeroen@strangeloop.nl>
+License: MIT
+Project-URL: Homepage, https://github.com/jarombouts/boltzmann
+Project-URL: Bug Tracker, https://github.com/jarombouts/boltzmann/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# boltzmann
+
+some ai shit that prints "what up"
+
+## Installation
+
+```bash
+pip install boltzmann
