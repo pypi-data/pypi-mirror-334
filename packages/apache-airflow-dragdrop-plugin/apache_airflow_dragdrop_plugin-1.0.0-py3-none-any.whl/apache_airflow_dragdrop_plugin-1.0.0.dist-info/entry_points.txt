@@ -1,0 +1,2 @@
+[airflow.plugins]
+drag_drop = my_airflow_plugin.plugin:AirflowDragDropPlugin
