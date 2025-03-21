@@ -1,0 +1,400 @@
+Metadata-Version: 2.4
+Name: orchestration-framework
+Version: 0.1.2
+Summary: A multi-agent framework with native support for Snowflake services
+Project-URL: Repository, https://github.com/Snowflake-Labs/orchestration-framework.git
+Project-URL: Issues, https://github.com/Snowflake-Labs/orchestration-framework/issues
+Author-email: Alejandro Herrera <alejandro.herrera@snowflake.com>
+Maintainer-email: Alejandro Herrera <alejandro.herrera@snowflake.com>, Tyler White <tyler.white@snowflake.com>
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: aiohttp<4.0,>=3.10.9
+Requires-Dist: asyncio>=3.4.3
+Requires-Dist: pydantic<3.0,>=2.9.2
+Requires-Dist: snowflake-snowpark-python[pandas]<2.0,>=1.22.1
+Provides-Extra: dev
+Requires-Dist: coverage<8.0,>=7.6.9; extra == 'dev'
+Requires-Dist: ipython>=8.18.1; extra == 'dev'
+Requires-Dist: pre-commit<5.0,>=4.0.1; extra == 'dev'
+Requires-Dist: pytest<9.0,>=8.3.3; extra == 'dev'
+Requires-Dist: ruff<1.0,>=0.6.9; extra == 'dev'
+Provides-Extra: streamlit
+Requires-Dist: python-dotenv>=1.0.1; extra == 'streamlit'
+Requires-Dist: streamlit<2.0,>=1.39.0; extra == 'streamlit'
+Description-Content-Type: text/markdown
+
+# Agentic Orchestration Framework
+
+The Agent Gateway is an agentic orchestration framework that offers native support for
+Snowflake tools.
+
+Instead of requiring users or developers to choose between RAG with Cortex Search or
+Text2SQL with Cortex Analyst, the Agent Gateway orchestrates the request to the
+appropriate tool.
+
+The Agent Gateway can be configured to work with 3 types of tools:
+- **Cortex Search Tool**: For unstructured data analysis, which requires a standard RAG
+access pattern.
+- **Cortex Analyst Tool**: For supporting structured data analysis, which requires a
+Text2SQL access pattern.
+- **Python Tool**: For supporting custom user operations (i.e. sending API requests to
+third party services), which requires calling arbitrary python.
+
+The Agent Gateway supports multi-step and multi-tool workflows. Users have the
+flexibility to create multiple Cortex Search and Cortex Analyst tools for use with the
+Agent Gateway. For a walkthrough of how to configure and run a system with all 3 types
+of tools, see the [Quickstart](Quickstart.ipynb) notebook.
+
+# Getting Started
+
+## Installation
+
+In a new virtual environment with Python 3.10 or 3.11, install the latest version of this
+framework.
+
+```sh
+pip install orchestration-framework
+```
+
+**Note For Mac Users**: Mac users have reported SSL Certificate issues when using the
+Cortex REST API. This is related to python virtual environments not having access to
+local certificates. One potential solution to avoid SSL Certificate issues is to use
+Finder to locate the "Install Certificates.command" file in your relevant Python
+directory and run that file before initializing the agent. See [this thread](https://github.com/python/cpython/issues/87570#issuecomment-1093904961) for more info.
+
+## Tool Requirements
+
+Agents require the underlying Cortex Search, Cortex Analyst, or Python tools to
+be configured by the user.
+
+To follow the Quickstart notebook in this repo, you can generate the Cortex Search and
+Cortex Analyst demo services as follows:
+
+```python
+from agent_gateway.tools.utils import generate_demo_services
+from snowflake.snowpark import Session
+
+session = Session.builder.create()
+generate_demo_services(session)
+```
+
+## Snowflake Tool Configuration
+
+Tools must be configured with relevant metadata for the Agent Gateway to route requests to the
+appropriate service.
+
+**NOTE:** For best results, use specific and mutually exclusive language in your
+metadata descriptions to make it easy for the agent to delegate work to the right
+tools.
+
+##### Cortex Search Tool Configuration
+
+```python
+from agent_gateway.tools import CortexSearchTool, CortexAnalystTool, PythonTool
+
+# Cortex Search Service Config
+search_config = {
+    "service_name": "SEC_SEARCH_SERVICE",
+    "service_topic": "Snowflake's business,product offerings,and performance",
+    "data_description": "Snowflake annual reports",
+    "retrieval_columns": ["CHUNK"],
+    "snowflake_connection": session,
+}
+
+annual_reports = CortexSearchTool(**search_config)
+```
+
+##### Cortex Analyst Tool Configuration
+
+```python
+# Cortex Analyst Config
+analyst_config = {
+    "semantic_model": "sp500_semantic_model.yaml",
+    "stage": "ANALYST",
+    "service_topic": "S&P500 company and stock metrics",
+    "data_description": "a table with stock and financial metrics about S&P500 companies ",
+    "snowflake_connection": session,
+}
+
+sp500 = CortexAnalystTool(**analyst_config)
+```
+##### Python Tool Configuration
+
+```python
+def get_html(url):
+        response = requests.get(url)
+        return response.text
+
+python_scraper_config = {
+    "tool_description": "reads the html from a given URL or website",
+    "output_description": "html of a webpage",
+    "python_func": get_html
+    }
+
+web_crawler = PythonTool(**python_scraper_config)
+```
+
+## Agent Configuration + Usage
+
+````python
+from agent_gateway import Agent
+
+# Config + Initialize Agent
+snowflake_tools = [annual_reports, sp500, web_crawler]
+snowflake_agent = Agent(snowflake_connection=session, tools=snowflake_tools)
+
+# Structured Data Question (Text2SQL)
+answer = snowflake_agent("What is market cap of company X?")
+print(answer)
+
+# Unstructured Data Question (RAG)
+answer = snowflake_agent("What are the strategic plans for company X")
+print(answer)
+
+# Web Search Question (Python Tool)
+answer = snowflake_agent(
+    "Summarize this article: http://localhost:8080/dummyproductannouncements/interview.html"
+)
+print(answer)
+````
+
+# FAQs
+
+#### Where does the Agent Gateway run?
+
+- This library is optimized for client-side orchestration. If you prefer a managed service that does the orchestration inside of Snowflake, we recommend using the Snowflake Chat API.
+
+#### Can I use the Agent Gateway within SPCS or a Snowflake Notebook?
+
+- Yes, the Agent Gateway can run in SPCS and Snowflake notebooks backed by a container
+runtime. To install the library directly from GitHub, you must enable a network rule
+with an external access integration. Here is an example configuration:
+
+```sql
+CREATE NETWORK RULE agent_network_rule
+MODE = EGRESS
+TYPE = HOST_PORT
+VALUE_LIST = ('github.com');
+
+CREATE EXTERNAL ACCESS INTEGRATION agent_network_int
+ALLOWED_NETWORK_RULES = (agent_network_rule)
+ENABLED = true;
+```
+
+#### Does the Agent Gateway work with a Streamlit UI?
+
+- Yes, see the [demo app](https://github.com/Snowflake-Labs/orchestration-framework/blob/main/demo_app/demo_app.py) for an example Streamlit app that uses the Agent Gateway for orchestration across Cortex Search, Cortex Analyst, and Python tools. Note, running the gateway is not yet supported in Streamlit in Snowflake.
+
+#### How does authentication work?
+
+- The Agent Gateway and its tools take an authenticated snowpark connection. Just create your session
+object with your standard [connection parameters](https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/latest/snowpark/api/snowflake.snowpark.Session).
+
+#### If I have multiple Cortex Search Services, can I use multiple Cortex Search tools with this framework?
+
+- Yes, you can connect multiple tools of the same type to the Agent Gateway.
+```python
+search_one = CortexSearchTool(**search_one_config)
+search_two = CortexSearchTool(**search_two_config)
+snowflake_agent = Agent(snowflake_connection=session, tools=[search_one, search_two])
+```
+
+#### If my Snowflake tools live in different accounts / schemas, can I still use the Agent Gateway?
+
+- Yes. The Cortex Analyst and Cortex Search tools take in a snowpark session as an
+input. This allows users to use different sessions / accounts in the same gateway agent.
+
+#### How can I see which tools are being used by the Agent Gateway?
+
+- The Agent Gateway logger is set to INFO level by default. This allows users to view
+which tools are being used to answer the user's question. For more detailed logging and
+visibility into intermediary results of the tool calls, set the LOGGING_LEVEL=DEBUG.
+
+#### I'm not getting any results when I submit a request. How do I debug this?
+
+- Tools are implemented asynchronously. To validate your configuration, you can run each tool in isolation as follows:
+```python
+tool_result = await my_cortex_search_tool("This is a sample cortex search question")
+```
+
+#### How does it work?
+
+- This framework utilizes a dedicated planner LLM to generate a sequence of tool calls that can be executed in parallel. While the orchestration is done on the client-side, Snowflake compute is leveraged for plan generation and tooling execution. We leverage the LLM Compiler architecture from Berkeley AI Research Lab. Kim, S., Moon, S., Tabrizi, R., Lee, N., Mahoney, M. W., Keutzer, K., and Gholami, A. An LLM Compiler for Parallel Function Calling, 2024.
+
+# Bug Reports, Feedback, or Other Questions
+
+- You can add issues to the GitHub or email Alejandro Herrera (alejandro.herrera@snowflake.com)
