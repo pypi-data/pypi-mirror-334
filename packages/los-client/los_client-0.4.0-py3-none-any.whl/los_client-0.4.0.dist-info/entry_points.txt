@@ -1,0 +1,2 @@
+[console_scripts]
+los_client = los_client.cli:main
