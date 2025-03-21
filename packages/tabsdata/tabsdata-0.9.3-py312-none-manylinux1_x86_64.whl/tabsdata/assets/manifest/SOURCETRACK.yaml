@@ -1,0 +1,32 @@
+tabsdata-ci:
+  anchor: main
+  branch: main
+  build_time: Mar/18/2025 13:00:02.873
+  long_commit_id: 50b48b7686016b2f85fe0eda91c4441abc02dd3e
+  repository: ../tabsdata-ci
+  short_commit_id: 50b48b7
+  tag: ''
+tabsdata-ee:
+  anchor: HEAD
+  branch: main
+  build_time: Mar/18/2025 13:00:02.873
+  long_commit_id: 27fa8b5773a55bdb3437f30892e2ff7a34957c91
+  repository: ../tabsdata-ee
+  short_commit_id: 27fa8b5
+  tag: ''
+tabsdata-os:
+  anchor: main
+  branch: main
+  build_time: Mar/18/2025 13:00:02.873
+  long_commit_id: 07bc9b5e86ac5d5a88d84c75b5f13f4570318f16
+  repository: ../tabsdata-os
+  short_commit_id: 07bc9b5
+  tag: ''
+tabsdata-ui:
+  anchor: TDUI-14
+  branch: TDUI-14
+  build_time: Mar/18/2025 13:00:02.873
+  long_commit_id: 5d08694b1376bbc6a760620fa3fcfa17f2a9b742
+  repository: ../tabsdata-ui
+  short_commit_id: 5d08694
+  tag: ''
