@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: openrewrite-python-test-recipes
+Version: 0.3.0
+Summary: Testing recipe introspection
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: openrewrite>=1.30.0
+Provides-Extra: dev
+Requires-Dist: poethepoet==0.31.1; extra == "dev"
+
+# python-test-recipe
