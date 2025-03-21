@@ -1,0 +1,22 @@
+[project]
+name = "pyip_liumou_Stable"
+version = "1.0.1"
+authors = [
+    { name = "坐公交也用券", email = "liumou.site@qq.com" },
+]
+description = "使用Python3进行编写的一个开源IP信息处理模块,实现公网获取、IP生成等"
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[build-system]
+requires = ["hatchling", "loguru", "Requests"]
+build-backend = "hatchling.build"
+
+
+[project.urls]
+"Homepage" = "https://gitee.com/liumou_site/pyip"
+"Bug Tracker" = "https://gitee.com/liumou_site/pyip/issues"

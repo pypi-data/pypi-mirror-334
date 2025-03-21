@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: pyip_liumou_Stable
+Version: 1.0.1
+Summary: 使用Python3进行编写的一个开源IP信息处理模块,实现公网获取、IP生成等
+Project-URL: Homepage, https://gitee.com/liumou_site/pyip
+Project-URL: Bug Tracker, https://gitee.com/liumou_site/pyip/issues
+Author-email: 坐公交也用券 <liumou.site@qq.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+# pyip
+
+## 介绍
+
+使用Python实现的IP数据处理基础模块
+
+项目地址: https://gitee.com/liumou_site/pyip.git
