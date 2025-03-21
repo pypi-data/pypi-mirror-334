@@ -1,0 +1,3 @@
+[console_scripts]
+lumino-client = lumino.contracts_client.user_client:cli
+lumino-node = lumino.contracts_client.node_client:main
