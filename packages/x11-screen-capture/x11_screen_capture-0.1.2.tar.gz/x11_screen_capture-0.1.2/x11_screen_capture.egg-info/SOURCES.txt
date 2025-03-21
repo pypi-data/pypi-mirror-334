@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/CMakeLists.txt
+src/screen_capture_module.cpp
+src/xxhash.c
+src/xxhash.h
+x11_screen_capture/__init__.py
+x11_screen_capture/x11_screen_capture.py
+x11_screen_capture.egg-info/PKG-INFO
+x11_screen_capture.egg-info/SOURCES.txt
+x11_screen_capture.egg-info/dependency_links.txt
+x11_screen_capture.egg-info/top_level.txt
