@@ -1,0 +1,87 @@
+Metadata-Version: 2.3
+Name: earthdaily
+Version: 1.0.0b4
+Summary: EarthDaily Python Client
+License: MIT
+Author: EarthDaily
+Author-email: info@earthdaily.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: agriculture
+Provides-Extra: platform
+Requires-Dist: dask-image (>=2024.5.3) ; extra == "agriculture"
+Requires-Dist: flox (>=0.10.0,<0.11.0) ; extra == "agriculture"
+Requires-Dist: geopandas (>=1.0.1) ; extra == "agriculture"
+Requires-Dist: joblib (>=1.4.2) ; extra == "agriculture"
+Requires-Dist: numpy (>=2.2.2) ; extra == "agriculture"
+Requires-Dist: odc-stac (>=0.3.11) ; extra == "agriculture"
+Requires-Dist: pandas (>=2.2.3) ; extra == "agriculture"
+Requires-Dist: psutil (>=6.1.1) ; extra == "agriculture"
+Requires-Dist: pyarrow (>=19.0.0) ; extra == "agriculture"
+Requires-Dist: pystac (>=1.12.1) ; extra == "agriculture"
+Requires-Dist: pystac-client (>=0.8.6) ; extra == "agriculture"
+Requires-Dist: pystac-client (>=0.8.6) ; extra == "platform"
+Requires-Dist: rasterio (>=1.4.3) ; extra == "agriculture"
+Requires-Dist: requests (>=2.32.3)
+Requires-Dist: rioxarray (>=0.18.2) ; extra == "agriculture"
+Requires-Dist: scipy (>=1.15.1) ; extra == "agriculture"
+Requires-Dist: setuptools (>=75.8.0) ; extra == "agriculture"
+Requires-Dist: spyndex (>=0.6.0) ; extra == "agriculture"
+Requires-Dist: stackstac (>=0.5.1) ; extra == "agriculture"
+Requires-Dist: toml (>=0.10.2) ; extra == "agriculture"
+Requires-Dist: tqdm (>=4.66.5)
+Requires-Dist: xarray (>=2025.1.2) ; extra == "agriculture"
+Description-Content-Type: text/markdown
+
+# Earth Data Store Client
+
+The Earth Data Store (EDS) Client is a Python library for interacting with the EarthDaily Analytics Earth Data Store API. It provides a simple interface for authentication, making API requests, and handling responses.
+
+## Installation
+
+You can install the EDS Client using pip:
+
+```bash
+pip install earthdaily
+```
+
+## Environment Variables
+
+Before running the script, ensure the following environment variables are set:
+
+- **`EDS_CLIENT_ID`**: Your application's Client ID for authenticating with the Earth Data Store.
+- **`EDS_SECRET`**: The Client Secret associated with your Client ID.
+- **`EDS_AUTH_URL`**: The URL used for obtaining authentication tokens.
+- **`EDS_API_URL`**: The URL used for interacting with the API’s endpoints.
+
+Alternatively, if you prefer not to use environment variables, you can directly pass these values through the `EDSConfig` in your script:
+
+```python
+client = EDSClient(EDSConfig(client_id="your_client_id_here", client_secret="your_client_secret_here", token_url="https://your-token-url.com"))
+```
+
+## Usage
+
+TBD
+
+## Documentation
+
+For more detailed documentation, please refer to the [official documentation](https://earthdaily.github.io/EDA-Documentation/).
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you encounter any problems or have any questions, please [open an issue](https://github.com/earthdaily/earthdaily-python-client/issues/new) on our GitHub repository.
+
