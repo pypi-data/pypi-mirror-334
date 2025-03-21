@@ -1,0 +1,43 @@
+[project]
+name = "rowan-python"
+version = "1.1.9"
+description = "Rowan Python Library"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Corin Wagen", email = "corin@rowansci.com" },
+]
+dependencies = [
+    "httpx",
+    "stjames>=0.0.62",
+    "setuptools",
+    "rdkit",
+    "nest-asyncio",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rowansci/rowan-client"
+"Bug Tracker" = "https://github.com/rowansci/rowan-client/issues"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+rowan-python = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+httpx = ">=0.27.2,<0.28"
+setuptools = ">=73.0.1,<74"
+rdkit = ">=2024.09.4"
+nest-asyncio = "*"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rowan"]
+
