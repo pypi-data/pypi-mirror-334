@@ -1,0 +1,87 @@
+Metadata-Version: 2.2
+Name: jspyr
+Version: 0.1.0
+Summary: JsPyr (pronounced Jasper) combines a Python and a JavaScript program into a single file.
+Home-page: https://github.com/tusharsadhwani/jspyr
+Author: Tushar Sadhwani
+Author-email: tushar.sadhwani000@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: setuptools; extra == "dev"
+Requires-Dist: tox; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: wheel; extra == "dev"
+
+# jspyr
+
+JsPyr (pronounced Jasper) combines a Python and a JavaScript program into a single file.
+
+## Installation
+
+```bash
+pip install jspyr
+```
+
+## Usage
+
+```console
+$ cat hello.py
+print("Hello, World!")
+
+$ cat hello.js
+console.log("Hello, World!");
+
+$ jspyr hello.py hello.js --out hello.jp
+Created `hello.jp` from `hello.py` and `hello.js`!
+
+$ python hello.jp
+Hello, World!
+
+$ node hello.jp
+Hello, World!
+```
+
+## Local Development / Testing
+
+- Create and activate a virtual environment
+- Run `pip install -r requirements-dev.txt` to do an editable install
+- Run `pytest` to run tests
+
+## Type Checking
+
+Run `mypy .`
+
+## Create and upload a package to PyPI
+
+Make sure to bump the version in `setup.cfg`.
+
+Then run the following commands:
+
+```bash
+python -m build
+```
+
+Then upload it to PyPI using [twine](https://twine.readthedocs.io/en/latest/#installation):
+
+```bash
+twine upload dist/*
+```
