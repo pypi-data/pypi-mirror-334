@@ -1,0 +1,16 @@
+file_manager/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+file_manager/cli.py,sha256=3Uk-EfXfuu5x7C_aOpSSP53-Fp4nHd3VYsXD3OvrmlU,6643
+file_manager/logs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+file_manager/logs/log_messages.py,sha256=QfZI6SSWkfFnt31xvcSdngBadbvemd6ddpogBo9Znb4,1978
+file_manager/logs/logger_factory.py,sha256=F3ImTHTHr4qOPjAiwp1RY2vDHEyODUl4E8o-VM828ZM,823
+file_manager/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+file_manager/utils/config/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+file_manager/utils/config/constants.py,sha256=taX1_TJyQv6_A6aF17gTw-i_INmj3KOH5o18KX20kRs,950
+file_manager/utils/decorator.py,sha256=Yr6Hh_MigPsTYK8Fe87H4HfjgWi9OFuJn87DrK-r58s,1708
+file_manager/utils/organizer.py,sha256=rhIkkXIaj-rxvl3OM536nYOR1WlLdExCKpbjAZ26Qxk,12121
+file_manager/utils/scanner.py,sha256=0QgSFdeBd-yLWyCghT41DkRnTPVFHpMyycFxh4vP7WI,10802
+command_line_file_manager-2.0.1.dist-info/LICENSE,sha256=rJV0LEeAWMxYbKL7XjQfFc0ZBDrXzbT2k3y-Zve-FUI,1071
+command_line_file_manager-2.0.1.dist-info/METADATA,sha256=bgSKKCEBQhfksfW4WED4qjJtnRTU604wGW9lKL8bGY0,2763
+command_line_file_manager-2.0.1.dist-info/WHEEL,sha256=RaoafKOydTQ7I_I3JTrPCg6kUmTgtm4BornzOqyEfJ8,88
+command_line_file_manager-2.0.1.dist-info/entry_points.txt,sha256=aXNKW0TgC9RgbGsS7cqTYaJHl8Mr_Nsfd3X6gn7TXhg,42
+command_line_file_manager-2.0.1.dist-info/RECORD,,
