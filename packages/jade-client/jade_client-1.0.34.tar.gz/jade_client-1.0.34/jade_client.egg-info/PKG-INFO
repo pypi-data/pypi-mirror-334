@@ -1,0 +1,36 @@
+Metadata-Version: 2.2
+Name: jade_client
+Version: 1.0.34
+Summary: Blockstream Jade Client API
+Home-page: https://github.com/Blockstream/Jade
+Author: Blockstream
+Author-email: inquiries@blockstream.com
+Project-URL: Documentation, https://github.com/Blockstream/Jade/README.md
+Project-URL: Source, https://github.com/Blockstream/Jade
+Project-URL: Tracker, https://github.com/Blockstream/Jade/issues
+Keywords: Blockstream,Jade,Hardware wallet,Bitcoin,BTCLiquid
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+License-File: COPYING
+Requires-Dist: cbor2<6.0.0,>=5.4.6
+Requires-Dist: pyserial<4.0.0,>=3.5.0
+Provides-Extra: ble
+Requires-Dist: bleak==0.13.0; extra == "ble"
+Requires-Dist: aioitertools==0.8.0; extra == "ble"
+Provides-Extra: requests
+Requires-Dist: requests<3.0.0,>=2.26.0; extra == "requests"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+A Python library for interacting with the Blockstream Jade hardware wallet

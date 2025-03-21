@@ -1,0 +1,15 @@
+COPYING
+LICENSE
+README.md
+setup.py
+jade_client.egg-info/PKG-INFO
+jade_client.egg-info/SOURCES.txt
+jade_client.egg-info/dependency_links.txt
+jade_client.egg-info/requires.txt
+jade_client.egg-info/top_level.txt
+jadepy/__init__.py
+jadepy/jade.py
+jadepy/jade_ble.py
+jadepy/jade_error.py
+jadepy/jade_serial.py
+jadepy/jade_tcp.py

@@ -1,0 +1,9 @@
+cbor2<6.0.0,>=5.4.6
+pyserial<4.0.0,>=3.5.0
+
+[ble]
+bleak==0.13.0
+aioitertools==0.8.0
+
+[requests]
+requests<3.0.0,>=2.26.0
