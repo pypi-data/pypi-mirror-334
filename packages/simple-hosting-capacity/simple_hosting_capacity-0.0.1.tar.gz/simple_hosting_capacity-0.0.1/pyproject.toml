@@ -1,0 +1,123 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simple-hosting-capacity"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Aadil Latif", email = "aadil.latif@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "opendssdirect.py~=0.9.4",
+  "matplotlib~=3.10.1",
+  "networkx~=3.4.2",
+  "loguru~=0.7.3",
+  "pandas~=2.2.3",
+  "pyproj~=3.7.1",
+  "bokeh~=3.7.0",
+  "click~=8.1.8",
+  "pytest",
+  "scipy",
+  "ruff"
+]
+
+[project.urls]
+Documentation = "https://github.com/Aadil Latif/simple_hosting_capacity#readme"
+Issues = "https://github.com/Aadil Latif/simple_hosting_capacity/issues"
+Source = "https://github.com/Aadil Latif/simple_hosting_capacity"
+
+[tool.hatch.version]
+path = "src/simple_hosting_capacity/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/simple_hosting_capacity"]
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/simple_hosting_capacity tests}"
+
+[tool.coverage.run]
+source_pkgs = ["simple_hosting_capacity", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/simple_hosting_capacity/__about__.py",
+]
+
+[tool.coverage.paths]
+_ = ["src/simple_hosting_capacity", "*/simple_hosting_capacity/src/simple_hosting_capacity"]
+tests = ["tests", "*/simple_hosting_capacity/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[project.scripts]
+shc = "simple_hosting_capacity.cli:cli"
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+  ".git",
+  ".ruff_cache",
+  ".venv",
+  "_build",
+  "build",
+  "dist",
+  "env",
+  "venv",
+]
+line-length = 99
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+select = [
+  "C901", # McCabe complexity
+  "E4",   # Subset of pycodestyle (E)
+  "E7",
+  "E9",
+  "F",    # Pyflakes
+  "W",    # pycodestyle warnings
+]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+"**/{tests,docs,tools}/*" = ["E402"]
