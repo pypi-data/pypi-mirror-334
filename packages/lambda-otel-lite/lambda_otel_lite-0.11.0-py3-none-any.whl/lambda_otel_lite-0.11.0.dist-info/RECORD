@@ -1,0 +1,16 @@
+lambda_otel_lite/.gitignore,sha256=WolBt8P7pp4FJlCDkwKBjRVlSd_sf_K8AbkFtvAeUwE,29
+lambda_otel_lite/__init__.py,sha256=vpgDjTESzCK61EtCGeR1qlHvaHoTLnrAGwl-trVl1vM,2932
+lambda_otel_lite/constants.py,sha256=GU2cZ3rZAuUnEZtXAPyv3tvqyJzuoZbqhXFHXpyE4Ew,1669
+lambda_otel_lite/extension.py,sha256=V6CpVD4S4_kjrBQq-BypMe8R1c6wlNyXP12iF-gyjLs,6578
+lambda_otel_lite/extractors.py,sha256=JnQr4RjbPtqzR4CJJw1KGKGC7ig29ycUWd9q51TFFD4,11338
+lambda_otel_lite/handler.py,sha256=g2Yx_9PsOxzWsTqNdrajPXnfZ5QOJkY9btW6airVvOw,6464
+lambda_otel_lite/logger.py,sha256=9GNJKXfNSe41gp99-37Dt_uY3eERkf5YbhPveFo0pE0,4985
+lambda_otel_lite/processor.py,sha256=w_hTb-_f3IsB7GaM1ySyBRU7775biizhcnQjra7B6S0,4069
+lambda_otel_lite/py.typed,sha256=Nqnn8clbgv-5l0PgxcTOldg8mkMKrFn4TvPL-rYUUGg,1
+lambda_otel_lite/resource.py,sha256=vluSFJy5pUcBJA837LOzjhmQ8qGJL2km53Grp6spfoc,4061
+lambda_otel_lite/telemetry.py,sha256=Hl3A212pl_XUXUCqeoq_NFvY_jCU65kBKBnn4NzGmBE,9482
+lambda_otel_lite/version.py,sha256=e4fp9omBQST2fSgq94aUqQJPvnm-C9OuaMwV_zOg3SU,172
+lambda_otel_lite-0.11.0.dist-info/METADATA,sha256=0wtv4sz0j2x_CUZFIN-bhbLFGIvD-cj3uNmHcKsatUM,20461
+lambda_otel_lite-0.11.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+lambda_otel_lite-0.11.0.dist-info/licenses/LICENSE,sha256=ba95ID8fTIM1EDGxoGGMnrmOChQTnn_MZXdsIISkvis,1075
+lambda_otel_lite-0.11.0.dist-info/RECORD,,
