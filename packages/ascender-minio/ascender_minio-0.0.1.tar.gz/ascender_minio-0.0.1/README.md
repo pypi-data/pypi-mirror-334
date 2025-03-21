@@ -1,0 +1,129 @@
+# Ascender MinIO SDK
+
+## Overview
+
+The **Ascender MinIO SDK** is a storage service built for the **Ascender Framework**, supporting **Amazon S3 and other S3-compatible storage providers**. It integrates smoothly with **Dependency Injection (DI)** and simplifies common object storage tasks like:
+- **Uploading, downloading, and deleting files**
+- **Managing buckets**
+- **Generating pre-signed URLs**
+- **Listing objects in a bucket**
+
+## Installation
+
+Create a new ascender framework project or use existing:
+```bash
+ascender new --name my_project
+```
+
+Navigate to the project directory:
+```bash
+cd my_project
+```
+
+To install the SDK with **Poetry**:
+
+```bash
+poetry add ascender-minio
+```
+
+---
+
+## Usage
+
+### **1. Register MinIO in `appBootstrap`**
+In `bootstrap.py`:
+
+```python
+from ascender.core.types import IBootstrap
+from minio.minio_provider import provideMinio
+
+appBootstrap: IBootstrap = {
+    "providers": [
+        provideMinio(
+            minio_endpoint="http://localhost:9000",
+            minio_access_key="your-access-key",
+            minio_secret_key="your-secret-key"
+        )
+    ]
+}
+```
+
+---
+
+### **2. Inject `MinioService` into a Controller**
+In `main_controller.py`:
+
+```python
+from ascender.core import Controller, Post, Get
+from minio_service import MinioService
+
+@Controller(standalone=False)
+class MainController:
+    def __init__(self, minio_service: MinioService):
+        self.minio = minio_service
+
+    @Post("upload")
+    async def upload_file(self, bucket: str, key: str, data: bytes):
+        """Upload a file to MinIO."""
+        return await self.minio.put_object(
+            Bucket=bucket, Key=key, Data=data,
+            ContentLength=len(data), ContentType="application/octet-stream"
+        )
+
+    @Get("download/{bucket}/{key}")
+    async def download_file(self, bucket: str, key: str):
+        """Download a file from MinIO."""
+        return await self.minio.read_object(Bucket=bucket, Key=key)
+
+    @Get("list/{bucket}")
+    async def list_files(self, bucket: str):
+        """List all files in a bucket."""
+        return await self.minio.list_objects(Bucket=bucket)
+
+    @Get("presigned/{bucket}/{key}")
+    async def generate_presigned_url(self, bucket: str, key: str):
+        """Generate a pre-signed URL for a file."""
+        return await self.minio.generate_presigned_url(Bucket=bucket, Key=key)
+
+    @Post("delete/{bucket}/{key}")
+    async def delete_file(self, bucket: str, key: str):
+        """Delete a file from MinIO."""
+        return await self.minio.remove_object(Bucket=bucket, Key=key)
+```
+
+---
+
+### **3. Example Usage**
+#### **Uploading a File**
+```http
+POST /upload
+Content-Type: application/octet-stream
+
+{
+    "bucket": "my-bucket",
+    "key": "file.txt",
+    "data": "SGVsbG8gV29ybGQh"
+}
+```
+
+#### **Downloading a File**
+```http
+GET /download/my-bucket/file.txt
+```
+
+#### **Listing Files in a Bucket**
+```http
+GET /list/my-bucket
+```
+
+#### **Generating a Pre-signed URL**
+```http
+GET /presigned/my-bucket/file.txt
+```
+
+#### **Deleting a File**
+```http
+POST /delete/my-bucket/file.txt
+``` 
+
+This setup ensures **clean DI-based injection** without exposing the inner workings of `MinioService`.

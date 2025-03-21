@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ascender-minio"
+version = "0.0.1"
+description = "A simple s3 storage service SDK tailored for Ascender Framework and it's DI."
+authors = ["AgentHub Community"]
+readme = "README.md"
+packages = [
+    { include = "minio", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+ascender-framework = "^2.0rc2"
+aiobotocore = "^2.21.1"
+types-aiobotocore-s3 = "^2.21.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
