@@ -1,0 +1,35 @@
+Metadata-Version: 2.2
+Name: EnergyCalibrationPy
+Version: 1.5.0
+Summary: A library to calibrate energy spectrum - part of my PhD work.
+Home-page: https://github.com/iqraSiddique42/EnergyCalibrationPy
+Author: Iqra Siddique
+Author-email: iqra.siddique07@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools
+Requires-Dist: numpy<2.0.1
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: pymultifit
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# `EnergyCalibrationPy`
+
+A library to calibrate energy spectrum - part of my PhD work.
