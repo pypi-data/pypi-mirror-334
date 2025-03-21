@@ -1,0 +1,20 @@
+Metadata-Version: 2.3
+Name: alamos
+Version: 0.39.0
+Summary: 
+Author: Emiliano Bonilla
+Author-email: ebonilla@synnaxlabs.com
+Requires-Python: >=3.10,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: mypy (>=1.15,<2)
+Requires-Dist: opentelemetry-api (>=1.29,<2)
+Requires-Dist: opentelemetry-sdk (>=1.29,<2)
+Requires-Dist: pydantic (>=1.10.21,<2)
+Requires-Dist: uptrace (>=1.29,<2)
+Description-Content-Type: text/markdown
+
+
