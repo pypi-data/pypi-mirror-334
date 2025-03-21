@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: bitsandbytes-npu-beta
+Version: 0.45.3
+Summary: k-bit optimizers and matrix multiplication routines.
+Home-page: https://github.com/SlightwindSec/bitsandbytes
+Author: Tim Dettmers
+Author-email: dettmers@cs.washington.edu
+License: MIT
+Keywords: npu nf4 8-bit quantization
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE.md
+Requires-Dist: torch
+Requires-Dist: numpy
+Provides-Extra: benchmark
+Requires-Dist: pandas; extra == "benchmark"
+Requires-Dist: matplotlib; extra == "benchmark"
+Provides-Extra: test
+Requires-Dist: scipy; extra == "test"
+
+# bitsandbytes-npu-beta (Ascend NPU branch)
+
+## Official repository
+
+https://github.com/bitsandbytes-foundation/bitsandbytes/
+
+## Quick Start
+
+```shell
+pip install bitsandbytes-npu-beta
+```
+
+
+```shell
+import bitsandbytes
+```
+
+## License
+
+`bitsandbytes` is MIT licensed.
+
+We thank Fabio Cannizzo for his work on [FastBinarySearch](https://github.com/fabiocannizzo/FastBinarySearch) which we use for CPU quantization.
