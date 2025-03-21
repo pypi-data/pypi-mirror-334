@@ -1,0 +1,54 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1>Laibon</h1>
+<div class="insert tip">
+    <p>
+        {% trans trimmed %}
+        The Laibon offer unique tools to its members all around, be it for block,
+        combat, politics or bleed.
+        {% endtrans %}
+    </p>
+</div>
+
+{% call layout.card_column("Powerbase: Luanda", decks=11, copies="1") %}
+{% trans trimmed %}
+An excellent card for combat-able Laibon decks,
+it provides a bit more rush capability at no cost.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Well-Marked", decks=4, copies="1") %}
+{% trans trimmed %}
+A good prevention effect at a low cost, it is an easy inclusion in combat-oriented decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Kduva's Mask", decks=4, copies="1") %}
+{% trans trimmed
+ishtarri_politics=link("/archetypes/ishtarri-politics")
+%}
+A bit pricey for just the bleed bonus, it becomes a worthwile addition in political
+decks like {{ ishtarri_politics }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Strange Day", decks=3, copies="1-5") %}
+{% trans trimmed %}
+A definitive lunge device to get a critical action through,
+its high blood cost prevents to play more than 1 or 2 copies in a deck.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("No Secrets From the Magaji", decks=3, copies="3-6") %}
+{% trans trimmed second_tradition_domain=card("Second Tradition: Domain") %}
+A powerful interception device for the <em>Magaji</em>, it compares to the Camarilla's
+{{ second_tradition_domain }}.
+Although intercept is lower, the permanent wake effect is exceptionaly strong.
+One must not fail a block to keep it, so a bit of interception enhancement
+is appreciable.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}

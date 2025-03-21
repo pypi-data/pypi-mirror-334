@@ -1,0 +1,166 @@
+{% extends "best-cards/_layout.html" %}
+{% import "best-cards/_layout_card_column.html" as layout with context%}
+
+{% block content %}
+<h1> {{ ministry }}
+    {% trans trimmed %}Ministry{% endtrans %}
+</h1>
+<div class="insert tip">
+    <p>
+        {% trans trimmed
+        infernal_barons=link("/archetypes/infernal-barons"),
+        platinum_revelation=link("/archetypes/platinum-revelation"),
+        chameleon=link("/archetypes/chameleon"),
+        the_unnamed=link("/archetypes/the_unnamed")
+        %}
+        The Ministry offer strong bleed and politics decks, namely
+        {{ platinum_revelation }} and {{ infernal_barons }}. But they also have some more niche builds like
+        {{ chameleon }}, and can support interesting variations in out-of-clan archetypes like with {{ the_unnamed }}.
+        {% endtrans %}
+    </p>
+    <p>
+        {% trans trimmed
+        v5_ministry=external("https://www.blackchantry.com/products/vampire-the-eternal-struggle-fifth-edition/fifth-edition-the-ministry/",
+        _("V5 Ministry")),
+        ghede_typhonic_beast=link("/archetypes/ghede-typhonic-beast")
+        %}
+        Before the 2021 release of the {{ v5_ministry }}, The Ministry {{ ministry }} were called
+        Followers of Set {{ follower_of_set_legacy }}, and they had {{ ser }} as clan discipline instead of {{ pro }}.
+        Those legacy Ministry still see play, with their most successful archetype nowadays
+        being {{ ghede_typhonic_beast }}.
+        {% endtrans %}
+    </p>
+</div>
+
+{% call layout.card_column("Vivian VI", decks=62, copies="1-3") %}
+{% trans trimmed
+platinum_revelation=link("/archetypes/platinum-revelation"),
+crimethinc=card("CrimethInc."),
+the_platinum_protocol=card("The Platinum Protocol")
+%}
+The lead Baron for Ministry, she has got the right disciplines at a decent price to run
+{{ platinum_revelation }}. Her inferior {{ tha }} lets her put a {{ crimethinc }} in play
+instead of just unlocking after {{ the_platinum_protocol }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Elisha Tucker", decks=59, copies="1-2") %}
+{% trans trimmed %}
+Second Ministry Baron, her inferior {{ pro }} is a bummer, but she is cheap.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Opium Den", decks=46, copies="1") %}
+{% trans trimmed the_labyrinth=card("The Labyrinth") %}
+A nice permanent stealth enhancer at a low cost, a must have for the Ministry.
+Only the Nosferatu with {{ the_labyrinth }} have a comparable location.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Crystal Lynn", decks=42, copies="1-2") %}
+{% trans trimmed %}
+All clan disciplines at superior, at a fair price.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Saatet-ta", decks=36, copies="1") %}
+{% trans trimmed %}
+A superb ally, so versatile he has his place in all Ministry decks.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Nonu Dis", decks=29, copies="1-3") %}
+{% trans trimmed %}
+A tad expensive, and not a Baron, but his ability can generate a surprising amount of blood.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Sergio Bueno", decks=27, copies="1-2") %}
+{% trans trimmed
+chameleon=card("Chameleon"),
+chameleon_archetype=link("/archetypes/chameleon", _("Chameleon archetype"))
+%}
+The latest (2023) Ministry Baron, on the expensive side, but that means he can make even better use of
+{{ chameleon }}, like in the {{ chameleon_archetype }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Ferraille", decks=14, copies="1") %}
+{% trans trimmed %}
+A decent vote enhancer. Although a bit costly, swinging a vote can be worth a pool.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Abdelsobek", decks=12, copies="1-2") %}
+{% trans trimmed %}
+His unlock ability makes him the best sidekick for all legacy Followers of Set {{ follower_of_set_legacy }} stars.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Hesha Ruhadze (G6)", decks=9, copies="1-3") %}
+{% trans trimmed heshas_emporium=link("/archetypes/heshas-emporium") %}
+An intriguing unique ability, which gave birth to the crazy {{ heshas_emporium }} archetype.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Mesu Bedshet", decks=8, copies="2-3") %}
+{% trans trimmed heshas_emporium=link("/archetypes/heshas-emporium") %}
+A good action for all Ministry builds (legacy or not) planning to get more than 4 minions out.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Typhonic Beast", decks=8, copies="18-29") %}
+{% trans trimmed ghede_typhonic_beast=link("/archetypes/ghede-typhonic-beast") %}
+Cornerstone of the {{ ghede_typhonic_beast }} archetype, it is usually played in high numbers.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Truth of a Thousand Lies", decks=8, copies="2-6") %}
+{% trans trimmed cybele=card("Cybele") %}
+Even though costly, the possibility to choose between bleed push and unlock is huge.
+Even vampires out of the clan, like {{ cybele }}, can aim to use it.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Ghede", decks=7, copies="5-6") %}
+{% trans trimmed ghede_typhonic_beast=link("/archetypes/ghede-typhonic-beast") %}
+Star of the legacy Followers of Set {{ follower_of_set_legacy }}, he has his own archetype: {{ ghede_typhonic_beast }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Corruption", decks=7, copies="1-13") %}
+{% trans trimmed the_platinum_protocol=card("The Platinum Protocol") %}
+An old Followers of Set {{ follower_of_set_legacy }} device, it can find a slot in new Ministry {{ ministry }} decks
+by relying on the corruption counters brought in play by {{ the_platinum_protocol }}.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Form of Corruption", decks=7, copies="1-2") %}
+{% trans trimmed %}
+A very typical Serpentis {{ ser }} card, it tends to find a slot in all decks using the discipline.
+It costs nothing but a slot, and is destined to trip an opponent up at some point.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Temptation", decks=7, copies="2-4") %}
+{% trans trimmed %}
+A versatile, if tricky, card. It can even be put on one's own vampires
+to get two actions in a single turn from time to time.
+On an opponent's vampire, he will think twice before getting too low on blood.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Cave of Apples", decks=6, copies="1-2") %}
+{% trans trimmed %}
+An old Followers of Set {{ follower_of_set_legacy }} location, but its effect can make devastating use of
+{{ the_platinum_protocol }}'s corruption counters.
+{% endtrans %}
+{% endcall %}
+
+{% call layout.card_column("Serpent's Numbing Kiss", decks=6, copies="3-7") %}
+{% trans trimmed %}
+An excellent combat ends: the paralyzing effect it has can be a huge deterrent.
+{% endtrans %}
+{% endcall %}
+
+{% endblock %}
