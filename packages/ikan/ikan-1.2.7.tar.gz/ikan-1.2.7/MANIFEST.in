@@ -1,0 +1,7 @@
+   graft ikan/groupkan/rational_kat_cu
+   include ikan/groupkan/kat/*
+   recursive-include ikan *.py
+   include LICENSE
+   include README.md
+   prune examples
+   prune tests
