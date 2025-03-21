@@ -1,0 +1,27 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ligo-proxy-utils
+Upstream-Contact: Duncan Macleod <duncan.macleod@ligo.org>
+Upstream-Source: https://git.ligo.org/authpublic/ligo-proxy-utils
+
+Files: *
+Copyright: 2013 University of Wisconsin-Milwaukee
+           2015-2017 Louisiana State University
+           2017-2025 Cardiff University
+License: GPL-3+
+
+License: GPL-3+
+ ligo-proxy-utils is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ ligo-proxy-utils is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with ligo-proxy-utils.  If not, see <https://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in `/usr/share/common-licenses/GPL-3'.

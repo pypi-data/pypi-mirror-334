@@ -1,0 +1,38 @@
+Source: ligo-proxy-utils
+Section: python
+Priority: optional
+Maintainer: Duncan Macleod <macleoddm@cardiff.ac.uk>
+Standards-Version: 4.3.0
+Homepage: http://wiki.ligo.org/AuthProject/
+X-Python3-Version: >= 3.6
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ pybuild-plugin-pyproject,
+ python3-all (>= 3.6),
+ python3-argparse-manpage,
+ python3-ciecplib,
+ python3-pytest,
+ python3-setuptools (>= 61.0.0),
+
+Package: python3-ligo-proxy-utils
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-ciecplib,
+Description: ligo-proxy-utils Python library
+ LIGO utilities for obtaining short-lived X.509 certificates
+ from the CILogon service. This package contains the Python 3
+ modules that support the scripts in the ligo-proxy-utils package.
+
+Package: ligo-proxy-utils
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-ligo-proxy-utils (= ${binary:Version}),
+Recommends: krb5-user
+Description: LIGO X.509 utilities
+ LIGO utilities for obtaining short-lived X.509 certificates
+ from the CILogon service.
