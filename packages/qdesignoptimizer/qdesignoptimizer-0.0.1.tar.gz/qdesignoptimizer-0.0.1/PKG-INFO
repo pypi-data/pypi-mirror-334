@@ -1,0 +1,134 @@
+Metadata-Version: 2.3
+Name: qdesignoptimizer
+Version: 0.0.1
+Summary: Optimizer for superconducting quantum chip designs
+License: Apache-2.0
+Keywords: Quantum
+Author: 202Q-lab
+Requires-Python: >=3.10,<3.11
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: addict (==2.4.0)
+Requires-Dist: cython (<3.0.0)
+Requires-Dist: descartes (==1.1.0)
+Requires-Dist: gdspy (==1.6.12)
+Requires-Dist: geopandas (==0.12.2)
+Requires-Dist: gmsh (==4.11.1)
+Requires-Dist: ipykernel
+Requires-Dist: ipython (==8.10.0)
+Requires-Dist: matplotlib (==3.7.0)
+Requires-Dist: numpy (==1.24.1)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: pint (==0.20.1)
+Requires-Dist: pyEPR-quantum (==0.9.*)
+Requires-Dist: pyaedt (==0.6.94)
+Requires-Dist: pygments (==2.14.0)
+Requires-Dist: pyside2 (==5.15.2.1)
+Requires-Dist: pyyaml (==6.0)
+Requires-Dist: qdarkstyle (==3.1)
+Requires-Dist: qutip (==4.7.1)
+Requires-Dist: scipy (==1.10.0)
+Requires-Dist: scqubits (==3.1.0)
+Requires-Dist: shapely (==2.0.1)
+Description-Content-Type: text/markdown
+
+# QDesignOptimizer
+
+![docs](https://github.com/202Q-lab/QDesignOptimizer/actions/workflows/deploy_docs.yml/badge.svg)
+![Lint-Pytest-Mypy](https://github.com/202Q-lab/QDesignOptimizer/actions/workflows/analysis.yml/badge.svg)
+
+QDesignOptimizer (QDO) is a Python package which optimizes the design of quantum devices. It integrates with the Qiskit Metal framework and uses HFSS simulations to iteratively improve superconducting qubit designs.
+
+## Documentation
+
+For detailed documentation, visit [https://202Q-lab.github.io/QDesignOptimizer/](https://202Q-lab.github.io/QDesignOptimizer/)
+
+## Installation
+
+### Requirements
+
+- Python 3.10
+- Ansys Electronics Desktop 2021 R2
+
+### Installation with pip
+
+Install the package via pip:
+
+```bash
+pip install qdesignoptimizer
+pip install --no-deps qiskit-metal==0.1.5
+```
+
+### Installation from GitHub repository
+
+#### Clone the Repository
+
+```bash
+git clone https://github.com/202Q-lab/QDesignOptimizer
+cd QDesignOptimizer
+```
+
+#### Create a Virtual Environment
+
+It's strongly recommended to install in a separate virtual environment with Python 3.10.
+
+**Using Conda:**
+
+```bash
+conda env create -f environment.yml
+conda activate qdesignenv
+```
+
+**Using venv:**
+
+```bash
+# Create new virtual environment
+python3.10 -m venv qdesignenv
+
+# Activate the environment
+# On Linux/MacOS:
+source qdesignenv/bin/activate
+# On Windows:
+qdesignenv\Scripts\activate
+
+# Verify Python version
+python --version
+
+# Install poetry if not already available
+pip install poetry
+```
+
+#### User Installation
+
+For regular users:
+
+```bash
+poetry install
+pip install --no-deps qiskit-metal==0.1.5
+```
+
+#### Developer Installation
+
+For developers who want to contribute:
+
+```bash
+poetry install --with docs,analysis
+pip install --no-deps qiskit-metal==0.1.5
+pre-commit install
+```
+
+This installs:
+- All project dependencies
+- Documentation tools
+- Analysis and testing tools
+- Pre-commit hooks for code quality
+
+To build the documentation yourself, install [pandoc](https://pandoc.org/) and run:
+
+```bash
+poetry run sphinx-build -b html docs/source docs/build
+```
+
+## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](https://github.com/202Q-lab/QDesignOptimizer/blob/main/LICENSE.txt) file for details.
+
