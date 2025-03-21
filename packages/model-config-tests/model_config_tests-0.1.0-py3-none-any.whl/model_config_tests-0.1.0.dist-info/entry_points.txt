@@ -1,0 +1,2 @@
+[console_scripts]
+model-config-tests = model_config_tests.__main__:main
