@@ -1,0 +1,12 @@
+.gitignore
+README.md
+makefile
+pyproject.toml
+src/pytest_wiretap.py
+src/pytest_wiretap.egg-info/PKG-INFO
+src/pytest_wiretap.egg-info/SOURCES.txt
+src/pytest_wiretap.egg-info/dependency_links.txt
+src/pytest_wiretap.egg-info/entry_points.txt
+src/pytest_wiretap.egg-info/requires.txt
+src/pytest_wiretap.egg-info/top_level.txt
+tests/test_pytest_wiretap.py
