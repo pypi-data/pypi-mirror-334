@@ -1,0 +1,59 @@
+{
+    "title": "IP Address",
+    "url": "https://github.com/NeonGeckoCom/skill-ip_address",
+    "summary": "Retrieve the [IP address](https://en.wikipedia.org/wiki/IP_address), also known as the \"network address\" of the Device and respond verbally to the user, and if the Device supports it, display the IP address.",
+    "short_description": "Retrieve the [IP address](https://en.wikipedia.org/wiki/IP_address), also known as the \"network address\" of the Device and respond verbally to the user, and if the Device supports it, display the IP address.",
+    "description": "Returns the known IP addresses to the user, if requested. Useful for testing.",
+    "examples": [
+        "What's your IP address?",
+        "Tell me your IP address.",
+        "What is my public IP address?"
+    ],
+    "desktopFile": false,
+    "warning": "",
+    "systemDeps": false,
+    "requirements": {
+        "python": [
+            "ifaddr~=0.1",
+            "neon-utils~=1.12",
+            "ovos-bus-client~=0.0,>=0.0.5",
+            "ovos-utils~=0.0,>=0.0.28",
+            "ovos-workshop~=0.0,>=0.0.12",
+            "requests~=2.20"
+        ],
+        "system": {},
+        "skill": []
+    },
+    "incompatible_skills": [],
+    "platforms": [
+        "i386",
+        "x86_64",
+        "ia64",
+        "arm64",
+        "arm"
+    ],
+    "branch": "master",
+    "license": "BSD-3-Clause",
+    "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
+    "category": "Configuration",
+    "categories": [
+        "Configuration"
+    ],
+    "tags": [
+        "IP-address",
+        "IPaddress",
+        "network-address",
+        "network",
+        "system"
+    ],
+    "credits": [
+        "Mycroft AI",
+        "NeonDaniel",
+        "reginaneon",
+        "Ryan Sipes",
+        "Steve Penrod"
+    ],
+    "skillname": "skill-ip_address",
+    "authorname": "NeonGeckoCom",
+    "foldername": null
+}
