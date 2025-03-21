@@ -1,0 +1,20 @@
+from typing import Sequence, cast
+
+from flux0_core.sessions import Event, MessageEventData
+
+
+def extract_user_prompt_from_last_event(
+    last_known_event_offset: int, history: Sequence[Event]
+) -> str:
+    for e in history:
+        if e.offset == last_known_event_offset:
+            last_event = e
+            break
+    if e is None or e.source != "user":
+        raise ValueError("No user event found in history")
+
+    user_event_data = cast(MessageEventData, last_event.data)
+    for part in user_event_data["parts"]:
+        if part["type"] == "content":
+            return cast(str, part["content"])
+    raise ValueError("No TextPart found in user event data")
