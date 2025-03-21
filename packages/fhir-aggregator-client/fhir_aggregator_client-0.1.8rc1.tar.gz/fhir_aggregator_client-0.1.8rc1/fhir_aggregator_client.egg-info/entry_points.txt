@@ -1,0 +1,2 @@
+[console_scripts]
+fq = fhir_query:cli.cli
