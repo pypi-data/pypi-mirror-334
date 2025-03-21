@@ -1,0 +1,10 @@
+Metadata-Version: 2.2
+Name: StatOmics
+Version: 0.2
+Home-page: https://github.com/nathanxli/StatOmics
+Author: Nathan Li
+Requires-Dist: rpy2
+Requires-Dist: pathlib
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-dist

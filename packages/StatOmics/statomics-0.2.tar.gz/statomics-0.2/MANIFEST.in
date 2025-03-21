@@ -1,0 +1,3 @@
+include StatOmics/Test/*.R
+include StatOmics/Preprocessing/*.R
+include StatOmics/Analysis/*.R
