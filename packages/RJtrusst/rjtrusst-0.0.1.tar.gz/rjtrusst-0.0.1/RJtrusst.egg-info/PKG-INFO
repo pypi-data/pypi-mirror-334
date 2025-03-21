@@ -1,0 +1,31 @@
+Metadata-Version: 2.2
+Name: RJtrusst
+Version: 0.0.1
+Summary: testing a library
+Home-page: 
+Author: Raghav Agarwal
+Author-email: raghav.mje@gmail.com
+License: MIT
+Keywords: testing
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: keywords
+Dynamic: license
+Dynamic: summary
+
+testing a library
+
+Change Log
+==========
+
+0.0.1 (03/18/2025)
+-------------------
+- First Release
