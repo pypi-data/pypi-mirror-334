@@ -1,0 +1,91 @@
+{
+  "general": [
+    "You will find unexpected joy today.",
+    "A pleasant surprise is waiting for you around the corner.",
+    "Today is a good day to try something new."
+  ],
+  "personalized": [
+    "Dear {name}, a great opportunity is heading your way!",
+    "{name}, your positive attitude will lead you to success.",
+    "Good things are coming your way, {name}. Keep smiling!"
+  ],
+  "categories": {
+    "love": [
+      "Love is on the horizon. Embrace it with open arms.",
+      "An old flame might reappear. Be open to rekindling connections.",
+      "Romance will find you when you least expect it."
+    ],
+    "career": [
+      "Your hard work will soon pay off at work.",
+      "A career opportunity is about to present itself.",
+      "Be ready for a professional breakthrough."
+    ],
+    "health": [
+      "Take time to relax and care for your well-being.",
+      "A healthy body leads to a healthy mind. Prioritize self-care.",
+      "Small steps towards a healthier lifestyle will make a big difference."
+    ]
+  },
+  "birthdays": {
+    "January": [
+      "A fresh start awaits you this January.",
+      "January brings new beginnings and bright prospects.",
+      "Your January birthday promises a year full of surprises."
+    ],
+    "February": [
+      "Your February birthday is a sign of creativity and energy.",
+      "Celebrate your birthday with warmth and joy this February.",
+      "Love and laughter will fill your special February day."
+    ],
+    "March": [
+      "March into success with confidence on your birthday.",
+      "Your birthday in March is a harbinger of good fortune.",
+      "May your birthday in March be as vibrant as the spring."
+    ],
+    "April": [
+      "April showers bring birthday flowers and bright prospects.",
+      "Your birthday in April marks the start of new adventures.",
+      "Celebrate your April birthday with enthusiasm and joy."
+    ],
+    "May": [
+      "May your birthday bloom with happiness and success.",
+      "A May birthday brings sunshine and cheerful moments.",
+      "Your birthday in May will be as bright as spring."
+    ],
+    "June": [
+      "June birthdays are filled with energy and optimism.",
+      "Celebrate your birthday in June with a sense of adventure.",
+      "Your June birthday promises growth and exciting changes."
+    ],
+    "July": [
+      "A July birthday means fireworks of success and happiness.",
+      "Celebrate your birthday in July with zest and joy.",
+      "Your July birthday will ignite a spark of inspiration."
+    ],
+    "August": [
+      "August brings warmth and vibrant energy on your birthday.",
+      "Your birthday in August is filled with passion and creativity.",
+      "Celebrate your August birthday with bold aspirations."
+    ],
+    "September": [
+      "A September birthday is a sign of thoughtful reflection and promise.",
+      "Your birthday in September heralds a season of progress.",
+      "Celebrate your birthday with the wisdom of September."
+    ],
+    "October": [
+      "An October birthday is mystical and full of charm.",
+      "Celebrate your birthday in October with magical moments.",
+      "Your October birthday promises a bewitching year ahead."
+    ],
+    "November": [
+      "November birthdays are filled with gratitude and ambition.",
+      "Your birthday in November heralds a season of abundance.",
+      "Celebrate your November birthday with a thankful heart."
+    ],
+    "December": [
+      "A December birthday is a time for reflection and celebration.",
+      "Your birthday in December marks a festive season of hope.",
+      "Celebrate your December birthday with joy and generosity."
+    ]
+  }
+}
