@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypokemon"
+version = "0.1.0"
+description = "A fun Pokémon battle simulation package"
+authors = [
+    { name = "Your Team Name", email = "your-email@example.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+dependencies = [
+    "pytest",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0"
+"Repository" = "https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0.git"
+"Issues" = "https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0/issues"

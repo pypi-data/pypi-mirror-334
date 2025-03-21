@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: pypokemon
+Version: 0.1.0
+Summary: A fun Pokémon battle simulation package
+Author-email: Your Team Name <your-email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0
+Project-URL: Repository, https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0.git
+Project-URL: Issues, https://github.com/software-students-spring2025/3-python-package-ez-squad-3-0/issues
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytest

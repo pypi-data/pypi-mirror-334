@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+pypokemon/__init__.py
+pypokemon/pypokemon.py
+pypokemon.egg-info/PKG-INFO
+pypokemon.egg-info/SOURCES.txt
+pypokemon.egg-info/dependency_links.txt
+pypokemon.egg-info/requires.txt
+pypokemon.egg-info/top_level.txt
+tests/test_pypokemon.py
