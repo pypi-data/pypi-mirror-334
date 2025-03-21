@@ -1,0 +1,2 @@
+[console_scripts]
+membrain_pick = membrain_pick.cli.cli:cli
