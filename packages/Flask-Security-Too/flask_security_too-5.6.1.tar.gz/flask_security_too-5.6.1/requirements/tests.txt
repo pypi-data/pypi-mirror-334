@@ -1,0 +1,37 @@
+Flask-Babel
+Babel
+Flask-Login
+Flask-Mailman
+Flask-Principal
+peewee; python_version < '3.12'
+Flask-SQLAlchemy
+Flask-SQLAlchemy-Lite; python_version >= '3.10'
+argon2-cffi
+authlib
+bcrypt
+bleach
+check-manifest
+coverage
+cryptography
+djlint
+freezegun
+mongoengine
+mongomock
+msgcheck
+passlib
+pony
+phonenumberslite
+pydocstyle
+pytest-cache
+pytest-cov
+pytest
+qrcode
+# authlib requires requests
+requests
+# passlib requires setuptools which is deprecated
+setuptools
+sqlalchemy
+sqlalchemy-utils
+webauthn
+werkzeug
+zxcvbn
