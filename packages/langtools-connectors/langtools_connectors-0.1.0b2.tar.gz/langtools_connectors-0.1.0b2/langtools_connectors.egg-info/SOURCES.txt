@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+langtools/connectors/__init__.py
+langtools/connectors/base_connector.py
+langtools/connectors/binggrounding/__init__.py
+langtools/connectors/binggrounding/binggrounding_client.py
+langtools/connectors/objectstore_client/__init__.py
+langtools/connectors/objectstore_client/objectstore_client.py
+langtools/connectors/papyrus/__init__.py
+langtools/connectors/papyrus/papyrus_client.py
+langtools_connectors.egg-info/PKG-INFO
+langtools_connectors.egg-info/SOURCES.txt
+langtools_connectors.egg-info/dependency_links.txt
+langtools_connectors.egg-info/requires.txt
+langtools_connectors.egg-info/top_level.txt
