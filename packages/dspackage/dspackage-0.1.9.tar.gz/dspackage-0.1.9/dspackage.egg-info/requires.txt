@@ -1,0 +1,11 @@
+torch
+torchtext
+
+[langchain_deepseek]
+langchain-deepseek
+
+[langchain_llama]
+langchain-nvidia-ai-endpoints
+
+[langchain_openai]
+langchain-openai
