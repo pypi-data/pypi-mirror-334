@@ -1,0 +1,26 @@
+Metadata-Version: 2.2
+Name: feegaffe
+Version: 1.1.10
+Summary: Une librairie pour créer un bot discord rapidement
+Author-email: Fée Gaffe <contact@feegaffe.fr>
+Description-Content-Type: text/markdown
+
+# Feegaffe
+
+Une librairie pour créer un bot discord rapidement
+
+## Installation
+
+```bash
+pip install feegaffe
+
+
+import feegaffe
+
+bot = feegaffe.bot("VOTRE_TOKEN")
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send("Pong!")
+
+bot.run("VOTRE_TOKEN")

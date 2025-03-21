@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feegaffe"
+version = "1.1.10"
+authors = [{name = "Fée Gaffe", email = "contact@feegaffe.fr"}]
+description = "Une librairie pour créer un bot discord rapidement"
+readme = "README.md"
+license = {file = "LICENSE"}
+dependencies = []
