@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+leanframe/__init__.py
+leanframe/version.py
+leanframe.egg-info/PKG-INFO
+leanframe.egg-info/SOURCES.txt
+leanframe.egg-info/dependency_links.txt
+leanframe.egg-info/not-zip-safe
+leanframe.egg-info/requires.txt
+leanframe.egg-info/top_level.txt
