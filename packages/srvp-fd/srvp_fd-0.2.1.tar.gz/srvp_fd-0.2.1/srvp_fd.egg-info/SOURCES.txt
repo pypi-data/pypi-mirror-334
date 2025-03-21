@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+srvp_fd/__init__.py
+srvp_fd/frechet_distance.py
+srvp_fd/py.typed
+srvp_fd/srvp_model.py
+srvp_fd.egg-info/PKG-INFO
+srvp_fd.egg-info/SOURCES.txt
+srvp_fd.egg-info/dependency_links.txt
+srvp_fd.egg-info/requires.txt
+srvp_fd.egg-info/top_level.txt
+tests/test_frechet_distance.py
+tests/test_package.py
