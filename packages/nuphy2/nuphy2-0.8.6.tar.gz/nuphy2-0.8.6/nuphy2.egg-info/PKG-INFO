@@ -1,0 +1,670 @@
+Metadata-Version: 2.1
+Name: nuphy2
+Version: 0.8.6
+Summary: NUclear PHYsics python package - try #2
+Home-page: http://gitlab.com/jaromrax/nuphy2
+Author: JM
+Author-email: jaromrax@gmail.com
+License: GPL2
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+NUPHY2
+======
+
+*Tool for nuclear calculations - always in development.*
+
+Modules:
+========
+
+SRI
+---
+
+*srim.py*
+
+> From 2025/3/11 the NTP for gases is implicitly used. Before, the
+> default T aas 273.15 but for air density 0.001204 was used (NTP value)
+
+The main feature is running `TRIM.exe` on `TRIM.IN` input file. This
+module prepares (it should) the correct `TRIM.IN` file.
+
+Also it prepares (when possible, not for compounds) `SR.IN` file and
+runs the SRIM almost silently.
+
+### Simple silicon run
+
+Send 200 protons with energy 14.3MeV on Si 1.2mm thick.
+
+``` {.bash}
+nuphy2 sri -i h1 -m si -e 14.3 -t 1200um -n 200
+```
+
+Commentary to results:
+
+``` {.example}
+E_SRIN = 3.6399
+# Final Energy -  Value from SRIM - interpolation
+
+X... copying from /home/ojr/.wine/drive_c/Program Files/SRIM/ to /tmp/srim_ch21ijve/
+# see where the directory with TRIM setup is located in /tmp
+
+i...  3 events were removed due to sigma limit,new 3sigma calc...
+i...  3 events were removed due to sigma limit in total
+# outliers are removed to have better gaussian fit
+
+            e       x       y         z      cosx      cosy      cosz  eini
+195  3.212021  1200.0 -21.470   6.99100  0.998001 -0.036706  0.051448  14.3
+196  3.988473  1200.0 -32.350   0.07308  0.996363 -0.078032  0.034241  14.3
+197  4.185117  1200.0  -3.626 -17.84000  0.999441 -0.012609 -0.030975  14.3
+198  4.172176  1200.0 -24.900  -3.81800  0.995510 -0.050894 -0.079817  14.3
+199  4.184137  1200.0  12.360  35.09000  0.997143  0.051848  0.054934  14.3
+# tail of the  /tmp/srim_ch21ijve/SRIM\ Outputs/TRANSMIT.txt
+# E [MeV]    x y z in [um]
+
+3.659 MeV (median 3.669) +- 0.328  hi-lo=1.822  Eloss=10.6 MeV (197 events)
+# Mean output energe with sigma,  difference high-low, E lost
+```
+
+### Gas target
+
+There are two definitions for conditions for density of gases by IUPAC
+and NIST:
+
+-   STP before 1982 - standard temperature and pressure (0deg,101.3kPa
+    == 760 mm)
+    -   It seems (see `SRIMHelp/helpTR23.rtf` ) that TRIM uses STP
+        before 1982.
+    -   and I was convinced this is used in SRIM. Proved not correct
+        2025/03/11.
+-   STP after 1982 - standard temperature and pressure (0deg,100.0kPa)
+-   NTP - normal - T is 20C 293.15K and 101.325 kPa (by NIST)
+    -   I see some **indicies** - Rho~AIR~ - that NTP is used in SRIM!
+        TO Check
+
+### Compounds
+
+*compounds.py*
+
+This probably needs a bit of hacking. In `compounds.py` - there are
+definitions kept in DICT `material_text`. If the material is gaseous, it
+is listed in LIST `material_gas` .
+
+The predefined compounds are currently:
+
+  name         comment                  g/cm3 at NTP
+  ------------ ------------------ ----- --------------
+  hisobutane   Some isobutane     gas   
+  air                             gas   
+  actar10      90% H2+10% C4H10   gas   0.000317055
+  havar                                 
+  mylar                                 
+  mgo          Mg Oxide                 
+  mg26o        26Mg Oxide               
+
+To define another compound,
+
+-   run manually `SRIM.exe`,
+-   recall the compound definition from menu
+-   it will create `TRIM.IN` in
+    `$HOME/.wine/drive_c/Program Files/SRIM/` folder.
+-   copy this definition
+-   maybe change default numbers what to calculate
+-   put it (name it) as the new material to DICT `material_text`
+-   if gas, add to the gas LIST `material_gas`
+
+### [TODO]{.todo .TODO} Layers {#layers}
+
+``` {.bash}
+./bin_nuphy2 sri -i h1 -m actar10,si -e $i -t 120mm,500um -n 150 -p 95600
+```
+
+### [TODO]{.todo .TODO} Layers with compounds {#layers-with-compounds}
+
+-   `There may be a problem - to be checked`
+-   the test actar10 + si 500 um + si 700um seemed to work
+-   I dont know what to do with P and T though
+
+### Saving/writing simulation results
+
+Magically, it is possible to save data to the same H5 file from
+parallely running simulations.
+
+``` {.bash}
+# run simulation
+./bin_nuphy2 sri -i h1 -m actar10 -e 9 -t 200mm -n 300 -p 956000  -w actar.h5
+# You may prefer to run without visible GUI: use -s
+./bin_nuphy2 sri -i h1 -m actar10 -e 11 -t 200mm -n 300 -p 956000  -w actar.h5 -s
+# see the content of the file(s)
+./bin_nuphy2 h5
+```
+
+The file contains sets, every SET Name keeps the information on
+
+-   serialnumber
+-   projectile
+-   target
+-   thickness
+-   rho - if ogiven on cmdline else 0
+-   P,T if any
+-   Ei - initial energy MeV
+-   Ef - final
+-   Es (straggling) precission \~0.1keV
+-   fwhm- resolution given to combine with the simulation
+
+Here, see a simple but mass simulation with writing to H5:
+
+``` {.bash}
+rm actar2l.h5
+# loop
+ for ((i=1;i<14;i++)); do ./bin_nuphy2 sri -i h1 -m actar10,si -e $i -t 120mm,500um -n 150 -p 95600  -w actar2l.h5; done
+```
+
+Or even use ARRAY
+
+``` {.bash}
+# define energies
+numbers=(0.5 1.5 2 3 4 5 6 7 8 9 10 11 12 13.5 14 14.5)
+# go through
+for num in "${numbers[@]}"; do
+  echo "$num";
+   ./bin_nuphy2 sri -i h1 -m actar10,si -e $num -n 150 -p 95600 -t 120mm,500um -w actar2l.h5;
+done
+```
+
+Or even run in parallel:
+
+``` {.bash}
+# apt install parallel
+numbers=(0.5 1.5 2 3 4 5 6 7 7.5 8 8.2 8.5 8.7 9 10 11 12 13.5 14 14.5 15 16 17 18)
+#
+parallel -j 8   ./bin_nuphy2 sri -i h1 -m actar10,si,si -e {} -n 150 -p 95600 -t 120mm,500um,700um -w actar2l.h5 -s ::: "${numbers[@]}"
+```
+
+### Viewing saved results
+
+Without anything this should go through all H5 files.
+
+``` {.bash}
+./bin_nuphy2 h5
+```
+
+Parameters:
+
+-   Store - H5 filename
+    -   Or add sets separated by commas: like `actar.h5,0,3`
+-   graph - parameter to display - no default
+    -   view - print stats + sample for all requested sets
+    -   help
+    -   x ... coordinate
+    -   y
+    -   z
+    -   yz ... lateral
+        -   xz, xy, cos == cosyz, cosy, cosx, cosz
+    -   dee ... Ei vs. dE
+        -   some data are retrieved from TAGname
+            -   n, Ei, FWHM (simulated)
+        -   DF columns: ei;de = ei-e;
+            -   generated fwhmi (based on fw-tag), fwhm1,fwhm2
+        -   DRAW ei +fwhm1 +fwhmi x de+fwhm2 \[to show spots\]
+    -   view ... print df
+    -   e ... just resulting E histogram
+    -   viewall ... print df all
+-   printvar - default `all`
+-   randomize~yz~
+-   fwhm - add a gauss noise for finite resolution
+-   savefig - filename
+-   debug - False
+
+### Viewing H5 examples
+
+``` {.bash}
+nuphy  hdf5 -S ~/srim.hdf5,0,1 -g e
+nuphy  hdf5 -S ~/srim.hdf5,0,1 -g yz
+nuphy  hdf5 -S ~/srim.hdf5,0,1 -g x
+nuphy  hdf5 -S ~/srim.hdf5,all -g cos
+nuphy  hdf5 -S ~/srim.hdf5,all -g cosy
+nuphy  hdf5 -S ~/srim.hdf5,all -g cosz
+nuphy  hdf5 -S ~/srim.hdf5,all -g dee
+#COLORS 4 EACH FILE:
+nuphy  hdf5 -S cu_t1.hdf5,all,cu_t2.hdf5,all  -g dee
+```
+
+### Viewing saved results - examples
+
+![Protons (from reaction) passing through gas, Eloss in gas on
+y-axis](actar1l.png)
+
+![Protons (from reaction) passing through gas + 500um Si , total Eloss
+on y-axis](actar2l.png)
+
+![Protons (from reaction) passing through gas + 500um + 700 um Si ,
+total Eloss on y-axis. Above 13-14 MeV, protons punch
+trough.](actar3l.png)
+
+![Protons (after gas) passing through 500um, Eloss on
+y-axis.](actar_si500.png)
+
+KIN
+---
+
+*kinematic.py*
+
+The kinematics assumes LAB system and provides relativistic calculation
+based on NuBASE [\_\_]{.underline} data. Simple example. Give the beam
+particle and the isotope, total energy, outgoing particle, angle LAB:
+
+### Basic examples
+
+``` {.bash}
+nuphy2 kin -i h1,c12  -e 14.3 -a 10
+# use MeV units for fun
+nuphy2 kin  -i h2,c13 -o h1 -e 0.001MeV -a 10
+#  do elastic and use AMeV units for HI
+nuphy2 kin  -i si34,h1 -o h1 -e 40AMeV -a 80
+# or findout that the E was in  MeV/u units
+nuphy2 kin  -i si34,h1 -o h1 -e 40MeVu -a 80
+#
+#  try fussion, BUT NEEDED TO ADD some more stuff here
+#   if A and Z are ok, E* will be reported
+#
+nuphy2 kin  -i h2,o16 -o f18  -e 10MeV -a 11
+# or see infamous 8Be X-boson energy /TO CHECK IF 8Be is correctly calculated/
+nuphy2 kin  -i h1,li7 -o be8  -e 0.707MeV -a 1
+#
+#  more calculation can be for gamma (or e+e-) going to the angle theta (see NuPhyPy)
+#
+
+```
+
+### Particles
+
+The two reaction participants are defined with `-i` switch, separated by
+comma. The first is the incomming
+
+-   use h1,h2 for proton, deuteron
+-   n1 for neutron (or 1n, defined in `isotope.py`)
+
+1.  Isotopes and elements
+
+    *isotope.py*
+
+    The unit has a class **Isotope** and reads the data from database.
+
+    The data (mass excess) for particles/isotopes are taken using
+    `isotope.py` (class Isotope) from `nubase2016.txt` file supplied
+    with the project. See the link
+    <https://www-nds.iaea.org/amdc/ame2016/NUBASE2016.pdf>
+
+    The newer data is available - see <https://www-nds.iaea.org/amdc/> ,
+    the local file is `ame2020.txt` for Chinese Phys. C 45 030002
+    (2021), and Chinese Phys. C 45 030003 (2021). `NOT YET IMPLEMENTED`.
+
+    Molar weights, the wiki origin, M~Carbon~ = 12.0107 . All allowed
+    isotopes are listed in `alliso` dict in `isotope.py`
+
+    Mass excess for name=12C/c12 mex\[keV\]=0.0 +- 0.0
+
+    Elements are logically not used in kinematics (or should not be
+    possible).
+
+### Outputfile
+
+Output to a file is allowed for batch runs. See `-f variable,filename`
+option.
+
+### Screen output breakout
+
+RAW without DEBUG, energy values asre strinctly in MeV:
+
+``` {.example}
+                    proj.AMU:     2.01410
+                    targ.AMU:    13.00335
+                    outg.AMU:     1.00783
+              outg.theta.deg:    10.00000
+                    proj.TKE:     0.00100
+              proj.TKE.MeV/u:     0.00050
+                   proj.Etot:  1876.12478
+                   proj.beta:     0.00103  0.31mm/ns
+              reac.Ethrs_lab:     0.00000
+                      reac.Q:     5.95187
+       reac.CoulBarr_(Rolfs):     1.84052
+       th3cm:       10.01272
+       th4cm:      169.98728
+         th4:      169.80818
+         T3a:        5.56593       T3         0.00000
+         T4a:        0.38694       T4b        0.41483
+       Kscsl:        0.99749 (sigma_cms=Kscsl*sigma_lab)
+        rho3:        0.00128 (if <=1.0 then 1 solution for T3; else 2)
+          p1:        1.93707 (projectile momentum)
+    beta_cms:        0.00014 (velocity of CMS ... v/c)
+   gamma_cms:        1.00000
+         ttr:        0.00000 (Threshold in Lab)
+        ttrc:        0.00000 (Threshold in CMS == -Q)
+           Q:        5.95187 (if Q>0 = exoterm  [MeV])
+        ExcT:        0.00000 (input tgt excitation)
+         p3c:      102.24983
+         p4c:      102.24983
+TKEiCMS(1,2):        0.00087
+EtotCMS(3,4):        5.96916
+          p3:      102.37861     b  p3b  =      102.12105
+          p4:      100.47153     b  p4b  =      104.02924
+       beta3:        0.10841    32.50mm/ns
+       beta4:        0.00770    2.31mm/ns
+     TKEout3:        5.56593
+```
+
+-   the first part contains all info from input.
+-   just after there is Ethreshold (TKE) and Q. (there are slight
+    differences in Ethrs calculation, the method used is closest to
+    <https://www.nndc.bnl.gov/qcalc/>).
+-   rho3 says if there are 2 kinematics for particle 3
+-   TKEout3 is T3a
+
+The input is possible to easily parse with `awk`
+
+``` {.bash}
+./kinematics.py -i h2,c13 -o h1 -e 0.001MeV -a 10    | grep TKEout3 | awk '{print $2}'
+```
+
+### Verification of some results
+
+some 0.5 kev difference in Ethrs; Difference for @N15 is 10keV. When
+using AMU for other purposes, mind all the digits!
+
+``` {.example}
+  **********   https://www.nndc.bnl.gov/qcalc/ ***************
+ h1 + c12:
+   9B + α   -7552.4 9       8187.0  10
+ h2 + li6:
+   2α   22372.77160 15      0
+   7Li + p  5026.528    4       0
+ h1 + li7:
+   6Li + d  -5026.528   5       5748.990    5
+*******************************************************************
+                     proj.AMU:     1.00782503
+                     targ.AMU:    12.00000000
+                     outg.AMU:     4.00260325
+                     rema.AMU:     9.01332966
+               outg.theta.deg:    15.00000
+                     proj.TKE:    10.00000
+               proj.TKE.MeV/u:     9.92236
+                    proj.Etot:   948.78307
+                    proj.beta:     0.14481  43.41mm/ns
+               reac.Ethrs_lab:     8.18674
+                       reac.Q:    -7.55245
+*******************************************************
+                     proj.AMU:     2.01410178
+                     targ.AMU:     6.01512289
+                     outg.AMU:     1.00782503
+                     rema.AMU:     7.01600343
+               outg.theta.deg:    15.00000
+                     proj.TKE:    10.00000
+               proj.TKE.MeV/u:     4.96499
+                    proj.Etot:  1886.12393
+                    proj.beta:     0.10284  30.83mm/ns
+               reac.Ethrs_lab:     0.00000
+                       reac.Q:     5.02652
+********************************************************
+                     proj.AMU:     1.00782503
+                     targ.AMU:     7.01600343
+                     outg.AMU:     2.01410178
+                     rema.AMU:     6.01512289
+               outg.theta.deg:    15.00000
+                     proj.TKE:    10.00000
+               proj.TKE.MeV/u:     9.92236
+                    proj.Etot:   948.78307
+                    proj.beta:     0.14481  43.41mm/ns
+               reac.Ethrs_lab:     5.74857
+                       reac.Q:    -5.02652
+```
+
+### Create C++ code for calculation of TKE3
+
+### Other kinematics resources
+
+1.  Web links to pdf and textbooks
+
+    compatible with Rez kinematics:
+
+    -   a simple way to calculate Ethres, but numericaly there is a
+        problem
+        <https://makingphysicsclear.com/energy-threshold-for-creation-of-particles-in-relativistic-collisions/>
+
+        -   CATFORD recommendation
+            <https://indico.cern.ch/event/298890/contributions/684968/attachments/562284/774577/Catkin_Calculations.pdf>
+
+        -   NW personal CATFORD
+            <http://personal.ph.surrey.ac.uk/%7Ephs1wc/kinematics/>
+
+        -   CATFORRD
+            <https://personalpages.surrey.ac.uk/w.catford/kinematics/Relativistic%20Kinematics%20Formulae%20and%20Derivations.html>
+
+        -   IAEA - Larelkin code
+            <https://www-nds.iaea.org/public/libraries/larelkin/iaeands1121.pdf>
+
+        -   comparison -
+            <https://www.fuw.edu.pl/~kpias/ctnp/kinematics_calculators.pdf>
+
+2.  Codes
+
+    -   LISE <https://lise.frib.msu.edu/download/download.html>
+
+3.  Web calculator
+
+    -   <https://www.nndc.bnl.gov/qcalc/> Ethreshold (slight
+        differences) , Q
+    -   try <http://t2.lanl.gov/data/qtool.html> , but not existing
+        anymore
+    -   <http://nrv.jinr.ru/nrv/mobilenrv/kinematics/Kinematics2Body.html>
+        no sure about correct values, but **references** bellow are
+        useful
+        -   
+        -   
+        -   
+        -   
+        -   
+    -   SA webtool <https://skisickness.com/2020/02/kinematics/>
+
+[TODO]{.todo .TODO} Examples: {#examples}
+=============================
+
+Kinematics
+----------
+
+Shoot deuteron at 24.4 MeV on c12 isotope, look at outgoing proton at 15
+degrees that left the 13C excited at 3.089MeV (see appendix TUNL)
+
+``` {.example}
+./bin_nuphy2 kin -i h2,c12  -e 24.4  -o h1 -a 15 -x 3.089
+```
+
+Result:
+
+``` {.example}
+-- 15.0 deg  TKE=24.400 MeV Q= 2.722 MeV ------------
+        th3cm=       16.74032
+        th4cm=      163.25968
+        th4  =       28.82888
+        T3a  =       23.50155       T4b        0.00000
+        T4a  =        3.62020       T4b       12.13499
+        Kscsl=        0.80707 (sigma_cms=Kscsl*sigma_lab)
+        rho3 =        0.11705 (if <=1.0 : 1 solution else 2 solutions for T3)
+        p1   =      303.56252 (projectile momentum)
+        V    =        0.02321 (velocity of CMS ... v/c)
+        ttr  =        0.00000 (Threshold in Lab)
+        ttrc =        0.00000 (Threshold in CMS == -Q)
+        Q    =        2.72174 (if Q>0 = exoterm  [MeV])
+        ExcT =        3.08900 (input tgt excitation)
+        p3c  =      189.93230
+        p4c  =      189.93230
+ TKECMS(1,2) =       20.87655
+EtotCMS(3,4) =       20.70207
+        p3   =      211.37177     b  p3b  =      168.41384
+        p4   =      296.20106     b  p4b  =      542.39606
+        beta1=        0.15973    47.9mm/ns
+        beta3=        0.21966    65.9mm/ns
+        beta4=        0.02444    7.3mm/ns
+   TKEout t3a =       23.50155
+```
+
+The last line *t3a* is Total Kinetic Energy of the outgoing h1 (particle
+3).
+
+There are few interesting things:
+
+-   Theta 3 and 4 in CMS
+
+```{=html}
+<!-- -->
+```
+-   Total kinetic energy 3 and 4
+    -   factor to translate sigma to CMS,
+    -   Threshold in Lab and CMS
+    -   Q of reaction
+
+**Two kinematics example**
+
+Scattering (elastic) of alpha particle on proton
+
+``` {.example}
+./bin_nuphy2 kin -i he4,h1  -e 24.4  -o h1 -a 15
+```
+
+``` {.example}
+--- 15.0 deg  TKE=24.400 MeV Q= 0.000 MeV ------------
+        th3cm=       40.27772
+        th4cm=      139.72228
+        th4  =        6.39349
+        T3a  =        9.01720       T4b        0.67407
+        T4a  =       15.38280       T4b       23.72593
+        Kscsl=        0.14504 (sigma_cms=Kscsl*sigma_lab)
+        rho3 =        1.63980 (if <=1.0 : 1 solution else 2 solutions for T3)
+     b  th3cm=      169.84178
+     b  th4cm=       10.15822
+     b  th4  =        1.34279
+     b  T3(b)=        0.67407
+     b  T4(b)=       23.72593
+     b Kscslb=        1.94886 sigma_cms=K*sigma_lab)
+        p1   =      427.24856 (projectile momentum)
+        V    =        0.09107 (velocity of CMS ... v/c)
+        ttr  =        0.00000 (Threshold in Lab)
+        ttrc =        0.00000 (Threshold in CMS == -Q)
+        Q    =        0.00000 (if Q>0 = exoterm  [MeV])
+        ExcT =        3.08900 (input tgt excitation)
+        p3c  =       52.21631
+        p4c  =       52.21631
+ TKECMS(1,2) =        4.90537
+EtotCMS(3,4) =        1.81751
+        p3   =      130.42892     b  p3b  =       35.58175
+        p4   =      339.17273     b  p4b  =      421.46065
+        beta1=        0.11385    34.2mm/ns
+        beta3=        0.13761    41.3mm/ns
+        beta4=        0.09052    27.2mm/ns
+        t3a  =        9.01720   and  t3b  0.674068  (TKE)
+```
+
+Two kinamatics are calculated (a and b)
+
+### Video
+
+<https://youtu.be/tVV1KIkrd5Y>
+
+Srim
+----
+
+Run 40MeV/A of 40Ar through mylar
+
+``` {.example}
+/bin_nuphy2 sri -i ar40 -m mylar -e 1600 -t 3um
+```
+
+Run the same beam through 12cm of isobutane at 950 mbar 20deg C
+
+``` {.example}
+./bin_nuphy2 sri -i ar40 -m hisobutane -e 1600 -t 120mm -p 95000 -k 293
+```
+
+Same through the layer of mylar+isobutane
+
+``` {.example}
+./bin_nuphy2 sri -i ar40 -m hisobutane -e 1600 -t 120mm -p 95000 -k 293
+```
+
+Similar, two mylar windows:
+
+``` {.example}
+./bin_nuphy2 sri -i ar40  -m mylar,hisobutane,mylar -e 1600 -t 3um,120mm,3um -p 95000 -k 293
+```
+
+Using directly a *srim.py* module form git repository and write an *h5*
+file with results
+
+``` {.example}
+./srim.py -i h1 -m al -e 24.4 -t 3mm -n 300 -w a.h5
+```
+
+Othe projects
+=============
+
+-   wgurecky/GammaSpy
+    -   2017, plotting peaks, fitting, CNF file
+-   lbl-anp/becquerel
+    -   207-2023, plot, fit, calib. tabbed data access, reads N42, CHN
+    -   neutron activation tbd fully
+    -   fetch decay radioation, search-compare misc.ipynb
+    -   xcom
+-   messlinger/cnfconv
+    -   canberra CNF genie 2017-2020
+-   wojdyr/xylib
+    -   2013-2023 Canberra CNF (from Genie-2000 software; aka CAM
+        format)
+    -   xylib-py 1.6.1 used by gammaspy
+-   jtmorrell/curie
+    -   2020-2023 , chains, other, but not a power there
+-   Foxton80441/Gandalf
+    -   2019, ai, ?
+-   SiLab-Bonn/irrad~spectroscopy~
+    -   2018-2022, proton irrad, doses, peaks from lu.se
+-   mauricioAyllon/NASA-gamma
+    -   2020- 2023, gui
+    -   DATABASES in CSV
+
+### Second level search
+
+-   SkyToGround/gamma-spectra
+    -   ortec maestro read
+-   MichaelHeines/Python~gammaspec~
+    -   example of eff cal...
+    -   
+
+Some useful databases
+=====================
+
+-   TOI - OFFLINE -
+    <http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=260059>
+-   DECAY - <https://www.nndc.bnl.gov/nudat2/indx_dec.jsp>
+-   TUNL -
+    <https://nucldata.tunl.duke.edu/nucldata/figures/13figs/menu13.shtml>
+-   lara - <http://www.lnhb.fr/nuclear-data/module-lara/>
+
+Progress
+========
+
+  ------------ ------- ------------ ------- -------- -------- -------------------------- --------------------
+               In      FireWrks     Fully            In                                  
+  module       Place   ParamCheck   Func    Pytest   BinDir   description1               description2
+  prj~utils~   y       NO           NEVER   NO       NO       Color,Fail,Print,GetFile   
+  isotope      y       y            \~      y        y        gives isotope data         used by kinematics
+  kinematics   y       y            y       y        y        kinematic calc             
+  rolfs        y       y            y       y                                            
+  srim         y                                                                         
+  xsections                                                                              
+  yields                                                                                 
+  radcap                                                                                 
+  tendl                                                                                  
+  fispact                                                     from nuphy1                
+  sr                                                          nuphy1                     
+  spectra                                                     nuphy1                     
+  ------------ ------- ------------ ------- -------- -------- -------------------------- --------------------
+
+
