@@ -1,0 +1,52 @@
+[project]
+name = "synnax-freighter"
+version = "0.39.0"
+description = ""
+readme = "README.md"
+authors = [{ name = "Emiliano Bonilla", email = "ebonilla@synnaxlabs.com" }]
+requires-python = ">=3.10,<4.0"
+dynamic = ["dependencies"]
+
+
+[tool.poetry]
+packages = [{ include = "freighter" }]
+
+
+[tool.poetry.dependencies]
+alamos = "^0.39.0"
+msgpack = "^1.1.0"
+pydantic = "^1.10.21"
+urllib3 = "^2.3.0"
+websockets = "^13.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+mypy = "^1.15.0"
+poetry = "^2.1.1"
+pytest = "^8.3.5"
+pytest-asyncio = "^0.25.3"
+vermin = "^1.6.0"
+
+
+[tool.isort]
+profile = "black"
+
+
+[tool.mypy]
+ignore_missing_imports = true
+strict_optional = false
+
+
+[tool.pytest.ini_options]
+markers = [
+    "http: mark test as an http test",
+    "sync: mark test as a sync test",
+    "ws: mark test as a websocket test",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
